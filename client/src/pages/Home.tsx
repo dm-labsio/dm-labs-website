@@ -8,10 +8,10 @@ import { Check, ArrowRight, MessageCircle, Palette, Code2, Rocket, Star, Utensil
 
 const WHATSAPP_URL = "https://wa.me/972584928188";
 
-const HERO_MOCKUP = "/hero-mockup.png";
-const HERO_BG = "/hero-gradient-bg.png";
-const PREVIEW_CARDS = "/website-preview-cards.png";
-const CTA_BG = "/cta-bg.png";
+const HERO_MOCKUP = "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/RAfMmBIXolRvmQlX.png?Expires=1803815430&Signature=eQK7k6JZTkCqcHw8ByKOxFmkoeGR1FLc5WhtPz9wzTgCV-sjopE6bR8T6lDYhhGnxijc--ceCCDPAloE5jIUPo27jsf0OiI9swdEQyPr7rZL6Yl18F1TfrLxhWggw-5agg0lMNepsEnwg~1zL16ZjI7PCeUX4hAMK9oy4Z0mJZRLGHepudz04RmUB0XdoVs6z1gS2MG5YTVryQABV0Pg9H1MvFhCOfFLfrFQnW1A~-higS5LGC0lVBVIOJwjynEG31JJpxbmViDzsbmLIxffJpbwaTcSdxX3kQKydTxMBzDNiZlczLr-KrmeQAAj3c5Eo8GBIMv9VP0kZ5b6f3U0hw__&Key-Pair-Id=K2HSFNDJXOU9YS";
+const HERO_BG = "";
+const PREVIEW_CARDS = "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/OiNCEkFpXDLcTnMU.png?Expires=1803815435&Signature=dJs2BM04dH4HTdApwPprphYEBToFGGQ9o3sFIkNdOIDWHSvFUBxYfvsPuClUsilRJoJM5Lxqk8cGKuIz51-3MtH5zGboXr3nKAdhFKXZBn1pXUpIHs79WYkgHJ2zDaeR6OnNtXLquni7fBj7bQi6YMjey~TpiFK1V~Mhm2POHDJ8JJTkSeyp34OHrEvFmSLtPOyeZP~NL7iAQk24toQS8Sp7M7oa6dbUORny-MOKSJKwHZWQ47vFWk4P~neRgUJ7tNDQG-7oVnMsW2Fn8pPFaKHITVdWGU9NAXgBOm3SCdlf7VAO4wn6X~bueNu55HA~gXoaJxp4UZApKJERcBYfEQ__&Key-Pair-Id=K2HSFNDJXOU9YS";
+const CTA_BG = "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/FiLxjTVAuMPhQYln.png?Expires=1803815440&Signature=TQdifNRwhNQoofh6dJQy2xlSM9GR2NbyBf~WLRj2gpUJFlzUfZcl0D-BKISH5wGu-hUvOf~NjDuS7JWrsiyHNdzElYEl2x4vgwFLFGU9FRvT6DH2Kkgxe5Ngpu3vdXh06F97M5SOWuaMAWey6EIl3xBEvOriAJ8YpKdXS4vJBdoeRFCPDb4YuS-anyaCYYB295YK7fVqg4Rk-gLfCHkF~kEhoxKrqGClbCZuFNel1LesI~eILOfV0~~I2Axqf6wfPiBF6R2jZ3YTciTPKkCR2lgoDLdwzQ8ADRzTST1Y-xEDln5omATaFSN6H6sOmCrCCTEfB9QGbFcJbdY4czBcXA__&Key-Pair-Id=K2HSFNDJXOU9YS";
 
 const trustSignals = [
   "No technical knowledge needed",
