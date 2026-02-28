@@ -1,7 +1,7 @@
 /* D&M Studio — WhatsApp Floating Button
    Always visible, bottom-right, pulse animation, tooltip on hover */
 
-const WHATSAPP_URL = "https://wa.me/972584928188";
+const WHATSAPP_URL = "https://wa.me/972584928177";
 
 export default function WhatsAppFloat() {
   return (

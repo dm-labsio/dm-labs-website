@@ -17,7 +17,7 @@ export default function Privacy() {
           <div className="prose prose-sm max-w-none space-y-8 text-foreground">
             <section>
               <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Who we are</h2>
-              <p className="text-muted-foreground leading-relaxed">D&amp;M Studio is a website design service for small businesses. We can be reached at hello@dmstudio.com or via WhatsApp.</p>
+              <p className="text-muted-foreground leading-relaxed">D&amp;M Studio is a website design service for small businesses. We can be reached at dudeandmadame@gmail.com or via WhatsApp.</p>
             </section>
 
             <section>
@@ -52,7 +52,7 @@ export default function Privacy() {
                 <li>Object to processing of your data</li>
                 <li>Request restriction of processing</li>
               </ul>
-              <p className="text-muted-foreground leading-relaxed mt-3">To exercise any of these rights, contact us at hello@dmstudio.com.</p>
+              <p className="text-muted-foreground leading-relaxed mt-3">To exercise any of these rights, contact us at dudeandmadame@gmail.com.</p>
             </section>
 
             <section>
@@ -62,7 +62,7 @@ export default function Privacy() {
 
             <section>
               <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Contact</h2>
-              <p className="text-muted-foreground leading-relaxed">If you have any questions about this privacy policy, contact us at hello@dmstudio.com.</p>
+              <p className="text-muted-foreground leading-relaxed">If you have any questions about this privacy policy, contact us at dudeandmadame@gmail.com.</p>
             </section>
           </div>
 

@@ -3,20 +3,16 @@
    Remove hesitation. Friendly tone. Response expectation set. */
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { CheckCircle2, Mail, Clock } from "lucide-react";
+import AnimateIn from "@/components/AnimateIn";
 
-const WHATSAPP_URL = "https://wa.me/972584928188";
+const WHATSAPP_URL = "https://wa.me/972584928177";
 
 const businessTypes = [
-  "Restaurant / Café",
-  "Beauty Salon / Barber",
-  "Real Estate",
-  "Clinic / Healthcare",
-  "Consultant / Coach",
-  "Car Rental",
-  "Tourism / Travel",
-  "Retail Shop",
-  "Other",
+  "Restaurant / Café", "Beauty Salon / Barber", "Real Estate",
+  "Clinic / Healthcare", "Consultant / Coach", "Car Rental",
+  "Tourism / Travel", "Retail Shop", "Other",
 ];
 
 export default function Contact() {
@@ -43,7 +39,6 @@ export default function Contact() {
     }
     setErrors({});
     setSubmitting(true);
-    // Simulate form submission (in production, connect to email service)
     await new Promise((r) => setTimeout(r, 1000));
     setSubmitting(false);
     setSubmitted(true);
@@ -54,15 +49,15 @@ export default function Contact() {
       {/* Hero */}
       <section className="section bg-background pt-24 lg:pt-32">
         <div className="container">
-          <div className="max-w-xl">
+          <AnimateIn className="max-w-xl">
             <span className="section-label">Contact</span>
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: "-0.02em" }}>
+            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-5" style={{ letterSpacing: "-0.02em" }}>
               Let's build your website.
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Tell us about your business and we'll guide you from there. No technical knowledge needed — just a quick chat.
             </p>
-          </div>
+          </AnimateIn>
         </div>
       </section>
 
@@ -72,10 +67,10 @@ export default function Contact() {
           <div className="grid lg:grid-cols-2 gap-10 max-w-4xl">
 
             {/* WhatsApp — primary */}
-            <div>
+            <AnimateIn variant="fade-right">
               <div className="mb-8">
                 <span className="section-label">Fastest Option</span>
-                <h2 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <h2 className="text-2xl font-bold text-foreground mb-3">
                   Chat on WhatsApp
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
@@ -83,12 +78,13 @@ export default function Contact() {
                 </p>
               </div>
 
-              <a
+              <motion.a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-5 rounded-2xl bg-[#25D366]/10 border-2 border-[#25D366]/30 hover:border-[#25D366] transition-all duration-200 group mb-4"
                 aria-label="Open WhatsApp chat"
+                whileHover={{ y: -2 }}
               >
                 <div className="w-14 h-14 rounded-2xl bg-[#25D366] flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
@@ -96,10 +92,10 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Open WhatsApp Chat</p>
+                  <p className="font-semibold text-foreground">Open WhatsApp Chat</p>
                   <p className="text-sm text-muted-foreground">Quick question? Message us directly.</p>
                 </div>
-              </a>
+              </motion.a>
 
               <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
                 <Clock size={14} aria-hidden="true" />
@@ -107,110 +103,106 @@ export default function Contact() {
               </div>
 
               {/* Email */}
-              <div className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 border border-border">
+              <motion.div
+                className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 border border-border"
+                whileHover={{ x: 3 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <Mail size={18} className="text-muted-foreground flex-shrink-0" aria-hidden="true" />
                 <div>
                   <p className="text-sm font-medium text-foreground">Email us</p>
-                  <a href="mailto:hello@dmstudio.com" className="text-sm text-primary hover:underline">hello@dmstudio.com</a>
+                  <a href="mailto:dudeandmadame@gmail.com" className="text-sm text-primary hover:underline">dudeandmadame@gmail.com</a>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </AnimateIn>
 
             {/* Contact form — secondary */}
-            <div>
+            <AnimateIn variant="fade-left" delay={0.15}>
               <div className="mb-6">
                 <span className="section-label">Or Send a Message</span>
-                <h2 className="text-2xl font-bold text-foreground mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <h2 className="text-2xl font-bold text-foreground mb-2">
                   Contact form
                 </h2>
                 <p className="text-muted-foreground text-sm">We'll get back to you within 24 hours.</p>
               </div>
 
               {submitted ? (
-                <div className="flex flex-col items-center justify-center py-12 text-center">
+                <motion.div
+                  className="flex flex-col items-center justify-center py-12 text-center"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4 }}
+                >
                   <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
                     <CheckCircle2 size={28} className="text-green-600" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Message sent!</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-2">Message sent!</h3>
                   <p className="text-muted-foreground text-sm max-w-xs">
                     Thanks for reaching out. We'll get back to you within 24 hours. Or chat with us on WhatsApp for a faster response.
                   </p>
-                  <a
+                  <motion.a
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] text-white font-semibold text-sm hover:bg-[#1ebe5d] transition-colors"
+                    className="mt-5 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] text-white font-semibold text-sm"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
                   >
                     Chat on WhatsApp
-                  </a>
-                </div>
+                  </motion.a>
+                </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate className="space-y-4">
-                  {/* Name */}
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
                       Your name <span className="text-destructive" aria-label="required">*</span>
                     </label>
                     <input
-                      id="name"
-                      type="text"
-                      value={formState.name}
+                      id="name" type="text" value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                       placeholder="John Smith"
                       className={`w-full px-4 py-3 rounded-xl border text-foreground bg-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-sm ${errors.name ? "border-destructive" : "border-border"}`}
-                      aria-required="true"
-                      aria-describedby={errors.name ? "name-error" : undefined}
+                      aria-required="true" aria-describedby={errors.name ? "name-error" : undefined}
                     />
                     {errors.name && <p id="name-error" className="text-xs text-destructive mt-1" role="alert">{errors.name}</p>}
                   </div>
 
-                  {/* Email */}
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
                       Email address <span className="text-destructive" aria-label="required">*</span>
                     </label>
                     <input
-                      id="email"
-                      type="email"
-                      value={formState.email}
+                      id="email" type="email" value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                       placeholder="john@yourbusiness.com"
                       className={`w-full px-4 py-3 rounded-xl border text-foreground bg-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-sm ${errors.email ? "border-destructive" : "border-border"}`}
-                      aria-required="true"
-                      aria-describedby={errors.email ? "email-error" : undefined}
+                      aria-required="true" aria-describedby={errors.email ? "email-error" : undefined}
                     />
                     {errors.email && <p id="email-error" className="text-xs text-destructive mt-1" role="alert">{errors.email}</p>}
                   </div>
 
-                  {/* Business type */}
                   <div>
                     <label htmlFor="businessType" className="block text-sm font-medium text-foreground mb-1.5">
                       Business type <span className="text-destructive" aria-label="required">*</span>
                     </label>
                     <select
-                      id="businessType"
-                      value={formState.businessType}
+                      id="businessType" value={formState.businessType}
                       onChange={(e) => setFormState({ ...formState, businessType: e.target.value })}
                       className={`w-full px-4 py-3 rounded-xl border text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-sm ${errors.businessType ? "border-destructive" : "border-border"} ${!formState.businessType ? "text-muted-foreground" : ""}`}
-                      aria-required="true"
-                      aria-describedby={errors.businessType ? "businessType-error" : undefined}
+                      aria-required="true" aria-describedby={errors.businessType ? "businessType-error" : undefined}
                     >
                       <option value="" disabled>Select your business type</option>
-                      {businessTypes.map((t) => (
-                        <option key={t} value={t}>{t}</option>
-                      ))}
+                      {businessTypes.map((t) => <option key={t} value={t}>{t}</option>)}
                     </select>
                     {errors.businessType && <p id="businessType-error" className="text-xs text-destructive mt-1" role="alert">{errors.businessType}</p>}
                   </div>
 
-                  {/* Message */}
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">
                       Message <span className="text-muted-foreground text-xs font-normal">(optional)</span>
                     </label>
                     <textarea
-                      id="message"
-                      value={formState.message}
+                      id="message" value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                       placeholder="Tell us a bit about your business..."
                       rows={4}
@@ -218,14 +210,15 @@ export default function Contact() {
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    className="w-full py-4 rounded-xl bg-primary text-white font-semibold text-base hover:bg-[oklch(0.52_0.19_264)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", minHeight: "52px" }}
+                  <motion.button
+                    type="submit" disabled={submitting}
+                    className="w-full py-4 rounded-xl bg-primary text-white font-semibold text-base transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                    style={{ minHeight: "52px" }}
+                    whileHover={{ scale: submitting ? 1 : 1.01 }}
+                    whileTap={{ scale: submitting ? 1 : 0.98 }}
                   >
                     {submitting ? "Sending..." : "Send Message"}
-                  </button>
+                  </motion.button>
 
                   <p className="text-xs text-muted-foreground text-center">
                     Your information is used only to respond to your request.{" "}
@@ -233,7 +226,7 @@ export default function Contact() {
                   </p>
                 </form>
               )}
-            </div>
+            </AnimateIn>
           </div>
         </div>
       </section>

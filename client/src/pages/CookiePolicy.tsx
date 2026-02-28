@@ -50,7 +50,7 @@ export default function CookiePolicy() {
 
             <section>
               <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Questions?</h2>
-              <p className="text-muted-foreground leading-relaxed">Contact us at hello@dmstudio.com if you have any questions about our use of cookies.</p>
+              <p className="text-muted-foreground leading-relaxed">Contact us at dudeandmadame@gmail.com if you have any questions about our use of cookies.</p>
             </section>
           </div>
 

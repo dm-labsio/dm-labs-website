@@ -57,7 +57,7 @@ export default function Terms() {
 
             <section>
               <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Questions</h2>
-              <p className="text-muted-foreground leading-relaxed">If you have any questions about these terms, contact us at hello@dmstudio.com.</p>
+              <p className="text-muted-foreground leading-relaxed">If you have any questions about these terms, contact us at dudeandmadame@gmail.com.</p>
             </section>
           </div>
 
