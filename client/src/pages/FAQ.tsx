@@ -1,209 +1,126 @@
-/* D&M Studio — FAQ Page
-   Remove objections. Human tone. Short answers.
-   Final question leads to WhatsApp (high conversion moment)
-   Smooth accordion animations with framer-motion */
-
+/* ============================================================
+   D&M LABS — FAQ Page
+   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
+   ============================================================ */
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import AnimateIn from "@/components/AnimateIn";
+import { ChevronDown, MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/972584928177";
+const WHATSAPP_URL = "https://wa.me/972584928177?text=Hi%20D%26M%20Labs!%20I%20have%20a%20question.";
 
 const faqs = [
   {
     category: "Getting Started",
-    questions: [
-      { q: "Do I need technical knowledge to work with you?", a: "Not at all. We handle everything for you. You just tell us about your business and we take care of the rest. No technical knowledge required." },
-      { q: "How do I get started?", a: "Just send us a message on WhatsApp or fill in our contact form. We'll have a quick chat about your business and take it from there. No commitment needed." },
-      { q: "What information do I need to provide?", a: "Just the basics: your business name, what you do, and any photos or logo you have. Don't have a logo or photos? No problem — we can work without them." },
-    ],
-  },
-  {
-    category: "Delivery & Timeline",
-    questions: [
-      { q: "How fast can you deliver my website?", a: "Most websites are delivered within 5–10 working days. The Starter Website takes 5–7 days, and the Business Website takes 7–10 days. The timeline starts once we receive your information." },
-      { q: "What happens if I'm slow to send my information?", a: "No pressure. The timeline starts once we receive your materials. We'll send you a simple checklist so you know exactly what to send." },
-      { q: "Can I see the website before it goes live?", a: "Yes, always. We show you a preview of your website before we launch it. You review it, give feedback, and we make adjustments until you're happy." },
-    ],
-  },
-  {
-    category: "Domain & Hosting",
-    questions: [
-      { q: "Do I need to buy a domain name?", a: "Yes, you'll need a domain (like yourbusiness.com). We help you set it up step by step. Your domain always belongs to you — not to us." },
-      { q: "Do you help with hosting?", a: "Yes. We help you set up hosting and connect everything. We recommend reliable, affordable hosting options and guide you through the process." },
-      { q: "What happens to my website if I stop working with you?", a: "Your website and domain always belong to you. If you ever decide to move on, you keep everything. No lock-in." },
-    ],
-  },
-  {
-    category: "Updates & Changes",
-    questions: [
-      { q: "Can I update my website later?", a: "Yes. We can help you update your website anytime. Small updates are included in our maintenance plan, or you can contact us for one-off changes." },
-      { q: "How many revisions are included?", a: "Up to 2 revision rounds are included in every package. We want you to be happy with the result. Additional changes can be arranged after launch." },
-      { q: "Can I add more pages later?", a: "Yes. We can add pages to your website at any time. Just contact us and we'll give you a simple quote." },
-    ],
-  },
-  {
-    category: "Technical Questions",
-    questions: [
-      { q: "Will my website work on mobile phones?", a: "Yes. Every website we build is designed for mobile phones first. It will look great and work perfectly on all phones, tablets, and computers." },
-      { q: "Will my website show up on Google?", a: "We set up your website with the basics so Google can find it. This takes time — Google usually takes a few weeks to index new websites. We include basic SEO setup in every package." },
-      { q: "Is my website secure?", a: "Yes. Every website we build includes SSL security (the padlock in your browser). Your website runs on a secure connection." },
+    items: [
+      { q: "How do I get started?", a: "Just send us a message on WhatsApp. We'll have a quick chat about your business, recommend the best package, and get started right away. No forms, no waiting." },
+      { q: "What information do I need to provide?", a: "At minimum, your business name and a brief description of what you do. If you have a logo, photos, or specific text you'd like to use — great. If not, we can work with what you have." },
+      { q: "How long does it take to build my website?", a: "Starter websites take 5–7 working days. Business websites take 7–10 working days. The timeline starts once we receive your content and the 50% deposit." },
+      { q: "Do I need any technical knowledge?", a: "Absolutely not. We handle everything technical. You just need to tell us about your business and what you want — we take care of the rest." },
     ],
   },
   {
     category: "Pricing & Payment",
-    questions: [
-      { q: "Are there any hidden costs?", a: "No. The price we quote is the price you pay. The only additional costs are your domain name (usually €10–15/year) and hosting (usually €5–15/month), which are paid directly to the providers." },
-      { q: "How does payment work?", a: "We split the payment in two. You pay 50% before we start, and the remaining 50% before we launch. Simple and fair." },
-      { q: "Do I need to sign a long contract?", a: "No. There are no long contracts. You pay per project. The optional maintenance plan can be cancelled anytime." },
+    items: [
+      { q: "Are there any hidden fees?", a: "No. The price you see is the price you pay for the website build. Hosting and domain costs are separate (typically €10–15/month) and we'll explain everything upfront before you commit." },
+      { q: "How does the 50/50 payment work?", a: "You pay 50% when we agree on the project scope — this secures your spot and we begin immediately. The remaining 50% is due before we launch your website. You only pay the second half when you're happy." },
+      { q: "What payment methods do you accept?", a: "We accept bank transfers and major payment methods. We'll provide payment details when you're ready to proceed." },
+      { q: "Do I own my website after it's built?", a: "Yes, 100%. Once paid in full, the website and all its content belong to you completely." },
     ],
   },
   {
-    category: "Still Have Questions?",
-    questions: [
-      { q: "Still unsure? Not sure where to start?", a: "Send us a message and we'll guide you step by step. We work with small businesses every day and we're happy to answer any question — no matter how simple it seems." },
+    category: "Design & Features",
+    items: [
+      { q: "Can I see examples of your work?", a: "Yes! Contact us on WhatsApp and we'll share recent examples relevant to your industry." },
+      { q: "Will my website work on mobile phones?", a: "Absolutely. Every website we build is mobile-first — meaning it's designed to look and work perfectly on phones, tablets, and desktops." },
+      { q: "Can I make changes after the website is live?", a: "Yes. Small text changes are free for the first month after launch. After that, our monthly maintenance plan (€50/month) covers ongoing updates, or you can request individual changes." },
+      { q: "Do you provide hosting?", a: "We set up your hosting and make sure everything runs smoothly. Hosting costs are typically €10–15/month, separate from the build cost." },
+    ],
+  },
+  {
+    category: "After Launch",
+    items: [
+      { q: "What happens after my website launches?", a: "We make sure everything is working perfectly. For the first month, we're available for small adjustments at no extra cost. After that, you can opt into our maintenance plan or manage things independently." },
+      { q: "What does the maintenance plan include?", a: "Monthly content updates, security monitoring, performance optimization, hosting management, priority support, and a monthly analytics report — all for €50/month with no contracts." },
+      { q: "Can I cancel the maintenance plan?", a: "Yes, anytime. There are no contracts or commitments. You can cancel whenever you want." },
     ],
   },
 ];
 
-function WhatsAppIcon({ size = 16 }: { size?: number }) {
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  );
-}
-
-function FAQItem({ q, a, isLast }: { q: string; a: string; isLast?: boolean }) {
-  const [open, setOpen] = useState(isLast || false);
-
-  return (
-    <div className={`border-b border-border last:border-0 ${isLast ? "bg-accent/30 rounded-xl px-4 border-0 mb-0" : ""}`}>
+    <div className="border-b border-[#E2E5EA] last:border-0">
       <button
-        className="w-full flex items-center justify-between gap-4 py-4 text-left group"
         onClick={() => setOpen(!open)}
-        aria-expanded={open}
+        className="w-full flex items-center justify-between py-5 text-left group"
       >
-        <span className={`font-medium text-foreground group-hover:text-primary transition-colors ${isLast ? "text-primary" : ""}`}>
-          {q}
-        </span>
-        <motion.div
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.25, ease: "easeInOut" }}
-          className="flex-shrink-0"
-        >
-          <ChevronDown size={18} className="text-muted-foreground" aria-hidden="true" />
-        </motion.div>
+        <span className="text-base font-medium text-[#111315] pr-4 group-hover:text-[#5B8CFF] transition-colors">{q}</span>
+        <ChevronDown
+          size={20}
+          className={`text-[#5B6472] shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-[#5B8CFF]" : ""}`}
+        />
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="pb-4">
-              <p className="text-sm text-muted-foreground leading-relaxed">{a}</p>
-              {isLast && (
-                <div className="mt-4">
-                  <motion.a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] text-white font-semibold text-sm"
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                  >
-                    <WhatsAppIcon />
-                    Message Us on WhatsApp
-                  </motion.a>
-                  <p className="text-xs text-muted-foreground mt-2">We usually respond the same day.</p>
-                </div>
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        className="overflow-hidden transition-all duration-300"
+        style={{ maxHeight: open ? "300px" : "0", opacity: open ? 1 : 0 }}
+      >
+        <p className="text-sm text-[#5B6472] leading-relaxed pb-5">{a}</p>
+      </div>
     </div>
   );
 }
 
 export default function FAQ() {
   return (
-    <div>
+    <>
       {/* Hero */}
-      <section className="section bg-background pt-24 lg:pt-32">
-        <div className="container">
-          <AnimateIn className="max-w-2xl">
-            <span className="section-label">FAQ</span>
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-5" style={{ letterSpacing: "-0.02em" }}>
-              Questions we hear all the time
+      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <div className="container relative z-10 text-center">
+          <AnimateIn>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">FAQ</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
+              Frequently Asked <span className="brand-gradient-text">Questions</span>
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              We've answered the most common questions below. If you don't find what you're looking for, just message us.
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+              Everything you need to know about working with D&M Labs. Can't find your answer? Just message us.
             </p>
           </AnimateIn>
         </div>
       </section>
 
-      {/* FAQ sections */}
-      <section className="section bg-white">
-        <div className="container">
-          <div className="max-w-2xl space-y-10">
-            {faqs.map((section, si) => (
-              <AnimateIn key={section.category} delay={si * 0.06}>
-                <h2 className="text-lg font-bold text-foreground mb-4">
-                  {section.category}
-                </h2>
-                <div className="bg-background rounded-2xl border border-border overflow-hidden px-4">
-                  {section.questions.map((faq, qi) => (
-                    <FAQItem
-                      key={faq.q}
-                      q={faq.q}
-                      a={faq.a}
-                      isLast={si === faqs.length - 1 && qi === section.questions.length - 1}
-                    />
+      {/* FAQ Sections */}
+      <section className="section-spacing bg-white">
+        <div className="container max-w-3xl">
+          {faqs.map((section, si) => (
+            <AnimateIn key={section.category} delay={si * 0.1} className="mb-12 last:mb-0">
+              <h2 className="text-xl font-semibold text-[#111315] mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-6 brand-gradient rounded-full" />
+                {section.category}
+              </h2>
+              <div className="dm-card !p-0 overflow-hidden">
+                <div className="px-6">
+                  {section.items.map((item) => (
+                    <FAQItem key={item.q} q={item.q} a={item.a} />
                   ))}
                 </div>
-              </AnimateIn>
-            ))}
-          </div>
+              </div>
+            </AnimateIn>
+          ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="relative py-20 lg:py-28 overflow-hidden bg-foreground">
-        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ background: "radial-gradient(ellipse at top right, oklch(0.58 0.19 264) 0%, transparent 50%)" }} aria-hidden="true" />
-        <div className="container relative z-10 text-center">
+      <section className="section-spacing dark-section text-center">
+        <div className="container">
           <AnimateIn>
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Ready to get your website?
-            </h2>
-          </AnimateIn>
-          <AnimateIn delay={0.15}>
-            <p className="text-white/70 text-lg mb-8 max-w-sm mx-auto">
-              Start with a quick chat. No obligation, no pressure.
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={0.3}>
-            <motion.a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#25D366] text-white font-semibold text-base shadow-xl"
-              whileHover={{ scale: 1.04, boxShadow: "0 16px 48px rgba(37, 211, 102, 0.3)" }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <WhatsAppIcon size={18} />
-              Chat on WhatsApp
-            </motion.a>
-            <p className="text-white/50 text-sm mt-3">We usually respond the same day.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Still Have Questions?</h2>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">We're always happy to help. Send us a message and we'll get back to you quickly.</p>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <MessageCircle size={18} /> Ask on WhatsApp
+            </a>
           </AnimateIn>
         </div>
       </section>
-    </div>
+    </>
   );
 }

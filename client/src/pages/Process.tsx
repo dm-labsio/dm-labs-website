@@ -1,276 +1,114 @@
-/* D&M Studio — Process Page
-   Remove fear. Show simplicity. Client effort minimal.
-   Step visualization with scroll animations. */
-
+/* ============================================================
+   D&M LABS — Process Page
+   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
+   ============================================================ */
 import { Link } from "wouter";
-import { motion } from "framer-motion";
-import { MessageCircle, Palette, Code2, Rocket, ArrowRight, CheckCircle2, Clock, FileText, Image } from "lucide-react";
 import AnimateIn from "@/components/AnimateIn";
+import { MessageCircle, Palette, Code, Rocket, ArrowRight, CheckCircle2, CreditCard } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/972584928177";
+const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
+const WHATSAPP_URL = "https://wa.me/972584928177?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
 const steps = [
-  {
-    number: "01", icon: MessageCircle, title: "Quick chat", subtitle: "We understand your business",
-    desc: "You contact us on WhatsApp or through our form. We ask a few simple questions about your business — what you do, who your customers are, and what you need. No technical questions. No forms to fill in.",
-    duration: "15–30 minutes", youDo: "Tell us about your business", weDo: "Listen, ask the right questions, and plan your website",
-    color: "bg-blue-50 text-blue-600", borderColor: "border-blue-200",
-  },
-  {
-    number: "02", icon: FileText, title: "You send us the basics", subtitle: "Minimal effort from you",
-    desc: "We give you a simple checklist. You send us your business name, a short description of what you do, and any photos or logo you have. Don't have a logo or photos? No problem — we can work without them.",
-    duration: "You decide the pace", youDo: "Business name, description, logo (if you have one), photos (optional)", weDo: "Handle everything else — content, design, structure",
-    color: "bg-purple-50 text-purple-600", borderColor: "border-purple-200",
-  },
-  {
-    number: "03", icon: Palette, title: "We design your website", subtitle: "You review and approve",
-    desc: "We prepare your website and show you a preview. You review it and tell us what you think. We make adjustments until you're happy. Up to 2 rounds of revisions are included.",
-    duration: "2–4 working days", youDo: "Review the design and give feedback", weDo: "Design your complete website, make revisions",
-    color: "bg-orange-50 text-orange-600", borderColor: "border-orange-200",
-  },
-  {
-    number: "04", icon: Code2, title: "We build everything", subtitle: "Mobile ready and optimized",
-    desc: "Once you approve the design, we build the final version. Mobile-optimized, fast-loading, and ready for your customers. You don't need to do anything during this step.",
-    duration: "2–4 working days", youDo: "Nothing — just wait", weDo: "Build the full website, optimize for mobile and speed",
-    color: "bg-green-50 text-green-600", borderColor: "border-green-200",
-  },
-  {
-    number: "05", icon: Rocket, title: "Your website goes live", subtitle: "Customers can find you online",
-    desc: "We connect your website to your domain and make it live. We guide you through the domain setup step by step. Your website is online and customers can find you immediately.",
-    duration: "1 working day", youDo: "Approve the final website", weDo: "Launch your website, connect your domain, confirm everything works",
-    color: "bg-teal-50 text-teal-600", borderColor: "border-teal-200",
-  },
+  { icon: MessageCircle, step: "01", title: "Discovery Call", desc: "We start with a quick WhatsApp chat. Tell us about your business, what you need, and your goals. No technical jargon — just a friendly conversation.", details: ["15–20 minute WhatsApp call", "We learn about your business", "You tell us what you need", "We recommend the best package"], color: "#5B8CFF" },
+  { icon: CreditCard, step: "02", title: "50% Deposit", desc: "Once we agree on the scope and price, you pay 50% upfront. This secures your spot and we begin work immediately.", details: ["Clear pricing — no surprises", "50% upfront, 50% on delivery", "Work begins immediately", "Secure payment options"], color: "#6FE3FF" },
+  { icon: Palette, step: "03", title: "Design & Build", desc: "We design and develop your website. You'll see progress along the way and can provide feedback at key milestones.", details: ["Custom design for your brand", "Mobile-first development", "Regular progress updates", "Your feedback shapes the result"], color: "#8B5CFF" },
+  { icon: Code, step: "04", title: "Review & Revisions", desc: "You review the website and request changes. We refine everything until you're completely happy with the result.", details: ["Full website preview", "1–2 rounds of revisions included", "We adjust until you're satisfied", "No extra charges for included revisions"], color: "#5B8CFF" },
+  { icon: Rocket, step: "05", title: "Launch", desc: "Final 50% payment, and your website goes live. We handle domain setup, hosting, and make sure everything works perfectly.", details: ["Domain connection", "SSL certificate setup", "Speed optimization", "Your website is live!"], color: "#6FE3FF" },
 ];
-
-const clientNeeds = [
-  { icon: FileText, item: "Your business name", required: true },
-  { icon: FileText, item: "What your business does (a few sentences)", required: true },
-  { icon: Image, item: "Your logo", required: false },
-  { icon: Image, item: "Photos of your work or business", required: false },
-];
-
-function WhatsAppIcon({ size = 18 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  );
-}
 
 export default function Process() {
   return (
-    <div>
+    <>
       {/* Hero */}
-      <section className="section bg-background pt-24 lg:pt-32">
-        <div className="container">
-          <AnimateIn className="max-w-2xl">
-            <span className="section-label">How It Works</span>
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-5" style={{ letterSpacing: "-0.02em" }}>
-              Getting your website is easier than you think
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              We've made the process as simple as possible. You provide the basics about your business — we handle everything else.
-            </p>
-            <div className="flex items-center gap-3 p-4 rounded-xl bg-accent/40 border border-accent">
-              <Clock size={18} className="text-primary flex-shrink-0" aria-hidden="true" />
-              <p className="text-sm text-foreground">
-                <strong>Most businesses launch their website in under 10 days.</strong> The timeline depends on how quickly you can send us your information.
-              </p>
-            </div>
+      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <div className="absolute top-10 left-10 w-[300px] h-[300px] opacity-[0.04] animate-float-slower pointer-events-none">
+          <img src={TRIANGLE_GEO} alt="" className="w-full h-full object-contain" aria-hidden="true" />
+        </div>
+        <div className="container relative z-10 text-center">
+          <AnimateIn>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">How It Works</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">From Idea to <span className="brand-gradient-text">Launch</span></h1>
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">A simple, transparent process designed to get your website live as quickly as possible — without the stress.</p>
           </AnimateIn>
         </div>
       </section>
 
       {/* Steps */}
-      <section className="section bg-white">
-        <div className="container">
-          <div className="max-w-3xl">
-            <div className="space-y-8">
-              {steps.map((step, i) => (
-                <AnimateIn key={step.number} delay={i * 0.1}>
-                  <div className="relative">
-                    {/* Connector line */}
-                    {i < steps.length - 1 && (
-                      <div className="absolute left-6 top-16 bottom-0 w-px bg-border" style={{ height: "calc(100% + 2rem)" }} aria-hidden="true" />
-                    )}
-
-                    <div className="flex gap-5">
-                      {/* Step icon */}
-                      <div className="flex-shrink-0 relative z-10">
-                        <motion.div
-                          className={`w-12 h-12 rounded-2xl ${step.color} flex items-center justify-center`}
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                          transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                        >
-                          <step.icon size={22} aria-hidden="true" />
-                        </motion.div>
-                      </div>
-
-                      {/* Content */}
-                      <div className="flex-1 pb-8">
-                        <div className="flex items-start justify-between gap-4 mb-3">
-                          <div>
-                            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Step {step.number}</span>
-                            <h2 className="text-xl font-bold text-foreground mt-0.5">{step.title}</h2>
-                            <p className="text-sm text-primary font-medium">{step.subtitle}</p>
-                          </div>
-                          <div className="flex items-center gap-1.5 bg-muted px-3 py-1.5 rounded-full flex-shrink-0">
-                            <Clock size={12} className="text-muted-foreground" aria-hidden="true" />
-                            <span className="text-xs text-muted-foreground font-medium">{step.duration}</span>
-                          </div>
-                        </div>
-
-                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">{step.desc}</p>
-
-                        <div className="grid sm:grid-cols-2 gap-3">
-                          <div className="bg-muted/50 rounded-xl p-4">
-                            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">You do</p>
-                            <p className="text-sm text-foreground">{step.youDo}</p>
-                          </div>
-                          <div className="bg-accent/40 rounded-xl p-4">
-                            <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1.5">We do</p>
-                            <p className="text-sm text-foreground">{step.weDo}</p>
-                          </div>
-                        </div>
-                      </div>
+      <section className="section-spacing bg-white">
+        <div className="container max-w-4xl">
+          <div className="space-y-0">
+            {steps.map((step, i) => (
+              <AnimateIn key={step.step} delay={i * 0.1}>
+                <div className="relative flex gap-6 sm:gap-8 pb-12 last:pb-0">
+                  {i < steps.length - 1 && (
+                    <div className="absolute left-[27px] sm:left-[31px] top-16 bottom-0 w-[2px]" style={{ background: `linear-gradient(to bottom, ${step.color}, ${steps[i + 1].color})` }} />
+                  )}
+                  <div className="relative z-10 shrink-0">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center" style={{ background: `${step.color}14` }}>
+                      <step.icon size={26} style={{ color: step.color }} strokeWidth={1.75} />
                     </div>
                   </div>
-                </AnimateIn>
-              ))}
-            </div>
+                  <div className="flex-1 pt-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-xs font-bold brand-gradient-text">{step.step}</span>
+                      <h3 className="text-xl font-semibold text-[#111315]">{step.title}</h3>
+                    </div>
+                    <p className="text-sm text-[#5B6472] leading-relaxed mb-4">{step.desc}</p>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {step.details.map((d) => (
+                        <li key={d} className="flex items-start gap-2 text-sm text-[#111315]">
+                          <CheckCircle2 size={14} style={{ color: step.color }} className="shrink-0 mt-0.5" />
+                          {d}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </AnimateIn>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* What you need to provide */}
-      <section className="section bg-background">
+      {/* Timeline */}
+      <section className="section-spacing">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-4xl">
-            <AnimateIn variant="fade-right">
-              <span className="section-label">What You Need</span>
-              <h2 className="text-3xl font-bold text-foreground mb-4">
-                You only need to provide the basics
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                We help if materials are missing. Don't worry if you don't have a logo or photos — we can work with what you have.
-              </p>
-
-              <div className="space-y-3">
-                {clientNeeds.map((need, i) => (
-                  <AnimateIn key={need.item} delay={i * 0.08}>
-                    <motion.div
-                      className="flex items-center gap-3 p-4 rounded-xl bg-white border border-border"
-                      whileHover={{ x: 4 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${need.required ? "bg-accent" : "bg-muted"}`}>
-                        <need.icon size={16} className={need.required ? "text-primary" : "text-muted-foreground"} aria-hidden="true" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-sm font-medium text-foreground">{need.item}</p>
-                      </div>
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${need.required ? "bg-accent text-primary" : "bg-muted text-muted-foreground"}`}>
-                        {need.required ? "Required" : "Optional"}
-                      </span>
-                    </motion.div>
-                  </AnimateIn>
-                ))}
-              </div>
-
-              <p className="text-sm text-muted-foreground mt-4 italic">
-                Once we receive your information, we begin immediately.
-              </p>
-            </AnimateIn>
-
-            <AnimateIn variant="fade-left" delay={0.2}>
-              <div className="space-y-4">
-                <motion.div
-                  className="bg-white rounded-2xl p-6 border border-border"
-                  whileHover={{ y: -2 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <h3 className="font-semibold text-foreground mb-3">Payment structure</h3>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold flex-shrink-0">1</div>
-                      <p className="text-sm text-foreground">50% payment before we start</p>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold flex-shrink-0">2</div>
-                      <p className="text-sm text-foreground">50% payment before we launch</p>
-                    </div>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-3">Simple and fair. You only pay the second half when you're happy with the result.</p>
-                </motion.div>
-
-                <motion.div
-                  className="bg-white rounded-2xl p-6 border border-border"
-                  whileHover={{ y: -2 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <h3 className="font-semibold text-foreground mb-3">Revision policy</h3>
-                  <div className="flex items-start gap-2.5">
-                    <CheckCircle2 size={16} className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    <p className="text-sm text-muted-foreground">Up to 2 revision rounds are included. We want you to be happy with the result.</p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="bg-white rounded-2xl p-6 border border-border"
-                  whileHover={{ y: -2 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <h3 className="font-semibold text-foreground mb-3">Domain &amp; hosting</h3>
-                  <div className="flex items-start gap-2.5">
-                    <CheckCircle2 size={16} className="text-primary flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    <p className="text-sm text-muted-foreground">Your domain always belongs to you. We help you set up hosting and connect everything step by step.</p>
-                  </div>
-                </motion.div>
-              </div>
-            </AnimateIn>
-          </div>
+          <AnimateIn className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Typical Timeline</h2>
+            <p className="text-lg text-[#5B6472]">Most projects go from first message to live website in under two weeks.</p>
+          </AnimateIn>
+          <AnimateIn delay={0.2}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+              {[
+                { label: "Starter Website", time: "5–7 days", price: "€250" },
+                { label: "Business Website", time: "7–10 days", price: "€350" },
+                { label: "Revisions", time: "1–2 days", price: "Included" },
+              ].map((item) => (
+                <div key={item.label} className="dm-card text-center !p-6">
+                  <p className="text-2xl font-bold brand-gradient-text mb-1">{item.time}</p>
+                  <p className="text-sm font-semibold text-[#111315] mb-1">{item.label}</p>
+                  <p className="text-xs text-[#5B6472]">{item.price}</p>
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="relative py-20 lg:py-28 overflow-hidden bg-foreground">
-        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ background: "radial-gradient(ellipse at top right, oklch(0.58 0.19 264) 0%, transparent 50%)" }} aria-hidden="true" />
-        <div className="container relative z-10 text-center">
+      <section className="section-spacing dark-section text-center">
+        <div className="container">
           <AnimateIn>
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              Ready to start?
-            </h2>
-          </AnimateIn>
-          <AnimateIn delay={0.15}>
-            <p className="text-white/70 text-lg mb-8 max-w-md mx-auto">
-              The first step is just a quick chat. No commitment, no pressure.
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={0.3}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#25D366] text-white font-semibold text-base shadow-xl"
-                whileHover={{ scale: 1.04, boxShadow: "0 16px 48px rgba(37, 211, 102, 0.3)" }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <WhatsAppIcon />
-                Start the Conversation
-              </motion.a>
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                <Link
-                  href="/faq"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-white/30 text-white font-semibold text-base hover:bg-white/10 transition-colors"
-                >
-                  Read FAQ <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-              </motion.div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Start the Process?</h2>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">The first step is a quick, no-pressure WhatsApp chat. Let's talk about your business.</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"><MessageCircle size={18} /> Start the Conversation</a>
+              <Link href="/pricing" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">View Pricing <ArrowRight size={16} /></Link>
             </div>
           </AnimateIn>
         </div>
       </section>
-    </div>
+    </>
   );
 }

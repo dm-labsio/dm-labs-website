@@ -1,65 +1,36 @@
-/* D&M Studio — Cookie Policy */
-
+/* D&M LABS — Cookie Policy */
 import { Link } from "wouter";
+import AnimateIn from "@/components/AnimateIn";
 
 export default function CookiePolicy() {
   return (
-    <div className="section bg-background pt-24 lg:pt-32">
-      <div className="container">
-        <div className="max-w-2xl">
-          <span className="section-label">Legal</span>
-          <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-3" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-            Cookie Policy
-          </h1>
-          <p className="text-muted-foreground mb-10">Last updated: {new Date().toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}</p>
-
-          <div className="space-y-8 text-foreground">
-            <section>
-              <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>What are cookies?</h2>
-              <p className="text-muted-foreground leading-relaxed">Cookies are small text files that websites store on your device. They help websites remember your preferences and improve your experience.</p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>How we use cookies</h2>
-              <p className="text-muted-foreground leading-relaxed">We use cookies to improve your experience on our website. We keep it minimal — we only use what's necessary.</p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Types of cookies we use</h2>
-              <div className="space-y-4">
-                <div className="p-4 rounded-xl bg-white border border-border">
-                  <h3 className="font-semibold text-foreground mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Essential cookies</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">These cookies are required for the website to work properly. They include your cookie consent preference. You cannot disable these cookies.</p>
-                </div>
-                <div className="p-4 rounded-xl bg-white border border-border">
-                  <h3 className="font-semibold text-foreground mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Analytics cookies (optional)</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">We may use analytics cookies in the future to understand how visitors use our website. These are only activated with your consent.</p>
-                </div>
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>How to control cookies</h2>
-              <p className="text-muted-foreground leading-relaxed mb-3">You can control cookies in two ways:</p>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1.5 ml-2">
-                <li>Use our cookie banner to choose which cookies to allow</li>
-                <li>Change your browser settings to block or delete cookies</li>
-              </ul>
-              <p className="text-muted-foreground leading-relaxed mt-3">Note: blocking essential cookies may affect how the website works.</p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Questions?</h2>
-              <p className="text-muted-foreground leading-relaxed">Contact us at dudeandmadame@gmail.com if you have any questions about our use of cookies.</p>
-            </section>
-          </div>
-
-          <div className="mt-10 pt-8 border-t border-border flex gap-4">
-            <Link href="/privacy" className="text-sm text-primary hover:underline">Privacy Policy</Link>
-            <Link href="/terms" className="text-sm text-primary hover:underline">Terms of Service</Link>
-          </div>
+    <>
+      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
+        <div className="container relative z-10 text-center">
+          <AnimateIn>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Legal</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Cookie Policy</h1>
+            <p className="text-sm text-[#5B6472]">Last updated: February 2026</p>
+          </AnimateIn>
         </div>
-      </div>
-    </div>
+      </section>
+      <section className="section-spacing bg-white">
+        <div className="container max-w-3xl">
+          <AnimateIn>
+            <div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">
+              <div><h2 className="text-xl font-semibold text-[#111315] mb-3">What Are Cookies</h2><p>Cookies are small text files stored on your device when you visit a website. They help the website function properly and provide information to the site owners.</p></div>
+              <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Essential Cookies</h2><p>These cookies are necessary for the website to function. They include cookies for cookie consent preferences and basic site functionality. These cannot be disabled.</p></div>
+              <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Analytics Cookies</h2><p>With your consent, we use analytics cookies to understand how visitors interact with our website. This helps us improve our services. We use privacy-friendly analytics that do not track you across other websites.</p></div>
+              <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Managing Cookies</h2><p>You can manage your cookie preferences through the cookie banner on our website. You can also delete cookies through your browser settings at any time.</p></div>
+              <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Contact</h2><p>Questions? Email <a href="mailto:dudeandmadame@gmail.com" className="text-[#5B8CFF] hover:underline">dudeandmadame@gmail.com</a>.</p></div>
+            </div>
+            <div className="mt-10 pt-8 border-t border-[#E2E5EA] flex gap-4">
+              <Link href="/privacy" className="text-sm text-[#5B8CFF] hover:underline">Privacy Policy</Link>
+              <Link href="/terms" className="text-sm text-[#5B8CFF] hover:underline">Terms of Service</Link>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+    </>
   );
 }

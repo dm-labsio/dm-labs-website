@@ -1,235 +1,171 @@
-/* D&M Studio — Contact Page
-   Primary: WhatsApp. Secondary: Contact form (4 fields max)
-   Remove hesitation. Friendly tone. Response expectation set. */
-
+/* ============================================================
+   D&M LABS — Contact Page
+   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
+   ============================================================ */
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { CheckCircle2, Mail, Clock } from "lucide-react";
 import AnimateIn from "@/components/AnimateIn";
+import { MessageCircle, Mail, Clock, MapPin, Send } from "lucide-react";
+import { toast } from "sonner";
 
-const WHATSAPP_URL = "https://wa.me/972584928177";
-
-const businessTypes = [
-  "Restaurant / Café", "Beauty Salon / Barber", "Real Estate",
-  "Clinic / Healthcare", "Consultant / Coach", "Car Rental",
-  "Tourism / Travel", "Retail Shop", "Other",
-];
+const WHATSAPP_URL = "https://wa.me/972584928177?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
 export default function Contact() {
-  const [formState, setFormState] = useState({ name: "", email: "", businessType: "", message: "" });
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  const validate = () => {
-    const newErrors: Record<string, string> = {};
-    if (!formState.name.trim()) newErrors.name = "Please enter your name.";
-    if (!formState.email.trim()) newErrors.email = "Please enter your email address.";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email)) newErrors.email = "Please enter a valid email address.";
-    if (!formState.businessType) newErrors.businessType = "Please select your business type.";
-    return newErrors;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-    setErrors({});
-    setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    setSubmitting(false);
-    setSubmitted(true);
+    setSending(true);
+    setTimeout(() => {
+      setSending(false);
+      toast.success("Message sent! We'll get back to you within 24 hours.");
+      setForm({ name: "", email: "", business: "", message: "" });
+    }, 1200);
   };
 
   return (
-    <div>
+    <>
       {/* Hero */}
-      <section className="section bg-background pt-24 lg:pt-32">
-        <div className="container">
-          <AnimateIn className="max-w-xl">
-            <span className="section-label">Contact</span>
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-5" style={{ letterSpacing: "-0.02em" }}>
-              Let's build your website.
+      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <div className="container relative z-10 text-center">
+          <AnimateIn>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Get In Touch</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
+              Let's Build <span className="brand-gradient-text">Something Great</span>
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Tell us about your business and we'll guide you from there. No technical knowledge needed — just a quick chat.
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+              Ready to get started? Send us a message on WhatsApp for the fastest response, or use the form below.
             </p>
           </AnimateIn>
         </div>
       </section>
 
-      {/* Contact options */}
-      <section className="section bg-white">
+      {/* Contact Methods + Form */}
+      <section className="section-spacing bg-white">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-10 max-w-4xl">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-5xl mx-auto">
+            {/* Left — Contact Methods */}
+            <div className="lg:col-span-2 space-y-6">
+              <AnimateIn>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block dm-card !p-6 group hover:shadow-lg transition-shadow">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-12 h-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center">
+                      <MessageCircle size={22} className="text-[#25D366]" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-[#111315]">WhatsApp</h3>
+                      <p className="text-xs text-[#5B6472]">Fastest response</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-[#5B6472]">+972 58-492-8177</p>
+                  <p className="text-xs text-[#5B8CFF] mt-2 group-hover:underline">Send a message →</p>
+                </a>
+              </AnimateIn>
 
-            {/* WhatsApp — primary */}
-            <AnimateIn variant="fade-right">
-              <div className="mb-8">
-                <span className="section-label">Fastest Option</span>
-                <h2 className="text-2xl font-bold text-foreground mb-3">
-                  Chat on WhatsApp
-                </h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  The quickest way to reach us. Send a message and we'll reply within a few hours.
-                </p>
-              </div>
-
-              <motion.a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-5 rounded-2xl bg-[#25D366]/10 border-2 border-[#25D366]/30 hover:border-[#25D366] transition-all duration-200 group mb-4"
-                aria-label="Open WhatsApp chat"
-                whileHover={{ y: -2 }}
-              >
-                <div className="w-14 h-14 rounded-2xl bg-[#25D366] flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                  </svg>
+              <AnimateIn delay={0.1}>
+                <div className="dm-card !p-6">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
+                      <Mail size={22} className="text-[#5B8CFF]" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-[#111315]">Email</h3>
+                      <p className="text-xs text-[#5B6472]">We reply within 24h</p>
+                    </div>
+                  </div>
+                  <a href="mailto:dudeandmadame@gmail.com" className="text-sm text-[#5B8CFF] hover:underline">dudeandmadame@gmail.com</a>
                 </div>
-                <div>
-                  <p className="font-semibold text-foreground">Open WhatsApp Chat</p>
-                  <p className="text-sm text-muted-foreground">Quick question? Message us directly.</p>
+              </AnimateIn>
+
+              <AnimateIn delay={0.2}>
+                <div className="dm-card !p-6">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
+                      <Clock size={22} className="text-[#5B8CFF]" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-[#111315]">Working Hours</h3>
+                      <p className="text-xs text-[#5B6472]">Sun–Thu</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-[#5B6472]">9:00 AM – 6:00 PM (IST)</p>
                 </div>
-              </motion.a>
+              </AnimateIn>
 
-              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-                <Clock size={14} aria-hidden="true" />
-                <span>We usually respond the same day.</span>
-              </div>
-
-              {/* Email */}
-              <motion.div
-                className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 border border-border"
-                whileHover={{ x: 3 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <Mail size={18} className="text-muted-foreground flex-shrink-0" aria-hidden="true" />
-                <div>
-                  <p className="text-sm font-medium text-foreground">Email us</p>
-                  <a href="mailto:dudeandmadame@gmail.com" className="text-sm text-primary hover:underline">dudeandmadame@gmail.com</a>
+              <AnimateIn delay={0.3}>
+                <div className="dm-card !p-6">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
+                      <MapPin size={22} className="text-[#5B8CFF]" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-[#111315]">Location</h3>
+                      <p className="text-xs text-[#5B6472]">Remote-first</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-[#5B6472]">Based in Israel, serving businesses worldwide</p>
                 </div>
-              </motion.div>
-            </AnimateIn>
+              </AnimateIn>
+            </div>
 
-            {/* Contact form — secondary */}
-            <AnimateIn variant="fade-left" delay={0.15}>
-              <div className="mb-6">
-                <span className="section-label">Or Send a Message</span>
-                <h2 className="text-2xl font-bold text-foreground mb-2">
-                  Contact form
-                </h2>
-                <p className="text-muted-foreground text-sm">We'll get back to you within 24 hours.</p>
-              </div>
-
-              {submitted ? (
-                <motion.div
-                  className="flex flex-col items-center justify-center py-12 text-center"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
-                    <CheckCircle2 size={28} className="text-green-600" aria-hidden="true" />
+            {/* Right — Form */}
+            <AnimateIn delay={0.2} className="lg:col-span-3">
+              <div className="dm-card !p-8">
+                <h2 className="text-xl font-semibold text-[#111315] mb-6">Send Us a Message</h2>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm font-medium text-[#111315] mb-1.5">Your Name</label>
+                      <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
+                        placeholder="John Smith" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#111315] mb-1.5">Email</label>
+                      <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
+                        placeholder="john@business.com" />
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">Message sent!</h3>
-                  <p className="text-muted-foreground text-sm max-w-xs">
-                    Thanks for reaching out. We'll get back to you within 24 hours. Or chat with us on WhatsApp for a faster response.
-                  </p>
-                  <motion.a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] text-white font-semibold text-sm"
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                  >
-                    Chat on WhatsApp
-                  </motion.a>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} noValidate className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
-                      Your name <span className="text-destructive" aria-label="required">*</span>
-                    </label>
-                    <input
-                      id="name" type="text" value={formState.name}
-                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      placeholder="John Smith"
-                      className={`w-full px-4 py-3 rounded-xl border text-foreground bg-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-sm ${errors.name ? "border-destructive" : "border-border"}`}
-                      aria-required="true" aria-describedby={errors.name ? "name-error" : undefined}
-                    />
-                    {errors.name && <p id="name-error" className="text-xs text-destructive mt-1" role="alert">{errors.name}</p>}
+                    <label className="block text-sm font-medium text-[#111315] mb-1.5">Business Name</label>
+                    <input type="text" value={form.business} onChange={(e) => setForm({ ...form, business: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
+                      placeholder="Your Business Name" />
                   </div>
-
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
-                      Email address <span className="text-destructive" aria-label="required">*</span>
-                    </label>
-                    <input
-                      id="email" type="email" value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      placeholder="john@yourbusiness.com"
-                      className={`w-full px-4 py-3 rounded-xl border text-foreground bg-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-sm ${errors.email ? "border-destructive" : "border-border"}`}
-                      aria-required="true" aria-describedby={errors.email ? "email-error" : undefined}
-                    />
-                    {errors.email && <p id="email-error" className="text-xs text-destructive mt-1" role="alert">{errors.email}</p>}
+                    <label className="block text-sm font-medium text-[#111315] mb-1.5">Tell Us About Your Project</label>
+                    <textarea required rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all resize-none"
+                      placeholder="What kind of website do you need? Any specific features?" />
                   </div>
-
-                  <div>
-                    <label htmlFor="businessType" className="block text-sm font-medium text-foreground mb-1.5">
-                      Business type <span className="text-destructive" aria-label="required">*</span>
-                    </label>
-                    <select
-                      id="businessType" value={formState.businessType}
-                      onChange={(e) => setFormState({ ...formState, businessType: e.target.value })}
-                      className={`w-full px-4 py-3 rounded-xl border text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-sm ${errors.businessType ? "border-destructive" : "border-border"} ${!formState.businessType ? "text-muted-foreground" : ""}`}
-                      aria-required="true" aria-describedby={errors.businessType ? "businessType-error" : undefined}
-                    >
-                      <option value="" disabled>Select your business type</option>
-                      {businessTypes.map((t) => <option key={t} value={t}>{t}</option>)}
-                    </select>
-                    {errors.businessType && <p id="businessType-error" className="text-xs text-destructive mt-1" role="alert">{errors.businessType}</p>}
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">
-                      Message <span className="text-muted-foreground text-xs font-normal">(optional)</span>
-                    </label>
-                    <textarea
-                      id="message" value={formState.message}
-                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      placeholder="Tell us a bit about your business..."
-                      rows={4}
-                      className="w-full px-4 py-3 rounded-xl border border-border text-foreground bg-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-sm resize-none"
-                    />
-                  </div>
-
-                  <motion.button
-                    type="submit" disabled={submitting}
-                    className="w-full py-4 rounded-xl bg-primary text-white font-semibold text-base transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-                    style={{ minHeight: "52px" }}
-                    whileHover={{ scale: submitting ? 1 : 1.01 }}
-                    whileTap={{ scale: submitting ? 1 : 0.98 }}
-                  >
-                    {submitting ? "Sending..." : "Send Message"}
-                  </motion.button>
-
-                  <p className="text-xs text-muted-foreground text-center">
-                    Your information is used only to respond to your request.{" "}
-                    <a href="/privacy" className="underline hover:text-foreground transition-colors">Privacy Policy</a>
-                  </p>
+                  <button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60">
+                    {sending ? (
+                      <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending...</span>
+                    ) : (
+                      <span className="flex items-center gap-2"><Send size={16} /> Send Message</span>
+                    )}
+                  </button>
+                  <p className="text-xs text-[#5B6472] text-center">Or message us directly on <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-medium hover:underline">WhatsApp</a> for faster response.</p>
                 </form>
-              )}
+              </div>
             </AnimateIn>
           </div>
         </div>
       </section>
-    </div>
+
+      {/* CTA */}
+      <section className="section-spacing dark-section text-center">
+        <div className="container">
+          <AnimateIn>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Prefer a Quick Chat?</h2>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Most of our clients start with a simple WhatsApp message. No pressure, no commitment.</p>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <MessageCircle size={18} /> Chat on WhatsApp
+            </a>
+          </AnimateIn>
+        </div>
+      </section>
+    </>
   );
 }
