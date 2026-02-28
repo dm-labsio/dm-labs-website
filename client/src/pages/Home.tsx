@@ -8,10 +8,10 @@ import { Check, ArrowRight, MessageCircle, Palette, Code2, Rocket, Star, Utensil
 
 const WHATSAPP_URL = "https://wa.me/972584928188";
 
-const HERO_MOCKUP = "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/LNbJGvIEvmntEcDY.png?Expires=1803814958&Signature=G5OAkkMTShz4Vj40y9WeZDt6dCR4HriiyrrmSbdTtwhBn-EXLKilwwyeGewmkMJPSDgVOGN~2DJ~rc~GgjbYA2Y~BJjsZMvnnb6JuNRYLqhKdfkkHoPeEYSdI9X8mx87~xoTBMiJIU6YRRX6gNvmspVWOgtY7kummQZwZEIHQ4LbQj~S33vyvuFaHsIf06ktbh0MapgcKDU60th4u77UmN-GFpTsFFRhrkpobjdTtqnAYlYEf8pd8ARrdj3RD188UgrSLWUbL4OVj6lqtd6XTOYbR9FH4GxFl3OKvu57whVZBRnxgevGVpdoHMQn~vzwvDBBt2L9owqCgQqclRkElQ__&Key-Pair-Id=K2HSFNDJXOU9YS";
-const HERO_BG = "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/EiknJnvOFhOiAxBb.png?Expires=1803814958&Signature=kvSPDlW6apXNsij64Knold9tYTgDuXsjc9W5wulytEzcX3DjcwJi2BoNu92mOrcvVb3NM1AWjy1ix4LQuoEt2YP5T3nVHq0vxqNqK5-npz0QYM81OWW60~lJHQ7tlUk1REr2Gdsnu~vKOZaKmlAhP6t0ZrkEOO7LHLhr-yDayD3Bs6YVqC9MBKQtMl4P7YCjJ8bNoMKw45S2P3eRb32cpTWoWM6QWkAlmRKg-klz1TjLgwHqOwMINHirnPDqKs8V4SraUGR189Y-dzNbSJ9ZksJApw4pW5rnQX5m1kaKZXonkSvuigvLDx7ncNdXdzlZz-cD~oxemwwFvFxaTOocw__&Key-Pair-Id=K2HSFNDJXOU9YS";
-const PREVIEW_CARDS = "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/jEnQbHgtXDrmxffh.png?Expires=1803814958&Signature=p5ltQctV7b3b8oOAE5rNaAga214SVlnIAqicsSfYmt7xJhbcSiXl3TiO9k04f7zZl4EfVh0D0YpcVGi6osJfWVZ4TH1oW35DBVy8uYzO7FXMwkwwX55FK9lFzpjdHktt2lm5zVnMVYqgddprB5h0jZQjsy~rSvSJ5O5Hm65koiS3f70kTcjTAQB7qP4NjEEI5ndrjXsYaY8OijUPsqKnnctyNgiIIY~wUCtB6AlWCO9ouejpXva0GyKdWrM7B1wZW96yJMlcgubblpkvF2WgNqyPd1bQyjmib5uAg09SPooR-RClMd9RLrI1wNbb~Crc1HjBqqLDcYQ3rFNnSb-3UA__&Key-Pair-Id=K2HSFNDJXOU9YS";
-const CTA_BG = "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/BBsHuxooHGyQrPDT.png?Expires=1803814958&Signature=EuPbhyWN29kixJ2ek0WTUY3a3HLPD2Pa3jv8gmirjF5NjlCiTJLwyurLwGj0s4PxcL08pICd1t--bU7GMMk-SK~t1JcK-c00v~lsBo5bGfSoBi1N8c99PpthIPCecL3nFApNq2W~QzWi8jT72Swi-EVvmSos65lZHBXA4zAZifn-noIIEce~MWdCBQG5nnPAj-gSHRDInXgF3PCScRHo5cuGru-N2BezxnGOr9kLwD0nB0lV4SUb-oLeWxs~NvGmMT-AAVl80f0K3G5j7bMJmkJP4CPfFYZQZY5FXnvRs5Hu20WVj~qrb3BJxOYCdQljBjeC2LeT6o77XMYcwuCFpA__&Key-Pair-Id=K2HSFNDJXOU9YS";
+const HERO_MOCKUP = "/hero-mockup.png";
+const HERO_BG = "/hero-gradient-bg.png";
+const PREVIEW_CARDS = "/website-preview-cards.png";
+const CTA_BG = "/cta-bg.png";
 
 const trustSignals = [
   "No technical knowledge needed",
