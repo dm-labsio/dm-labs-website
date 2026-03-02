@@ -9,7 +9,7 @@ import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 
-const LOGO_URL = "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/PaPlqFnudnByeozP.png?Expires=1803835281&Signature=pVwksJN7N9XV8Qpumxx~iRgaNU3aUB1qn8IGhtz6PH-8IQRdx5fwM~tS~Y-DzlShIfkuzcHnqswGIkASAx2Xvr9Lxd8hFY1DxRJlI4CnciFjfD5Y7mWod2QuBNzEi12n-tUiDs-1s2yyzYIxVBSwPwl3x4pHeDcXIAK4Qvvsnn2Opu4SYA6a5JHWuiRx6cq3bodiX0m3MQWH9hs5xEj5EX22cBxmuSQ6lQ5kYDaN6N98VQJGlQzfzQqlmh9hqNB9Ekjwwo9X3jAvsn~fvM~3hCcmIxulh8z4XsZ6f8UbzmC77Ijc3kWxYfr3gqdOyF7NXZt3Ol9C0dnxfu87RvEtuA__&Key-Pair-Id=K2HSFNDJXOU9YS";
+const LOGO_URL = "/dmlabs-logo.png";
 
 const WHATSAPP_URL = "https://wa.me/972584928177?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
@@ -56,7 +56,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container flex items-center justify-between" style={{ height: "72px" }}>
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <img src={LOGO_URL} alt="D&M Labs" className="h-9 w-auto" />
+            <img src={LOGO_URL} alt="D&M Labs" style={{ width: '140px', height: 'auto' }} />
           </Link>
 
           {/* Desktop Nav */}
@@ -143,7 +143,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             {/* Brand */}
             <div className="lg:col-span-1">
-              <img src={LOGO_URL} alt="D&M Labs" className="h-8 w-auto mb-5 brightness-0 invert" />
+              <img src={LOGO_URL} alt="D&M Labs" style={{ width: '140px', height: 'auto', marginBottom: '20px', filter: 'brightness(0) invert(1)' }} />
               <p className="text-sm text-[#94A3B8] leading-relaxed max-w-xs">
                 We build modern, professional websites for small businesses. From concept to launch — fast, simple, and affordable.
               </p>
@@ -187,7 +187,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </li>
                 <li className="flex items-start gap-3 text-sm text-[#94A3B8]">
                   <MapPin size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
-                  <span>Israel &amp; Remote Worldwide</span>
+                  <span>Europe &amp; Remote Worldwide</span>
                 </li>
               </ul>
             </div>

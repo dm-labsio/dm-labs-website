@@ -42,7 +42,7 @@ function CoffeeHomepagePreview() {
         <img src={IMG.atmosphere} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.38)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,15,10,0.9) 30%, transparent)" }} />
         <div style={{ position: "absolute", inset: 0, padding: "10px 14px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <div style={{ fontSize: "5.5px", letterSpacing: "3px", color: "#D4AF37", marginBottom: "3px" }}>EST. 2018 · TEL AVIV</div>
+          <div style={{ fontSize: "5.5px", letterSpacing: "3px", color: "#D4AF37", marginBottom: "3px" }}>EST. 2018 · AMSTERDAM</div>
           <div style={{ fontSize: "15px", fontWeight: 400, lineHeight: 1.15, marginBottom: "5px" }}>Where Every<br /><em style={{ color: "#D4AF37" }}>Sip</em> Tells<br />a Story</div>
           <div style={{ display: "flex", gap: "5px" }}>
             <div style={{ background: "#D4AF37", color: "#1A0F0A", padding: "3px 8px", borderRadius: "2px", fontSize: "6px", fontWeight: 700 }}>View Menu</div>
@@ -59,9 +59,9 @@ function CoffeeHomepagePreview() {
       {/* Cards row */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "5px", padding: "8px 10px" }}>
         {[
-          { img: IMG.latte, name: "Signature Latte", price: "₪22" },
-          { img: IMG.drink, name: "Cold Brew", price: "₪26" },
-          { img: IMG.flatlay, name: "Morning Set", price: "₪38" },
+          { img: IMG.latte, name: "Signature Latte", price: "€5.80" },
+          { img: IMG.drink, name: "Cold Brew", price: "€6.50" },
+          { img: IMG.flatlay, name: "Morning Set", price: "€9.50" },
         ].map(item => (
           <div key={item.name} style={{ borderRadius: "4px", overflow: "hidden", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(212,175,55,0.08)" }}>
             <img src={item.img} alt="" style={{ width: "100%", height: "42px", objectFit: "cover" }} />
@@ -106,10 +106,10 @@ function CoffeeMenuPreview() {
       {/* Menu grid */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5px", padding: "7px 10px" }}>
         {[
-          { img: IMG.latte, name: "Signature Latte", desc: "Oat milk, vanilla, espresso", price: "₪22" },
-          { img: IMG.cup, name: "Flat White", desc: "Double ristretto, steamed milk", price: "₪18" },
-          { img: IMG.topdown, name: "Cold Brew", desc: "12-hour brew, over ice", price: "₪20" },
-          { img: IMG.drink, name: "Iced Matcha", desc: "Ceremonial grade, oat milk", price: "₪24" },
+          { img: IMG.latte, name: "Signature Latte", desc: "Oat milk, vanilla, espresso", price: "€5.80" },
+          { img: IMG.cup, name: "Flat White", desc: "Double ristretto, steamed milk", price: "€4.80" },
+          { img: IMG.topdown, name: "Cold Brew", desc: "12-hour brew, over ice", price: "€5.20" },
+          { img: IMG.drink, name: "Iced Matcha", desc: "Ceremonial grade, oat milk", price: "€6.00" },
         ].map(item => (
           <div key={item.name} style={{ display: "flex", gap: "5px", alignItems: "center", background: "rgba(255,255,255,0.03)", borderRadius: "4px", padding: "4px", border: "1px solid rgba(212,175,55,0.07)" }}>
             <img src={item.img} alt="" style={{ width: "32px", height: "32px", borderRadius: "3px", objectFit: "cover", flexShrink: 0 }} />
@@ -151,7 +151,7 @@ function CoffeeContactPreview() {
             <div style={{ fontSize: "5.5px", letterSpacing: "3px", color: "#D4AF37", marginBottom: "3px" }}>FIND US</div>
             <div style={{ fontSize: "11px", fontWeight: 400, marginBottom: "6px" }}>Come Visit Us</div>
             <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-              {["📍 12 Rothschild Blvd, Tel Aviv", "🕐 Mon–Fri: 7am – 9pm", "📞 +972 50-123-4567", "📱 @bellacucina.tlv"].map(t => (
+              {["📍 12 Keizersgracht, Amsterdam", "🕐 Mon–Fri: 7am – 9pm", "📞 +31 20-123-4567", "📱 @bellacucina.ams"].map(t => (
                 <div key={t} style={{ fontSize: "6px", color: "#C9B99A" }}>{t}</div>
               ))}
             </div>
@@ -173,7 +173,7 @@ function CoffeeContactPreview() {
           ))}
           <div style={{ background: "#D4AF37", color: "#1A0F0A", padding: "4px", borderRadius: "3px", fontSize: "6.5px", fontWeight: 700, textAlign: "center", marginTop: "6px" }}>Send Reservation</div>
           <div style={{ marginTop: "7px", background: "#2A1A10", borderRadius: "3px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(212,175,55,0.08)" }}>
-            <span style={{ fontSize: "6px", color: "#8B7355" }}>📍 Google Maps — Rothschild Blvd</span>
+            <span style={{ fontSize: "6px", color: "#8B7355" }}>📍 Google Maps — Keizersgracht</span>
           </div>
         </div>
       </div>
@@ -205,8 +205,8 @@ function CoffeeMobilePreview() {
         <div style={{ fontSize: "5.5px", letterSpacing: "2px", color: "#D4AF37", marginBottom: "4px" }}>FEATURED</div>
         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
           {[
-            { img: IMG.cup, name: "Signature Latte", price: "₪22", desc: "Oat milk & vanilla" },
-            { img: IMG.flatlay, name: "Morning Set", price: "₪38", desc: "Coffee + pastry" },
+            { img: IMG.cup, name: "Signature Latte", price: "€5.80", desc: "Oat milk & vanilla" },
+            { img: IMG.flatlay, name: "Morning Set", price: "€9.50", desc: "Coffee + pastry" },
           ].map(item => (
             <div key={item.name} style={{ display: "flex", gap: "5px", alignItems: "center", background: "rgba(255,255,255,0.04)", borderRadius: "4px", padding: "4px", border: "1px solid rgba(212,175,55,0.08)" }}>
               <img src={item.img} alt="" style={{ width: "34px", height: "34px", borderRadius: "3px", objectFit: "cover", flexShrink: 0 }} />
@@ -227,6 +227,73 @@ function CoffeeMobilePreview() {
             <span style={{ fontSize: "5px", color: i === 0 ? "#D4AF37" : "#8B7355" }}>{label}</span>
           </div>
         ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Mobile Menu Preview ────────────────────────────────────────────────────
+function CoffeeMobileMenuPreview() {
+  return (
+    <div style={{ fontFamily: "'Georgia', serif", background: "#1A0F0A", color: "#F5EDD8", width: "100%", height: "100%", overflow: "hidden", userSelect: "none" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "5px 8px", background: "rgba(26,15,10,0.98)", borderBottom: "1px solid rgba(212,175,55,0.2)" }}>
+        <span style={{ fontSize: "8px", fontWeight: 700, letterSpacing: "2px", color: "#D4AF37" }}>BELLA CUCINA</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.5px" }}>
+          {[0,1,2].map(i => <div key={i} style={{ width: "12px", height: "1.5px", background: "#D4AF37" }} />)}
+        </div>
+      </div>
+      <div style={{ padding: "5px 7px 3px", borderBottom: "1px solid rgba(212,175,55,0.1)", textAlign: "center" }}>
+        <div style={{ fontSize: "5px", letterSpacing: "2.5px", color: "#D4AF37", marginBottom: "1px" }}>OUR MENU</div>
+        <div style={{ fontSize: "10px" }}>Crafted with Passion</div>
+      </div>
+      <div style={{ display: "flex", gap: "3px", padding: "4px 7px", borderBottom: "1px solid rgba(212,175,55,0.08)" }}>
+        {["Coffee", "Cold", "Pastries"].map((tab, i) => (
+          <div key={tab} style={{ padding: "2px 6px", borderRadius: "20px", fontSize: "5.5px", background: i === 0 ? "#D4AF37" : "rgba(212,175,55,0.08)", color: i === 0 ? "#1A0F0A" : "#C9B99A", fontWeight: i === 0 ? 700 : 400 }}>{tab}</div>
+        ))}
+      </div>
+      <div style={{ padding: "6px 7px", display: "flex", flexDirection: "column", gap: "4px" }}>
+        {[
+          { img: IMG.latte, name: "Signature Latte", price: "€5.80" },
+          { img: IMG.cup, name: "Flat White", price: "€4.80" },
+          { img: IMG.drink, name: "Iced Matcha", price: "€6.00" },
+        ].map(item => (
+          <div key={item.name} style={{ display: "flex", gap: "5px", alignItems: "center", background: "rgba(255,255,255,0.04)", borderRadius: "4px", padding: "4px", border: "1px solid rgba(212,175,55,0.08)" }}>
+            <img src={item.img} alt="" style={{ width: "30px", height: "30px", borderRadius: "3px", objectFit: "cover", flexShrink: 0 }} />
+            <div>
+              <div style={{ fontSize: "6.5px", fontWeight: 700 }}>{item.name}</div>
+              <div style={{ fontSize: "6.5px", color: "#D4AF37", fontWeight: 700, marginTop: "1px" }}>{item.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Mobile Contact Preview ───────────────────────────────────────────────────
+function CoffeeMobileContactPreview() {
+  return (
+    <div style={{ fontFamily: "'Georgia', serif", background: "#1A0F0A", color: "#F5EDD8", width: "100%", height: "100%", overflow: "hidden", userSelect: "none" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "5px 8px", background: "rgba(26,15,10,0.98)", borderBottom: "1px solid rgba(212,175,55,0.2)" }}>
+        <span style={{ fontSize: "8px", fontWeight: 700, letterSpacing: "2px", color: "#D4AF37" }}>BELLA CUCINA</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.5px" }}>
+          {[0,1,2].map(i => <div key={i} style={{ width: "12px", height: "1.5px", background: "#D4AF37" }} />)}
+        </div>
+      </div>
+      <div style={{ position: "relative", height: "65px", overflow: "hidden" }}>
+        <img src={IMG.atmosphere} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.35)" }} />
+        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
+          <div style={{ fontSize: "5px", letterSpacing: "2.5px", color: "#D4AF37", marginBottom: "2px" }}>FIND US</div>
+          <div style={{ fontSize: "11px", fontWeight: 400 }}>Come Visit Us</div>
+        </div>
+      </div>
+      <div style={{ padding: "7px 8px", display: "flex", flexDirection: "column", gap: "4px" }}>
+        {["📍 12 Keizersgracht, Amsterdam", "🕐 Mon–Fri: 7am – 9pm", "📞 +31 20-123-4567", "📱 @bellacucina.ams"].map(t => (
+          <div key={t} style={{ fontSize: "6px", color: "#C9B99A", padding: "3px 5px", background: "rgba(255,255,255,0.03)", borderRadius: "3px", border: "1px solid rgba(212,175,55,0.08)" }}>{t}</div>
+        ))}
+      </div>
+      <div style={{ padding: "0 8px", marginTop: "4px" }}>
+        <div style={{ background: "#25D366", color: "#fff", padding: "5px", borderRadius: "4px", fontSize: "7px", fontWeight: 700, textAlign: "center" }}>WhatsApp Us</div>
       </div>
     </div>
   );
@@ -341,10 +408,15 @@ const TEMPLATES = [
 // ─── Modal preview renderer ───────────────────────────────────────────────────
 function ModalPreview({ page, view }: { page: string; view: "desktop" | "mobile" }) {
   if (view === "mobile") {
+    const mobileMap: Record<string, React.ReactNode> = {
+      home: <CoffeeMobilePreview />,
+      menu: <CoffeeMobileMenuPreview />,
+      contact: <CoffeeMobileContactPreview />,
+    };
     return (
       <div className="flex justify-center py-6" style={{ background: "linear-gradient(135deg, #F0F4FF, #F5F0FF)", borderRadius: "12px" }}>
         <PhoneFrame height={260}>
-          <CoffeeMobilePreview />
+          {mobileMap[page] ?? <CoffeeMobilePreview />}
         </PhoneFrame>
       </div>
     );

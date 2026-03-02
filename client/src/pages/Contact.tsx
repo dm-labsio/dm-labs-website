@@ -103,7 +103,7 @@ export default function Contact() {
                       <p className="text-xs text-[#5B6472]">Remote-first</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472]">Based in Israel, serving businesses worldwide</p>
+                  <p className="text-sm text-[#5B6472]">Based in Europe, serving businesses worldwide</p>
                 </div>
               </AnimateIn>
             </div>

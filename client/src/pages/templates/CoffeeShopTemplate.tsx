@@ -42,7 +42,7 @@ export default function CoffeeShopTemplate() {
         <img src={ASSETS.hero} alt="Coffee shop interior" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,16,8,0.85) 40%, rgba(26,16,8,0.3) 100%)" }} />
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 80px" }}>
-          <p style={{ fontSize: 12, letterSpacing: "0.3em", textTransform: "uppercase", color: "#c8956c", marginBottom: 16 }}>Est. 2018 · Tel Aviv</p>
+          <p style={{ fontSize: 12, letterSpacing: "0.3em", textTransform: "uppercase", color: "#c8956c", marginBottom: 16 }}>Est. 2018 · Amsterdam</p>
           <h1 style={{ fontSize: 64, fontWeight: 400, lineHeight: 1.1, marginBottom: 24, maxWidth: 500 }}>
             Where Every<br /><em style={{ color: "#c8956c" }}>Sip</em> Tells<br />a Story
           </h1>
@@ -75,9 +75,9 @@ export default function CoffeeShopTemplate() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 }}>
           {[
-            { img: ASSETS.latte, name: "Signature Latte", desc: "Velvety espresso with steamed oat milk and our house caramel drizzle", price: "₪22" },
-            { img: ASSETS.drink, name: "Cold Brew Reserve", desc: "18-hour slow-steeped Colombian beans, served over hand-chipped ice", price: "₪26" },
-            { img: ASSETS.flatlay, name: "Morning Set", desc: "Your choice of coffee paired with a freshly baked croissant or muffin", price: "₪38" },
+            { img: ASSETS.latte, name: "Signature Latte", desc: "Velvety espresso with steamed oat milk and our house caramel drizzle", price: "€5.80" },
+            { img: ASSETS.drink, name: "Cold Brew Reserve", desc: "18-hour slow-steeped Colombian beans, served over hand-chipped ice", price: "€6.50" },
+            { img: ASSETS.flatlay, name: "Morning Set", desc: "Your choice of coffee paired with a freshly baked croissant or muffin", price: "€9.50" },
           ].map((item) => (
             <div key={item.name} style={{ background: "rgba(245,234,216,0.04)", borderRadius: 8, overflow: "hidden", border: "1px solid rgba(245,234,216,0.08)" }}>
               <div style={{ height: 220, overflow: "hidden" }}>
@@ -159,7 +159,7 @@ export default function CoffeeShopTemplate() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {[
-            { name: "Noa K.", text: "The best latte I've had in Tel Aviv. The atmosphere is warm and the staff genuinely care. My go-to spot every morning." },
+            { name: "Noa K.", text: "The best latte I've had in Amsterdam. The atmosphere is warm and the staff genuinely care. My go-to spot every morning. The atmosphere is warm and the staff genuinely care. My go-to spot every morning." },
             { name: "Daniel R.", text: "Incredible coffee and even better pastries. The cold brew is absolutely perfect — smooth, not bitter at all." },
             { name: "Maya S.", text: "I discovered Bella Cucina last month and now I can't imagine my week without it. The morning set is a ritual now." },
           ].map(r => (
@@ -181,7 +181,7 @@ export default function CoffeeShopTemplate() {
           <h2 style={{ fontSize: 36, fontWeight: 400, color: "#f5ead8", marginBottom: 32 }}>Come Visit Us</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
             {[
-              { label: "Address", value: "14 Rothschild Blvd, Tel Aviv" },
+              { label: "Address", value: "12 Keizersgracht, Amsterdam" },
               { label: "Hours", value: "Mon–Fri: 7:00–20:00 · Sat–Sun: 8:00–21:00" },
               { label: "Phone", value: "+972 50-000-0000" },
               { label: "Instagram", value: "@bellacucina.tlv" },
@@ -205,7 +205,7 @@ export default function CoffeeShopTemplate() {
           <div style={{ textAlign: "center", color: "#9a7e65" }}>
             <div style={{ fontSize: 48, marginBottom: 12 }}>📍</div>
             <p style={{ fontSize: 14, letterSpacing: "0.1em" }}>Google Maps Embed</p>
-            <p style={{ fontSize: 12, marginTop: 4 }}>14 Rothschild Blvd, Tel Aviv</p>
+            <p style={{ fontSize: 12, marginTop: 4 }}>12 Keizersgracht, Amsterdam</p>
           </div>
         </div>
       </section>
