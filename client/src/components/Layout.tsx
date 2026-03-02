@@ -143,7 +143,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             {/* Brand */}
             <div className="lg:col-span-1">
-              <img src={LOGO_URL} alt="D&M Labs" style={{ width: '140px', height: 'auto', marginBottom: '20px', filter: 'brightness(0) invert(1)' }} />
+              <img src={LOGO_URL} alt="D&M Labs" style={{ width: '140px', height: 'auto', marginBottom: '20px' }} />
               <p className="text-sm text-[#94A3B8] leading-relaxed max-w-xs">
                 We build modern, professional websites for small businesses. From concept to launch — fast, simple, and affordable.
               </p>

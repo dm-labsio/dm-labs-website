@@ -183,48 +183,48 @@ function CoffeeContactPreview() {
 
 function CoffeeMobilePreview() {
   return (
-    <div style={{ fontFamily: "'Georgia', serif", background: "#1A0F0A", color: "#F5EDD8", width: "100%", height: "100%", overflow: "hidden", userSelect: "none" }}>
+    <div style={{ fontFamily: "'Georgia', serif", background: "#1A0F0A", color: "#F5EDD8", width: "100%", height: "100%", overflow: "hidden", userSelect: "none", position: "relative" }}>
       {/* Mobile nav */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "5px 8px", background: "rgba(26,15,10,0.98)", borderBottom: "1px solid rgba(212,175,55,0.2)" }}>
-        <span style={{ fontSize: "8px", fontWeight: 700, letterSpacing: "2px", color: "#D4AF37" }}>BELLA CUCINA</span>
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.5px" }}>
-          {[0,1,2].map(i => <div key={i} style={{ width: "12px", height: "1.5px", background: "#D4AF37" }} />)}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 14px", background: "rgba(26,15,10,0.98)", borderBottom: "1px solid rgba(212,175,55,0.2)" }}>
+        <span style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "2px", color: "#D4AF37" }}>BELLA CUCINA</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+          {[0,1,2].map(i => <div key={i} style={{ width: "20px", height: "2px", background: "#D4AF37" }} />)}
         </div>
       </div>
       {/* Hero */}
-      <div style={{ position: "relative", height: "90px", overflow: "hidden" }}>
+      <div style={{ position: "relative", height: "160px", overflow: "hidden" }}>
         <img src={IMG.latte} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.38)" }} />
-        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "0 6px" }}>
-          <div style={{ fontSize: "5px", letterSpacing: "2.5px", color: "#D4AF37", marginBottom: "2px" }}>ARTISAN COFFEE</div>
-          <div style={{ fontSize: "12px", fontWeight: 400, lineHeight: 1.1, marginBottom: "5px" }}>Where Every<br />Cup Tells<br />a Story</div>
-          <div style={{ background: "#D4AF37", color: "#1A0F0A", padding: "3px 9px", borderRadius: "2px", fontSize: "6px", fontWeight: 700 }}>View Menu</div>
+        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "0 12px" }}>
+          <div style={{ fontSize: "9px", letterSpacing: "2.5px", color: "#D4AF37", marginBottom: "5px" }}>ARTISAN COFFEE</div>
+          <div style={{ fontSize: "22px", fontWeight: 400, lineHeight: 1.1, marginBottom: "10px" }}>Where Every<br />Cup Tells<br />a Story</div>
+          <div style={{ background: "#D4AF37", color: "#1A0F0A", padding: "6px 16px", borderRadius: "3px", fontSize: "11px", fontWeight: 700 }}>View Menu</div>
         </div>
       </div>
       {/* Feature items */}
-      <div style={{ padding: "7px 7px 0" }}>
-        <div style={{ fontSize: "5.5px", letterSpacing: "2px", color: "#D4AF37", marginBottom: "4px" }}>FEATURED</div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+      <div style={{ padding: "12px 12px 0" }}>
+        <div style={{ fontSize: "9px", letterSpacing: "2px", color: "#D4AF37", marginBottom: "8px" }}>FEATURED</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "7px" }}>
           {[
             { img: IMG.cup, name: "Signature Latte", price: "€5.80", desc: "Oat milk & vanilla" },
             { img: IMG.flatlay, name: "Morning Set", price: "€9.50", desc: "Coffee + pastry" },
           ].map(item => (
-            <div key={item.name} style={{ display: "flex", gap: "5px", alignItems: "center", background: "rgba(255,255,255,0.04)", borderRadius: "4px", padding: "4px", border: "1px solid rgba(212,175,55,0.08)" }}>
-              <img src={item.img} alt="" style={{ width: "34px", height: "34px", borderRadius: "3px", objectFit: "cover", flexShrink: 0 }} />
+            <div key={item.name} style={{ display: "flex", gap: "9px", alignItems: "center", background: "rgba(255,255,255,0.04)", borderRadius: "6px", padding: "7px", border: "1px solid rgba(212,175,55,0.08)" }}>
+              <img src={item.img} alt="" style={{ width: "52px", height: "52px", borderRadius: "5px", objectFit: "cover", flexShrink: 0 }} />
               <div>
-                <div style={{ fontSize: "7px", fontWeight: 700 }}>{item.name}</div>
-                <div style={{ fontSize: "5.5px", color: "#8B7355" }}>{item.desc}</div>
-                <div style={{ fontSize: "7px", color: "#D4AF37", fontWeight: 700, marginTop: "1px" }}>{item.price}</div>
+                <div style={{ fontSize: "12px", fontWeight: 700 }}>{item.name}</div>
+                <div style={{ fontSize: "10px", color: "#8B7355", marginTop: "2px" }}>{item.desc}</div>
+                <div style={{ fontSize: "12px", color: "#D4AF37", fontWeight: 700, marginTop: "2px" }}>{item.price}</div>
               </div>
             </div>
           ))}
         </div>
       </div>
       {/* Bottom nav */}
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "#231508", borderTop: "1px solid rgba(212,175,55,0.15)", padding: "4px 6px", display: "flex", justifyContent: "space-around" }}>
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "#231508", borderTop: "1px solid rgba(212,175,55,0.15)", padding: "7px 10px", display: "flex", justifyContent: "space-around" }}>
         {[["🏠","Home"],["☕","Menu"],["🖼","Gallery"],["📞","Contact"]].map(([icon, label], i) => (
-          <div key={label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1px" }}>
-            <span style={{ fontSize: "9px" }}>{icon}</span>
-            <span style={{ fontSize: "5px", color: i === 0 ? "#D4AF37" : "#8B7355" }}>{label}</span>
+          <div key={label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "2px" }}>
+            <span style={{ fontSize: "16px" }}>{icon}</span>
+            <span style={{ fontSize: "9px", color: i === 0 ? "#D4AF37" : "#8B7355" }}>{label}</span>
           </div>
         ))}
       </div>
@@ -236,32 +236,32 @@ function CoffeeMobilePreview() {
 function CoffeeMobileMenuPreview() {
   return (
     <div style={{ fontFamily: "'Georgia', serif", background: "#1A0F0A", color: "#F5EDD8", width: "100%", height: "100%", overflow: "hidden", userSelect: "none" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "5px 8px", background: "rgba(26,15,10,0.98)", borderBottom: "1px solid rgba(212,175,55,0.2)" }}>
-        <span style={{ fontSize: "8px", fontWeight: 700, letterSpacing: "2px", color: "#D4AF37" }}>BELLA CUCINA</span>
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.5px" }}>
-          {[0,1,2].map(i => <div key={i} style={{ width: "12px", height: "1.5px", background: "#D4AF37" }} />)}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 14px", background: "rgba(26,15,10,0.98)", borderBottom: "1px solid rgba(212,175,55,0.2)" }}>
+        <span style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "2px", color: "#D4AF37" }}>BELLA CUCINA</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+          {[0,1,2].map(i => <div key={i} style={{ width: "20px", height: "2px", background: "#D4AF37" }} />)}
         </div>
       </div>
-      <div style={{ padding: "5px 7px 3px", borderBottom: "1px solid rgba(212,175,55,0.1)", textAlign: "center" }}>
-        <div style={{ fontSize: "5px", letterSpacing: "2.5px", color: "#D4AF37", marginBottom: "1px" }}>OUR MENU</div>
-        <div style={{ fontSize: "10px" }}>Crafted with Passion</div>
+      <div style={{ padding: "10px 14px 6px", borderBottom: "1px solid rgba(212,175,55,0.1)", textAlign: "center" }}>
+        <div style={{ fontSize: "9px", letterSpacing: "2.5px", color: "#D4AF37", marginBottom: "3px" }}>OUR MENU</div>
+        <div style={{ fontSize: "18px" }}>Crafted with Passion</div>
       </div>
-      <div style={{ display: "flex", gap: "3px", padding: "4px 7px", borderBottom: "1px solid rgba(212,175,55,0.08)" }}>
-        {["Coffee", "Cold", "Pastries"].map((tab, i) => (
-          <div key={tab} style={{ padding: "2px 6px", borderRadius: "20px", fontSize: "5.5px", background: i === 0 ? "#D4AF37" : "rgba(212,175,55,0.08)", color: i === 0 ? "#1A0F0A" : "#C9B99A", fontWeight: i === 0 ? 700 : 400 }}>{tab}</div>
+      <div style={{ display: "flex", gap: "6px", padding: "8px 14px", borderBottom: "1px solid rgba(212,175,55,0.08)" }}>
+        {["Coffee", "Cold Brew", "Pastries"].map((tab, i) => (
+          <div key={tab} style={{ padding: "4px 10px", borderRadius: "20px", fontSize: "10px", background: i === 0 ? "#D4AF37" : "rgba(212,175,55,0.08)", color: i === 0 ? "#1A0F0A" : "#C9B99A", fontWeight: i === 0 ? 700 : 400 }}>{tab}</div>
         ))}
       </div>
-      <div style={{ padding: "6px 7px", display: "flex", flexDirection: "column", gap: "4px" }}>
+      <div style={{ padding: "10px 12px", display: "flex", flexDirection: "column", gap: "7px" }}>
         {[
           { img: IMG.latte, name: "Signature Latte", price: "€5.80" },
           { img: IMG.cup, name: "Flat White", price: "€4.80" },
           { img: IMG.drink, name: "Iced Matcha", price: "€6.00" },
         ].map(item => (
-          <div key={item.name} style={{ display: "flex", gap: "5px", alignItems: "center", background: "rgba(255,255,255,0.04)", borderRadius: "4px", padding: "4px", border: "1px solid rgba(212,175,55,0.08)" }}>
-            <img src={item.img} alt="" style={{ width: "30px", height: "30px", borderRadius: "3px", objectFit: "cover", flexShrink: 0 }} />
+          <div key={item.name} style={{ display: "flex", gap: "9px", alignItems: "center", background: "rgba(255,255,255,0.04)", borderRadius: "6px", padding: "7px", border: "1px solid rgba(212,175,55,0.08)" }}>
+            <img src={item.img} alt="" style={{ width: "48px", height: "48px", borderRadius: "5px", objectFit: "cover", flexShrink: 0 }} />
             <div>
-              <div style={{ fontSize: "6.5px", fontWeight: 700 }}>{item.name}</div>
-              <div style={{ fontSize: "6.5px", color: "#D4AF37", fontWeight: 700, marginTop: "1px" }}>{item.price}</div>
+              <div style={{ fontSize: "12px", fontWeight: 700 }}>{item.name}</div>
+              <div style={{ fontSize: "12px", color: "#D4AF37", fontWeight: 700, marginTop: "3px" }}>{item.price}</div>
             </div>
           </div>
         ))}
@@ -274,26 +274,26 @@ function CoffeeMobileMenuPreview() {
 function CoffeeMobileContactPreview() {
   return (
     <div style={{ fontFamily: "'Georgia', serif", background: "#1A0F0A", color: "#F5EDD8", width: "100%", height: "100%", overflow: "hidden", userSelect: "none" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "5px 8px", background: "rgba(26,15,10,0.98)", borderBottom: "1px solid rgba(212,175,55,0.2)" }}>
-        <span style={{ fontSize: "8px", fontWeight: 700, letterSpacing: "2px", color: "#D4AF37" }}>BELLA CUCINA</span>
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.5px" }}>
-          {[0,1,2].map(i => <div key={i} style={{ width: "12px", height: "1.5px", background: "#D4AF37" }} />)}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 14px", background: "rgba(26,15,10,0.98)", borderBottom: "1px solid rgba(212,175,55,0.2)" }}>
+        <span style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "2px", color: "#D4AF37" }}>BELLA CUCINA</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+          {[0,1,2].map(i => <div key={i} style={{ width: "20px", height: "2px", background: "#D4AF37" }} />)}
         </div>
       </div>
-      <div style={{ position: "relative", height: "65px", overflow: "hidden" }}>
+      <div style={{ position: "relative", height: "120px", overflow: "hidden" }}>
         <img src={IMG.atmosphere} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.35)" }} />
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
-          <div style={{ fontSize: "5px", letterSpacing: "2.5px", color: "#D4AF37", marginBottom: "2px" }}>FIND US</div>
-          <div style={{ fontSize: "11px", fontWeight: 400 }}>Come Visit Us</div>
+          <div style={{ fontSize: "9px", letterSpacing: "2.5px", color: "#D4AF37", marginBottom: "4px" }}>FIND US</div>
+          <div style={{ fontSize: "20px", fontWeight: 400 }}>Come Visit Us</div>
         </div>
       </div>
-      <div style={{ padding: "7px 8px", display: "flex", flexDirection: "column", gap: "4px" }}>
-        {["📍 12 Keizersgracht, Amsterdam", "🕐 Mon–Fri: 7am – 9pm", "📞 +31 20-123-4567", "📱 @bellacucina.ams"].map(t => (
-          <div key={t} style={{ fontSize: "6px", color: "#C9B99A", padding: "3px 5px", background: "rgba(255,255,255,0.03)", borderRadius: "3px", border: "1px solid rgba(212,175,55,0.08)" }}>{t}</div>
+      <div style={{ padding: "12px 12px", display: "flex", flexDirection: "column", gap: "7px" }}>
+        {["\ud83d\udccd 12 Keizersgracht, Amsterdam", "\ud83d\udd50 Mon\u2013Fri: 7am \u2013 9pm", "\ud83d\udcde +31 20-123-4567", "\ud83d\udcf1 @bellacucina.ams"].map(t => (
+          <div key={t} style={{ fontSize: "11px", color: "#C9B99A", padding: "6px 8px", background: "rgba(255,255,255,0.03)", borderRadius: "5px", border: "1px solid rgba(212,175,55,0.08)" }}>{t}</div>
         ))}
       </div>
-      <div style={{ padding: "0 8px", marginTop: "4px" }}>
-        <div style={{ background: "#25D366", color: "#fff", padding: "5px", borderRadius: "4px", fontSize: "7px", fontWeight: 700, textAlign: "center" }}>WhatsApp Us</div>
+      <div style={{ padding: "0 12px", marginTop: "6px" }}>
+        <div style={{ background: "#25D366", color: "#fff", padding: "9px", borderRadius: "6px", fontSize: "12px", fontWeight: 700, textAlign: "center" }}>WhatsApp Us</div>
       </div>
     </div>
   );
@@ -323,20 +323,38 @@ function BrowserFrame({ children, url = "bellacucina.com", height = 220 }: { chi
 }
 
 // ─── Phone Frame ──────────────────────────────────────────────────────────────
-function PhoneFrame({ children, height = 180 }: { children: React.ReactNode; height?: number }) {
+// Modern phone proportions: ~375×812 real device → displayed at 200px wide
+// Aspect ratio 9:19.5 → height = width × (19.5/9) ≈ 2.17
+function PhoneFrame({ children }: { children: React.ReactNode }) {
+  const W = 200; // display width in px
+  const CONTENT_H = Math.round(W * (19.5 / 9)) - 48; // subtract notch+bar
   return (
-    <div style={{ width: "80px", borderRadius: "14px", overflow: "hidden", border: "2.5px solid #D1D5DB", background: "#1A1A1A", boxShadow: "0 8px 24px rgba(0,0,0,0.18)", flexShrink: 0 }}>
-      {/* Status bar */}
-      <div style={{ height: "14px", background: "#1A1A1A", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ width: "28px", height: "4px", borderRadius: "2px", background: "#333" }} />
+    <div style={{
+      width: `${W}px`,
+      borderRadius: "28px",
+      overflow: "hidden",
+      border: "3px solid #2A2A2A",
+      background: "#1A1A1A",
+      boxShadow: "0 20px 60px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.06)",
+      flexShrink: 0,
+      position: "relative",
+    }}>
+      {/* Notch / Dynamic Island */}
+      <div style={{ height: "28px", background: "#1A1A1A", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
+        {/* Side buttons (decorative) */}
+        <div style={{ position: "absolute", left: "-3px", top: "30px", width: "3px", height: "28px", background: "#333", borderRadius: "2px 0 0 2px" }} />
+        <div style={{ position: "absolute", left: "-3px", top: "66px", width: "3px", height: "28px", background: "#333", borderRadius: "2px 0 0 2px" }} />
+        <div style={{ position: "absolute", right: "-3px", top: "44px", width: "3px", height: "44px", background: "#333", borderRadius: "0 2px 2px 0" }} />
+        {/* Dynamic island pill */}
+        <div style={{ width: "72px", height: "14px", borderRadius: "20px", background: "#000" }} />
       </div>
-      {/* Content */}
-      <div style={{ height: `${height}px`, overflow: "hidden", position: "relative" }}>
+      {/* Screen content */}
+      <div style={{ height: `${CONTENT_H}px`, overflow: "hidden", position: "relative", background: "#000" }}>
         {children}
       </div>
-      {/* Home bar */}
-      <div style={{ height: "10px", background: "#1A1A1A", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ width: "20px", height: "3px", borderRadius: "2px", background: "#444" }} />
+      {/* Home indicator bar */}
+      <div style={{ height: "20px", background: "#1A1A1A", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: "60px", height: "4px", borderRadius: "4px", background: "rgba(255,255,255,0.25)" }} />
       </div>
     </div>
   );
@@ -345,16 +363,16 @@ function PhoneFrame({ children, height = 180 }: { children: React.ReactNode; hei
 // ─── Template Card Composite Preview ─────────────────────────────────────────
 function TemplateCardPreview() {
   return (
-    <div className="relative w-full" style={{ height: "200px", background: "linear-gradient(135deg, #F0F4FF 0%, #F5F0FF 100%)", borderRadius: "12px 12px 0 0", overflow: "hidden", padding: "12px 12px 0" }}>
+    <div className="relative w-full" style={{ height: "260px", background: "linear-gradient(135deg, #F0F4FF 0%, #F5F0FF 100%)", borderRadius: "12px 12px 0 0", overflow: "hidden", padding: "14px 14px 0" }}>
       {/* Desktop preview — takes most of the space */}
-      <div style={{ position: "absolute", left: "10px", top: "10px", right: "80px", bottom: "0" }}>
-        <BrowserFrame url="bellacucina.com" height={178}>
+      <div style={{ position: "absolute", left: "12px", top: "12px", right: "100px", bottom: "0" }}>
+        <BrowserFrame url="bellacucina.com" height={238}>
           <CoffeeHomepagePreview />
         </BrowserFrame>
       </div>
-      {/* Phone preview — overlapping bottom-right */}
-      <div style={{ position: "absolute", right: "10px", bottom: "0", zIndex: 10 }}>
-        <PhoneFrame height={140}>
+      {/* Phone preview — overlapping bottom-right, scaled down to fit card */}
+      <div style={{ position: "absolute", right: "8px", bottom: "0", zIndex: 10, transform: "scale(0.46)", transformOrigin: "bottom right" }}>
+        <PhoneFrame>
           <CoffeeMobilePreview />
         </PhoneFrame>
       </div>
@@ -414,8 +432,8 @@ function ModalPreview({ page, view }: { page: string; view: "desktop" | "mobile"
       contact: <CoffeeMobileContactPreview />,
     };
     return (
-      <div className="flex justify-center py-6" style={{ background: "linear-gradient(135deg, #F0F4FF, #F5F0FF)", borderRadius: "12px" }}>
-        <PhoneFrame height={260}>
+      <div className="flex justify-center items-center" style={{ background: "linear-gradient(135deg, #F0F4FF, #F5F0FF)", borderRadius: "12px", padding: "32px 24px", minHeight: "560px" }}>
+        <PhoneFrame>
           {mobileMap[page] ?? <CoffeeMobilePreview />}
         </PhoneFrame>
       </div>
