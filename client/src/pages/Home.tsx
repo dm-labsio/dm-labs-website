@@ -324,20 +324,23 @@ export default function HomePage() {
 
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {[
-              { icon: Utensils, label: "Restaurants" },
-              { icon: Scissors, label: "Beauty Salons" },
-              { icon: Stethoscope, label: "Clinics" },
-              { icon: Briefcase, label: "Consultants" },
-              { icon: HomeIcon, label: "Real Estate" },
-              { icon: Car, label: "Car Rentals" },
+              { icon: Utensils, label: "Restaurants", industry: "restaurant" },
+              { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
+              { icon: Stethoscope, label: "Clinics", industry: "clinic" },
+              { icon: Briefcase, label: "Consultants", industry: "services" },
+              { icon: HomeIcon, label: "Real Estate", industry: "retail" },
+              { icon: Car, label: "Car Rentals", industry: "services" },
             ].map((biz) => (
               <StaggerItem key={biz.label}>
-                <div className="dm-card text-center !p-6">
-                  <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
-                    <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
+                <Link href={`/templates?industry=${biz.industry}`}>
+                  <div className="dm-card text-center !p-6 cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
+                    <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
+                      <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
+                    </div>
+                    <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
+                    <p className="text-xs text-[#5B8CFF] mt-1">View templates →</p>
                   </div>
-                  <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
-                </div>
+                </Link>
               </StaggerItem>
             ))}
           </StaggerContainer>
