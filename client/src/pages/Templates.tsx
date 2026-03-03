@@ -1,61 +1,53 @@
-/* ============================================================
-   TEMPLATES PAGE — D&M Labs
-   Design: Matches D&M Labs brand — warm off-white bg, blue-cyan-violet
-   gradient accents, glassmorphism cards, dm-card system.
-   Key feature: Real screenshot images displayed inside browser/phone frames.
-   ============================================================ */
-
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Monitor, Smartphone, Star, ArrowRight, Check, ChevronRight } from "lucide-react";
 
-// ─── CDN URLs for all 4 restaurant templates ─────────────────────────────────
+// ─── CDN URLs — uploaded fresh from project files, all Expires=1804078854+ ───
 const CDN = {
   r1: {
-    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/tmFqZzxmDeoWkTaZ.png?Expires=1804076303&Signature=PSxLKGi0ssJYHYtYfeZT5JWtJoE-NDZSmGytutjCJ5mYLkYMj7RGnMYiDwUk9RFK97NR5mN5l2G1bl0Qx1HRw1~6K~VQf2BMqsSja4JdByVLdNnFY1EqRv142TsTl2lGbaAX9Q5knyEzzKSAmL5rMsgbxPEfDTIcfdn-4fr43gjS3zgE7~u8tu2I9LrsedFK8dW4dYFLmGGq6zizLMM~~3j2ZZ4X3MMXSfTA0syBbsf8mSZaijCxW6LVuug7CKbeJBYqL1V0VcRxAT2CxybfF9~eRvBm57tzGzphLlEoHV3Y7MU69UYhqMrwPjLybfYCWlK5YaiuXrWBUlwHRcU35A__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/kXrYLAFJnVyYoBgn.jpg?Expires=1804076304&Signature=Baum3x7OEfuvLshOvLIOLKrq1IK9QLG5cHzoc14EYz-Nb3v1Ku0jFmb4RPKVFuuuVFtVRAcy6Kp9IHNlxwSmOrrpH-fKhsQL9Po9wgib4fjukJdHR~f~F050BXrGqMxiCp3cBXoxn8i7EVOS-nFIh3RKU22QCZWt6MliYQr0S3KfJZvg5eqm-HXtkVvXFR-MnnZVVIvMuOKOIHz0Q4k~dxXjgWxatniIVZmbv8q7EMJeItKLe-MJZAlxhWR8f3XgC~YlRCzshST1aSZeGqvv~dFDOQ4KtqFLQgC3CqRQF9nVKtsa~PbhBydUrNE0j779QngMty6BRcwsQ7mDPYJWdA__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/PoZlLiGIccoUNNsS.jpg?Expires=1804076304&Signature=gpFwTOPqltbtiRclu9HvuRcXBmvjsk1qkZM1xK6iauTNxJFzBnKaOTnoqZMt7UBTw7ZXIIMFfCNY9hiV552BlputX9YzTCqhL0n5lMGnNKz5zQsBUNaef99-nIvuLWH2YqNPPNEMB-FEggBcyOgOYv~YG23YENZ~jSlhKn0XgI9mkYG4wpoeZo~Q6VVYGRRw4m3CyMrVEl9TObbAVeC70PMaCtLAjfeQK9MWkoTe31nUi04gjxQY7f9~tKvGiAtT0-aTlPhcZxqFiR6PaTGBVT~VmGez4WaNqDcYdsFThYjn2HQp385hMA3HHuIZfVcSAHdXcmQZ1kWYzYe-IZR~jw__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    menuDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/qHXZpjvwffODdJiO.jpg?Expires=1804076304&Signature=NRoDyluF5kufsDCRyrfE00iSyL651-7~l7d-FYEkCAInJwhMNfmT2WEhqLkjKHcwhHFZftTPHujd2TRB3I0~GuhIOSWLhp-u0fo0vhRPYbRMVRFgXPsuZ3t7NqLwmycDN8KzSmp2p2tt7TQJk43E-Hd8n1GgNRhhqfHht3yDxp1pkFungi0w-zVdFL42J14vTTGNbwgF7ex0eA5KGMA5QSDyVWFF3RrOAGTtsbw6biYKkdkXPOoU1QbB6kOA3OWfhMCIjzCfQ9cvFThJQUetQPvrINIi9Kg359L6RTiPJRlGwFs2kJ3lolOt0quMZAnepQ9uCu2yUv24ChAFutMz0Q__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    menuMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/hLyyyoelceVrufVl.jpg?Expires=1804076304&Signature=b2jd-HfoFntBylZ7KylyDuWesto88kNiiqrnHBAp9DGs8~tJhRhJTeTEqyGXvZNo3TTZlHt8ocyL5dZscUzDsniNXgHrzdaWamVfqhbus9db1olLl1MulYGBsziCjCccKk1lMhIshauliiHFaPAvLGwLtytOJm66yajMuk9MjhPFzZHhT1I0ItmmZkloDdVzQIg9e3ABTXPydpODCJyoFJSF2dV60Diz5rIfoT3Rj2sTuYPDYEMeak0xbJCrqT57zPEYC1BgIPfO8z4Ttl88So0y5KvXZXlOKq6kp37N4KdFbwusl1HYLcARQ70UbgxS41ec6rl2Lh4jKcizMRF~5g__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/aZaxvuYYNALiSHxH.jpg?Expires=1804076304&Signature=XVIEtjZOTjsyNxvfyEb8USEg8u-Cz00MFEidiGcXNlFgrOwWTlzchaDb5iGSagu5RO8pratelJoJap7PFa3ZJh1s88jJ~tbCw-xc-blUautH~e78J06HIb0bCPV8dMXBxKf4yP1Il8hE4e379mwbgtX6yXpjNnbGsJMwAVmdSsto7zYAqI-hr6s9qi2mLlRrsp5HvOHzYTiH7~5sHb~LqwL16rZ1mxsBkc6O338aYVGBlof1iN~~Sz7ewLyOV~zlkO9o3~pzas6e9eFbX-z26BkMP0vHH9pewIrmvT9GTOnxobNItmZjgKOURHnYr7hwwsS3gFUllpvOR0ToNxSG4A__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/LYBEybvuJUWZWhSR.jpg?Expires=1804076304&Signature=UKOnxUBf3NN3b6BUHoTp1b881QjFgBBZm-vKX3FNLNCfUJC2kxIxnZXOljvCUl-HwlW-RamSRmNBqPwGOBlm7zD1dk9MtItCmm~GeH00lgIGsPJFAer96yO3xS4nE8OVQH~qn7w3B9ZCZz4A2RdmEmgtZxB124tFWzgFiFcE4h3K3QgQz30ua7DKfW4TdRGOyYBdrgd5irG5~GBxqr2sYcYKoA6d5tJxNyL~0TI2I34Min8RhHUjmBO-x11U3p2tSQ7yB8FxHmzZV-pFjGnjb2w2XoR3Mk7WrFMh4ySmME7tTXM4eqV7VktEvvmCBoXIX4jt5gzHL8cMWozTcG1xsQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    card:           "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/bVUpXINOvCNfbZYl.png?Expires=1804078854&Signature=IyvJRpimQuWMhciOHu-yvF~ReZHYqW4tmk-3UOh9B4DwcWjfNSciMukyuIUsXJdLpOhTy1FhlRhAfUJiNL5JQXoKxfawW2ri9TPNwhH5D96X1kmzWPWKoBtmwNfS7GNrigRoG8uOmcCHRhTE-k7gdPf8e19x4t5oljOreZoJABzSN-eug29IMyT7mOT0rCqvmba0IPKqT2JeLZ4DHXC-KW1y8fZXMwjfy5zwqyxbDzTD5WjfIq97lZaJNzopWbtR~Po2ZmI-3iFWsAlMYRi-J0KRMSvyhdXEOc8Gi~8vi8wZfQ3d8lA757iVBYVig4WCNuL~TOxWUHY~Y0POrKXAuQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:    "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/VtngwpYgHZaZjoam.jpg?Expires=1804078854&Signature=U19RCXL~nweMFdw1J8CmbrayfItB3gA9MslBnGLpCxqgE2D61gNDSvV05XTfWtq7IHsUlKY~rX4Ss882vNOoLc1-ynXVQXhKdFVZTbC2eATvdJjuZQOaQHUYJhQGM0lxSf06ictDQJlgyhsdtpgMiOrQqagr0T4Esckc0bnkg5R2n~L6ahkzyF1uUddW9UHDIbpRi6NxVDLcsPIPsvH9YE50LmQLoZoRJMzUmxW~5tr0ZUJ4OwiWJhP98PtoZ4bLUKUKTaRKV05JUmLom4atKtl~adWwdLP1yTL2xACmPUf1hl7WdzY6ie-o4sO3sH0ieNFrz-PbdLDgA2DyhAYwFQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/KHJMGrXPzgjMqvOb.jpg?Expires=1804078854&Signature=ED9DRMP4kXIS0WRC2sYy4gD2UrB--SoY9QA8i1jmqA~9TZS9TPtRf9C9CaDBUJ5O91e45CM-lTGnVq-neo3D42u~iMoS9pPPDYQqiI7lfL40mkRM0dI6-uXG0WeJXm3tXaqL8~rrunGrSd~9vn949tIraATCJTqhQ725Uq2flHrJ4vcY3iWgp~mCAQQZYzPvYBE2CBuAcCJ~ROlO9rGfb-0ChMaGhCEGpghdLGsIkhMnalAUrgCS7lT1-DEw5PM4Hm2CCi1xbQ5WrXIgR5jJqwRaCCMBs57CWhURxZJvqmp2nbUKAFQuSumnQmrfW8DpjF2OrnW8r2pGg9rogiei9w__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuDesktop:    "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/PsYRZnagsapytlxJ.jpg?Expires=1804078854&Signature=Cn7dpOMPIkHCZdiOwcqG-BlAI~OsHP1D8JWAvetaJMygru38IUGhndRweqGYa5I7aSJIhAsAPGS4P7h76XE5Cs03i7G9lB4FG49Yr6jtb2yS1ZH3P0GRqjnEzJUSkMggcIBeE3VvBjc7YA8CjUvG2U5KOt~-f6w9KAMPHaWETl0yVfzXhRbu4NgCgKX737tKapF49zPHbP0gUmGhZZvWue5dHFsVILPFkceLOOWlwgwYvfA8ieC3dMMDSSVEadAx2gzqB-qpVC78JOOCqSPUfGo86bSTrmMzKl~zhZa0O9G8hetsv4awBfBXhdu3hBUZi~AhvSd0v-5ZFoKOPmkIQg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuMobile:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/EhLcYswtNjSTSbuu.jpg?Expires=1804078854&Signature=CKym5KY0mkh~g5CmSdWZLLsOxtxcu4bEjbC0eXGuFh5cbt3dsasf-lJBwuZYK~Om-pF69V4nANkHMmF-vTLv6OJik2zY0YhHT1ch3n5tge7iKnRy08bDLsO5FtlhRqNMwXA87pFu9a8bbqABxXgq8NfAuJjgbcL7ayfeAcS8O~1Jow5bvlLmr2OnMp8IR0TylUuJSf5kV10mdS~u7R8CX6FU3MwpOVy4WKl7dFJ-DSCRZVuH4YQN34ouE2ChYDDIMliVWt1ATPIAVWLOK237vssIvs9X-R0Ini64OHTn0ZKcgKfsKNRCxy4obuUMGr-jUjg5e5A1lQ4~fyPA9XKgNw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/eAXUIRNVXwpZTdzU.jpg?Expires=1804078854&Signature=Z1aHwuuaFKn3gDLBNt9eeFXi01ERiAu0qDMpf44ddlrSfo5CMd3E3wc1KYWBEoXny5El1-FipC-mZ4Z8nandfj8rM8WNI8k0Mr7HFKB3KSbxBvnmWZm3cd-nWoRqp-s2OqwQwSTHadCTI5RKQRlLAPvbAVB4V650ZWXlGFhuT-zi15esrAL2MIS-3Sy8zpxQ0zGCmuWpqBqfhbcnin4VjRtDjtUSx8JQH7EUHikaLDNJQnq3fD5VKHlXhC2CASUlcYeKvT3jcJOngwVIYcT62a-ex79twMazNbNQ9u98yXa8oVkhsf58Hc-nusUvvK833qU20cEuL2JBS0Rq6QhARw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/TkcApTdrRVfvWPRR.jpg?Expires=1804078855&Signature=u-TlHKXh61HEaPOyz9iAXJAWc6znw6YORQfNm9fWt~v6YwlIdK0d6XxKbq-w~~1WL-KcreIPThCqvcxiUnpJNN3jLbgcafdz26rmgkiMWczVapWGsd11vtTDPUYBUN1IGuyfbuIK~WbFOBSoFKK7UO38uzIc8yrtYHItyILHAn9iBRpIKTszOAdFTOD3piYC7hvic1aQ00HzMtSiIshSdR6WUcLwdmigN7SP9SbpCbSbu~8kehteIfG0Xchiak4Z2w8TZN6LGdpW25M07J7X5n5O7aNuOokf1qKcgZDVOj~YGeR91zako6SeSM1vzUjAhz9cLkMesaimZHIHgrd9QA__&Key-Pair-Id=K2HSFNDJXOU9YS",
   },
   r2: {
-    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/sHXnEseXTWbIaCCA.png?Expires=1804076304&Signature=C2B1HYySmiwwBU0yVmG8fJmrJIHQ7~1t84zoCUtDt~NCLe4~IKuwZ18R36ocxMjgKGqBA3mHnIABVM5mNHzoYuvXe5i5Rv3HKCK~GSlxpsMkEVuRdf0Fx4OJZG3kpqVCCidLGYI2oYXOU5CH6DM3Y796OxROKtdh1wNFmCf3HzV5zlgo9CKuEdEi-U11rBOP1Rl~YCNzbS-mMpNtbirbC1F2d~gLvbWMCw7-iYcYuhpa6GeZGjCifWGDpzw1H~0cmSsodaGQYdENLP~D7T4MKc9NN4iuTQlONbKH~NpRaJBcMtQ477HfiEVyraiDzUXxb6ZRfUq6xHYLDzrZ9q5ZDA__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/NdDITTLsHObRMejY.png?Expires=1804076304&Signature=V8BdQOR4MSXTIZ0K~1K662HGa5o17ZEh1Q34BWvnAozZjgt8SMMLlfFj6sL19YkelnLRVbKh97yv4dNxh2X2IlGzpYWK7eIFQ~140st42HdYVOibkIY-2Tw5mNaIGSbr4UDtbIavk0C4et51bZsZJepbFfJeNNUzHyaY4wNENRTSNbyqbqdAwmVdojOC6Nqbj-QpR4xm8OOCqxFvRCFMVIA0elcc0IbQk-X8Zu5LST36qDEuHrxKUVqTSk5xGdM4AiARoyMLTb8KdumwzDe7FZVbg~H4SpNlSWjkhbhIvKmzy1~c0LnPNfmnTcZXTPMPPPphUmY8Fd2x5GRtO8M8gg__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/BYkdRucNjRIOobqA.png?Expires=1804076305&Signature=T~Sy8j0yTvPmLa9PvOoyP~hatc~2w4EZFFtMA4aXE-Kwqj4c5-t8F9KfJiAWCtufQvl0DEbtg1WeR1n2jXsASMS6cp2Nnr19p1GJfEv95h9vS3JjvnGVB0jXLDdvF~JD1JsjOXHQlbOAr56nO2WxWSJaSl8n78dQWzhTnZY3ZoRUb676WmYdsdmMqKCis5~5l4H6M7BjLEN1QAHCTnVjrv5ZKEFX9fAFIkK8h26PYoQMzpCVykQkVb7XSFo4ZGE~hTKxZuILoqgZXVHVya-um3wW7JtjVJc5JJd1c7YoLcRkWMfpmjrDJ0RK88BDr6ivOVWS8LnDsJcoyU9rcdsYGg__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    menuDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/arqMXpWnFDGOUOyU.jpg?Expires=1804076305&Signature=NmYxMY~plfDViMQt~Ilj~2iDLGxLKk192NpEpuqPdOAVQkkx5BCrPrG6ZvS80z0CMQUrnuQz02X8-5gjw~lKLiaPF4~pKOCU0vaSk-Qea0HitruGtrTAyb6DXuosRRQbRuUkRrqaUQxkx~pjxZeZwJfocFsUZ~7pitLoZSLeX9pT0QhxQMPyPaItwIe2RgpcO1dhYKmP3jkHjSolvRwN5ZfkOvbO4KgMzMZAWSDBk2M2F2PjW2f1-bQcfsV3OLctPxMymB-JvH4Muk~S8cPLAm8S9wfEPv5R-WmabzoODPo1selJJjBH480b4Nu7UN2bb2p-CO-rHFcviFI0fPW6ng__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    menuMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/QufHDweUQeLqMmtI.jpg?Expires=1804076305&Signature=c1HQXY8DNFQKPCJZuZ3TOHkx0mDn9iw7vrQ3YawcL3~3trOeStYO1bXSu9DJ2j2mHRlX4-JKn908FYJoVKiXAZkfbYXuYUdsfa4Jz--~L7rQTPb56o7st9gfprsJUP65DxCiBfo1OGnQkIAnwQzvH6B0VSksqpTKa4Sd9XwkwA8wyMUXEvSpjnefWYTQpioLcXHBPdxJOsoziY5v8V-WN1-brWA9i3Vc5lQFQ0J6y0rIRZ3-ru9s8DOE3hcSvjJUMkoJfhl12pq9aK~DDD~DKqB1FT3xMm4L1ylDJlq7TOBHjmpnBTW4DRdgkTzWrhoT8dxX8zJink5fSEu8O5UCvg__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/pJQbrKcKMiheiPdB.png?Expires=1804076305&Signature=MSXow448vKZ6X08SfGNK1koIdauP30ZYpu48MrnkP2mt9VsFFGDMrS6dDzXMzUjBESL-8bkJ7QXAwpWStD6FXrtCnAlNnkSkc-gLLg54it0jZkkm-ju1ENvYB6EQIbaDQ0PaUmYVTvRdnXkZJ1afbV2PbiMfN2YoWRxQqBnxh7UBIeL84P717fay3hguLsqceiTRSErPZ5830GuzEu9g~fO-P62PXOJVWbXhZoDzSpVSTeUxKCuIvTiYa6HHzRHkbRsJs1He4E2fEDTJf6WipNnwdQ8KOyrZx3ZElpGZ~nGCJ9eC95gSx37hUvjlGepy5WIdgWnAuFSEdB5hNdcv1Q__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/qMxAsoknRHVYNZbo.png?Expires=1804076305&Signature=EGwB~gZOwSMkbNfqHVoYyhwTnS1hv8BWlqUJLgkY-K7aCpbfoWFWik1QYMRcv~BtYZ3w6g1IRcXcq6To59WhSmu6dvp7HWXW7bZWlO3m8GLIY060Ym5vzngP6bF~vPFWbzMAXPPhulfKDQQVkUePL0of6zOV9wrwBFaNiKYU71Hk1FucWxVDEVuBe9c~Y-FM5tnotF6qF8bxCBJ5eafzHdIJ6eFPHTB~KFWIys-d~oeWGyMCOW4rKbuYi7KfZ1xRlXsmEVaC3-QC-DLQOA6GaECrUAS3qsvGmiPuzm5s2ZH62V0LX~JnR2mo2WnZBwn4qHYOCGRoH51UGXB7sIWpMw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    card:           "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/KKNWdiEkMBAvTaTZ.png?Expires=1804078856&Signature=srU0ID04yyx5aCy1wH3hRxfcIxm08Wmy6YRpEvVnctuA3JLnF0ei3~uExRyW6GDmYtLzUxykekcvm~iKb9UH9Jd5RfeY3ZNDtp9jijh2ZbGHIkpfdpCcl5ELeNSn4lGY96JkRIoz4BOvVsdbUVbgiYvFSOPp0859yl2fOZkTCAA7fjwTDtiLe7OJEnwDj47iG09E0Ph78wtktWh-SZ5PMxeY2V02b-Uw65vSRUP~ckim-UVZ5wP-x4Wq00EACAHei5D8Z1gcoaV3gsL7O8YrtsnPHFjLwTa7F57WIdu0yqKm9Kmqbjjp4LW9g3GEtCUB~T6-rTUdzXtsQoW6YZQkKg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:    "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/BqwsuwZUhGSSnlKJ.png?Expires=1804078856&Signature=CGLJxB166R20VPQ~nUt7Qb7fKZRmYp~vETT3lzDevpd7EzK46HvJn4m5J2EtEAUQDK8wUAfU4Rv48a6IvQwRvPMgqMl41msOLd3UYUtAppgppQZHFKGW8oy5bzXOX22ZMeq3mYAZGbTsIJOucQMJYTFuHyHHNety5FDrmhJxaqM2Tizf~wbaQBKZebUyoEacEMU32-hQZtVYiNjHJvyebaFJkJtk24Sd5Mr8xJZgAj9CcMcwgj08ikPpNIIftGkBgcL0osRjETmNyDHdOqe6E8TBp94P78Ln1JufMNfVBw03pIHi1QaIPSNQjeoHS9HPRDwm13f19DlBdP74~9kuuA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/ORgSLgjNirtenlDI.png?Expires=1804078856&Signature=vi8Fa5mrPOAjlbvn71LvPvuPpH8yjEwWHJ6KVjo~l8ociAcNcYPL1zfqhFkcEyDqMgpyHZy8-0Cjm6MhFPdbEip4nAZ4MxJYrnt9Qp-7~GVpcOs41XJ43wZDqNzgyVXXyvSXeupIbBFPdP7XF7n1pKRicDPQXZnk7DmlzAUFxy1yql7drePDNyjgCULgzULXMBkMUGZ-R~Mi2~KSLGBiHKNrdT8ofrWMKtY0oI6KYSMYDb9qrl-EAJckaBa8dPLKN2iHJV70RcRKM7XTjFMCeuckcxnTz8N8VELoBHYBusOaFNrPLMXGLRHF5NPfHVCYu-UwCO2AnsneJJuQcXdy0g__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuDesktop:    "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/GnocRQwNhvNmiedX.jpg?Expires=1804078856&Signature=Pf434Z~vM61FZZBUujC8VryOHS2w496Z9YShVOf6KCfCZ40FK3Iw~A83xzfTsxhuROeMkDnXaYxRmrWmQ74dVPaq7239sgUlFyzqbvY~YXVFShQvfnsxtoUSFe5tPQrU~3GSdaKLmSHSfLFSlp~03wwEaSqa3YXpwGsicHV3bhssPAWl0EpXSczBPq2V9bCUrm~XXV87FO3wf8GkwBM04MaKdxAur4p1P3ojZUC04a491ePpzBQuD4s6xCNjuSqfl3yLsLlyNAQc8XcNPiBy~yuZf5VBT4nxli6ZjGyuUq7ByglO0tiTI8F5I2Bx3igm62kdQdpzKbjOGSZ9NhoO~A__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuMobile:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/MCXsnfkNvhLLiBaq.jpg?Expires=1804078856&Signature=gIEpoPLoXRHq1twX7ue4u-eIOdttdPNFSsBCaEkwtXLi7cetCDSSt~JId0l~bmm2V25GakwxUM1ndHL5cbM3YpD7tSVj1fvzVQl1YipI6wCUrtO-v2MBKVkdGQugmwLUe9TKG0NcJfQXlUsRZ06TjmE0g~X7a4C9dzCPajP4uGZyE8BMhw-WTy6KQ9TuQ28GX1~z198FiowxB6Pegdg0g2nMIQ6OgC3jTB5i2WAmgKF2O9BJzZOsS8UP9HNVAVtxivhloF4PKIC6U0ngZ7wK1eVuoS9HbiPnE0Hn5-Ai4nrA~kWi-maHwKJAUPM8~0xUKLlMol22edGd2YDPVqexxA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/ekkGPDidQhJwwipa.png?Expires=1804078856&Signature=AZEXFWgaibA84G1r0mpyEYUmwiIFTElMigiZE6mwq3OaKi-qZg9NGGgdPg-VL4UaVatB1wkHUk1WmfR1-4PqJ~W3YKsCF81g9-BRcpadlkw6L1T9S91znrn4OVLLUJp4HoIFi3QOY3xUOJF-Bi1m2VMZejeuniigs0SXHahQioCDyOsmm5Opf4ul6b0Eo~5frjjvgbvnbziDOSi7PH7HyWo37H-WD9lB7vzezRtVgqRKCLrOfweVW0HICrOXXcCBq16TgjlB5POGPkcg7c8FOmZPWgcoYZZjnPTJ5iWLCaX6s3qd2S0xNvWx~qyk7mxJo9Vh9-Qr7CuOtlIsoFl5Zw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/mbJKkqJnzHLFNmAA.png?Expires=1804078856&Signature=nMpjL~gRH7-4EI6dTDfpybWTxUHSxwcr3t5T6cfaiIYDuMtCmsZ3~EtkEE4abOncw7JQ6jz810S2bmOfNg~D3gu-k1RPEkK5SbyX9nycTZRFW24NFEkxurJ2hk0YSYuKi1NnSWqdZbArvMU4We8MRq2HfUe-QavVVf5Dlvoa3uaAuurasA7nDlPaNKr5U7qLdNSoX5isQg96DD2C4QkTHhgJluvb8I3Gsx7qJmkOy2bC4bmdjZythEApvQvur2GkD09LadYQXCp-M4uG5nubJHr~Af7MMq74rd3GiNr1CPHTj2bo9CWc14Fc23kVxVlRxddXeJ9JdENbSUfBZS1Ftg__&Key-Pair-Id=K2HSFNDJXOU9YS",
   },
   r3: {
-    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/xiQWzupRkfEUJVuk.png?Expires=1804076305&Signature=vEjblmut16g39WJ~6yCYIDhXjKUxeVxzYNzVvzi9YyXMB2qL7iQgOaBRsLUgz3o9-BzlWTGvJk76gdlB~9deAOoKU0hsieZgBcjNv9WwBAyn0LEjlAgpu39a8Cd5RavEtuGboaa9IfHOqf6ujyYu81D9m2j4u-aLynH6CUu73Pjj16IFuvWvCq4w692QAkO~CA~x4xW3Fa3z0KwJgCYgYyt-mIQehUGe-8ddm~ABoBLevdFXWwKYCyj3ccddm8hI4YEkHeKMz5LeJazgjhv1~WKxcO6E6RaSPUKUNuY1WTHUi0WsNMnrT6Lse2ax3MWRHcePItBZOlsl9F9k4shJNg__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/scYOZcbRRfuhinXn.jpg?Expires=1804076305&Signature=nQEMfhoOUX7qPBaPD0EQd9zi-Sak3yaSFAUjH633fUzFu4~S6VGHfXQBwNa8SaiX7mtml~PKW0sUVnQ9eKe4aBhzjcyBpyiZpope~5jbwXsOJkSOI8q~ZqFjD1upmCURsx56-vVixGMR--GdDICycnxKt50qZQfOj63lvR3-5TxPTuuHFC86kOMEinav0poFW~yKIdZVrKmFj4PXe~S3Y4-ILHjg5jUCfyRs1B6oy9ilSmJIBSFoMoe69ZJQ5Sn3KPdf5tCSf32Y2X7UzT9F3nAtBus35kp-SUgToI6SNEB~GQPuLs5-I5lLS4rIaxsmBIBZ6W4E~FNBM-w41QQoGw__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/lOFavtuGhoYBaIif.jpg?Expires=1804076306&Signature=eyEb0GlelV2LT23HFmSUOG~9oHl8T4Q4CHFoUkXTBC2Qg~JxlYduq1dRaMjxGSnsm0snHSNutJNRzaI6u2BfpKyApr9H0B~Mzh21t~VG6ITR-wZ4Di8qlssT4deGiok7-nzUk1OdrDrTrTlA~ek6w19~VNnMILUNpIVF-86G7tKbs7ZL79ZlJ7RgZI9jFxy6wICsATVe0PXsBGHYr8leY1HBM95-FWzwfavHJe4grvyKwzs4YFVyZlAjVoWoM0jtLTDggKvbZDNfE4J8peSlDHNh9KRm~2XNkXeepBWKFkU6S65Bo62GinTeF~PTBFUWnPGEt3nImrDLXvThwwShKg__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    menuDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/jeWJcOYQuvOvrqiu.jpg?Expires=1804076306&Signature=s~qLmBFcYpv6GRDHIwttV55VMlQgNW2IpT3FP8Zc5g5WUmOpEzyCr-6j4Wb3RZOHhnbguo7U38lHj-ppx34XgnRxN8BMmyzhtwvX44dtSWx849gXq0FxeLQpyE1xIitETve1lY0fvw2HcZMARBLKyOBufDmN8uaDUvap841INRujpL-MKBlawgf~MW71h9x2SQYg1oigpf20wWcN3tIdXGtX4AhVZmXugJ1APZLkmAeCamdT6e9YBPTtXPRJnxYvafT724V4SfWayW0kIPmlQzp68lN14cWsd0bwYB5JTskqoYVSnzY1hpAFPzFbNu4cZCK1wRtZ7-K75L9nk-u4Tg__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    menuMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/SPqyFcCOrwRyiiFK.jpg?Expires=1804076306&Signature=OTrnVU0rjAbPuA25Wn47jS~lIIvzfnwd1UAlMJMQqHSYZTAqMnRsKP0fWTZ1csIvL3L3ApYVDckwoZ3lIavvlysdULQ8c3jsYORY-oHp5opdH8LMjLocfyY7RbH4Cdl4SpOu6ef1kxammgZNRQRkbi4YQsH0dbAKdjT6KcB1AyLU6--7~swgK9Rpk3J0wuEWUHRg2XTNFXFRvI5vyEXVcXeZtkNUfSyNRxRAP-sUx7BrFX8Xjs0bIUqppPagfhc2BwkLt~z1f0lV1PM2fDFKEvyn6IFPQZLQLjI3zmA6KCzhhoNMj2w6Z6HSij3HvTfc2jwq43AwAJI1Mji4eDJPDA__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/slHwglXXNESuJCNJ.jpg?Expires=1804076306&Signature=KkrBQ3vOh58n-Au40aEOUdhfQbzy1B-bD~BC5ufgsoBCajaz-eY~7vyoY5HzhUfPGkN-0WQOZQ52s5g1E1V37~x3-sEJ3Hyw9SdjFZH3jd0H59Xg4IX1LI7LEld6Pjz4pQDWpkkuXaugIqLmQKa01UUzR6Z8Z2dbSn9uolIks1JglJqPyaHeX0ZC0s7Wkwdyjo5Tj-RnjTDPpHpcAwOvWIRphS81zHOQfP9XqAYyJGSqvF8dHwtpMCJS1WwO5SUf9GATaGm2bwF8MZ4oKUOn8nvvvoZC9AhIpEaePmWXaJ7q8ycLKIYLe~tcax0wy~npo5QrV-nXJAghIizIjru8gw__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/XzlkPOBLaTJJyWMU.jpg?Expires=1804076306&Signature=YVn2A5pcVyMn0bygw-jhdLX2r-5GL9x2yhrSs1A3UO5NaHB~Ch3Yr7XIM4~T~VkJSNuRw2K7YwRxkCcN6~TpLVfcThw7yPx18kVag7RcNuJmcNWXQ-MdATU5wdxp1HUQDqAHi0Oc75FXc~2dLsjIBvt8qsdJuZhS74srQF3d2ojRuTliAasP07lNaH9qLEIwc2M6p1Yf83CRUpWifUqQCbsP5fnS6rhuLqLEPHumS6EfCqbV~cmM9VPBctoy4k99DhRbar4yaDQ04esHTbXc0zfxZeFnhZ9z8UafoRt5K49-06TmBhmzLhTrkDiXBgqgFYX881VheyvXaKRXj6keIw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    card:           "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/cJYeFYaGQoWYFZDB.png?Expires=1804078857&Signature=LLIFbcmhstdZYE50k9IFMrfiehhechivNc6e6JO9cXyrXLIlLwYceAC8A9mBQKXjTQ3iQSE9s4njppJLVaRLByqcdhJiT-QxixHqPMRrFdAcc4-Sc0OYBzn6fpU5XD17cZ8qZOf-wB22BbEg-khd0bNY67fJtzOUId1gLfQTVQ6VSJMSigjqeDsMx9gU4xZWBGhB-OYw3zqCfm1Sk9nWJEKaJoiZLEMfl46M~UmmNfwVyLBTB8teC-Is8zEgVysQ~WmCPZgIM75zgpRAli9Z0bamREAd8DF-poWP5fzoKAlwv7pBrjLDJil168fFLLN1kC4Pxfm9Bvn3s8BJQVG0lA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:    "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/vwHHkQqnupyZVzgG.jpg?Expires=1804078857&Signature=OaMhfbyFzbbnyYTqShaesnbirSpJwKsFO45LwIiBsuHSQ4RCr2hF702hwVhl4hbdVS8bwoEkkzBQZScpK6vGTYBvr5ETlg0Up5KSW~hAtkDCUMviIgO42N0g-~ARe00Ulm~4SZhmTwry7pJrr1ty5Ulx2ViFzGw74uUW4Lz2meAXtSkVkifYlaOEXWRwFLHkfMh2bAHoif4b0HmsZGM4tbrvh4PivjYcCnxGW3K7qOyDDs4C75JiAQPxXGNOOuqqeayq-ar7UxP5cmoxCiDFZqmbFgFlXr~buCKW0nhIrh0-f3mu76flf1NEGHCcmaNFXROAqCvwgX4241~yfuGoqA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/bFVYzNhGpvymJZPz.jpg?Expires=1804078857&Signature=Co5001aFdv4z5as6Ve0LJ9-CzU0a~XIE3EtU9B5Hpkw789~AwE~FGKORyZsLwO2yXdGC-Nwnn-KzpRsQSYdFRWsuKaCdAkAHRaBNf~HFUbfcKaobTISwAO8YC23I0E86H0BKat6apQjYnLwfsGxDhLmW6wdFvrRDLwFjQTB6rHdRtpv5BLo1~gD7YnosYfTHav8KPYvKj-9VfMn96ZTjM-15LrgACNyIJozJIcI01vfXdNzw~qJPNc1p6IbwLsxXicPaGLewnc3UIM32mvmUHSJvyk7tiGqDSlnohp4dIt6FDkxqJp6wJrRd2kiWWX3fLk9lECOLiUR8BQDlsDr4aw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuDesktop:    "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/lQsJWBXexktbSwJW.jpg?Expires=1804078857&Signature=QNGx9-zZthoRTt6eJExZS6OhqjOI7IHwBjIiOPOnavFUObEmJo~e6DfRjaaLY0TotBqeqqm1YuH9popB5BZwrWP7SKiCO6oHra5F4m7w4TXy9jPKrjuMJCqor9megmH0H~1KToSAnjWjSXCCDhUAS90fLeisqQOztRwX~PnkDp20NzayibkcvbcZIV-7Uu94a7ekikIiBrLWc3TqGqSKTQ7q22VyJ7v4M~YfGQIp41y-RYqMTDWTTUx7JhTwnpiNaCsMd8PqrkvxGaLA8XuB2FwGHCHTPwUOJ3nw72Z-xHrN26LfUtObX3ht7NG4OPfkzvPcRfjGob1Ct-ZymHD3hg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuMobile:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/kDMfGEBGnTeDzfvy.jpg?Expires=1804078857&Signature=ZSIe4mYZeoBNqi~3AjmKZFuXxvgYyDqeP7cJXOqMN7aP01QtZF0oR2aQEhxdX1f70nJxK3YhMuvZacvcMbur3uG3uVTOg8oo~7yUsOFlwGmdmYjFGf9zJa93b0IgspzAB87a4iqt-QTQWYOh2skLKS9Z7cTezExBzAzyE-DDmsW~CwuUlTFwCtJV2PXXFBFkUw6dhkEsZjnaKMfszS~l73Ri11~rM~NbCv19xrNx2WzK7Qa-g~2lxsroHSDISoVO2l~38rOR24NbiH~1qTRfg1OqPQnGjFwAXSugx~UnrsDy7I~hqoKWC1w3-aIjwi5HcI2JY1Qw~9HEehbs3eDMhA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/vwurxfnwYKDEcaHv.jpg?Expires=1804078857&Signature=XpqgNcAJg-sdR8IohToIyykL~kavy6X95xG8nVix6BS1XgIpGt9hJYLcPYIT4dfEYOpUJhTRelUbcr7ULF-EUZlLNehGJz9AyvnxxGQYQeYFBlJsyX5BKKcQYG-DM0pwPXlWi4KX1onB~~TP0q8B8mF9PBmC07uWR7Qt~8HhvJM5io3EsY~zQYK6BHAOX6H9CMXWYKhYIfkNu~j7BMJXpquZdcOE3CH7XC~0U4-HQAKcbuAwj4UcOzKNUzZs5L5nzEJs-aCQ0RFTwvykbpST0WZfhshDUCEDKy2cDuz5yPnpqYAR1Qa11Rn1XQPiYhOxQXfaHegZGR80npPUxJ4MBA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/lumWehNChsFpFJdJ.jpg?Expires=1804078858&Signature=eCFtn0G8WeYImLvD89DLBnXfy9olbdtbZmdc1ST89heZkzhlEjTs1sYa3oztvNR8fhYFf-Yq0DoeFuRAccp-38yVXYRlhFbV4~ZpId0fzcMz~GeWfzzfzxyjXpSFYhkbgyujQGpqwj7Yodm4Z01V78PGWfbdGWHTOMzclx3bePuNUldFkz962lmfJzVrT2UaSejX1fKw4-~9oxksFYp6LrJgah2LFHy7~QR4iUtysGxcEE86q2S-TYLcI0YtpwyjBDEGreMu4Ma8zXQwuNwXxFJBFuohafy4HkjaGHe~Ig9Hq5Y2Xh1y9XcCSy1Gib5~X0t3~lgup85ss8BbsGaDEA__&Key-Pair-Id=K2HSFNDJXOU9YS",
   },
   r4: {
-    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/HgPzeKCzXZQlPwvE.png?Expires=1804076306&Signature=Uq2pH2MyIxD4fN4C8hhad7gDI5gkh5lcrm9oftiD1vYTg3W1QBsln8854ZIw6e1eSfriLHeZjsASGMZ5eHS5k41z00tES9qpFoWVVc2Tttf7ModSQe0IWrPZFIIxVEjKs~G38evpuPcwx4Hz2oeZezzUxUcRDg-Y9F8Fn5ShZsTugOfjgDM0l5-Nt-1NhCOJG0B-1cclG8pTjI-D3Rb~uMGSxXcWTUglzipop7ZGfLR3z3-zPQ-1chvyG5YRc8LCJnK9s2DacaLIoC249yRN5zlUwZmBQ5Mf2lum16qPB2AP9F-gWS2Ebq2tTseFqM-BVzMjx6Yvv4wckHtTzfJQMA__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/IDQFkocMcEbAUdeA.jpg?Expires=1804076307&Signature=LeJuVsR-WMebp5OWHKDSKW6lvywa0JF8qAc~4I5mRWBQvqBiovK-us383etmAtYIhGM0PT~tF7w2pECQp~qNtqXmLwob5UOa1xGtBvmLMHXFUFrzu-5ndL9iof7TCjAyvMxpS8HIrV51UuqeCvbkMQ6ZdFc8JhSuxX~cP8lOZ13MVhVx7sr-HerY~FUYW6a3WjZehhESq326mjaY2AXA97zSaZUwPgPsLwuHprlXmECVLWkjdjZTyzVXcPH8-oOOfNaQUW13k8HW68h9Y6Gw3qn9soGB8MkhCDD4fP9dNq1kDKNUWlaVMVBPEEU9CA6StEEhLxdKBs1ianD8nahbgA__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/loMwjtaOgszXDVDp.jpg?Expires=1804076307&Signature=hqOHbBXAzM5orZsd8n~p2v4Dvv6rEYz6WUYHei2xHWt~w9mTh2iSFpXHd4-H~kgjr9jNOmVvVQK8xRST~0FG5OABfu-bVnnPCxU4QneYia~vl16OcHon9J-LmTbQ5CjqsoJRDNBUoWOQKYXuABab5526Izmt7Gq82ioRwEsugfZU3eM4z9-nVB4UHgzu9ohyQmorUhy0Fo6gOA48sX18KZGx~2C9bszhhppFIihY~pkLbaWK-lFzFBCxQs8A4Dx-lrKeFH8PMi0m97an6sC-zPHTz0ABBhxX4c7uoSUkl2h00h9V7wJx0uwlnYUKxMQkUdX8~Gc4fH3o~GVSG4CW1A__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    menuDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/OirpOMxlDDBNYdQD.jpg?Expires=1804076307&Signature=TckmnizezFBKjHk65-hfeTg8xxobBi5WQysUxbNHtyvIz7tw2jzrgePMu8yCmQTrT8bcIEQXjfZBODC84hg2paIFP2bOGnfutfELu-SSdSi8~Yqvr5FBFzU0q8rw6hIDJlakbz1iMV59A0Xy7VNvHZq9OWcv6HkQrX2TlaMw1b4Y3iqlQPBWNCF5hqKUQMm3nGpXvwrwLbU5hc431VEHW-qmSI-yZnDk0L5AK75NfZLonIlkbihJRih214m6ULllWUL-MM2PQpsmPWcYXZ5H91eWeDAW7xiLIKu2cvoS3TjMrIbb4wehaJrIxqnBdPoywSt-2JIPQMe-ZYL3SZQ9pg__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    menuMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/FuMqAmuubBwExkBc.jpg?Expires=1804076307&Signature=QUdRiNFdh~PtgHkdK1whQRpqgzGgNZqcNwhxkaV2XgoYa4He-ViKpvypEroZExkX64c6NTy6PgXhAGBHEcZuUS7u52J8NWEZK-0ViBict~7sIk9VbpXLcr7eO0LpRBXT45zDZkmgmB0JkcaLo7dMxN80DwmBTEvXnGkHP1B6S0PZcLF4R28MZReTYLebm~4BAClx6ACL6tGh4Oy~0edsFLF29U0Fych-a01yddezOHYw-6VoTp-0G3vIBdYMzaabvo20pUL5e75a-R0-LWO7fVbuDfKAcHDh-luLyVTr6ZT2rxmlPsZPPjJ5pT8WgB4BAAkHFu1qh8NIMIAr4x8L0A__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/YvIBqshkUgHaXrDz.jpg?Expires=1804076307&Signature=r43l3K90A6YYhxIcTXByzXLPtyaK~IQKctz8bpLPbgKWg31R1iMAso~bPmfS3h5nzr6p8rdHhbvSbURm~5f9AxRILPxnsJ1-yhEwhJwzib4WbLM82yGr-3uRiFn~Y-142AOB~USXqUxI9ljajVbEY75vXN2twMq6Yc871ya3VKuGPMjaIO60OpvpY3FKIFwwIZjuGTKMQmgeHGJ7vj525GKwQ~rp2Nk90KYUm9tdfKdzfdgdMorkBm4bc-7-WorvZ3ZCmJfmNr6r-A6qCiCoaYEI~7Ltu-F-cyOVlfZG8PYY9PBmhQJIXtbR-cHXVYU8PP1s9iK2g3oC~OyqeUpubw__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/mSkOIiZQAFfvegkQ.jpg?Expires=1804076307&Signature=q2kKNwkoEjtTEz9KC5gmLIGvesz0AMTwcCdJ15f1JbmRcLV-eZP6CwkkNn1UhE6XcrzVnPro9e7CegKosvjCuc8KzR3hoqR9WAqdDI-fyAZo7oPlnYb078c-GCBY9CrVAN~mjVL9tIzWHQBz0XWB8qKQMMF390EBeEsEjl90wLUGA0ZOGR143RtSwGxFiI7c10AL6Nr2KYM4hNhpgW3uU7CHpMT46YsL43TZkMtWgDy5pIhHOObD3MtplpW9i42Jao5V34Bs2YupG3hPZRwADRUBWJo9QvRvltFeCL3t41XHPOfmYAavFCf397kOxAEtcpXnjAGp9b8ND4uiIX2D7A__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    card:           "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/BcLwasDaPBWVNlFd.png?Expires=1804078858&Signature=b0adIdLXrhf-s6dVDr-MgMJVtmElMadDdH7HsFgKXNmfGixZH13VXZdkwejm37rhl~bMl0DP37L4tTvZ8~0k0romV1s0JhwG4iQBVfHMsINrfw5bV39IKTtzzi7ZmWL0~RKQ2-JZb1b1DjvtMHhLa-UAvSSnzzUZ-zIFJ3VAbQqlGL3PZODpuuM4ZozJF9hL8LKthWOxDO8UGTjtQIMB~cjZ6q0KWv-ClQjhHLuY7xDwRAWmryfVlpBlb2orS4Jl5Vau~0GE4M8HPvSqvNSBBQMQsCQQyLiFGPIcUG8oquj-lITTJERbMaecGLyJyt0RiDjlM7f-lPw7EHEArSA1XQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:    "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/KUwuBuyNuyIMeRIZ.jpg?Expires=1804078858&Signature=abDeVGJejEqVCzEzAiA2yDHRFkdLZb8gs45ARD2hRnxFHHrifaolIAYFN4ZiaFR0-JHXDmv1iWZ7vUCii1PZ~h08L3ivM3x2I9Zhyzo4rQC0Uy8WLMUUghp8tfyHZWAqt128W2Uf73z~6Dfs-UuLkeLYs3IT8BCK9MR8R6DVWUN57FqKX1wVSuQLajieZNYwVVwo6jdg3EOuBlrOdB7a6UyiBeLnLL5JkqmJwxyDF9Nw6~iBcUrMXjiA9XXH-rnWw4-2~r276gZdlE7XPBbQjLxan5xPHmwWlVEpG4rcrfgMT~MCBY5GmijO1gHlz4-HiQYl5sjwYguBrM52AS6tjg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/kZZVxOYNdQGgdlmj.jpg?Expires=1804078858&Signature=G91TEY-zwXUj5ctrctLR-pl0Xk4Vli914EqMRNlwRgs2ARA75zEKlyRiUsmpG01u9BRW9lArtUx2F1-tY6nXUiQCUEmRLLIFeJxNKoMBPOeoug80X66xdVP-Vh~355kpmyKuFOyvZFtopTBiOloGWrBowT-NLeYBYcXF2Uu7F2DQSWEVxGw0hLgqRUXixI565GXm3OHSQALlN56D115jKoabXfx13lVUWELkmtidwz0~efsVHTn~xOfrBy5zCNaaiIcyL~KAmUATV9Mu828ls7BJg7F8LvzGpqcUBsGrCscQfGjnM9ofy2UvOaiMAOqnqsOyAS7acv9tz4Bypaq~TQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuDesktop:    "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/nsllMcLQGLdIkBeR.jpg?Expires=1804078858&Signature=NAw3yQsmxfv2HPkW7Umoe0cGqu2c9O3vv1jWM4YKhMZLubWpeSsEn~8SIQAqE7g5bjV5O1RSXHGlA6x5SzJ2droW1w4u7QoS1ZpGsZ1YM-o8jMTgiNKWbLk3RFIgzOr6jgaoJx81nejxpDfjXZFeuhmZgusq1S7-mhhbOR5LUx6k6XsXSa4fn7tKVQtnJZUEK9t90b1nn12VRZ7OBHF52K~9z8~ocxTDZnrJkRLT~93WVGIrH0mhZBVdhkCu-SXfwPrLvIe0zFjfjyua6IPTZi7T~ia9KWvkJPLoqLQa2qjlHHlt4yDN~XVCK2Ly50ei7Bhua8z9UvBA1vAdwjum9g__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuMobile:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/XpYfyZWiNaGgSAld.jpg?Expires=1804078858&Signature=iQSImXzyhlhtfJ~Xv68X4ogVDKw4lih6LX30N423nm74tMbBOPmkD86DsDidIBO1gihCXQFL~NYhzoIOHKjr2ftsTgoc3TpTnqw3sZMnzG7QZLyo6ho02bbTimv~2AvDyjFouZN-vQrZnPfzyVTDBu1uewqo3Kcx3pj~ITX7RpDPw9NxIx60NTNaMxIOQLZz8xiO8gGFl9rha~VUPqIkuaKxEU8VHyqhHJu8JIWXzKcHZny4KJdXAYvSq69bz8qI-Xau9hHSrDEZrqwDKa~bU0dJaSsM7S9lbH1sa36SfVZynJUpusXy37Gd3JJeholO0~xIBcs4Y3~dud08G0B6Gw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/bqAmhulgXHrsFpEQ.jpg?Expires=1804078858&Signature=FOwYXYzAKFeJzZjovxlYhOQkkpfTjBzABxBrAYKi5J2Af8zrdt1BpP22cxQRnvURqazMPXDEF9n3c61gmwM0CITjhl8tbcz8GUa2442qu-loLieANnLTJX9bXd-8mw61sjYet2a4k6B4TG7bNIKznbwD80Lg-x2ggzKqcX1un-dlmBeRLslq9A3AjExPHLgzU0eMJF5L00iWTj67kHz8hrNzbbhI2hfEaGNJPqY3gN8AcoKC5getdIpLYpdcBA4WUcyHqQqB4LV6BKOLpASbx4xvvOS-RbwzZadufso1EobtNbndwI2UXREzTDrBUwd4PhKk-gc8fsby0--QsieB5g__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/UmGxiRfKeAxTvAOT.jpg?Expires=1804078859&Signature=QZF25TwQT5-N4CCJiT1ObFy5nivA44zh2FHh1eN-arBK4GtDB5EfDXVPiMA8ILf4udnWwJqHUO-8e3yTDeP0mo1gA6vmzT6l0MayklQkDxvFgJr6MHD66Za3JfLu-gb~tvs5xdPciKxI4R3rbQoQTpCpx3dCbGYo89UOQiJyvOodN9Gaxn2pWe7-u~oAf9T4CKKkbJE0u0w3bmrKfobgE1yPcplqpabxj-5wWLD2BzATfCRrzEfO0v6qPt51ixKBQtywkurBUhQ88FHFLK7NMg3FUgKxl3wE4ETJvPASuL5JjWlZlA2bFPz0Xra-5HKHYslYoBI-kTD9NTiPyHfHQw__&Key-Pair-Id=K2HSFNDJXOU9YS",
   },
 };
 
+
 // ─── Phone Frame ──────────────────────────────────────────────────────────────
-// Modern phone proportions: ~375×812 real device → displayed at 200px wide
-// Aspect ratio 9:19.5 → height = width × (19.5/9) ≈ 2.17
 function PhoneFrame({ children }: { children: React.ReactNode }) {
-  const W = 200; // display width in px
-  const CONTENT_H = Math.round(W * (19.5 / 9)) - 48; // subtract notch+bar
+  const W = 200;
+  const CONTENT_H = Math.round(W * (19.5 / 9)) - 48;
   return (
     <div style={{
       width: `${W}px`,
@@ -67,20 +59,15 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
       flexShrink: 0,
       position: "relative",
     }}>
-      {/* Notch / Dynamic Island */}
       <div style={{ height: "28px", background: "#1A1A1A", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-        {/* Side buttons (decorative) */}
         <div style={{ position: "absolute", left: "-3px", top: "30px", width: "3px", height: "28px", background: "#333", borderRadius: "2px 0 0 2px" }} />
         <div style={{ position: "absolute", left: "-3px", top: "66px", width: "3px", height: "28px", background: "#333", borderRadius: "2px 0 0 2px" }} />
         <div style={{ position: "absolute", right: "-3px", top: "44px", width: "3px", height: "44px", background: "#333", borderRadius: "0 2px 2px 0" }} />
-        {/* Dynamic island pill */}
         <div style={{ width: "72px", height: "14px", borderRadius: "20px", background: "#000" }} />
       </div>
-      {/* Screen content */}
       <div style={{ height: `${CONTENT_H}px`, overflow: "hidden", position: "relative", background: "#fff", padding: "6px 4px" }}>
         {children}
       </div>
-      {/* Home indicator bar */}
       <div style={{ height: "20px", background: "#1A1A1A", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div style={{ width: "60px", height: "4px", borderRadius: "4px", background: "rgba(255,255,255,0.25)" }} />
       </div>
@@ -92,7 +79,6 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
 function BrowserFrame({ children, url = "example.com", height = 220 }: { children: React.ReactNode; url?: string; height?: number }) {
   return (
     <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200/80" style={{ background: "#fff" }}>
-      {/* Chrome bar */}
       <div style={{ height: "28px", background: "#F0F0F0", borderBottom: "1px solid #E0E0E0", display: "flex", alignItems: "center", padding: "0 10px", gap: "6px" }}>
         <div style={{ display: "flex", gap: "4px" }}>
           <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#FF5F57" }} />
@@ -103,7 +89,6 @@ function BrowserFrame({ children, url = "example.com", height = 220 }: { childre
           <span style={{ fontSize: "9px", color: "#999", letterSpacing: "0.3px" }}>🔒 {url}</span>
         </div>
       </div>
-      {/* Content */}
       <div style={{ height: `${height}px`, overflow: "hidden", position: "relative" }}>
         {children}
       </div>
@@ -112,14 +97,32 @@ function BrowserFrame({ children, url = "example.com", height = 220 }: { childre
 }
 
 // ─── Template Card Preview ────────────────────────────────────────────────────
-// Shows the product_card image directly — no frames, no compositing
+// Shows the product_card image with padding so nothing is cropped
 function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
   return (
-    <div className="relative w-full" style={{ height: "260px", borderRadius: "12px 12px 0 0", overflow: "hidden", background: "#f0f0f0" }}>
+    <div
+      className="relative w-full"
+      style={{
+        height: "280px",
+        borderRadius: "12px 12px 0 0",
+        overflow: "hidden",
+        background: "#e8eaf0",
+        padding: "16px 16px 0",
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "center",
+      }}
+    >
       <img
         src={template.images.card}
         alt={`${template.name} preview`}
-        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+        style={{
+          maxWidth: "100%",
+          maxHeight: "100%",
+          objectFit: "contain",
+          objectPosition: "center top",
+          borderRadius: "6px 6px 0 0",
+        }}
       />
     </div>
   );
@@ -413,12 +416,10 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
 
           {/* Right: Details + CTA */}
           <div className="space-y-5">
-            {/* Style description */}
             <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
               <p className="text-gray-600 text-sm leading-relaxed">{template.style}</p>
             </div>
 
-            {/* What's included */}
             <div>
               <h3 className="text-gray-900 font-semibold mb-3 text-sm uppercase tracking-widest">What's Included</h3>
               <ul className="space-y-2">
@@ -431,7 +432,6 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
               </ul>
             </div>
 
-            {/* Pricing + CTA */}
             <div className="rounded-xl p-4 border border-gray-200" style={{ background: "linear-gradient(135deg, #F8F9FF, #F5F0FF)" }}>
               <div className="flex items-baseline gap-2 mb-1">
                 <span className="text-3xl font-bold text-gray-900">{template.price}</span>
@@ -453,7 +453,6 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
               <p className="text-center text-gray-400 text-xs mt-2">We'll personalise it for your business</p>
             </div>
 
-            {/* Social proof */}
             <div className="flex items-center gap-2">
               <div className="flex">
                 {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-amber-400 text-amber-400" />)}
@@ -480,10 +479,8 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
       style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid rgba(226,229,234,0.8)" }}
       onClick={onClick}
     >
-      {/* Composite preview */}
       <div className="relative overflow-hidden">
         <TemplateCardPreview template={template} />
-        {/* Hover overlay */}
         <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/8 transition-colors duration-300 flex items-center justify-center">
           <motion.div
             className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white text-gray-900 px-5 py-2.5 rounded-full font-semibold text-sm shadow-xl flex items-center gap-2"
@@ -494,7 +491,6 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         </div>
       </div>
 
-      {/* Card info */}
       <div className="p-5">
         <div className="flex items-start justify-between mb-3">
           <div>
@@ -506,7 +502,6 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
           </span>
         </div>
 
-        {/* Palette */}
         <div className="flex items-center gap-2 mb-4">
           {template.palette.map(color => (
             <div key={color} className="w-4 h-4 rounded-full border-2 border-white shadow-sm" style={{ background: color }} />
@@ -514,7 +509,6 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
           <span className="text-gray-400 text-xs ml-1">{template.styleLabel}</span>
         </div>
 
-        {/* Feature tags */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {template.features.slice(0, 3).map(f => (
             <span key={f} className="px-2 py-0.5 bg-gray-100 rounded-md text-gray-500 text-xs">{f}</span>
@@ -560,13 +554,8 @@ export default function Templates() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(91,140,255,0.06) 0%, transparent 50%, rgba(139,92,255,0.06) 100%)" }} />
         <div className="absolute top-16 left-1/4 w-80 h-80 rounded-full blur-3xl" style={{ background: "rgba(91,140,255,0.08)" }} />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(139,92,255,0.07)" }} />
-
         <div className="relative container text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>Website Templates</p>
             <h1 className="text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Find Your Perfect
@@ -610,19 +599,11 @@ export default function Templates() {
           {filtered.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
               {filtered.map(template => (
-                <TemplateCard
-                  key={template.id}
-                  template={template}
-                  onClick={() => setSelectedTemplate(template)}
-                />
+                <TemplateCard key={template.id} template={template} onClick={() => setSelectedTemplate(template)} />
               ))}
             </div>
           ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center py-24"
-            >
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-24">
               <div className="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mx-auto mb-6 text-3xl shadow-md border border-gray-100" style={{ fontFamily: "monospace" }}>
                 {INDUSTRIES.find(i => i.id === activeIndustry)?.icon}
               </div>
@@ -647,7 +628,6 @@ export default function Templates() {
             </motion.div>
           )}
 
-          {/* Coming Soon teaser */}
           {(activeIndustry === "all" || activeIndustry === "restaurant") && (
             <div className="mt-16 pt-12 border-t border-gray-200">
               <p className="text-center text-gray-400 text-xs uppercase tracking-widest mb-8">More industries coming soon</p>
@@ -672,11 +652,7 @@ export default function Templates() {
       {/* Bottom CTA */}
       <section className="py-20" style={{ borderTop: "1px solid rgba(226,229,234,0.8)" }}>
         <div className="container text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl font-bold text-gray-900 mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Don't see what you're looking for?</h2>
             <p className="text-gray-500 mb-8 max-w-lg mx-auto">
               Every website we build is fully custom. Tell us about your business and we'll design something unique — just for you.
@@ -697,10 +673,7 @@ export default function Templates() {
       {/* Modal */}
       <AnimatePresence>
         {selectedTemplate && (
-          <TemplateModal
-            template={selectedTemplate}
-            onClose={() => setSelectedTemplate(null)}
-          />
+          <TemplateModal template={selectedTemplate} onClose={() => setSelectedTemplate(null)} />
         )}
       </AnimatePresence>
     </div>
