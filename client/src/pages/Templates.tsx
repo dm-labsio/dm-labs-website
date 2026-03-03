@@ -2,8 +2,7 @@
    TEMPLATES PAGE — D&M Labs
    Design: Matches D&M Labs brand — warm off-white bg, blue-cyan-violet
    gradient accents, glassmorphism cards, dm-card system.
-   Key feature: Browser-frame mockups render actual website UI layouts
-   using the client's coffee photos — NOT raw photo dumps.
+   Key feature: Real screenshot images displayed inside browser/phone frames.
    ============================================================ */
 
 import { useState, useEffect } from "react";
@@ -11,316 +10,45 @@ import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Monitor, Smartphone, Star, ArrowRight, Check, ChevronRight } from "lucide-react";
 
-// ─── Coffee Photo CDN URLs ────────────────────────────────────────────────────
-const IMG = {
-  atmosphere: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/wKIdXpGmmVCSthKZ.png?Expires=1803981882&Signature=euuPTwjoeyCsbdp-BRNBc08i~-2T7vTOTdnyaIrW3fCLilB-9RZQM6QnDYO1lOindt2e4ininoMq1yY6K~AY2fc2KSQROdV1ViOgkj3MGsX4ox7hXKAqsRChx0QvOO~KKKw2fQtKQxi41CYkDplwYzfTQFKDWxqzu8wpf0PMLI1NZEZNv-ycJEPmKpvt360ZXxw2YX1yG1jN6TzVERVfhxb0YtmHl4UAiq3puIh400dmpkYFRWGVPp7HwOyvuqdx29UwXqqOJstzh-sbMbZk8yJDtDg1dlneXPLYvwbwcjAROMr3u6Lq4KGjt1WAd5V-TqvD7eYjRUHJW1q8b3m46g__&Key-Pair-Id=K2HSFNDJXOU9YS",
-  latte:       "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/hQhfPYkYlaAYIOxo.png?Expires=1803981882&Signature=RjSizrDZUnWwML7byBIUvb-PR5y9oyVZ-OQC1a3kBUW8Rj~9ENsrfgHszJ~6QXcdIsZpBRUm~Bo1HTxsmcYwr8XFQpc~BLbNhRVdamjK~geyF-fWonEeryqHzIodEWTl3ZPY5C4C0aM5OuaM5eAJdGvpcKTQlDib-oe0-hlTubOmP6P8jJ98YZ~F6-O1ItgbtdI~EvnTL0KlzDKI2eXD8hsc1ZSc6klN3XKdkaL7R4nmIac4BukMdLfRaka7UOSIFVRfG8sy8FlyzQUgsVe2sDkfiaiC0QemjGVAaP7ZhosmRZlYJmWetDG4f-DBDZOGI-BIiILbr913W3wvkdXOZg__&Key-Pair-Id=K2HSFNDJXOU9YS",
-  beans:       "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/vQfwoFWkgBzXxfTl.png?Expires=1803981882&Signature=DVRyYKyPGB84n5O1phfb8w4EMNgr1-oW4YaMfgY2QeHQBBKCURHNPVh03J7Dl~SPGgdNn4KOViK31XRbUfopv9fwuw51lIom2YcoqhsmQ35jAbRo9dX9yjbf1~MU8b1~j061cvQheGXGqnGAsrAKlq9g3UjksIJ1kHsxGQP7FucjQeomnr0Kwxk8scBPojNu~KTiOP8HWdt3f2ozsndrUaaBSeoOKcxHMFMdBjPbFdaeGCEn3nIIWiZzWlAxYtQjys3kytYpEBNCNqXGMQqql7P6pswsemzgfqlDcOic4lRpVpyJaOk-t-DPXQM4WOQFzteiBRtHq41cJOf8DWFWHg__&Key-Pair-Id=K2HSFNDJXOU9YS",
-  cup:         "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/NWFgtxPyREOeemQB.png?Expires=1803981882&Signature=jMNzUf7gxfdU0Pr7y6gxJjSIAXv4t4x-7KT2F6n80GJf60vQ3joWSv5eZXGe95UNYki1PPoYs-TXBrwkzeokJtI7z5zYdyLuzKemPLMS2EkWD2Qy2zNiJl5yQJOLmFWI~89CgZI5mubZfcFISBt0G0xpc24bnkDxHNbPSqkPs5acv~yoexnor6EuXP3QXckWrk9gWjSdRCId1VarIgB7mLyW2~2if7l5IbP84RE0Cb1lH2UogA1WrPY9hTQhs6DPWFtrPNfPqVT7hvLE31w-5gOpBdk3poJMrCeJQcdhiny2EEuGmZ~3fYxJROhB~MA2KFBqxQ3k6tnuPHcaeFupSQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
-  flatlay:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/sIUvLoVuXkcNIVqC.png?Expires=1803981882&Signature=cQalsyfOJ92b1CmiUaloQhm0OtG6Pkjr~dDHGjKX2ZIXA2Z5GMCpijbqB1ITeicf7A0teicSV-T1Szaus6yG7N3ilekXtXZTl4CVOQm8R3VpulrmL0DAlAaTJThpafL~b5H2o7rBjCc2fsyEGOlzJthoimbocl4bDevMNVQzFvfnqb0xAdfbWIi9P6XsmIGI05MdRA9A6HHvb-TQEP0eD7TXurk1Bo3DYaJzzSNKLAxOsGksKE5OTw9xATeDw7SRVBhrlCO9d-DQ~nYII2ptQrw48MhAm5yMWPZpm8h8RERkWaNnJ~FWu8t6Ket1H64thFsjzb9-5IO3Bicb2ToX6Q__&Key-Pair-Id=K2HSFNDJXOU9YS",
-  topdown:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/SdfoCkxMnrZhIPbJ.png?Expires=1803981882&Signature=o1XT42FG2wyS9CL4csj80Cvqk~TGgIlg4bO3CcIvPD98fAQgmRI67RV5FIwB10fVjrUEEUSmT5Mz0vyRVgDTTluZg0rVg7w4NEJa7AgeTadORgf2782aFMeqKEuIB00QZ5wmjYnLcR4TtAN9O7g1ngTisSxNDA72pcn-3R7HoFutT34Cl75vU03ygGcQzR15IrPurj8t5B-ejxqHjvb2tqPV8qH3PgWdFeeXxYHJuYI~qJ1355wonYLfbjSv80~FkaJANIN-FxvrnWxvfLQR5a716rlw~bXILsUWX47m1GFxcq3Q86sbNXbGMZHLTHTGMUP~LbC9vjmUjUTn4NDbbg__&Key-Pair-Id=K2HSFNDJXOU9YS",
-  drink:       "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/wYIdBazLChGbpZoi.png?Expires=1803981882&Signature=r8aNUmPX1mo7n94U~xjigExS~LKMlfznkG8-GghE8Il43uOuTqWY-sq0C8fogLrLSUhX7Xwoe2CUFdtQiFjEpLAPiEdbtX0HY-~YKKJugSAvrZPqDpmV50WY~LcEEYOQP-VC6mSOo1crvKO1CoHWYL5idqFBxpaubNLWxTIfgCTB6ZFFhXD2HPoK~biB4nZ-IX0X1EfGItzqU7SCgpISlYoW~zUqQiH7Szq4uGj2DCc7OhWWXmKYhgJnrApy1Jqd9UtjyHEYF5bbK4TbsD-wrS5wk5dxNMKX~W5gbjTsafbD6HMun4yvoEiJsggpgoV5RrACrQrGupt1efUC8mARDQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
-  beansClose:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/ZOPZGUFxNYnFdWAv.png?Expires=1803981882&Signature=cuTIL3bCdYKKvigoDGQdO1OfnnyPbBA9qE3emNdrNcdpMS0aAWxkGGIppunrjQy27XXhOlyylNs7r4mBSZisw6M68Lv35vjq0dOKSnZjGCkzcQZKfXCfDOjlUymoB42QFHHvubgHsZxheAgOVPlJzdgfMUZdDp4D9EMLjakxAoTP1GYTqQRXw6RGl52PaUVWcl7T~cX~nnCRRWLPsHQsBECMU8wglvNcTvYgSaj83YTuE7IwHBuUNPXtnrURPamkXhAsRkNk5iyAI2siQWVdthCRoEBhgwhPqc6jSeWR3jmVWKdpgd39XUJMSbfdHdcb2lj3VmAUVbxXSk~EovhNCw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+// ─── CDN URLs for all 4 restaurant templates ─────────────────────────────────
+const CDN = {
+  r1: {
+    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/gyEYevahsHTWrlVA.jpg?Expires=1804071487&Signature=a25a4SJJb6gXxcUZQoGizwmdRwDvf9OhuWpD7fTlxkmf1GYAo3ybl3rsGx47uQ-y6Bnp5HKg-xQTTzBh1qkB45gV7icgT5sYV9xEJ2MKB~Np34V1QG-4fw0V5O1ip3eEmjKlgCgkZOa287Gj5DGUW9MZWxMXg~EfcXkmG6IwjExcEKDKKCQCsT2bYewhDloNgyL2cgrHJCJIA-bbeLaRJzRIeQ37dCzKp3n43pmL8nCjjjLQhovT6IVvM0QxXn5OSi563WBqdNGgDJ8gFTZeurocjxjOzapnrXf4BQk6GBldh3rfmgX2Pvaq4y77WNFNdkFkCyisfGkFcucvap3GNQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/BSwubQcjoeJqGqnK.jpg?Expires=1804071487&Signature=flFfKRGdCmMFZnToDsRGkpgS3veqQWbFGTDt0ksyheS4tpw4P8O8zlQWL0eJkK-nQykMJnOuwJqBz6beLQi6llg5Jc793swaVibqTRg5fs9-V~B~q96DpZZuMkGDUkVrl83rOYYkO56IIsoj7ZaM-1LtUbSX5x~I7o57HZW4Us4x~28yLILZhJ3E3dfm9VFPRdC7fCDHMNoFdMxRtHhFluW8lMSaA93Olqket6SRcuPLq4ESs7htk6okcsYeECvGNZtyzjvRcD8r0Eqmx81Y8~WHMgAiio2LpeSVY15YLDsueKqmn~y4eV1tCteF2-4u67QNVaVvN31q6r3h5-pxTA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/uQazjYineBOHTlUP.jpg?Expires=1804071487&Signature=i7t0tzywMTSLApk2PtQazvSIqMYrq1Yx8Vj-W6QN5DOoVscvcKJ9au64QHHuQGfbxxR02Qk423Vv2fP8GR5lAJLPIusVLVykST9x9acNgeC3HWQ9RRi~-NYHc4zOn-KQIAgcLfT9G8WGtOw36w-AiWeIKj2OHFev162vxe5PED-oGNLm5ofq7J5QsY9qmp~S5kDOnCKycIXmsnDV3DIu8n22VPhESnN7SswMpLi6BrS3nhcQvVn1~buxyWF2wdFfGwa-tukNLXKUawxxXStusBQlq5JxqrMaUi1S8CiOrOHWf~320tmuv9FGWDhQs9LHdAZDTcOwAHjGkAoMGFzPcQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/ZibiVmYSsEkwPlPg.jpg?Expires=1804071487&Signature=Jk1bjyAagV51Gj8tUE9ry6TpRio-AzrgLR8mqv6lq9kKICZ3xz2fgB~jg2R8Zty65ahm52BxywrTL7~3hB5A8mWjwrAnS~4LgEixYKcs-CWyYh5z6DsB2XuPtujysSOAX05EjlS7avr4yjT4Q9~ge9TOLLfUd1tdYL6AypsPxzxmQrCuO3ZwKrAEG9aaRQVYyX3AlZ8EZHpfhu-Gs3uOtkBs1tGVrzhKpxC9cUYAujIqPgn~13kZlTYJBNsZfFTCswYZ67kVibx695Dy9SjIjedKxiIqkulFheLhIszlYUot~pHioPLr4F-YsNcp7awD3KAG1cpciXCqfOuXwb6k~w__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/FhhMEJpEmlojbbfR.jpg?Expires=1804071487&Signature=jWZKEigkV82xfmcfTgXJFirtJICklt8qccB4NJBziMDCHQwCtQ7bUBJbm2R5QmdNRg2yD~1CPuJ-CBY9sZZYLEolUDxNLioNH1jaiylIzzw8xEa0m7i0vFnXBMn2TWBLfufuKNaprFbJFVyAufYil-j8QreGWwj16vRviYyVpXattkVjWOAMyf6r7R~r6VOmv0UMBOuTTnDqHXPXg2pcpTmLc2jH9Et0~Ir2cxYvAm1ws09yglTc42E82uGUvIKFTgj1-dg9Kv7uMgW~MNZeE16A1PpqpuOvtsl5O2gBwBCDFAT2Ioeq4zqmBHjVcm5qRdvFhrBCHrG~4MNBxFYmAA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/UXLbWsEBKGPbDbRT.jpg?Expires=1804071487&Signature=JFtm0skH6AmNLMk7t3L5jarqoOfzQ28DOxI5cOaY2j2SkKfkbdTAO9A1JIr-CHGjl2E80mOVqUeExO6NU-nguWwVH-7tT9Dh4flzQjQxVZiq1-wMhPbgYymyxXVnieY7TWgRBf-px88PpXXZ0XXgcKnd9q1zVGVhzUqD70Esksh0e8Bz8BGm1JorFK9BS8G8l~DbuJn936J8SpvnbSw0qvL8UIUjcz5yGjPvAJoISx29SXg9MtD~H6SnN9l~Wz7clmu39T0MW2pOGwx8uPEtzuQ8QsqKhdlHDylVSS1dfD4w41P4bHzQhVznTfTALGvdwnjnKfUU9QMMKlNJsD~dzg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DGOqCgFwGfOofyBe.png?Expires=1804071487&Signature=uf~ZHycNYrq4NGW-WYrx0gfJZ82sLPCacX1uU7S0dagVm9J4KDOXPENEbZTaV1OvEuwiRrKMaZfF--~6mbhQpyp1pjhhbQfIyzKQ5GnSpi5f9cNoPbnh06xO6kGiwLBknR9UxbAapFMY8WGjdjDlFtKApj3z2jvf6yOILVBeHA4mvioARo-dyjNOcVN2iV9J8E3KwE~vhK8s69fgdsp4reDpFkcizucj-qs2GtCKnnibrea~~QN5SiMkvWFW2PQVyNCEo1Mc5ksnYpJhWvsj2xK~HtAYMGFT6xVJ3lJjeKaK8wsNj7Mmx-YAASUlJax17v8Ykl2lk80LcfB~3f9u8A__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  },
+  r2: {
+    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/KfDTYNWUhUHJIAOW.jpg?Expires=1804071487&Signature=d4j4674TjV7RI5fdQGe~zzclIjq7~VSjOA3JuK9Gxk~pOFECA8SB0SojYekwXEoCgWijBAvyF9OfgzSy6vylb6vCe0HmvwLxIVCqxKLDjdu6EPXClu1RBtLYVYUZAmqNJQPeKF0b1dRwQWRzdBrE9Zz7Mbpw7G5rDvPsmBgcow6u9MhrUJksh-2sNJGYHNrNuElSqLtlJlhQuN~fVjICgzGJ~P6aPd6yekn4LwPuyzFpnRw~UJntFFv4Gewc2D3F5YV-Cwo7cZ~lxBjUOwJWdwyBvy7B-OV7sKGl1MCFIfEdYx9DKRvDxLX9lz~LiUyZoQ4gwqvQ0QOdRiEhv5qitg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/iKqlRcYnNfYOjGux.png?Expires=1804071487&Signature=lL1fxyfaxuDkT098fkWNLUUOe~VnhW4S1jMC1NK-xb7LUsFmA-y79pjp4DxfSzxbiKAhRUkDS~oMAf-eYNHGeZDctiN8xcV-qq-M5mQD75C1Pn4y4rKEY6dNLuz-Ldmg-3GTnamSX5hvUb8AUDMfBxwow7spdyrQ0SjgeiEkFLnEtFr7ChVrAxgvMo0XEoD0UPAjzd7goPUuGiP1zI5slEexl2YcQxR5Zl6hz0X3dQfoPucBauBNBjk9pkNuze5BHUM0BgpGPKilyvlsVH~Mn7A57Win3qnVsJ9hwVSvXlIMYUSIZwMMisncM6UTtqZ2SPUez0cPDRUwg~vC3cuQDg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/SceTxkJPPtItDgkt.png?Expires=1804071487&Signature=qFvkpofhdUu92L2G~XNwyVmMUsMxz-7EQDmB2XEbeCQjdC3MP5NLo5W4u2JoN3jkJ3XBvljp~12jI35QqdfXeolGlImkgqzG~sTV402KZ~jH2XDyL0tkWh6S-l8W36fsrA1Vj7Q6iFc1t3JyZdF2vAld8Qsp61pW71oprCPSeIWwkE5zH-fUuO0P5qFNQptgANDt4mrg~fXxlW~nGIUVANZje7p6Bv5wzMfbO5yGTcqjzBcMT3mSiLWJzzraJaxkWuERf84Fz9535YKz1BOkzz2idqx3b1E~HIFLMRzZb8-ALWUa5AdFyIYgmIuITUs86i1-CFAC5OO2LmLMVHhweg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/zbGPWiBcpGQrHBsB.png?Expires=1804071487&Signature=QV8lTApdVl-k7ghstrJDjY0v1bD4CwKbrwjWTm9a5ty-8vD71tsY46cEvhogdmDNiWhfRr5F4bdvPuiddEaxVKCDFV38zQ2hBEEVT9rN~ekujDtEzjGAKRZB21C3iel77GgaWMuZC3K3ESU3AHLrEl5aKd4-fDGdWBLZwLxJlbCqUn6gR4~3ByPIcXSbU64WJz-yxnw7MG1q7h2CC8KkdROiQU538KKqjBXRMpAQhv7DQO0GdhmA4ywYzNEfo9V5XXK1Nxxhivtv-7kn3jxvvHYyQMEr9DHkPIh21JovFnMmf6Fmpnb-TiHxa8lhbamL47zUixKL~RM67Nz2uWBc9A__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/VjNmOKbolfGRJIqN.jpg?Expires=1804071487&Signature=C9MXeaf2HvfOj8S2BSimgEpKGCwLKus5oDhZ44~~ycZ~0zGqiwLxrrvqNI8FgdAAZ5Buro9pyJhYvHS5hUt5D-AMvk7Yvpya9-rquvOE56I1H6B0r0g5YuFo0w6D3vWSVGJ7i4tkQkZroviW4sPUxXgXEppF-sbp7UWCmffUDVV87uf4KFUKmTJKgo~8Zv4lOdRjHFAxJWo3Gr2WD0VXwvzQnHUYJCk9XbJQ4EHqpG8NX4baQayT7MCEg6mtCgi69Tdo84ejvqZRG4efl98lVLJfkiz4THeESFz1SaTOvkJt05ferKNG9DEsfLL0ELol0lvXDcgyU0SREyMgaqmwFw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/uFTzyLgXzTrxiWNd.png?Expires=1804071487&Signature=BhEkgBQ8RumkWN8HRuyL8SHnkwOaQWw6ZAinkVOiTt75txbe4n4xMUeblunxHZAKu11FayJmsuqq7h0Wkuwnx4r1FdxMoKSLYWP~AbAYq5jAzk4p-yRV5ON9ioLHKNiT8zm9v5Dp1dBGWQ7gkRSY4EhOfMC5pCEoB12hZjmbh1jE-mpxh5YI6Eo2zXOCEEGYZZO5RowInPIOQlH5HIwzNu6Y1qAmCUKnXH0Y-99F1~2msVbaRxpoq~elurgTmx5FuUhdS6FEjfMGIdro-SqWCW~WrVSlH63d8yJ1jJUBkDhoNkqHqzFzt5nM3plAhwrUX7i7trRcbUnTTmwlOx8Mlg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/WpNKcoosRkqbNvrn.jpg?Expires=1804071487&Signature=s9qsPyfPptblswaZDl5uloo1IGYQ5PSbeKcWbC4tjdaW7O-Vs24WfZKuLgXSLUC3t-kP1Y9U-nNDRmjF1BNhPz9vjiewk8CilLrNZ7zDBsPtL9yR0K~4iQnBn~fnVWHmhs3-OU0P~ap0d5nUjlhdo~PAqltR2Di98WtvqiItzFYB3xsMBLvQymFXt9RYB-eydytTFCyOde8Ii9pPhISI9rYZVcanI8CqZoauVtkY0ItnObJtXVh8EDOcefKjasd8iYpl3IV-FvDMjyukKdvxF-iJ2-1GX7YAP2z2t~QfcoTKSHaI6W08dxmqW53vYEtGbjiKVwrjo4n8hSOJPeN~oQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  },
+  r3: {
+    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DNlSuWdYRROWnmwg.jpg?Expires=1804071487&Signature=mAnOL4-SGCuk5Qs8js1KIbbh1Zfs6QpFDI9umV905n-1im482OJyTYBbptCWbBIoAVtXop9XS9RAFYC2vW3NtqmwemQ3O2nVF2wgmOwNRmMKG0~SSSRBH4DAr-BJZHCJTACUspMp8ouX06FkYXQHjsefF9fEVA2y2h1lPm3sf7w3XNT8kFDqOfaMlBrB-E3Z2P~hdaOy4URVXn2r1dIFoH7eiM8zgtys7zVemMR7lwggmcFj4XntQ~w7jBD~I4QPxX7jDh4JaPVr-CT-ahKw9COWGvVk-UV7ABtp9m4TAb8ssTkd6xVUtGVvwQjZhRgfZaNBMBMC~moS7125SN5RCg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/MlYWmNgRcxsaMxuZ.jpg?Expires=1804071487&Signature=OpdHTZ1AblxMWRjkF3NdDs5a2--CH99F-rYxDo907Ylxbnsl79cXABsxicBEEmyfEkRVCLpN6fG6igqZELslRNZV44V28e0KJoGSUJSlD1OE92FX--wEwdpCDFQ9Sfdwyy8E8IGiYJWRL64AvFGB1WzIb2m0~LX78WPfBLQb3TzfacBQ~ugrNruIGrNmV3KGu~cUNSDgjQMSEejTfex2bKljndp2ctGUXDy-180up5gUUVFVPL3lMdezEgGMePnJi1d2XNkqdArsbIBV5WhFirj2vgnAnc6KbjGQqs9yxlmQS0C6BMb5XqjGERY6FYHQoyg~xwIllqkKrP5zBZ66vw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/CJQSiNozlCAiKIyD.jpg?Expires=1804071487&Signature=oX9R145XrdxMczx~8NMp~Pgj1NYH4XM0RRMa1PlfSWxRUHw7rRCdiGuPiYIHVTP0gZO3DTFMfOVgdNOITaPkdVMUUCTKg4jc5Gkigs9xSlk1Or88yNjErorDcSv2U387Yjee8vOEZ~rHjnlP5ohrLa3nA2CJmh3S9FYD7d8ac~9VXa423DOzQs9NAfOP5xzXemE9wXofH54bk9czxis1kgpJz1czx62vmK4R~KguwmwbArWz3XLgcvZUHN8QWq~4TWMAZ8g2Co8DEXSN1S8eE8YmBuKnutZtu7mDKmGc-ATkBhdSzVRxpq33ibJX3SQmb5XWovfZvtK3rMimpp0qlg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/OrEcyAgqvRwKwusW.jpg?Expires=1804071487&Signature=okgRPLvO19s81WLy13F9R0AvF6JZx~QgrBpoeWiMP4CxZzr2m3lU7aladrtxujSvduWpO2HNy~pcJhP-J61H1jx6-WwXNrThIP42bvD5ZcbNqqn-cCiGqZjSBVVUYfhP6TVtjPyQiVaNlpnw~WsZrnHthGaaFKcRVryYn~9BLHkSGihKN6XVaz6~3N588c8Jo5U56okO-9vWdgL-2lxNgLbh0A-KLK6kO0EyfBTVAISOQ0TD-DWVUN81iJGas5SjiM2IdroDM-I7njQBEePMMo7giqD9ArskUY0jGSHvD~jlqygEsY0QFsuEGBw0PdQTAl6Ig4YWE5XKitKnunLPZA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/mNUEWMmErZqDiyOF.jpg?Expires=1804071487&Signature=JZIEKFaRMg6bKQ3c5NxP9PRKX7YQKWKhFuZAaeJzQRw~0J6vnVxjdf5ZU65BZIUKpfXfNIAzuvL-91Cp2umk1isjhjTgLnFC6ZswE2srYj~HRheYoBlYxla7B0Ws51q1q2aR9bus-wimKUBBM2uTCFtQUmxKiyKAO-an~FCOPiVt2LB-U19zf2QVanCENhYRgmhcGj1eZeAfOkfCD3MDclh0GoS1fwdY6Wybzjh0q8czSUQHkRbxwWy~Pqwsib8Md0kKUJzXvNUwjvaAyP8c5NbAdspUJ2NvW2JOCXPlyjXK5yAY-brKP4m0ELy5oTcQHDD1C4HqMj0YFIUq-CJwgA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/CQPSrungAYpEukke.jpg?Expires=1804071487&Signature=eAUW7EnfDXaFAqWUjvFY-5FGxXo35TGuCdudFMVRTp4wiChgPCI99Zj0ELDhUlKVw663Y9CACW-580JqPh28cQDZRzoEqIfxfFnkSyFeF5QtjMjYNhnqrGvARvFgkvzaUoLcxBmKYgVuRv1q5K6NxoWv52pQuI2kyzbqi2jeYTuqsQTo5b~Jd7Stlknr7LtDbor7LsGLw73l5Tzvr24T9jLCimn7Cp~7kbQoEiSthFEN9ItAyGSv9283HLd7b-4J~pSL9q2yacwk73XD8UfZnIt0FVMOcg8qEUoXpNWrWiZP9bKKpDL11Dy9jlz9LF~H8ynHCYxPaxaIdjMYTSQkOA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/hDmpIZKzOqPClWZF.jpg?Expires=1804071487&Signature=qct51OXfihNHpUNHjIrU89qG3bpNiuA-7D1V70Cu7b5GqdwMUEJjHjDA5r0yrGvElIECZncERkTf0CeMJ~0MX2mSEpcy-Eq6s0Or3l74eN6IHp40olzIsmnDulyn8rJ8EegR5kwinF2-0Rskx6y-u1vzcf4~AOD-Rdp~FpVvr6mMgM8yni7pqZO4ZUhTc5CqE6xa7Z~NQe4ftBYgyIzzG2XzSmWC2vmRMiAiuqCoj5EudkYmpeJPA58Okz8osbZNoNRr~v18ecwZlULcpvJu-ws-uWdfiMffISJQMK5SYZlOL7y9xe4Ro096HqDtlY~X58rTq3B18SaAtMe8PnghPA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  },
+  r4: {
+    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/weSBIVmtIJteqxIt.png?Expires=1804071487&Signature=C0om~vi-7nOkBcJ5jIYnuMd~dabBLMkIx1y6QUUhkAuFYbEKNAfvQlfxeTd0SMfxYFwVolg-LqxmB6EhOboqen~SJob4hjCghckXEROWTJLEhzO0tMeb5W4WlQBeJlFMcjDFgbtuZidjm~UCRiMln9kRb6t-b~yrQQClCdirL~Eh2Lj9uoGvbEoEa9QfCsmM5bKTugaSvZbN1laJco8mcq2UZUrNP0hGBBy10iYvkrCp3KnIlOiw~NlL2hpSJuKuAxniU6I~~dfsT8rAiqeF693OpPwa0dOLArWIh4qq-z46-R2vp314tjULC-pSFjxipoxlaH8WupzLhMcxzsNI5g__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/aMurEGvOzVOFfVvv.png?Expires=1804071487&Signature=a2K9p6VizNtwpgNeS37W4llxkOuCOEl6ejiilXut6a-GSjeUcd0R~W84FTjivQoiH7hgk8hiiQ--2YtrvgnJFmtWZEvvVDxDFvFHiOaobA7VO5Mtq15JNMslmQAVIhEel8e0~qA03EhPQqUtowayMup2U~70cou0uWrD-jpJdme1pohrltqcURz~DL~HmRO4k-9utQZ24hlPJ9KyPST5VJXWce0pPEvFgeg8js2bb8fugL7gEGnWkUsjQ7mbBgyholzJziaPYAAK-nckIs94huL4yevYN-sf2Mbt1Wso3zJwoLtkUbsI2Wq7doh26Ybm-8xk4JvkDSsEGrPoO9cM5Q__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/dNChTmcnJtmrWFbo.jpg?Expires=1804071487&Signature=FKRTBHNequhP3iOaZHL1hVXHjeWFEYHdTBN7b6tz1mzGEpuiLk9frZsQFbXePxx40ArBbfwAndP0fkt3q~Kc6DXi3JpD7JTDjK51xekn5tAJ6fc3VswyVPBAYcY0-ObEH8tyysfHK4cGqbXMASZs1lD8HFebA2usiJkw749XMRK4OJ~zGqXOupV8MjPY2HEHAEJdLKX8OQUVzaQ1qTbKMHGD1hj~prIbrLiCxhvcPXxVi8DVB~PWDnn4DNTawJ2jl2jtXSy2pGpBmRa0tAxLTJGD~fgsGMQQaO9SxBHOcQmTN2vfZm1Ne6mrNDbRhXPDteO-gT2185z~-5bdwfHMCA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/wGIiwBLptwbgVdeC.jpg?Expires=1804071487&Signature=DLSLoJ1S7qf-Vx4sIveKDh3eXPJ8lsowGCBP-qToBabfcJS9yVfCjzA7XI1xvM8SoqiUDFQ0jZo8J9pIgE8DdOWZhZ1V9-8cMbhdNLHpoDh73yDSJdDfhC1JUg-XSuDANntgwxG3YRPwEowIrBYjqCc5ALNCQDXgykbTWmxKU76TbuZGTLgPQRDKxvfGQEmaIXIST-N3PET-ioP97GwUwGacjWQ3jL4Vf87PwUv7EksDX97H2l0t97rxumQ~t-0GctbQvfBpl5wC0hV18Zz16V70A8G2NDEDffanZNrKEPh0najZcgo-u-x9imI5R8xSSUKnGU1q15ayk1c4h4ynIQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    menuMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/mUwKjINTrmqsEKAj.jpg?Expires=1804071487&Signature=tg~AOm1~2ytczeguDfc-NYzB-HXQJDTvb3PlnyN-19gWi8Ay8rur6hKn2-Xl6ajnFCIXKgGScvpTH4G7THmHzeII~GAwoRVNk8VxMybioTH5im~ocasMbQeXKS0G8BVo88FXt9wak5iAza32UmPVzQYSTX3s53zUgB~mhx57l~aAK3Go38ymJTxH~h1yZv9bXBOp5jEZbAz~ZXYfH0wBLhgonxUXBMxOO9P1VORggQEgSgfsjIebEp5jVJSmU7ItFCUWyOmeS0Wm62yKBzBQSiOrj8rCl8mjjfZsjaPYPB9dLKIqZB8qsMMo4CnjrfAZz35~aDP8AqgiALi3Ib8xnw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/CzZgQZWfINhMMzEJ.jpg?Expires=1804071487&Signature=ZlP80W2CDqd~9xbUP2Hm4OIU5n8-kcbGrXFa1AUeFqP-0CUplvFo1VcseBRqW5N5WOsQZHUUvhIAZ3Hy8sE~I0njyXX83ng~2gx0yCqPP2TS2a011c~T8r7Tm4J90QdvlcOU4RlGIKZDIELL8Kz7n2zh-5IDweOVaW50~pfhP102ghVpNuedFqKbsbR2LlZa~cIrGZtaeee8MUGxZypAAkOryYtKr-qiAl8zNuch~6DLRzr7u5pYEVNDmaa~JajrbPGOPF2sX3E6m4NaF5HmkM6BB1wwh8SMap9R9SCVCD3NMIVELJwFW1oDkYU17SDDBoegfBgUsJgw1PENn4pXRw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/cGCbVHnEZhfILdqo.png?Expires=1804071487&Signature=QWrXkra-5CCZU3GHbikxupZLen8yJw1QA3RvEy6aLU~ROMqyfVrswkYQKK-JWXeRow62Vcga2pdQWMRDS3HHyqNeOuCe~vFLFp-UfKzWLV4XHJ2QUVML21CeFSO0-c-eQMJ5bq~PmfoVHiQQSoL~3WMCJnV6By-U09tWtG7X7S8RaJD6w~kKPaR0MTaMz5IChwuqFCIghtnKOTQDNM6gC8lua92TzwgUu4voDjiAz2iBWyquUAUoFrBZ5OmXfWolO6XsdSmfXTrTW6pFKeVstOL1aVvFLOlGRNONmy2VRKaD7aDNjo3gxSLx-dxhF3yfw2EgDp4wxM30Vb~nsNuj7A__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  },
 };
-
-// ─── Inline website preview components ───────────────────────────────────────
-// These render ACTUAL website layouts (not raw photos) inside browser frames.
-
-function CoffeeHomepagePreview() {
-  return (
-    <div style={{ fontFamily: "'Georgia', serif", background: "#1A0F0A", color: "#F5EDD8", width: "100%", height: "100%", overflow: "hidden", userSelect: "none" }}>
-      {/* Nav */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 12px", background: "rgba(26,15,10,0.97)", borderBottom: "1px solid rgba(212,175,55,0.2)", fontSize: "7px" }}>
-        <span style={{ fontWeight: 700, letterSpacing: "2px", color: "#D4AF37", fontSize: "8px" }}>BELLA CUCINA</span>
-        <div style={{ display: "flex", gap: "8px", color: "#C9B99A" }}>
-          <span>Menu</span><span>About</span><span>Gallery</span><span>Contact</span>
-        </div>
-        <div style={{ background: "#D4AF37", color: "#1A0F0A", padding: "2px 7px", borderRadius: "2px", fontWeight: 700, fontSize: "6.5px" }}>Reserve</div>
-      </div>
-      {/* Hero */}
-      <div style={{ position: "relative", height: "110px", overflow: "hidden" }}>
-        <img src={IMG.atmosphere} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.38)" }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,15,10,0.9) 30%, transparent)" }} />
-        <div style={{ position: "absolute", inset: 0, padding: "10px 14px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <div style={{ fontSize: "5.5px", letterSpacing: "3px", color: "#D4AF37", marginBottom: "3px" }}>EST. 2018 · AMSTERDAM</div>
-          <div style={{ fontSize: "15px", fontWeight: 400, lineHeight: 1.15, marginBottom: "5px" }}>Where Every<br /><em style={{ color: "#D4AF37" }}>Sip</em> Tells<br />a Story</div>
-          <div style={{ display: "flex", gap: "5px" }}>
-            <div style={{ background: "#D4AF37", color: "#1A0F0A", padding: "3px 8px", borderRadius: "2px", fontSize: "6px", fontWeight: 700 }}>View Menu</div>
-            <div style={{ border: "1px solid rgba(245,234,216,0.4)", color: "#F5EDD8", padding: "3px 8px", borderRadius: "2px", fontSize: "6px" }}>Our Story</div>
-          </div>
-        </div>
-      </div>
-      {/* Tagline bar */}
-      <div style={{ background: "#C8956C", padding: "4px 12px", display: "flex", justifyContent: "space-around" }}>
-        {["Specialty Coffee", "Fresh Pastries", "Free WiFi", "Open Daily"].map(t => (
-          <span key={t} style={{ fontSize: "5.5px", letterSpacing: "1.5px", textTransform: "uppercase", color: "#1A0F0A", fontWeight: 700 }}>{t}</span>
-        ))}
-      </div>
-      {/* Cards row */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "5px", padding: "8px 10px" }}>
-        {[
-          { img: IMG.latte, name: "Signature Latte", price: "€5.80" },
-          { img: IMG.drink, name: "Cold Brew", price: "€6.50" },
-          { img: IMG.flatlay, name: "Morning Set", price: "€9.50" },
-        ].map(item => (
-          <div key={item.name} style={{ borderRadius: "4px", overflow: "hidden", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(212,175,55,0.08)" }}>
-            <img src={item.img} alt="" style={{ width: "100%", height: "42px", objectFit: "cover" }} />
-            <div style={{ padding: "4px 5px" }}>
-              <div style={{ fontSize: "6px", fontWeight: 700, color: "#F5EDD8" }}>{item.name}</div>
-              <div style={{ fontSize: "6px", color: "#D4AF37", fontWeight: 700, marginTop: "1px" }}>{item.price}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {/* Review strip */}
-      <div style={{ background: "#231508", padding: "5px 10px", textAlign: "center", borderTop: "1px solid rgba(212,175,55,0.12)" }}>
-        <div style={{ fontSize: "6.5px", fontStyle: "italic", color: "#C9B99A" }}>"The best coffee in the city — warm, welcoming, always perfect."</div>
-        <div style={{ fontSize: "6px", color: "#D4AF37", marginTop: "1px" }}>★★★★★ — Google Reviews · 4.9 (127 reviews)</div>
-      </div>
-    </div>
-  );
-}
-
-function CoffeeMenuPreview() {
-  return (
-    <div style={{ fontFamily: "'Georgia', serif", background: "#1A0F0A", color: "#F5EDD8", width: "100%", height: "100%", overflow: "hidden", userSelect: "none" }}>
-      {/* Nav */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 12px", background: "rgba(26,15,10,0.97)", borderBottom: "1px solid rgba(212,175,55,0.2)", fontSize: "7px" }}>
-        <span style={{ fontWeight: 700, letterSpacing: "2px", color: "#D4AF37", fontSize: "8px" }}>BELLA CUCINA</span>
-        <div style={{ display: "flex", gap: "8px", color: "#C9B99A" }}>
-          <span style={{ color: "#D4AF37", fontWeight: 700 }}>Menu</span><span>About</span><span>Gallery</span><span>Contact</span>
-        </div>
-        <div style={{ background: "#D4AF37", color: "#1A0F0A", padding: "2px 7px", borderRadius: "2px", fontWeight: 700, fontSize: "6.5px" }}>Reserve</div>
-      </div>
-      {/* Page header */}
-      <div style={{ textAlign: "center", padding: "8px 12px 5px", borderBottom: "1px solid rgba(212,175,55,0.12)" }}>
-        <div style={{ fontSize: "5.5px", letterSpacing: "3px", color: "#D4AF37", marginBottom: "2px" }}>OUR MENU</div>
-        <div style={{ fontSize: "13px", fontWeight: 400 }}>Crafted with Passion</div>
-      </div>
-      {/* Category tabs */}
-      <div style={{ display: "flex", gap: "3px", padding: "5px 10px", borderBottom: "1px solid rgba(212,175,55,0.08)" }}>
-        {["Coffee", "Cold Drinks", "Pastries", "Breakfast"].map((tab, i) => (
-          <div key={tab} style={{ padding: "2px 7px", borderRadius: "20px", fontSize: "6px", background: i === 0 ? "#D4AF37" : "rgba(212,175,55,0.08)", color: i === 0 ? "#1A0F0A" : "#C9B99A", fontWeight: i === 0 ? 700 : 400 }}>{tab}</div>
-        ))}
-      </div>
-      {/* Menu grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5px", padding: "7px 10px" }}>
-        {[
-          { img: IMG.latte, name: "Signature Latte", desc: "Oat milk, vanilla, espresso", price: "€5.80" },
-          { img: IMG.cup, name: "Flat White", desc: "Double ristretto, steamed milk", price: "€4.80" },
-          { img: IMG.topdown, name: "Cold Brew", desc: "12-hour brew, over ice", price: "€5.20" },
-          { img: IMG.drink, name: "Iced Matcha", desc: "Ceremonial grade, oat milk", price: "€6.00" },
-        ].map(item => (
-          <div key={item.name} style={{ display: "flex", gap: "5px", alignItems: "center", background: "rgba(255,255,255,0.03)", borderRadius: "4px", padding: "4px", border: "1px solid rgba(212,175,55,0.07)" }}>
-            <img src={item.img} alt="" style={{ width: "32px", height: "32px", borderRadius: "3px", objectFit: "cover", flexShrink: 0 }} />
-            <div>
-              <div style={{ fontSize: "6.5px", fontWeight: 700 }}>{item.name}</div>
-              <div style={{ fontSize: "5.5px", color: "#8B7355", marginTop: "1px" }}>{item.desc}</div>
-              <div style={{ fontSize: "6.5px", color: "#D4AF37", fontWeight: 700, marginTop: "1px" }}>{item.price}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {/* Gallery strip */}
-      <div style={{ display: "flex", gap: "4px", padding: "0 10px 7px" }}>
-        {[IMG.beans, IMG.flatlay, IMG.beansClose].map((src, i) => (
-          <img key={i} src={src} alt="" style={{ flex: 1, height: "30px", objectFit: "cover", borderRadius: "3px" }} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function CoffeeContactPreview() {
-  return (
-    <div style={{ fontFamily: "'Georgia', serif", background: "#1A0F0A", color: "#F5EDD8", width: "100%", height: "100%", overflow: "hidden", userSelect: "none" }}>
-      {/* Nav */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 12px", background: "rgba(26,15,10,0.97)", borderBottom: "1px solid rgba(212,175,55,0.2)", fontSize: "7px" }}>
-        <span style={{ fontWeight: 700, letterSpacing: "2px", color: "#D4AF37", fontSize: "8px" }}>BELLA CUCINA</span>
-        <div style={{ display: "flex", gap: "8px", color: "#C9B99A" }}>
-          <span>Menu</span><span>About</span><span>Gallery</span><span style={{ color: "#D4AF37", fontWeight: 700 }}>Contact</span>
-        </div>
-        <div style={{ background: "#D4AF37", color: "#1A0F0A", padding: "2px 7px", borderRadius: "2px", fontWeight: 700, fontSize: "6.5px" }}>Reserve</div>
-      </div>
-      {/* Two-column layout */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", height: "calc(100% - 25px)" }}>
-        {/* Left: photo + info */}
-        <div style={{ position: "relative", overflow: "hidden" }}>
-          <img src={IMG.atmosphere} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.35)" }} />
-          <div style={{ position: "absolute", inset: 0, padding: "12px", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-            <div style={{ fontSize: "5.5px", letterSpacing: "3px", color: "#D4AF37", marginBottom: "3px" }}>FIND US</div>
-            <div style={{ fontSize: "11px", fontWeight: 400, marginBottom: "6px" }}>Come Visit Us</div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-              {["📍 12 Keizersgracht, Amsterdam", "🕐 Mon–Fri: 7am – 9pm", "📞 +31 20-123-4567", "📱 @bellacucina.ams"].map(t => (
-                <div key={t} style={{ fontSize: "6px", color: "#C9B99A" }}>{t}</div>
-              ))}
-            </div>
-            <div style={{ display: "flex", gap: "4px", marginTop: "7px" }}>
-              <div style={{ background: "#25D366", color: "#fff", padding: "3px 7px", borderRadius: "2px", fontSize: "6px", fontWeight: 700 }}>WhatsApp</div>
-              <div style={{ border: "1px solid rgba(212,175,55,0.4)", color: "#D4AF37", padding: "3px 7px", borderRadius: "2px", fontSize: "6px" }}>Directions</div>
-            </div>
-          </div>
-        </div>
-        {/* Right: form */}
-        <div style={{ padding: "12px", background: "#120A06" }}>
-          <div style={{ fontSize: "5.5px", letterSpacing: "3px", color: "#D4AF37", marginBottom: "2px" }}>RESERVATIONS</div>
-          <div style={{ fontSize: "10px", fontWeight: 400, marginBottom: "7px" }}>Book a Table</div>
-          {["Your Name", "Phone Number", "Date & Time"].map(f => (
-            <div key={f} style={{ marginBottom: "4px" }}>
-              <div style={{ fontSize: "5.5px", color: "#8B7355", marginBottom: "1px" }}>{f}</div>
-              <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(212,175,55,0.12)", borderRadius: "3px", padding: "3px 5px", fontSize: "6px", color: "#4A3A2A" }}>—</div>
-            </div>
-          ))}
-          <div style={{ background: "#D4AF37", color: "#1A0F0A", padding: "4px", borderRadius: "3px", fontSize: "6.5px", fontWeight: 700, textAlign: "center", marginTop: "6px" }}>Send Reservation</div>
-          <div style={{ marginTop: "7px", background: "#2A1A10", borderRadius: "3px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(212,175,55,0.08)" }}>
-            <span style={{ fontSize: "6px", color: "#8B7355" }}>📍 Google Maps — Keizersgracht</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CoffeeMobilePreview() {
-  return (
-    <div style={{ fontFamily: "'Georgia', serif", background: "#1A0F0A", color: "#F5EDD8", width: "100%", height: "100%", overflow: "hidden", userSelect: "none", position: "relative" }}>
-      {/* Mobile nav */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 14px", background: "rgba(26,15,10,0.98)", borderBottom: "1px solid rgba(212,175,55,0.2)" }}>
-        <span style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "2px", color: "#D4AF37" }}>BELLA CUCINA</span>
-        <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-          {[0,1,2].map(i => <div key={i} style={{ width: "20px", height: "2px", background: "#D4AF37" }} />)}
-        </div>
-      </div>
-      {/* Hero */}
-      <div style={{ position: "relative", height: "160px", overflow: "hidden" }}>
-        <img src={IMG.latte} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.38)" }} />
-        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "0 12px" }}>
-          <div style={{ fontSize: "9px", letterSpacing: "2.5px", color: "#D4AF37", marginBottom: "5px" }}>ARTISAN COFFEE</div>
-          <div style={{ fontSize: "22px", fontWeight: 400, lineHeight: 1.1, marginBottom: "10px" }}>Where Every<br />Cup Tells<br />a Story</div>
-          <div style={{ background: "#D4AF37", color: "#1A0F0A", padding: "6px 16px", borderRadius: "3px", fontSize: "11px", fontWeight: 700 }}>View Menu</div>
-        </div>
-      </div>
-      {/* Feature items */}
-      <div style={{ padding: "12px 12px 0" }}>
-        <div style={{ fontSize: "9px", letterSpacing: "2px", color: "#D4AF37", marginBottom: "8px" }}>FEATURED</div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "7px" }}>
-          {[
-            { img: IMG.cup, name: "Signature Latte", price: "€5.80", desc: "Oat milk & vanilla" },
-            { img: IMG.flatlay, name: "Morning Set", price: "€9.50", desc: "Coffee + pastry" },
-          ].map(item => (
-            <div key={item.name} style={{ display: "flex", gap: "9px", alignItems: "center", background: "rgba(255,255,255,0.04)", borderRadius: "6px", padding: "7px", border: "1px solid rgba(212,175,55,0.08)" }}>
-              <img src={item.img} alt="" style={{ width: "52px", height: "52px", borderRadius: "5px", objectFit: "cover", flexShrink: 0 }} />
-              <div>
-                <div style={{ fontSize: "12px", fontWeight: 700 }}>{item.name}</div>
-                <div style={{ fontSize: "10px", color: "#8B7355", marginTop: "2px" }}>{item.desc}</div>
-                <div style={{ fontSize: "12px", color: "#D4AF37", fontWeight: 700, marginTop: "2px" }}>{item.price}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* Bottom nav */}
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "#231508", borderTop: "1px solid rgba(212,175,55,0.15)", padding: "7px 10px", display: "flex", justifyContent: "space-around" }}>
-        {[["🏠","Home"],["☕","Menu"],["🖼","Gallery"],["📞","Contact"]].map(([icon, label], i) => (
-          <div key={label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "2px" }}>
-            <span style={{ fontSize: "16px" }}>{icon}</span>
-            <span style={{ fontSize: "9px", color: i === 0 ? "#D4AF37" : "#8B7355" }}>{label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// ─── Mobile Menu Preview ────────────────────────────────────────────────────
-function CoffeeMobileMenuPreview() {
-  return (
-    <div style={{ fontFamily: "'Georgia', serif", background: "#1A0F0A", color: "#F5EDD8", width: "100%", height: "100%", overflow: "hidden", userSelect: "none" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 14px", background: "rgba(26,15,10,0.98)", borderBottom: "1px solid rgba(212,175,55,0.2)" }}>
-        <span style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "2px", color: "#D4AF37" }}>BELLA CUCINA</span>
-        <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-          {[0,1,2].map(i => <div key={i} style={{ width: "20px", height: "2px", background: "#D4AF37" }} />)}
-        </div>
-      </div>
-      <div style={{ padding: "10px 14px 6px", borderBottom: "1px solid rgba(212,175,55,0.1)", textAlign: "center" }}>
-        <div style={{ fontSize: "9px", letterSpacing: "2.5px", color: "#D4AF37", marginBottom: "3px" }}>OUR MENU</div>
-        <div style={{ fontSize: "18px" }}>Crafted with Passion</div>
-      </div>
-      <div style={{ display: "flex", gap: "6px", padding: "8px 14px", borderBottom: "1px solid rgba(212,175,55,0.08)" }}>
-        {["Coffee", "Cold Brew", "Pastries"].map((tab, i) => (
-          <div key={tab} style={{ padding: "4px 10px", borderRadius: "20px", fontSize: "10px", background: i === 0 ? "#D4AF37" : "rgba(212,175,55,0.08)", color: i === 0 ? "#1A0F0A" : "#C9B99A", fontWeight: i === 0 ? 700 : 400 }}>{tab}</div>
-        ))}
-      </div>
-      <div style={{ padding: "10px 12px", display: "flex", flexDirection: "column", gap: "7px" }}>
-        {[
-          { img: IMG.latte, name: "Signature Latte", price: "€5.80" },
-          { img: IMG.cup, name: "Flat White", price: "€4.80" },
-          { img: IMG.drink, name: "Iced Matcha", price: "€6.00" },
-        ].map(item => (
-          <div key={item.name} style={{ display: "flex", gap: "9px", alignItems: "center", background: "rgba(255,255,255,0.04)", borderRadius: "6px", padding: "7px", border: "1px solid rgba(212,175,55,0.08)" }}>
-            <img src={item.img} alt="" style={{ width: "48px", height: "48px", borderRadius: "5px", objectFit: "cover", flexShrink: 0 }} />
-            <div>
-              <div style={{ fontSize: "12px", fontWeight: 700 }}>{item.name}</div>
-              <div style={{ fontSize: "12px", color: "#D4AF37", fontWeight: 700, marginTop: "3px" }}>{item.price}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// ─── Mobile Contact Preview ───────────────────────────────────────────────────
-function CoffeeMobileContactPreview() {
-  return (
-    <div style={{ fontFamily: "'Georgia', serif", background: "#1A0F0A", color: "#F5EDD8", width: "100%", height: "100%", overflow: "hidden", userSelect: "none" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 14px", background: "rgba(26,15,10,0.98)", borderBottom: "1px solid rgba(212,175,55,0.2)" }}>
-        <span style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "2px", color: "#D4AF37" }}>BELLA CUCINA</span>
-        <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-          {[0,1,2].map(i => <div key={i} style={{ width: "20px", height: "2px", background: "#D4AF37" }} />)}
-        </div>
-      </div>
-      <div style={{ position: "relative", height: "120px", overflow: "hidden" }}>
-        <img src={IMG.atmosphere} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.35)" }} />
-        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
-          <div style={{ fontSize: "9px", letterSpacing: "2.5px", color: "#D4AF37", marginBottom: "4px" }}>FIND US</div>
-          <div style={{ fontSize: "20px", fontWeight: 400 }}>Come Visit Us</div>
-        </div>
-      </div>
-      <div style={{ padding: "12px 12px", display: "flex", flexDirection: "column", gap: "7px" }}>
-        {["\ud83d\udccd 12 Keizersgracht, Amsterdam", "\ud83d\udd50 Mon\u2013Fri: 7am \u2013 9pm", "\ud83d\udcde +31 20-123-4567", "\ud83d\udcf1 @bellacucina.ams"].map(t => (
-          <div key={t} style={{ fontSize: "11px", color: "#C9B99A", padding: "6px 8px", background: "rgba(255,255,255,0.03)", borderRadius: "5px", border: "1px solid rgba(212,175,55,0.08)" }}>{t}</div>
-        ))}
-      </div>
-      <div style={{ padding: "0 12px", marginTop: "6px" }}>
-        <div style={{ background: "#25D366", color: "#fff", padding: "9px", borderRadius: "6px", fontSize: "12px", fontWeight: 700, textAlign: "center" }}>WhatsApp Us</div>
-      </div>
-    </div>
-  );
-}
-
-// ─── Browser Chrome Frame ─────────────────────────────────────────────────────
-function BrowserFrame({ children, url = "bellacucina.com", height = 220 }: { children: React.ReactNode; url?: string; height?: number }) {
-  return (
-    <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200/80" style={{ background: "#fff" }}>
-      {/* Chrome bar */}
-      <div style={{ height: "28px", background: "#F0F0F0", borderBottom: "1px solid #E0E0E0", display: "flex", alignItems: "center", padding: "0 10px", gap: "6px" }}>
-        <div style={{ display: "flex", gap: "4px" }}>
-          <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#FF5F57" }} />
-          <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#FFBD2E" }} />
-          <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#28C840" }} />
-        </div>
-        <div style={{ flex: 1, background: "#fff", borderRadius: "4px", height: "16px", display: "flex", alignItems: "center", padding: "0 8px", border: "1px solid #E0E0E0" }}>
-          <span style={{ fontSize: "8px", color: "#888", fontFamily: "monospace" }}>🔒 {url}</span>
-        </div>
-      </div>
-      {/* Content */}
-      <div style={{ height: `${height}px`, overflow: "hidden" }}>
-        {children}
-      </div>
-    </div>
-  );
-}
 
 // ─── Phone Frame ──────────────────────────────────────────────────────────────
 // Modern phone proportions: ~375×812 real device → displayed at 200px wide
@@ -360,20 +88,52 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
   );
 }
 
+// ─── Browser Chrome Frame ─────────────────────────────────────────────────────
+function BrowserFrame({ children, url = "example.com", height = 220 }: { children: React.ReactNode; url?: string; height?: number }) {
+  return (
+    <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200/80" style={{ background: "#fff" }}>
+      {/* Chrome bar */}
+      <div style={{ height: "28px", background: "#F0F0F0", borderBottom: "1px solid #E0E0E0", display: "flex", alignItems: "center", padding: "0 10px", gap: "6px" }}>
+        <div style={{ display: "flex", gap: "4px" }}>
+          <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#FF5F57" }} />
+          <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#FFBD2E" }} />
+          <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#28C840" }} />
+        </div>
+        <div style={{ flex: 1, background: "#fff", borderRadius: "4px", height: "16px", display: "flex", alignItems: "center", padding: "0 8px", border: "1px solid #E0E0E0" }}>
+          <span style={{ fontSize: "9px", color: "#999", letterSpacing: "0.3px" }}>🔒 {url}</span>
+        </div>
+      </div>
+      {/* Content */}
+      <div style={{ height: `${height}px`, overflow: "hidden", position: "relative" }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 // ─── Template Card Composite Preview ─────────────────────────────────────────
-function TemplateCardPreview() {
+// Shows desktop screenshot + phone screenshot side by side
+function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
   return (
     <div className="relative w-full" style={{ height: "260px", background: "linear-gradient(135deg, #F0F4FF 0%, #F5F0FF 100%)", borderRadius: "12px 12px 0 0", overflow: "hidden", padding: "14px 14px 0" }}>
       {/* Desktop preview — takes most of the space */}
       <div style={{ position: "absolute", left: "12px", top: "12px", right: "100px", bottom: "0" }}>
-        <BrowserFrame url="bellacucina.com" height={238}>
-          <CoffeeHomepagePreview />
+        <BrowserFrame url={template.domain} height={238}>
+          <img
+            src={template.images.homeDesktop}
+            alt={`${template.name} homepage`}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
+          />
         </BrowserFrame>
       </div>
       {/* Phone preview — overlapping bottom-right, scaled down to fit card */}
       <div style={{ position: "absolute", right: "8px", bottom: "0", zIndex: 10, transform: "scale(0.46)", transformOrigin: "bottom right" }}>
         <PhoneFrame>
-          <CoffeeMobilePreview />
+          <img
+            src={template.images.homeMobile}
+            alt={`${template.name} mobile`}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
+          />
         </PhoneFrame>
       </div>
     </div>
@@ -394,59 +154,149 @@ const INDUSTRIES = [
 // ─── Template data ────────────────────────────────────────────────────────────
 const TEMPLATES = [
   {
-    id: "coffee-warm",
+    id: "modern-minimal-bistro",
     industry: "restaurant",
-    name: "Bella Cucina",
-    tagline: "Warm & Artisan",
+    name: "Modern Minimal Bistro",
+    tagline: "Elegant & Upscale",
     tier: "Business",
-    tierGradient: "linear-gradient(135deg, #C8956C, #8B5E3C)",
-    palette: ["#1A0F0A", "#C8956C", "#F5EDD8", "#8B5E3C", "#D4AF37"],
-    paletteNames: ["Dark Espresso", "Warm Amber", "Cream", "Rich Brown", "Gold"],
+    tierGradient: "linear-gradient(135deg, #C9A84C, #8B6914)",
+    domain: "modernbistro.com",
+    palette: ["#1A1A1A", "#C9A84C", "#F5F0E8", "#2A2A2A", "#8B7355"],
+    paletteNames: ["Charcoal", "Gold", "Cream", "Dark", "Warm Brown"],
+    styleLabel: "Warm Dark",
     features: [
-      "Menu showcase with photos & pricing",
-      "Our Story / About section",
-      "Photo gallery grid",
-      "Google Reviews integration",
-      "Reserve a table CTA",
-      "WhatsApp & Instagram links",
+      "Cinematic hero with full-width photo",
+      "Signature dishes showcase",
+      "Menu page with categories",
+      "About / Our Story section",
+      "Contact & reservation form",
       "Google Maps embed",
+      "WhatsApp & social links",
       "Mobile responsive",
     ],
     pages: [
-      { label: "Homepage", preview: "home", mobilePreview: true, description: "Cinematic hero with atmosphere photography, tagline bar, and featured menu items" },
-      { label: "Menu & Gallery", preview: "menu", mobilePreview: false, description: "Category tabs, drink & food cards with pricing, and a curated photo gallery" },
-      { label: "Contact & Find Us", preview: "contact", mobilePreview: false, description: "Opening hours, address, Google Maps embed, WhatsApp CTA, and reservation form" },
+      { label: "Homepage", preview: "home", description: "Full-width hero, signature dishes grid, and restaurant info bar" },
+      { label: "Menu", preview: "menu", description: "Category tabs with dish cards, photos, and pricing" },
+      { label: "Contact", preview: "contact", description: "Opening hours, address, Google Maps, and reservation form" },
     ],
-    style: "Warm dark tones, serif typography, cream & gold palette. Perfect for specialty coffee shops, artisan cafés, and bistros.",
-    waMessage: "Hi! I'm interested in the Bella Cucina coffee shop website template.",
+    style: "Refined minimal aesthetic with cream backgrounds, gold accents, and charcoal typography. Ideal for upscale bistros, fine dining, and contemporary restaurants.",
+    waMessage: "Hi! I'm interested in the Modern Minimal Bistro website template.",
     price: "€350",
+    images: CDN.r1,
+  },
+  {
+    id: "sunny-social-cafe",
+    industry: "restaurant",
+    name: "Sunny Social Café",
+    tagline: "Bright & Welcoming",
+    tier: "Starter",
+    tierGradient: "linear-gradient(135deg, #E8724A, #C8923A)",
+    domain: "sunnycafe.com",
+    palette: ["#4A3728", "#E8724A", "#FAF6F0", "#C8923A", "#F0E8D8"],
+    paletteNames: ["Dark Brown", "Warm Orange", "Cream White", "Golden", "Light Cream"],
+    styleLabel: "Warm Light",
+    features: [
+      "Bright hero with daily specials",
+      "Scrollable specials carousel",
+      "Instagram feed section",
+      "Menu page with categories",
+      "Contact & find us page",
+      "Order online CTA",
+      "WhatsApp & social links",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Homepage", preview: "home", description: "Warm hero, daily specials carousel, and Instagram feed" },
+      { label: "Menu", preview: "menu", description: "Category tabs with item cards, photos, ratings, and pricing" },
+      { label: "Contact", preview: "contact", description: "Opening hours, address, map, and contact form" },
+    ],
+    style: "Warm, inviting aesthetic with cream backgrounds, orange CTAs, and golden accents. Perfect for cafés, brunch spots, and casual dining.",
+    waMessage: "Hi! I'm interested in the Sunny Social Café website template.",
+    price: "€250",
+    images: CDN.r2,
+  },
+  {
+    id: "roasted-bean",
+    industry: "restaurant",
+    name: "The Roasted Bean",
+    tagline: "Bold & Rustic",
+    tier: "Starter",
+    tierGradient: "linear-gradient(135deg, #6B4226, #3D2B1A)",
+    domain: "roastedbean.com",
+    palette: ["#1C1410", "#C8923A", "#F2ECD8", "#6B4226", "#3D2B1A"],
+    paletteNames: ["Dark Espresso", "Golden", "Cream", "Warm Brown", "Deep Brown"],
+    styleLabel: "Dark Rustic",
+    features: [
+      "Bold full-screen hero",
+      "Category blog-style menu",
+      "Craft coffee showcase",
+      "About / Our Story section",
+      "Contact & find us page",
+      "Phone number CTA",
+      "WhatsApp & social links",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Homepage", preview: "home", description: "Dramatic full-screen hero with bold typography and CTAs" },
+      { label: "Menu", preview: "menu", description: "Blog-style menu with large food photography and descriptions" },
+      { label: "Contact", preview: "contact", description: "Location, hours, phone CTA, and contact form" },
+    ],
+    style: "Dark, moody aesthetic with espresso backgrounds, golden highlights, and bold sans-serif typography. Great for specialty coffee shops and artisan roasters.",
+    waMessage: "Hi! I'm interested in The Roasted Bean website template.",
+    price: "€250",
+    images: CDN.r3,
+  },
+  {
+    id: "nonnas-pizza",
+    industry: "restaurant",
+    name: "Nonna's Pizza",
+    tagline: "Rustic Italian",
+    tier: "Business",
+    tierGradient: "linear-gradient(135deg, #8B1A1A, #3D1F0A)",
+    domain: "nonnapizza.com",
+    palette: ["#3D1F0A", "#8B1A1A", "#F5EDD0", "#C8923A", "#2A1505"],
+    paletteNames: ["Dark Brown", "Deep Red", "Parchment", "Warm Gold", "Espresso"],
+    styleLabel: "Rustic Warm",
+    features: [
+      "Wood-fired pizza hero",
+      "Signature pizza showcase",
+      "Full menu with pricing",
+      "About / Our Story section",
+      "Contact & find us page",
+      "Order now CTA",
+      "WhatsApp & social links",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Homepage", preview: "home", description: "Rustic hero with wood-fired oven, signature pizzas, and info" },
+      { label: "Menu", preview: "menu", description: "Full pizza menu with photos, descriptions, and pricing" },
+      { label: "Contact", preview: "contact", description: "Opening hours, address, social links, and contact form" },
+    ],
+    style: "Warm rustic Italian aesthetic with parchment backgrounds, deep red accents, and elegant script typography. Perfect for Italian restaurants and pizzerias.",
+    waMessage: "Hi! I'm interested in the Nonna's Pizza website template.",
+    price: "€350",
+    images: CDN.r4,
   },
 ];
 
 // ─── Modal preview renderer ───────────────────────────────────────────────────
-function ModalPreview({ page, view }: { page: string; view: "desktop" | "mobile" }) {
+function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0]; page: string; view: "desktop" | "mobile" }) {
+  const imgSrc = view === "mobile"
+    ? (page === "home" ? template.images.homeMobile : page === "menu" ? template.images.menuMobile : template.images.contactMobile)
+    : (page === "home" ? template.images.homeDesktop : page === "menu" ? template.images.menuDesktop : template.images.contactDesktop);
+
   if (view === "mobile") {
-    const mobileMap: Record<string, React.ReactNode> = {
-      home: <CoffeeMobilePreview />,
-      menu: <CoffeeMobileMenuPreview />,
-      contact: <CoffeeMobileContactPreview />,
-    };
     return (
       <div className="flex justify-center items-center" style={{ background: "linear-gradient(135deg, #F0F4FF, #F5F0FF)", borderRadius: "12px", padding: "32px 24px", minHeight: "560px" }}>
         <PhoneFrame>
-          {mobileMap[page] ?? <CoffeeMobilePreview />}
+          <img src={imgSrc} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
         </PhoneFrame>
       </div>
     );
   }
-  const map: Record<string, React.ReactNode> = {
-    home: <CoffeeHomepagePreview />,
-    menu: <CoffeeMenuPreview />,
-    contact: <CoffeeContactPreview />,
-  };
   return (
-    <BrowserFrame url="bellacucina.com" height={280}>
-      {map[page] ?? <CoffeeHomepagePreview />}
+    <BrowserFrame url={template.domain} height={340}>
+      <img src={imgSrc} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
     </BrowserFrame>
   );
 }
@@ -464,7 +314,6 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
     return () => document.removeEventListener("keydown", handler);
   }, [onClose]);
 
-  // Lock body scroll
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = ""; };
@@ -553,7 +402,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.22 }}
               >
-                <ModalPreview page={activePage.preview} view={activeView} />
+                <ModalPreview template={template} page={activePage.preview} view={activeView} />
               </motion.div>
             </AnimatePresence>
 
@@ -646,7 +495,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
     >
       {/* Composite preview */}
       <div className="relative overflow-hidden">
-        <TemplateCardPreview />
+        <TemplateCardPreview template={template} />
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/8 transition-colors duration-300 flex items-center justify-center">
           <motion.div
@@ -675,7 +524,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
           {template.palette.map(color => (
             <div key={color} className="w-4 h-4 rounded-full border-2 border-white shadow-sm" style={{ background: color }} />
           ))}
-          <span className="text-gray-400 text-xs ml-1">Warm Dark</span>
+          <span className="text-gray-400 text-xs ml-1">{template.styleLabel}</span>
         </div>
 
         {/* Feature tags */}
@@ -721,7 +570,6 @@ export default function Templates() {
     <div className="min-h-screen" style={{ background: "#F6F6F4" }}>
       {/* Hero */}
       <section className="relative py-24 overflow-hidden">
-        {/* Background atmosphere */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(91,140,255,0.06) 0%, transparent 50%, rgba(139,92,255,0.06) 100%)" }} />
         <div className="absolute top-16 left-1/4 w-80 h-80 rounded-full blur-3xl" style={{ background: "rgba(91,140,255,0.08)" }} />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(139,92,255,0.07)" }} />
