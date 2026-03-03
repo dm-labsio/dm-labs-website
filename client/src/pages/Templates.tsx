@@ -111,31 +111,16 @@ function BrowserFrame({ children, url = "example.com", height = 220 }: { childre
   );
 }
 
-// ─── Template Card Composite Preview ─────────────────────────────────────────
-// Shows desktop screenshot + phone screenshot side by side
+// ─── Template Card Preview ────────────────────────────────────────────────────
+// Shows the product_card image directly — no frames, no compositing
 function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
   return (
-    <div className="relative w-full" style={{ height: "260px", background: "linear-gradient(135deg, #F0F4FF 0%, #F5F0FF 100%)", borderRadius: "12px 12px 0 0", overflow: "hidden", padding: "14px 14px 0" }}>
-      {/* Desktop preview — takes most of the space */}
-      <div style={{ position: "absolute", left: "12px", top: "12px", right: "100px", bottom: "0" }}>
-        <BrowserFrame url={template.domain} height={238}>
-          <img
-            src={template.images.homeDesktop}
-            alt={`${template.name} homepage`}
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
-          />
-        </BrowserFrame>
-      </div>
-      {/* Phone preview — overlapping bottom-right, scaled down to fit card */}
-      <div style={{ position: "absolute", right: "8px", bottom: "0", zIndex: 10, transform: "scale(0.46)", transformOrigin: "bottom right" }}>
-        <PhoneFrame>
-          <img
-            src={template.images.homeMobile}
-            alt={`${template.name} mobile`}
-            style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "top", background: "#fff" }}
-          />
-        </PhoneFrame>
-      </div>
+    <div className="relative w-full" style={{ height: "260px", borderRadius: "12px 12px 0 0", overflow: "hidden", background: "#f0f0f0" }}>
+      <img
+        src={template.images.card}
+        alt={`${template.name} preview`}
+        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+      />
     </div>
   );
 }
@@ -287,10 +272,12 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
 
   if (view === "mobile") {
     return (
-      <div className="flex justify-center items-center" style={{ background: "linear-gradient(135deg, #F0F4FF, #F5F0FF)", borderRadius: "12px", padding: "32px 24px", minHeight: "560px" }}>
-        <PhoneFrame>
-          <img src={imgSrc} alt="" style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "top", background: "#fff" }} />
-        </PhoneFrame>
+      <div className="flex justify-center items-center" style={{ background: "linear-gradient(135deg, #F0F4FF, #F5F0FF)", borderRadius: "12px", padding: "24px 16px", minHeight: "560px" }}>
+        <img
+          src={imgSrc}
+          alt=""
+          style={{ maxWidth: "100%", maxHeight: "520px", objectFit: "contain", borderRadius: "8px", boxShadow: "0 8px 32px rgba(0,0,0,0.18)" }}
+        />
       </div>
     );
   }
