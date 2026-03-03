@@ -77,7 +77,7 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
         <div style={{ width: "72px", height: "14px", borderRadius: "20px", background: "#000" }} />
       </div>
       {/* Screen content */}
-      <div style={{ height: `${CONTENT_H}px`, overflow: "hidden", position: "relative", background: "#000" }}>
+      <div style={{ height: `${CONTENT_H}px`, overflow: "hidden", position: "relative", background: "#fff", padding: "6px 4px" }}>
         {children}
       </div>
       {/* Home indicator bar */}
@@ -132,7 +132,7 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
           <img
             src={template.images.homeMobile}
             alt={`${template.name} mobile`}
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
+            style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "top", background: "#fff" }}
           />
         </PhoneFrame>
       </div>
@@ -289,7 +289,7 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
     return (
       <div className="flex justify-center items-center" style={{ background: "linear-gradient(135deg, #F0F4FF, #F5F0FF)", borderRadius: "12px", padding: "32px 24px", minHeight: "560px" }}>
         <PhoneFrame>
-          <img src={imgSrc} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+          <img src={imgSrc} alt="" style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "top", background: "#fff" }} />
         </PhoneFrame>
       </div>
     );
