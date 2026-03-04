@@ -185,8 +185,8 @@ const TEMPLATES = [
     tier: "Business",
     tierGradient: "linear-gradient(135deg, #C9A84C, #8B6914)",
     domain: "modernbistro.com",
-    palette: ["#1A1A1A", "#C9A84C", "#F5F0E8", "#2A2A2A", "#8B7355"],
-    paletteNames: ["Charcoal", "Gold", "Cream", "Dark", "Warm Brown"],
+    palette: ["#1C1A18", "#B8935A", "#F2EDE4", "#3D3530", "#7A6550"],
+    paletteNames: ["Charcoal", "Warm Gold", "Cream", "Dark Brown", "Taupe"],
     styleLabel: "Warm Dark",
     features: [
       "Cinematic hero with full-width photo",
@@ -216,8 +216,8 @@ const TEMPLATES = [
     tier: "Starter",
     tierGradient: "linear-gradient(135deg, #E8724A, #C8923A)",
     domain: "sunnycafe.com",
-    palette: ["#4A3728", "#E8724A", "#FAF6F0", "#C8923A", "#F0E8D8"],
-    paletteNames: ["Dark Brown", "Warm Orange", "Cream White", "Golden", "Light Cream"],
+    palette: ["#3D2B1A", "#D4845A", "#F8F2E8", "#B8923A", "#E8DCC8"],
+    paletteNames: ["Dark Brown", "Terracotta", "Warm White", "Golden", "Light Cream"],
     styleLabel: "Warm Light",
     features: [
       "Bright hero with daily specials",
@@ -247,8 +247,8 @@ const TEMPLATES = [
     tier: "Starter",
     tierGradient: "linear-gradient(135deg, #6B4226, #3D2B1A)",
     domain: "roastedbean.com",
-    palette: ["#1C1410", "#C8923A", "#F2ECD8", "#6B4226", "#3D2B1A"],
-    paletteNames: ["Dark Espresso", "Golden", "Cream", "Warm Brown", "Deep Brown"],
+    palette: ["#1A1208", "#C49A3C", "#EDE4CC", "#5C3A1E", "#2E1C0A"],
+    paletteNames: ["Espresso", "Amber Gold", "Parchment", "Chestnut", "Dark Roast"],
     styleLabel: "Dark Rustic",
     features: [
       "Bold full-screen hero",
@@ -278,7 +278,7 @@ const TEMPLATES = [
     tier: "Business",
     tierGradient: "linear-gradient(135deg, #8B1A1A, #3D1F0A)",
     domain: "nonnapizza.com",
-    palette: ["#3D1F0A", "#8B1A1A", "#F5EDD0", "#C8923A", "#2A1505"],
+    palette: ["#2A1208", "#8C2020", "#F5EDD0", "#C49A3C", "#1A0A04"],
     paletteNames: ["Dark Brown", "Deep Red", "Parchment", "Warm Gold", "Espresso"],
     styleLabel: "Rustic Warm",
     features: [
@@ -309,8 +309,8 @@ const TEMPLATES = [
     tier: "Business",
     tierGradient: "linear-gradient(135deg, #C9748C, #8B4A6A)",
     domain: "bloombeauty.com",
-    palette: ["#2A1A22", "#C9748C", "#FDF6F8", "#E8B4C0", "#8B4A6A"],
-    paletteNames: ["Dark Plum", "Rose Pink", "Blush White", "Soft Pink", "Deep Rose"],
+    palette: ["#2C1A24", "#C47A8A", "#FBF4F6", "#E8C4CC", "#8A4A62"],
+    paletteNames: ["Dark Plum", "Dusty Rose", "Blush White", "Soft Pink", "Deep Rose"],
     styleLabel: "Soft Feminine",
     features: [
       "Elegant hero with booking CTA",
@@ -340,8 +340,8 @@ const TEMPLATES = [
     tier: "Business",
     tierGradient: "linear-gradient(135deg, #7A9E8A, #4A6B5A)",
     domain: "glowspa.com",
-    palette: ["#1A2A22", "#7A9E8A", "#F4F8F5", "#C8D8C8", "#4A6B5A"],
-    paletteNames: ["Deep Forest", "Sage Green", "Mint White", "Soft Sage", "Dark Green"],
+    palette: ["#1A2820", "#6A9478", "#F2F7F4", "#C2D4C8", "#3E5E4A"],
+    paletteNames: ["Deep Forest", "Sage", "Mint White", "Soft Sage", "Dark Green"],
     styleLabel: "Natural Calm",
     features: [
       "Serene hero with booking CTA",
@@ -371,7 +371,7 @@ const TEMPLATES = [
     tier: "Starter",
     tierGradient: "linear-gradient(135deg, #C9A84C, #8B6914)",
     domain: "luxehair.com",
-    palette: ["#1A1410", "#C9A84C", "#F8F4EC", "#8B6914", "#3A2E20"],
+    palette: ["#18120E", "#C8A040", "#F6F0E8", "#7A5C10", "#342818"],
     paletteNames: ["Dark Charcoal", "Gold", "Warm White", "Deep Gold", "Dark Brown"],
     styleLabel: "Luxe Gold",
     features: [
@@ -402,7 +402,7 @@ const TEMPLATES = [
     tier: "Starter",
     tierGradient: "linear-gradient(135deg, #5B8CFF, #3A6AE0)",
     domain: "pureaesthetics.com",
-    palette: ["#1A2030", "#5B8CFF", "#F4F7FF", "#C8D8FF", "#3A6AE0"],
+    palette: ["#181E2C", "#4A7AE8", "#F2F6FF", "#C0D0F4", "#2A5AC8"],
     paletteNames: ["Dark Navy", "Blue", "Ice White", "Soft Blue", "Deep Blue"],
     styleLabel: "Clean Clinical",
     features: [
@@ -442,17 +442,18 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
 
   if (view === "mobile") {
     return (
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start" }}>
-        <img
-          src={imgSrc}
-          alt=""
-          style={{
-            width: "100%",
-            height: "auto",
-            display: "block",
-            borderRadius: "8px",
-          }}
-        />
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", background: "#F2F4F7", borderRadius: "12px", padding: "16px 0" }}>
+        <div style={{ width: "375px", maxWidth: "100%", overflow: "hidden", borderRadius: "8px", boxShadow: "0 4px 24px rgba(0,0,0,0.12)" }}>
+          <img
+            src={imgSrc}
+            alt=""
+            style={{
+              width: "100%",
+              height: "auto",
+              display: "block",
+            }}
+          />
+        </div>
       </div>
     );
   }
