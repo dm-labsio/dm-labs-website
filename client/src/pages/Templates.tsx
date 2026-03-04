@@ -135,6 +135,7 @@ function BrowserFrame({ children, url = "example.com", height = 220 }: { childre
 // ─── Template Card Preview ────────────────────────────────────────────────────
 // Shows the product_card image with padding so nothing is cropped
 function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
+  const [loaded, setLoaded] = useState(false);
   return (
     <div
       className="relative w-full"
@@ -149,15 +150,30 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
         justifyContent: "center",
       }}
     >
+      {!loaded && (
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(90deg, #e8eaf0 25%, #f0f2f5 50%, #e8eaf0 75%)",
+            backgroundSize: "200% 100%",
+            animation: "shimmer 1.5s infinite",
+          }}
+        />
+      )}
       <img
         src={template.images.card}
         alt={`${template.name} preview`}
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setLoaded(true)}
         style={{
           maxWidth: "100%",
           maxHeight: "100%",
           objectFit: "contain",
           objectPosition: "center top",
           borderRadius: "6px 6px 0 0",
+          opacity: loaded ? 1 : 0,
+          transition: "opacity 0.3s ease",
         }}
       />
     </div>
@@ -185,7 +201,7 @@ const TEMPLATES = [
     tier: "Business",
     tierGradient: "linear-gradient(135deg, #C9A84C, #8B6914)",
     domain: "modernbistro.com",
-    palette: ["#1C1A18", "#B8935A", "#F2EDE4", "#3D3530", "#7A6550"],
+    palette: ["#1C1A14", "#C9A84C", "#F2EDE4", "#3D2E20", "#8B7355"],
     paletteNames: ["Charcoal", "Warm Gold", "Cream", "Dark Brown", "Taupe"],
     styleLabel: "Warm Dark",
     features: [
@@ -216,8 +232,8 @@ const TEMPLATES = [
     tier: "Starter",
     tierGradient: "linear-gradient(135deg, #E8724A, #C8923A)",
     domain: "sunnycafe.com",
-    palette: ["#3D2B1A", "#D4845A", "#F8F2E8", "#B8923A", "#E8DCC8"],
-    paletteNames: ["Dark Brown", "Terracotta", "Warm White", "Golden", "Light Cream"],
+    palette: ["#3D2B1A", "#D4845A", "#F5EFE6", "#B8923A", "#E8DCC8"],
+    paletteNames: ["Dark Brown", "Terracotta", "Warm Cream", "Golden", "Light Parchment"],
     styleLabel: "Warm Light",
     features: [
       "Bright hero with daily specials",
@@ -247,8 +263,8 @@ const TEMPLATES = [
     tier: "Starter",
     tierGradient: "linear-gradient(135deg, #6B4226, #3D2B1A)",
     domain: "roastedbean.com",
-    palette: ["#1A1208", "#C49A3C", "#EDE4CC", "#5C3A1E", "#2E1C0A"],
-    paletteNames: ["Espresso", "Amber Gold", "Parchment", "Chestnut", "Dark Roast"],
+    palette: ["#1A0E06", "#C49A3C", "#F0E8D0", "#8B6030", "#5C3A1E"],
+    paletteNames: ["Deep Espresso", "Amber Gold", "Parchment", "Warm Brown", "Chestnut"],
     styleLabel: "Dark Rustic",
     features: [
       "Bold full-screen hero",
@@ -278,8 +294,8 @@ const TEMPLATES = [
     tier: "Business",
     tierGradient: "linear-gradient(135deg, #8B1A1A, #3D1F0A)",
     domain: "nonnapizza.com",
-    palette: ["#2A1208", "#8C2020", "#F5EDD0", "#C49A3C", "#1A0A04"],
-    paletteNames: ["Dark Brown", "Deep Red", "Parchment", "Warm Gold", "Espresso"],
+    palette: ["#2A1208", "#8C2020", "#F5EDD0", "#C49A3C", "#6B3A20"],
+    paletteNames: ["Dark Brown", "Deep Red", "Parchment", "Warm Gold", "Rustic Brown"],
     styleLabel: "Rustic Warm",
     features: [
       "Wood-fired pizza hero",
@@ -302,126 +318,126 @@ const TEMPLATES = [
     images: CDN.r4,
   },
   {
-    id: "bloom-beauty-studio",
+    id: "atelier-des-ongles",
     industry: "beauty",
-    name: "Bloom Beauty Studio",
-    tagline: "Elegant & Feminine",
+    name: "L'Atelier des Ongles",
+    tagline: "Refined Nail Studio",
     tier: "Business",
-    tierGradient: "linear-gradient(135deg, #C9748C, #8B4A6A)",
-    domain: "bloombeauty.com",
-    palette: ["#2C1A24", "#C47A8A", "#FBF4F6", "#E8C4CC", "#8A4A62"],
-    paletteNames: ["Dark Plum", "Dusty Rose", "Blush White", "Soft Pink", "Deep Rose"],
-    styleLabel: "Soft Feminine",
+    tierGradient: "linear-gradient(135deg, #C8A888, #8B6848)",
+    domain: "atelierdesongles.com",
+    palette: ["#2A1E14", "#C8A888", "#E8D8C0", "#F8F4EE", "#A88868"],
+    paletteNames: ["Dark Brown", "Warm Tan", "Sand Beige", "Off-White", "Muted Tan"],
+    styleLabel: "Warm Minimal",
     features: [
-      "Elegant hero with booking CTA",
-      "Services showcase with pricing",
-      "Before & after gallery",
-      "About / Meet the team section",
-      "Contact & booking form",
-      "Google Maps embed",
-      "WhatsApp & social links",
+      "Warm hero with booking CTA",
+      "Signature services showcase",
+      "Philosophy & brand story section",
+      "Service menu with descriptions",
+      "Contact & appointment form",
+      "Social media links",
+      "WhatsApp CTA",
       "Mobile responsive",
     ],
     pages: [
-      { label: "Homepage", preview: "home", description: "Elegant hero, featured services, and client testimonials" },
-      { label: "Services", preview: "services", description: "Full services menu with descriptions and pricing" },
+      { label: "Homepage", preview: "home", description: "Warm beige hero, philosophy section, and signature services" },
+      { label: "Services", preview: "services", description: "Full nail services menu with descriptions and pricing" },
       { label: "Contact", preview: "contact", description: "Booking form, location, hours, and social links" },
     ],
-    style: "Soft, feminine aesthetic with blush backgrounds, rose accents, and elegant serif typography. Perfect for beauty salons, nail studios, and aesthetic clinics.",
-    waMessage: "Hi! I'm interested in the Bloom Beauty Studio website template.",
+    style: "Warm, minimal aesthetic with sand beige backgrounds, tan accents, and elegant serif typography. Perfect for nail studios, beauty salons, and aesthetic boutiques.",
+    waMessage: "Hi! I'm interested in the L'Atelier des Ongles website template.",
     price: "€350",
     images: CDN.b1,
   },
   {
-    id: "glow-wellness-spa",
+    id: "aura-hair-studio",
     industry: "beauty",
-    name: "Glow Wellness Spa",
-    tagline: "Calm & Luxurious",
+    name: "Aura Hair Studio",
+    tagline: "Dark Luxury Hair",
     tier: "Business",
-    tierGradient: "linear-gradient(135deg, #7A9E8A, #4A6B5A)",
-    domain: "glowspa.com",
-    palette: ["#1A2820", "#6A9478", "#F2F7F4", "#C2D4C8", "#3E5E4A"],
-    paletteNames: ["Deep Forest", "Sage", "Mint White", "Soft Sage", "Dark Green"],
-    styleLabel: "Natural Calm",
+    tierGradient: "linear-gradient(135deg, #C8A060, #6B4A20)",
+    domain: "aurahair.com",
+    palette: ["#0A0806", "#C8A060", "#3A2A18", "#F0E8D8", "#1E1410"],
+    paletteNames: ["Near Black", "Golden Brown", "Dark Warm", "Cream", "Very Dark"],
+    styleLabel: "Dark Luxury",
     features: [
-      "Serene hero with booking CTA",
-      "Treatment menu with categories",
-      "Wellness philosophy section",
-      "About / Our therapists",
-      "Contact & appointment form",
-      "Google Maps embed",
-      "WhatsApp & social links",
+      "Dark luxury hero with bold headline",
+      "Hair services showcase",
+      "Portfolio / gallery section",
+      "About / Our stylists",
+      "Contact & booking form",
+      "Instagram & social links",
+      "WhatsApp CTA",
       "Mobile responsive",
     ],
     pages: [
-      { label: "Homepage", preview: "home", description: "Serene hero, featured treatments, and wellness ethos" },
-      { label: "Services", preview: "services", description: "Treatment categories with descriptions and pricing" },
-      { label: "Contact", preview: "contact", description: "Appointment booking, location, hours, and directions" },
+      { label: "Homepage", preview: "home", description: "Dark luxury hero with bold typography and hair photography" },
+      { label: "Services", preview: "services", description: "Hair services list with descriptions and pricing" },
+      { label: "Contact", preview: "contact", description: "Booking form, location, hours, and social links" },
     ],
-    style: "Natural, calming aesthetic with sage greens, soft whites, and minimalist typography. Ideal for spas, wellness centres, and holistic therapy studios.",
-    waMessage: "Hi! I'm interested in the Glow Wellness Spa website template.",
+    style: "Dark luxury aesthetic with near-black backgrounds, golden-brown accents, and bold editorial typography. Perfect for premium hair salons and barbershops.",
+    waMessage: "Hi! I'm interested in the Aura Hair Studio website template.",
     price: "€350",
     images: CDN.b2,
   },
   {
-    id: "luxe-hair-studio",
+    id: "lumina-skin-studio",
     industry: "beauty",
-    name: "Luxe Hair Studio",
-    tagline: "Bold & Sophisticated",
+    name: "Lumina Skin Studio",
+    tagline: "Soft & Feminine",
     tier: "Starter",
-    tierGradient: "linear-gradient(135deg, #C9A84C, #8B6914)",
-    domain: "luxehair.com",
-    palette: ["#18120E", "#C8A040", "#F6F0E8", "#7A5C10", "#342818"],
-    paletteNames: ["Dark Charcoal", "Gold", "Warm White", "Deep Gold", "Dark Brown"],
-    styleLabel: "Luxe Gold",
+    tierGradient: "linear-gradient(135deg, #E87878, #C84A4A)",
+    domain: "luminaskin.com",
+    palette: ["#2A1818", "#E87878", "#F8E8E8", "#F5F0EC", "#D4A0A0"],
+    paletteNames: ["Dark Brown", "Salmon Rose", "Blush Pink", "Warm White", "Muted Rose"],
+    styleLabel: "Blush Feminine",
     features: [
-      "Bold hero with gallery",
-      "Hair services with pricing",
-      "Stylist portfolio section",
-      "About / Our story",
-      "Contact & booking form",
-      "Instagram gallery embed",
-      "WhatsApp & social links",
+      "Blush pink hero with booking CTA",
+      "Facial & skin services showcase",
+      "Before & after gallery",
+      "About / Our practitioners",
+      "Contact & consultation form",
+      "Location & hours",
+      "WhatsApp CTA",
       "Mobile responsive",
     ],
     pages: [
-      { label: "Homepage", preview: "home", description: "Bold hero, featured work gallery, and stylist profiles" },
-      { label: "Services", preview: "services", description: "Hair services list with descriptions and pricing" },
-      { label: "Contact", preview: "contact", description: "Booking form, location, hours, and social links" },
+      { label: "Homepage", preview: "home", description: "Soft blush hero with skin photography and booking CTA" },
+      { label: "Services", preview: "services", description: "Facial and skin treatments with descriptions and pricing" },
+      { label: "Contact", preview: "contact", description: "Consultation booking, location, hours, and contact form" },
     ],
-    style: "Sophisticated dark aesthetic with gold accents, warm whites, and editorial typography. Perfect for premium hair salons and barbershops.",
-    waMessage: "Hi! I'm interested in the Luxe Hair Studio website template.",
+    style: "Soft feminine aesthetic with blush pink backgrounds, salmon rose CTAs, and elegant minimal typography. Perfect for skin studios, aesthetic clinics, and beauty spas.",
+    waMessage: "Hi! I'm interested in the Lumina Skin Studio website template.",
     price: "€250",
     images: CDN.b3,
   },
   {
-    id: "pure-aesthetics-clinic",
+    id: "serene-haven-spa",
     industry: "beauty",
-    name: "Pure Aesthetics Clinic",
-    tagline: "Clean & Clinical",
+    name: "Serene Haven Spa",
+    tagline: "Moody & Luxurious",
     tier: "Starter",
-    tierGradient: "linear-gradient(135deg, #5B8CFF, #3A6AE0)",
-    domain: "pureaesthetics.com",
-    palette: ["#181E2C", "#4A7AE8", "#F2F6FF", "#C0D0F4", "#2A5AC8"],
-    paletteNames: ["Dark Navy", "Blue", "Ice White", "Soft Blue", "Deep Blue"],
-    styleLabel: "Clean Clinical",
+    tierGradient: "linear-gradient(135deg, #C89040, #2A6878)",
+    domain: "serenehavenspa.com",
+    palette: ["#1A1208", "#C89040", "#2A6878", "#F0E8D8", "#8B6030"],
+    paletteNames: ["Very Dark", "Warm Amber", "Teal Blue", "Cream", "Warm Brown"],
+    styleLabel: "Moody Spa",
     features: [
-      "Clean hero with trust signals",
-      "Aesthetic treatments menu",
-      "Before & after showcase",
-      "About / Our practitioners",
-      "Contact & consultation form",
-      "Google Maps embed",
-      "WhatsApp & social links",
+      "Moody spa hero with full-screen photo",
+      "Spa treatments & packages showcase",
+      "About / Our therapists section",
+      "Services menu with categories",
+      "Contact & booking form",
+      "Location & hours",
+      "WhatsApp CTA",
       "Mobile responsive",
     ],
     pages: [
-      { label: "Homepage", preview: "home", description: "Clean hero with trust signals, featured treatments, and testimonials" },
-      { label: "Services", preview: "services", description: "Aesthetic treatments with descriptions, pricing, and FAQs" },
-      { label: "Contact", preview: "contact", description: "Consultation booking, location, hours, and contact form" },
+      { label: "Homepage", preview: "home", description: "Dramatic full-screen spa hero with bold typography and CTA" },
+      { label: "Services", preview: "services", description: "Spa treatments and packages with descriptions and pricing" },
+      { label: "Contact", preview: "contact", description: "Booking form, location, hours, and directions" },
     ],
-    style: "Clean, clinical aesthetic with white backgrounds, blue accents, and sans-serif typography. Ideal for aesthetic clinics, dermatology studios, and medical beauty centres.",
-    waMessage: "Hi! I'm interested in the Pure Aesthetics Clinic website template.",
+    style: "Moody luxury aesthetic with dark warm backgrounds, amber lighting, and teal accent buttons. Ideal for luxury spas, wellness retreats, and holistic therapy centres.",
+    waMessage: "Hi! I'm interested in the Serene Haven Spa website template.",
     price: "€250",
     images: CDN.b4,
   },
@@ -447,6 +463,8 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
           <img
             src={imgSrc}
             alt=""
+            loading="eager"
+            decoding="async"
             style={{
               width: "100%",
               height: "auto",
@@ -459,7 +477,7 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
   }
   return (
     <BrowserFrame url={template.domain} height={340}>
-      <img src={imgSrc} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+      <img src={imgSrc} alt="" loading="eager" decoding="async" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
     </BrowserFrame>
   );
 }

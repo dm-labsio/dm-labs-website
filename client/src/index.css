@@ -414,6 +414,12 @@
     animation: gradient-shift 12s ease infinite;
   }
 
+  /* Skeleton shimmer */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
   /* WhatsApp pulse */
   @keyframes wa-pulse {
     0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
