@@ -429,15 +429,16 @@ const TEMPLATES = [
 
 // ─── Modal preview renderer ───────────────────────────────────────────────────
 function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0]; page: string; view: "desktop" | "mobile" }) {
+  const imgs = template.images as any;
   const imgSrc = view === "mobile"
-    ? (page === "home" ? template.images.homeMobile
-      : page === "menu" ? template.images.menuMobile
-      : page === "services" ? (template.images as any).servicesMobile
-      : template.images.contactMobile)
-    : (page === "home" ? template.images.homeDesktop
-      : page === "menu" ? template.images.menuDesktop
-      : page === "services" ? (template.images as any).servicesDesktop
-      : template.images.contactDesktop);
+    ? (page === "home" ? imgs.homeMobile
+      : page === "menu" ? imgs.menuMobile
+      : page === "services" ? imgs.servicesMobile
+      : imgs.contactMobile)
+    : (page === "home" ? imgs.homeDesktop
+      : page === "menu" ? imgs.menuDesktop
+      : page === "services" ? imgs.servicesDesktop
+      : imgs.contactDesktop);
 
   if (view === "mobile") {
     return (
