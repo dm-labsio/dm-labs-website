@@ -46,7 +46,7 @@ export default function HomePage() {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#5B8CFF] rounded-full blur-[120px] opacity-[0.08] animate-pulse-glow pointer-events-none z-0" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#8B5CFF] rounded-full blur-[100px] opacity-[0.06] animate-pulse-glow pointer-events-none z-0" style={{ animationDelay: "-4s" }} />
 
-        <div className="container relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-8" style={{ paddingTop: "clamp(5rem, 12vh, 8rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <div className="container relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-8" style={{ paddingTop: "clamp(3rem, 8vh, 8rem)", paddingBottom: "clamp(2rem, 5vh, 6rem)" }}>
           {/* Left: Text */}
           <div className="flex-1 max-w-xl">
             <AnimateIn variant="fade-up" delay={0.1}>
@@ -85,7 +85,7 @@ export default function HomePage() {
                 <img
                   src={HERO_DEVICES}
                   alt="D&M Labs website preview on laptop and mobile"
-                  className="w-full max-w-lg lg:max-w-xl xl:max-w-2xl drop-shadow-2xl"
+                  className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl drop-shadow-2xl"
                 />
               </div>
             </AnimateIn>
