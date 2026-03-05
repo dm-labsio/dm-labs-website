@@ -181,7 +181,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </li>
                 <li className="flex items-center gap-3 text-sm text-[#94A3B8]">
                   <Mail size={16} className="text-[#5B8CFF] shrink-0" />
-                  <a href="mailto:dudeandmadame@gmail.com" className="hover:text-white transition-colors">dudeandmadame@gmail.com</a>
+                  <a href="mailto:info@dm-labs.io" className="hover:text-white transition-colors">info@dm-labs.io</a>
                 </li>
                 <li className="flex items-start gap-3 text-sm text-[#94A3B8]">
                   <MapPin size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />

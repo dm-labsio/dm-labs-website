@@ -33,7 +33,7 @@ export default function Terms() {
               <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Your Content</h2><p>You are responsible for ensuring that any content you provide does not infringe on third-party rights.</p></div>
               <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Domain & Hosting</h2><p>Your domain name always belongs to you. We assist with setup but do not own or control your domain or hosting.</p></div>
               <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Maintenance</h2><p>Monthly maintenance plans can be cancelled at any time. There are no long-term contracts.</p></div>
-              <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Contact</h2><p>Questions? Email <a href="mailto:dudeandmadame@gmail.com" className="text-[#5B8CFF] hover:underline">dudeandmadame@gmail.com</a>.</p></div>
+              <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Contact</h2><p>Questions? Email <a href="mailto:info@dm-labs.io" className="text-[#5B8CFF] hover:underline">info@dm-labs.io</a>.</p></div>
             </div>
             <div className="mt-10 pt-8 border-t border-[#E2E5EA] flex gap-4">
               <Link href="/privacy" className="text-sm text-[#5B8CFF] hover:underline">Privacy Policy</Link>

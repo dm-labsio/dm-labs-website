@@ -125,7 +125,7 @@ export default function CookiePolicy() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">10. Contact Us</h2>
-                <p>If you have questions about our use of cookies, please contact us at <a href="mailto:dudeandmadame@gmail.com" className="text-[#5B8CFF] hover:underline">dudeandmadame@gmail.com</a>.</p>
+                <p>If you have questions about our use of cookies, please contact us at <a href="mailto:info@dm-labs.io" className="text-[#5B8CFF] hover:underline">info@dm-labs.io</a>.</p>
               </div>
 
             </div>

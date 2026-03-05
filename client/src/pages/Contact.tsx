@@ -9,7 +9,7 @@ import { toast } from "sonner";
 
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
-const FORMSPREE_URL = "https://formspree.io/f/xvgaepkl";
+const FORMSPREE_URL = "https://formspree.io/f/xojkabrk";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
@@ -92,7 +92,7 @@ export default function Contact() {
                       <p className="text-xs text-[#5B6472]">We reply within 24h</p>
                     </div>
                   </div>
-                  <a href="mailto:dudeandmadame@gmail.com" className="text-sm text-[#5B8CFF] hover:underline">dudeandmadame@gmail.com</a>
+                  <a href="mailto:info@dm-labs.io" className="text-sm text-[#5B8CFF] hover:underline">info@dm-labs.io</a>
                 </div>
               </AnimateIn>
 
