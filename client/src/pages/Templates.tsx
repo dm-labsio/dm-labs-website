@@ -45,7 +45,7 @@ const CDN = {
     card:           "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/JyHQRjqPVlblrfxy.png?Expires=1804155917&Signature=nXItT-k29wLV-5kRmvnIZi-2~BybQGrUswsZYub5OO8LHaCP7de8yE26ZHoMELyNwHttk686yxhHpSB6b1YCJssJ-4~5AoAIYSITW-s87XJjwZugsuD-CED4gjf3UNTU05~gqRRjO5APKZGgn5idkjrFyF-g12tnho49W9gdcW~AcTJ1H~l~Z1RlMbV051WcZm80PEnBzw0DaC01A0aVfwHM0OEtf1Fh4wLBgFn7aPXXukB~aBrru8Cl5fGSUIX2fhAZ3PB1r2U3YbtfIK-0d7cYzJuJ8~Wd0NJp~sz0R1U79XiZDPEuCsl27~~gv3JVFy5nOZwJCyThZzwcfXGrVA__&Key-Pair-Id=K2HSFNDJXOU9YS",
     homeDesktop:    "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/mkwXpPknntRzYJtF.jpg?Expires=1804155917&Signature=m2~DRaU9ib6bozU0aKcjVnYzQOVPvvfp457vavkyoacjEFgh4y76GncaM7mdgsMXx-MiVa94gzqM7wPR7NByQ7f9K1OdlsSNVL~KaKcGkm500DaKsGU1Z5QQogkPVgbhOET4SXewvqWMSfA2A2MLDXu1ZbiNpW-uRFaE9i1Qc7zaNkg5V41vp0IKzO4ei8m5qOHMBH1-ckTYXeD7jX7mWtmHJLcwHjHSZYtNzO8gOugKC3MVgrBPDKtSa0JGwqgse6DdDQxidSGmLf6DCDQ5qJfKwylJ~aD4ECqm3VNGNOTJAtsP4uW~aimXrOGt0bfni-ooc086NpuGt1cB7T2F1A__&Key-Pair-Id=K2HSFNDJXOU9YS",
     homeMobile:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/glPXgwhAwFymOCMF.jpg?Expires=1804155918&Signature=ck-it9mxFlV2HBoA38ypbkS490RORfI1FgdMm48gFRtsZMXQ92ezMRANsFeYiln-ytELj2c5qGgL3tFOUUdNv~TksE5Lpf3o8HZdRX06tZAcIX~uH2w84DadQ132QKrsyFiBkXNISZy7JlPa5at5yuUYlT29g-gCRD5g8Bui-6DCG3hZGDzOM17u0p7saRNxvSIdb4NDsypy0HqxT3F1AlCskH~zGVl7ENCqcIbFWhfi5yN4Fu0T4c8EN36j158vYS4X7SvbEz2~BDSGM-aaKb42tFo3N0O-fVMY5uh5d-cQP3lPguaFqFUCeUzU0nkyP88c8N7kU0JpWgy3sE4gOg__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    servicesDesktop:"https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/mEiHCTyAFEXdtjWV.jpg?Expires=1804155918&Signature=QgDkRxVa2EFTsjEZ6kvVbILtsfMw2W-iG~wPeOfoPj2XaIksR8tV1--0JM9gAxUX~VD9S21SEFwK02ir4dbLHa7ASs-NblifgU-6YnqdikC8naKYw36dVkMUtgCTjBpnPwlr9gWJmiEN7lzbnkft0tSUJm3FC2WRNPQt~itM5HGEibE7UphCNRcCrCE8csHp~KOPL12gROIiQq-B1pTmJoo39Gl9o2Au~NyXbaXaqmuzIOscSyHex8PL5vQlcjs50FGCRuE0eUhpQPjvPbRDMOk60dtGSK~xbyEX5smoY2C~wpO0qFLUX39hDv58z7kPz8GGR9pBliRMQBf-dUODQA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesDesktop:"https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/nhLdJgpyoqaFLpva.jpg?Expires=1804251564&Signature=qF4FHy8ERoHoHGqwhVHz08Nn0glnM55iSfmH45hG1ZHhZIMWXMXbMCSpABte59qst5HM27O365X16aKjw78HvryopGQjujozwOk8prIkAt3hCRyZnrK23h3IgLyp4goTxjRZs8FjIAqTppHrhH7MesOYnFQbcV3ITmd~Zk3-ffSIiETwGt3Q7td-6yllOS9wwIBJAjEf-DtJeFYo9Gt43nQuD0msVtcVjmaOWS5Gk9QjxbUbYbd3AkooLDzs5KyNpe~7qTVCrX6kT5xXF4a~mJPk72bJyvOnDVcMNWI~--nj8CUsvnVHpTgrxm0WxPD4yyWAjpDiVKQdgOzV~GRN0A__&Key-Pair-Id=K2HSFNDJXOU9YS",
     servicesMobile: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/GCxQAELZSsclOnPh.jpg?Expires=1804155918&Signature=tAWf~9ofNGSK43Zv~FW-6zIfFpPiPaVORQuE6jt~bCNMdGYZfhU3vMWd2LMg2PKZArLPf4IWrFDxs~yoRlLNLhSVZ03UEHQl8JbX3-RCKsLwWj09PrCCVbVPvoGxQVpFwxJPw96nw9OrRmu2hhMtWFOkcYtGuTt~~PojlVCXgMknHp-w3Pgv0ebuBVqhDPtVNMz0sT6KZN3ISgAZETxtbhXBA44WE8MNHWw6GGXaXZmlnfYNclM-RT4JTZHbWsvjkhf~sUcbhkNXUKlJE-5k7pUAmI-UPdP0IUU7G26i8ASwzUNHq0vff75wQyL7gTCCBWZJoPsVOjTz6lblhZJfGg__&Key-Pair-Id=K2HSFNDJXOU9YS",
     contactDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/QTuOFGHPtTmQYcxN.jpg?Expires=1804155918&Signature=Bi3TDQu6Z0abGhay~XoOAHM9AixaKAZSmOH8e-I3TS5GLnruRQEz3ms7hIh3s8AB5JSFXOFiISTJAdDxPyIL1KvzXbwOODJ7MUL2GLNFP2gkoJctAPSDkQDMEGzuGmZ36NeT2uENmTiQwhokAEA6Vk-9Yo87sbYItyKzzBvfSf6uaYmeBX6pBklGMhs3DMRprcN5Yf7LtFHhl-ZhsFRi~ST9AuJf6Z7gr0yR0xSlIHoT8moazGVIsuwPIJyaL0~SoPF4AJFnlPZYsWQPi5PyAhuWzhZzgR4BS59fSMwyqbdcThIaGhwmpUGx6SDWlOpvqvgTQ4o-h4ufAo70Jc9gsw__&Key-Pair-Id=K2HSFNDJXOU9YS",
     contactMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/xnTYcPlbVHLcwLwV.jpg?Expires=1804155918&Signature=QtGFSLApuoUUCgX0bTw3apsXjntCNADc0tImKKRcc0AO8nw7eNyLcUum6wxYKHu~ufsNrKQtevh1aXXmFMZKYeKRI-3uTHA7skcHdnLRMOsESNW6Ympn2yk7ry3O7~r5BIQNRUdHV6a5zz~L8IJoPT9u5J0Uu~w-86tvmdzGgd8rabvgRlIQgZYxwoMBUkwU0CCDR8YpZ9435y0NIVwirdL~DuH3ieVxUyC8BktqhgGybY~zWsbNwhczMRbkM0ALbVblpsPwRTer2mCoHLkH6oQEEf8eBFBS9K~sIdthP5Dqryl00j-vNt2YtdXfgoEsn4Rl9~9diJgcCOp1RCoddQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
@@ -96,6 +96,16 @@ const CDN = {
     servicesMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DHjvqNlizRvZpkBh.png?Expires=1804248066&Signature=GSvF4Rv1xYdNYbzSbK9r4IRh6npPLFptjAFEDu7jCdOQgEzSY2KQ3HQaTGS~tU~JX0ZyvawK9IOvMjpxQH9Q6h2EJ98dfl8wzzfIKXaFfihUPfjGllh3zeLR7YnqfAouxr2g9Tqz-UYu2aXvuIGQRnXYLQZ6~-PNm8UqETZj8FL9b-ovcmOaH3PA-2tQXDzw7Y7ib60JPYt9i9HfOskwTcMwYHOjcYrdMwMBRIkikkgOm8gw9zTGX~pI9pCR7ucHwppgvOUmAZ1SsaxRoMmpUbDoFNStRp6sSO9mAL1RG0y98ULAlTCLTU3wsUYA5tn3THKTZcmJwk2QUFEIV0-LFw__&Key-Pair-Id=K2HSFNDJXOU9YS",
     contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/BQfFdAkGYebKMKpk.jpg?Expires=1804248066&Signature=QMboxheXQB32k0M~Y4GPPsKftm5xTyca~crG--HnLMInmwOZdZC9SxkTeQ8zF1oFvyZgqb4Gk1xRCNMERZ3A404MIlb3Kya-hPobo5P8uYt9XxzpRqky4~3~8nMLRRTqrQHw7IurLwTbQdmRX0LxlHFixpzD98LMLPOOpJTrkOmSEMYIHbwoM3reQISjjDKZueH73FLazvA8cc05tYZZlkIwL7zV-ETL~jVufN~15V3bDmKfgUEuBe-IzV3a2l-6FgYpe8WHaCPXKbu7r75qQgRuh8FDaIb3Coe4sJOIeka0e0iC3NmA5y5~~DP2zczk2xZkBlYgm74T~69zSt9sBg__&Key-Pair-Id=K2HSFNDJXOU9YS",
     contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/RkvwuDSBgYRbTqkU.jpg?Expires=1804248066&Signature=YGRCjvrczh9b0LpFrRie77YMhcHrFqTZBGuqSp2vsfviRDyx2P01AF1csxnsRvBsaw0NFps5DgsuyhY0AgJhJVxxc1RhyQYwlcHmBT1muVwxLzHfxUDSE0aH8XsCR3qJqDe2CEfR9lXpNxBEA3Wz0JvFpM~dVwV1Ik9nFR~dINd08nAh0hCLcpMwOxkVa008msvKiZGN1iX87zA61EoiujWFommYFFatPC8v3S2~WXMOljtZr6kSCp3JAjHY5pBqiLaER~zaEXahW0vz9KeCE0tGMo9cGRYGIZktospi9ghYTaeKc-wBUPnbeF4YfBUEpK3TKBt4vnsFiW8fzyMoLg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  },
+  // ── Clinic 3 ──
+  c3: {
+    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/ChvLohPuUByZeIQC.png?Expires=1804251563&Signature=UtyOwyQRclD893vAxC6TSzouWZJwrTvXywRaYZ5jiWdGOKq56Bvf9jpkDh2xZwTL2uipANP9ahtcE1KDSPWJc0huwSqFR83tvtWP2txSE9EleD2QtHAnOSMHTLZxB4vMYO0LmCGmmLWKEzReZQTeh~QBrf5Gsy2GgtusdMd85mmfadUpq4Jdink1DigKxJrGmKkQvTI63GhwCEnqOMPufMVVhq0ns8vOIw1D5ed6gZdLY0Ae5Oe73a6EXomIixxn1BUnuBqGbZSf7xe1BQqQ6UH2l1EI9Ib9~uU9cEcjMvJGoxZ9FuQVkHgJoHxkeRksZN8dxGza7n2f3nLxO8cbdQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/NHQujbHpKEVeITwp.jpg?Expires=1804251563&Signature=fYiXUFLnds7lAkGjakyEXOeEo3TdsYR52N4mxlKvvX2h0yCe9KU1gyJwayKyNVTb1eVim7IYwuoHDtvfldWMQunp9FZdlq2SYp1gtoZCn~Yfv3d24P4DizRsL9izbfWa5a10OGIt9q9AYLBcPuq4Cqb7f~Fi-EosY8UGbk0fYp46A1JirrYrEecbaZkTwGbUUmrTPEjFsh61GTAdNUihVu9lSFk5PpqiItKrgFDXQ3eB86zKpBe4AXKJU0T85XIfj0gjQ6rdZjJhlNgNyI6Aufx56yFxQkgmOMn7rwYasWc3LTl5e68h64npNyZcKcyRumqxAXuphtQZxIHziNJFmA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/uavEwuXtbwJlQxCh.jpg?Expires=1804251564&Signature=Lh~y-FomnxNXeBl29MUlVafSD2nM5GmdlglAf-fkpQ6HMrlBebMP9HmPyiz~BBBobt1Of5kyL-k8nlNSzpp9BOBkB8tG9Yzz0lrmSg5E-nolDox0SI7DMbyDK3ArIKx85QYEFhBdb28bCWg9bQWW-LeHEWF2lHNolzQB6wXDg7VhiBld8vQLAAGq~Q6p-XbDBVdsP~LSW0kQUeVtO4aO1MNxG4Lcmqt9mz56Efsd5b4HMHF2aDjGJmgc-qzSKwyQ057UfXSOVrc-mCiD3dVitzZLv3L6umD9eGyO99KdVAEVPONgsP1YL5JjClM5ii7--1bCClZA8Ee14k4TH8D7Dw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/IkjsPNxJuaiuzcxz.jpg?Expires=1804251564&Signature=cWuk0IejAaEcFMrO2VUBFNQPrYSrGRfbBptCc~NDZyBqKowQoLdPPI-G~QaBirpfLtzu3Q0tQ7GocdcjAp0~1g2lEYTt8f2SfctOgT3TqMp~HwavXTwIRFmjpNiabqEha9io0ZSRxbDidCajQdiXq0JEnqNsVxLzTVKQRhZB4u4D3gqyF75lR3BUdIGhQoGqn0cDpRcexpCuJgmuR~5JJ174VdLWnOBsDUpFiBKHnIIg867PaAQC~aewykuWgII74bf~KShk8qaBX9DBymzB6gfzJ9Ot4qly9696lz4pBBRJ5m1VZcDg3cKL0z1QrSrsjLMfo7DY6ytE~UwPrUk-3w__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/EAPtMQrSPrviqxBc.jpg?Expires=1804251564&Signature=wDXD4hUVvVb6ue56DQOLa~zKatPM3FfeG0whhUQciA6EaiOtjPrz9Tj1uZxuY4-KOa46D6LMKXyasZP~GO6XBcAHXnopzoETLIoqmvl7S57VA-WwU1iyVGqfrR91QCWcPVYqX5SHTh94o1bmXsqduy66IKGLufhPp6int2xBQAfP8DNWEIwRBUZ2Dqy6WD1QXYG15aiSPeYnY9XWxigEEHed0HOe6DxOmHymZSRe0FqIlTgOWYTr8Z0jSPOtxg4wQmO0zybCj5WDbxRvYvYoqgRPKfq7anANAbRTFK3OhXFj41XmafvrCwHRULzw~JdY8K5LC~hbh4DwtS07P0LxxQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/HmjUPHfgkXKrwmUi.jpg?Expires=1804251564&Signature=v0iR0U-x~uwZZWp4f-0WgXd6rJhEHONG6WR6h92KHXzyqTlD7-4Y3xRTL8MwuzJz91h8ZGBqPLjU0qDKUjePW~F-A4qrwrDLfuC8HWjr7x~3eH5gdW7h4boDUMyh6EjCyA0OMpYPwe1A2vm0I7dQqPPQ90vdamdQqcuOrSax~Qi-LBOvK8beYsCnWIh1uj5Kv8yme1ODYWld3HmPmgb1g2i9JaN2QE2unTQK7raKTo~tVPWZdjsUfAexKdpXBCPcprgr5p4dEdM-Z0QH3kaqUcM5PN8wIAdWQ7KNw-msrHDfxyhzAedGKMExbSKsWdHrkB16ure32aDxcvOb0euhDw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/gSjiYlaDNuHSgRBB.jpg?Expires=1804251564&Signature=vm~vR30FVce705v6HKOhFNG2NlWRSoQ96q3CaTG4GlnK3zffwYs9rF1jyCpqEk8SHVYEQrt07xZS5ak8BRDjIUcJeh8mUZdxhq89bO7LlG2r2WVq45IR5kbf7aUyfTo72HGX8AiicARnq2PzUs-IBUvIiYXYvdafxEbTqwtJLfXF7Y-78zS4M3~1OPAstI8Z7JqrrU5LfnryiFXeBytChVy8J4h8FLPVonVzxE9iZ2rGFFiXylPQEl3E2-lXh4OawS98VO6crDkSxO99CejZhg3ESzt6vLQ2h7beRGMHDuzMLRSsFPAn4frbyjfiZPkNUpFcGafb2lTrCg__&Key-Pair-Id=K2HSFNDJXOU9YS",
   },
   // ── Fitness 1 ──
   f1: {
@@ -552,6 +562,36 @@ const TEMPLATES = [
     style: "Warm, trustworthy aesthetic with soft purples and greens on light backgrounds. Ideal for wellness clinics, holistic health centres, and therapy practices.",
     waMessage: "Hi! I'm interested in the Harmony Wellness Clinic website template.",
     images: CDN.c2,
+  },
+  {
+    id: "mindful-psychiatry-wellness",
+    industry: "clinic",
+    name: "Mindful Psychiatry & Wellness",
+    tagline: "Expert & Compassionate",
+    tier: "Business",
+    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3FDF)",
+    domain: "mindfulpsychiatry.com",
+    palette: ["#2C2C2C", "#8B7355", "#F5F0E8", "#E8E0D0", "#4A7C59"],
+    paletteNames: ["Charcoal", "Warm Brown", "Cream", "Linen", "Forest Green"],
+    styleLabel: "Calm & Clinical",
+    features: [
+      "Full-screen hero with clinic photography",
+      "Services & support section with accordion",
+      "Meet our specialists team section",
+      "Patient resources & blog",
+      "Appointment request form",
+      "Location, hours & contact info",
+      "Announcement banner",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Homepage", preview: "home", description: "Full-screen hero, services overview, and specialist profiles" },
+      { label: "Services", preview: "services", description: "Therapy, medication management, and holistic wellness sections" },
+      { label: "Contact", preview: "contact", description: "Appointment request form with location and clinic hours" },
+    ],
+    style: "Calm, clinical aesthetic with warm neutrals and natural tones on cream backgrounds. Ideal for psychiatry practices, mental health clinics, and therapy centres.",
+    waMessage: "Hi! I'm interested in the Mindful Psychiatry & Wellness website template.",
+    images: CDN.c3,
   },
   // ── Fitness templates ──
   {

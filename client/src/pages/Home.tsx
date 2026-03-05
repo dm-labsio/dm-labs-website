@@ -1,7 +1,7 @@
 /* ============================================================
    D&M LABS — Homepage
    Hero with gradient atmosphere + floating devices
-   Sections: Trust, Services, Process, Pricing, Business Types, Stats, CTA
+   Sections: Trust, Services, Process, Business Types, Template Showcase, Pricing, Stats, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import { Link } from "wouter";
@@ -18,7 +18,39 @@ const GRADIENT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9
 const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
 const DARK_CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/dark-cta-bg-LgZ8epcpi9XDGLof5Q9KgS.webp";
 
-const WHATSAPP_URL = "https://wa.me/972584928177?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
+// Featured template card images for the homepage showcase
+const FEATURED_TEMPLATES = [
+  {
+    id: "iron-forge-gym",
+    industry: "fitness",
+    name: "Iron Forge Gym",
+    category: "Fitness & Sport",
+    styleLabel: "Bold & Energetic",
+    cardImage: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/MgTbsRcvqoiXiYbH.png?Expires=1804248067&Signature=eKzwv3T-wSElP2qcg3J4FLEMHcl40qoYKk4jnvNKaP2vXtW6Vm7NVcDqU40OsugAe8wu0hgW5ECxxvML~K~Z8-GR97iqDqCLNNGyLSIaTvkvpM9SDinuGMUi32-9KoSmMGl08yMUkXLU6~lq9aaSeBLwVWA7hK3NvoCAum8qtRbKdLYwpCRTs9d7tWgZsaxujYNFVfQ1dfWhp9epOs1U6KgvzfD8s-~dg40GNN3cBWcXZrTZxt0WflJqL5EbV45SCOlCKjbXXEcoCgcuFmaAmMhkf06Ck58x2uxMI8AekTK6~ojFiURJVGbqqLgaF-5b7hVetymcO4G4Gws3d3Z3MQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    palette: ["#0A0A0A", "#FF4500", "#1A1A1A", "#F5F5F5", "#FF6B35"],
+    paletteNames: ["Black", "Fire Red", "Dark", "Off-White", "Orange"],
+  },
+  {
+    id: "aura-hair-studio",
+    industry: "beauty",
+    name: "Aura Hair Studio",
+    category: "Beauty & Wellness",
+    styleLabel: "Luxury Dark",
+    cardImage: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/JyHQRjqPVlblrfxy.png?Expires=1804155917&Signature=nXItT-k29wLV-5kRmvnIZi-2~BybQGrUswsZYub5OO8LHaCP7de8yE26ZHoMELyNwHttk686yxhHpSB6b1YCJssJ-4~5AoAIYSITW-s87XJjwZugsuD-CED4gjf3UNTU05~gqRRjO5APKZGgn5idkjrFyF-g12tnho49W9gdcW~AcTJ1H~l~Z1RlMbV051WcZm80PEnBzw0DaC01A0aVfwHM0OEtf1Fh4wLBgFn7aPXXukB~aBrru8Cl5fGSUIX2fhAZ3PB1r2U3YbtfIK-0d7cYzJuJ8~Wd0NJp~sz0R1U79XiZDPEuCsl27~~gv3JVFy5nOZwJCyThZzwcfXGrVA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    palette: ["#0A0A0A", "#C9A84C", "#1A1A1A", "#F5F0E8", "#8B7355"],
+    paletteNames: ["Black", "Gold", "Dark", "Cream", "Warm Brown"],
+  },
+  {
+    id: "vitality-medical-clinic",
+    industry: "clinic",
+    name: "Vitality Medical Clinic",
+    category: "Clinics & Health",
+    styleLabel: "Clean & Professional",
+    cardImage: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/vHiXcgVzfwvNVOeM.png?Expires=1804248063&Signature=ZzohmEbDPrne9IuEegn0BwtkTJXFDhaGAsPBm9laKfqJ0XcUr8wfSoTtoi1aOYtX7JcnT46gXq7AIuGQRJ0tnThKxddiggu8~2k5jMEIv29FNuWZ5a6nYT4-dGBGJUc1ukwLk8Sa8O9o8MfXClwr7FYhC2Jv8748ztNqCntTFB-BRey-LWpcFY5dffhPIIiih1jbkwcbJyC-2TuEfO8uZjhn6YuMNWcBlXGe6yBd~v9U-qFY8B2H9VqsyeuGZKSEwyHug2m5ROSr6~sFi8S41WCC~knstnwhQap7wWqGkzWDNmyYfKaBpdkWBKIgVo99Rgd2OCmsxfCK8eB4kix8BA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    palette: ["#1A3A5C", "#0099CC", "#F0F8FF", "#E8F4FD", "#00B4D8"],
+    paletteNames: ["Navy", "Teal", "Ice Blue", "Light Blue", "Cyan"],
+  },
+];
 
 export default function HomePage() {
   return (
@@ -67,8 +99,8 @@ export default function HomePage() {
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.4}>
               <div className="flex flex-wrap gap-4">
-                <Link href="/contact" className="btn-primary">
-                  Get Started
+                <Link href="/templates" className="btn-primary">
+                  Browse Templates
                   <ArrowRight size={18} />
                 </Link>
                 <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
@@ -141,7 +173,7 @@ export default function HomePage() {
               { icon: Clock, title: "Quick Turnaround", desc: "From concept to launch in 5–10 business days. We move fast without compromising quality.", anchor: "turnaround" },
             ].map((service) => (
               <StaggerItem key={service.title}>
-                <Link href={`/services#${service.anchor}`}>
+                <Link href={`/services/${service.anchor}`}>
                   <div className="dm-card h-full cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
                     <div className="icon-container-gradient mb-5">
                       <service.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
@@ -211,10 +243,127 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          PRICING PREVIEW
+          BUSINESS TYPES — now ABOVE pricing
           ═══════════════════════════════════════════ */}
       <section className="section-spacing relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
+          <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+        </div>
+        <div className="container relative z-10">
+          <AnimateIn className="text-center mb-16">
+            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Who We Serve</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
+              Built for Businesses Like Yours
+            </h2>
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+              We specialise in websites for local and service-based businesses.
+            </p>
+          </AnimateIn>
+
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
+            {[
+              { icon: Utensils, label: "Restaurants", industry: "restaurant" },
+              { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
+              { icon: Stethoscope, label: "Clinics", industry: "clinic" },
+              { icon: Dumbbell, label: "Fitness", industry: "fitness" },
+              { icon: Briefcase, label: "Consultants", industry: "services", comingSoon: true },
+              { icon: ShoppingBag, label: "Retail", industry: "retail", comingSoon: true },
+            ].map((biz: any) => (
+              <StaggerItem key={biz.label}>
+                <Link href={`/templates?industry=${biz.industry}`}>
+                  <div className={`dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 transition-all duration-300 ${biz.comingSoon ? 'opacity-60 hover:border-[#5B6472]/30' : 'hover:border-[#5B8CFF]/40'}`}>
+                    <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
+                      <biz.icon size={24} className={biz.comingSoon ? 'text-[#5B6472]' : 'text-[#5B8CFF]'} strokeWidth={1.75} />
+                    </div>
+                    <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
+                    <p className={`text-xs mt-1 ${biz.comingSoon ? 'text-[#5B6472]' : 'text-[#5B8CFF]'}`}>
+                      {biz.comingSoon ? 'Coming soon' : 'View templates →'}
+                    </p>
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          {/* ── Template Showcase Grid ── */}
+          <AnimateIn className="text-center mb-10">
+            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Design Inspiration</p>
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">
+              See What We Can Create for You
+            </h3>
+            <p className="text-base text-[#5B6472] max-w-xl mx-auto">
+              Browse our design templates — each one is a starting point for a fully custom website tailored to your brand.
+            </p>
+          </AnimateIn>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            {FEATURED_TEMPLATES.map((tpl) => (
+              <StaggerItem key={tpl.id}>
+                <Link href={`/templates?industry=${tpl.industry}`}>
+                  <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                    {/* Card Image */}
+                    <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                      <img
+                        src={tpl.cardImage}
+                        alt={tpl.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      {/* Category badge */}
+                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#111315]">
+                        {tpl.category}
+                      </div>
+                    </div>
+
+                    {/* Card Details */}
+                    <div className="p-5">
+                      <div className="flex items-start justify-between mb-3">
+                        <div>
+                          <h4 className="font-semibold text-[#111315] text-base leading-tight">{tpl.name}</h4>
+                          <p className="text-xs text-[#5B6472] mt-0.5">{tpl.styleLabel}</p>
+                        </div>
+                      </div>
+
+                      {/* Colour Palette */}
+                      <div className="mb-4">
+                        <p className="text-xs text-[#5B6472] mb-2 font-medium">Colour Palette</p>
+                        <div className="flex items-center gap-1.5">
+                          {tpl.palette.map((colour, i) => (
+                            <div
+                              key={i}
+                              className="w-6 h-6 rounded-full border border-white shadow-sm ring-1 ring-black/5 shrink-0"
+                              style={{ backgroundColor: colour }}
+                              title={tpl.paletteNames[i]}
+                            />
+                          ))}
+                          <span className="text-xs text-[#5B6472] ml-1">{tpl.paletteNames.join(" · ")}</span>
+                        </div>
+                      </div>
+
+                      {/* Learn More */}
+                      <div className="flex items-center gap-1 text-sm font-semibold text-[#5B8CFF] group-hover:gap-2 transition-all">
+                        Learn More <ArrowRight size={14} />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <AnimateIn className="text-center">
+            <Link href="/templates" className="btn-primary">
+              Browse All Templates
+              <ArrowRight size={16} />
+            </Link>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          PRICING PREVIEW — now BELOW business types
+          ═══════════════════════════════════════════ */}
+      <section className="section-spacing bg-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
           <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
         </div>
 
@@ -311,48 +460,6 @@ export default function HomePage() {
               See full pricing comparison <ArrowRight size={14} />
             </Link>
           </AnimateIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          BUSINESS TYPES
-          ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
-        <div className="container">
-          <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Who We Serve</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Built for Businesses Like Yours
-            </h2>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              We specialise in websites for local and service-based businesses.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {[
-              { icon: Utensils, label: "Restaurants", industry: "restaurant" },
-              { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
-              { icon: Stethoscope, label: "Clinics", industry: "clinic" },
-              { icon: Dumbbell, label: "Fitness", industry: "fitness" },
-              { icon: Briefcase, label: "Consultants", industry: "services", comingSoon: true },
-              { icon: ShoppingBag, label: "Retail", industry: "retail", comingSoon: true },
-            ].map((biz: any) => (
-              <StaggerItem key={biz.label}>
-                <Link href={`/templates?industry=${biz.industry}`}>
-                  <div className={`dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 transition-all duration-300 ${biz.comingSoon ? 'opacity-60 hover:border-[#5B6472]/30' : 'hover:border-[#5B8CFF]/40'}`}>
-                    <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
-                      <biz.icon size={24} className={biz.comingSoon ? 'text-[#5B6472]' : 'text-[#5B8CFF]'} strokeWidth={1.75} />
-                    </div>
-                    <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
-                    <p className={`text-xs mt-1 ${biz.comingSoon ? 'text-[#5B6472]' : 'text-[#5B8CFF]'}`}>
-                      {biz.comingSoon ? 'Coming soon' : 'View templates →'}
-                    </p>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
         </div>
       </section>
 
