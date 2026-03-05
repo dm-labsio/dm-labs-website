@@ -731,7 +731,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
   const [activePageIndex, setActivePageIndex] = useState(0);
   const [activeView, setActiveView] = useState<"desktop" | "mobile">("desktop");
   const activePage = template.pages[activePageIndex];
-  const waUrl = `https://wa.me/972584928177?text=${encodeURIComponent(template.waMessage)}`;
+  const waUrl = `https://wa.me/35797472847?text=${encodeURIComponent(template.waMessage)}`;
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };

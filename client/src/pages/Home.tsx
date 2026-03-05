@@ -382,17 +382,18 @@ export default function HomePage() {
           </AnimateIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
             {/* Starter */}
             <AnimateIn delay={0.1}>
               <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-medium text-[#5B8CFF] mb-2">Starter</p>
-                <div className="flex items-baseline gap-1 mb-4">
+                <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Starter</p>
+                <div className="flex items-baseline gap-1 mb-1">
                   <span className="text-4xl font-bold text-[#111315]">€250</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
-                <p className="text-sm text-[#5B6472] mb-6">Perfect for new businesses that need a professional online presence.</p>
+                <p className="text-sm text-[#5B6472] mb-6">Perfect for new businesses that need a clean, professional online presence fast.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Up to 3 pages", "Mobile responsive", "Contact form", "Google Maps", "Basic SEO", "1 revision round"].map((f) => (
+                  {["1-page landing site", "Mobile responsive", "Contact form", "WhatsApp button", "Google Maps", "Basic SEO", "Accessibility widget (free)", "2 revision rounds", "5–7 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}
@@ -405,21 +406,19 @@ export default function HomePage() {
               </div>
             </AnimateIn>
 
-            {/* Business — Highlighted */}
+            {/* Business — Recommended */}
             <AnimateIn delay={0.2}>
               <div className="brand-gradient-border h-full">
                 <div className="dm-card h-full flex flex-col !shadow-none relative">
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold">
-                    Most Popular
-                  </span>
-                  <p className="text-sm font-medium text-[#8B5CFF] mb-2">Business</p>
-                  <div className="flex items-baseline gap-1 mb-4">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
+                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Business</p>
+                  <div className="flex items-baseline gap-1 mb-1">
                     <span className="text-4xl font-bold text-[#111315]">€350</span>
                     <span className="text-sm text-[#5B6472]">one-time</span>
                   </div>
                   <p className="text-sm text-[#5B6472] mb-6">For established businesses that need a complete, conversion-focused website.</p>
                   <ul className="space-y-3 mb-8 flex-1">
-                    {["Up to 7 pages", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews", "Advanced SEO", "2 revision rounds", "Social media integration", "Speed optimisation"].map((f) => (
+                    {["Up to 5 pages", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews widget", "Advanced SEO", "Social media integration", "Speed optimisation", "Accessibility widget (free)", "3 revision rounds", "7–10 day delivery"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
@@ -433,34 +432,37 @@ export default function HomePage() {
               </div>
             </AnimateIn>
 
-            {/* Maintenance */}
+            {/* Professional */}
             <AnimateIn delay={0.3}>
               <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-medium text-[#5B8CFF] mb-2">Maintenance</p>
+                <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Professional</p>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold text-[#111315]">€39</span>
-                  <span className="text-sm text-[#5B6472]">/month</span>
+                  <span className="text-4xl font-bold text-[#111315]">€450</span>
+                  <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
-                <p className="text-xs text-[#5B8CFF] mb-4">or €59/month for Premium</p>
-                <p className="text-sm text-[#5B6472] mb-6">Keep your website updated, secure, and performing at its best.</p>
+                <p className="text-sm text-[#5B6472] mb-6">For businesses that want a fully custom, feature-rich website with everything included.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Content updates (Essential: 3/mo, Premium: unlimited)", "Hosting & uptime monitoring", "Monthly backup", "Performance optimisation", "WhatsApp support", "Seasonal banners (Premium)"].map((f) => (
+                  {["Up to 7 pages", "Fully custom design", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews widget", "Advanced SEO", "Gallery & testimonials", "FAQ / blog-ready section", "Pop-up included", "Accessibility widget (free)", "Unlimited revisions", "10–14 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                      <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
+                      <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
                       {f}
                     </li>
                   ))}
                 </ul>
-                <Link href="/pricing" className="btn-secondary w-full justify-center">
-                  View Plans
+                <Link href="/contact" className="btn-secondary w-full justify-center">
+                  Get Started
                 </Link>
               </div>
             </AnimateIn>
+
           </div>
 
           <AnimateIn className="text-center mt-10">
+            <p className="text-sm text-[#5B6472] mb-3">
+              All plans include a <span className="font-semibold text-[#111315]">free consultation</span> — no commitment, no pressure.
+            </p>
             <Link href="/pricing" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
-              See full pricing comparison <ArrowRight size={14} />
+              See full pricing &amp; add-ons <ArrowRight size={14} />
             </Link>
           </AnimateIn>
         </div>

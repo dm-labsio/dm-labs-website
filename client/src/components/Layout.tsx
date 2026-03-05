@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const LOGO_URL = "/dmlabs-logo.png";
 
-const WHATSAPP_URL = "https://wa.me/972584928177?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -176,7 +176,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-sm text-[#94A3B8]">
                   <Phone size={16} className="text-[#5B8CFF] shrink-0" />
-                  <a href="tel:+972584928177" className="hover:text-white transition-colors">+972 58-492-8177</a>
+                  <a href="tel:+35797472847" className="hover:text-white transition-colors">+357 97 472 847</a>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-[#94A3B8]">
                   <Mail size={16} className="text-[#5B8CFF] shrink-0" />

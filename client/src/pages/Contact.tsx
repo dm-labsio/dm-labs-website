@@ -7,7 +7,7 @@ import AnimateIn from "@/components/AnimateIn";
 import { MessageCircle, Mail, Clock, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
 
-const WHATSAPP_URL = "https://wa.me/972584928177?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
 const FORMSPREE_URL = "https://formspree.io/f/xvgaepkl";
 
@@ -76,7 +76,7 @@ export default function Contact() {
                       <p className="text-xs text-[#5B6472]">Fastest response</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472]">+972 58-492-8177</p>
+                  <p className="text-sm text-[#5B6472]">+357 97 472 847</p>
                   <p className="text-xs text-[#5B8CFF] mt-2 group-hover:underline">Send a message →</p>
                 </a>
               </AnimateIn>

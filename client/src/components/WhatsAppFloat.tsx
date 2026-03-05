@@ -1,7 +1,7 @@
 /* D&M LABS — WhatsApp Floating Button */
 import { useState } from "react";
 
-const WHATSAPP_URL = "https://wa.me/972584928177?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
 export default function WhatsAppFloat() {
   const [hovered, setHovered] = useState(false);
