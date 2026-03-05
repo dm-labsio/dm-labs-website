@@ -127,17 +127,20 @@ export default function Services() {
               { icon: Headphones, title: "Post-Launch Support", desc: "We don't disappear after launch — ongoing support when you need it.", anchor: "turnaround" },
             ].map((item) => (
               <StaggerItem key={item.title}>
-                <div id={item.anchor} className="dm-card h-full !p-6 scroll-mt-24">
-                  <div className="flex items-start gap-4">
-                    <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
-                      <item.icon size={20} className="text-[#5B8CFF]" strokeWidth={1.75} />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-[#111315] mb-1">{item.title}</h3>
-                      <p className="text-sm text-[#5B6472] leading-relaxed">{item.desc}</p>
+                <Link href={`/services/${item.anchor}`}>
+                  <div id={item.anchor} className="dm-card h-full !p-6 scroll-mt-24 cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-start gap-4">
+                      <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
+                        <item.icon size={20} className="text-[#5B8CFF]" strokeWidth={1.75} />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-semibold text-[#111315] mb-1">{item.title}</h3>
+                        <p className="text-sm text-[#5B6472] leading-relaxed mb-2">{item.desc}</p>
+                        <span className="text-xs font-medium text-[#5B8CFF] inline-flex items-center gap-1">Learn more →</span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </StaggerItem>
             ))}
           </StaggerContainer>

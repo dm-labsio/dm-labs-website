@@ -959,6 +959,86 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
   );
 }
 
+// ─── Custom Build Card ──────────────────────────────────────────────────────
+function CustomBuildCard() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="group bg-white rounded-2xl overflow-hidden transition-all duration-400 flex flex-col"
+      style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid rgba(226,229,234,0.8)" }}
+    >
+      {/* Gradient banner */}
+      <div
+        className="relative flex flex-col items-center justify-center px-8 py-12 text-center"
+        style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)", minHeight: "220px" }}
+      >
+        {/* Subtle animated gradient orbs */}
+        <div className="absolute top-4 left-6 w-24 h-24 rounded-full blur-2xl" style={{ background: "rgba(91,140,255,0.25)" }} />
+        <div className="absolute bottom-4 right-6 w-20 h-20 rounded-full blur-2xl" style={{ background: "rgba(139,92,255,0.25)" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full blur-3xl" style={{ background: "rgba(111,227,255,0.12)" }} />
+
+        {/* Icon */}
+        <div className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)", boxShadow: "0 8px 24px rgba(91,140,255,0.4)" }}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
+          </svg>
+        </div>
+
+        <h3 className="relative z-10 text-white font-bold text-xl leading-tight mb-1">Custom Build</h3>
+        <p className="relative z-10 text-blue-200/80 text-sm">Fully Bespoke Design</p>
+      </div>
+
+      {/* Card body */}
+      <div className="p-5 flex flex-col flex-1">
+        <p className="text-gray-600 text-sm leading-relaxed mb-4">
+          No template fits your vision? We design your website entirely from scratch — unique layout, custom graphics, and a brand identity built just for you.
+        </p>
+
+        {/* Feature list */}
+        <ul className="space-y-2 mb-5 flex-1">
+          {[
+            "100% unique layout — no template base",
+            "Custom illustrations & brand graphics",
+            "Tailored colour palette & typography",
+            "Built around your specific business goals",
+            "Collaborative design process",
+          ].map(f => (
+            <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
+              <Check size={14} className="text-[#5B8CFF] shrink-0 mt-0.5" />
+              {f}
+            </li>
+          ))}
+        </ul>
+
+        {/* Palette dots — brand colours */}
+        <div className="flex items-center gap-2 mb-4">
+          {["#5B8CFF", "#6FE3FF", "#8B5CFF", "#0F172A", "#F6F6F4"].map(c => (
+            <div key={c} className="w-4 h-4 rounded-full border-2 border-white shadow-sm" style={{ background: c }} />
+          ))}
+          <span className="text-gray-400 text-xs ml-1">Your brand colours</span>
+        </div>
+
+        <div className="flex items-center justify-between">
+          <span className="text-xs text-gray-400 italic">Pricing from €350 — quote on request</span>
+          <a
+            href="/contact"
+            className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
+            style={{ color: "#5B8CFF" }}
+            onClick={e => e.stopPropagation()}
+          >
+            Get a Quote <ChevronRight size={14} />
+          </a>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function Templates() {
   const [location] = useLocation();
@@ -1036,6 +1116,8 @@ export default function Templates() {
               {filtered.map(template => (
                 <TemplateCard key={template.id} template={template} onClick={() => setSelectedTemplate(template)} />
               ))}
+              {/* Custom Build card — always shown at the end */}
+              <CustomBuildCard />
             </div>
           ) : (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-24">

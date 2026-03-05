@@ -260,7 +260,82 @@ export default function HomePage() {
             </p>
           </AnimateIn>
 
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
+          {/* ── Template Showcase Grid (ABOVE industry icons) ── */}
+          <AnimateIn className="text-center mb-10">
+            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Design Inspiration</p>
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">
+              See What We Can Create for You
+            </h3>
+            <p className="text-base text-[#5B6472] max-w-xl mx-auto">
+              Browse our design templates — each one is a starting point for a fully custom website tailored to your brand.
+            </p>
+          </AnimateIn>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 items-stretch">
+            {FEATURED_TEMPLATES.map((tpl) => (
+              <StaggerItem key={tpl.id} className="flex">
+                <Link href={`/templates?industry=${tpl.industry}`} className="flex w-full">
+                  <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
+                    {/* Card Image — 16:9 ratio, no cropping */}
+                    <div className="relative overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+                      <img
+                        src={tpl.cardImage}
+                        alt={tpl.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      {/* Category badge */}
+                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#111315]">
+                        {tpl.category}
+                      </div>
+                    </div>
+
+                    {/* Card Details */}
+                    <div className="p-5 flex flex-col flex-1">
+                      <div className="mb-2">
+                        <h4 className="font-semibold text-[#111315] text-base leading-tight">{tpl.name}</h4>
+                        <p className="text-xs text-[#5B6472] mt-0.5">{tpl.styleLabel}</p>
+                      </div>
+
+                      {/* Colour Palette */}
+                      <div className="mb-4">
+                        <p className="text-xs text-[#5B6472] mb-1.5 font-medium">Colour Palette</p>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          {tpl.palette.slice(0, 4).map((colour, i) => (
+                            <div
+                              key={i}
+                              className="w-5 h-5 rounded-full border border-white shadow-sm ring-1 ring-black/5 shrink-0"
+                              style={{ backgroundColor: colour }}
+                              title={tpl.paletteNames[i]}
+                            />
+                          ))}
+                          <span className="text-xs text-[#5B6472] ml-0.5 truncate">{tpl.paletteNames.slice(0, 3).join(" · ")}</span>
+                        </div>
+                      </div>
+
+                      {/* Learn More — pinned to bottom */}
+                      <div className="mt-auto flex items-center gap-1 text-sm font-semibold text-[#5B8CFF] group-hover:gap-2 transition-all">
+                        Learn More <ArrowRight size={14} />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <AnimateIn className="text-center mb-16">
+            <Link href="/templates" className="btn-primary">
+              Browse All Templates
+              <ArrowRight size={16} />
+            </Link>
+          </AnimateIn>
+
+          {/* ── Industry Icon Grid (BELOW template showcase) ── */}
+          <AnimateIn className="text-center mb-8">
+            <p className="text-base text-[#5B6472]">We serve businesses across these industries:</p>
+          </AnimateIn>
+
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {[
               { icon: Utensils, label: "Restaurants", industry: "restaurant" },
               { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
@@ -284,78 +359,6 @@ export default function HomePage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
-
-          {/* ── Template Showcase Grid ── */}
-          <AnimateIn className="text-center mb-10">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Design Inspiration</p>
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">
-              See What We Can Create for You
-            </h3>
-            <p className="text-base text-[#5B6472] max-w-xl mx-auto">
-              Browse our design templates — each one is a starting point for a fully custom website tailored to your brand.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-            {FEATURED_TEMPLATES.map((tpl) => (
-              <StaggerItem key={tpl.id}>
-                <Link href={`/templates?industry=${tpl.industry}`}>
-                  <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
-                    {/* Card Image */}
-                    <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                      <img
-                        src={tpl.cardImage}
-                        alt={tpl.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {/* Category badge */}
-                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#111315]">
-                        {tpl.category}
-                      </div>
-                    </div>
-
-                    {/* Card Details */}
-                    <div className="p-5">
-                      <div className="flex items-start justify-between mb-3">
-                        <div>
-                          <h4 className="font-semibold text-[#111315] text-base leading-tight">{tpl.name}</h4>
-                          <p className="text-xs text-[#5B6472] mt-0.5">{tpl.styleLabel}</p>
-                        </div>
-                      </div>
-
-                      {/* Colour Palette */}
-                      <div className="mb-4">
-                        <p className="text-xs text-[#5B6472] mb-2 font-medium">Colour Palette</p>
-                        <div className="flex items-center gap-1.5">
-                          {tpl.palette.map((colour, i) => (
-                            <div
-                              key={i}
-                              className="w-6 h-6 rounded-full border border-white shadow-sm ring-1 ring-black/5 shrink-0"
-                              style={{ backgroundColor: colour }}
-                              title={tpl.paletteNames[i]}
-                            />
-                          ))}
-                          <span className="text-xs text-[#5B6472] ml-1">{tpl.paletteNames.join(" · ")}</span>
-                        </div>
-                      </div>
-
-                      {/* Learn More */}
-                      <div className="flex items-center gap-1 text-sm font-semibold text-[#5B8CFF] group-hover:gap-2 transition-all">
-                        Learn More <ArrowRight size={14} />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <AnimateIn className="text-center">
-            <Link href="/templates" className="btn-primary">
-              Browse All Templates
-              <ArrowRight size={16} />
-            </Link>
-          </AnimateIn>
         </div>
       </section>
 

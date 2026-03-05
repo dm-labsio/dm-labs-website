@@ -26,7 +26,7 @@ const comparison = [
   { feature: "FAQ / blog-ready section", starter: false, business: false, pro: true },
   { feature: "Pop-up included", starter: false, business: false, pro: true },
   { feature: "Accessibility widget (UserWay)", starter: true, business: true, pro: true },
-  { feature: "Revision rounds", starter: "1 round", business: "2 rounds", pro: "3 rounds" },
+  { feature: "Revision rounds", starter: "2 rounds", business: "3 rounds", pro: "Unlimited" },
   { feature: "Delivery time", starter: "5–7 days", business: "7–10 days", pro: "10–14 days" },
 ];
 
@@ -74,7 +74,7 @@ export default function Pricing() {
                 </div>
                 <p className="text-sm text-[#5B6472] mb-6">Perfect for new businesses that need a clean, professional online presence fast.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["1-page landing site", "Mobile responsive", "Contact form", "WhatsApp button", "Google Maps", "Basic SEO", "Accessibility widget (free)", "1 revision round", "5–7 day delivery"].map((f) => (
+                  {["1-page landing site", "Mobile responsive", "Contact form", "WhatsApp button", "Google Maps", "Basic SEO", "Accessibility widget (free)", "2 revision rounds", "5–7 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}
@@ -99,7 +99,7 @@ export default function Pricing() {
                   </div>
                   <p className="text-sm text-[#5B6472] mb-6">For established businesses that need a complete, conversion-focused website.</p>
                   <ul className="space-y-3 mb-8 flex-1">
-                    {["Up to 5 pages", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews widget", "Advanced SEO", "Social media integration", "Speed optimisation", "Accessibility widget (free)", "2 revision rounds", "7–10 day delivery"].map((f) => (
+                    {["Up to 5 pages", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews widget", "Advanced SEO", "Social media integration", "Speed optimisation", "Accessibility widget (free)", "3 revision rounds", "7–10 day delivery"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
@@ -123,7 +123,7 @@ export default function Pricing() {
                 </div>
                 <p className="text-sm text-[#5B6472] mb-6">For businesses that want a fully custom, feature-rich website with everything included.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Up to 7 pages", "Fully custom design", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews widget", "Advanced SEO", "Gallery & testimonials", "FAQ / blog-ready section", "Pop-up included", "Accessibility widget (free)", "3 revision rounds", "10–14 day delivery"].map((f) => (
+                  {["Up to 7 pages", "Fully custom design", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews widget", "Advanced SEO", "Gallery & testimonials", "FAQ / blog-ready section", "Pop-up included", "Accessibility widget (free)", "Unlimited revisions", "10–14 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
                       {f}
