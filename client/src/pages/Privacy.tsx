@@ -1,17 +1,24 @@
 /* D&M LABS - Privacy Policy (GDPR Compliant) */
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
+import { ChevronLeft } from "lucide-react";
 
 export default function Privacy() {
   return (
     <>
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
-        <div className="container relative z-10 text-center">
-          <AnimateIn>
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Legal</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Privacy Policy</h1>
-            <p className="text-sm text-[#5B6472]">Last updated: March 2026</p>
-          </AnimateIn>
+        <div className="container relative z-10">
+          <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
+            <ChevronLeft size={16} />
+            Back to Home
+          </Link>
+          <div className="text-center">
+            <AnimateIn>
+              <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Legal</p>
+              <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Privacy Policy</h1>
+              <p className="text-sm text-[#5B6472]">Last updated: March 2026</p>
+            </AnimateIn>
+          </div>
         </div>
       </section>
       <section className="section-spacing bg-white">
@@ -21,7 +28,7 @@ export default function Privacy() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">1. Data Controller</h2>
-                <p>D&M Labs ("we", "us", "our") is the data controller responsible for your personal data. We are a website design and development service for businesses. You can reach us at <a href="mailto:dudeandmadame@gmail.com" className="text-[#5B8CFF] hover:underline">dudeandmadame@gmail.com</a> or via WhatsApp at +972 58 492 8177.</p>
+                <p>D&M Labs ("we", "us", "our") is the data controller responsible for your personal data. We are a website design and development service for businesses. You can reach us at <a href="mailto:dudeandmadame@gmail.com" className="text-[#5B8CFF] hover:underline">dudeandmadame@gmail.com</a> or via WhatsApp at +357 97472847.</p>
               </div>
 
               <div>
@@ -115,7 +122,7 @@ export default function Privacy() {
               </div>
 
               <div>
-                <h2 className="text-xl font-semibold text-[#111315] mb-3">12. Contact & Complaints</h2>
+                <h2 className="text-xl font-semibold text-[#111315] mb-3">12. Contact &amp; Complaints</h2>
                 <p>If you have questions about this policy or wish to make a complaint, contact us at <a href="mailto:dudeandmadame@gmail.com" className="text-[#5B8CFF] hover:underline">dudeandmadame@gmail.com</a>. You also have the right to lodge a complaint with a supervisory authority in your country of residence.</p>
               </div>
 

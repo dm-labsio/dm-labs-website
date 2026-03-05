@@ -250,17 +250,7 @@ export default function HomePage() {
           <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
         </div>
         <div className="container relative z-10">
-          <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Who We Serve</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Built for Businesses Like Yours
-            </h2>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              We specialise in websites for local and service-based businesses.
-            </p>
-          </AnimateIn>
-
-          {/* ── Template Showcase Grid (ABOVE industry icons) ── */}
+          {/* -- Template Showcase Grid (ABOVE industry icons) -- */}
           <AnimateIn className="text-center mb-10">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Design Inspiration</p>
             <h3 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">

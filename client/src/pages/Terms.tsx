@@ -1,17 +1,24 @@
 /* D&M LABS - Terms of Service */
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
+import { ChevronLeft } from "lucide-react";
 
 export default function Terms() {
   return (
     <>
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
-        <div className="container relative z-10 text-center">
+        <div className="container relative z-10">
+          <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
+            <ChevronLeft size={16} />
+            Back to Home
+          </Link>
+          <div className="text-center">
           <AnimateIn>
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Legal</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Terms of Service</h1>
             <p className="text-sm text-[#5B6472]">Last updated: February 2026</p>
           </AnimateIn>
+          </div>
         </div>
       </section>
       <section className="section-spacing bg-white">
