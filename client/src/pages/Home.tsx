@@ -286,22 +286,6 @@ export default function HomePage() {
                         <p className="text-xs text-[#5B6472] mt-0.5">{tpl.styleLabel}</p>
                       </div>
 
-                      {/* Colour Palette */}
-                      <div className="mb-4">
-                        <p className="text-xs text-[#5B6472] mb-1.5 font-medium">Colour Palette</p>
-                        <div className="flex items-center gap-1.5 flex-wrap">
-                          {tpl.palette.slice(0, 4).map((colour, i) => (
-                            <div
-                              key={i}
-                              className="w-5 h-5 rounded-full border border-white shadow-sm ring-1 ring-black/5 shrink-0"
-                              style={{ backgroundColor: colour }}
-                              title={tpl.paletteNames[i]}
-                            />
-                          ))}
-                          <span className="text-xs text-[#5B6472] ml-0.5 truncate">{tpl.paletteNames.slice(0, 3).join(" · ")}</span>
-                        </div>
-                      </div>
-
                       {/* Learn More - pinned to bottom */}
                       <div className="mt-auto flex items-center gap-1 text-sm font-semibold text-[#5B8CFF] group-hover:gap-2 transition-all">
                         Learn More <ArrowRight size={14} />

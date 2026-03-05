@@ -832,21 +832,6 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             </AnimatePresence>
 
             <p className="text-gray-500 text-sm leading-relaxed">{activePage.description}</p>
-
-            {/* Colour palette */}
-            <div className="flex items-center gap-3 flex-wrap">
-              <span className="text-gray-400 text-xs uppercase tracking-widest">Colour Palette</span>
-              <div className="flex gap-2">
-                {template.palette.map((color, i) => (
-                  <div key={color} className="group relative">
-                    <div className="w-7 h-7 rounded-full border-2 border-white shadow-md cursor-default" style={{ background: color }} />
-                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                      {template.paletteNames[i]}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Right: Details + CTA */}
@@ -935,10 +920,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         </div>
 
         <div className="flex items-center gap-2 mb-4">
-          {template.palette.map(color => (
-            <div key={color} className="w-4 h-4 rounded-full border-2 border-white shadow-sm" style={{ background: color }} />
-          ))}
-          <span className="text-gray-400 text-xs ml-1">{template.styleLabel}</span>
+          <span className="px-2 py-0.5 bg-gray-100 rounded-md text-gray-500 text-xs font-medium">{template.styleLabel}</span>
         </div>
 
         <div className="flex flex-wrap gap-1.5 mb-4">

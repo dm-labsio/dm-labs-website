@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import AccessibilityWidget from "@/components/AccessibilityWidget";
 
 
 const LOGO_URL = "/dmlabs-logo.png";
@@ -202,7 +203,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </footer>
 
-
+      {/* Accessibility Widget */}
+      <AccessibilityWidget />
     </div>
   );
 }
