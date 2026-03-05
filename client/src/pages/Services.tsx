@@ -69,7 +69,7 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center">Get Started</a>
+                <a href="/contact" className="btn-primary w-full justify-center">Get Started</a>
               </div>
             </AnimateIn>
 
@@ -98,7 +98,7 @@ export default function Services() {
                       </li>
                     ))}
                   </ul>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center">Get Started</a>
+                  <a href="/contact" className="btn-primary w-full justify-center">Get Started</a>
                 </div>
               </div>
             </AnimateIn>
@@ -116,18 +116,18 @@ export default function Services() {
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Smartphone, title: "Mobile Responsive", desc: "Looks perfect on every device — phones, tablets, and desktops." },
-              { icon: Search, title: "SEO Optimised", desc: "Built-in search engine optimisation so customers find you on Google." },
-              { icon: Zap, title: "Fast Loading", desc: "Optimized code and assets for lightning-fast page speeds." },
-              { icon: Shield, title: "SSL Security", desc: "Free SSL certificate to keep your site and visitors secure." },
-              { icon: Image, title: "Custom Design", desc: "No templates — every design is tailored to your brand identity." },
-              { icon: MapPin, title: "Google Maps", desc: "Embedded maps so customers can find your physical location easily." },
-              { icon: FileText, title: "Contact Forms", desc: "Professional forms that send inquiries directly to your email." },
-              { icon: Share2, title: "Social Integration", desc: "Links to all your social media profiles in one place." },
-              { icon: Headphones, title: "Post-Launch Support", desc: "We don't disappear after launch — ongoing support when you need it." },
+              { icon: Smartphone, title: "Mobile Responsive", desc: "Looks perfect on every device — phones, tablets, and desktops.", anchor: "mobile-first" },
+              { icon: Search, title: "SEO Optimised", desc: "Built-in search engine optimisation so customers find you on Google.", anchor: "seo" },
+              { icon: Zap, title: "Fast Loading", desc: "Optimised code and assets for lightning-fast page speeds.", anchor: "performance" },
+              { icon: Shield, title: "SSL Security", desc: "Free SSL certificate to keep your site and visitors secure.", anchor: "security" },
+              { icon: Image, title: "Custom Design", desc: "No templates — every design is tailored to your brand identity.", anchor: "custom-design" },
+              { icon: MapPin, title: "Google Maps", desc: "Embedded maps so customers can find your physical location easily.", anchor: "maps" },
+              { icon: FileText, title: "Contact Forms", desc: "Professional forms that send inquiries directly to your email.", anchor: "forms" },
+              { icon: Share2, title: "Social Integration", desc: "Links to all your social media profiles in one place.", anchor: "social" },
+              { icon: Headphones, title: "Post-Launch Support", desc: "We don't disappear after launch — ongoing support when you need it.", anchor: "turnaround" },
             ].map((item) => (
               <StaggerItem key={item.title}>
-                <div className="dm-card h-full !p-6">
+                <div id={item.anchor} className="dm-card h-full !p-6 scroll-mt-24">
                   <div className="flex items-start gap-4">
                     <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
                       <item.icon size={20} className="text-[#5B8CFF]" strokeWidth={1.75} />
@@ -178,7 +178,7 @@ export default function Services() {
                   </ul>
                 </div>
               </div>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <a href="/contact" className="btn-primary">
                 <MessageCircle size={18} />
                 Ask About Maintenance
               </a>
@@ -208,7 +208,7 @@ export default function Services() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Get Started?</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Send us a message and we'll discuss which package is right for your business.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <a href="/contact" className="btn-primary">
                 <MessageCircle size={18} />
                 Chat on WhatsApp
               </a>

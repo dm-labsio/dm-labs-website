@@ -151,7 +151,7 @@ export default function Process() {
               The first step is a quick, no-pressure WhatsApp chat. Let's talk about your business.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <a href="/contact" className="btn-primary">
                 <MessageCircle size={18} /> Start the Conversation
               </a>
               <Link href="/pricing" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">

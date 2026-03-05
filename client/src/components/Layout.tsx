@@ -142,7 +142,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="lg:col-span-1">
               <img src={LOGO_URL} alt="D&M Labs" style={{ width: '140px', height: 'auto', marginBottom: '20px' }} />
               <p className="text-sm text-[#94A3B8] leading-relaxed max-w-xs">
-                We build modern, professional websites for small businesses. From concept to launch — fast, simple, and affordable.
+                We build modern, professional websites for businesses of all sizes. From concept to launch — fast, simple, and affordable.
               </p>
             </div>
 

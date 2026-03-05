@@ -9,7 +9,7 @@ import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn
 import {
   Globe, Smartphone, Search, Zap, Shield, Clock,
   CheckCircle2, ArrowRight, MessageCircle,
-  Utensils, Scissors, Stethoscope, Briefcase, Home as HomeIcon, Car,
+  Utensils, Scissors, Stethoscope, Briefcase, Dumbbell, ShoppingBag,
   Palette, Code, Rocket, Headphones
 } from "lucide-react";
 
@@ -67,12 +67,13 @@ export default function HomePage() {
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.4}>
               <div className="flex flex-wrap gap-4">
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                <Link href="/contact" className="btn-primary">
                   Get Started
                   <ArrowRight size={18} />
-                </a>
-                <Link href="/services" className="btn-secondary">
-                  View Services
+                </Link>
+                <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
+                  View All Services
+                  <ArrowRight size={18} />
                 </Link>
               </div>
             </AnimateIn>
@@ -101,10 +102,10 @@ export default function HomePage() {
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
             {[
               "No Hidden Fees",
-              "50/50 Payment",
               "Delivered in Days",
               "Mobile Responsive",
               "SEO Optimised",
+              "Free Accessibility Widget",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
                 <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0" />
@@ -121,7 +122,7 @@ export default function HomePage() {
       <section className="section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Our Services</p>
+            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Our Services</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
               Expert Solutions for Your Online Presence
             </h2>
@@ -132,21 +133,26 @@ export default function HomePage() {
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No templates — every site is built from scratch." },
-              { icon: Smartphone, title: "Mobile-First Development", desc: "Every website is designed mobile-first, ensuring a flawless experience on phones, tablets, and desktops." },
-              { icon: Search, title: "SEO Optimisation", desc: "Built-in search engine optimisation so your customers can find you on Google from day one." },
-              { icon: Zap, title: "Fast Performance", desc: "Lightning-fast load times with optimised code and assets. Speed matters for conversions and rankings." },
-              { icon: Shield, title: "Secure & Reliable", desc: "SSL certificates, secure hosting, and regular backups to keep your website safe and always online." },
-              { icon: Clock, title: "Quick Turnaround", desc: "From concept to launch in 5–10 business days. We move fast without compromising quality." },
+              { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No templates — every site is built from scratch.", anchor: "custom-design" },
+              { icon: Smartphone, title: "Mobile-First Development", desc: "Every website is designed mobile-first, ensuring a flawless experience on phones, tablets, and desktops.", anchor: "mobile-first" },
+              { icon: Search, title: "SEO Optimisation", desc: "Built-in search engine optimisation so your customers can find you on Google from day one.", anchor: "seo" },
+              { icon: Zap, title: "Fast Performance", desc: "Lightning-fast load times with optimised code and assets. Speed matters for conversions and rankings.", anchor: "performance" },
+              { icon: Shield, title: "Secure & Reliable", desc: "SSL certificates, secure hosting, and regular backups to keep your website safe and always online.", anchor: "security" },
+              { icon: Clock, title: "Quick Turnaround", desc: "From concept to launch in 5–10 business days. We move fast without compromising quality.", anchor: "turnaround" },
             ].map((service) => (
               <StaggerItem key={service.title}>
-                <div className="dm-card h-full">
-                  <div className="icon-container-gradient mb-5">
-                    <service.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
+                <Link href={`/services#${service.anchor}`}>
+                  <div className="dm-card h-full cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
+                    <div className="icon-container-gradient mb-5">
+                      <service.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
+                    </div>
+                    <h3 className="text-lg font-semibold text-[#111315] mb-3">{service.title}</h3>
+                    <p className="text-sm text-[#5B6472] leading-relaxed mb-4">{service.desc}</p>
+                    <span className="text-sm font-medium text-[#5B8CFF] inline-flex items-center gap-1">
+                      Read more <ArrowRight size={14} />
+                    </span>
                   </div>
-                  <h3 className="text-lg font-semibold text-[#111315] mb-3">{service.title}</h3>
-                  <p className="text-sm text-[#5B6472] leading-relaxed">{service.desc}</p>
-                </div>
+                </Link>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -164,7 +170,7 @@ export default function HomePage() {
 
         <div className="container relative z-10">
           <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">How It Works</p>
+            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">How It Works</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
               From Idea to Launch in 4 Simple Steps
             </h2>
@@ -214,12 +220,12 @@ export default function HomePage() {
 
         <div className="container relative z-10">
           <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Transparent Pricing</p>
+            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Transparent Pricing</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
               Simple, Honest Pricing
             </h2>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              No hidden fees. No surprises. Pay 50% upfront, 50% on delivery.
+              No hidden fees. No surprises. Transparent pricing for every project.
             </p>
           </AnimateIn>
 
@@ -314,12 +320,12 @@ export default function HomePage() {
       <section className="section-spacing bg-white">
         <div className="container">
           <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Who We Serve</p>
+            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Who We Serve</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Built for Small Businesses Like Yours
+              Built for Businesses Like Yours
             </h2>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              We specialize in websites for local and service-based businesses.
+              We specialise in websites for local and service-based businesses.
             </p>
           </AnimateIn>
 
@@ -328,18 +334,20 @@ export default function HomePage() {
               { icon: Utensils, label: "Restaurants", industry: "restaurant" },
               { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
               { icon: Stethoscope, label: "Clinics", industry: "clinic" },
-              { icon: Briefcase, label: "Consultants", industry: "services" },
-              { icon: HomeIcon, label: "Real Estate", industry: "retail" },
-              { icon: Car, label: "Car Rentals", industry: "services" },
-            ].map((biz) => (
+              { icon: Dumbbell, label: "Fitness", industry: "fitness" },
+              { icon: Briefcase, label: "Consultants", industry: "services", comingSoon: true },
+              { icon: ShoppingBag, label: "Retail", industry: "retail", comingSoon: true },
+            ].map((biz: any) => (
               <StaggerItem key={biz.label}>
                 <Link href={`/templates?industry=${biz.industry}`}>
-                  <div className="dm-card text-center !p-6 cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
+                  <div className={`dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 transition-all duration-300 ${biz.comingSoon ? 'opacity-60 hover:border-[#5B6472]/30' : 'hover:border-[#5B8CFF]/40'}`}>
                     <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
-                      <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
+                      <biz.icon size={24} className={biz.comingSoon ? 'text-[#5B6472]' : 'text-[#5B8CFF]'} strokeWidth={1.75} />
                     </div>
                     <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
-                    <p className="text-xs text-[#5B8CFF] mt-1">View templates →</p>
+                    <p className={`text-xs mt-1 ${biz.comingSoon ? 'text-[#5B6472]' : 'text-[#5B8CFF]'}`}>
+                      {biz.comingSoon ? 'Coming soon' : 'View templates →'}
+                    </p>
                   </div>
                 </Link>
               </StaggerItem>

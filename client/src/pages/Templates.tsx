@@ -77,6 +77,56 @@ const CDN = {
     contactDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/PRWXpMxlGwHmMFfC.png?Expires=1804155921&Signature=qClfpJHakJw8n9cXsyUr1r9iI766bBKlIdO8oBym0DaVUl7mUnlJOpfQfaxB2xW0d5gxN5SpaaLv9MYcz5lc9pHOZLBeZjC8FguXp9OCf7kxfZ8Iy~OuZC2C5KCqjHInbJL6z8QTos~3ONsLDEou8br81cbfn-CBBpcE4SFCIK~1yXkFjwEbvHBRLYjnyagRSfox6HE~ZKkqgJTEgpOB5laXpvKbsCtohHQuQR9sNiGXD5TxqdNif6OD9Jo6-AgVEiBvbs~ssxIy6MlTV2VoFrSZFwEfoSWIaKoNm1Re5o2H70KDqu-5iMJ8QNHuFP-wAQg8eScZE5tRQP2xsWwmLA__&Key-Pair-Id=K2HSFNDJXOU9YS",
     contactMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/QiUFEwUITGElevmR.jpg?Expires=1804155921&Signature=TywWDa93NJ0C2GxBtHRmXccoc1VLMuVAIXSRe75Y-ocHwL4GfFqHralRtzkgbBNvAhL4qJQ9lE1mzSNQH~vpAFA~6nQUGGrhKEk977HXVs1VRF3lyAlnRZMsINVBuK7PTY5zDBbRLR2RFqwQ4QSX9p0LH~zboPZtNenCn~3bk37kDBsOFxnK0SLRLD4dfmf9v5U6mGKfB4IzEybhID2nIDYIfsTqpwT~jfx7Yt8Q7F4qTY6gUHrAuzlLoPAukn7EM2Cf-80NaJAp7kodDldczL5vO3akKPZovaqoVHePFtky1u2MZOMJdFbR3AiuUv5NEsze6KRuCwRBTp4RPz7fGw__&Key-Pair-Id=K2HSFNDJXOU9YS",
   },
+  // ── Clinic 1 ──
+  c1: {
+    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/vHiXcgVzfwvNVOeM.png?Expires=1804248063&Signature=ZzohmEbDPrne9IuEegn0BwtkTJXFDhaGAsPBm9laKfqJ0XcUr8wfSoTtoi1aOYtX7JcnT46gXq7AIuGQRJ0tnThKxddiggu8~2k5jMEIv29FNuWZ5a6nYT4-dGBGJUc1ukwLk8Sa8O9o8MfXClwr7FYhC2Jv8748ztNqCntTFB-BRey-LWpcFY5dffhPIIiih1jbkwcbJyC-2TuEfO8uZjhn6YuMNWcBlXGe6yBd~v9U-qFY8B2H9VqsyeuGZKSEwyHug2m5ROSr6~sFi8S41WCC~knstnwhQap7wWqGkzWDNmyYfKaBpdkWBKIgVo99Rgd2OCmsxfCK8eB4kix8BA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/YCnlUDrgdfYcRFcp.jpg?Expires=1804248064&Signature=F8HWR2x8YPs7Zvci1KmCJl5f4zmlZPWLQ0Kn6LjK6mqf726v36eQb7ja3xeY1OjJZQ4YYvpN5im83ftyZl0WTFebKZxWjPvFAgkJorR-pKR234I5b38gvo2pqoH-31duVaAaYPtrto8q2c6p5xwFQeVvekBS9UkS9nl3gKnDF4Gawoav-ipV-CfK~w~qKpvDhs3-~-LbIL~BgPuw4v-UyaQj1rT9zC~YK0r5iI6qa3W4jt5tBEACkUTahzkN0l~C7U6nS776WGwIvBBxq~s4KdJFwOKkFLLoJp7RoajyCXMsL3ycDfgSmHGw~EjQsae~Xh5-smxdKo8CWqHJO~qV~A__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/SoSmnaYEMYNtborV.jpg?Expires=1804248064&Signature=nkJAjaVm-YmR1oKiiQ3mIOWHyNdZZFGFngV2H0BMy03xrLx1-TabWpCpovoUS9Ucw0VuFr8DLGExFGWEQzo8LR0i62PgcSLHG~Ram6-AKzcVlapvqYf6HIxGVq3wR9N9BVOI7AP6U-rtvyI5SJi7AkjKtNh8VT8fOEFnDnEb-UlMRb7lTVGFqFxLWcEcTsM~BjVgjnorhlBOOPSfvN1c1UrzuIE5XcSNFQPcw54457T89Q3XseRzHBrVQ6r8T5CCby311OzxcIufBhocr3Z9dmCKZD5LtQsIWTfDZhHhkH95FpIgOSuwe33SjQ6GL5iwtP7ENgh2mmYN0VqLSwydow__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/EBGosAATQGJrDRrO.jpg?Expires=1804248064&Signature=Nv0CiT53ohnJRTbD0LyW3FWbPbRfAb-E7NjO6k1aJlzKh4-e5AhBS~rTtn6ZOgIsYJolTT5FJ0ES4uhoU7WZrl~5~MAW6FK0qmaiVu2NrwnsyTE5N8IdUe4ISUrLW2w4vkgmx51L2WrIc1HJon-Xu4uRS9HsnbtGxs4AbhUKDFxoQqSCGXnu1Wi~WKNhjiw6U9RTVv3BLUoJe8T6BBWJwVBk05mvqqunEDRfRVs-aFwH81uoz2eFJASBRRKKljAH7f5dSHACrbvFfyCPQPWvcIt8RZ~up4fqcYmylZWzyY61RSqt9Tr4tnNQaVbNAmdWPwjtc0WswcSEQFnVhHH7dA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/shleiZcAylwlZFko.png?Expires=1804248065&Signature=GYLy6mUoGEuARDrecbyHW~A13uUUnwsSWN0jWCF933SCrBBoI-Gmk536Zq9Lg2a5LmEfjkdoF-fdxUTPogx3SRER2AQZixGJp6sHNOJ~-AOB1Ge5F5cnsdQA0-a2FMRjxI1NCbKIgv-HvE5-OSIGsj7Nfu6KWYUuqFqhlIMOr3Xar7xl~bz6sxEB8uzBzg295XGyPqPEUc6s~dBORyr84t05him0AvrMB7111wXgfdyqe0fuHKC6NjN1ZRmlueO8G0-5ed5ESCztmKCdQehfEnQzHEFSwRbVHMSOY-Kc-C3S2Ow0PWjNwg8ftmUelAUP26yB3Jey4-Sd6BikkZkCUA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/fLgMqFfxfaBAZUUg.jpg?Expires=1804248065&Signature=ACfdK5zI8EfbqNPU4ivObN6wRJeW7NAp1Yb-QIWi0vSv9dVeJT-MzMPfnDg2Q9~~u8ZEu4Ab2yCaT4U1rNoJR~TdBERyQpM2fSSy0G0dR1Q-06NfSP7xP6OflG2ZWYjCOV5Ky5WGSjqyaLQzkYuf~EyAEys7GnmjYD1zAzb1T5Y6cARRAt5nYgoTTMMoUd5JZZXk-e1cqNed73TAstZ2D0xBRiyMYZhLihUY0ubqJw8nhDVrf9rckTeEg5IieAsSwRHN3byAS4eXas117oefKUHj7P1D4H~h8mzOqw7KFBmhEhaQcTXCevIZX0RtzfcbB~AqyEEhSg3BqHjKBbj70Q__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/IeKYfaoTBkvBtsGW.jpg?Expires=1804248065&Signature=jpdU7mSLi4Y2fSbn0VRwmhLRDdHWbzX6qhuxNZp6VgP-gOlUYWFHCF9zr~ZNcchSGXCA0ll8zqFCt2DQrvWRgSara8Z87zn7K9-p97URjZfaEOj8jNqj4SvykcSo-9Xhr3zPrYipPeKnqsGKatW9U-Q8oWYXw3rLL2vrbHfi~ijPgaFwxOHq2HiZCLzSqrEpVknlDDG5K9jAT9bT-~WvhKlSTL-mgID0c1hWVGNFkmKS59NVbz4w-~rKzs0SPWtiUVYcMlx14plvEyAcriyRziPGt9pQS2UNTYUFqXv~OsnSImPrnTcTjZvt73-xeX4qaIQQKDr8WJt7XORko3A2QA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  },
+  // ── Clinic 2 ──
+  c2: {
+    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/YbjSXbLAerjQxXvn.png?Expires=1804248065&Signature=AqXkP6kbr8jVZKOU3CwlcH71Uerr5-CciWqMtPuELMMpn5eXU4rKbOc-kS82OreflByIDQRnJ-Enw1ESNjg~ZjZzUst9zOet7jlRLUoZE3xVgHa~7u5Fmhj40vevK3rnNEjo-D3lw09qPPSzptOiPQ3bdzI-dx5z5QH3I5Yqc3sxhk4svPpHA4s-Mykr2nA5DwspnKXvvKnHZGSjApntTQ4K~h8DC2a5iJYAb9XzJegfBdhPnSOTcofta~UpH4KS9gN-6epL~SyDWYI67j5C17zBw0ISpRPrzbFSE8D9kVJHBNG8SvG5XKAY-ezv4xGZdWtgl58EIv3gBC89njfDYA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/xdClqTPSaZedbOrH.jpg?Expires=1804248065&Signature=HV0056r6qtQBPL1EYaOmGIfaIQG~~8j579mT08TvBGmQOKHmKthqF7ANfIBdfLNuqzzHUN7TxmZOmGKkGmvqqompYASPosc2Ag5Boh2obca5CaBzIVhZccB99PTECLPVbOtclDevBEf-96CWhL-LIcUbYa880j1I80WW6TAkRgjVpOOY0M7-umCL3Lymy6iSqgj3x0BeGJ2Hc4D9ztkojKJNlCH-Vtv~v~MXXhxCIXxNOeuHvM1wpP7obcASI7FEJy6I3ztWDjcmJc9nMdx0wzhNaGHmkAzS3on0YfwGfw59I5rj~GzEdh3xENNsiQFtV-K6g-9v7tRJjnwlA3h32w__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/bpTeQMAzkYPxDtQG.png?Expires=1804248065&Signature=rW5MMoSEmbry3EB20yspyuNw3Pf3bdUZl9vGXhAMjx8M4p7DXx4iTmTkTBxypC9VTJhrVFK4LMKnyrGtjnyM0yceCD5glZQO8BJZegvZjFuJFg7Ff~XbAixSkj4KUg6Tq~ucDMsUnYvk8EbqUd8i1Dr2quywSoTgwNGtAVX9YPFMF7hhknytKCE9uzZZ4Yj4Q-Jh4LKkzBY~LNPtQcHrwj5usESFPs9BreQHyNQs4TUdVce6oZut800lZPH7~E0xmd77XTQZfsIPvcR8zD8~VOD2hXDJqYjDPgvPz2UMhhBh57z-l8yTEWYcKToYbaAOf62ODiHC-MprZYTFDxwkFQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/IrKtVBivvGJLlxXq.png?Expires=1804248066&Signature=YzLYx8n3XCry0Q65XotSzl2TzXb2dPzHBQmL4i8uZf0RAjcwpFGRjXraqrkL28yENiAtm-6d-oL80XSWJRPFZ7ZFgw5XmCgK3KeSuddqev8bcvcbokQ-6Keh4ikCrmOb~CXTzMnx2UZqJhlKKy1iTxgx0Tygc--jJ-TQjctBkPs1lmMyBn~~xrbOO37k~wWux7pm-uSuhMveFkVsnsra-fqGgwkYa5hurLxEOBKuM0dl8cyxrT-RG04gBiynscX3Hf5xPxOP2FGybFmU2whdFh8-cMvHVreDyNrwSdp1sIrLtMkAfvpTOyhDeTpHS8fPnamRe8anfbDpMfX9sg0Jpw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DHjvqNlizRvZpkBh.png?Expires=1804248066&Signature=GSvF4Rv1xYdNYbzSbK9r4IRh6npPLFptjAFEDu7jCdOQgEzSY2KQ3HQaTGS~tU~JX0ZyvawK9IOvMjpxQH9Q6h2EJ98dfl8wzzfIKXaFfihUPfjGllh3zeLR7YnqfAouxr2g9Tqz-UYu2aXvuIGQRnXYLQZ6~-PNm8UqETZj8FL9b-ovcmOaH3PA-2tQXDzw7Y7ib60JPYt9i9HfOskwTcMwYHOjcYrdMwMBRIkikkgOm8gw9zTGX~pI9pCR7ucHwppgvOUmAZ1SsaxRoMmpUbDoFNStRp6sSO9mAL1RG0y98ULAlTCLTU3wsUYA5tn3THKTZcmJwk2QUFEIV0-LFw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/BQfFdAkGYebKMKpk.jpg?Expires=1804248066&Signature=QMboxheXQB32k0M~Y4GPPsKftm5xTyca~crG--HnLMInmwOZdZC9SxkTeQ8zF1oFvyZgqb4Gk1xRCNMERZ3A404MIlb3Kya-hPobo5P8uYt9XxzpRqky4~3~8nMLRRTqrQHw7IurLwTbQdmRX0LxlHFixpzD98LMLPOOpJTrkOmSEMYIHbwoM3reQISjjDKZueH73FLazvA8cc05tYZZlkIwL7zV-ETL~jVufN~15V3bDmKfgUEuBe-IzV3a2l-6FgYpe8WHaCPXKbu7r75qQgRuh8FDaIb3Coe4sJOIeka0e0iC3NmA5y5~~DP2zczk2xZkBlYgm74T~69zSt9sBg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/RkvwuDSBgYRbTqkU.jpg?Expires=1804248066&Signature=YGRCjvrczh9b0LpFrRie77YMhcHrFqTZBGuqSp2vsfviRDyx2P01AF1csxnsRvBsaw0NFps5DgsuyhY0AgJhJVxxc1RhyQYwlcHmBT1muVwxLzHfxUDSE0aH8XsCR3qJqDe2CEfR9lXpNxBEA3Wz0JvFpM~dVwV1Ik9nFR~dINd08nAh0hCLcpMwOxkVa008msvKiZGN1iX87zA61EoiujWFommYFFatPC8v3S2~WXMOljtZr6kSCp3JAjHY5pBqiLaER~zaEXahW0vz9KeCE0tGMo9cGRYGIZktospi9ghYTaeKc-wBUPnbeF4YfBUEpK3TKBt4vnsFiW8fzyMoLg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  },
+  // ── Fitness 1 ──
+  f1: {
+    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/MgTbsRcvqoiXiYbH.png?Expires=1804248067&Signature=eKzwv3T-wSElP2qcg3J4FLEMHcl40qoYKk4jnvNKaP2vXtW6Vm7NVcDqU40OsugAe8wu0hgW5ECxxvML~K~Z8-GR97iqDqCLNNGyLSIaTvkvpM9SDinuGMUi32-9KoSmMGl08yMUkXLU6~lq9aaSeBLwVWA7hK3NvoCAum8qtRbKdLYwpCRTs9d7tWgZsaxujYNFVfQ1dfWhp9epOs1U6KgvzfD8s-~dg40GNN3cBWcXZrTZxt0WflJqL5EbV45SCOlCKjbXXEcoCgcuFmaAmMhkf06Ck58x2uxMI8AekTK6~ojFiURJVGbqqLgaF-5b7hVetymcO4G4Gws3d3Z3MQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/SPFIMdyocJfvNgUg.jpg?Expires=1804248067&Signature=C0oi7csiJqVuJCggzm0NZzL6ikxZjJ3URzI-tbB~vtss~tpVOG2st2m9S~yl4CchS-FTXY-kEhZUNA~KXHQ71eGScjEVAf5rTD2l9bhuNiEperltf9F1zKfc~DqBOhVo1mzZeYrU-Sg1I4uHzMYc7rF9UY-qR9d4Cd2s46ogJHopBcOzkp4uG4VU1~alDwKw5fQdINXqzBvfROGG0XM84gcWR1IehQqmO5tLomfS2NdzfrxdH4h4km0edQe6N8pIw3xi~ljRAvUclGDTc0Kf7WKSZMO8fS9JZfaVIZxRwoyJxhurLgi52RQK~TLPCLwJb1hfSV0fpK9tX3TRuXvYaA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/NbnbjgpLHjCqlaND.jpg?Expires=1804248067&Signature=hJlJMNWL0AfmJnykXlW7XYBF4L4G1w47FQ8WPhooET0QtRtjV7HlHy6HYUK-PeKhW1YFf0OHFLVsu3eBg-DgX4SmRITy1~7Tdc8Y-Ze7~N~SHwPtV0HtMbrZyuIExsUwuO7Ojs7PABp~KNT1JOZdyTKIQbuJWj2URaS2fqzAcsT4w1Ky47-7mmS4QUPm6NUUAgX-hTg4qO4AMm4U5YnB9aEApg0gR3-rMYgbv3lDISX5MB1KWQyyFZZgc1KEiXL0tqj~50jc~ERPVHTvE2O0-eYIPDmrvzNBKnLQ7hvc26~kZWXJEF2TNf4Y3IPknIL3x0PzvXeug~APwe63k6g0eA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/fzhBYVDYdMZwWzSW.jpg?Expires=1804248068&Signature=lkUGkicOehVR-T0tzTDn~xkk2DKIVM9fIhvXQ0w58TTtJ2i~6DEDlq~~mYP4lObB0S~uvuucogKPWI~2e5oGDJypmJFNRr8iEoekpHjkevNcKtZVvks3JB-p~QYdUMDL3fkodEiKpVktw10iruEYzvwwGplk7gV869lOQ3b1Nnfe1MAdQVro~Wwpldut~WBaxSXUCHj-g~a5usKNMTNOfaYuuWX-ab6dcvBjyKwdFSoW5ppDKmWRb6c-KXjrfVKlFDArnZ8eqOW4vmLHS4LMzvfDatU091XhyNJ8fDaltJKZms5NrD0u6rKaKOnDfLOw8HovHHUg2CPQzIwT2XhkmA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/pVofdJtBxjtWPRnG.jpg?Expires=1804248068&Signature=qEIkfEv1UW7pIuOxolZ5UoqVmFR3u4Od9ZVapr38uNroiRuTNGqdJnN87QD9HERLSJvi7ZCSpd5CZXMm0CAhUvfZTZngk~~EYjIZmRUA4KOZfjGyOJQnsDaqMwI5qfLrAtYuOANk1CUJj3bGV5ZQkqAwTs8HN35jmF7yBE1lw4UHM76FLGRqt5ZRPZr0HVBNk40Qgh78uXNdWE3~pQi9KyA6doCbzocRwdz4p19vugUZsaXgoSn-mDQNVu83pLufaLdzOxdTvH1OfExCLqwGRx0QbfKvQJxWunmpPaNKCR2j6rUzvkVurfiJ-dBMgzF07-DPJc~ZxmJ5WtjrCc4yEQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/dwsiQRBVsDHirGfC.jpg?Expires=1804248068&Signature=I-DuPYDJtDRFPtWBoXaWCN6-VnEXyJ2N9CjazFGCRux3YC784tEgFtDtN4wkVla9UmmC99MwFIUdIu39jtGgnPF7jARfwsN8Nh9fSabXqwQ-7SUqdHWOqWEifh2E5fq83FO8KU0DeTcO8XC56NkQ-3gl1m6TiMneT26N51Q5DCWMETWTMEmVzUvtc5jiBfgnIkoM3PELBIVrBnUk-1khW1kMF9E5GkCsvpDjL9GbNaP~HGSwfO6rpp4wNH9gzyC5IRw0w0oB8n1iDBBGqDDXfyiE-gVZZ98R~mj6qKtks~4zL1Q-jWyQOGF-o-cNNw2NOsO3SECxvlxj-lhOzo9Z5w__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/BKpCjEWdimSQcHBz.jpg?Expires=1804248069&Signature=JTxpVTM4uaTgOHqXlpo1orrPgJ2c9ZekBp50LWNzhXAmhZpoUxWbq2Mv2iEX1v20N263hPEeZsBQfzVD5uWg110yRNBcn75ph8UM-~VCFdzMfWj3kXLx7uKX-Dg1bT1ZT93Pa4eLmp8wJ1JhMabrMSnF2sG3fILGxcDVPyFezR-wDUqilm1G7nL8hEJ9DjGYZoXa9jbVOVJlNXdRyb3K6riIPzXoO8Mq-U9s9oOiZvra1HdxMzP3cHgOTWNQb8n1osdXwOimOAUiDh0vrYaOMokW1FMvFyLrWEhbeQ2xT7J9rAKk0dJxLyHZ-vZNb~S8hAKYEoZiY1XOlKbjW3cADQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  },
+  // ── Fitness 2 ──
+  f2: {
+    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DHunfxWXbmZPGjxJ.png?Expires=1804248070&Signature=TzfP8AdoLDL8gRbLQpimU1ycKwgQPrh~7FTVadNz41eU6wYN4vSeP2qAZyiHT1TNBL1huEgOSrxrqy~ajtIZnnmragDAuZEPzcFDsZTA1dcWFXst76WEv5WxQkf083CqnKBHLd9t70H220SBjLXKNIBPlbYn405JRuEklGl~SFVazOdf9vKByMvooHr0qQMT-vpFbGdyGNwKK93vQfvRGp-X3vpHqktatCWk8~7sPS4~AsOBcXnh2DT-5TI532ow72MvDo3wPh3iIStOmuk530P8w8CbKLuBOEwNI18j4-8yxNNKK-YV1129kD9ZPJwPWE2jcVNkc0VekbmwQTth9w__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/JtNJcvmMdIcsxfuT.png?Expires=1804248070&Signature=dc~RRJ-tCxZkmZW9YcpC~2DJQA804kIR2lOoW91GuzdqJ5rtKsNUqru9u0tTGtavt31IUt10-b4aF-UQ6~bnKVg8UrSsN35zMS-O~7Mf05k0F904Cx97eFejigCmTIfDTo11-AOWQhXWJS3AFy25P1FMF8Z5b0J~A~YhlJz4Nod0~HojTkPMrpEmdIq1jpVdLnKh7m4E9QMuY2GVMedeJ3~R~3Uds9EX2x8goahTTqSTAsr-ByUIzVk902J~W05R~j4nCwxDDHH5eGgQmhTgE5PxLab814f-zsH6CwRw5sQBKzDJBYHVoXAck7igR9uXzf50RuFlD~Z8yQ1yCkEXjg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/ZqytkHiGFTkpiDMo.png?Expires=1804248070&Signature=OfzOn3QeOyxa9t6lhI8DAyXmZILkTAQmJqjYuMPF339tgAmHXJP0X14JhxSNvhwqxMU5YDTE1l8qL1J8FyzzC~ga2de7imJmq3vWj-2yxWDLe0DARr4Uvjt1CAYjHudRl~4odlhGjCT3LDRFfGbnLNaTYrTP4lgmUPKku42yreDRL7NZf1Zgp5RbrsXZn-PTwQNxVy~jiUEfPpkqvnF7FTc~2xBpL7uPIJIfYD9V0kz91ny21bE1J0LDMHgcQOBvo30jbSUIxAkKZjInLsoGgpCOSc7PPn1rBy6YD7vrMsQLmSrrxoItXmEocnaGHb2i9g~PtFEz-sGr0ZXY2bDQrw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/kmSnubLAQhhgWiTo.png?Expires=1804248070&Signature=ZqtNMwleB8cfAhN~5Wneho~j1Q2qNq0Fckzw5EyH50No-lHFpFIV~MLZtRvl8-UOYgFdxRBHu60-4eH2v68lFVVXk1oRpTg2ftN4RHub0xF89lq3lUC9~wJwmUIz8iQxNBmAjw-~aEQx4QJe4-1FsK8Yj2Ebc5jFaMszg5O1ZZn1bM38D1BrM2kvCsY8e8QbcQasnA53764tCeHBczf2X-5qduDQQXuxqS037tW1iX29~qLBpC5gTRpFLKb9avlg~muDbNLt4z8rVC4QD~ur2XHFO-uVvfRd3TGMnmjw2oakwwpAU2-n1-~tt~Tfxnezsx705ZLbIgkcfkQBHnTIrA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/sBMGMjPSjdwPLICt.png?Expires=1804248070&Signature=Q-tZuoomcUzeYB4-jOiSCtDh3qshfsI5mXTzgvAKhcCvh0v42M4s7UJ0IeXHbaGfIWgzvNMHR2rihoadbPw9ZniZqoukNMndoGIdWioouzefFog6oNLYTjN0u~FpRJXMcnrawD0o3JmcBehFLJisvRKDa7OIiZxd8RztMaya-LnN51Kx7xLjqu~qhYUQ6bH5dZBbpSpnAigmq6znSCiud8UkdOCXVrdYJ9LNKyi-FiWC~dYm9J-MLE7EOznf15yK~t1pshBrHL4CH17XFx7CnTIuUxLwBcRy-8kGV9vxSn6fG-~uVqyTCs6ACLc5erfK0j4ahkaYUrufjAKLMpW8YQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/WqWEFvWUEoLNZqgI.png?Expires=1804248070&Signature=BGuYhRhxmeRD6Qz6xMjg5z7Mo0tzBjZ1DgoR~7Ff33rQSU1KDBAo6d8EWo8mjLOhO3naekBleqqJQ0KlFWc9CtgWgj9yXJJDBZAhFcgOnps~LCHgT1hj1Sz5b~sCWBnBYYyc4FgAAVArWOSQSm5p-kXhosvo4znKVxMgkBk1JnWiH0s7SJ5AlcJvMMb6stn8zkjlX0VvUaxLIesXDT4Yu3petc3pk27mdiS05HVU1383kcjeKoo19g5usCA6yrYCFPA0Fteu1TH5GSU7M~2ieZOAout602qKe4vrxL1MDESzfJQnQtS87V6ymE1dNjmgFAJNyAguEGm5nGUqhCgWdQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/qxjutkZlzdoHvUbe.png?Expires=1804248070&Signature=PMk3MR1DVhedGRpJNCIGWuei0yfYkGi8KKdVreihzxwyokZtV4lEFA~Ahd84dU8scAXoDFBUs8-cNTD~HZ2~5K1FsTumeXho8wtY0jBprtPuOVleS1rtbdVy~3y6zbGZwJE~SHnJbnynb0AY54Tg53DnElHwV9XttWniHJx-51U83ZwF5r91T-TYigvY2mwPmMfR6Mvdg4CfhQAjYcSLy94VTy40T~WQOE3IxbfCWTis2hrc3tHfsIVNOV-JnbjRfZWJ-SZHU7mfoO1MTDmrv0tBUgfGcsCO861-IUnrihwUGJwZBTj5xOJk2wH~X1I4f89A8g-wXRjA-b52Y1AU9g__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  },
+  // ── Fitness 3 ──
+  f3: {
+    card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/QBsSNVdHmBlaibGE.png?Expires=1804248071&Signature=DEz7~9VRKpQfyOwOeyB~NkzcIzKk~6UHhy1Bk1~WD3uESNkshnXYl0AIXDjW3nUvy2WEQHvJ7uxrCdhrbAX65q76hsU-lUrNfzbTWC4Tww730O86dGTzPBkRpRKSsL~WPS-2oE~ZhSwXYxWdYVNMxbx6AKoxtCZg1mfhjP8WWTps4gPVLbzEm4Or3-zFOtKVqLRU6VTLXAiNTXgSwW61KQpktxNEUGQli8s~R41V9s8dh8xeRRIzigAwtTnxxiyXNNTVFOjgATnGniNY-02V3EaE31s801iTB-WUU-ruzQDDmA8O6upHVp4hxatg7iI2LglNAJMs6pywXBNnJs~R8g__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/PupniWGtadNIoPMs.jpg?Expires=1804248071&Signature=mGFj4ah3Bi8pwk2WjXfayCb-7bOdHf4DoLPhaTZIRVM3L-W0quEh-DIV7wJIC3Q3z8BEcdd5VCQs6rlKGUVMD0iAyDcEVTtNHpmq1xk~fz9ibtVO5dEuy4lWRkfJqUNrRVsH3VvwqtVkOB3uXkEVHyf-UZSSYwUR1Vm9UnJ3uO86NvoBhtyHjCxaKItExqvecX~MXZDyZNwdG4GwXJB2JcWwuA2SjGNsYe01KhSswyIlS5KauCB~nMzL~YPFsZqXMNy~nQ4K9CnDck1i5JDwMVRQbmgkttx8r0bJKMmG2vFJ~~lWLecVCPHseVoObhKcOBLoo0i5jEZrouVgxUhzsg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    homeMobile:      "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/qUfmcEHAKKoQSfvf.jpg?Expires=1804248071&Signature=ai4xNOrN7s1oBWlwikj3fTwM-gfhDU8seopSGqwKIhFjzx6~iuw9ENA2JBsEgRtDuUnZO7j4dQy4m0M6UzLTZxoAKEVpKb6NRziU9uDeYnza6ItJ11vRxEWbR9pLsmEHE~kdSkWZeOUyZ1pkOotmRXKakOq~A715Mx-qIsXJjpd-~Zbeq33CiBgbxyHouJsTNq0eZADtv9m4xNWJmfMlRLzhobzrXCtI3Zqs7TjnE9nGQ-fGF7hbg2zAhXLK99GYXHs0xMT5g~aH2iyzy4YDzaByLPokDXZegZRMCLgbUvkeC1CqGDJY3s5FVdERVfGVfzb~GXmaxZO48M0YqG0Txg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/kYdgLBULoTaXevYV.png?Expires=1804248071&Signature=JdMFEDWXspJ-cQx9QOVgtvUpeAVRoH0QaMp4HjW1Q1hJEtBnJZ4KBq2Pb-IUMSfXfRcfuvt3Rzrd0IhVoWwyDawmJvdQz4xgVXMJA-qr1I82zRf0LH8elx7G3ed2QD7QoxKmPCfjty~yxyHKDHGfFiPPBV-rrBQresSqyefG5de~DATsdyEQkB5E5SahSTdnsqlSrvURyh-0y7BxgB1eyMWV81c4iKNWBk7O~uYzbPTQXOjp56mMRxFY7bJqiGOB5dsOiyHvBvg~MDA48h~v2t9PbA3WOkH21IW80payaWgwxKamyWtmxHqGM603bbHWTdopOKG8NdrzwY9gatLayg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    servicesMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/FANwKqWNSjtyDKnE.jpg?Expires=1804248071&Signature=CSErZsUlzFXd0yQJAmpzdMmrWIdpTn~666BRShnUgPZ2kvanQH2Ill8eSRgUobhLhfJhgDs7X~XSZKh4H5PNk9xx~FQ5NlfyLcLSQPcgn5gG7Z2S5-~uVrBZTriJFFG0m0yVGiCpUobWJhw8oTLB0zA9EKyFL2OfH3P5nOsnnoKbfBka~jj-9ifVBc8Vb4fO7zGRR42Acaoa7bfiOoeywtDpJ4P1EHTilH2PdUmwQ7rkT-~VwGkzDFygJ1jHz0a0DzRKjDjwSFxSvU~j~p8ZHOIL3UtVQVGbXgbBHtRfPRcprnd3oczUM4ht~s63V2DNRTafZSQpL-2-fQ5TpoSEXQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/NdPIdheuOigsEXrU.jpg?Expires=1804248071&Signature=tWieYdhc9vjYpqyNTpxAALsf28SVX6wXfThmdpFGanoifpvNOjJnEFg17bMbC0oA8T4KXP1VSz0EZ1o2e3EVxgyCotVD1c3yoAHLHebGe7oYks9aLVsl6fupWlaP8jnKE4lPPju9Oa1wdBYLeTsLNdgFVRW6heqAmtZzuWZgejslJ0qwPqXtYHg6nnQMXv3cEc8E~cquKrjKwv7XPz9vEBdBlUCeGBf6Y-gSdd7dtmpOvENngCibkxukLPYn7idR9PVZQVaJ0k~GJp2j8KVtUA0DygYYqnrAcFVK47LwxLhk9SbP01z7FYXx140J0OmAq7LhD5VUHxJ8xEi6IEYvkg__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/EynEblQKKCvTPftb.png?Expires=1804248072&Signature=jdVLbRFavEHpbQiPS4JTbpasK9aik3SyIXa7m8lYU7zvyV85FxaGM7rH9akUaluBpHaXlMSSCtFmabht2oFjmCf4a~BocTu1ioKno1vtQDk~NzRzPZK4jEJhQtilyDaIeu6B7N5vOCiWV5YLnbMoblsjGthFe0zJx8Jc69RqP8p57R4jLIYdtjWYaTecmcF1LssBF4lPwpGTnDMvkRZMLSWwOUMHc5dHJNV6kTSUBhQKJAGbChGAG-e5mGaHhumvlBP5YcihnkT9ew5YQ5~9bnUpNw3Pt-jsT-aI1N~NoKt8Egb8bsp27J-V71JVLDb4sGfk72XAGF5LdJRiE7lXZA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  },
 };
 
 
@@ -442,6 +492,159 @@ const TEMPLATES = [
     price: "€250",
     images: CDN.b4,
   },
+  // ── Clinic templates ──
+  {
+    id: "vitality-medical-clinic",
+    industry: "clinic",
+    name: "Vitality Medical Clinic",
+    tagline: "Clean & Professional",
+    tier: "Business",
+    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
+    domain: "vitalityclinic.com",
+    palette: ["#1A2332", "#2E86AB", "#F5F7FA", "#FFFFFF", "#4ECDC4"],
+    paletteNames: ["Dark Navy", "Medical Blue", "Light Gray", "White", "Teal Accent"],
+    styleLabel: "Clean Medical",
+    features: [
+      "Professional hero with booking CTA",
+      "Medical services showcase",
+      "Doctor profiles section",
+      "Patient testimonials",
+      "Contact & appointment form",
+      "Location & hours",
+      "WhatsApp CTA",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Homepage", preview: "home", description: "Professional hero, services overview, and doctor profiles" },
+      { label: "Services", preview: "services", description: "Medical services with descriptions and booking CTAs" },
+      { label: "Contact", preview: "contact", description: "Appointment booking, location, hours, and contact form" },
+    ],
+    style: "Clean, professional aesthetic with navy and teal accents on white backgrounds. Perfect for medical clinics, dental offices, and healthcare providers.",
+    waMessage: "Hi! I'm interested in the Vitality Medical Clinic website template.",
+    images: CDN.c1,
+  },
+  {
+    id: "harmony-wellness-clinic",
+    industry: "clinic",
+    name: "Harmony Wellness Clinic",
+    tagline: "Warm & Trustworthy",
+    tier: "Starter",
+    tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
+    domain: "harmonywellness.com",
+    palette: ["#2D3436", "#6C5CE7", "#F8F9FA", "#DFE6E9", "#00B894"],
+    paletteNames: ["Charcoal", "Purple", "Off-White", "Light Gray", "Green Accent"],
+    styleLabel: "Warm Wellness",
+    features: [
+      "Welcoming hero with health focus",
+      "Wellness services grid",
+      "About our practitioners",
+      "Health tips / blog section",
+      "Contact & consultation form",
+      "Location & hours",
+      "WhatsApp CTA",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Homepage", preview: "home", description: "Warm hero, wellness services, and practitioner profiles" },
+      { label: "Services", preview: "services", description: "Wellness treatments with descriptions and booking" },
+      { label: "Contact", preview: "contact", description: "Consultation booking, location, and contact form" },
+    ],
+    style: "Warm, trustworthy aesthetic with soft purples and greens on light backgrounds. Ideal for wellness clinics, holistic health centres, and therapy practices.",
+    waMessage: "Hi! I'm interested in the Harmony Wellness Clinic website template.",
+    images: CDN.c2,
+  },
+  // ── Fitness templates ──
+  {
+    id: "iron-forge-gym",
+    industry: "fitness",
+    name: "Iron Forge Gym",
+    tagline: "Bold & Powerful",
+    tier: "Business",
+    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
+    domain: "ironforgegym.com",
+    palette: ["#0D0D0D", "#FF6B35", "#1A1A2E", "#FFFFFF", "#E94560"],
+    paletteNames: ["Black", "Orange", "Dark Navy", "White", "Red Accent"],
+    styleLabel: "Dark Bold",
+    features: [
+      "Bold dark hero with membership CTA",
+      "Class schedule & programmes",
+      "Trainer profiles",
+      "Membership plans",
+      "Contact & trial booking",
+      "Location & hours",
+      "WhatsApp CTA",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Homepage", preview: "home", description: "Bold dark hero, class highlights, and trainer showcase" },
+      { label: "Services", preview: "services", description: "Classes, programmes, and membership plans" },
+      { label: "Contact", preview: "contact", description: "Trial booking, location, hours, and contact form" },
+    ],
+    style: "Bold, high-energy aesthetic with dark backgrounds, orange CTAs, and powerful typography. Perfect for gyms, CrossFit boxes, and strength training studios.",
+    waMessage: "Hi! I'm interested in the Iron Forge Gym website template.",
+    images: CDN.f1,
+  },
+  {
+    id: "zen-flow-yoga",
+    industry: "fitness",
+    name: "Zen Flow Yoga",
+    tagline: "Calm & Balanced",
+    tier: "Starter",
+    tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
+    domain: "zenflowyoga.com",
+    palette: ["#2C3E50", "#1ABC9C", "#F5F5DC", "#FFFFFF", "#E8D5B7"],
+    paletteNames: ["Dark Slate", "Teal", "Beige", "White", "Sand"],
+    styleLabel: "Calm Natural",
+    features: [
+      "Serene hero with class booking CTA",
+      "Yoga class schedule",
+      "Instructor profiles",
+      "Wellness philosophy section",
+      "Contact & booking form",
+      "Location & hours",
+      "WhatsApp CTA",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Homepage", preview: "home", description: "Serene hero, class overview, and instructor profiles" },
+      { label: "Services", preview: "services", description: "Yoga classes, workshops, and retreat information" },
+      { label: "Contact", preview: "contact", description: "Class booking, location, hours, and contact form" },
+    ],
+    style: "Calm, balanced aesthetic with natural tones, teal accents, and clean typography. Ideal for yoga studios, pilates centres, and mindfulness spaces.",
+    waMessage: "Hi! I'm interested in the Zen Flow Yoga website template.",
+    images: CDN.f2,
+  },
+  {
+    id: "peak-performance-studio",
+    industry: "fitness",
+    name: "Peak Performance Studio",
+    tagline: "Modern & Dynamic",
+    tier: "Business",
+    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
+    domain: "peakperformance.com",
+    palette: ["#111111", "#00D2FF", "#1A1A2E", "#F0F0F0", "#7B2FF7"],
+    paletteNames: ["Near Black", "Cyan", "Dark Navy", "Light Gray", "Purple"],
+    styleLabel: "Modern Dynamic",
+    features: [
+      "Dynamic hero with video background feel",
+      "Training programmes showcase",
+      "Coach profiles",
+      "Results / testimonials",
+      "Contact & consultation form",
+      "Location & hours",
+      "WhatsApp CTA",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Homepage", preview: "home", description: "Dynamic hero, training programmes, and coach profiles" },
+      { label: "Services", preview: "services", description: "Training plans, group classes, and personal coaching" },
+      { label: "Contact", preview: "contact", description: "Consultation booking, location, and contact form" },
+    ],
+    style: "Modern, dynamic aesthetic with dark backgrounds, cyan and purple accents, and bold sans-serif typography. Perfect for personal training studios, sports academies, and fitness centres.",
+    waMessage: "Hi! I'm interested in the Peak Performance Studio website template.",
+    images: CDN.f3,
+  },
+
 ];
 
 // ─── Modal preview renderer ───────────────────────────────────────────────────
@@ -638,7 +841,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
                 href="/contact"
                 className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-sm border border-gray-200 text-gray-700 transition-all duration-300 hover:border-[#5B8CFF] hover:text-[#5B8CFF]"
               >
-                Get a Quote
+                Get a Quote for This Design
               </a>
             </div>
 
@@ -734,7 +937,7 @@ export default function Templates() {
     ? TEMPLATES
     : TEMPLATES.filter(t => t.industry === activeIndustry);
 
-  const comingSoon = INDUSTRIES.filter(i => i.id !== "all" && i.id !== "restaurant" && i.id !== "beauty");
+  const comingSoon = INDUSTRIES.filter(i => i.id !== "all" && i.id !== "restaurant" && i.id !== "beauty" && i.id !== "clinic" && i.id !== "fitness");
 
   return (
     <div className="min-h-screen" style={{ background: "#F6F6F4" }}>
@@ -806,11 +1009,9 @@ export default function Templates() {
                 We're crafting beautiful templates for this industry. In the meantime, we can build a completely custom design for your business — just reach out.
               </p>
               <a
-                href={`https://wa.me/972584928177?text=${encodeURIComponent(`Hi! I'm interested in a ${INDUSTRIES.find(i => i.id === activeIndustry)?.label} website.`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105"
-                style={{ background: "linear-gradient(135deg, #25D366, #128C7E)" }}
+                style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
               >
                 <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white" aria-hidden>
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -820,7 +1021,7 @@ export default function Templates() {
             </motion.div>
           )}
 
-          {(activeIndustry === "all" || activeIndustry === "restaurant" || activeIndustry === "beauty") && (
+          {(activeIndustry === "all" || activeIndustry === "restaurant" || activeIndustry === "beauty" || activeIndustry === "clinic" || activeIndustry === "fitness") && (
             <div className="mt-16 pt-12 border-t border-gray-200">
               <p className="text-center text-gray-400 text-xs uppercase tracking-widest mb-8">More industries coming soon</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -850,9 +1051,7 @@ export default function Templates() {
               Every website we build is fully custom. Tell us about your business and we'll design something unique — just for you.
             </p>
             <a
-              href="https://wa.me/972584928177?text=Hi!%20I'd%20like%20a%20custom%20website%20design%20for%20my%20business."
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >

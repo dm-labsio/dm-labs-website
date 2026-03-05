@@ -14,7 +14,7 @@ const faqs = [
     items: [
       { q: "How do I get started?", a: "Just send us a message on WhatsApp. We'll have a quick chat about your business, recommend the best package, and get started right away. No forms, no waiting." },
       { q: "What information do I need to provide?", a: "At minimum, your business name and a brief description of what you do. If you have a logo, photos, or specific text you'd like to use — great. If not, we can work with what you have." },
-      { q: "How long does it take to build my website?", a: "Starter websites take 5–7 working days. Business websites take 7–10 working days. The timeline starts once we receive your content and the 50% deposit." },
+      { q: "How long does it take to build my website?", a: "Starter websites take 5–7 working days. Business websites take 7–10 working days. The timeline starts once we receive your content and confirm the project scope." },
       { q: "Do I need any technical knowledge?", a: "Absolutely not. We handle everything technical. You just need to tell us about your business and what you want — we take care of the rest." },
     ],
   },
@@ -22,7 +22,7 @@ const faqs = [
     category: "Pricing & Payment",
     items: [
       { q: "Are there any hidden fees?", a: "No. The price you see is the price you pay for the website build. Hosting and domain costs are separate (typically €10–15/month) and we'll explain everything upfront before you commit." },
-      { q: "How does the 50/50 payment work?", a: "You pay 50% when we agree on the project scope — this secures your spot and we begin immediately. The remaining 50% is due before we launch your website. You only pay the second half when you're happy." },
+      { q: "How does payment work?", a: "You pay for the full project once we agree on the scope. Payment secures your spot and we begin work immediately. Simple, transparent, and no surprises." },
       { q: "What payment methods do you accept?", a: "We accept bank transfers and major payment methods. We'll provide payment details when you're ready to proceed." },
       { q: "Do I own my website after it's built?", a: "Yes, 100%. Once paid in full, the website and all its content belong to you completely." },
     ],
@@ -115,8 +115,8 @@ export default function FAQ() {
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Still Have Questions?</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">We're always happy to help. Send us a message and we'll get back to you quickly.</p>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              <MessageCircle size={18} /> Ask on WhatsApp
+            <a href="/contact" className="btn-primary">
+              <MessageCircle size={18} /> Contact Us
             </a>
           </AnimateIn>
         </div>

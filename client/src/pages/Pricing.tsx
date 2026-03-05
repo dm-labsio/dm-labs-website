@@ -81,7 +81,7 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary w-full justify-center">
+                <a href="/contact" className="btn-secondary w-full justify-center">
                   <MessageCircle size={16} /> Get Started
                 </a>
               </div>
@@ -106,7 +106,7 @@ export default function Pricing() {
                       </li>
                     ))}
                   </ul>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center">
+                  <a href="/contact" className="btn-primary w-full justify-center">
                     <MessageCircle size={16} /> Get Started
                   </a>
                 </div>
@@ -130,7 +130,7 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary w-full justify-center">
+                <a href="/contact" className="btn-secondary w-full justify-center">
                   <MessageCircle size={16} /> Get Started
                 </a>
               </div>
@@ -206,7 +206,7 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary w-full justify-center mt-6">Choose Essential</a>
+                <a href="/contact" className="btn-secondary w-full justify-center mt-6">Choose Essential</a>
               </div>
             </AnimateIn>
             <AnimateIn delay={0.2}>
@@ -225,7 +225,7 @@ export default function Pricing() {
                       </li>
                     ))}
                   </ul>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center mt-6">Choose Premium</a>
+                  <a href="/contact" className="btn-primary w-full justify-center mt-6">Choose Premium</a>
                 </div>
               </div>
             </AnimateIn>
@@ -324,7 +324,7 @@ export default function Pricing() {
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Invest in Your Business?</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Let's discuss which package is the best fit. Free consultation — no commitment, no pressure.</p>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <a href="/contact" className="btn-primary">
               <MessageCircle size={18} /> Book a Free Consultation
             </a>
           </AnimateIn>
