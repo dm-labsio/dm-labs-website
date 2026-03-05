@@ -45,53 +45,54 @@ export default function Services() {
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">Website Packages</h2>
           </AnimateIn>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
             {/* Starter */}
             <AnimateIn delay={0.1}>
-              <div className="dm-card h-full">
-                <div className="flex items-center gap-4 mb-6">
+              <div className="dm-card h-full flex flex-col">
+                <div className="flex items-center gap-4 mb-4">
                   <div className="icon-container-gradient">
                     <Globe size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-[#111315]">Starter Website</h3>
-                    <p className="text-2xl font-bold brand-gradient-text">€250</p>
+                    <p className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Starter</p>
+                    <p className="text-2xl font-bold text-[#111315]">€250 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
                   </div>
                 </div>
-                <p className="text-sm text-[#5B6472] mb-6 leading-relaxed">
-                  Perfect for new businesses or freelancers who need a clean, professional online presence. Includes everything to get started.
+                <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
+                  Perfect for new businesses that need a clean, professional online presence fast.
                 </p>
-                <ul className="space-y-3 mb-6">
-                  {["Up to 3 custom-designed pages", "Fully mobile responsive", "Contact form with email notifications", "Google Maps integration", "Basic SEO setup", "Social media links", "1 round of revisions", "5–7 day delivery"].map((f) => (
+                <ul className="space-y-3 mb-6 flex-1">
+                  {["1-page landing site", "Mobile responsive", "Contact form", "WhatsApp button", "Google Maps", "Basic SEO", "Accessibility widget (free)", "2 revision rounds", "5–7 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}
                     </li>
                   ))}
                 </ul>
-                <a href="/contact" className="btn-primary w-full justify-center">Get Started</a>
+                <a href="/contact" className="btn-secondary w-full justify-center">Get Started</a>
               </div>
             </AnimateIn>
 
-            {/* Business */}
+            {/* Business — Recommended */}
             <AnimateIn delay={0.2}>
               <div className="brand-gradient-border h-full">
-                <div className="dm-card h-full !shadow-none relative">
-                  <span className="absolute -top-3 left-6 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold">Most Popular</span>
-                  <div className="flex items-center gap-4 mb-6">
+                <div className="dm-card h-full !shadow-none relative flex flex-col">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
+                  <div className="flex items-center gap-4 mb-4">
                     <div className="icon-container-gradient">
                       <Rocket size={24} className="text-[#8B5CFF]" strokeWidth={1.75} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-[#111315]">Business Website</h3>
-                      <p className="text-2xl font-bold brand-gradient-text">€350</p>
+                      <p className="text-xs font-semibold text-[#8B5CFF] uppercase tracking-wide">Business</p>
+                      <p className="text-2xl font-bold text-[#111315]">€350 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472] mb-6 leading-relaxed">
-                    For established businesses that need a complete, conversion-focused website with advanced features and integrations.
+                  <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
+                    For established businesses that need a complete, conversion-focused website.
                   </p>
-                  <ul className="space-y-3 mb-6">
-                    {["Up to 7 custom-designed pages", "Fully mobile responsive", "Contact form + WhatsApp button", "Google Maps + Reviews integration", "Advanced SEO optimisation", "Social media integration", "Speed optimisation", "2 rounds of revisions", "7–10 day delivery"].map((f) => (
+                  <ul className="space-y-3 mb-6 flex-1">
+                    {["Up to 5 pages", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews widget", "Advanced SEO", "Social media integration", "Speed optimisation", "Accessibility widget (free)", "3 revision rounds", "7–10 day delivery"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
@@ -102,6 +103,34 @@ export default function Services() {
                 </div>
               </div>
             </AnimateIn>
+
+            {/* Professional */}
+            <AnimateIn delay={0.3}>
+              <div className="dm-card h-full flex flex-col">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="icon-container-gradient">
+                    <Globe size={24} className="text-[#6FE3FF]" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-[#6FE3FF] uppercase tracking-wide">Professional</p>
+                    <p className="text-2xl font-bold text-[#111315]">€450 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
+                  </div>
+                </div>
+                <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
+                  For businesses that want a fully custom, feature-rich website with everything included.
+                </p>
+                <ul className="space-y-3 mb-6 flex-1">
+                  {["Up to 7 pages", "Fully custom design", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews widget", "Advanced SEO", "Gallery & testimonials", "FAQ / blog-ready section", "Pop-up included", "Accessibility widget (free)", "Unlimited revisions", "10–14 day delivery"].map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                      <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a href="/contact" className="btn-secondary w-full justify-center">Get Started</a>
+              </div>
+            </AnimateIn>
+
           </div>
         </div>
       </section>

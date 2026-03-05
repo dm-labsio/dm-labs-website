@@ -37,7 +37,7 @@ const steps = [
     icon: Code,
     title: "Review & Revisions",
     desc: "You review the website and request changes. We refine everything until you're completely happy with the result.",
-    details: ["Full website preview", "1–2 rounds of revisions included", "We adjust until you're satisfied", "No extra charges for included revisions"],
+    details: ["Full website preview", "Starter: 2 revision rounds, Business: 3, Professional: unlimited", "We adjust until you're satisfied", "No extra charges for included revisions"],
     color: "#5B8CFF",
   },
   {
@@ -129,7 +129,7 @@ export default function Process() {
               {[
                 { label: "Starter Website", time: "5–7 days", price: "€250" },
                 { label: "Business Website", time: "7–10 days", price: "€350" },
-                { label: "Revisions", time: "1–2 days", price: "Included" },
+                { label: "Professional Website", time: "10–14 days", price: "€450" },
               ].map((item) => (
                 <div key={item.label} className="dm-card text-center !p-8">
                   <p className="text-3xl font-bold brand-gradient-text mb-2">{item.time}</p>
