@@ -74,23 +74,25 @@ export default function Process() {
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl">
           <div className="relative">
-            {/* Vertical connector line */}
+{/* Vertical connector line — sits between icons, hidden behind each icon box */}
             <div
-              className="absolute left-[35px] sm:left-[39px] top-20 bottom-20 w-[2px] pointer-events-none z-0"
-              style={{ background: "linear-gradient(to bottom, #5B8CFF, #6FE3FF, #8B5CFF, #5B8CFF, #6FE3FF)" }}
+              className="absolute left-[35px] sm:left-[39px] top-[96px] sm:top-[104px] bottom-[96px] sm:bottom-[104px] w-[2px] pointer-events-none"
+              style={{ background: "linear-gradient(to bottom, #5B8CFF, #6FE3FF, #8B5CFF, #5B8CFF, #6FE3FF)", zIndex: 1 }}
             />
 
             <div className="space-y-0">
               {steps.map((step, i) => (
                 <AnimateIn key={step.title} delay={i * 0.12}>
                   <div className="relative flex gap-8 sm:gap-10" style={{ paddingBottom: i < steps.length - 1 ? "clamp(3rem, 6vh, 5rem)" : 0 }}>
-                    {/* Icon circle */}
-                    <div className="relative z-20 shrink-0 flex flex-col items-center">
+                    {/* Icon circle — z-10 so it sits above the connector line */}
+                    <div className="shrink-0 flex flex-col items-center" style={{ position: "relative", zIndex: 10 }}>
                       <div
                         className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-2xl flex items-center justify-center shadow-sm"
-                        style={{ background: `${step.color}18`, border: `1.5px solid ${step.color}30` }}
+                        style={{ background: `white`, border: `1.5px solid ${step.color}30`, boxShadow: `0 0 0 4px white` }}
                       >
-                        <step.icon size={34} style={{ color: step.color }} strokeWidth={1.5} />
+                        <div className="w-full h-full rounded-2xl flex items-center justify-center" style={{ background: `${step.color}18` }}>
+                          <step.icon size={34} style={{ color: step.color }} strokeWidth={1.5} />
+                        </div>
                       </div>
                     </div>
 

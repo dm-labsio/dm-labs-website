@@ -241,9 +241,9 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary w-full justify-center">
+                <Link href="/contact" className="btn-secondary w-full justify-center">
                   Get Started
-                </a>
+                </Link>
               </div>
             </AnimateIn>
 
@@ -268,9 +268,9 @@ export default function HomePage() {
                       </li>
                     ))}
                   </ul>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center">
+                  <Link href="/contact" className="btn-primary w-full justify-center">
                     Get Started
-                  </a>
+                  </Link>
                 </div>
               </div>
             </AnimateIn>
@@ -397,14 +397,11 @@ export default function HomePage() {
               Let's Build Your Website Together
             </h2>
             <p className="text-lg text-[#94A3B8] mb-10 max-w-xl mx-auto">
-              Send us a message on WhatsApp and we'll get back to you within hours. No commitment, no pressure — just a friendly conversation about your business.
+              Get in touch and we'll get back to you within hours. No commitment, no pressure — just a friendly conversation about your business.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary !h-14 !text-base !px-8">
+              <Link href="/contact" className="btn-primary !h-14 !text-base !px-8">
                 <MessageCircle size={20} />
-                Chat on WhatsApp
-              </a>
-              <Link href="/contact" className="btn-secondary !h-14 !text-base !px-8 !border-white/20 !text-white hover:!border-white/40">
                 Contact Us
               </Link>
             </div>

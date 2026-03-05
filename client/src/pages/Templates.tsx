@@ -112,7 +112,7 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
 }
 
 // ─── Browser Chrome Frame ─────────────────────────────────────────────────────
-function BrowserFrame({ children, url = "example.com", height = 220 }: { children: React.ReactNode; url?: string; height?: number }) {
+function BrowserFrame({ children, url = "example.com" }: { children: React.ReactNode; url?: string; height?: number }) {
   return (
     <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200/80" style={{ background: "#fff" }}>
       <div style={{ height: "28px", background: "#F0F0F0", borderBottom: "1px solid #E0E0E0", display: "flex", alignItems: "center", padding: "0 10px", gap: "6px" }}>
@@ -125,7 +125,8 @@ function BrowserFrame({ children, url = "example.com", height = 220 }: { childre
           <span style={{ fontSize: "9px", color: "#999", letterSpacing: "0.3px" }}>🔒 {url}</span>
         </div>
       </div>
-      <div style={{ height: `${height}px`, overflow: "hidden", position: "relative" }}>
+      {/* Responsive aspect-ratio container so it never clips on small screens */}
+      <div style={{ position: "relative", width: "100%", aspectRatio: "16/10", overflow: "hidden" }}>
         {children}
       </div>
     </div>
@@ -476,8 +477,8 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
     );
   }
   return (
-    <BrowserFrame url={template.domain} height={400}>
-      <img src={imgSrc} alt="" loading="eager" decoding="async" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+    <BrowserFrame url={template.domain}>
+      <img src={imgSrc} alt="" loading="eager" decoding="async" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
     </BrowserFrame>
   );
 }
@@ -624,19 +625,21 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             </div>
 
             <div className="rounded-xl p-4 border border-gray-200" style={{ background: "linear-gradient(135deg, #F8F9FF, #F5F0FF)" }}>
-              <div className="flex items-baseline gap-2 mb-1">
-                <span className="text-3xl font-bold text-gray-900">{template.price}</span>
-                <span className="text-gray-500 text-sm">one-time</span>
-              </div>
-              <p className="text-gray-400 text-xs mb-4">One-time payment · No hidden fees</p>
+              <p className="text-xs text-gray-500 mb-1 font-medium">This is a design inspiration</p>
+              <p className="text-gray-400 text-xs mb-4 leading-relaxed">Every website is built from scratch and tailored to your brand. Pricing depends on your chosen plan — not the template.</p>
               <a
                 href="/pricing"
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] mb-2"
                 style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
               >
-                View Pricing
+                View Pricing Plans
               </a>
-              <p className="text-center text-gray-400 text-xs mt-2">We'll personalise it for your business</p>
+              <a
+                href="/contact"
+                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-sm border border-gray-200 text-gray-700 transition-all duration-300 hover:border-[#5B8CFF] hover:text-[#5B8CFF]"
+              >
+                Get a Quote
+              </a>
             </div>
 
             <div className="flex items-center gap-2">
@@ -703,9 +706,9 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-gray-900 font-bold text-lg">{template.price}</span>
+          <span className="text-xs text-gray-400 italic">Design inspiration — pricing from €250</span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
-            View Details <ChevronRight size={14} />
+            Preview <ChevronRight size={14} />
           </button>
         </div>
       </div>
@@ -749,8 +752,11 @@ export default function Templates() {
                 Website Style
               </span>
             </h1>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
               Browse our curated designs by industry. Each template is fully customised for your business — your logo, your colours, your content.
+            </p>
+            <p className="text-sm text-gray-400 max-w-xl mx-auto">
+              These are <strong className="text-gray-500">design inspirations</strong>, not fixed packages. Every website we build is tailored from scratch — pricing depends on your chosen plan, not the template.
             </p>
           </motion.div>
         </div>
@@ -758,8 +764,8 @@ export default function Templates() {
 
       {/* Sticky Industry Filter */}
       <section className="sticky top-16 z-30 py-4" style={{ background: "rgba(246,246,244,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(226,229,234,0.6)" }}>
-        <div className="container">
-          <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
+        <div className="px-4 sm:px-6 lg:px-8">
+          <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}>
             {INDUSTRIES.map(industry => (
               <button
                 key={industry.id}
