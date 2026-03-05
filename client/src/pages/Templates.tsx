@@ -199,7 +199,7 @@ const TEMPLATES = [
     name: "Modern Minimal Bistro",
     tagline: "Elegant & Upscale",
     tier: "Business",
-    tierGradient: "linear-gradient(135deg, #C9A84C, #8B6914)",
+    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
     domain: "modernbistro.com",
     palette: ["#1C1A14", "#C9A84C", "#F2EDE4", "#3D2E20", "#8B7355"],
     paletteNames: ["Charcoal", "Warm Gold", "Cream", "Dark Brown", "Taupe"],
@@ -230,7 +230,7 @@ const TEMPLATES = [
     name: "Sunny Social Café",
     tagline: "Bright & Welcoming",
     tier: "Starter",
-    tierGradient: "linear-gradient(135deg, #E8724A, #C8923A)",
+    tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
     domain: "sunnycafe.com",
     palette: ["#3D2B1A", "#D4845A", "#F5EFE6", "#B8923A", "#E8DCC8"],
     paletteNames: ["Dark Brown", "Terracotta", "Warm Cream", "Golden", "Light Parchment"],
@@ -261,7 +261,7 @@ const TEMPLATES = [
     name: "The Roasted Bean",
     tagline: "Bold & Rustic",
     tier: "Starter",
-    tierGradient: "linear-gradient(135deg, #6B4226, #3D2B1A)",
+    tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
     domain: "roastedbean.com",
     palette: ["#1A0E06", "#C49A3C", "#F0E8D0", "#8B6030", "#5C3A1E"],
     paletteNames: ["Deep Espresso", "Amber Gold", "Parchment", "Warm Brown", "Chestnut"],
@@ -292,7 +292,7 @@ const TEMPLATES = [
     name: "Nonna's Pizza",
     tagline: "Rustic Italian",
     tier: "Business",
-    tierGradient: "linear-gradient(135deg, #8B1A1A, #3D1F0A)",
+    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
     domain: "nonnapizza.com",
     palette: ["#2A1208", "#8C2020", "#F5EDD0", "#C49A3C", "#6B3A20"],
     paletteNames: ["Dark Brown", "Deep Red", "Parchment", "Warm Gold", "Rustic Brown"],
@@ -323,7 +323,7 @@ const TEMPLATES = [
     name: "L'Atelier des Ongles",
     tagline: "Refined Nail Studio",
     tier: "Business",
-    tierGradient: "linear-gradient(135deg, #C8A888, #8B6848)",
+    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
     domain: "atelierdesongles.com",
     palette: ["#2A1E14", "#C8A888", "#E8D8C0", "#F8F4EE", "#A88868"],
     paletteNames: ["Dark Brown", "Warm Tan", "Sand Beige", "Off-White", "Muted Tan"],
@@ -354,7 +354,7 @@ const TEMPLATES = [
     name: "Aura Hair Studio",
     tagline: "Dark Luxury Hair",
     tier: "Business",
-    tierGradient: "linear-gradient(135deg, #C8A060, #6B4A20)",
+    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
     domain: "aurahair.com",
     palette: ["#0A0806", "#C8A060", "#3A2A18", "#F0E8D8", "#1E1410"],
     paletteNames: ["Near Black", "Golden Brown", "Dark Warm", "Cream", "Very Dark"],
@@ -385,7 +385,7 @@ const TEMPLATES = [
     name: "Lumina Skin Studio",
     tagline: "Soft & Feminine",
     tier: "Starter",
-    tierGradient: "linear-gradient(135deg, #E87878, #C84A4A)",
+    tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
     domain: "luminaskin.com",
     palette: ["#2A1818", "#E87878", "#F8E8E8", "#F5F0EC", "#D4A0A0"],
     paletteNames: ["Dark Brown", "Salmon Rose", "Blush Pink", "Warm White", "Muted Rose"],
@@ -416,7 +416,7 @@ const TEMPLATES = [
     name: "Serene Haven Spa",
     tagline: "Moody & Luxurious",
     tier: "Starter",
-    tierGradient: "linear-gradient(135deg, #C89040, #2A6878)",
+    tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
     domain: "serenehavenspa.com",
     palette: ["#1A1208", "#C89040", "#2A6878", "#F0E8D8", "#8B6030"],
     paletteNames: ["Very Dark", "Warm Amber", "Teal Blue", "Cream", "Warm Brown"],
@@ -476,7 +476,7 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
     );
   }
   return (
-    <BrowserFrame url={template.domain} height={340}>
+    <BrowserFrame url={template.domain} height={400}>
       <img src={imgSrc} alt="" loading="eager" decoding="async" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
     </BrowserFrame>
   );
@@ -628,18 +628,13 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
                 <span className="text-3xl font-bold text-gray-900">{template.price}</span>
                 <span className="text-gray-500 text-sm">one-time</span>
               </div>
-              <p className="text-gray-400 text-xs mb-4">50% upfront · 50% on delivery</p>
+              <p className="text-gray-400 text-xs mb-4">One-time payment · No hidden fees</p>
               <a
-                href={waUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/pricing"
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
-                style={{ background: "linear-gradient(135deg, #25D366, #128C7E)" }}
+                style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
               >
-                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white" aria-hidden>
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-                Get This Template
+                View Pricing
               </a>
               <p className="text-center text-gray-400 text-xs mt-2">We'll personalise it for your business</p>
             </div>

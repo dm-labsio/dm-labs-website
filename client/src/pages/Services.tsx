@@ -31,7 +31,7 @@ export default function Services() {
               Services That <span className="brand-gradient-text">Drive Results</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              From custom design to SEO optimization, we provide everything your business needs to succeed online.
+              From custom design to SEO optimisation, we provide everything your business needs to succeed online.
             </p>
           </AnimateIn>
         </div>
@@ -91,7 +91,7 @@ export default function Services() {
                     For established businesses that need a complete, conversion-focused website with advanced features and integrations.
                   </p>
                   <ul className="space-y-3 mb-6">
-                    {["Up to 7 custom-designed pages", "Fully mobile responsive", "Contact form + WhatsApp button", "Google Maps + Reviews integration", "Advanced SEO optimization", "Social media integration", "Speed optimization", "2 rounds of revisions", "7–10 day delivery"].map((f) => (
+                    {["Up to 7 custom-designed pages", "Fully mobile responsive", "Contact form + WhatsApp button", "Google Maps + Reviews integration", "Advanced SEO optimisation", "Social media integration", "Speed optimisation", "2 rounds of revisions", "7–10 day delivery"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
@@ -117,7 +117,7 @@ export default function Services() {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Smartphone, title: "Mobile Responsive", desc: "Looks perfect on every device — phones, tablets, and desktops." },
-              { icon: Search, title: "SEO Optimized", desc: "Built-in search engine optimization so customers find you on Google." },
+              { icon: Search, title: "SEO Optimised", desc: "Built-in search engine optimisation so customers find you on Google." },
               { icon: Zap, title: "Fast Loading", desc: "Optimized code and assets for lightning-fast page speeds." },
               { icon: Shield, title: "SSL Security", desc: "Free SSL certificate to keep your site and visitors secure." },
               { icon: Image, title: "Custom Design", desc: "No templates — every design is tailored to your brand identity." },
@@ -151,19 +151,33 @@ export default function Services() {
             <AnimateIn>
               <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Optional Add-On</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-5">
-                Monthly Maintenance — <span className="brand-gradient-text">€50/mo</span>
+                Monthly Maintenance — <span className="brand-gradient-text">from €39/mo</span>
               </h2>
-              <p className="text-lg text-[#5B6472] mb-8 leading-relaxed">
-                Keep your website fresh, secure, and performing at its best. We handle the technical stuff so you can focus on your business.
+              <p className="text-lg text-[#5B6472] mb-6 leading-relaxed">
+                Keep your website fresh, secure, and performing at its best. Choose the plan that fits your needs.
               </p>
-              <ul className="space-y-4 mb-8">
-                {["Monthly content updates (text, images, prices)", "Security monitoring and updates", "Performance optimization", "Hosting and domain management", "Priority WhatsApp support", "Monthly analytics report"].map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-[#111315]">
-                    <CheckCircle2 size={18} className="text-[#5B8CFF] shrink-0 mt-0.5" />
-                    <span className="text-sm">{f}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="space-y-5 mb-8">
+                <div className="dm-card !p-5">
+                  <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Essential — €39/month</p>
+                  <ul className="space-y-2">
+                    {["Up to 3 content updates/month", "Text, images, prices & hours", "Hosting & uptime monitoring", "WhatsApp support (48h response)", "Monthly backup"].map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                        <CheckCircle2 size={15} className="text-[#5B8CFF] shrink-0 mt-0.5" />{f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="dm-card !p-5 border-[#8B5CFF]/30">
+                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Premium — €59/month</p>
+                  <ul className="space-y-2">
+                    {["Unlimited content updates", "Priority 24h WhatsApp response", "Monthly performance check", "Seasonal banners & promotions", "New section additions", "Hosting & uptime monitoring", "Monthly backup"].map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                        <CheckCircle2 size={15} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 <MessageCircle size={18} />
                 Ask About Maintenance
@@ -172,7 +186,11 @@ export default function Services() {
             <AnimateIn delay={0.2}>
               <div className="dm-card !bg-[#F6F6F4]">
                 <div className="text-center py-8">
-                  <p className="text-6xl font-bold brand-gradient-text mb-2">€50</p>
+                  <div className="flex items-baseline justify-center gap-3 mb-2">
+                    <span className="text-5xl font-bold brand-gradient-text">€39</span>
+                    <span className="text-2xl text-[#5B6472]">or</span>
+                    <span className="text-5xl font-bold brand-gradient-text">€59</span>
+                  </div>
                   <p className="text-lg text-[#5B6472] mb-6">per month</p>
                   <div className="w-16 h-0.5 brand-gradient mx-auto rounded-full mb-6" />
                   <p className="text-sm text-[#5B6472] max-w-xs mx-auto">Cancel anytime. No contracts. No commitments. Just ongoing care for your website.</p>

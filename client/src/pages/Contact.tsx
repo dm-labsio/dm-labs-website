@@ -9,18 +9,37 @@ import { toast } from "sonner";
 
 const WHATSAPP_URL = "https://wa.me/972584928177?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
+const FORMSPREE_URL = "https://formspree.io/f/xvgaepkl";
+
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
   const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    setTimeout(() => {
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          business: form.business,
+          message: form.message,
+        }),
+      });
+      if (res.ok) {
+        toast.success("Message sent! We'll get back to you within 24 hours.");
+        setForm({ name: "", email: "", business: "", message: "" });
+      } else {
+        toast.error("Something went wrong. Please try WhatsApp instead.");
+      }
+    } catch {
+      toast.error("Network error. Please try WhatsApp instead.");
+    } finally {
       setSending(false);
-      toast.success("Message sent! We'll get back to you within 24 hours.");
-      setForm({ name: "", email: "", business: "", message: "" });
-    }, 1200);
+    }
   };
 
   return (

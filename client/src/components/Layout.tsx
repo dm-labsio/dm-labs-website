@@ -78,14 +78,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           {/* Desktop CTA */}
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="hidden lg:flex btn-primary !h-11 !text-sm !px-6"
           >
             Get Started
-          </a>
+          </Link>
 
           {/* Mobile Hamburger */}
           <button
@@ -123,14 +121,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
             </nav>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="btn-primary w-full mt-8"
             >
               Get Started
-            </a>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

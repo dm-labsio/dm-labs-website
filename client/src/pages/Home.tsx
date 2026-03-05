@@ -104,7 +104,7 @@ export default function HomePage() {
               "50/50 Payment",
               "Delivered in Days",
               "Mobile Responsive",
-              "SEO Optimized",
+              "SEO Optimised",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
                 <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0" />
@@ -134,8 +134,8 @@ export default function HomePage() {
             {[
               { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No templates — every site is built from scratch." },
               { icon: Smartphone, title: "Mobile-First Development", desc: "Every website is designed mobile-first, ensuring a flawless experience on phones, tablets, and desktops." },
-              { icon: Search, title: "SEO Optimization", desc: "Built-in search engine optimization so your customers can find you on Google from day one." },
-              { icon: Zap, title: "Fast Performance", desc: "Lightning-fast load times with optimized code and assets. Speed matters for conversions and rankings." },
+              { icon: Search, title: "SEO Optimisation", desc: "Built-in search engine optimisation so your customers can find you on Google from day one." },
+              { icon: Zap, title: "Fast Performance", desc: "Lightning-fast load times with optimised code and assets. Speed matters for conversions and rankings." },
               { icon: Shield, title: "Secure & Reliable", desc: "SSL certificates, secure hosting, and regular backups to keep your website safe and always online." },
               { icon: Clock, title: "Quick Turnaround", desc: "From concept to launch in 5–10 business days. We move fast without compromising quality." },
             ].map((service) => (
@@ -177,7 +177,7 @@ export default function HomePage() {
             {[
               { icon: MessageCircle, step: "01", title: "Discovery Call", desc: "Quick WhatsApp chat to understand your business, goals, and what you need.", color: "#5B8CFF" },
               { icon: Palette, step: "02", title: "Design", desc: "We create a custom design based on your brand, content, and preferences.", color: "#6FE3FF" },
-              { icon: Code, step: "03", title: "Build", desc: "Your website is developed with clean code, optimized for speed and SEO.", color: "#8B5CFF" },
+              { icon: Code, step: "03", title: "Build", desc: "Your website is developed with clean code, optimised for speed and SEO.", color: "#8B5CFF" },
               { icon: Rocket, step: "04", title: "Launch", desc: "We deploy your site, connect your domain, and make sure everything works perfectly.", color: "#5B8CFF" },
             ].map((item) => (
               <StaggerItem key={item.step}>
@@ -261,7 +261,7 @@ export default function HomePage() {
                   </div>
                   <p className="text-sm text-[#5B6472] mb-6">For established businesses that need a complete, conversion-focused website.</p>
                   <ul className="space-y-3 mb-8 flex-1">
-                    {["Up to 7 pages", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews", "Advanced SEO", "2 revision rounds", "Social media integration", "Speed optimization"].map((f) => (
+                    {["Up to 7 pages", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews", "Advanced SEO", "2 revision rounds", "Social media integration", "Speed optimisation"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
@@ -279,22 +279,23 @@ export default function HomePage() {
             <AnimateIn delay={0.3}>
               <div className="dm-card h-full flex flex-col">
                 <p className="text-sm font-medium text-[#5B8CFF] mb-2">Maintenance</p>
-                <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-4xl font-bold text-[#111315]">€50</span>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="text-4xl font-bold text-[#111315]">€39</span>
                   <span className="text-sm text-[#5B6472]">/month</span>
                 </div>
+                <p className="text-xs text-[#5B8CFF] mb-4">or €59/month for Premium</p>
                 <p className="text-sm text-[#5B6472] mb-6">Keep your website updated, secure, and performing at its best.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Monthly content updates", "Security monitoring", "Performance optimization", "Hosting management", "Priority support", "Monthly analytics report"].map((f) => (
+                  {["Content updates (Essential: 3/mo, Premium: unlimited)", "Hosting & uptime monitoring", "Monthly backup", "Performance optimisation", "WhatsApp support", "Seasonal banners (Premium)"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}
                     </li>
                   ))}
                 </ul>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary w-full justify-center">
-                  Learn More
-                </a>
+                <Link href="/pricing" className="btn-secondary w-full justify-center">
+                  View Plans
+                </Link>
               </div>
             </AnimateIn>
           </div>

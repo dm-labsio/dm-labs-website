@@ -21,9 +21,9 @@ const steps = [
   },
   {
     icon: CreditCard,
-    title: "50% Deposit",
-    desc: "Once we agree on the scope and price, you pay 50% upfront. This secures your spot and we begin work immediately.",
-    details: ["Clear pricing — no surprises", "50% upfront, 50% on delivery", "Work begins immediately", "Secure payment options"],
+    title: "Secure Your Spot",
+    desc: "Once we agree on the scope and price, you pay and we begin work immediately. Simple, transparent, no surprises.",
+    details: ["Clear pricing — no hidden fees", "Pay once, own it forever", "Work begins immediately", "Secure payment options"],
     color: "#6FE3FF",
   },
   {
@@ -43,8 +43,8 @@ const steps = [
   {
     icon: Rocket,
     title: "Launch",
-    desc: "Final 50% payment, and your website goes live. We handle domain setup, hosting, and make sure everything works perfectly.",
-    details: ["Domain connection", "SSL certificate setup", "Speed optimization", "Your website is live!"],
+    desc: "Your website goes live. We handle domain setup, hosting, and make sure everything works perfectly.",
+    details: ["Domain connection", "SSL certificate setup", "Speed optimisation", "Your website is live!"],
     color: "#6FE3FF",
   },
 ];
@@ -76,7 +76,7 @@ export default function Process() {
           <div className="relative">
             {/* Vertical connector line */}
             <div
-              className="absolute left-[35px] sm:left-[39px] top-20 bottom-20 w-[2px] pointer-events-none"
+              className="absolute left-[35px] sm:left-[39px] top-20 bottom-20 w-[2px] pointer-events-none z-0"
               style={{ background: "linear-gradient(to bottom, #5B8CFF, #6FE3FF, #8B5CFF, #5B8CFF, #6FE3FF)" }}
             />
 
@@ -85,7 +85,7 @@ export default function Process() {
                 <AnimateIn key={step.title} delay={i * 0.12}>
                   <div className="relative flex gap-8 sm:gap-10" style={{ paddingBottom: i < steps.length - 1 ? "clamp(3rem, 6vh, 5rem)" : 0 }}>
                     {/* Icon circle */}
-                    <div className="relative z-10 shrink-0 flex flex-col items-center">
+                    <div className="relative z-20 shrink-0 flex flex-col items-center">
                       <div
                         className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-2xl flex items-center justify-center shadow-sm"
                         style={{ background: `${step.color}18`, border: `1.5px solid ${step.color}30` }}
