@@ -1,4 +1,4 @@
-/* D&M LABS — Terms of Service */
+/* D&M LABS - Terms of Service */
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 

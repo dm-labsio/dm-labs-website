@@ -1,4 +1,4 @@
-/* CountUp — Animated number counter that triggers on scroll */
+/* CountUp - Animated number counter that triggers on scroll */
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";

@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS — FAQ Page
+   D&M LABS - FAQ Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
 import { useState } from "react";
@@ -13,9 +13,9 @@ const faqs = [
     category: "Getting Started",
     items: [
       { q: "How do I get started?", a: "Just send us a message on WhatsApp. We'll have a quick chat about your business, recommend the best package, and get started right away. No forms, no waiting." },
-      { q: "What information do I need to provide?", a: "At minimum, your business name and a brief description of what you do. If you have a logo, photos, or specific text you'd like to use — great. If not, we can work with what you have." },
+      { q: "What information do I need to provide?", a: "At minimum, your business name and a brief description of what you do. If you have a logo, photos, or specific text you'd like to use - great. If not, we can work with what you have." },
       { q: "How long does it take to build my website?", a: "Starter websites take 5–7 working days. Business websites take 7–10 working days. The timeline starts once we receive your content and confirm the project scope." },
-      { q: "Do I need any technical knowledge?", a: "Absolutely not. We handle everything technical. You just need to tell us about your business and what you want — we take care of the rest." },
+      { q: "Do I need any technical knowledge?", a: "Absolutely not. We handle everything technical. You just need to tell us about your business and what you want - we take care of the rest." },
     ],
   },
   {
@@ -31,7 +31,7 @@ const faqs = [
     category: "Design & Features",
     items: [
       { q: "Can I see examples of your work?", a: "Yes! Contact us on WhatsApp and we'll share recent examples relevant to your industry." },
-      { q: "Will my website work on mobile phones?", a: "Absolutely. Every website we build is mobile-first — meaning it's designed to look and work perfectly on phones, tablets, and desktops." },
+      { q: "Will my website work on mobile phones?", a: "Absolutely. Every website we build is mobile-first - meaning it's designed to look and work perfectly on phones, tablets, and desktops." },
       { q: "Can I make changes after the website is live?", a: "Yes. Small text changes are free for the first month after launch. After that, our maintenance plans (from €39/month) cover ongoing updates, or you can request individual changes." },
       { q: "Do you provide hosting?", a: "We set up your hosting and make sure everything runs smoothly. Hosting costs are typically €10–15/month, separate from the build cost." },
     ],
@@ -40,7 +40,7 @@ const faqs = [
     category: "After Launch",
     items: [
       { q: "What happens after my website launches?", a: "We make sure everything is working perfectly. For the first month, we're available for small adjustments at no extra cost. After that, you can opt into our maintenance plan or manage things independently." },
-      { q: "What does the maintenance plan include?", a: "We offer two tiers: Essential (€39/month) covers up to 3 content updates, hosting monitoring, backups, and WhatsApp support. Premium (€59/month) adds unlimited updates, priority 24h response, monthly performance checks, seasonal banners, and new section additions. No contracts — cancel any time." },
+      { q: "What does the maintenance plan include?", a: "We offer two tiers: Essential (€39/month) covers up to 3 content updates, hosting monitoring, backups, and WhatsApp support. Premium (€59/month) adds unlimited updates, priority 24h response, monthly performance checks, seasonal banners, and new section additions. No contracts - cancel any time." },
       { q: "Can I cancel the maintenance plan?", a: "Yes, anytime. There are no contracts or commitments. You can cancel whenever you want." },
     ],
   },

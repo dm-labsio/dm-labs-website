@@ -1,7 +1,7 @@
 /* ============================================================
-   D&M LABS — Service Detail Page
+   D&M LABS - Service Detail Page
    Route: /services/:serviceId
-   Not shown in navigation — linked from homepage service cards
+   Not shown in navigation - linked from homepage service cards
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import { Link, useParams } from "wouter";
@@ -34,12 +34,12 @@ const SERVICES: Record<string, {
     icon: Globe,
     accentColor: "#5B8CFF",
     title: "Custom Website Design",
-    subtitle: "A website that looks and feels like your brand — not a template.",
-    intro: "Every business is different. Your website should reflect that. We design every site from scratch, starting with your brand identity, your audience, and your goals. No page builders, no recycled layouts — just a thoughtfully crafted digital presence built specifically for you.",
+    subtitle: "A website that looks and feels like your brand - not a template.",
+    intro: "Every business is different. Your website should reflect that. We design every site from scratch, starting with your brand identity, your audience, and your goals. No page builders, no recycled layouts - just a thoughtfully crafted digital presence built specifically for you.",
     why: [
       { heading: "First impressions matter", body: "Visitors form an opinion about your business within 50 milliseconds of landing on your site. A generic template signals that you don't care about the details. A custom design signals professionalism, trust, and attention to quality." },
-      { heading: "Your brand, not ours", body: "We study your logo, your colours, your tone of voice, and your competitors before writing a single line of code. The result is a website that feels like an extension of your business — not a website that could belong to anyone." },
-      { heading: "Designed to convert", body: "Beautiful design is only half the job. We structure every page with conversion in mind — clear calls to action, logical information hierarchy, and friction-free paths to contact or purchase." },
+      { heading: "Your brand, not ours", body: "We study your logo, your colours, your tone of voice, and your competitors before writing a single line of code. The result is a website that feels like an extension of your business - not a website that could belong to anyone." },
+      { heading: "Designed to convert", body: "Beautiful design is only half the job. We structure every page with conversion in mind - clear calls to action, logical information hierarchy, and friction-free paths to contact or purchase." },
     ],
     whatWeDeliver: [
       "Custom visual identity applied across all pages",
@@ -52,7 +52,7 @@ const SERVICES: Record<string, {
     ],
     howItWorks: [
       { step: "01", title: "Discovery", desc: "We start with a brief conversation to understand your business, your audience, and what you want visitors to do on your site." },
-      { step: "02", title: "Moodboard & Direction", desc: "We present a visual direction — colour palette, typography, and layout style — for your approval before any code is written." },
+      { step: "02", title: "Moodboard & Direction", desc: "We present a visual direction - colour palette, typography, and layout style - for your approval before any code is written." },
       { step: "03", title: "Design & Build", desc: "We design and develop simultaneously, so you see a real working website, not a static mockup." },
       { step: "04", title: "Review & Refine", desc: "You review the site and request changes. We refine until you're happy, then launch." },
     ],
@@ -70,11 +70,11 @@ const SERVICES: Record<string, {
     accentColor: "#6FE3FF",
     title: "Mobile-First Development",
     subtitle: "Over 60% of web traffic is mobile. Your site needs to be perfect on every screen.",
-    intro: "Mobile-first is not a feature we add at the end — it's how we build from the very beginning. Every layout, every button, every image is designed for a small screen first, then enhanced for larger displays. The result is a website that works flawlessly whether your customer is on a phone, a tablet, or a desktop.",
+    intro: "Mobile-first is not a feature we add at the end - it's how we build from the very beginning. Every layout, every button, every image is designed for a small screen first, then enhanced for larger displays. The result is a website that works flawlessly whether your customer is on a phone, a tablet, or a desktop.",
     why: [
       { heading: "Most of your visitors are on mobile", body: "Across most industries, 60–70% of website visitors arrive on a smartphone. If your site is slow, hard to navigate, or broken on mobile, you're losing the majority of your potential customers before they even read a word." },
       { heading: "Google ranks mobile-friendly sites higher", body: "Google uses mobile-first indexing, meaning it evaluates the mobile version of your site when deciding where to rank you in search results. A poor mobile experience directly hurts your SEO." },
-      { heading: "Touch-friendly interactions", body: "Mobile users interact differently from desktop users. We design with touch in mind — larger tap targets, swipeable galleries, sticky navigation, and forms that work with mobile keyboards." },
+      { heading: "Touch-friendly interactions", body: "Mobile users interact differently from desktop users. We design with touch in mind - larger tap targets, swipeable galleries, sticky navigation, and forms that work with mobile keyboards." },
     ],
     whatWeDeliver: [
       "Mobile-first layout architecture",
@@ -104,11 +104,11 @@ const SERVICES: Record<string, {
     accentColor: "#5B8CFF",
     title: "SEO Optimisation",
     subtitle: "Get found on Google. Attract customers who are already looking for what you offer.",
-    intro: "Search Engine Optimisation (SEO) is the practice of making your website visible in Google search results. We build SEO into every website from day one — not as an afterthought. From clean code structure to keyword-rich content and fast load times, every technical decision we make has SEO in mind.",
+    intro: "Search Engine Optimisation (SEO) is the practice of making your website visible in Google search results. We build SEO into every website from day one - not as an afterthought. From clean code structure to keyword-rich content and fast load times, every technical decision we make has SEO in mind.",
     why: [
       { heading: "Organic traffic is free, forever", body: "Unlike paid advertising, a well-optimised website continues to attract visitors long after it's launched. Ranking on the first page of Google for your key services means a steady stream of potential customers finding you without spending a penny on ads." },
       { heading: "Local SEO for local businesses", body: "If you serve a specific city or region, local SEO is essential. We optimise your site for location-based searches (e.g. 'hair salon Tel Aviv' or 'physiotherapist Barcelona') so you appear when nearby customers are looking." },
-      { heading: "Technical SEO from the ground up", body: "Many websites are built without any thought for SEO. We do the opposite — every page has a proper title, meta description, heading hierarchy, schema markup, and clean URL structure from the moment it goes live." },
+      { heading: "Technical SEO from the ground up", body: "Many websites are built without any thought for SEO. We do the opposite - every page has a proper title, meta description, heading hierarchy, schema markup, and clean URL structure from the moment it goes live." },
     ],
     whatWeDeliver: [
       "SEO-friendly URL structure and page titles",
@@ -123,12 +123,12 @@ const SERVICES: Record<string, {
     ],
     howItWorks: [
       { step: "01", title: "Keyword Research", desc: "We identify the search terms your target customers use and build your content strategy around them." },
-      { step: "02", title: "On-Page Optimisation", desc: "Every page is structured with SEO best practices — titles, headings, content, and internal linking." },
+      { step: "02", title: "On-Page Optimisation", desc: "Every page is structured with SEO best practices - titles, headings, content, and internal linking." },
       { step: "03", title: "Technical SEO", desc: "We ensure your site is fast, crawlable, and correctly indexed by Google." },
       { step: "04", title: "Search Console Setup", desc: "We connect your site to Google Search Console so you can monitor performance and fix issues over time." },
     ],
     faqs: [
-      { q: "How long does SEO take to show results?", a: "SEO is a long-term investment. Most sites start seeing improvements within 3–6 months, with significant results after 6–12 months. We set up the foundation — ongoing content and link building accelerate results." },
+      { q: "How long does SEO take to show results?", a: "SEO is a long-term investment. Most sites start seeing improvements within 3–6 months, with significant results after 6–12 months. We set up the foundation - ongoing content and link building accelerate results." },
       { q: "Do you offer ongoing SEO services?", a: "Our Premium Maintenance plan includes monthly SEO monitoring and minor optimisations. Full content marketing and link building campaigns are available as a separate service." },
       { q: "Will my site rank on Google immediately after launch?", a: "Google needs time to crawl and index your site. We submit your sitemap to Google Search Console at launch to speed up the process, but ranking takes time and depends on competition in your industry." },
     ],
@@ -140,10 +140,10 @@ const SERVICES: Record<string, {
     accentColor: "#8B5CFF",
     title: "Fast Performance",
     subtitle: "Every second of load time costs you customers. We make your site lightning fast.",
-    intro: "Website speed is not just a technical metric — it directly affects how many visitors stay on your site, how many convert to customers, and how high you rank on Google. We obsess over performance at every stage of development, from how images are compressed to how JavaScript is loaded.",
+    intro: "Website speed is not just a technical metric - it directly affects how many visitors stay on your site, how many convert to customers, and how high you rank on Google. We obsess over performance at every stage of development, from how images are compressed to how JavaScript is loaded.",
     why: [
       { heading: "Speed affects conversions", body: "Research by Google shows that a 1-second delay in mobile load time can reduce conversions by up to 20%. A site that loads in under 2 seconds keeps visitors engaged. A site that takes 5 seconds loses most of them before the page even appears." },
-      { heading: "Core Web Vitals and Google ranking", body: "Google uses Core Web Vitals — a set of speed and user experience metrics — as a ranking factor. A fast site ranks higher. A slow site is penalised, regardless of how good the content is." },
+      { heading: "Core Web Vitals and Google ranking", body: "Google uses Core Web Vitals - a set of speed and user experience metrics - as a ranking factor. A fast site ranks higher. A slow site is penalised, regardless of how good the content is." },
       { heading: "Better experience for everyone", body: "Fast sites feel professional. Slow sites feel broken. Performance is part of the brand experience, and we treat it that way." },
     ],
     whatWeDeliver: [
@@ -174,10 +174,10 @@ const SERVICES: Record<string, {
     icon: Shield,
     accentColor: "#5B8CFF",
     title: "Secure & Reliable",
-    subtitle: "SSL, secure hosting, and regular backups — your website protected around the clock.",
-    intro: "A website that goes down, gets hacked, or shows a security warning in the browser is a business liability. We build security and reliability into every site we deliver — from SSL certificates and secure hosting to automated backups and uptime monitoring.",
+    subtitle: "SSL, secure hosting, and regular backups - your website protected around the clock.",
+    intro: "A website that goes down, gets hacked, or shows a security warning in the browser is a business liability. We build security and reliability into every site we deliver - from SSL certificates and secure hosting to automated backups and uptime monitoring.",
     why: [
-      { heading: "SSL is non-negotiable", body: "Every website we build includes an SSL certificate, which encrypts data between your visitors and your server. Without SSL, browsers display a 'Not Secure' warning that immediately destroys trust. With SSL, visitors see a padlock in the address bar — a signal that your site is safe." },
+      { heading: "SSL is non-negotiable", body: "Every website we build includes an SSL certificate, which encrypts data between your visitors and your server. Without SSL, browsers display a 'Not Secure' warning that immediately destroys trust. With SSL, visitors see a padlock in the address bar - a signal that your site is safe." },
       { heading: "Downtime costs money", body: "If your website is down, customers can't find you, can't contact you, and can't book with you. We use reliable hosting infrastructure with 99.9% uptime guarantees and monitor your site 24/7." },
       { heading: "Backups protect your investment", body: "A single server failure or accidental deletion can wipe out your entire website. We maintain regular automated backups so your site can be restored quickly if anything goes wrong." },
     ],
@@ -210,9 +210,9 @@ const SERVICES: Record<string, {
     accentColor: "#6FE3FF",
     title: "Quick Turnaround",
     subtitle: "From first conversation to live website in 5–10 business days.",
-    intro: "We know that time is money. Waiting weeks or months for a website is not acceptable when your business needs an online presence now. Our streamlined process is designed to move fast without cutting corners — from the initial brief to a live, polished website in under two weeks.",
+    intro: "We know that time is money. Waiting weeks or months for a website is not acceptable when your business needs an online presence now. Our streamlined process is designed to move fast without cutting corners - from the initial brief to a live, polished website in under two weeks.",
     why: [
-      { heading: "Your business can't wait", body: "Every day without a professional website is a day you're losing customers to competitors who have one. We've built our entire process around speed — from how we gather requirements to how we deploy and launch." },
+      { heading: "Your business can't wait", body: "Every day without a professional website is a day you're losing customers to competitors who have one. We've built our entire process around speed - from how we gather requirements to how we deploy and launch." },
       { heading: "Speed without sacrifice", body: "Fast doesn't mean rushed. We've refined our workflow over dozens of projects to eliminate wasted time while maintaining the quality standards our clients expect. You get a fast turnaround and a beautiful result." },
       { heading: "Clear milestones, no surprises", body: "We give you a clear timeline at the start of every project. You know exactly when to expect the first preview, when to submit feedback, and when your site will go live." },
     ],

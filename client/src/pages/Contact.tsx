@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS — Contact Page
+   D&M LABS - Contact Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
 import { useState } from "react";
@@ -63,7 +63,7 @@ export default function Contact() {
       <section className="section-spacing bg-white">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-5xl mx-auto">
-            {/* Left — Contact Methods */}
+            {/* Left - Contact Methods */}
             <div className="lg:col-span-2 space-y-6">
               <AnimateIn>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block dm-card !p-6 group hover:shadow-lg transition-shadow">
@@ -127,7 +127,7 @@ export default function Contact() {
               </AnimateIn>
             </div>
 
-            {/* Right — Form */}
+            {/* Right - Form */}
             <AnimateIn delay={0.2} className="lg:col-span-3">
               <div className="dm-card !p-8">
                 <h2 className="text-xl font-semibold text-[#111315] mb-6">Send Us a Message</h2>

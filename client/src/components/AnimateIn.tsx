@@ -1,4 +1,4 @@
-/* AnimateIn — Scroll-triggered entrance animations using framer-motion
+/* AnimateIn - Scroll-triggered entrance animations using framer-motion
    Usage: <AnimateIn> wraps any element for fade-up on scroll
    Variants: fade-up, fade-left, fade-right, scale, stagger-children */
 

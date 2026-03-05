@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS — Services Page
+   D&M LABS - Services Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #F6F6F4 base
    ============================================================ */
 import { Link } from "wouter";
@@ -74,7 +74,7 @@ export default function Services() {
               </div>
             </AnimateIn>
 
-            {/* Business — Recommended */}
+            {/* Business - Recommended */}
             <AnimateIn delay={0.2}>
               <div className="brand-gradient-border h-full">
                 <div className="dm-card h-full !shadow-none relative flex flex-col">
@@ -145,15 +145,15 @@ export default function Services() {
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Smartphone, title: "Mobile Responsive", desc: "Looks perfect on every device — phones, tablets, and desktops.", anchor: "mobile-first" },
+              { icon: Smartphone, title: "Mobile Responsive", desc: "Looks perfect on every device - phones, tablets, and desktops.", anchor: "mobile-first" },
               { icon: Search, title: "SEO Optimised", desc: "Built-in search engine optimisation so customers find you on Google.", anchor: "seo" },
               { icon: Zap, title: "Fast Loading", desc: "Optimised code and assets for lightning-fast page speeds.", anchor: "performance" },
               { icon: Shield, title: "SSL Security", desc: "Free SSL certificate to keep your site and visitors secure.", anchor: "security" },
-              { icon: Image, title: "Custom Design", desc: "No templates — every design is tailored to your brand identity.", anchor: "custom-design" },
+              { icon: Image, title: "Custom Design", desc: "No templates - every design is tailored to your brand identity.", anchor: "custom-design" },
               { icon: MapPin, title: "Google Maps", desc: "Embedded maps so customers can find your physical location easily.", anchor: "maps" },
               { icon: FileText, title: "Contact Forms", desc: "Professional forms that send inquiries directly to your email.", anchor: "forms" },
               { icon: Share2, title: "Social Integration", desc: "Links to all your social media profiles in one place.", anchor: "social" },
-              { icon: Headphones, title: "Post-Launch Support", desc: "We don't disappear after launch — ongoing support when you need it.", anchor: "turnaround" },
+              { icon: Headphones, title: "Post-Launch Support", desc: "We don't disappear after launch - ongoing support when you need it.", anchor: "turnaround" },
             ].map((item) => (
               <StaggerItem key={item.title}>
                 <Link href={`/services/${item.anchor}`}>
@@ -183,14 +183,14 @@ export default function Services() {
             <AnimateIn>
               <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Optional Add-On</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-5">
-                Monthly Maintenance — <span className="brand-gradient-text">from €39/mo</span>
+                Monthly Maintenance - <span className="brand-gradient-text">from €39/mo</span>
               </h2>
               <p className="text-lg text-[#5B6472] mb-6 leading-relaxed">
                 Keep your website fresh, secure, and performing at its best. Choose the plan that fits your needs.
               </p>
               <div className="space-y-5 mb-8">
                 <div className="dm-card !p-5">
-                  <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Essential — €39/month</p>
+                  <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Essential - €39/month</p>
                   <ul className="space-y-2">
                     {["Up to 3 content updates/month", "Text, images, prices & hours", "Hosting & uptime monitoring", "WhatsApp support (48h response)", "Monthly backup"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
@@ -200,7 +200,7 @@ export default function Services() {
                   </ul>
                 </div>
                 <div className="dm-card !p-5 border-[#8B5CFF]/30">
-                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Premium — €59/month</p>
+                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Premium - €59/month</p>
                   <ul className="space-y-2">
                     {["Unlimited content updates", "Priority 24h WhatsApp response", "Monthly performance check", "Seasonal banners & promotions", "New section additions", "Hosting & uptime monitoring", "Monthly backup"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">

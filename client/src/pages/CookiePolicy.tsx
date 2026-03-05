@@ -1,4 +1,4 @@
-/* D&M LABS — Cookie Policy (GDPR Compliant) */
+/* D&M LABS - Cookie Policy (GDPR Compliant) */
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 

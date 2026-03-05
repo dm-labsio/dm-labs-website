@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS — Pricing Page
+   D&M LABS - Pricing Page
    3 tiers: Starter €250 / Business €350 (recommended) / Professional €450
    Add-ons + 2 maintenance tiers (Essential €39 / Premium €59)
    No 50/50 references. Free consultation in all plans.
@@ -31,8 +31,8 @@ const comparison = [
 ];
 
 const addons = [
-  { icon: Languages, label: "Multilingual — 2 languages", price: "€80" },
-  { icon: Languages, label: "Multilingual — up to 4 languages", price: "€150" },
+  { icon: Languages, label: "Multilingual - 2 languages", price: "€80" },
+  { icon: Languages, label: "Multilingual - up to 4 languages", price: "€150" },
   { icon: CalendarCheck, label: "Booking / reservation redirect (Calendly, Wolt, etc.)", price: "€30" },
   { icon: Bell, label: "Pop-up (promo, announcement, cookie notice)", price: "€40" },
   { icon: Accessibility, label: "Full WCAG 2.1 AA accessibility audit", price: "€40" },
@@ -53,7 +53,7 @@ export default function Pricing() {
               Simple, <span className="brand-gradient-text">Honest Pricing</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              No hidden fees. No surprises. Choose the package that fits your business — every plan includes a free consultation.
+              No hidden fees. No surprises. Choose the package that fits your business - every plan includes a free consultation.
             </p>
           </AnimateIn>
         </div>
@@ -87,7 +87,7 @@ export default function Pricing() {
               </div>
             </AnimateIn>
 
-            {/* Business — Recommended */}
+            {/* Business - Recommended */}
             <AnimateIn delay={0.2}>
               <div className="brand-gradient-border h-full">
                 <div className="dm-card h-full flex flex-col !shadow-none relative">
@@ -139,7 +139,7 @@ export default function Pricing() {
           </div>
           <AnimateIn delay={0.4} className="text-center mt-8">
             <p className="text-sm text-[#5B6472]">
-              All plans include a <span className="font-semibold text-[#111315]">free consultation</span> — no commitment, no pressure. Just a friendly chat about your business.
+              All plans include a <span className="font-semibold text-[#111315]">free consultation</span> - no commitment, no pressure. Just a friendly chat about your business.
             </p>
           </AnimateIn>
         </div>
@@ -174,7 +174,7 @@ export default function Pricing() {
               <div>
                 <p className="text-sm font-semibold text-[#111315] mb-1">Accessibility included in every plan</p>
                 <p className="text-xs text-[#5B6472] leading-relaxed">
-                  Every website we build includes the <strong>UserWay accessibility widget</strong> at no extra cost — covering keyboard navigation, screen reader support, colour contrast, and more. For businesses that need a full WCAG 2.1 AA audit and compliance certificate, we offer this as a €40 add-on.
+                  Every website we build includes the <strong>UserWay accessibility widget</strong> at no extra cost - covering keyboard navigation, screen reader support, colour contrast, and more. For businesses that need a full WCAG 2.1 AA audit and compliance certificate, we offer this as a €40 add-on.
                 </p>
               </div>
             </div>
@@ -323,7 +323,7 @@ export default function Pricing() {
         <div className="container">
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Invest in Your Business?</h2>
-            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Let's discuss which package is the best fit. Free consultation — no commitment, no pressure.</p>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Let's discuss which package is the best fit. Free consultation - no commitment, no pressure.</p>
             <a href="/contact" className="btn-primary">
               <MessageCircle size={18} /> Book a Free Consultation
             </a>

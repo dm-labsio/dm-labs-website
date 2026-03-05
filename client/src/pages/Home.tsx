@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS — Homepage
+   D&M LABS - Homepage
    Hero with gradient atmosphere + floating devices
    Sections: Trust, Services, Process, Business Types, Template Showcase, Pricing, Stats, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
@@ -94,7 +94,7 @@ export default function HomePage() {
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.3}>
               <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-md">
-                We create cutting-edge websites that drive results for your business. Professional, fast, and built to convert — starting at just €250.
+                We create cutting-edge websites that drive results for your business. Professional, fast, and built to convert - starting at just €250.
               </p>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.4}>
@@ -165,7 +165,7 @@ export default function HomePage() {
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No templates — every site is built from scratch.", anchor: "custom-design" },
+              { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No templates - every site is built from scratch.", anchor: "custom-design" },
               { icon: Smartphone, title: "Mobile-First Development", desc: "Every website is designed mobile-first, ensuring a flawless experience on phones, tablets, and desktops.", anchor: "mobile-first" },
               { icon: Search, title: "SEO Optimisation", desc: "Built-in search engine optimisation so your customers can find you on Google from day one.", anchor: "seo" },
               { icon: Zap, title: "Fast Performance", desc: "Lightning-fast load times with optimised code and assets. Speed matters for conversions and rankings.", anchor: "performance" },
@@ -243,7 +243,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          BUSINESS TYPES — now ABOVE pricing
+          BUSINESS TYPES - now ABOVE pricing
           ═══════════════════════════════════════════ */}
       <section className="section-spacing relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
@@ -267,7 +267,7 @@ export default function HomePage() {
               See What We Can Create for You
             </h3>
             <p className="text-base text-[#5B6472] max-w-xl mx-auto">
-              Browse our design templates — each one is a starting point for a fully custom website tailored to your brand.
+              Browse our design templates - each one is a starting point for a fully custom website tailored to your brand.
             </p>
           </AnimateIn>
 
@@ -276,7 +276,7 @@ export default function HomePage() {
               <StaggerItem key={tpl.id} className="flex">
                 <Link href={`/templates?industry=${tpl.industry}`} className="flex w-full">
                   <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
-                    {/* Card Image — 16:9 ratio, no cropping */}
+                    {/* Card Image - 16:9 ratio, no cropping */}
                     <div className="relative overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
                       <img
                         src={tpl.cardImage}
@@ -312,7 +312,7 @@ export default function HomePage() {
                         </div>
                       </div>
 
-                      {/* Learn More — pinned to bottom */}
+                      {/* Learn More - pinned to bottom */}
                       <div className="mt-auto flex items-center gap-1 text-sm font-semibold text-[#5B8CFF] group-hover:gap-2 transition-all">
                         Learn More <ArrowRight size={14} />
                       </div>
@@ -363,7 +363,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          PRICING PREVIEW — now BELOW business types
+          PRICING PREVIEW - now BELOW business types
           ═══════════════════════════════════════════ */}
       <section className="section-spacing bg-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
@@ -406,7 +406,7 @@ export default function HomePage() {
               </div>
             </AnimateIn>
 
-            {/* Business — Recommended */}
+            {/* Business - Recommended */}
             <AnimateIn delay={0.2}>
               <div className="brand-gradient-border h-full">
                 <div className="dm-card h-full flex flex-col !shadow-none relative">
@@ -459,7 +459,7 @@ export default function HomePage() {
 
           <AnimateIn className="text-center mt-10">
             <p className="text-sm text-[#5B6472] mb-3">
-              All plans include a <span className="font-semibold text-[#111315]">free consultation</span> — no commitment, no pressure.
+              All plans include a <span className="font-semibold text-[#111315]">free consultation</span> - no commitment, no pressure.
             </p>
             <Link href="/pricing" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
               See full pricing &amp; add-ons <ArrowRight size={14} />
@@ -517,7 +517,7 @@ export default function HomePage() {
               Let's Build Your Website Together
             </h2>
             <p className="text-lg text-[#94A3B8] mb-10 max-w-xl mx-auto">
-              Get in touch and we'll get back to you within hours. No commitment, no pressure — just a friendly conversation about your business.
+              Get in touch and we'll get back to you within hours. No commitment, no pressure - just a friendly conversation about your business.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary !h-14 !text-base !px-8">

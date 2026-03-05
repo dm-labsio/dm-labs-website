@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Monitor, Smartphone, Star, ArrowRight, Check, ChevronRight } from "lucide-react";
 
-// ─── CDN URLs — all fresh uploads Expires=1804155913+ ───────────────────────
+// ─── CDN URLs - all fresh uploads Expires=1804155913+ ───────────────────────
 const CDN = {
   r1: {
     card:           "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/UOnSAZrlsOnIfDWm.png?Expires=1804155913&Signature=eps9pTRUQcYczGwpElCjc0kYg3H~Jci0R8Ni-i8Fadd234K0yX4zqNPoDQHdXZ3TkqYMvqYeHNI428ZruRGbkJmJ9uAMRksrzb1T3TJVjSWVcZ5hccy3J9CfVETY0-gl9sjeAniVjr48AecY3y8ZrLRDk1GtKhp5AhvAQ7TVy5SKj5sFWkFhZS~o~yiMWeTCn0POlN6Pw49wPhkj0AtsbhOjnhkePsPQ78ivahMYdtbmUnsQ9IRJq0Z41D~WxB8Le~Qqy0K4i5iqwUj53MAalljgbrMMtG5dssO0dqKEK2voMTfTHcCfzUQhl6jFnIjDviF6TR5i3FD1NIKk3GscBA__&Key-Pair-Id=K2HSFNDJXOU9YS",
@@ -869,7 +869,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
 
             <div className="rounded-xl p-4 border border-gray-200" style={{ background: "linear-gradient(135deg, #F8F9FF, #F5F0FF)" }}>
               <p className="text-xs text-gray-500 mb-1 font-medium">This is a design inspiration</p>
-              <p className="text-gray-400 text-xs mb-4 leading-relaxed">Every website is built from scratch and tailored to your brand. Pricing depends on your chosen plan — not the template.</p>
+              <p className="text-gray-400 text-xs mb-4 leading-relaxed">Every website is built from scratch and tailored to your brand. Pricing depends on your chosen plan - not the template.</p>
               <a
                 href="/pricing"
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] mb-2"
@@ -949,7 +949,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Design inspiration — pricing from €250</span>
+          <span className="text-xs text-gray-400 italic">Design inspiration - pricing from €250</span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
             Preview <ChevronRight size={14} />
           </button>
@@ -996,13 +996,13 @@ function CustomBuildCard() {
       {/* Card body */}
       <div className="p-5 flex flex-col flex-1">
         <p className="text-gray-600 text-sm leading-relaxed mb-4">
-          No template fits your vision? We design your website entirely from scratch — unique layout, custom graphics, and a brand identity built just for you.
+          No template fits your vision? We design your website entirely from scratch - unique layout, custom graphics, and a brand identity built just for you.
         </p>
 
         {/* Feature list */}
         <ul className="space-y-2 mb-5 flex-1">
           {[
-            "100% unique layout — no template base",
+            "100% unique layout - no template base",
             "Custom illustrations & brand graphics",
             "Tailored colour palette & typography",
             "Built around your specific business goals",
@@ -1015,7 +1015,7 @@ function CustomBuildCard() {
           ))}
         </ul>
 
-        {/* Palette dots — brand colours */}
+        {/* Palette dots - brand colours */}
         <div className="flex items-center gap-2 mb-4">
           {["#5B8CFF", "#6FE3FF", "#8B5CFF", "#0F172A", "#F6F6F4"].map(c => (
             <div key={c} className="w-4 h-4 rounded-full border-2 border-white shadow-sm" style={{ background: c }} />
@@ -1024,7 +1024,7 @@ function CustomBuildCard() {
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Pricing from €350 — quote on request</span>
+          <span className="text-xs text-gray-400 italic">Pricing from €350 - quote on request</span>
           <a
             href="/contact"
             className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
@@ -1076,10 +1076,10 @@ export default function Templates() {
               </span>
             </h1>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
-              Browse our curated designs by industry. Each template is fully customised for your business — your logo, your colours, your content.
+              Browse our curated designs by industry. Each template is fully customised for your business - your logo, your colours, your content.
             </p>
             <p className="text-sm text-gray-400 max-w-xl mx-auto">
-              These are <strong className="text-gray-500">design inspirations</strong>, not fixed packages. Every website we build is tailored from scratch — pricing depends on your chosen plan, not the template.
+              These are <strong className="text-gray-500">design inspirations</strong>, not fixed packages. Every website we build is tailored from scratch - pricing depends on your chosen plan, not the template.
             </p>
           </motion.div>
         </div>
@@ -1116,7 +1116,7 @@ export default function Templates() {
               {filtered.map(template => (
                 <TemplateCard key={template.id} template={template} onClick={() => setSelectedTemplate(template)} />
               ))}
-              {/* Custom Build card — always shown at the end */}
+              {/* Custom Build card - always shown at the end */}
               <CustomBuildCard />
             </div>
           ) : (
@@ -1128,7 +1128,7 @@ export default function Templates() {
                 {INDUSTRIES.find(i => i.id === activeIndustry)?.label} Templates
               </h3>
               <p className="text-gray-500 max-w-md mx-auto mb-8 leading-relaxed">
-                We're crafting beautiful templates for this industry. In the meantime, we can build a completely custom design for your business — just reach out.
+                We're crafting beautiful templates for this industry. In the meantime, we can build a completely custom design for your business - just reach out.
               </p>
               <a
                 href="/contact"
@@ -1170,7 +1170,7 @@ export default function Templates() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl font-bold text-gray-900 mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Don't see what you're looking for?</h2>
             <p className="text-gray-500 mb-8 max-w-lg mx-auto">
-              Every website we build is fully custom. Tell us about your business and we'll design something unique — just for you.
+              Every website we build is fully custom. Tell us about your business and we'll design something unique - just for you.
             </p>
             <a
               href="/contact"

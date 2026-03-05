@@ -1,5 +1,5 @@
 /**
- * Coffee Shop Template Preview — "Bella Cucina Coffee"
+ * Coffee Shop Template Preview - "Bella Cucina Coffee"
  * Design: Warm dark palette, serif headings, cream/brown tones
  * Used as an iframe-able preview inside the Templates page
  * Assets: User-provided coffee photography
@@ -47,7 +47,7 @@ export default function CoffeeShopTemplate() {
             Where Every<br /><em style={{ color: "#c8956c" }}>Sip</em> Tells<br />a Story
           </h1>
           <p style={{ fontSize: 16, color: "#c8a882", maxWidth: 380, lineHeight: 1.7, marginBottom: 36 }}>
-            Specialty coffee, handcrafted pastries, and a warm corner of the world — just for you.
+            Specialty coffee, handcrafted pastries, and a warm corner of the world - just for you.
           </p>
           <div style={{ display: "flex", gap: 16 }}>
             <button style={{ padding: "14px 32px", background: "linear-gradient(135deg, #c8956c, #8b5e3c)", border: "none", borderRadius: 4, color: "#fff", fontSize: 14, letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", fontWeight: 600 }}>
@@ -160,7 +160,7 @@ export default function CoffeeShopTemplate() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {[
             { name: "Noa K.", text: "The best latte I've had in Amsterdam. The atmosphere is warm and the staff genuinely care. My go-to spot every morning. The atmosphere is warm and the staff genuinely care. My go-to spot every morning." },
-            { name: "Daniel R.", text: "Incredible coffee and even better pastries. The cold brew is absolutely perfect — smooth, not bitter at all." },
+            { name: "Daniel R.", text: "Incredible coffee and even better pastries. The cold brew is absolutely perfect - smooth, not bitter at all." },
             { name: "Maya S.", text: "I discovered Bella Cucina last month and now I can't imagine my week without it. The morning set is a ritual now." },
           ].map(r => (
             <div key={r.name} style={{ background: "rgba(245,234,216,0.04)", border: "1px solid rgba(245,234,216,0.08)", borderRadius: 8, padding: "28px 28px" }}>
@@ -168,7 +168,7 @@ export default function CoffeeShopTemplate() {
                 {"★★★★★".split("").map((s, i) => <span key={i} style={{ color: "#c8956c", fontSize: 14 }}>{s}</span>)}
               </div>
               <p style={{ fontSize: 15, color: "#c8a882", lineHeight: 1.7, marginBottom: 20, fontStyle: "italic" }}>"{r.text}"</p>
-              <p style={{ fontSize: 13, color: "#9a7e65", letterSpacing: "0.05em" }}>— {r.name}</p>
+              <p style={{ fontSize: 13, color: "#9a7e65", letterSpacing: "0.05em" }}>- {r.name}</p>
             </div>
           ))}
         </div>

@@ -1,7 +1,7 @@
 /* ============================================================
-   D&M LABS — Process Page
+   D&M LABS - Process Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
-   Design: Airy vertical timeline — no step numbers, large icons,
+   Design: Airy vertical timeline - no step numbers, large icons,
            generous breathing room between each stage
    ============================================================ */
 import { Link } from "wouter";
@@ -15,7 +15,7 @@ const steps = [
   {
     icon: MessageCircle,
     title: "Discovery Call",
-    desc: "We start with a quick WhatsApp chat. Tell us about your business, what you need, and your goals. No technical jargon — just a friendly conversation.",
+    desc: "We start with a quick WhatsApp chat. Tell us about your business, what you need, and your goals. No technical jargon - just a friendly conversation.",
     details: ["15–20 minute WhatsApp call", "We learn about your business", "You tell us what you need", "We recommend the best package"],
     color: "#5B8CFF",
   },
@@ -23,7 +23,7 @@ const steps = [
     icon: CreditCard,
     title: "Secure Your Spot",
     desc: "Once we agree on the scope and price, you pay and we begin work immediately. Simple, transparent, no surprises.",
-    details: ["Clear pricing — no hidden fees", "Pay once, own it forever", "Work begins immediately", "Secure payment options"],
+    details: ["Clear pricing - no hidden fees", "Pay once, own it forever", "Work begins immediately", "Secure payment options"],
     color: "#6FE3FF",
   },
   {
@@ -64,7 +64,7 @@ export default function Process() {
               From Idea to <span className="brand-gradient-text">Launch</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              A simple, transparent process designed to get your website live as quickly as possible — without the stress.
+              A simple, transparent process designed to get your website live as quickly as possible - without the stress.
             </p>
           </AnimateIn>
         </div>
@@ -74,7 +74,7 @@ export default function Process() {
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl">
           <div className="relative">
-{/* Vertical connector line — sits between icons, hidden behind each icon box */}
+{/* Vertical connector line - sits between icons, hidden behind each icon box */}
             <div
               className="absolute left-[35px] sm:left-[39px] top-[96px] sm:top-[104px] bottom-[96px] sm:bottom-[104px] w-[2px] pointer-events-none"
               style={{ background: "linear-gradient(to bottom, #5B8CFF, #6FE3FF, #8B5CFF, #5B8CFF, #6FE3FF)", zIndex: 1 }}
@@ -84,7 +84,7 @@ export default function Process() {
               {steps.map((step, i) => (
                 <AnimateIn key={step.title} delay={i * 0.12}>
                   <div className="relative flex gap-8 sm:gap-10" style={{ paddingBottom: i < steps.length - 1 ? "clamp(3rem, 6vh, 5rem)" : 0 }}>
-                    {/* Icon circle — z-10 so it sits above the connector line */}
+                    {/* Icon circle - z-10 so it sits above the connector line */}
                     <div className="shrink-0 flex flex-col items-center" style={{ position: "relative", zIndex: 10 }}>
                       <div
                         className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-2xl flex items-center justify-center shadow-sm"

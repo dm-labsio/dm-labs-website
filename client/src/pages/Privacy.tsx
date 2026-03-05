@@ -1,4 +1,4 @@
-/* D&M LABS — Privacy Policy (GDPR Compliant) */
+/* D&M LABS - Privacy Policy (GDPR Compliant) */
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 
@@ -28,9 +28,9 @@ export default function Privacy() {
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">2. Information We Collect</h2>
                 <p className="mb-3">We collect the following categories of personal data:</p>
                 <ul className="list-disc pl-5 space-y-2">
-                  <li><strong className="text-[#111315]">Contact information:</strong> Name, email address, phone number, and business name — provided when you fill in our contact form or message us on WhatsApp.</li>
-                  <li><strong className="text-[#111315]">Project information:</strong> Details about your business, design preferences, and website requirements — provided during consultations.</li>
-                  <li><strong className="text-[#111315]">Technical data:</strong> IP address, browser type, device type, and pages visited — collected automatically through essential and analytics cookies (with your consent).</li>
+                  <li><strong className="text-[#111315]">Contact information:</strong> Name, email address, phone number, and business name - provided when you fill in our contact form or message us on WhatsApp.</li>
+                  <li><strong className="text-[#111315]">Project information:</strong> Details about your business, design preferences, and website requirements - provided during consultations.</li>
+                  <li><strong className="text-[#111315]">Technical data:</strong> IP address, browser type, device type, and pages visited - collected automatically through essential and analytics cookies (with your consent).</li>
                   <li><strong className="text-[#111315]">Payment information:</strong> Billing details processed securely through third-party payment providers. We do not store credit card numbers.</li>
                 </ul>
               </div>

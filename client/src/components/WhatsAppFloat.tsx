@@ -1,4 +1,4 @@
-/* D&M LABS — WhatsApp Floating Button */
+/* D&M LABS - WhatsApp Floating Button */
 import { useState } from "react";
 
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";

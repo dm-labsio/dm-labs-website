@@ -1,4 +1,4 @@
-/* D&M LABS — 404 Page */
+/* D&M LABS - 404 Page */
 import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 
