@@ -365,9 +365,10 @@ export default function HomePage() {
                   <span className="text-4xl font-bold text-[#111315]">€250</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
+                <p className="text-xs text-[#5B8CFF] font-medium mb-4">€200 with maintenance bundle</p>
                 <p className="text-sm text-[#5B6472] mb-6">Perfect for new businesses that need a clean, professional online presence fast.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["1-page landing site", "Mobile responsive", "Contact form", "WhatsApp button", "Google Maps", "Basic SEO", "Accessibility widget (free)", "2 revision rounds", "5–7 day delivery"].map((f) => (
+                  {["1-page landing site", "Mobile responsive", "WhatsApp button", "Social media links", "Accessibility widget (free)", "2 revision rounds", "5-7 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}
@@ -387,12 +388,13 @@ export default function HomePage() {
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
                   <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Business</p>
                   <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-4xl font-bold text-[#111315]">€350</span>
+                    <span className="text-4xl font-bold text-[#111315]">€400</span>
                     <span className="text-sm text-[#5B6472]">one-time</span>
                   </div>
+                  <p className="text-xs text-[#8B5CFF] font-medium mb-4">€350 with maintenance bundle</p>
                   <p className="text-sm text-[#5B6472] mb-6">For established businesses that need a complete, conversion-focused website.</p>
                   <ul className="space-y-3 mb-8 flex-1">
-                    {["Up to 5 pages", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews widget", "Advanced SEO", "Social media integration", "Speed optimisation", "Accessibility widget (free)", "3 revision rounds", "7–10 day delivery"].map((f) => (
+                    {["Up to 5 pages", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials section", "Basic SEO optimisation", "Speed optimisation", "Accessibility widget (free)", "3 revision rounds", "7-10 day delivery"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
@@ -411,12 +413,13 @@ export default function HomePage() {
               <div className="dm-card h-full flex flex-col">
                 <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Professional</p>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold text-[#111315]">€450</span>
+                  <span className="text-4xl font-bold text-[#111315]">€650</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
+                <p className="text-xs text-[#6FE3FF] font-medium mb-4">€600 with maintenance bundle</p>
                 <p className="text-sm text-[#5B6472] mb-6">For businesses that want a fully custom, feature-rich website with everything included.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Up to 7 pages", "Fully custom design", "Mobile responsive", "Contact form + WhatsApp", "Google Maps + Reviews widget", "Advanced SEO", "Gallery & testimonials", "FAQ / blog-ready section", "Pop-up included", "Accessibility widget (free)", "Unlimited revisions", "10–14 day delivery"].map((f) => (
+                  {["Up to 7 pages", "Fully custom design + animations", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials + gallery", "5 SEO blog articles", "Full meta/SEO structure", "Pop-up included", "Accessibility widget (free)", "Unlimited revisions", "10-14 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
                       {f}

@@ -767,9 +767,6 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
           <div>
             <div className="flex items-center gap-3 mb-1">
               <h2 className="text-2xl font-bold text-gray-900">{template.name}</h2>
-              <span className="px-3 py-1 rounded-full text-xs font-semibold text-white" style={{ background: template.tierGradient }}>
-                {template.tier}
-              </span>
             </div>
             <p className="text-gray-500 text-sm">{template.tagline} · {INDUSTRIES.find(i => i.id === template.industry)?.label}</p>
           </div>
@@ -909,14 +906,9 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
       </div>
 
       <div className="p-5">
-        <div className="flex items-start justify-between mb-3">
-          <div>
-            <h3 className="text-gray-900 font-bold text-lg leading-tight">{template.name}</h3>
-            <p className="text-gray-500 text-sm">{template.tagline}</p>
-          </div>
-          <span className="px-3 py-1 rounded-full text-xs font-semibold text-white flex-shrink-0" style={{ background: template.tierGradient }}>
-            {template.tier}
-          </span>
+        <div className="mb-3">
+          <h3 className="text-gray-900 font-bold text-lg leading-tight">{template.name}</h3>
+          <p className="text-gray-500 text-sm">{template.tagline}</p>
         </div>
 
         <div className="flex items-center gap-2 mb-4">
@@ -997,14 +989,6 @@ function CustomBuildCard() {
           ))}
         </ul>
 
-        {/* Palette dots - brand colours */}
-        <div className="flex items-center gap-2 mb-4">
-          {["#5B8CFF", "#6FE3FF", "#8B5CFF", "#0F172A", "#F6F6F4"].map(c => (
-            <div key={c} className="w-4 h-4 rounded-full border-2 border-white shadow-sm" style={{ background: c }} />
-          ))}
-          <span className="text-gray-400 text-xs ml-1">Your brand colours</span>
-        </div>
-
         <div className="flex items-center justify-between">
           <span className="text-xs text-gray-400 italic">Pricing from €350 - quote on request</span>
           <a
@@ -1035,9 +1019,18 @@ export default function Templates() {
     }
   }, [location]);
 
-  const filtered = activeIndustry === "all"
-    ? TEMPLATES
-    : TEMPLATES.filter(t => t.industry === activeIndustry);
+  const filtered = (() => {
+    if (activeIndustry === "all") {
+      // Shuffle once using a stable seed so order is random but consistent per session
+      const arr = [...TEMPLATES];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+    return TEMPLATES.filter(t => t.industry === activeIndustry);
+  })();
 
   const comingSoon = INDUSTRIES.filter(i => i.id !== "all" && i.id !== "restaurant" && i.id !== "beauty" && i.id !== "clinic" && i.id !== "fitness");
 
