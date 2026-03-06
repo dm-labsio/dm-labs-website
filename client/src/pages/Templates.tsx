@@ -248,8 +248,6 @@ const INDUSTRIES = [
   { id: "beauty", label: "Beauty & Wellness", icon: "✂" },
   { id: "clinic", label: "Clinics & Health", icon: "+" },
   { id: "fitness", label: "Fitness & Sport", icon: "◈" },
-  { id: "retail", label: "Retail & Boutique", icon: "◻" },
-  { id: "services", label: "Professional Services", icon: "◇" },
 ];
 
 // ─── Template data ────────────────────────────────────────────────────────────
@@ -1032,8 +1030,6 @@ export default function Templates() {
     return TEMPLATES.filter(t => t.industry === activeIndustry);
   })();
 
-  const comingSoon = INDUSTRIES.filter(i => i.id !== "all" && i.id !== "restaurant" && i.id !== "beauty" && i.id !== "clinic" && i.id !== "fitness");
-
   return (
     <div className="min-h-screen" style={{ background: "#F6F6F4" }}>
       {/* Hero */}
@@ -1118,24 +1114,7 @@ export default function Templates() {
             </motion.div>
           )}
 
-          {(activeIndustry === "all" || activeIndustry === "restaurant" || activeIndustry === "beauty" || activeIndustry === "clinic" || activeIndustry === "fitness") && (
-            <div className="mt-16 pt-12 border-t border-gray-200">
-              <p className="text-center text-gray-400 text-xs uppercase tracking-widest mb-8">More industries coming soon</p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                {comingSoon.map(industry => (
-                  <button
-                    key={industry.id}
-                    onClick={() => setActiveIndustry(industry.id)}
-                    className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all duration-200 group"
-                  >
-                    <span className="text-xl text-gray-400 group-hover:text-blue-500 transition-colors">{industry.icon}</span>
-                    <span className="text-gray-500 text-xs text-center group-hover:text-gray-700 transition-colors">{industry.label}</span>
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-400">Coming Soon</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
+
         </div>
       </section>
 

@@ -196,6 +196,13 @@ export default function Pricing() {
             <p className="text-sm text-[#5B6472]">
               All plans include a <span className="font-semibold text-[#111315]">free consultation</span> - no commitment, no pressure. Just a friendly chat about your business.
             </p>
+            <p className="text-sm text-[#5B6472] mt-3 flex items-center justify-center gap-2">
+              <CheckCircle2 size={15} className="text-[#5B8CFF]" />
+              <span><span className="font-semibold text-[#111315]">Satisfaction guaranteed</span> — we work until you're happy with the result.</span>
+            </p>
+            <p className="text-sm text-[#5B6472] mt-2">
+              <a href="#maintenance" className="text-[#5B8CFF] hover:underline font-medium">Also see: Monthly Maintenance Plans ↓</a>
+            </p>
           </AnimateIn>
         </div>
       </section>
@@ -238,7 +245,7 @@ export default function Pricing() {
       </section>
 
       {/* Maintenance */}
-      <section className="section-spacing bg-white">
+      <section id="maintenance" className="section-spacing bg-white">
         <div className="container max-w-4xl">
           <AnimateIn className="text-center mb-4">
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Keep It Fresh</p>
@@ -358,6 +365,8 @@ export default function Pricing() {
           </AnimateIn>
           <StaggerContainer className="space-y-4">
             {[
+              { q: "Can I see a preview before paying?", a: "Yes. We always share a design preview for your approval before we proceed to development. You won't pay a penny until you're happy with the direction." },
+              { q: "Can I upgrade my plan later?", a: "Absolutely. If you start with the Starter plan and later decide you need more pages or features, we can upgrade your site at any time. You only pay the difference." },
               { q: "Are there any hidden fees?", a: "No. The price you see is the price you pay. Hosting and domain costs are separate (typically €10-15/month) but we will explain everything upfront." },
               { q: "What is the maintenance bundle deal?", a: "If you sign up for any monthly maintenance plan at the same time as your website build, you get €50 off your build price. This is a one-time discount - your monthly plan continues at the regular rate afterwards. You can cancel the maintenance plan at any time with no penalty." },
               { q: "What if I need changes after launch?", a: "Small text changes are free for the first month. After that, our maintenance plans cover ongoing updates, or you can request individual changes at an agreed rate." },

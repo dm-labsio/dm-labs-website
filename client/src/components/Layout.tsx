@@ -185,7 +185,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </li>
                 <li className="flex items-start gap-3 text-sm text-[#94A3B8]">
                   <MapPin size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
-                  <span>Europe &amp; Remote Worldwide</span>
+                  <span>Based in Cyprus, serving clients worldwide</span>
                 </li>
               </ul>
             </div>
@@ -197,7 +197,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               &copy; {new Date().getFullYear()} D&amp;M Labs. All rights reserved.
             </p>
             <p className="text-xs text-[#64748B]">
-              Built with precision and care.
+              Crafted in Cyprus, delivered worldwide.
             </p>
           </div>
         </div>

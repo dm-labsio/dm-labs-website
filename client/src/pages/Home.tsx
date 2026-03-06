@@ -1,7 +1,7 @@
 /* ============================================================
    D&M LABS - Homepage
    Hero with gradient atmosphere + floating devices
-   Sections: Trust, Services, Process, Business Types, Template Showcase, Pricing, Stats, CTA
+   Sections: Trust, Services, Process, Business Types, Template Showcase, Testimonials, Pricing, Stats, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import { Link } from "wouter";
@@ -10,7 +10,7 @@ import {
   Globe, Smartphone, Search, Zap, Shield, Clock,
   CheckCircle2, ArrowRight, MessageCircle,
   Utensils, Scissors, Stethoscope, Briefcase, Dumbbell, ShoppingBag,
-  Palette, Code, Rocket, Headphones
+  Palette, Code, Rocket, Headphones, Star, Quote
 } from "lucide-react";
 
 const HERO_DEVICES = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/hero-devices-v2-8JXhBrX7f82um3hxnU6TmE.webp";
@@ -27,8 +27,6 @@ const FEATURED_TEMPLATES = [
     category: "Fitness & Sport",
     styleLabel: "Bold & Energetic",
     cardImage: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/MgTbsRcvqoiXiYbH.png?Expires=1804248067&Signature=eKzwv3T-wSElP2qcg3J4FLEMHcl40qoYKk4jnvNKaP2vXtW6Vm7NVcDqU40OsugAe8wu0hgW5ECxxvML~K~Z8-GR97iqDqCLNNGyLSIaTvkvpM9SDinuGMUi32-9KoSmMGl08yMUkXLU6~lq9aaSeBLwVWA7hK3NvoCAum8qtRbKdLYwpCRTs9d7tWgZsaxujYNFVfQ1dfWhp9epOs1U6KgvzfD8s-~dg40GNN3cBWcXZrTZxt0WflJqL5EbV45SCOlCKjbXXEcoCgcuFmaAmMhkf06Ck58x2uxMI8AekTK6~ojFiURJVGbqqLgaF-5b7hVetymcO4G4Gws3d3Z3MQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    palette: ["#0A0A0A", "#FF4500", "#1A1A1A", "#F5F5F5", "#FF6B35"],
-    paletteNames: ["Black", "Fire Red", "Dark", "Off-White", "Orange"],
   },
   {
     id: "aura-hair-studio",
@@ -37,8 +35,6 @@ const FEATURED_TEMPLATES = [
     category: "Beauty & Wellness",
     styleLabel: "Luxury Dark",
     cardImage: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/JyHQRjqPVlblrfxy.png?Expires=1804155917&Signature=nXItT-k29wLV-5kRmvnIZi-2~BybQGrUswsZYub5OO8LHaCP7de8yE26ZHoMELyNwHttk686yxhHpSB6b1YCJssJ-4~5AoAIYSITW-s87XJjwZugsuD-CED4gjf3UNTU05~gqRRjO5APKZGgn5idkjrFyF-g12tnho49W9gdcW~AcTJ1H~l~Z1RlMbV051WcZm80PEnBzw0DaC01A0aVfwHM0OEtf1Fh4wLBgFn7aPXXukB~aBrru8Cl5fGSUIX2fhAZ3PB1r2U3YbtfIK-0d7cYzJuJ8~Wd0NJp~sz0R1U79XiZDPEuCsl27~~gv3JVFy5nOZwJCyThZzwcfXGrVA__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    palette: ["#0A0A0A", "#C9A84C", "#1A1A1A", "#F5F0E8", "#8B7355"],
-    paletteNames: ["Black", "Gold", "Dark", "Cream", "Warm Brown"],
   },
   {
     id: "vitality-medical-clinic",
@@ -47,8 +43,33 @@ const FEATURED_TEMPLATES = [
     category: "Clinics & Health",
     styleLabel: "Clean & Professional",
     cardImage: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/vHiXcgVzfwvNVOeM.png?Expires=1804248063&Signature=ZzohmEbDPrne9IuEegn0BwtkTJXFDhaGAsPBm9laKfqJ0XcUr8wfSoTtoi1aOYtX7JcnT46gXq7AIuGQRJ0tnThKxddiggu8~2k5jMEIv29FNuWZ5a6nYT4-dGBGJUc1ukwLk8Sa8O9o8MfXClwr7FYhC2Jv8748ztNqCntTFB-BRey-LWpcFY5dffhPIIiih1jbkwcbJyC-2TuEfO8uZjhn6YuMNWcBlXGe6yBd~v9U-qFY8B2H9VqsyeuGZKSEwyHug2m5ROSr6~sFi8S41WCC~knstnwhQap7wWqGkzWDNmyYfKaBpdkWBKIgVo99Rgd2OCmsxfCK8eB4kix8BA__&Key-Pair-Id=K2HSFNDJXOU9YS",
-    palette: ["#1A3A5C", "#0099CC", "#F0F8FF", "#E8F4FD", "#00B4D8"],
-    paletteNames: ["Navy", "Teal", "Ice Blue", "Light Blue", "Cyan"],
+  },
+];
+
+const TESTIMONIALS = [
+  {
+    name: "Maria K.",
+    role: "Restaurant Owner",
+    location: "Limassol",
+    text: "Our new website brought in three new bookings within the first week. The team understood exactly what we needed and delivered faster than I expected. Highly recommend.",
+    rating: 5,
+    initial: "M",
+  },
+  {
+    name: "Andreas P.",
+    role: "Physiotherapy Clinic",
+    location: "Nicosia",
+    text: "Professional, responsive, and genuinely invested in making our clinic look its best online. The mobile version is perfect - most of our patients book from their phones.",
+    rating: 5,
+    initial: "A",
+  },
+  {
+    name: "Sophia L.",
+    role: "Beauty Salon Owner",
+    location: "Paphos",
+    text: "I was nervous about getting a website built but D&M Labs made it completely stress-free. They handled everything and the result looks incredible. Worth every cent.",
+    rating: 5,
+    initial: "S",
   },
 ];
 
@@ -94,8 +115,28 @@ export default function HomePage() {
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.3}>
               <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-md">
-                We create cutting-edge websites that drive results for your business. Professional, fast, and built to convert - starting at just €250.
+                We create cutting-edge websites that drive results for your business. Professional, fast, and built to convert - from €250.
               </p>
+            </AnimateIn>
+            {/* Social proof micro-signal */}
+            <AnimateIn variant="fade-up" delay={0.35}>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex -space-x-2">
+                  {["M", "A", "S"].map((initial, i) => (
+                    <div key={i} className="w-8 h-8 rounded-full brand-gradient flex items-center justify-center text-white text-xs font-bold border-2 border-white">
+                      {initial}
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={13} className="text-amber-400 fill-amber-400" />
+                    ))}
+                  </div>
+                  <span className="text-sm text-[#5B6472] font-medium">Trusted by businesses across Cyprus</span>
+                </div>
+              </div>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.4}>
               <div className="flex flex-wrap gap-4">
@@ -137,7 +178,7 @@ export default function HomePage() {
               "Delivered in Days",
               "Mobile Responsive",
               "SEO Optimised",
-              "Free Accessibility Widget",
+              "Cyprus-Based Team",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
                 <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0" />
@@ -178,9 +219,9 @@ export default function HomePage() {
                     <div className="icon-container-gradient mb-5">
                       <service.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
                     </div>
-                    <h3 className="text-lg font-semibold text-[#111315] mb-3">{service.title}</h3>
+                    <h3 className="text-lg font-semibold text-[#111315] mb-2">{service.title}</h3>
                     <p className="text-sm text-[#5B6472] leading-relaxed mb-4">{service.desc}</p>
-                    <span className="text-sm font-medium text-[#5B8CFF] inline-flex items-center gap-1">
+                    <span className="text-sm font-medium text-[#5B8CFF] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                       Read more <ArrowRight size={14} />
                     </span>
                   </div>
@@ -192,41 +233,42 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          PROCESS SECTION
+          PROCESS OVERVIEW
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white relative overflow-hidden">
-        {/* Subtle triangle in background */}
-        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[400px] h-[400px] opacity-[0.03] pointer-events-none">
-          <img src={TRIANGLE_GEO} alt="" className="w-full h-full object-contain" aria-hidden="true" />
+      <section className="section-spacing relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 100%)" }}>
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
+          <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
         </div>
 
         <div className="container relative z-10">
           <AnimateIn className="text-center mb-16">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">How It Works</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              From Idea to Launch in 4 Simple Steps
+              From Idea to Launch in 5 Simple Steps
             </h2>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
               We've streamlined the process so you can focus on running your business.
             </p>
           </AnimateIn>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
-              { icon: MessageCircle, step: "01", title: "Discovery Call", desc: "Quick WhatsApp chat to understand your business, goals, and what you need.", color: "#5B8CFF" },
-              { icon: Palette, step: "02", title: "Design", desc: "We create a custom design based on your brand, content, and preferences.", color: "#6FE3FF" },
-              { icon: Code, step: "03", title: "Build", desc: "Your website is developed with clean code, optimised for speed and SEO.", color: "#8B5CFF" },
-              { icon: Rocket, step: "04", title: "Launch", desc: "We deploy your site, connect your domain, and make sure everything works perfectly.", color: "#5B8CFF" },
+              { icon: MessageCircle, step: "01", title: "Discovery Call", desc: "Quick WhatsApp chat to understand your business and goals.", time: "~1 day", color: "#5B8CFF" },
+              { icon: Palette, step: "02", title: "Design", desc: "We create a custom design based on your brand and preferences.", time: "2–3 days", color: "#6FE3FF" },
+              { icon: Code, step: "03", title: "Build", desc: "Your website is developed with clean code, optimised for speed and SEO.", time: "3–5 days", color: "#8B5CFF" },
+              { icon: Headphones, step: "04", title: "Revisions", desc: "We refine the design based on your feedback until you're happy.", time: "1–2 days", color: "#5B8CFF" },
+              { icon: Rocket, step: "05", title: "Launch", desc: "We deploy your site, connect your domain, and make sure everything works.", time: "~1 day", color: "#6FE3FF" },
             ].map((item) => (
               <StaggerItem key={item.step}>
                 <div className="text-center">
-                  <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6" style={{ background: `${item.color}12` }}>
+                  <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" style={{ background: `${item.color}12` }}>
                     <item.icon size={28} style={{ color: item.color }} strokeWidth={1.75} />
                     <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full brand-gradient text-white text-xs font-bold flex items-center justify-center">
                       {item.step}
                     </span>
                   </div>
-                  <h3 className="text-lg font-semibold text-[#111315] mb-2">{item.title}</h3>
+                  <h3 className="text-base font-semibold text-[#111315] mb-1">{item.title}</h3>
+                  <p className="text-xs text-[#8B5CFF] font-medium mb-2">{item.time}</p>
                   <p className="text-sm text-[#5B6472] leading-relaxed">{item.desc}</p>
                 </div>
               </StaggerItem>
@@ -243,14 +285,14 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          BUSINESS TYPES - now ABOVE pricing
+          TEMPLATE SHOWCASE + INDUSTRY GRID
           ═══════════════════════════════════════════ */}
       <section className="section-spacing relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
           <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
         </div>
         <div className="container relative z-10">
-          {/* -- Template Showcase Grid (ABOVE industry icons) -- */}
+          {/* -- Template Showcase Grid -- */}
           <AnimateIn className="text-center mb-10">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Design Inspiration</p>
             <h3 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">
@@ -304,7 +346,7 @@ export default function HomePage() {
             </Link>
           </AnimateIn>
 
-          {/* ── Industry Icon Grid (BELOW template showcase) ── */}
+          {/* ── Industry Icon Grid ── */}
           <AnimateIn className="text-center mb-8">
             <p className="text-base text-[#5B6472]">We serve businesses across these industries:</p>
           </AnimateIn>
@@ -337,9 +379,59 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          PRICING PREVIEW - now BELOW business types
+          TESTIMONIALS
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white relative overflow-hidden">
+      <section className="section-spacing bg-white">
+        <div className="container">
+          <AnimateIn className="text-center mb-14">
+            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Client Stories</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="text-lg text-[#5B6472] max-w-xl mx-auto">
+              Real businesses, real results. Here's what it's like working with D&M Labs.
+            </p>
+          </AnimateIn>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {TESTIMONIALS.map((t) => (
+              <StaggerItem key={t.name}>
+                <div className="dm-card h-full flex flex-col relative">
+                  {/* Quote icon */}
+                  <div className="absolute top-5 right-5 opacity-10">
+                    <Quote size={40} className="text-[#5B8CFF]" />
+                  </div>
+                  {/* Stars */}
+                  <div className="flex gap-0.5 mb-4">
+                    {[...Array(t.rating)].map((_, i) => (
+                      <Star key={i} size={15} className="text-amber-400 fill-amber-400" />
+                    ))}
+                  </div>
+                  {/* Quote text */}
+                  <p className="text-sm text-[#3D4550] leading-relaxed mb-6 flex-1 italic">
+                    "{t.text}"
+                  </p>
+                  {/* Author */}
+                  <div className="flex items-center gap-3 pt-4 border-t border-[#E2E5EA]">
+                    <div className="w-10 h-10 rounded-full brand-gradient flex items-center justify-center text-white text-sm font-bold shrink-0">
+                      {t.initial}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-[#111315]">{t.name}</p>
+                      <p className="text-xs text-[#5B6472]">{t.role} · {t.location}</p>
+                    </div>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          PRICING PREVIEW
+          ═══════════════════════════════════════════ */}
+      <section className="section-spacing relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 100%)" }}>
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
           <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
         </div>

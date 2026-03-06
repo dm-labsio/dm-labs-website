@@ -13,36 +13,46 @@ const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%
 
 const steps = [
   {
+    step: "01",
     icon: MessageCircle,
     title: "Discovery Call",
+    time: "~1 day",
     desc: "We start with a quick WhatsApp chat. Tell us about your business, what you need, and your goals. No technical jargon - just a friendly conversation.",
     details: ["15–20 minute WhatsApp call", "We learn about your business", "You tell us what you need", "We recommend the best package"],
     color: "#5B8CFF",
   },
   {
+    step: "02",
     icon: CreditCard,
     title: "Secure Your Spot",
+    time: "Same day",
     desc: "Once we agree on the scope and price, you pay and we begin work immediately. Simple, transparent, no surprises.",
     details: ["Clear pricing - no hidden fees", "Pay once, own it forever", "Work begins immediately", "Secure payment options"],
     color: "#6FE3FF",
   },
   {
+    step: "03",
     icon: Palette,
     title: "Design & Build",
+    time: "3–7 days",
     desc: "We design and develop your website. You'll see progress along the way and can provide feedback at key milestones.",
     details: ["Custom design for your brand", "Mobile-first development", "Regular progress updates", "Your feedback shapes the result"],
     color: "#8B5CFF",
   },
   {
+    step: "04",
     icon: Code,
     title: "Review & Revisions",
+    time: "1–2 days",
     desc: "You review the website and request changes. We refine everything until you're completely happy with the result.",
     details: ["Full website preview", "Starter: 2 revision rounds, Business: 3, Professional: unlimited", "We adjust until you're satisfied", "No extra charges for included revisions"],
     color: "#5B8CFF",
   },
   {
+    step: "05",
     icon: Rocket,
     title: "Launch",
+    time: "~1 day",
     desc: "Your website goes live. We handle domain setup, hosting, and make sure everything works perfectly.",
     details: ["Domain connection", "SSL certificate setup", "Speed optimisation", "Your website is live!"],
     color: "#6FE3FF",
@@ -98,6 +108,10 @@ export default function Process() {
 
                     {/* Content */}
                     <div className="flex-1 pt-3">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-xs font-bold text-white px-2.5 py-1 rounded-full" style={{ background: step.color }}>Step {step.step}</span>
+                        <span className="text-xs font-semibold text-[#5B6472] bg-[#F0F4FF] px-2.5 py-1 rounded-full">{step.time}</span>
+                      </div>
                       <h3 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">{step.title}</h3>
                       <p className="text-base text-[#5B6472] leading-relaxed mb-5 max-w-xl">{step.desc}</p>
                       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">

@@ -104,10 +104,10 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-[#111315]">Working Hours</h3>
-                      <p className="text-xs text-[#5B6472]">Sun–Thu</p>
+                      <p className="text-xs text-[#5B6472]">Mon–Fri</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472]">9:00 AM – 6:00 PM (IST)</p>
+                  <p className="text-sm text-[#5B6472]">9:00 AM – 6:00 PM (EET, Cyprus Time)</p>
                 </div>
               </AnimateIn>
 
@@ -119,10 +119,10 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-[#111315]">Location</h3>
-                      <p className="text-xs text-[#5B6472]">Remote-first</p>
+                      <p className="text-xs text-[#5B6472]">Cyprus-based</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472]">Based in Europe, serving businesses worldwide</p>
+                  <p className="text-sm text-[#5B6472]">Based in Cyprus, serving clients worldwide</p>
                 </div>
               </AnimateIn>
             </div>

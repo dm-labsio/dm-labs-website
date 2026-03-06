@@ -16,6 +16,9 @@ const faqs = [
       { q: "What information do I need to provide?", a: "At minimum, your business name and a brief description of what you do. If you have a logo, photos, or specific text you'd like to use - great. If not, we can work with what you have." },
       { q: "How long does it take to build my website?", a: "Starter websites take 5–7 working days. Business websites take 7–10 working days. The timeline starts once we receive your content and confirm the project scope." },
       { q: "Do I need any technical knowledge?", a: "Absolutely not. We handle everything technical. You just need to tell us about your business and what you want - we take care of the rest." },
+      { q: "Do you work with clients outside Cyprus?", a: "Yes. While we are based in Cyprus, we work with clients worldwide. All communication happens over WhatsApp and email, so location is never a barrier. Our pricing is in euros and we serve businesses across Europe and beyond." },
+      { q: "Can I see a preview before paying?", a: "Yes. We share a design preview for your approval before we proceed to full development. You won't pay anything until you're happy with the direction of the design." },
+      { q: "Can I upgrade my plan later?", a: "Absolutely. If you start with the Starter plan and later decide you need more pages or features, we can upgrade your site at any time. You only pay the difference between the plans." },
     ],
   },
   {
