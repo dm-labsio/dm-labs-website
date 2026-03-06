@@ -107,7 +107,7 @@ export default function Contact() {
                       <p className="text-xs text-[#5B6472]">Mon–Fri</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472]">9:00 AM – 6:00 PM (EET, Cyprus Time)</p>
+                  <p className="text-sm text-[#5B6472]">9:00 AM – 6:00 PM (EET)</p>
                 </div>
               </AnimateIn>
 
@@ -119,10 +119,10 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-[#111315]">Location</h3>
-                      <p className="text-xs text-[#5B6472]">Cyprus-based</p>
+                      <p className="text-xs text-[#5B6472]">Europe-based</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472]">Based in Cyprus, serving clients worldwide</p>
+                  <p className="text-sm text-[#5B6472]">Europe-based, serving clients worldwide</p>
                 </div>
               </AnimateIn>
             </div>

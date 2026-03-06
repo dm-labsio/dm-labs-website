@@ -50,7 +50,7 @@ const TESTIMONIALS = [
   {
     name: "Maria K.",
     role: "Restaurant Owner",
-    location: "Limassol",
+    location: "",
     text: "Our new website brought in three new bookings within the first week. The team understood exactly what we needed and delivered faster than I expected. Highly recommend.",
     rating: 5,
     initial: "M",
@@ -58,7 +58,7 @@ const TESTIMONIALS = [
   {
     name: "Andreas P.",
     role: "Physiotherapy Clinic",
-    location: "Nicosia",
+    location: "",
     text: "Professional, responsive, and genuinely invested in making our clinic look its best online. The mobile version is perfect - most of our patients book from their phones.",
     rating: 5,
     initial: "A",
@@ -66,7 +66,7 @@ const TESTIMONIALS = [
   {
     name: "Sophia L.",
     role: "Beauty Salon Owner",
-    location: "Paphos",
+    location: "",
     text: "I was nervous about getting a website built but D&M Labs made it completely stress-free. They handled everything and the result looks incredible. Worth every cent.",
     rating: 5,
     initial: "S",
@@ -120,22 +120,13 @@ export default function HomePage() {
             </AnimateIn>
             {/* Social proof micro-signal */}
             <AnimateIn variant="fade-up" delay={0.35}>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="flex -space-x-2">
-                  {["M", "A", "S"].map((initial, i) => (
-                    <div key={i} className="w-8 h-8 rounded-full brand-gradient flex items-center justify-center text-white text-xs font-bold border-2 border-white">
-                      {initial}
-                    </div>
+              <div className="flex items-center gap-2 mb-8">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
                   ))}
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={13} className="text-amber-400 fill-amber-400" />
-                    ))}
-                  </div>
-                  <span className="text-sm text-[#5B6472] font-medium">Trusted by businesses across Cyprus</span>
-                </div>
+                <span className="text-sm text-[#5B6472] font-medium">Trusted by businesses across Europe</span>
               </div>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.4}>
@@ -178,7 +169,7 @@ export default function HomePage() {
               "Delivered in Days",
               "Mobile Responsive",
               "SEO Optimised",
-              "Cyprus-Based Team",
+              "European-Based Team",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
                 <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0" />
@@ -418,7 +409,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-[#111315]">{t.name}</p>
-                      <p className="text-xs text-[#5B6472]">{t.role} · {t.location}</p>
+                      <p className="text-xs text-[#5B6472]">{t.role}</p>
                     </div>
                   </div>
                 </div>
@@ -550,7 +541,7 @@ export default function HomePage() {
               { value: "50+", label: "Websites Delivered" },
               { value: "98%", label: "Client Satisfaction" },
               { value: "5–10", label: "Days to Launch" },
-              { value: "24/7", label: "Support Available" },
+              { value: "∞", label: "Ongoing Support" },
             ].map((stat) => (
               <StaggerItem key={stat.label}>
                 <div className="text-center">

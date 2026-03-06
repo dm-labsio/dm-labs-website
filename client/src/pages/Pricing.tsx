@@ -291,7 +291,7 @@ export default function Pricing() {
                     <span className="text-sm text-[#5B6472]">/month</span>
                   </div>
                   <ul className="space-y-3 flex-1">
-                    {["Unlimited content updates", "Priority 24h WhatsApp response", "Monthly performance check", "Seasonal banners and promotions", "New section additions", "Hosting and uptime monitoring", "Monthly backup"].map((f) => (
+                    {["Unlimited content updates", "Priority WhatsApp response", "Monthly performance check", "Seasonal banners and promotions", "New section additions", "Hosting and uptime monitoring", "Monthly backup"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}

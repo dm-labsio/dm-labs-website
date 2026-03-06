@@ -16,7 +16,7 @@ const faqs = [
       { q: "What information do I need to provide?", a: "At minimum, your business name and a brief description of what you do. If you have a logo, photos, or specific text you'd like to use - great. If not, we can work with what you have." },
       { q: "How long does it take to build my website?", a: "Starter websites take 5–7 working days. Business websites take 7–10 working days. The timeline starts once we receive your content and confirm the project scope." },
       { q: "Do I need any technical knowledge?", a: "Absolutely not. We handle everything technical. You just need to tell us about your business and what you want - we take care of the rest." },
-      { q: "Do you work with clients outside Cyprus?", a: "Yes. While we are based in Cyprus, we work with clients worldwide. All communication happens over WhatsApp and email, so location is never a barrier. Our pricing is in euros and we serve businesses across Europe and beyond." },
+      { q: "Do you work with clients outside your country?", a: "Yes. We work with clients worldwide. All communication happens over WhatsApp and email, so location is never a barrier. Our pricing is in euros and we serve businesses across Europe and beyond." },
       { q: "Can I see a preview before paying?", a: "Yes. We share a design preview for your approval before we proceed to full development. You won't pay anything until you're happy with the direction of the design." },
       { q: "Can I upgrade my plan later?", a: "Absolutely. If you start with the Starter plan and later decide you need more pages or features, we can upgrade your site at any time. You only pay the difference between the plans." },
     ],
@@ -43,7 +43,7 @@ const faqs = [
     category: "After Launch",
     items: [
       { q: "What happens after my website launches?", a: "We make sure everything is working perfectly. For the first month, we're available for small adjustments at no extra cost. After that, you can opt into our maintenance plan or manage things independently." },
-      { q: "What does the maintenance plan include?", a: "We offer two tiers: Essential (€39/month) covers up to 3 content updates, hosting monitoring, backups, and WhatsApp support. Premium (€59/month) adds unlimited updates, priority 24h response, monthly performance checks, seasonal banners, and new section additions. No contracts - cancel any time." },
+      { q: "What does the maintenance plan include?", a: "We offer two tiers: Essential (€39/month) covers up to 3 content updates, hosting monitoring, backups, and WhatsApp support. Premium (€59/month) adds unlimited updates, priority response, monthly performance checks, seasonal banners, and new section additions. No contracts - cancel any time." },
       { q: "Can I cancel the maintenance plan?", a: "Yes, anytime. There are no contracts or commitments. You can cancel whenever you want." },
     ],
   },

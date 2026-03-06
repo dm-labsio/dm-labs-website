@@ -178,7 +178,7 @@ const SERVICES: Record<string, {
     intro: "A website that goes down, gets hacked, or shows a security warning in the browser is a business liability. We build security and reliability into every site we deliver - from SSL certificates and secure hosting to automated backups and uptime monitoring.",
     why: [
       { heading: "SSL is non-negotiable", body: "Every website we build includes an SSL certificate, which encrypts data between your visitors and your server. Without SSL, browsers display a 'Not Secure' warning that immediately destroys trust. With SSL, visitors see a padlock in the address bar - a signal that your site is safe." },
-      { heading: "Downtime costs money", body: "If your website is down, customers can't find you, can't contact you, and can't book with you. We use reliable hosting infrastructure with 99.9% uptime guarantees and monitor your site 24/7." },
+      { heading: "Downtime costs money", body: "If your website is down, customers can't find you, can't contact you, and can't book with you. We use reliable hosting infrastructure with 99.9% uptime guarantees and monitor your site on an ongoing basis." },
       { heading: "Backups protect your investment", body: "A single server failure or accidental deletion can wipe out your entire website. We maintain regular automated backups so your site can be restored quickly if anything goes wrong." },
     ],
     whatWeDeliver: [

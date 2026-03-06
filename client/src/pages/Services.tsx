@@ -205,7 +205,7 @@ export default function Services() {
                 <div className="dm-card !p-5 border-[#8B5CFF]/30">
                   <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Premium - €59/month</p>
                   <ul className="space-y-2">
-                    {["Unlimited content updates", "Priority 24h WhatsApp response", "Monthly performance check", "Seasonal banners & promotions", "New section additions", "Hosting & uptime monitoring", "Monthly backup"].map((f) => (
+                    {["Unlimited content updates", "Priority WhatsApp response", "Monthly performance check", "Seasonal banners & promotions", "New section additions", "Hosting & uptime monitoring", "Monthly backup"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}
                       </li>
