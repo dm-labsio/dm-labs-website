@@ -352,14 +352,14 @@
      SECTION SPACING
      ============================================================ */
   .section-spacing {
-    padding-top: 6.5rem;
-    padding-bottom: 6.5rem;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
   }
 
   @media (max-width: 768px) {
     .section-spacing {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
     }
   }
 

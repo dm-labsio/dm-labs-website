@@ -543,24 +543,42 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          STATS SECTION
+          STATS BANNER — vivid gradient, animated on scroll
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
+      <section className="relative overflow-hidden py-16 sm:py-20"
+        style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E2A4A 50%, #0F172A 100%)" }}
+      >
+        {/* Ambient glows */}
+        <div className="absolute top-0 left-1/4 w-72 h-72 bg-[#5B8CFF] rounded-full blur-[100px] opacity-20 pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-[#8B5CFF] rounded-full blur-[100px] opacity-15 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-32 bg-[#6FE3FF] rounded-full blur-[80px] opacity-10 pointer-events-none" />
         <div className="container relative z-10">
-          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {[
-              { value: "5–14", label: "Days to Launch" },
-              { value: "5★", label: "Client Satisfaction" },
-              { value: "100%", label: "Mobile Optimised" },
-              { value: "∞", label: "Ongoing Support" },
-            ].map((stat) => (
+              { value: "5–14", label: "Days to Launch", sub: "from first call" },
+              { value: "5★", label: "Client Satisfaction", sub: "our standard" },
+              { value: "100%", label: "Mobile Optimised", sub: "every project" },
+              { value: "∞", label: "Ongoing Support", sub: "we’re always here" },
+            ].map((stat, i) => (
               <StaggerItem key={stat.label}>
-                <div className="text-center">
-                  <p className="text-4xl sm:text-5xl font-bold brand-gradient-text mb-2">{stat.value}</p>
-                  <p className="text-sm text-[#5B6472] font-medium">{stat.label}</p>
+                <div className="text-center group">
+                  {/* Divider line on desktop */}
+                  <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 w-px h-12 bg-white/10" />
+                  <p
+                    className="text-5xl sm:text-6xl font-bold mb-2 transition-transform duration-300 group-hover:scale-110"
+                    style={{
+                      background: i % 2 === 0
+                        ? "linear-gradient(135deg, #6FE3FF 0%, #5B8CFF 100%)"
+                        : "linear-gradient(135deg, #A78BFF 0%, #6FE3FF 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    {stat.value}
+                  </p>
+                  <p className="text-base font-semibold text-white mb-1">{stat.label}</p>
+                  <p className="text-xs text-[#94A3B8]">{stat.sub}</p>
                 </div>
               </StaggerItem>
             ))}
