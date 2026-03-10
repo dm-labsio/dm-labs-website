@@ -56,8 +56,8 @@ export default function Services() {
                   </div>
                   <div>
                     <p className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Starter</p>
-                      <p className="text-2xl font-bold text-[#111315]">€250 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
-                      <p className="text-xs text-[#5B8CFF] font-medium">€200 with maintenance bundle</p>
+                      <p className="text-2xl font-bold text-[#111315]">€249 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
+                      <p className="text-xs text-[#5B8CFF] font-medium">€199 with maintenance bundle</p>
                   </div>
                 </div>
                 <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
@@ -86,8 +86,8 @@ export default function Services() {
                     </div>
                     <div>
                       <p className="text-xs font-semibold text-[#8B5CFF] uppercase tracking-wide">Business</p>
-                      <p className="text-2xl font-bold text-[#111315]">€400 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
-                      <p className="text-xs text-[#8B5CFF] font-medium">€350 with maintenance bundle</p>
+                      <p className="text-2xl font-bold text-[#111315]">€399 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
+                      <p className="text-xs text-[#8B5CFF] font-medium">€349 with maintenance bundle</p>
                     </div>
                   </div>
                   <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
@@ -106,7 +106,7 @@ export default function Services() {
               </div>
             </AnimateIn>
 
-            {/* Professional */}
+            {/* Premium */}
             <AnimateIn delay={0.3}>
               <div className="dm-card h-full flex flex-col">
                 <div className="flex items-center gap-4 mb-4">
@@ -114,16 +114,16 @@ export default function Services() {
                     <Globe size={24} className="text-[#6FE3FF]" strokeWidth={1.75} />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-[#6FE3FF] uppercase tracking-wide">Professional</p>
-                      <p className="text-2xl font-bold text-[#111315]">€650 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
-                      <p className="text-xs text-[#6FE3FF] font-medium">€600 with maintenance bundle</p>
+                    <p className="text-xs font-semibold text-[#6FE3FF] uppercase tracking-wide">Premium</p>
+                      <p className="text-2xl font-bold text-[#111315]">€699 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
+                      <p className="text-xs text-[#6FE3FF] font-medium">€649 with maintenance bundle</p>
                   </div>
                 </div>
                 <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
                   For businesses that want a fully custom, feature-rich website with everything included.
                 </p>
                 <ul className="space-y-3 mb-6 flex-1">
-                  {["Up to 7 pages", "Fully custom design + animations", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials + gallery", "5 SEO blog articles", "Full meta/SEO structure", "Speed optimisation", "Pop-up included", "Accessibility widget (free)", "Unlimited revisions", "10-14 day delivery"].map((f) => (
+                  {["Up to 7 pages", "Fully custom design + animations", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials + gallery", "5 SEO blog articles", "Full meta/SEO structure", "Speed optimisation", "Pop-up included", "Accessibility widget (free)", "5 revision rounds", "10-14 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
                       {f}

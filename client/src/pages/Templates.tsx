@@ -921,7 +921,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Design inspiration - pricing from €250</span>
+          <span className="text-xs text-gray-400 italic">Design inspiration - pricing from €249</span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
             Preview <ChevronRight size={14} />
           </button>
@@ -988,7 +988,7 @@ function CustomBuildCard() {
         </ul>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Pricing from €350 - quote on request</span>
+          <span className="text-xs text-gray-400 italic">Pricing from €249 - quote on request</span>
           <a
             href="/contact"
             className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
@@ -1084,11 +1084,11 @@ export default function Templates() {
         <div className="container">
           {filtered.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+              {/* Custom Build card - always shown first */}
+              <CustomBuildCard />
               {filtered.map(template => (
                 <TemplateCard key={template.id} template={template} onClick={() => setSelectedTemplate(template)} />
               ))}
-              {/* Custom Build card - always shown at the end */}
-              <CustomBuildCard />
             </div>
           ) : (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-24">

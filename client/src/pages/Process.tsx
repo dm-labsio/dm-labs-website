@@ -45,7 +45,7 @@ const steps = [
     title: "Review & Revisions",
     time: "1–2 days",
     desc: "You review the website and request changes. We refine everything until you're completely happy with the result.",
-    details: ["Full website preview", "Starter: 2 revision rounds, Business: 3, Professional: unlimited", "We adjust until you're satisfied", "No extra charges for included revisions"],
+    details: ["Full website preview", "Starter: 2 revision rounds, Business: 3, Premium: 5", "We adjust until you're satisfied", "No extra charges for included revisions"],
     color: "#5B8CFF",
   },
   {
@@ -141,9 +141,9 @@ export default function Process() {
           <AnimateIn delay={0.2}>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
-                { label: "Starter Website", time: "5–7 days", price: "€250" },
-                { label: "Business Website", time: "7–10 days", price: "€350" },
-                { label: "Professional Website", time: "10–14 days", price: "€450" },
+                { label: "Starter Website", time: "5–7 days", price: "from €249" },
+                { label: "Business Website", time: "7–10 days", price: "from €399" },
+                { label: "Premium Website", time: "10–14 days", price: "from €699" },
               ].map((item) => (
                 <div key={item.label} className="dm-card text-center !p-8">
                   <p className="text-3xl font-bold brand-gradient-text mb-2">{item.time}</p>

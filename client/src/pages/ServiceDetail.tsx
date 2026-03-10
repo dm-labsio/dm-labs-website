@@ -48,7 +48,7 @@ const SERVICES: Record<string, {
       "Hero sections, service cards, testimonials, and CTAs",
       "Custom illustrations or photography integration",
       "Consistent design language across desktop and mobile",
-      "2 revision rounds included (Starter) / 3 rounds (Business) / Unlimited (Professional)",
+      "2 revision rounds included (Starter) / 3 rounds (Business) / 5 rounds (Premium)",
     ],
     howItWorks: [
       { step: "01", title: "Discovery", desc: "We start with a brief conversation to understand your business, your audience, and what you want visitors to do on your site." },
@@ -59,7 +59,7 @@ const SERVICES: Record<string, {
     faqs: [
       { q: "Do you use page builders like Wix or Squarespace?", a: "No. We write clean, hand-crafted code using React and modern web technologies. This gives you better performance, more flexibility, and no platform lock-in." },
       { q: "Can I provide my own design or branding?", a: "Absolutely. If you have an existing brand guide, logo, or design preferences, we'll work within those guidelines. If you don't, we'll help you develop a visual identity." },
-      { q: "How many pages are included?", a: "The Starter plan is a 1-page landing site. The Business plan includes up to 5 pages, and the Professional plan includes up to 7 pages. Additional pages can be added for a small fee." },
+      { q: "How many pages are included?", a: "The Starter plan is a 1-page landing site. The Business plan includes up to 5 pages, and the Premium plan includes up to 7 pages. Additional pages can be added for a small fee." },
       { q: "What if I want changes after launch?", a: "Minor updates are included in our maintenance plans. Larger redesigns are quoted separately." },
     ],
     relatedServices: ["mobile-first", "seo", "performance"],

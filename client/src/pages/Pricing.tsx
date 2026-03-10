@@ -1,6 +1,6 @@
 /* ============================================================
    D&M LABS - Pricing Page
-   3 tiers: Starter €250 / Business €400 (recommended) / Professional €650
+   3 tiers: Starter €249 / Business €399 (recommended) / Premium €699
    Add-ons + 2 maintenance tiers (Essential €39 / Premium €59)
    Bundle deal: €50 off build when signing up for maintenance at same time.
    ============================================================ */
@@ -29,7 +29,7 @@ const comparison = [
   { feature: "5 SEO blog articles", starter: false, business: false, pro: true },
   { feature: "Full meta/SEO structure", starter: false, business: false, pro: true },
   { feature: "Pop-up included", starter: false, business: false, pro: true },
-  { feature: "Revision rounds", starter: "2 rounds", business: "3 rounds", pro: "Unlimited" },
+  { feature: "Revision rounds", starter: "2 rounds", business: "3 rounds", pro: "5 rounds" },
   { feature: "Delivery time", starter: "5-7 days", business: "7-10 days", pro: "10-14 days" },
 ];
 
@@ -86,10 +86,10 @@ export default function Pricing() {
               <div className="dm-card h-full flex flex-col">
                 <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Starter</p>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold text-[#111315]">€250</span>
+                  <span className="text-4xl font-bold text-[#111315]">€249</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
-                <p className="text-xs text-[#5B8CFF] font-medium mb-4">€200 with maintenance bundle</p>
+                <p className="text-xs text-[#5B8CFF] font-medium mb-4">€199 with maintenance bundle</p>
                 <p className="text-sm text-[#5B6472] mb-6">Perfect for new businesses that need a clean, professional online presence fast.</p>
                 <ul className="space-y-3 mb-8 flex-1">
                   {[
@@ -120,10 +120,10 @@ export default function Pricing() {
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
                   <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Business</p>
                   <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-4xl font-bold text-[#111315]">€400</span>
+                    <span className="text-4xl font-bold text-[#111315]">€399</span>
                     <span className="text-sm text-[#5B6472]">one-time</span>
                   </div>
-                  <p className="text-xs text-[#8B5CFF] font-medium mb-4">€350 with maintenance bundle</p>
+                  <p className="text-xs text-[#8B5CFF] font-medium mb-4">€349 with maintenance bundle</p>
                   <p className="text-sm text-[#5B6472] mb-6">For established businesses that need a complete, conversion-focused website.</p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {[
@@ -152,15 +152,15 @@ export default function Pricing() {
               </div>
             </AnimateIn>
 
-            {/* Professional */}
+            {/* Premium */}
             <AnimateIn delay={0.3}>
               <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Professional</p>
+                <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Premium</p>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold text-[#111315]">€650</span>
+                  <span className="text-4xl font-bold text-[#111315]">€699</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
-                <p className="text-xs text-[#6FE3FF] font-medium mb-4">€600 with maintenance bundle</p>
+                <p className="text-xs text-[#6FE3FF] font-medium mb-4">€649 with maintenance bundle</p>
                 <p className="text-sm text-[#5B6472] mb-6">For businesses that want a fully custom, feature-rich website with everything included.</p>
                 <ul className="space-y-3 mb-8 flex-1">
                   {[
@@ -176,7 +176,7 @@ export default function Pricing() {
                     "Speed optimisation",
                     "Pop-up included",
                     "Accessibility widget (free)",
-                    "Unlimited revisions",
+                    "5 revision rounds",
                     "10-14 day delivery",
                   ].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
@@ -318,9 +318,9 @@ export default function Pricing() {
                 <thead>
                   <tr className="border-b border-[#E8EAF0]">
                     <th className="text-left py-4 px-4 font-semibold text-[#111315]">Feature</th>
-                    <th className="py-4 px-4 font-semibold text-[#5B8CFF] text-center">Starter<br /><span className="font-normal text-xs text-[#5B6472]">€250</span></th>
-                    <th className="py-4 px-4 font-semibold text-[#8B5CFF] text-center bg-[#8B5CFF]/[0.03]">Business<br /><span className="font-normal text-xs text-[#5B6472]">€400</span></th>
-                    <th className="py-4 px-4 font-semibold text-[#6FE3FF] text-center">Professional<br /><span className="font-normal text-xs text-[#5B6472]">€650</span></th>
+                    <th className="py-4 px-4 font-semibold text-[#5B8CFF] text-center">Starter<br /><span className="font-normal text-xs text-[#5B6472]">€249</span></th>
+                    <th className="py-4 px-4 font-semibold text-[#8B5CFF] text-center bg-[#8B5CFF]/[0.03]">Business<br /><span className="font-normal text-xs text-[#5B6472]">€399</span></th>
+                    <th className="py-4 px-4 font-semibold text-[#6FE3FF] text-center">Premium<br /><span className="font-normal text-xs text-[#5B6472]">€699</span></th>
                   </tr>
                 </thead>
                 <tbody>

@@ -1,7 +1,7 @@
 /* ============================================================
    D&M LABS - Homepage
    Hero with gradient atmosphere + floating devices
-   Sections: Trust, Services, Process, Business Types, Template Showcase, Testimonials, Pricing, Stats, CTA
+   Sections: Hero, Trust Strip, Template Showcase + Industries, Services, Process, Testimonials, Pricing, Stats, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import { Link } from "wouter";
@@ -10,7 +10,7 @@ import {
   Globe, Smartphone, Search, Zap, Shield, Clock,
   CheckCircle2, ArrowRight, MessageCircle,
   Utensils, Scissors, Stethoscope, Briefcase, Dumbbell, ShoppingBag,
-  Palette, Code, Rocket, Headphones, Star, Quote
+  Palette, Code, Rocket, Headphones, Star, Quote, HelpCircle
 } from "lucide-react";
 
 const HERO_DEVICES = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/hero-devices-v2-8JXhBrX7f82um3hxnU6TmE.webp";
@@ -50,7 +50,6 @@ const TESTIMONIALS = [
   {
     name: "Maria K.",
     role: "Restaurant Owner",
-    location: "",
     text: "Our new website brought in three new bookings within the first week. The team understood exactly what we needed and delivered faster than I expected. Highly recommend.",
     rating: 5,
     initial: "M",
@@ -58,7 +57,6 @@ const TESTIMONIALS = [
   {
     name: "Andreas P.",
     role: "Physiotherapy Clinic",
-    location: "",
     text: "Professional, responsive, and genuinely invested in making our clinic look its best online. The mobile version is perfect - most of our patients book from their phones.",
     rating: 5,
     initial: "A",
@@ -66,7 +64,6 @@ const TESTIMONIALS = [
   {
     name: "Sophia L.",
     role: "Beauty Salon Owner",
-    location: "",
     text: "I was nervous about getting a website built but D&M Labs made it completely stress-free. They handled everything and the result looks incredible. Worth every cent.",
     rating: 5,
     initial: "S",
@@ -115,7 +112,7 @@ export default function HomePage() {
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.3}>
               <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-md">
-                We create cutting-edge websites that drive results for your business. Professional, fast, and built to convert - from €250.
+                We create cutting-edge websites that drive results for your business. Professional, fast, and built to convert — from €249.
               </p>
             </AnimateIn>
             {/* Social proof micro-signal */}
@@ -181,6 +178,113 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
+          TEMPLATE SHOWCASE + INDUSTRY GRID
+          (moved directly after trust strip)
+          ═══════════════════════════════════════════ */}
+      <section className="section-spacing relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
+          <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+        </div>
+        <div className="container relative z-10">
+          {/* -- Template Showcase Grid -- */}
+          <AnimateIn className="text-center mb-10">
+            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Design Inspiration</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">
+              See What We Can Create for You
+            </h2>
+            <p className="text-base text-[#5B6472] max-w-2xl mx-auto">
+              Every website we build is <strong className="text-[#111315]">fully custom</strong> — designed from scratch around your brand, your content, and your customers. These examples show the range of styles and industries we work with. Think of them as inspiration, not off-the-shelf templates.
+            </p>
+          </AnimateIn>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 items-stretch">
+            {FEATURED_TEMPLATES.map((tpl) => (
+              <StaggerItem key={tpl.id} className="flex">
+                <Link href={`/templates?industry=${tpl.industry}`} className="flex w-full">
+                  <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
+                    {/* Card Image - 16:9 ratio, no cropping */}
+                    <div className="relative overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+                      <img
+                        src={tpl.cardImage}
+                        alt={tpl.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      {/* Category badge */}
+                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#111315]">
+                        {tpl.category}
+                      </div>
+                    </div>
+
+                    {/* Card Details */}
+                    <div className="p-5 flex flex-col flex-1">
+                      <div className="mb-2">
+                        <h4 className="font-semibold text-[#111315] text-base leading-tight">{tpl.name}</h4>
+                        <p className="text-xs text-[#5B6472] mt-0.5">{tpl.styleLabel}</p>
+                      </div>
+
+                      {/* Learn More - pinned to bottom */}
+                      <div className="mt-auto flex items-center gap-1 text-sm font-semibold text-[#5B8CFF] group-hover:gap-2 transition-all">
+                        See example <ArrowRight size={14} />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <AnimateIn className="text-center mb-16">
+            <Link href="/templates" className="btn-primary">
+              Browse All Examples
+              <ArrowRight size={16} />
+            </Link>
+          </AnimateIn>
+
+          {/* ── Industry Icon Grid ── */}
+          <AnimateIn className="text-center mb-8">
+            <p className="text-base text-[#5B6472]">Industries we work with:</p>
+          </AnimateIn>
+
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {[
+              { icon: Utensils, label: "Restaurants", industry: "restaurant" },
+              { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
+              { icon: Stethoscope, label: "Clinics", industry: "clinic" },
+              { icon: Dumbbell, label: "Fitness", industry: "fitness" },
+              { icon: Briefcase, label: "Consultants", industry: "services" },
+              { icon: ShoppingBag, label: "Retail", industry: "retail" },
+            ].map((biz) => (
+              <StaggerItem key={biz.label}>
+                <Link href={`/templates?industry=${biz.industry}`}>
+                  <div className="dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 hover:border-[#5B8CFF]/40 transition-all duration-300">
+                    <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
+                      <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
+                    </div>
+                    <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
+                    <p className="text-xs mt-1 text-[#5B8CFF]">View examples →</p>
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          {/* Can't find your industry CTA */}
+          <AnimateIn className="text-center mt-10">
+            <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-[#F8FAFF] border border-[#5B8CFF]/20">
+              <HelpCircle size={18} className="text-[#5B8CFF] shrink-0" />
+              <p className="text-sm text-[#5B6472]">
+                <strong className="text-[#111315]">Don't see your industry?</strong>{" "}
+                We work with all types of businesses.{" "}
+                <Link href="/contact" className="text-[#5B8CFF] font-medium hover:underline">
+                  Get in touch →
+                </Link>
+              </p>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
           SERVICES OVERVIEW
           ═══════════════════════════════════════════ */}
       <section className="section-spacing">
@@ -197,7 +301,7 @@ export default function HomePage() {
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No templates - every site is built from scratch.", anchor: "custom-design" },
+              { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No templates — every site is built from scratch.", anchor: "custom-design" },
               { icon: Smartphone, title: "Mobile-First Development", desc: "Every website is designed mobile-first, ensuring a flawless experience on phones, tablets, and desktops.", anchor: "mobile-first" },
               { icon: Search, title: "SEO Optimisation", desc: "Built-in search engine optimisation so your customers can find you on Google from day one.", anchor: "seo" },
               { icon: Zap, title: "Fast Performance", desc: "Lightning-fast load times with optimised code and assets. Speed matters for conversions and rankings.", anchor: "performance" },
@@ -276,100 +380,6 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          TEMPLATE SHOWCASE + INDUSTRY GRID
-          ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
-        <div className="container relative z-10">
-          {/* -- Template Showcase Grid -- */}
-          <AnimateIn className="text-center mb-10">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Design Inspiration</p>
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">
-              See What We Can Create for You
-            </h3>
-            <p className="text-base text-[#5B6472] max-w-xl mx-auto">
-              Browse our design templates - each one is a starting point for a fully custom website tailored to your brand.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 items-stretch">
-            {FEATURED_TEMPLATES.map((tpl) => (
-              <StaggerItem key={tpl.id} className="flex">
-                <Link href={`/templates?industry=${tpl.industry}`} className="flex w-full">
-                  <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
-                    {/* Card Image - 16:9 ratio, no cropping */}
-                    <div className="relative overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-                      <img
-                        src={tpl.cardImage}
-                        alt={tpl.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {/* Category badge */}
-                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#111315]">
-                        {tpl.category}
-                      </div>
-                    </div>
-
-                    {/* Card Details */}
-                    <div className="p-5 flex flex-col flex-1">
-                      <div className="mb-2">
-                        <h4 className="font-semibold text-[#111315] text-base leading-tight">{tpl.name}</h4>
-                        <p className="text-xs text-[#5B6472] mt-0.5">{tpl.styleLabel}</p>
-                      </div>
-
-                      {/* Learn More - pinned to bottom */}
-                      <div className="mt-auto flex items-center gap-1 text-sm font-semibold text-[#5B8CFF] group-hover:gap-2 transition-all">
-                        Learn More <ArrowRight size={14} />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <AnimateIn className="text-center mb-16">
-            <Link href="/templates" className="btn-primary">
-              Browse All Templates
-              <ArrowRight size={16} />
-            </Link>
-          </AnimateIn>
-
-          {/* ── Industry Icon Grid ── */}
-          <AnimateIn className="text-center mb-8">
-            <p className="text-base text-[#5B6472]">We serve businesses across these industries:</p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {[
-              { icon: Utensils, label: "Restaurants", industry: "restaurant" },
-              { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
-              { icon: Stethoscope, label: "Clinics", industry: "clinic" },
-              { icon: Dumbbell, label: "Fitness", industry: "fitness" },
-              { icon: Briefcase, label: "Consultants", industry: "services", comingSoon: true },
-              { icon: ShoppingBag, label: "Retail", industry: "retail", comingSoon: true },
-            ].map((biz: any) => (
-              <StaggerItem key={biz.label}>
-                <Link href={`/templates?industry=${biz.industry}`}>
-                  <div className={`dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 transition-all duration-300 ${biz.comingSoon ? 'opacity-60 hover:border-[#5B6472]/30' : 'hover:border-[#5B8CFF]/40'}`}>
-                    <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
-                      <biz.icon size={24} className={biz.comingSoon ? 'text-[#5B6472]' : 'text-[#5B8CFF]'} strokeWidth={1.75} />
-                    </div>
-                    <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
-                    <p className={`text-xs mt-1 ${biz.comingSoon ? 'text-[#5B6472]' : 'text-[#5B8CFF]'}`}>
-                      {biz.comingSoon ? 'Coming soon' : 'View templates →'}
-                    </p>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
           TESTIMONIALS
           ═══════════════════════════════════════════ */}
       <section className="section-spacing bg-white">
@@ -395,7 +405,7 @@ export default function HomePage() {
                   {/* Stars */}
                   <div className="flex gap-0.5 mb-4">
                     {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} size={15} className="text-amber-400 fill-amber-400" />
+                      <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
                     ))}
                   </div>
                   {/* Quote text */}
@@ -445,13 +455,13 @@ export default function HomePage() {
               <div className="dm-card h-full flex flex-col">
                 <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Starter</p>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold text-[#111315]">€250</span>
+                  <span className="text-4xl font-bold text-[#111315]">€249</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
-                <p className="text-xs text-[#5B8CFF] font-medium mb-4">€200 with maintenance bundle</p>
+                <p className="text-xs text-[#5B8CFF] font-medium mb-4">€199 with maintenance bundle</p>
                 <p className="text-sm text-[#5B6472] mb-6">Perfect for new businesses that need a clean, professional online presence fast.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["1-page landing site", "Mobile responsive", "WhatsApp button", "Social media links", "Accessibility widget (free)", "2 revision rounds", "5-7 day delivery"].map((f) => (
+                  {["1-page landing site", "Mobile responsive", "WhatsApp button", "Social media links", "Accessibility widget (free)", "2 revision rounds", "5–7 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}
@@ -471,13 +481,13 @@ export default function HomePage() {
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
                   <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Business</p>
                   <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-4xl font-bold text-[#111315]">€400</span>
+                    <span className="text-4xl font-bold text-[#111315]">€399</span>
                     <span className="text-sm text-[#5B6472]">one-time</span>
                   </div>
-                  <p className="text-xs text-[#8B5CFF] font-medium mb-4">€350 with maintenance bundle</p>
+                  <p className="text-xs text-[#8B5CFF] font-medium mb-4">€349 with maintenance bundle</p>
                   <p className="text-sm text-[#5B6472] mb-6">For established businesses that need a complete, conversion-focused website.</p>
                   <ul className="space-y-3 mb-8 flex-1">
-                    {["Up to 5 pages", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials section", "Basic SEO optimisation", "Speed optimisation", "Accessibility widget (free)", "3 revision rounds", "7-10 day delivery"].map((f) => (
+                    {["Up to 5 pages", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials section", "Basic SEO optimisation", "Speed optimisation", "Accessibility widget (free)", "3 revision rounds", "7–10 day delivery"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
@@ -491,18 +501,18 @@ export default function HomePage() {
               </div>
             </AnimateIn>
 
-            {/* Professional */}
+            {/* Premium */}
             <AnimateIn delay={0.3}>
               <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Professional</p>
+                <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Premium</p>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold text-[#111315]">€650</span>
+                  <span className="text-4xl font-bold text-[#111315]">€699</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
-                <p className="text-xs text-[#6FE3FF] font-medium mb-4">€600 with maintenance bundle</p>
+                <p className="text-xs text-[#6FE3FF] font-medium mb-4">€649 with maintenance bundle</p>
                 <p className="text-sm text-[#5B6472] mb-6">For businesses that want a fully custom, feature-rich website with everything included.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Up to 7 pages", "Fully custom design + animations", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials + gallery", "5 SEO blog articles", "Full meta/SEO structure", "Pop-up included", "Accessibility widget (free)", "Unlimited revisions", "10-14 day delivery"].map((f) => (
+                  {["Up to 7 pages", "Fully custom design + animations", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials + gallery", "5 SEO blog articles", "Full meta/SEO structure", "Pop-up included", "Accessibility widget (free)", "5 revision rounds", "10–14 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
                       {f}
@@ -519,7 +529,7 @@ export default function HomePage() {
 
           <AnimateIn className="text-center mt-10">
             <p className="text-sm text-[#5B6472] mb-3">
-              All plans include a <span className="font-semibold text-[#111315]">free consultation</span> - no commitment, no pressure.
+              All plans include a <span className="font-semibold text-[#111315]">free consultation</span> — no commitment, no pressure.
             </p>
             <Link href="/pricing" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
               See full pricing &amp; add-ons <ArrowRight size={14} />
@@ -538,9 +548,9 @@ export default function HomePage() {
         <div className="container relative z-10">
           <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { value: "50+", label: "Websites Delivered" },
-              { value: "98%", label: "Client Satisfaction" },
               { value: "5–10", label: "Days to Launch" },
+              { value: "5★", label: "Client Satisfaction" },
+              { value: "100%", label: "Mobile Optimised" },
               { value: "∞", label: "Ongoing Support" },
             ].map((stat) => (
               <StaggerItem key={stat.label}>
@@ -577,7 +587,7 @@ export default function HomePage() {
               Let's Build Your Website Together
             </h2>
             <p className="text-lg text-[#94A3B8] mb-10 max-w-xl mx-auto">
-              Get in touch and we'll get back to you within hours. No commitment, no pressure - just a friendly conversation about your business.
+              Get in touch and we'll get back to you within hours. No commitment, no pressure — just a friendly conversation about your business.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary !h-14 !text-base !px-8">

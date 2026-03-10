@@ -26,9 +26,9 @@ export default function Terms() {
           <AnimateIn>
             <div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">
               <div><h2 className="text-xl font-semibold text-[#111315] mb-3">About These Terms</h2><p>These terms explain what you can expect from D&M Labs and what we expect from you. We've kept them simple and fair.</p></div>
-              <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Our Services</h2><p>D&M Labs provides website design and development services for businesses of all sizes. We offer website packages starting from €250, plus optional monthly maintenance plans.</p></div>
+              <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Our Services</h2><p>D&M Labs provides website design and development services for businesses of all sizes. We offer website packages starting from €249, plus optional monthly maintenance plans.</p></div>
               <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Payment</h2><p>Payment terms are agreed upon before the project begins. Prices are in Euros. Domain registration and third-party hosting costs (if applicable) are separate.</p></div>
-              <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Revisions</h2><p>Every project includes up to 2 rounds of revisions. Additional changes after launch can be arranged at an agreed rate.</p></div>
+              <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Revisions</h2><p>Revision rounds are included per plan: Starter (2 rounds), Business (3 rounds), Premium (5 rounds). Additional changes after launch can be arranged at an agreed rate.</p></div>
               <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Delivery Timeline</h2><p>Delivery timelines start once we receive all required materials. Starter Website: 5–7 working days. Business Website: 7–10 working days.</p></div>
               <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Your Content</h2><p>You are responsible for ensuring that any content you provide does not infringe on third-party rights.</p></div>
               <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Domain & Hosting</h2><p>Your domain name always belongs to you. We assist with setup but do not own or control your domain or hosting.</p></div>

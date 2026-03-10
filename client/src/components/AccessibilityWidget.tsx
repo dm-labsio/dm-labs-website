@@ -4,7 +4,7 @@
  * Does NOT override brand colors or layout - purely additive.
  */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Accessibility, X, Plus, Minus, Sun } from "lucide-react";
 
 type FontSize = "normal" | "large" | "xlarge";
@@ -34,6 +34,23 @@ export default function AccessibilityWidget() {
 
   const isModified = fontSize !== "normal" || contrast !== "high" ? false : true;
   const hasChanges = fontSize !== "normal" || contrast !== "normal";
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  // Close panel when clicking outside (important for mobile)
+  useEffect(() => {
+    if (!open) return;
+    function handleOutside(e: MouseEvent | TouchEvent) {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleOutside);
+    document.addEventListener("touchstart", handleOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleOutside);
+      document.removeEventListener("touchstart", handleOutside);
+    };
+  }, [open]);
 
   function reset() {
     setFontSize("normal");
@@ -47,7 +64,7 @@ export default function AccessibilityWidget() {
         onClick={() => setOpen(o => !o)}
         aria-label="Accessibility options"
         aria-expanded={open}
-        className="fixed bottom-6 left-5 z-[9998] w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5B8CFF]"
+        className="fixed bottom-6 left-5 z-[9998] w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5B8CFF] touch-manipulation"
         style={{
           background: hasChanges ? "#5B8CFF" : "rgba(91,107,114,0.12)",
           color: hasChanges ? "#fff" : "#5B6472",
@@ -61,7 +78,9 @@ export default function AccessibilityWidget() {
       {/* Panel */}
       {open && (
         <div
-          className="fixed bottom-16 left-5 z-[9999] w-52 rounded-xl border border-[#E2E5EA] bg-white shadow-lg p-4"
+          ref={panelRef}
+          className="fixed bottom-16 left-5 z-[9999] rounded-xl border border-[#E2E5EA] bg-white shadow-lg p-4"
+          style={{ width: "min(13rem, calc(100vw - 2.5rem))" }}
           role="dialog"
           aria-label="Accessibility settings"
         >
