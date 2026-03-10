@@ -132,7 +132,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
 
-      {/* ── MAIN CONTENT ── */}
+      {/* ── PAGE CONTENT (wrapped for contrast filter — does NOT include fixed elements) ── */}
+      <div id="a11y-content-wrapper" className="flex-1 flex flex-col">
       <main className="flex-1 pt-[72px]">{children}</main>
 
       {/* ── FOOTER ── */}
@@ -202,6 +203,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </footer>
+
+      </div>{/* end a11y-content-wrapper */}
 
       {/* Accessibility Widget */}
       <AccessibilityWidget />

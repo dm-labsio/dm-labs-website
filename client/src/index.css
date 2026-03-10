@@ -448,6 +448,6 @@
 }
 
 /* ── Accessibility: High Contrast Mode ───────────────────────────────────── */
-body.a11y-high-contrast {
-  filter: contrast(1.4) saturate(0.9);
-}
+/* Contrast filter is applied via JavaScript to #a11y-content-wrapper (not body).
+ * This avoids the CSS stacking context bug that breaks position:fixed elements.
+ * See AccessibilityWidget.tsx for implementation. */

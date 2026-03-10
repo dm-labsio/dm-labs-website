@@ -2,6 +2,12 @@
  * Design: Minimal, unobtrusive. Small icon button fixed bottom-left.
  * Opens a compact panel with font size and contrast controls.
  * Does NOT override brand colors or layout - purely additive.
+ *
+ * IMPORTANT: High contrast is applied to #a11y-content-wrapper (NOT body).
+ * Applying filter to body creates a new CSS stacking context which breaks
+ * position:fixed elements (they lose viewport-relative positioning).
+ * By targeting only the content wrapper, fixed elements (nav, WhatsApp btn,
+ * this widget) remain unaffected and always visible.
  */
 
 import { useState, useEffect, useRef } from "react";
@@ -15,7 +21,7 @@ export default function AccessibilityWidget() {
   const [fontSize, setFontSize] = useState<FontSize>("normal");
   const [contrast, setContrast] = useState<Contrast>("normal");
 
-  // Apply font size to root
+  // Apply font size to root html element
   useEffect(() => {
     const root = document.documentElement;
     if (fontSize === "large") root.style.fontSize = "110%";
@@ -23,20 +29,24 @@ export default function AccessibilityWidget() {
     else root.style.fontSize = "";
   }, [fontSize]);
 
-  // Apply high contrast class to body
+  // Apply high contrast filter to the CONTENT WRAPPER only (not body).
+  // This avoids the CSS stacking context bug that breaks position:fixed elements.
   useEffect(() => {
+    const wrapper = document.getElementById("a11y-content-wrapper");
+    if (!wrapper) return;
     if (contrast === "high") {
-      document.body.classList.add("a11y-high-contrast");
+      wrapper.style.filter = "contrast(1.5) saturate(0.85)";
+      wrapper.style.transition = "filter 0.3s ease";
     } else {
-      document.body.classList.remove("a11y-high-contrast");
+      wrapper.style.filter = "";
+      wrapper.style.transition = "filter 0.3s ease";
     }
   }, [contrast]);
 
-  const isModified = fontSize !== "normal" || contrast !== "high" ? false : true;
   const hasChanges = fontSize !== "normal" || contrast !== "normal";
   const panelRef = useRef<HTMLDivElement>(null);
 
-  // Close panel when clicking outside (important for mobile)
+  // Close panel when clicking/tapping outside (important for mobile)
   useEffect(() => {
     if (!open) return;
     function handleOutside(e: MouseEvent | TouchEvent) {
@@ -59,7 +69,7 @@ export default function AccessibilityWidget() {
 
   return (
     <>
-      {/* Trigger button - bottom left, above footer area */}
+      {/* Trigger button — fixed bottom-left, always visible regardless of contrast state */}
       <button
         onClick={() => setOpen(o => !o)}
         aria-label="Accessibility options"
@@ -69,13 +79,13 @@ export default function AccessibilityWidget() {
           background: hasChanges ? "#5B8CFF" : "rgba(91,107,114,0.12)",
           color: hasChanges ? "#fff" : "#5B6472",
           backdropFilter: "blur(8px)",
-          boxShadow: "0 2px 8px rgba(0,0,0,0.10)",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
         }}
       >
         <Accessibility size={16} />
       </button>
 
-      {/* Panel */}
+      {/* Panel — also fixed, outside the filtered wrapper */}
       {open && (
         <div
           ref={panelRef}
@@ -90,7 +100,7 @@ export default function AccessibilityWidget() {
             <button
               onClick={() => setOpen(false)}
               aria-label="Close accessibility panel"
-              className="text-[#9BA3AF] hover:text-[#111315] transition-colors"
+              className="text-[#9BA3AF] hover:text-[#111315] transition-colors p-0.5 touch-manipulation"
             >
               <X size={14} />
             </button>
@@ -104,7 +114,7 @@ export default function AccessibilityWidget() {
                 onClick={() => setFontSize(s => s === "xlarge" ? "large" : s === "large" ? "normal" : "normal")}
                 aria-label="Decrease text size"
                 disabled={fontSize === "normal"}
-                className="w-7 h-7 rounded-lg flex items-center justify-center border border-[#E2E5EA] text-[#5B6472] hover:border-[#5B8CFF] hover:text-[#5B8CFF] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                className="w-7 h-7 rounded-lg flex items-center justify-center border border-[#E2E5EA] text-[#5B6472] hover:border-[#5B8CFF] hover:text-[#5B8CFF] disabled:opacity-30 disabled:cursor-not-allowed transition-colors touch-manipulation"
               >
                 <Minus size={12} />
               </button>
@@ -115,7 +125,7 @@ export default function AccessibilityWidget() {
                 onClick={() => setFontSize(s => s === "normal" ? "large" : s === "large" ? "xlarge" : "xlarge")}
                 aria-label="Increase text size"
                 disabled={fontSize === "xlarge"}
-                className="w-7 h-7 rounded-lg flex items-center justify-center border border-[#E2E5EA] text-[#5B6472] hover:border-[#5B8CFF] hover:text-[#5B8CFF] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                className="w-7 h-7 rounded-lg flex items-center justify-center border border-[#E2E5EA] text-[#5B6472] hover:border-[#5B8CFF] hover:text-[#5B8CFF] disabled:opacity-30 disabled:cursor-not-allowed transition-colors touch-manipulation"
               >
                 <Plus size={12} />
               </button>
@@ -128,7 +138,7 @@ export default function AccessibilityWidget() {
             <button
               onClick={() => setContrast(c => c === "normal" ? "high" : "normal")}
               aria-pressed={contrast === "high"}
-              className="w-full flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-medium transition-all"
+              className="w-full flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-medium transition-all touch-manipulation"
               style={{
                 borderColor: contrast === "high" ? "#5B8CFF" : "#E2E5EA",
                 background: contrast === "high" ? "#EEF3FF" : "transparent",
@@ -136,7 +146,7 @@ export default function AccessibilityWidget() {
               }}
             >
               <Sun size={12} />
-              {contrast === "high" ? "High Contrast On" : "High Contrast"}
+              {contrast === "high" ? "High Contrast: On" : "High Contrast: Off"}
             </button>
           </div>
 
@@ -144,7 +154,7 @@ export default function AccessibilityWidget() {
           {hasChanges && (
             <button
               onClick={reset}
-              className="w-full text-xs text-[#9BA3AF] hover:text-[#5B6472] transition-colors text-center pt-1 border-t border-[#F3F4F6]"
+              className="w-full text-xs text-[#9BA3AF] hover:text-[#5B6472] transition-colors text-center pt-2 border-t border-[#F3F4F6] touch-manipulation"
             >
               Reset to default
             </button>
