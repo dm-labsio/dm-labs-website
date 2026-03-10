@@ -239,48 +239,6 @@ export default function HomePage() {
               <ArrowRight size={16} />
             </Link>
           </AnimateIn>
-
-          {/* ── Industry Icon Grid ── */}
-          <AnimateIn className="text-center mb-8">
-            <p className="text-base text-[#5B6472]">Industries we work with:</p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {[
-              { icon: Utensils, label: "Restaurants", industry: "restaurant" },
-              { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
-              { icon: Stethoscope, label: "Clinics", industry: "clinic" },
-              { icon: Dumbbell, label: "Fitness", industry: "fitness" },
-              { icon: Briefcase, label: "Consultants", industry: "services" },
-              { icon: ShoppingBag, label: "Retail", industry: "retail" },
-            ].map((biz) => (
-              <StaggerItem key={biz.label}>
-                <Link href={`/templates?industry=${biz.industry}`}>
-                  <div className="dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 hover:border-[#5B8CFF]/40 transition-all duration-300">
-                    <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
-                      <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
-                    </div>
-                    <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
-                    <p className="text-xs mt-1 text-[#5B8CFF]">View examples →</p>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          {/* Can't find your industry CTA */}
-          <AnimateIn className="text-center mt-10">
-            <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-[#F8FAFF] border border-[#5B8CFF]/20">
-              <HelpCircle size={18} className="text-[#5B8CFF] shrink-0" />
-              <p className="text-sm text-[#5B6472]">
-                <strong className="text-[#111315]">Don't see your industry?</strong>{" "}
-                We work with all types of businesses.{" "}
-                <Link href="/contact" className="text-[#5B8CFF] font-medium hover:underline">
-                  Get in touch →
-                </Link>
-              </p>
-            </div>
-          </AnimateIn>
         </div>
       </section>
 
@@ -306,7 +264,7 @@ export default function HomePage() {
               { icon: Search, title: "SEO Optimisation", desc: "Built-in search engine optimisation so your customers can find you on Google from day one.", anchor: "seo" },
               { icon: Zap, title: "Fast Performance", desc: "Lightning-fast load times with optimised code and assets. Speed matters for conversions and rankings.", anchor: "performance" },
               { icon: Shield, title: "Secure & Reliable", desc: "SSL certificates, secure hosting, and regular backups to keep your website safe and always online.", anchor: "security" },
-              { icon: Clock, title: "Quick Turnaround", desc: "From concept to launch in 5–10 business days. We move fast without compromising quality.", anchor: "turnaround" },
+              { icon: Clock, title: "Quick Turnaround", desc: "From concept to launch in 5–14 business days. We move fast without compromising quality.", anchor: "turnaround" },
             ].map((service) => (
               <StaggerItem key={service.title}>
                 <Link href={`/services/${service.anchor}`}>
@@ -539,6 +497,52 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
+          INDUSTRIES WE SERVE
+          ═══════════════════════════════════════════ */}
+      <section className="section-spacing bg-white">
+        <div className="container">
+          <AnimateIn className="text-center mb-8">
+            <p className="text-base text-[#5B6472]">Industries we work with:</p>
+          </AnimateIn>
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {[
+              { icon: Utensils, label: "Restaurants", industry: "restaurant" },
+              { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
+              { icon: Stethoscope, label: "Clinics", industry: "clinic" },
+              { icon: Dumbbell, label: "Fitness", industry: "fitness" },
+              { icon: Briefcase, label: "Consultants", industry: "services" },
+              { icon: ShoppingBag, label: "Retail", industry: "retail" },
+            ].map((biz) => (
+              <StaggerItem key={biz.label}>
+                <Link href={`/templates?industry=${biz.industry}`}>
+                  <div className="dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 hover:border-[#5B8CFF]/40 transition-all duration-300">
+                    <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
+                      <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
+                    </div>
+                    <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
+                    <p className="text-xs mt-1 text-[#5B8CFF]">View examples →</p>
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+          {/* Can't find your industry CTA */}
+          <AnimateIn className="text-center mt-10">
+            <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-[#F8FAFF] border border-[#5B8CFF]/20">
+              <HelpCircle size={18} className="text-[#5B8CFF] shrink-0" />
+              <p className="text-sm text-[#5B6472]">
+                <strong className="text-[#111315]">Don't see your industry?</strong>{" "}
+                We work with all types of businesses.{" "}
+                <Link href="/contact" className="text-[#5B8CFF] font-medium hover:underline">
+                  Get in touch →
+                </Link>
+              </p>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
           STATS SECTION
           ═══════════════════════════════════════════ */}
       <section className="section-spacing relative overflow-hidden">
@@ -548,7 +552,7 @@ export default function HomePage() {
         <div className="container relative z-10">
           <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { value: "5–10", label: "Days to Launch" },
+              { value: "5–14", label: "Days to Launch" },
               { value: "5★", label: "Client Satisfaction" },
               { value: "100%", label: "Mobile Optimised" },
               { value: "∞", label: "Ongoing Support" },
