@@ -4,7 +4,7 @@
    ============================================================ */
 import { useState } from "react";
 import AnimateIn from "@/components/AnimateIn";
-import { MessageCircle, Mail, Clock, MapPin, Send } from "lucide-react";
+import { MessageCircle, Mail, Clock, MapPin, Send, Instagram } from "lucide-react";
 import { toast } from "sonner";
 
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
@@ -124,6 +124,29 @@ export default function Contact() {
                   </div>
                   <p className="text-sm text-[#5B6472]">Europe-based, serving clients worldwide</p>
                 </div>
+              </AnimateIn>
+
+              <AnimateIn delay={0.4}>
+                <a
+                  href="https://www.instagram.com/dm_labs.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block dm-card !p-6 group hover:shadow-lg transition-shadow"
+                >
+                  <div className="flex items-center gap-4 mb-3">
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center"
+                      style={{ background: "linear-gradient(135deg, #5B8CFF20 0%, #A855F720 100%)", border: "1px solid rgba(91,140,255,0.15)" }}
+                    >
+                      <Instagram size={22} className="text-[#5B8CFF]" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-[#111315]">Instagram</h3>
+                      <p className="text-xs text-[#5B6472]">Follow our work</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-[#5B8CFF] group-hover:underline">@dm_labs.io →</p>
+                </a>
               </AnimateIn>
             </div>
 

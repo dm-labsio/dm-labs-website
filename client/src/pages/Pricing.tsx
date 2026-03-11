@@ -55,9 +55,14 @@ export default function Pricing() {
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
               Simple, <span className="brand-gradient-text">Honest Pricing</span>
             </h1>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-5">
               No hidden fees. No surprises. Choose the package that fits your business - every plan includes a free consultation.
             </p>
+            {/* Early Access Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold" style={{ background: "linear-gradient(135deg, #FFF7ED 0%, #FFF0E0 100%)", border: "1.5px solid #F59E0B", color: "#B45309" }}>
+              <span style={{ fontSize: "15px" }}>🔥</span>
+              Early Access Pricing — Rates will increase as we grow. Lock in your price today.
+            </div>
           </AnimateIn>
         </div>
       </section>

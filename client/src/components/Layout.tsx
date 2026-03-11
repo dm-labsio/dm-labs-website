@@ -5,7 +5,7 @@
    ============================================================ */
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 
@@ -146,6 +146,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <p className="text-sm text-[#94A3B8] leading-relaxed max-w-xs">
                 We build modern, professional websites for businesses of all sizes. From concept to launch - fast, simple, and affordable.
               </p>
+              {/* Social Links */}
+              <div className="flex items-center gap-3 mt-5">
+                <a
+                  href="https://www.instagram.com/dm_labs.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow D&M Labs on Instagram"
+                  className="group flex items-center justify-center w-9 h-9 rounded-xl transition-all duration-300"
+                  style={{ background: "linear-gradient(135deg, #5B8CFF22 0%, #A855F722 100%)", border: "1px solid rgba(91,140,255,0.2)" }}
+                  onMouseEnter={e => (e.currentTarget.style.background = "linear-gradient(135deg, #5B8CFF44 0%, #A855F744 100%)")}
+                  onMouseLeave={e => (e.currentTarget.style.background = "linear-gradient(135deg, #5B8CFF22 0%, #A855F722 100%)")}
+                >
+                  <Instagram size={16} className="text-[#5B8CFF] group-hover:text-white transition-colors" />
+                </a>
+              </div>
             </div>
 
             {/* Quick Links */}
