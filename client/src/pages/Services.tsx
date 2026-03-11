@@ -44,7 +44,7 @@ export default function Services() {
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Core Services</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Website Packages</h2>
             {/* Limited Time Offer Badge */}
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full brand-gradient text-white text-xs font-semibold tracking-wide">
+            <span className="inline-flex items-center px-5 py-2 rounded-full brand-gradient text-white text-sm font-semibold tracking-wide">
               Limited Time Offer
             </span>
           </AnimateIn>
@@ -60,15 +60,15 @@ export default function Services() {
                   </div>
                   <div>
                     <p className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Starter</p>
-                      <p className="text-2xl font-bold text-[#111315]">€249 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
-                      <p className="text-xs text-[#5B8CFF] font-medium">€199 with maintenance bundle</p>
+                      <p className="text-2xl font-bold text-[#111315]">€299 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
+                      <p className="text-xs text-[#5B8CFF] font-medium">€249 with maintenance bundle</p>
                   </div>
                 </div>
                 <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
                   Perfect for new businesses that need a clean, professional online presence fast.
                 </p>
                 <ul className="space-y-3 mb-6 flex-1">
-                  {["1-page landing site", "Mobile responsive", "WhatsApp button", "Social media links", "Accessibility widget (free)", "2 revision rounds", "5-7 day delivery"].map((f) => (
+                  {["Branded Business Page", "Mobile responsive", "WhatsApp button", "Social media links", "Accessibility widget (free)", "2 revision rounds", "5-7 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}

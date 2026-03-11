@@ -112,7 +112,7 @@ export default function HomePage() {
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.3}>
               <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-md">
-                We create cutting-edge websites that drive results for your business. Professional, fast, and built to convert — from €249.
+                We create cutting-edge websites that drive results for your business. Professional, fast, and built to convert — from €299.
               </p>
             </AnimateIn>
             {/* Social proof micro-signal */}
@@ -405,7 +405,7 @@ export default function HomePage() {
               No hidden fees. No surprises. Transparent pricing for every project.
             </p>
             {/* Limited Time Offer Badge */}
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full brand-gradient text-white text-xs font-semibold tracking-wide">
+            <span className="inline-flex items-center px-5 py-2 rounded-full brand-gradient text-white text-sm font-semibold tracking-wide">
               Limited Time Offer
             </span>
           </AnimateIn>
@@ -417,13 +417,13 @@ export default function HomePage() {
               <div className="dm-card h-full flex flex-col">
                 <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Starter</p>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold text-[#111315]">€249</span>
+                  <span className="text-4xl font-bold text-[#111315]">€299</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
-                <p className="text-xs text-[#5B8CFF] font-medium mb-4">€199 with maintenance bundle</p>
+                <p className="text-xs text-[#5B8CFF] font-medium mb-4">€249 with maintenance bundle</p>
                 <p className="text-sm text-[#5B6472] mb-6">Perfect for new businesses that need a clean, professional online presence fast.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["1-page landing site", "Mobile responsive", "WhatsApp button", "Social media links", "Accessibility widget (free)", "2 revision rounds", "5–7 day delivery"].map((f) => (
+                  {["Branded Business Page", "Mobile responsive", "WhatsApp button", "Social media links", "Accessibility widget (free)", "2 revision rounds", "5–7 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}

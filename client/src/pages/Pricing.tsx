@@ -1,6 +1,6 @@
 /* ============================================================
    D&M LABS - Pricing Page
-   3 tiers: Starter €249 / Business €399 (recommended) / Premium €699
+   3 tiers: Starter €299 / Business €399 (recommended) / Premium €699
    Add-ons + 2 maintenance tiers (Essential €39 / Premium €59)
    Bundle deal: €50 off build when signing up for maintenance at same time.
    ============================================================ */
@@ -59,7 +59,7 @@ export default function Pricing() {
               No hidden fees. No surprises. Choose the package that fits your business - every plan includes a free consultation.
             </p>
             {/* Limited Time Offer Badge */}
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full brand-gradient text-white text-xs font-semibold tracking-wide">
+            <span className="inline-flex items-center px-5 py-2 rounded-full brand-gradient text-white text-sm font-semibold tracking-wide">
               Limited Time Offer
             </span>
           </AnimateIn>
@@ -90,14 +90,14 @@ export default function Pricing() {
               <div className="dm-card h-full flex flex-col">
                 <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Starter</p>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold text-[#111315]">€249</span>
+                  <span className="text-4xl font-bold text-[#111315]">€299</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
-                <p className="text-xs text-[#5B8CFF] font-medium mb-4">€199 with maintenance bundle</p>
+                <p className="text-xs text-[#5B8CFF] font-medium mb-4">€249 with maintenance bundle</p>
                 <p className="text-sm text-[#5B6472] mb-6">Perfect for new businesses that need a clean, professional online presence fast.</p>
                 <ul className="space-y-3 mb-8 flex-1">
                   {[
-                    "1-page landing site",
+                    "Branded Business Page",
                     "Mobile responsive",
                     "WhatsApp button",
                     "Social media links",
@@ -322,7 +322,7 @@ export default function Pricing() {
                 <thead>
                   <tr className="border-b border-[#E8EAF0]">
                     <th className="text-left py-4 px-4 font-semibold text-[#111315]">Feature</th>
-                    <th className="py-4 px-4 font-semibold text-[#5B8CFF] text-center">Starter<br /><span className="font-normal text-xs text-[#5B6472]">€249</span></th>
+                    <th className="py-4 px-4 font-semibold text-[#5B8CFF] text-center">Starter<br /><span className="font-normal text-xs text-[#5B6472]">€299</span></th>
                     <th className="py-4 px-4 font-semibold text-[#8B5CFF] text-center bg-[#8B5CFF]/[0.03]">Business<br /><span className="font-normal text-xs text-[#5B6472]">€399</span></th>
                     <th className="py-4 px-4 font-semibold text-[#6FE3FF] text-center">Premium<br /><span className="font-normal text-xs text-[#5B6472]">€699</span></th>
                   </tr>

@@ -141,7 +141,7 @@ export default function Process() {
           <AnimateIn delay={0.2}>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
-                { label: "Starter Website", time: "5–7 days", price: "from €249" },
+                { label: "Starter Website", time: "5–7 days", price: "from €299" },
                 { label: "Business Website", time: "7–10 days", price: "from €399" },
                 { label: "Premium Website", time: "10–14 days", price: "from €699" },
               ].map((item) => (
