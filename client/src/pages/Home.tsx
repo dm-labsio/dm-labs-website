@@ -389,10 +389,15 @@ export default function HomePage() {
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-5">
               No hidden fees. No surprises. Transparent pricing for every project.
             </p>
-            {/* Launching Prices Badge */}
-            <span className="inline-flex items-center px-5 py-2 rounded-full brand-gradient text-white text-sm font-semibold tracking-wide">
-              Launching Prices
-            </span>
+            {/* Launching Prices Sale Banner */}
+            <div className="inline-flex flex-col sm:flex-row items-center gap-3 mt-2 px-6 py-3 rounded-2xl border border-[#5B8CFF]/30 bg-gradient-to-r from-[#EEF3FF] to-[#F0EAFF]">
+              <div className="flex items-center gap-2">
+                <span className="inline-block w-2 h-2 rounded-full bg-[#5B8CFF] animate-pulse" />
+                <span className="text-sm font-bold text-[#111315] tracking-wide uppercase">Launching Prices</span>
+              </div>
+              <span className="hidden sm:block w-px h-4 bg-[#5B8CFF]/30" />
+              <span className="text-sm text-[#5B6472]">These are our introductory rates. <span className="font-semibold text-[#5B8CFF]">Claim yours before they change.</span></span>
+            </div>
           </AnimateIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
