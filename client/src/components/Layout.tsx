@@ -132,7 +132,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
 
-      {/* ── PAGE CONTENT (wrapped for contrast filter — does NOT include fixed elements) ── */}
+      {/* PAGE CONTENT (wrapped for contrast filter - does NOT include fixed elements) */}
       <div id="a11y-content-wrapper" className="flex-1 flex flex-col">
       <main className="flex-1 pt-[72px]">{children}</main>
 

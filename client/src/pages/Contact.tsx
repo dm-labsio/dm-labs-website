@@ -68,8 +68,8 @@ export default function Contact() {
               <AnimateIn>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block dm-card !p-6 group hover:shadow-lg transition-shadow">
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="w-12 h-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center">
-                      <MessageCircle size={22} className="text-[#25D366]" />
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center icon-container-gradient !w-12 !h-12 !rounded-xl">
+                      <MessageCircle size={22} className="text-[#5B8CFF]" />
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-[#111315]">WhatsApp</h3>
@@ -104,10 +104,10 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-[#111315]">Working Hours</h3>
-                      <p className="text-xs text-[#5B6472]">Mon–Fri</p>
+                      <p className="text-xs text-[#5B6472]">Mon-Fri</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472]">9:00 AM – 6:00 PM (EET)</p>
+                  <p className="text-sm text-[#5B6472]">9:00 AM - 6:00 PM (EET)</p>
                 </div>
               </AnimateIn>
 
@@ -188,7 +188,7 @@ export default function Contact() {
                       <span className="flex items-center gap-2"><Send size={16} /> Send Message</span>
                     )}
                   </button>
-                  <p className="text-xs text-[#5B6472] text-center">Or message us directly on <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-medium hover:underline">WhatsApp</a> for faster response.</p>
+                  <p className="text-xs text-[#5B6472] text-center">Or message us directly on <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline">WhatsApp</a> for faster response.</p>
                 </form>
               </div>
             </AnimateIn>

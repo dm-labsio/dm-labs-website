@@ -72,7 +72,7 @@ const SERVICES: Record<string, {
     subtitle: "Over 60% of web traffic is mobile. Your site needs to be perfect on every screen.",
     intro: "Mobile-first is not a feature we add at the end - it's how we build from the very beginning. Every layout, every button, every image is designed for a small screen first, then enhanced for larger displays. The result is a website that works flawlessly whether your customer is on a phone, a tablet, or a desktop.",
     why: [
-      { heading: "Most of your visitors are on mobile", body: "Across most industries, 60–70% of website visitors arrive on a smartphone. If your site is slow, hard to navigate, or broken on mobile, you're losing the majority of your potential customers before they even read a word." },
+      { heading: "Most of your visitors are on mobile", body: "Across most industries, 60-70% of website visitors arrive on a smartphone. If your site is slow, hard to navigate, or broken on mobile, you're losing the majority of your potential customers before they even read a word." },
       { heading: "Google ranks mobile-friendly sites higher", body: "Google uses mobile-first indexing, meaning it evaluates the mobile version of your site when deciding where to rank you in search results. A poor mobile experience directly hurts your SEO." },
       { heading: "Touch-friendly interactions", body: "Mobile users interact differently from desktop users. We design with touch in mind - larger tap targets, swipeable galleries, sticky navigation, and forms that work with mobile keyboards." },
     ],
@@ -128,7 +128,7 @@ const SERVICES: Record<string, {
       { step: "04", title: "Search Console Setup", desc: "We connect your site to Google Search Console so you can monitor performance and fix issues over time." },
     ],
     faqs: [
-      { q: "How long does SEO take to show results?", a: "SEO is a long-term investment. Most sites start seeing improvements within 3–6 months, with significant results after 6–12 months. We set up the foundation - ongoing content and link building accelerate results." },
+      { q: "How long does SEO take to show results?", a: "SEO is a long-term investment. Most sites start seeing improvements within 3-6 months, with significant results after 6-12 months. We set up the foundation - ongoing content and link building accelerate results." },
       { q: "Do you offer ongoing SEO services?", a: "Our Premium Maintenance plan includes monthly SEO monitoring and minor optimisations. Full content marketing and link building campaigns are available as a separate service." },
       { q: "Will my site rank on Google immediately after launch?", a: "Google needs time to crawl and index your site. We submit your sitemap to Google Search Console at launch to speed up the process, but ranking takes time and depends on competition in your industry." },
     ],
@@ -209,7 +209,7 @@ const SERVICES: Record<string, {
     icon: Clock,
     accentColor: "#6FE3FF",
     title: "Quick Turnaround",
-    subtitle: "From first conversation to live website in 5–10 business days.",
+    subtitle: "From first conversation to live website in 5-10 business days.",
     intro: "We know that time is money. Waiting weeks or months for a website is not acceptable when your business needs an online presence now. Our streamlined process is designed to move fast without cutting corners - from the initial brief to a live, polished website in under two weeks.",
     why: [
       { heading: "Your business can't wait", body: "Every day without a professional website is a day you're losing customers to competitors who have one. We've built our entire process around speed - from how we gather requirements to how we deploy and launch." },
@@ -218,18 +218,18 @@ const SERVICES: Record<string, {
     ],
     whatWeDeliver: [
       "Project kickoff within 24 hours of payment",
-      "First preview delivered within 3–5 business days",
-      "Revisions completed within 1–2 business days",
-      "Launch within 5–10 business days total",
+      "First preview delivered within 3-5 business days",
+      "Revisions completed within 1-2 business days",
+      "Launch within 5-10 business days total",
       "Domain connection and DNS setup included",
       "Post-launch support for 7 days",
       "Clear communication throughout via WhatsApp",
     ],
     howItWorks: [
       { step: "Day 1", title: "Kickoff", desc: "We confirm all requirements, gather your content (logo, text, images), and begin design immediately." },
-      { step: "Days 2–4", title: "Design & Build", desc: "We design and develop your site simultaneously. You receive a live preview link to review." },
-      { step: "Days 5–7", title: "Revisions", desc: "You review the site and request changes. We implement all revisions within 24–48 hours." },
-      { step: "Days 8–10", title: "Launch", desc: "Final approval, domain connection, SSL activation, and go-live. Your site is live." },
+      { step: "Days 2-4", title: "Design & Build", desc: "We design and develop your site simultaneously. You receive a live preview link to review." },
+      { step: "Days 5-7", title: "Revisions", desc: "You review the site and request changes. We implement all revisions within 24-48 hours." },
+      { step: "Days 8-10", title: "Launch", desc: "Final approval, domain connection, SSL activation, and go-live. Your site is live." },
     ],
     faqs: [
       { q: "What do you need from me to get started?", a: "Your logo (or brand guidelines), the text content for each page, any photos you want to use, and your domain login details. We can help with content if needed." },

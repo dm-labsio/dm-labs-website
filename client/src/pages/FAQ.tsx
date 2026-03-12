@@ -14,7 +14,7 @@ const faqs = [
     items: [
       { q: "How do I get started?", a: "Just send us a message on WhatsApp. We'll have a quick chat about your business, recommend the best package, and get started right away. No forms, no waiting." },
       { q: "What information do I need to provide?", a: "At minimum, your business name and a brief description of what you do. If you have a logo, photos, or specific text you'd like to use - great. If not, we can work with what you have." },
-      { q: "How long does it take to build my website?", a: "Starter websites take 5–7 working days. Business websites take 7–10 working days. The timeline starts once we receive your content and confirm the project scope." },
+      { q: "How long does it take to build my website?", a: "Starter websites take 5-7 working days. Business websites take 7-10 working days. The timeline starts once we receive your content and confirm the project scope." },
       { q: "Do I need any technical knowledge?", a: "Absolutely not. We handle everything technical. You just need to tell us about your business and what you want - we take care of the rest." },
       { q: "Do you work with clients outside your country?", a: "Yes. We work with clients worldwide. All communication happens over WhatsApp and email, so location is never a barrier. Our pricing is in euros and we serve businesses across Europe and beyond." },
       { q: "Can I see a preview before paying?", a: "Yes. Before any development begins, we share a design direction for your approval - colours, layout, and overall look and feel. You won't pay anything until you're happy with the direction. During development, we share progress checkpoints so you can follow along and give feedback at each stage. Nothing is finalised without your sign-off." },
@@ -24,7 +24,7 @@ const faqs = [
   {
     category: "Pricing & Payment",
     items: [
-      { q: "Are there any hidden fees?", a: "No. The price you see is the price you pay. Your first-year domain is included - we register it for you and set everything up. After the first year, you'll receive a reminder to renew your domain licence (typically €10–15/year). Hosting is a separate ongoing cost (typically €10–15/month) and we explain everything clearly before you commit." },
+      { q: "Are there any hidden fees?", a: "No. The price you see is the price you pay. Your first-year domain is included - we register it for you and set everything up. After the first year, you'll receive a reminder to renew your domain licence (typically €10-15/year). Hosting is a separate ongoing cost (typically €10-15/month) and we explain everything clearly before you commit." },
       { q: "How does payment work?", a: "We take a deposit to secure your project and begin work. The remaining balance is due on delivery, once you've reviewed and approved the final website. Simple, transparent, and no surprises." },
       { q: "What payment methods do you accept?", a: "We accept bank transfers and major payment methods. We'll provide payment details when you're ready to proceed." },
       { q: "Do I own my website after it's built?", a: "Yes, 100%. Once paid in full, the website and all its content belong to you completely." },
@@ -36,7 +36,7 @@ const faqs = [
       { q: "Can I see examples of your work?", a: "Yes! Contact us on WhatsApp and we'll share recent examples relevant to your industry." },
       { q: "Will my website work on mobile phones?", a: "Absolutely. Every website we build is mobile-first - meaning it's designed to look and work perfectly on phones, tablets, and desktops." },
       { q: "Can I make changes after the website is live?", a: "Yes. Small text changes are free for the first month after launch. After that, our maintenance plans (from €39/month) cover ongoing updates, or you can request individual changes." },
-      { q: "Do you provide hosting?", a: "Yes. We handle the full technical setup - hosting, domain registration, SSL certificate, and everything in between. Your first-year domain is included in the build price. Hosting is a separate ongoing cost (typically €10–15/month) which we explain clearly before you commit. You will receive a reminder when your domain is due for renewal after the first year." },
+      { q: "Do you provide hosting?", a: "Yes. We handle the full technical setup - hosting, domain registration, SSL certificate, and everything in between. Your first-year domain is included in the build price. Hosting is a separate ongoing cost (typically €10-15/month) which we explain clearly before you commit. You will receive a reminder when your domain is due for renewal after the first year." },
     ],
   },
   {

@@ -69,7 +69,7 @@ export default function AccessibilityWidget() {
 
   return (
     <>
-      {/* Trigger button — fixed bottom-left, always visible regardless of contrast state */}
+      {/* Trigger button - fixed bottom-left, always visible regardless of contrast state */}
       <button
         onClick={() => setOpen(o => !o)}
         aria-label="Accessibility options"
@@ -85,7 +85,7 @@ export default function AccessibilityWidget() {
         <Accessibility size={16} />
       </button>
 
-      {/* Panel — also fixed, outside the filtered wrapper */}
+      {/* Panel - also fixed, outside the filtered wrapper */}
       {open && (
         <div
           ref={panelRef}

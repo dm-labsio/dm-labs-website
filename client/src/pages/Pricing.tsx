@@ -202,7 +202,7 @@ export default function Pricing() {
             </p>
             <p className="text-sm text-[#5B6472] mt-3 flex items-center justify-center gap-2">
               <CheckCircle2 size={15} className="text-[#5B8CFF]" />
-              <span><span className="font-semibold text-[#111315]">Satisfaction guaranteed</span> — we work until you're happy with the result.</span>
+              <span><span className="font-semibold text-[#111315]">Satisfaction guaranteed</span> - we work until you're happy with the result.</span>
             </p>
             <p className="text-sm text-[#5B6472] mt-2">
               <a href="#maintenance" className="text-[#5B8CFF] hover:underline font-medium">Also see: Monthly Maintenance Plans ↓</a>

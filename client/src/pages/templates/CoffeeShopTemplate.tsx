@@ -182,7 +182,7 @@ export default function CoffeeShopTemplate() {
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
             {[
               { label: "Address", value: "12 Keizersgracht, Amsterdam" },
-              { label: "Hours", value: "Mon–Fri: 7:00–20:00 · Sat–Sun: 8:00–21:00" },
+              { label: "Hours", value: "Mon-Fri: 7:00-20:00 · Sat-Sun: 8:00-21:00" },
               { label: "Phone", value: "+972 50-000-0000" },
               { label: "Instagram", value: "@bellacucina.tlv" },
             ].map(item => (

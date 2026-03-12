@@ -18,7 +18,7 @@ const steps = [
     title: "Discovery Call",
     time: "~1 day",
     desc: "We start with a quick WhatsApp chat. Tell us about your business, what you need, and your goals. No technical jargon - just a friendly conversation.",
-    details: ["15–20 minute WhatsApp call", "We learn about your business", "You tell us what you need", "We recommend the best package"],
+    details: ["15-20 minute WhatsApp call", "We learn about your business", "You tell us what you need", "We recommend the best package"],
     color: "#5B8CFF",
   },
   {
@@ -34,7 +34,7 @@ const steps = [
     step: "03",
     icon: Palette,
     title: "Design & Build",
-    time: "3–7 days",
+    time: "3-7 days",
     desc: "We design and develop your website. You'll see progress along the way and can provide feedback at key milestones.",
     details: ["Custom design for your brand", "Mobile-first development", "Regular progress updates", "Your feedback shapes the result"],
     color: "#8B5CFF",
@@ -43,7 +43,7 @@ const steps = [
     step: "04",
     icon: Code,
     title: "Review & Revisions",
-    time: "1–2 days",
+    time: "1-2 days",
     desc: "You review the website and request changes. We refine everything until you're completely happy with the result.",
     details: ["Full website preview", "Starter: 2 revision rounds, Business: 3, Premium: 5", "We adjust until you're satisfied", "No extra charges for included revisions"],
     color: "#5B8CFF",
@@ -141,9 +141,9 @@ export default function Process() {
           <AnimateIn delay={0.2}>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
-                { label: "Starter Website", time: "5–7 days", price: "from €299" },
-                { label: "Business Website", time: "7–10 days", price: "from €399" },
-                { label: "Premium Website", time: "10–14 days", price: "from €699" },
+                { label: "Starter Website", time: "5-7 days", price: "from €299" },
+                { label: "Business Website", time: "7-10 days", price: "from €399" },
+                { label: "Premium Website", time: "10-14 days", price: "from €699" },
               ].map((item) => (
                 <div key={item.label} className="dm-card text-center !p-8">
                   <p className="text-3xl font-bold brand-gradient-text mb-2">{item.time}</p>

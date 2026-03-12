@@ -112,7 +112,7 @@ export default function HomePage() {
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.3}>
               <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-md">
-                We are a small, dedicated web design agency. We build professional, fast, and conversion-focused websites for businesses like yours — from €299.
+                We are a dedicated web design agency. We build professional, fast, and conversion-focused websites for businesses like yours - from €299.
               </p>
             </AnimateIn>
 
@@ -183,7 +183,7 @@ export default function HomePage() {
               See What We Can Create for You
             </h2>
             <p className="text-base text-[#5B6472] max-w-2xl mx-auto">
-              Every website we build is <strong className="text-[#111315]">fully custom</strong> — designed from scratch around your brand, your content, and your customers. These examples show the range of styles and industries we work with. Think of them as inspiration, not off-the-shelf templates.
+              Every website we build is <strong className="text-[#111315]">fully custom</strong> - designed from scratch around your brand, your content, and your customers. These examples show the range of styles and industries we work with. Think of them as inspiration, not off-the-shelf templates.
             </p>
           </AnimateIn>
 
@@ -249,12 +249,12 @@ export default function HomePage() {
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No templates — every site is built from scratch.", anchor: "custom-design" },
+              { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No templates - every site is built from scratch.", anchor: "custom-design" },
               { icon: Smartphone, title: "Mobile-First Development", desc: "Every website is designed mobile-first, ensuring a flawless experience on phones, tablets, and desktops.", anchor: "mobile-first" },
               { icon: Search, title: "SEO Optimisation", desc: "Built-in search engine optimisation so your customers can find you on Google from day one.", anchor: "seo" },
               { icon: Zap, title: "Fast Performance", desc: "Lightning-fast load times with optimised code and assets. Speed matters for conversions and rankings.", anchor: "performance" },
               { icon: Shield, title: "Secure & Reliable", desc: "SSL certificates, secure hosting, and regular backups to keep your website safe and always online.", anchor: "security" },
-              { icon: Clock, title: "Quick Turnaround", desc: "From concept to launch in 5–14 business days. We move fast without compromising quality.", anchor: "turnaround" },
+              { icon: Clock, title: "Quick Turnaround", desc: "From concept to launch in 5-14 business days. We move fast without compromising quality.", anchor: "turnaround" },
             ].map((service) => (
               <StaggerItem key={service.title}>
                 <Link href={`/services/${service.anchor}`}>
@@ -297,9 +297,9 @@ export default function HomePage() {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
               { icon: MessageCircle, step: "01", title: "Discovery Call", desc: "Quick WhatsApp chat to understand your business and goals.", time: "~1 day", color: "#5B8CFF" },
-              { icon: Palette, step: "02", title: "Design", desc: "We create a custom design based on your brand and preferences.", time: "2–3 days", color: "#6FE3FF" },
-              { icon: Code, step: "03", title: "Build", desc: "Your website is developed with clean code, optimised for speed and SEO.", time: "3–5 days", color: "#8B5CFF" },
-              { icon: Headphones, step: "04", title: "Revisions", desc: "We refine the design based on your feedback until you're happy.", time: "1–2 days", color: "#5B8CFF" },
+              { icon: Palette, step: "02", title: "Design", desc: "We create a custom design based on your brand and preferences.", time: "2-3 days", color: "#6FE3FF" },
+              { icon: Code, step: "03", title: "Build", desc: "Your website is developed with clean code, optimised for speed and SEO.", time: "3-5 days", color: "#8B5CFF" },
+              { icon: Headphones, step: "04", title: "Revisions", desc: "We refine the design based on your feedback until you're happy.", time: "1-2 days", color: "#5B8CFF" },
               { icon: Rocket, step: "05", title: "Launch", desc: "We deploy your site, connect your domain, and make sure everything works.", time: "~1 day", color: "#6FE3FF" },
             ].map((item) => (
               <StaggerItem key={item.step}>
@@ -408,7 +408,7 @@ export default function HomePage() {
                 <p className="text-xs text-[#5B8CFF] font-medium mb-4">€249 with maintenance bundle</p>
                 <p className="text-sm text-[#5B6472] mb-6">Perfect for new businesses that need a clean, professional online presence fast.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Branded Business Page", "Mobile responsive", "WhatsApp button", "Social media links", "Accessibility widget (free)", "2 revision rounds", "5–7 day delivery"].map((f) => (
+                  {["Branded Business Page", "Mobile responsive", "WhatsApp button", "Social media links", "Accessibility widget (free)", "2 revision rounds", "5-7 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}
@@ -434,7 +434,7 @@ export default function HomePage() {
                   <p className="text-xs text-[#8B5CFF] font-medium mb-4">€349 with maintenance bundle</p>
                   <p className="text-sm text-[#5B6472] mb-6">For established businesses that need a complete, conversion-focused website.</p>
                   <ul className="space-y-3 mb-8 flex-1">
-                    {["Up to 5 pages", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials section", "Basic SEO optimisation", "Speed optimisation", "Accessibility widget (free)", "3 revision rounds", "7–10 day delivery"].map((f) => (
+                    {["Up to 5 pages", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials section", "Basic SEO optimisation", "Speed optimisation", "Accessibility widget (free)", "3 revision rounds", "7-10 day delivery"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
@@ -459,7 +459,7 @@ export default function HomePage() {
                 <p className="text-xs text-[#6FE3FF] font-medium mb-4">€649 with maintenance bundle</p>
                 <p className="text-sm text-[#5B6472] mb-6">For businesses that want a fully custom, feature-rich website with everything included.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Up to 7 pages", "Fully custom design + animations", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials + gallery", "5 SEO blog articles", "Full meta/SEO structure", "Pop-up included", "Accessibility widget (free)", "5 revision rounds", "10–14 day delivery"].map((f) => (
+                  {["Up to 7 pages", "Fully custom design + animations", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials + gallery", "5 SEO blog articles", "Full meta/SEO structure", "Pop-up included", "Accessibility widget (free)", "5 revision rounds", "10-14 day delivery"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
                       {f}
@@ -476,7 +476,7 @@ export default function HomePage() {
 
           <AnimateIn className="text-center mt-10">
             <p className="text-sm text-[#5B6472] mb-3">
-              All plans include a <span className="font-semibold text-[#111315]">free consultation</span> — no commitment, no pressure.
+              All plans include a <span className="font-semibold text-[#111315]">free consultation</span> - no commitment, no pressure.
             </p>
             <Link href="/pricing" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
               See full pricing &amp; add-ons <ArrowRight size={14} />
@@ -532,7 +532,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          STATS BANNER — vivid gradient, animated on scroll
+          STATS BANNER - vivid gradient, animated on scroll
           ═══════════════════════════════════════════ */}
       <section className="relative overflow-hidden py-16 sm:py-20"
         style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E2A4A 50%, #0F172A 100%)" }}
@@ -544,7 +544,7 @@ export default function HomePage() {
         <div className="container relative z-10">
           <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {[
-              { value: "5–14", label: "Days to Launch", sub: "from first call" },
+              { value: "5-14", label: "Days to Launch", sub: "from first call" },
               { value: "5★", label: "Client Satisfaction", sub: "our standard" },
               { value: "100%", label: "Mobile Optimised", sub: "every project" },
               { value: "∞", label: "Ongoing Support", sub: "we’re always here" },
@@ -598,7 +598,7 @@ export default function HomePage() {
               Let's Build Your Website Together
             </h2>
             <p className="text-lg text-[#94A3B8] mb-10 max-w-xl mx-auto">
-              Get in touch and we'll get back to you within hours. No commitment, no pressure — just a friendly conversation about your business.
+              Get in touch and we'll get back to you within hours. No commitment, no pressure - just a friendly conversation about your business.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary !h-14 !text-base !px-8">
