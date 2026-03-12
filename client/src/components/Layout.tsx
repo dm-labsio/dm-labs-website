@@ -143,9 +143,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Brand */}
             <div className="lg:col-span-1">
               <img src={LOGO_URL} alt="D&M Labs" style={{ width: '140px', height: 'auto', marginBottom: '20px' }} />
-              <p className="text-sm text-[#94A3B8] leading-relaxed max-w-xs">
-                We build modern, professional websites for businesses of all sizes. From concept to launch - fast, simple, and affordable.
-              </p>
+                <p className="text-sm text-[#94A3B8] leading-relaxed max-w-xs">
+                  A small, dedicated web design agency. We build professional, conversion-focused websites for businesses that want to stand out online.
+                </p>
               {/* Social Links */}
               <div className="flex items-center gap-3 mt-5">
                 <a

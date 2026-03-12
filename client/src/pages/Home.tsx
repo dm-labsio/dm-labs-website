@@ -10,7 +10,7 @@ import {
   Globe, Smartphone, Search, Zap, Shield, Clock,
   CheckCircle2, ArrowRight, MessageCircle,
   Utensils, Scissors, Stethoscope, Briefcase, Dumbbell, ShoppingBag,
-  Palette, Code, Rocket, Headphones, Star, Quote, HelpCircle
+  Palette, Code, Rocket, Headphones, Quote, HelpCircle
 } from "lucide-react";
 
 const HERO_DEVICES = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/hero-devices-v2-8JXhBrX7f82um3hxnU6TmE.webp";
@@ -112,20 +112,10 @@ export default function HomePage() {
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.3}>
               <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-md">
-                We create cutting-edge websites that drive results for your business. Professional, fast, and built to convert — from €299.
+                We are a small, dedicated web design agency. We build professional, fast, and conversion-focused websites for businesses like yours — from €299.
               </p>
             </AnimateIn>
-            {/* Social proof micro-signal */}
-            <AnimateIn variant="fade-up" delay={0.35}>
-              <div className="flex items-center gap-2 mb-8">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
-                  ))}
-                </div>
-                <span className="text-sm text-[#5B6472] font-medium">Trusted by businesses across Europe</span>
-              </div>
-            </AnimateIn>
+
             <AnimateIn variant="fade-up" delay={0.4}>
               <div className="flex flex-wrap gap-4">
                 <Link href="/templates" className="btn-primary">
@@ -343,12 +333,12 @@ export default function HomePage() {
       <section className="section-spacing bg-white">
         <div className="container">
           <AnimateIn className="text-center mb-14">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Client Stories</p>
+              <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Client Stories</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
               What Our Clients Say
             </h2>
             <p className="text-lg text-[#5B6472] max-w-xl mx-auto">
-              Real businesses, real results. Here's what it's like working with D&M Labs.
+              Early feedback from the businesses we've worked with.
             </p>
           </AnimateIn>
 
@@ -360,12 +350,7 @@ export default function HomePage() {
                   <div className="absolute top-5 right-5 opacity-10">
                     <Quote size={40} className="text-[#5B8CFF]" />
                   </div>
-                  {/* Stars */}
-                  <div className="flex gap-0.5 mb-4">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
-                    ))}
-                  </div>
+                
                   {/* Quote text */}
                   <p className="text-sm text-[#3D4550] leading-relaxed mb-6 flex-1 italic">
                     "{t.text}"
@@ -404,9 +389,9 @@ export default function HomePage() {
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-5">
               No hidden fees. No surprises. Transparent pricing for every project.
             </p>
-            {/* Limited Time Offer Badge */}
+            {/* Launching Prices Badge */}
             <span className="inline-flex items-center px-5 py-2 rounded-full brand-gradient text-white text-sm font-semibold tracking-wide">
-              Limited Time Offer
+              Launching Prices
             </span>
           </AnimateIn>
 

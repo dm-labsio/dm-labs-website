@@ -31,7 +31,7 @@ export default function Services() {
               Services That <span className="brand-gradient-text">Drive Results</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              From custom design to SEO optimisation, we provide everything your business needs to succeed online.
+              We are a small web design agency focused on building professional, high-quality websites. From custom design to SEO optimisation, we handle everything so you don't have to.
             </p>
           </AnimateIn>
         </div>
@@ -43,9 +43,9 @@ export default function Services() {
           <AnimateIn className="mb-16">
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Core Services</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Website Packages</h2>
-            {/* Limited Time Offer Badge */}
+            {/* Launching Prices Badge */}
             <span className="inline-flex items-center px-5 py-2 rounded-full brand-gradient text-white text-sm font-semibold tracking-wide">
-              Limited Time Offer
+              Launching Prices
             </span>
           </AnimateIn>
 

@@ -58,9 +58,9 @@ export default function Pricing() {
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-5">
               No hidden fees. No surprises. Choose the package that fits your business - every plan includes a free consultation.
             </p>
-            {/* Limited Time Offer Badge */}
+            {/* Launching Prices Badge */}
             <span className="inline-flex items-center px-5 py-2 rounded-full brand-gradient text-white text-sm font-semibold tracking-wide">
-              Limited Time Offer
+              Launching Prices
             </span>
           </AnimateIn>
         </div>
