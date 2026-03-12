@@ -43,16 +43,18 @@ export default function Services() {
           <AnimateIn className="mb-16">
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Core Services</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Website Packages</h2>
-            {/* Launching Prices Sale Banner */}
-            <div className="inline-flex flex-col sm:flex-row items-center gap-3 mt-2 px-6 py-3 rounded-2xl border border-[#5B8CFF]/30 bg-gradient-to-r from-[#EEF3FF] to-[#F0EAFF]">
-              <div className="flex items-center gap-2">
-                <span className="inline-block w-2 h-2 rounded-full bg-[#5B8CFF] animate-pulse" />
-                <span className="text-sm font-bold text-[#111315] tracking-wide uppercase">Launching Prices</span>
-              </div>
-              <span className="hidden sm:block w-px h-4 bg-[#5B8CFF]/30" />
-              <span className="text-sm text-[#5B6472]">These are our introductory rates. <span className="font-semibold text-[#5B8CFF]">Claim yours before they change.</span></span>
-            </div>
           </AnimateIn>
+
+          {/* Launching Prices Full-Width Banner */}
+          <div
+            className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-8 mb-10 -mx-4 sm:-mx-6 lg:-mx-8"
+            style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)", width: "calc(100% + 2rem)" }}
+          >
+            <span className="inline-block w-2.5 h-2.5 rounded-full bg-white animate-pulse opacity-80" />
+            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Launching Prices</span>
+            <span className="hidden sm:block w-px h-5 bg-white/40" />
+            <span className="text-sm sm:text-base text-white/90 font-medium">Introductory rates available now. <span className="font-bold text-white">Claim yours today.</span></span>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
