@@ -92,6 +92,170 @@ export const POSTS: BlogPost[] = [
 </div>
     `,
   },
+
+  // ─── Article 2 ────────────────────────────────────────────────────────────
+  {
+    slug: "web-design-nail-salon-beauty-studio-cyprus",
+    title: "Web Design for Nail Salons and Beauty Studios in Cyprus: What You Actually Need",
+    metaTitle: "Web Design Nail Salon Cyprus | Beauty Studio Websites",
+    metaDescription: "Nail salon or beauty studio in Cyprus? Here is exactly what your website needs to attract clients and show up on Google - from €249.",
+    date: "2026-03-21",
+    readTime: "5 min read",
+    category: "Beauty & Wellness",
+    excerpt: "Instagram is not enough. Here is exactly what a nail salon or beauty studio website in Cyprus needs to attract new clients and show up on Google.",
+    coverImage: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200&q=80",
+    content: `
+<p class="blog-lead">If you run a nail salon or beauty studio in Cyprus, you have probably put a lot of work into your Instagram. Beautiful photos, loyal followers, regular posts. But here is the question: when someone in your city opens Google and types "nail salon near me" or "beauty studio Limassol", does your business appear? For most beauty businesses in Cyprus, the honest answer is no. And that is costing you clients every single day.</p>
+
+<h2>Instagram Is Not Enough - Here Is Why</h2>
+<p>Instagram is a brilliant tool for showing your work and building a community. But it has one critical limitation: you do not own it. The algorithm can change overnight. Your account can be restricted or hacked. And most importantly, Instagram does not show up when someone searches Google for a beauty salon in your area.</p>
+<p>A website for your beauty salon in Cyprus is not a luxury. It is the foundation that makes everything else work. It is the place Google can find you, where clients can book without sending a DM, and where your business looks professional 24 hours a day.</p>
+
+<h2>The 5 Things a Beauty Salon Website Must Have</h2>
+
+<h3>1. Online Booking or a WhatsApp Button</h3>
+<p>Your clients are busy. They do not want to send a DM and wait for a reply. A booking button or a direct WhatsApp link lets them take action immediately, at midnight on a Sunday if that is when they are browsing. This single feature can double your enquiry rate.</p>
+
+<h3>2. A Service Menu with Prices</h3>
+<p>Clients want to know what you offer and what it costs before they contact you. A clear, well-organised service menu builds trust and filters out time-wasters. It also tells Google exactly what your business does, which helps you rank for searches like "gel nails Nicosia" or "lash extensions Limassol."</p>
+
+<h3>3. A Gallery of Your Work</h3>
+<p>For a nail salon or beauty studio, your work is your portfolio. A gallery section on your website - with real photos of your best work - converts browsers into bookings faster than any written description. Keep it updated and make sure the images load quickly on mobile.</p>
+
+<h3>4. Google Maps and Your Address</h3>
+<p>This is non-negotiable. Your website must display your exact address and an embedded Google Map. This is one of the strongest signals Google uses to rank local businesses. Without it, you are invisible to anyone searching "near me."</p>
+
+<h3>5. Client Reviews</h3>
+<p>Social proof is everything in the beauty industry. A dedicated section on your website showing real client reviews - even just five or six - builds immediate trust with first-time visitors. Link these to your Google Business Profile for maximum SEO benefit.</p>
+
+<h2>Why Mobile-First Design Is Especially Important for Beauty Clients</h2>
+<p>Think about when your clients search for a salon. They are on their phone, probably on the go. Over 80% of local searches happen on mobile devices. If your website is slow to load, hard to read on a small screen, or requires pinching and zooming, potential clients will leave within seconds and book with your competitor instead.</p>
+<p>A properly built nail salon website in Cyprus must be designed for mobile first. That means large text, tap-friendly buttons, fast loading times, and a WhatsApp or booking button that is always visible.</p>
+
+<h2>What a Good Beauty Salon Website Looks Like</h2>
+<p>At D&M Labs, we have built website templates specifically designed for beauty businesses. The <strong>Aura Hair Studio</strong> and <strong>L'Atelier des Ongles</strong> templates on our <a href="/templates" class="blog-link">Templates page</a> show exactly what a professional beauty salon website looks like in practice: clean layout, gallery section, service menu, booking CTA, and mobile-first design. These are not generic templates - they are built around how beauty clients actually browse and decide.</p>
+
+<h2>How D&M Labs Builds Beauty Salon Websites</h2>
+<p>We build beauty salon and nail salon websites in Cyprus from €249, delivered in 5 to 7 days. Every site includes a mobile-first design, your service menu, a photo gallery, Google Maps integration, a WhatsApp contact button, and on-page SEO setup so Google can find you from day one.</p>
+<p>You do not need to know anything about technology. You send us your photos, your services and prices, and your business details. We handle everything else and deliver a website you are proud to share.</p>
+
+<div class="blog-cta">
+  <h3>Ready to get your beauty studio online?</h3>
+  <p>View our beauty salon template examples and get in touch for a free consultation. We will tell you exactly what your website needs and give you a clear quote within 24 hours.</p>
+  <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
+</div>
+    `,
+  },
+
+  // ─── Article 3 ────────────────────────────────────────────────────────────
+  {
+    slug: "yoga-pilates-studio-website-cyprus",
+    title: "Why Your Yoga or Pilates Studio in Cyprus Needs a Website (Not Just Instagram)",
+    metaTitle: "Website for Yoga Studio Cyprus | Pilates Web Design",
+    metaDescription: "Running a yoga or Pilates studio in Cyprus? Here is why Instagram alone is not enough and what your website needs to fill classes consistently.",
+    date: "2026-03-21",
+    readTime: "5 min read",
+    category: "Beauty & Wellness",
+    excerpt: "Relying only on Instagram for your yoga or Pilates studio is risky. Here is what a proper website does for your classes that social media never can.",
+    coverImage: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1200&q=80",
+    content: `
+<p class="blog-lead">You love what you do. You have built a community, you post consistently on Instagram, and your classes feel full - most of the time. But there is a quiet vulnerability underneath that most yoga and Pilates instructors in Cyprus do not think about until it is too late. Your entire business is sitting on a platform you do not own, and one algorithm change can cut your reach in half overnight. A website for your yoga studio in Cyprus is not just a nice-to-have. It is the foundation that makes your business stable and findable.</p>
+
+<h2>The Instagram Trap: Why It Is Risky to Rely on Social Media Alone</h2>
+<p>Instagram is a powerful tool for connection and community. But it has three serious limitations for a wellness business. First, the algorithm controls who sees your content - and it changes constantly. Second, your account can be restricted, hacked, or banned with no warning and no appeal process. Third, and most critically, Instagram does not appear when someone searches Google for "yoga classes near me" or "Pilates studio Limassol."</p>
+<p>Those searches happen every single day in Cyprus. People who are ready to start classes, who have their credit card out, who just need to find the right studio. If you are not on Google, you are invisible to them.</p>
+
+<h2>What a Yoga or Pilates Studio Website Needs</h2>
+
+<h3>A Clear Class Schedule</h3>
+<p>Your schedule should be front and centre. Potential students want to know immediately whether your class times work for them. An up-to-date schedule - even a simple one - removes the biggest barrier to a first booking.</p>
+
+<h3>Booking or WhatsApp Contact</h3>
+<p>Make it easy to take the next step. A direct WhatsApp button or a simple booking form means someone can reach you in seconds. The harder you make it to get in touch, the more people drop off before contacting you.</p>
+
+<h3>Your Instructor Bio</h3>
+<p>People choose a yoga or Pilates teacher based on trust and connection. A short, genuine bio - your training, your approach, why you teach - builds that trust before someone ever walks through your door. This is one of the most underused elements on wellness websites.</p>
+
+<h3>Location and Google Maps</h3>
+<p>An embedded Google Map and your full address are essential for local SEO. This is how Google knows to show your studio when someone searches for classes in your area. Without it, you simply do not appear in local results.</p>
+
+<h3>Pricing and Packages</h3>
+<p>Transparency about pricing removes a major source of hesitation. Whether you offer drop-in classes, monthly memberships, or class packs, list them clearly. Clients who know the price before they contact you are much more likely to follow through.</p>
+
+<h3>Testimonials</h3>
+<p>A few genuine words from existing students carry more weight than any marketing copy. A short testimonials section on your website builds credibility for first-time visitors who do not yet know you.</p>
+
+<h2>How a Website Fills Classes - Especially for New Students</h2>
+<p>When someone moves to a new city, or decides they finally want to start yoga, the first thing they do is search Google. "Yoga classes Nicosia," "Pilates studio Paphos," "beginner yoga near me." These are high-intent searches from people who are ready to commit. A properly built Pilates website in Cyprus with the right keywords, a clear location, and a fast mobile experience will appear in those results. Instagram will not.</p>
+<p>Beyond Google, a website gives you a permanent address you can share in your bio, on flyers, on business cards, and in WhatsApp groups. It is a professional anchor that makes everything else more credible.</p>
+
+<h2>Why Mobile-First Design Matters for Wellness Clients</h2>
+<p>Your clients are searching on their phones, often between other things - on a lunch break, after a run, while waiting for coffee. A wellness business website in Cyprus must load in under three seconds, display beautifully on a small screen, and have a clear call to action that is easy to tap. A slow or cluttered mobile experience loses potential students before they even read your class schedule.</p>
+
+<h2>How D&M Labs Builds Wellness Studio Websites</h2>
+<p>We build yoga and Pilates studio websites in Cyprus from €249, delivered in under a week. Every site is mobile-first, SEO-ready from day one, and designed to convert visitors into students. You provide the content - your schedule, photos, bio, and pricing - and we handle the rest.</p>
+<p>Our <a href="/services" class="blog-link">website packages</a> are built specifically for small wellness businesses that want a professional result without a complicated process or a large budget.</p>
+
+<div class="blog-cta">
+  <h3>Ready to fill your classes through Google?</h3>
+  <p>Get in touch for a free consultation. We will walk you through exactly what your studio website needs and give you a clear quote - no jargon, no pressure.</p>
+  <a href="/contact" class="blog-cta-btn">Book a Free Consultation</a>
+</div>
+    `,
+  },
+
+  // ─── Article 4 ────────────────────────────────────────────────────────────
+  {
+    slug: "how-to-get-found-on-google-cyprus",
+    title: "How to Get Your Business Found on Google in Cyprus: A Plain-English Guide",
+    metaTitle: "How to Get Found on Google Cyprus | Local SEO Guide",
+    metaDescription: "A plain-English guide to local SEO in Cyprus. Learn how to get your small business on Google Maps and in search results - step by step.",
+    date: "2026-03-21",
+    readTime: "7 min read",
+    category: "SEO & Growth",
+    excerpt: "Most small businesses in Cyprus are invisible on Google. This plain-English guide explains exactly what to do - step by step - to change that.",
+    coverImage: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&q=80",
+    content: `
+<p class="blog-lead">If your business is not showing up on Google, you are missing the most valuable customers you will ever have: people who are actively searching for exactly what you offer, right now, in your city. Getting found on Google in Cyprus is not as complicated as it sounds. This guide explains it in plain English, step by step, with no jargon.</p>
+
+<h2>Why Google Visibility Matters More Than Ever in Cyprus</h2>
+<p>Consumer behaviour has shifted dramatically. Before visiting a new restaurant, booking a salon, or hiring a contractor, people search Google first. Businesses that appear in the top three local results capture almost half of all clicks. The businesses below them share what is left. And businesses that do not appear at all? They are simply not part of the decision.</p>
+<p>Local SEO in Cyprus is still relatively uncrowded compared to larger markets. That means a small business that takes the right steps today can rank above much bigger competitors within weeks or months - not years.</p>
+
+<h2>Two Ways to Appear on Google: What Is the Difference?</h2>
+<p>When you search for a local business on Google, you typically see two types of results. The first is the <strong>local pack</strong> - the map with three business listings that appears near the top of the page. This is driven by your Google Business Profile. The second is <strong>organic search results</strong> - the regular blue links below the map. These are driven by your website.</p>
+<p>Ideally, you want to appear in both. But if you are starting from scratch, the local pack is faster to achieve and often more valuable for local businesses.</p>
+
+<h2>Step 1: Create and Optimise Your Google Business Profile</h2>
+<p>A Google Business Profile (formerly Google My Business) is a free listing that makes your business appear on Google Maps and in local search results. If you do not have one yet, creating it is the single highest-impact thing you can do today.</p>
+<p>Go to <strong>business.google.com</strong> and claim or create your listing. Fill in every field: your business name exactly as it appears elsewhere, your address, your phone number, your website, your opening hours, and your business category. Add at least five photos - your premises, your work, your team. Google rewards complete profiles with higher visibility.</p>
+<p>Once your Google Business Profile in Cyprus is live, keep it updated. Post updates, respond to reviews, and add new photos regularly. Google treats an active profile as a signal of a trustworthy, operating business.</p>
+
+<h2>Step 2: Get a Proper Website with Your Business Details Clearly Stated</h2>
+<p>Your website is the foundation of your organic search visibility. Google reads your website to understand what your business does, where it is located, and who it serves. For a small business in Cyprus, this means your website must clearly state your business name, your city or area, and your main services - ideally in the headings and throughout the text.</p>
+<p>A website that simply says "welcome to our business" with no specific location or service information tells Google almost nothing. A website that says "professional nail salon in Limassol offering gel nails, lash extensions, and beauty treatments" gives Google exactly what it needs to match your site to relevant searches.</p>
+<p>Speed and mobile-friendliness also matter. Google measures how fast your site loads and whether it works well on phones. A slow or broken mobile experience will actively hurt your rankings.</p>
+
+<h2>Step 3: Collect Google Reviews Consistently</h2>
+<p>Google reviews are one of the strongest signals for local rankings. Businesses with more reviews, and higher average ratings, consistently outrank those with fewer. More importantly, reviews convert searchers into customers - people trust other people's experiences far more than any marketing message.</p>
+<p>The simplest way to get reviews is to ask. After a positive interaction with a client, send them a direct link to your Google review page and ask them to share their experience. Most happy customers are glad to help - they just need to be asked and given an easy way to do it.</p>
+<p>Respond to every review, positive or negative. A thoughtful response to a negative review shows professionalism and often matters more to potential customers than the negative review itself.</p>
+
+<h2>Step 4: Make Sure Your Website Is Mobile-Friendly and Loads Fast</h2>
+<p>Over 60% of Google searches in Cyprus happen on mobile devices. Google uses mobile performance as a direct ranking factor - a site that loads slowly or breaks on a phone will rank lower than a fast, mobile-optimised competitor, even if the content is better.</p>
+<p>You can test your site's mobile performance for free at <strong>pagespeed.web.dev</strong>. A score above 80 on mobile is a reasonable target for a local business website. If your score is below 50, your site is likely costing you rankings and customers.</p>
+
+<h2>How D&M Labs Builds Websites That Are Already Optimised for Google</h2>
+<p>Every website we build at D&M Labs is SEO-ready from day one. That means proper heading structure, fast loading times, mobile-first design, your location and services clearly stated in the right places, and meta titles and descriptions set up for every page. We also include Google Maps integration and guidance on setting up your Google Business Profile as part of every project.</p>
+<p>You do not need to understand any of this technically. Our job is to make sure your website does the right things so Google can find you and send you customers. Our <a href="/services" class="blog-link">website packages</a> start from €299 and include everything you need to get found online in Cyprus.</p>
+
+<div class="blog-cta">
+  <h3>Want to get your business found on Google?</h3>
+  <p>Get in touch for a free consultation. We will review your current online presence and tell you exactly what needs to change - no jargon, no obligation.</p>
+  <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
+</div>
+    `,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
