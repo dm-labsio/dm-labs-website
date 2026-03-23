@@ -20,8 +20,6 @@ import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
 
 function Router() {
   return (
@@ -38,8 +36,6 @@ function Router() {
         <Route path="/terms" component={Terms} />
         <Route path="/templates" component={Templates} />
         <Route path="/services/:serviceId" component={ServiceDetail} />
-        <Route path="/blog/:slug" component={BlogPost} />
-        <Route path="/blog" component={Blog} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>

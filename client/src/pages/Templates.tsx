@@ -704,7 +704,7 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
         <div style={{ width: "375px", maxWidth: "100%", overflow: "hidden", borderRadius: "8px", boxShadow: "0 4px 24px rgba(0,0,0,0.12)" }}>
           <img
             src={imgSrc}
-            alt={`${template.name} - ${page} page mobile preview`}
+            alt=""
             loading="eager"
             decoding="async"
             style={{
@@ -719,7 +719,7 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
   }
   return (
     <BrowserFrame url={template.domain}>
-      <img src={imgSrc} alt={`${template.name} - ${page} page desktop preview`} loading="eager" decoding="async" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+      <img src={imgSrc} alt="" loading="eager" decoding="async" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
     </BrowserFrame>
   );
 }
