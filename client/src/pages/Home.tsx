@@ -96,9 +96,9 @@ export default function HomePage() {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#5B8CFF] rounded-full blur-[120px] opacity-[0.08] animate-pulse-glow pointer-events-none z-0" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#8B5CFF] rounded-full blur-[100px] opacity-[0.06] animate-pulse-glow pointer-events-none z-0" style={{ animationDelay: "-4s" }} />
 
-        <div className="container relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-8" style={{ paddingTop: "clamp(3rem, 8vh, 8rem)", paddingBottom: "clamp(2rem, 5vh, 6rem)" }}>
+        <div className="container relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-8" style={{ paddingTop: "clamp(3rem, 8vh, 8rem)", paddingBottom: "clamp(2rem, 5vh, 6rem)" }}>
           {/* Left: Text */}
-          <div className="flex-1 max-w-xl">
+          <div className="flex-1 max-w-xl text-center md:text-left">
             <AnimateIn variant="fade-up" delay={0.1}>
               <p className="text-sm font-medium text-[#5B6472] mb-4 tracking-wide uppercase">
                 Complete Website Solutions
@@ -117,7 +117,7 @@ export default function HomePage() {
             </AnimateIn>
 
             <AnimateIn variant="fade-up" delay={0.4}>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 <Link href="/templates" className="btn-primary">
                   Browse Templates
                   <ArrowRight size={18} />
@@ -131,13 +131,13 @@ export default function HomePage() {
           </div>
 
           {/* Right: Device Mockup */}
-          <div className="flex-1 flex justify-center lg:justify-end">
+          <div className="flex-1 flex justify-center md:justify-end">
             <AnimateIn variant="fade-up" delay={0.5} className="relative">
               <div className="animate-float-slow">
                 <img
                   src={HERO_DEVICES}
                   alt="D&M Labs website preview on laptop and mobile"
-                  className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl drop-shadow-2xl"
+                  className="w-full max-w-[260px] sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl drop-shadow-2xl"
                 />
               </div>
             </AnimateIn>
@@ -187,7 +187,7 @@ export default function HomePage() {
             </p>
           </AnimateIn>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 items-stretch">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 items-stretch">
             {FEATURED_TEMPLATES.map((tpl) => (
               <StaggerItem key={tpl.id} className="flex">
                 <Link href={`/templates?industry=${tpl.industry}`} className="flex w-full">
@@ -247,7 +247,7 @@ export default function HomePage() {
             </p>
           </AnimateIn>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
               { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No templates - every site is built from scratch.", anchor: "custom-design" },
               { icon: Smartphone, title: "Mobile-First Development", desc: "Every website is designed mobile-first, ensuring a flawless experience on phones, tablets, and desktops.", anchor: "mobile-first" },
@@ -294,7 +294,7 @@ export default function HomePage() {
             </p>
           </AnimateIn>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {[
               { icon: MessageCircle, step: "01", title: "Discovery Call", desc: "Quick WhatsApp chat to understand your business and goals.", time: "~1 day", color: "#5B8CFF" },
               { icon: Palette, step: "02", title: "Design", desc: "We create a custom design based on your brand and preferences.", time: "2-3 days", color: "#6FE3FF" },
@@ -342,7 +342,7 @@ export default function HomePage() {
             </p>
           </AnimateIn>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {TESTIMONIALS.map((t) => (
               <StaggerItem key={t.name}>
                 <div className="dm-card h-full flex flex-col relative">
@@ -393,7 +393,7 @@ export default function HomePage() {
 
           {/* Launching Prices Full-Width Banner */}
           <div
-            className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-8 mb-10"
+            className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl text-center sm:text-left"
             style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
           >
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-white animate-pulse opacity-80" />
@@ -402,7 +402,7 @@ export default function HomePage() {
             <span className="text-sm sm:text-base text-white/90 font-medium">Introductory rates available now. <span className="font-bold text-white">Claim yours today.</span></span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
 
             {/* Starter */}
             <AnimateIn delay={0.1}>
@@ -500,7 +500,7 @@ export default function HomePage() {
           <AnimateIn className="text-center mb-8">
             <p className="text-base text-[#5B6472]">Industries we work with:</p>
           </AnimateIn>
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
             {[
               { icon: Utensils, label: "Restaurants", industry: "restaurant" },
               { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
@@ -549,7 +549,7 @@ export default function HomePage() {
         <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-[#8B5CFF] rounded-full blur-[100px] opacity-15 pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-32 bg-[#6FE3FF] rounded-full blur-[80px] opacity-10 pointer-events-none" />
         <div className="container relative z-10">
-          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
               { value: "5-14", label: "Days to Launch", sub: "from first call" },
               { value: "5★", label: "Client Satisfaction", sub: "our standard" },
@@ -561,7 +561,7 @@ export default function HomePage() {
                   {/* Divider line on desktop */}
                   <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 w-px h-12 bg-white/10" />
                   <p
-                    className="text-5xl sm:text-6xl font-bold mb-2 transition-transform duration-300 group-hover:scale-110"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 transition-transform duration-300 group-hover:scale-110"
                     style={{
                       background: i % 2 === 0
                         ? "linear-gradient(135deg, #6FE3FF 0%, #5B8CFF 100%)"

@@ -65,7 +65,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       </button>
       <div
         className="overflow-hidden transition-all duration-300"
-        style={{ maxHeight: open ? "300px" : "0", opacity: open ? 1 : 0 }}
+        style={{ maxHeight: open ? "600px" : "0", opacity: open ? 1 : 0 }}
       >
         <p className="text-sm text-[#5B6472] leading-relaxed pb-5">{a}</p>
       </div>

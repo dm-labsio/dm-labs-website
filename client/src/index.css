@@ -181,6 +181,13 @@
     }
   }
 
+  @media (min-width: 768px) {
+    .container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
   @media (min-width: 1024px) {
     .container {
       padding-left: 5rem;
@@ -356,10 +363,17 @@
     padding-bottom: 4.5rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     .section-spacing {
       padding-top: 2.5rem;
       padding-bottom: 2.5rem;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .section-spacing {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
     }
   }
 

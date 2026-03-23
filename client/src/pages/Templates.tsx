@@ -1057,8 +1057,8 @@ export default function Templates() {
       </section>
 
       {/* Sticky Industry Filter */}
-      <section className="sticky top-16 z-30 py-4" style={{ background: "rgba(246,246,244,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(226,229,234,0.6)" }}>
-        <div className="px-4 sm:px-6 lg:px-8">
+      <section className="sticky top-[72px] z-30 py-4" style={{ background: "rgba(246,246,244,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(226,229,234,0.6)" }}>
+        <div className="container">
           <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}>
             {INDUSTRIES.map(industry => (
               <button
@@ -1083,7 +1083,7 @@ export default function Templates() {
       <section className="py-16">
         <div className="container">
           {filtered.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
               {/* Custom Build card - always shown first */}
               <CustomBuildCard />
               {filtered.map(template => (

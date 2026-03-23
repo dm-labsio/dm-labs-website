@@ -325,13 +325,13 @@ export default function Pricing() {
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <div className="overflow-x-auto rounded-2xl border border-[#E8EAF0] max-w-4xl mx-auto">
-              <table className="w-full text-sm">
+              <table className="text-sm" style={{ minWidth: '480px', width: '100%' }}>
                 <thead>
                   <tr className="border-b border-[#E8EAF0]">
-                    <th className="text-left py-4 px-4 font-semibold text-[#111315]">Feature</th>
-                    <th className="py-4 px-4 font-semibold text-[#5B8CFF] text-center">Starter<br /><span className="font-normal text-xs text-[#5B6472]">€299</span></th>
-                    <th className="py-4 px-4 font-semibold text-[#8B5CFF] text-center bg-[#8B5CFF]/[0.03]">Business<br /><span className="font-normal text-xs text-[#5B6472]">€399</span></th>
-                    <th className="py-4 px-4 font-semibold text-[#6FE3FF] text-center">Premium<br /><span className="font-normal text-xs text-[#5B6472]">€699</span></th>
+                    <th className="text-left py-4 px-4 font-semibold text-[#111315]" style={{ minWidth: '160px' }}>Feature</th>
+                    <th className="py-4 px-4 font-semibold text-[#5B8CFF] text-center" style={{ minWidth: '80px' }}>Starter<br /><span className="font-normal text-xs text-[#5B6472]">€299</span></th>
+                    <th className="py-4 px-4 font-semibold text-[#8B5CFF] text-center bg-[#8B5CFF]/[0.03]" style={{ minWidth: '80px' }}>Business<br /><span className="font-normal text-xs text-[#5B6472]">€399</span></th>
+                    <th className="py-4 px-4 font-semibold text-[#6FE3FF] text-center" style={{ minWidth: '80px' }}>Premium<br /><span className="font-normal text-xs text-[#5B6472]">€699</span></th>
                   </tr>
                 </thead>
                 <tbody>

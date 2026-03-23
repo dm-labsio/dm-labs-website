@@ -47,8 +47,8 @@ export default function Services() {
 
           {/* Launching Prices Full-Width Banner */}
           <div
-            className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-8 mb-10 -mx-4 sm:-mx-6 lg:-mx-8"
-            style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)", width: "calc(100% + 2rem)" }}
+            className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl"
+            style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
           >
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-white animate-pulse opacity-80" />
             <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Launching Prices</span>
@@ -56,7 +56,7 @@ export default function Services() {
             <span className="text-sm sm:text-base text-white/90 font-medium">Introductory rates available now. <span className="font-bold text-white">Claim yours today.</span></span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
             {/* Starter */}
             <AnimateIn delay={0.1}>
@@ -157,7 +157,7 @@ export default function Services() {
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">Everything You Need, Nothing You Don't</h2>
           </AnimateIn>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {[
               { icon: Smartphone, title: "Mobile Responsive", desc: "Looks perfect on every device - phones, tablets, and desktops.", anchor: "mobile-first" },
               { icon: Search, title: "SEO Optimised", desc: "Built-in search engine optimisation so customers find you on Google.", anchor: "seo" },

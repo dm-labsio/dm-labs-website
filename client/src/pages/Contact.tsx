@@ -62,9 +62,9 @@ export default function Contact() {
       {/* Contact Methods + Form */}
       <section className="section-spacing bg-white">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 max-w-5xl mx-auto">
             {/* Left - Contact Methods */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="md:col-span-2 space-y-6">
               <AnimateIn>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block dm-card !p-6 group hover:shadow-lg transition-shadow">
                   <div className="flex items-center gap-4 mb-3">
@@ -151,7 +151,7 @@ export default function Contact() {
             </div>
 
             {/* Right - Form */}
-            <AnimateIn delay={0.2} className="lg:col-span-3">
+            <AnimateIn delay={0.2} className="md:col-span-3">
               <div className="dm-card !p-8">
                 <h2 className="text-xl font-semibold text-[#111315] mb-6">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
