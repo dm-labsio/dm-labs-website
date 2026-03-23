@@ -592,75 +592,65 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">Who We Are</h2>
           </AnimateIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto">
 
             {/* Anastacia Card */}
             <AnimateIn delay={0.1}>
-              <div className="group relative overflow-hidden rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500">
-                {/* Photo with curtain reveal */}
-                <div className="relative overflow-hidden" style={{ height: '340px' }}>
-                  <img
-                    src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                    alt="Anastacia B. - Creative Director & AI Specialist at D&M Labs"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    style={{ objectPosition: 'center 15%' }}
-                  />
-                  {/* Curtain reveal overlay - animates out on scroll-in */}
-                  <div
-                    className="absolute inset-0 origin-left bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] transition-transform duration-1000 ease-out"
-                    style={{ transform: 'scaleX(0)', transformOrigin: 'left' }}
-                  />
-                  {/* Gradient fade at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#F8FAFF] to-transparent" />
-                </div>
-                {/* Content */}
-                <div className="px-7 pb-8 pt-2">
-                  <h3 className="text-xl font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
-                  <p className="text-sm font-medium text-[#5B8CFF] mb-4">Creative Director &amp; AI Specialist</p>
-                  <p className="text-sm text-[#5B6472] leading-relaxed mb-6">
-                    I worked with global tech companies, training AI models and making sure digital products actually work the way they should. I bring that same dedication with quality and detail to every website we build - because your online presence deserves more than just a pretty template.
-                  </p>
-                  {/* Catchphrase */}
-                  <div className="border-t border-[#E2E5EA] pt-5">
-                    <p className="text-sm italic text-[#111315] font-medium leading-snug">
-                      &ldquo;Your website should work as hard as you do.&rdquo;
-                    </p>
+              <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 p-7">
+                {/* Top: avatar + name/role */}
+                <div className="flex items-center gap-5 mb-5">
+                  <div className="relative flex-shrink-0 w-20 h-20 rounded-full overflow-hidden ring-2 ring-[#E2E5EA] group-hover:ring-[#5B8CFF]/50 transition-all duration-300">
+                    <img
+                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                      alt="Anastacia B. - Creative Director & AI Specialist at D&M Labs"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      style={{ objectPosition: 'center 10%' }}
+                    />
                   </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-[#111315]">Anastacia B.</h3>
+                    <p className="text-sm font-medium text-[#5B8CFF] mt-0.5">Creative Director &amp; AI Specialist</p>
+                  </div>
+                </div>
+                {/* Bio */}
+                <p className="text-sm text-[#5B6472] leading-relaxed mb-6">
+                  I worked with global tech companies, training AI models and making sure digital products actually work the way they should. I bring that same dedication with quality and detail to every website we build - because your online presence deserves more than just a pretty template.
+                </p>
+                {/* Catchphrase */}
+                <div className="border-t border-[#E2E5EA] pt-5">
+                  <p className="text-sm italic text-[#111315] font-medium leading-snug">
+                    &ldquo;Your website should work as hard as you do.&rdquo;
+                  </p>
                 </div>
               </div>
             </AnimateIn>
 
             {/* Tom Card */}
             <AnimateIn delay={0.25}>
-              <div className="group relative overflow-hidden rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500">
-                {/* Photo */}
-                <div className="relative overflow-hidden" style={{ height: '340px' }}>
-                  <img
-                    src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                    alt="Tom B. - Technical Director & SEO Expert at D&M Labs"
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  />
-                  {/* Curtain reveal overlay */}
-                  <div
-                    className="absolute inset-0 origin-right bg-gradient-to-l from-[#8B5CFF] to-[#5B8CFF] transition-transform duration-1000 ease-out"
-                    style={{ transform: 'scaleX(0)', transformOrigin: 'right' }}
-                  />
-                  {/* Gradient fade at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#F8FAFF] to-transparent" />
-                </div>
-                {/* Content */}
-                <div className="px-7 pb-8 pt-2">
-                  <h3 className="text-xl font-bold text-[#111315] mb-0.5">Tom B.</h3>
-                  <p className="text-sm font-medium text-[#5B8CFF] mb-4">Technical Director &amp; SEO Expert</p>
-                  <p className="text-sm text-[#5B6472] leading-relaxed mb-6">
-                    My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side of things so you never have to think about it - what you get is a site that is solid, fast, and built to last.
-                  </p>
-                  {/* Catchphrase */}
-                  <div className="border-t border-[#E2E5EA] pt-5">
-                    <p className="text-sm italic text-[#111315] font-medium leading-snug">
-                      &ldquo;First, solve the problem. Then, write the code.&rdquo;
-                    </p>
+              <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 p-7">
+                {/* Top: avatar + name/role */}
+                <div className="flex items-center gap-5 mb-5">
+                  <div className="relative flex-shrink-0 w-20 h-20 rounded-full overflow-hidden ring-2 ring-[#E2E5EA] group-hover:ring-[#5B8CFF]/50 transition-all duration-300">
+                    <img
+                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                      alt="Tom B. - Technical Director & SEO Expert at D&M Labs"
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                    />
                   </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-[#111315]">Tom B.</h3>
+                    <p className="text-sm font-medium text-[#5B8CFF] mt-0.5">Technical Director &amp; SEO Expert</p>
+                  </div>
+                </div>
+                {/* Bio */}
+                <p className="text-sm text-[#5B6472] leading-relaxed mb-6">
+                  My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side of things so you never have to think about it - what you get is a site that is solid, fast, and built to last.
+                </p>
+                {/* Catchphrase */}
+                <div className="border-t border-[#E2E5EA] pt-5">
+                  <p className="text-sm italic text-[#111315] font-medium leading-snug">
+                    &ldquo;First, solve the problem. Then, write the code.&rdquo;
+                  </p>
                 </div>
               </div>
             </AnimateIn>
