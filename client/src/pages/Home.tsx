@@ -598,15 +598,29 @@ export default function HomePage() {
             {/* Anastacia Card */}
             <AnimateIn delay={0.1}>
               <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 overflow-hidden">
-                {/* MOBILE: photo on top, fixed height, face centred */}
-                <div className="block md:hidden relative overflow-hidden" style={{ height: '200px' }}>
-                  <img
-                    src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                    alt="Anastacia B."
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: 'center 18%' }}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#F8FAFF] to-transparent" />
+                {/* MOBILE: compact horizontal - square photo left, text right */}
+                <div className="flex md:hidden flex-row">
+                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
+                    <img
+                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                      alt="Anastacia B."
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{ objectPosition: 'center 12%' }}
+                    />
+                    <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
+                  </div>
+                  <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
+                    <div>
+                      <h3 className="text-base font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
+                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Creative Director &amp; AI Specialist</p>
+                      <p className="text-xs text-[#5B6472] leading-relaxed">
+                        I worked with global tech companies, training AI models and making sure digital products actually work the way they should. I bring that same dedication to every website we build.
+                      </p>
+                    </div>
+                    <div className="border-t border-[#E2E5EA] mt-3 pt-2">
+                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;Your website should work as hard as you do.&rdquo;</p>
+                    </div>
+                  </div>
                 </div>
 
                 {/* DESKTOP: horizontal flex - photo left, content right */}
@@ -634,31 +648,35 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* MOBILE: text content below photo */}
-                <div className="block md:hidden px-6 pb-6 pt-3">
-                  <h3 className="text-lg font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
-                  <p className="text-sm font-semibold text-[#5B8CFF] mb-3">Creative Director &amp; AI Specialist</p>
-                  <p className="text-sm text-[#5B6472] leading-relaxed mb-4">
-                    I worked with global tech companies, training AI models and making sure digital products actually work the way they should. I bring that same dedication with quality and detail to every website we build - because your online presence deserves more than just a pretty template.
-                  </p>
-                  <div className="border-t border-[#E2E5EA] pt-4">
-                    <p className="text-sm italic text-[#111315] font-medium">&ldquo;Your website should work as hard as you do.&rdquo;</p>
-                  </div>
-                </div>
+
               </div>
             </AnimateIn>
 
             {/* Tom Card */}
             <AnimateIn delay={0.2}>
               <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 overflow-hidden">
-                {/* MOBILE: photo on top */}
-                <div className="block md:hidden relative overflow-hidden" style={{ height: '200px' }}>
-                  <img
-                    src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                    alt="Tom B."
-                    className="w-full h-full object-cover object-top"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#F8FAFF] to-transparent" />
+                {/* MOBILE: compact horizontal - square photo left, text right */}
+                <div className="flex md:hidden flex-row">
+                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
+                    <img
+                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                      alt="Tom B."
+                      className="absolute inset-0 w-full h-full object-cover object-top"
+                    />
+                    <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
+                  </div>
+                  <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
+                    <div>
+                      <h3 className="text-base font-bold text-[#111315] mb-0.5">Tom B.</h3>
+                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Technical Director &amp; SEO Expert</p>
+                      <p className="text-xs text-[#5B6472] leading-relaxed">
+                        My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side so you never have to think about it.
+                      </p>
+                    </div>
+                    <div className="border-t border-[#E2E5EA] mt-3 pt-2">
+                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;First, solve the problem. Then, write the code.&rdquo;</p>
+                    </div>
+                  </div>
                 </div>
 
                 {/* DESKTOP: horizontal flex */}
@@ -685,17 +703,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* MOBILE: text content below photo */}
-                <div className="block md:hidden px-6 pb-6 pt-3">
-                  <h3 className="text-lg font-bold text-[#111315] mb-0.5">Tom B.</h3>
-                  <p className="text-sm font-semibold text-[#5B8CFF] mb-3">Technical Director &amp; SEO Expert</p>
-                  <p className="text-sm text-[#5B6472] leading-relaxed mb-4">
-                    My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side of things so you never have to think about it - what you get is a site that is solid, fast, and built to last.
-                  </p>
-                  <div className="border-t border-[#E2E5EA] pt-4">
-                    <p className="text-sm italic text-[#111315] font-medium">&ldquo;First, solve the problem. Then, write the code.&rdquo;</p>
-                  </div>
-                </div>
+
               </div>
             </AnimateIn>
 
