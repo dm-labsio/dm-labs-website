@@ -9,7 +9,7 @@ import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn
 import {
   Globe, Smartphone, Search, Zap, Shield, Clock,
   CheckCircle2, ArrowRight, MessageCircle,
-  Utensils, Scissors, Stethoscope, Briefcase, Dumbbell, ShoppingBag,
+  Utensils, Scissors, Stethoscope, Dumbbell,
   Palette, Code, Rocket, Headphones, Quote, HelpCircle
 } from "lucide-react";
 
@@ -500,14 +500,13 @@ export default function HomePage() {
           <AnimateIn className="text-center mb-8">
             <p className="text-base text-[#5B6472]">Industries we work with:</p>
           </AnimateIn>
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
             {[
               { icon: Utensils, label: "Restaurants", industry: "restaurant" },
               { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
               { icon: Stethoscope, label: "Clinics", industry: "clinic" },
               { icon: Dumbbell, label: "Fitness", industry: "fitness" },
-              { icon: Briefcase, label: "Consultants", industry: "services" },
-              { icon: ShoppingBag, label: "Retail", industry: "retail" },
+
             ].map((biz) => (
               <StaggerItem key={biz.label}>
                 <Link href={`/templates?industry=${biz.industry}`}>
