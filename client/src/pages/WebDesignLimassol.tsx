@@ -9,7 +9,7 @@ const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "D&M Labs",
-  "description": "Professional web design agency serving businesses in Limassol, Cyprus. Custom websites from €249.",
+  "description": "Professional web design agency serving businesses in Limassol, Cyprus. Custom websites from €299.",
   "url": "https://dm-labs.io/web-design-limassol",
   "telephone": "+357-96-000000",
   "areaServed": {
@@ -27,7 +27,7 @@ const schemaMarkup = {
     {
       "@type": "Offer",
       "name": "Starter Website",
-      "price": "249",
+      "price": "299",
       "priceCurrency": "EUR"
     },
     {
@@ -48,7 +48,7 @@ const schemaMarkup = {
 const faqs = [
   {
     q: "How much does web design cost in Limassol?",
-    a: "Our web design packages for Limassol businesses start from €249 for a Starter site, €399 for a Business site, and €699 for a Premium site. All packages include mobile-responsive design, SEO setup, and a contact form. These are limited time introductory prices - check our Pricing page for the full breakdown."
+    a: "Our web design packages for Limassol businesses start from €299 for a Starter site, €399 for a Business site, and €699 for a Premium site. All packages include mobile-responsive design, SEO setup, and a contact form. These are limited time introductory prices - check our Pricing page for the full breakdown."
   },
   {
     q: "How long does it take to build a website?",
@@ -70,7 +70,7 @@ export default function WebDesignLimassol() {
     document.head.appendChild(script);
 
     // Set meta tags
-    document.title = "Web Design Limassol | Websites from €249 | D&M Labs";
+    document.title = "Web Design Limassol | Websites from €299 | D&M Labs";
 
     const setMeta = (name: string, content: string, property?: boolean) => {
       const attr = property ? "property" : "name";
@@ -83,13 +83,13 @@ export default function WebDesignLimassol() {
       el.setAttribute("content", content);
     };
 
-    setMeta("description", "D&M Labs builds professional websites for Limassol businesses from €249. Mobile-first, SEO-ready, fast delivery. Get online today.");
+    setMeta("description", "D&M Labs builds professional websites for Limassol businesses from €299. Mobile-first, SEO-ready, fast delivery. Get online today.");
     setMeta("keywords", "web design Limassol, website design Limassol, web design Cyprus, professional website Limassol");
     setMeta("og:title", "Web Design Limassol | D&M Labs", true);
-    setMeta("og:description", "Professional websites for Limassol businesses from €249. Mobile-first, SEO-ready, fast delivery.", true);
+    setMeta("og:description", "Professional websites for Limassol businesses from €299. Mobile-first, SEO-ready, fast delivery.", true);
     setMeta("og:url", "https://dm-labs.io/web-design-limassol", true);
     setMeta("twitter:title", "Web Design Limassol | D&M Labs");
-    setMeta("twitter:description", "Professional websites for Limassol businesses from €249. Mobile-first, SEO-ready.");
+    setMeta("twitter:description", "Professional websites for Limassol businesses from €299. Mobile-first, SEO-ready.");
 
     return () => {
       const s = document.getElementById("limassol-schema");
@@ -112,7 +112,7 @@ export default function WebDesignLimassol() {
             </span>
           </h1>
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-            D&M Labs is a dedicated web design agency helping Limassol businesses build a strong online presence. We create fast, mobile-first, and conversion-focused websites - starting from €249 - so your business stands out in one of Cyprus's most competitive markets.
+            D&M Labs is a dedicated web design agency helping Limassol businesses build a strong online presence. We create fast, mobile-first, and conversion-focused websites - starting from €299 - so your business stands out in one of Cyprus's most competitive markets.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
@@ -205,7 +205,7 @@ export default function WebDesignLimassol() {
             {[
               {
                 name: "Starter",
-                price: "€249",
+                price: "€299",
                 desc: "Perfect for freelancers and small businesses needing a clean, professional online presence.",
                 highlight: false
               },
