@@ -9,7 +9,8 @@ import { toast } from "sonner";
 
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
-const FORMSPREE_URL = "https://formspree.io/f/xojkabrk";
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+const WEB3FORMS_KEY = "bfd3c955-1bc9-4a43-b497-f4c6776db7d1";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
@@ -19,10 +20,12 @@ export default function Contact() {
     e.preventDefault();
     setSending(true);
     try {
-      const res = await fetch(FORMSPREE_URL, {
+      const res = await fetch(WEB3FORMS_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New enquiry from ${form.name} — D&M Labs`,
           name: form.name,
           email: form.email,
           business: form.business,

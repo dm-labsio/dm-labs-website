@@ -71,7 +71,7 @@ export default function Privacy() {
                   <li><strong className="text-[#111315]">Hosting providers:</strong> To host and serve your website.</li>
                   <li><strong className="text-[#111315]">Payment processors:</strong> To securely process payments.</li>
                   <li><strong className="text-[#111315]">Analytics providers:</strong> Privacy-friendly analytics (with your consent) that do not track you across other websites.</li>
-                  <li><strong className="text-[#111315]">Form processors:</strong> Formspree, to deliver contact form submissions to our email.</li>
+                  <li><strong className="text-[#111315]">Form processors:</strong> Web3Forms, to deliver contact form submissions to our email.</li>
                 </ul>
               </div>
 

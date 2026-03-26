@@ -91,7 +91,7 @@ export default function CookiePolicy() {
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">6. Third-Party Cookies</h2>
                 <p>We do not use third-party advertising cookies. The only third-party services that may set cookies are:</p>
                 <ul className="list-disc pl-5 space-y-2 mt-3">
-                  <li><strong className="text-[#111315]">Formspree:</strong> Our contact form processor. Formspree may set essential cookies to prevent spam submissions.</li>
+                  <li><strong className="text-[#111315]">Web3Forms:</strong> Our contact form processor. Web3Forms may set essential cookies to prevent spam submissions.</li>
                   <li><strong className="text-[#111315]">WhatsApp:</strong> The floating WhatsApp widget links to an external WhatsApp page and does not set cookies on our site.</li>
                 </ul>
               </div>
