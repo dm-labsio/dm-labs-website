@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Monitor, Smartphone, Star, ArrowRight, Check, ChevronRight } from "lucide-react";
+import { X, Star, ArrowRight, Check, ChevronRight, ExternalLink } from "lucide-react";
 
 // ─── CDN URLs - all fresh uploads Expires=1804155913+ ───────────────────────
 const CDN = {
@@ -225,136 +225,335 @@ function BrowserFrame({ children, url = "example.com" }: { children: React.React
 // ─── Template Card Preview ────────────────────────────────────────────────────
 // Static crafted visual: shows the template palette, style label, mock layout sketch,
 // and a "LIVE PREVIEW" badge. Fully responsive, no iframes, works on any screen size.
+// ─── Template Card Preview ────────────────────────────────────────────────────
+const CARD_DESIGNS: Record<string, React.FC> = {
+
+  "bella-salon": () => (
+    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f7f0e8" }}>
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "55%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f7f0e8 45%, transparent 75%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(247,240,232,0.95)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
+        <span style={{ fontFamily: "Georgia, serif", fontSize: "13px", fontWeight: 700, color: "#2a1a14", letterSpacing: "0.04em" }}>Bella.</span>
+        <div style={{ display: "flex", gap: "12px" }}>
+          {["Services","About","Gallery","Book"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a5a4a", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{l}</span>)}
+        </div>
+        <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "3px 10px", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Book Now</div>
+      </div>
+      <div style={{ position: "absolute", top: "56px", left: "18px", maxWidth: "48%" }}>
+        <div style={{ fontSize: "9px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "6px" }}>Beauty Studio</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Where Beauty<br/><em style={{ color: "#c4735a" }}>Meets</em> Artistry</div>
+        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>Expert hair, skin &amp; nail treatments<br/>in a luxurious environment.</div>
+        <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em" }}>Book a Treatment</div>
+      </div>
+      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
+        {["#f7f0e8","#c4735a","#2a1a14","#e8d5c4","#f0e8e0"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
+      </div>
+      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+
+  "verde-restaurant": () => (
+    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0d1a0f" }}>
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.55 }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(13,26,15,0.4) 0%, rgba(13,26,15,0.85) 100%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
+        <span style={{ fontFamily: "Georgia, serif", fontSize: "13px", fontWeight: 700, color: "#e8f0e0", letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Verde</span>
+        <div style={{ display: "flex", gap: "14px" }}>
+          {["Menu","Story","Reserve"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(232,240,224,0.7)", letterSpacing: "0.08em" }}>{l}</span>)}
+        </div>
+        <div style={{ border: "1px solid #7ab060", color: "#7ab060", fontSize: "8px", padding: "3px 10px" }}>Reserve</div>
+      </div>
+      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
+        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#7ab060", marginBottom: "5px" }}>Ristorante - Limassol</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "24px", fontWeight: 400, color: "#e8f0e0", lineHeight: 1.1, marginBottom: "8px", fontStyle: "italic" as const }}>Taste the<br/>Mediterranean</div>
+        <div style={{ background: "#7ab060", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block" }}>View Menu</div>
+      </div>
+      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
+        {["#0d1a0f","#7ab060","#c8a96e","#e8f0e0","#2d4a20"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.15)" }} />)}
+      </div>
+      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+
+  "pulse-gym": () => (
+    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0a0a0a" }}>
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.35 }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,10,10,0.7) 0%, rgba(255,107,53,0.15) 100%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(255,107,53,0.2)" }}>
+        <span style={{ fontFamily: "Impact, sans-serif", fontSize: "14px", fontWeight: 900, color: "#ff6b35", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>PULSE</span>
+        <div style={{ display: "flex", gap: "12px" }}>
+          {["Classes","Trainers","Join"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(255,255,255,0.6)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
+        </div>
+        <div style={{ background: "#ff6b35", color: "#fff", fontSize: "8px", padding: "3px 10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Join Now</div>
+      </div>
+      <div style={{ position: "absolute", top: "52px", left: "18px" }}>
+        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#ff6b35", marginBottom: "4px" }}>Limassol - Est. 2019</div>
+        <div style={{ fontFamily: "Impact, sans-serif", fontSize: "28px", fontWeight: 900, color: "#fff", lineHeight: 1.0, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "6px" }}>PUSH<br/><span style={{ color: "#ff6b35" }}>YOUR</span><br/>LIMITS</div>
+        <div style={{ background: "#ff6b35", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Start Free Trial</div>
+      </div>
+      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
+        {["#0a0a0a","#ff6b35","#ffa500","#1a1a2e","#ffffff"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.15)" }} />)}
+      </div>
+      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+
+  "dr-elara-dental": () => (
+    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f5f9ff" }}>
+      <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "50%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f5f9ff 48%, transparent 72%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(245,249,255,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(33,150,243,0.12)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+          <div style={{ width: "16px", height: "16px", borderRadius: "4px", background: "#2196f3" }} />
+          <span style={{ fontSize: "10px", fontWeight: 700, color: "#0a1628" }}>Dr. Elara Dental</span>
+        </div>
+        <div style={{ background: "#2196f3", color: "#fff", fontSize: "8px", padding: "4px 10px", borderRadius: "4px", fontWeight: 600 }}>Book Appointment</div>
+      </div>
+      <div style={{ position: "absolute", top: "50px", left: "18px", maxWidth: "50%" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "5px", marginBottom: "8px" }}>
+          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80" }} />
+          <span style={{ fontSize: "8px", color: "#2196f3", fontWeight: 600 }}>Accepting New Patients</span>
+        </div>
+        <div style={{ fontSize: "20px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "6px" }}>Your Smile,<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>Perfected</span><br/>with Care</div>
+        <div style={{ fontSize: "8px", color: "#4a6080", lineHeight: 1.5, marginBottom: "10px" }}>Modern dentistry in a calm,<br/>comfortable environment.</div>
+        <div style={{ background: "#2196f3", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", borderRadius: "4px", fontWeight: 600 }}>View Treatments</div>
+      </div>
+      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
+        {["#f5f9ff","#2196f3","#0a1628","#64b5f6","#1e3a5f"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
+      </div>
+      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+
+  "nomad-coffee": () => (
+    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a1208" }}>
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,18,8,0.88) 40%, rgba(26,18,8,0.3) 100%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
+        <span style={{ fontFamily: "Georgia, serif", fontSize: "12px", fontWeight: 700, color: "#c8a96e", letterSpacing: "0.06em" }}>Nomad Co.</span>
+        <div style={{ display: "flex", gap: "12px" }}>
+          {["Menu","Story","Beans","Events"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,169,110,0.7)" }}>{l}</span>)}
+        </div>
+      </div>
+      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "55%" }}>
+        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "5px" }}>Specialty Coffee - Limassol</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "6px" }}>Coffee Worth<br/><em style={{ color: "#c8a96e" }}>Slow Down</em> For</div>
+        <div style={{ fontSize: "8px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "10px" }}>Single-origin beans, hand-roasted<br/>in small batches.</div>
+        <div style={{ display: "flex", gap: "6px" }}>
+          <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "8px", padding: "5px 12px", fontWeight: 700 }}>View Our Menu</div>
+          <div style={{ border: "1px solid rgba(200,169,110,0.5)", color: "#c8a96e", fontSize: "8px", padding: "5px 12px" }}>Our Story</div>
+        </div>
+      </div>
+      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
+        {["#1a1208","#8b6914","#c8a96e","#f7f0e6","#3d2b1f"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
+      </div>
+      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+
+  "serenity-yoga": () => (
+    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a2420" }}>
+      <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.45 }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(26,36,32,0.5) 0%, rgba(26,36,32,0.9) 100%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
+        <span style={{ fontFamily: "Georgia, serif", fontSize: "12px", fontWeight: 400, color: "#8bb5a8", letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Serenity Yoga</span>
+        <div style={{ display: "flex", gap: "12px" }}>
+          {["Classes","Schedule","Teachers","Pricing"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(139,181,168,0.7)" }}>{l}</span>)}
+        </div>
+      </div>
+      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
+        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#8bb5a8", marginBottom: "5px" }}>Yoga Studio - Limassol</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f0f7f4", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Find Your<br/><em style={{ color: "#8bb5a8" }}>Still</em> Place</div>
+        <div style={{ display: "flex", gap: "6px" }}>
+          <div style={{ background: "#4a7c6f", color: "#f0f7f4", fontSize: "8px", padding: "5px 12px" }}>View Classes</div>
+          <div style={{ border: "1px solid rgba(139,181,168,0.4)", color: "#8bb5a8", fontSize: "8px", padding: "5px 12px" }}>View Schedule</div>
+        </div>
+      </div>
+      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
+        {["#1a2420","#4a7c6f","#8bb5a8","#f0f7f4","#2d4a3e"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
+      </div>
+      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+
+  "luxe-realty": () => (
+    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0a0a0a" }}>
+      <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.85) 100%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "40px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(184,151,90,0.2)" }}>
+        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 400, color: "#b8975a", letterSpacing: "0.25em", textTransform: "uppercase" as const }}>Luxe.Realty</span>
+        <div style={{ display: "flex", gap: "14px" }}>
+          {["Properties","About","Visa Guide"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.7)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
+        </div>
+      </div>
+      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
+        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Athens - Premium Properties</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Extraordinary<br/>Homes in Greece</div>
+        <div style={{ display: "flex", gap: "6px" }}>
+          <div style={{ background: "#b8975a", color: "#0a0a0a", fontSize: "8px", padding: "5px 14px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>View Properties</div>
+          <div style={{ border: "1px solid rgba(184,151,90,0.4)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Visa Guide</div>
+        </div>
+      </div>
+      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
+        {["#0a0a0a","#b8975a","#f8f4ec","#142035","#8a9ab5"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
+      </div>
+      <div style={{ position: "absolute", top: "46px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+
+  "little-stars-nursery": () => (
+    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#fffbf5" }}>
+      <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "52%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #fffbf5 46%, transparent 72%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(255,251,245,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(240,106,80,0.12)" }}>
+        <span style={{ fontFamily: "Nunito, sans-serif", fontSize: "11px", fontWeight: 800, color: "#2d2416" }}>Little Stars</span>
+        <div style={{ display: "flex", gap: "10px" }}>
+          {["About","Programmes","Visit"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a5a4a" }}>{l}</span>)}
+        </div>
+        <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "3px 10px", borderRadius: "20px", fontWeight: 700 }}>Book a Visit</div>
+      </div>
+      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "48%" }}>
+        <div style={{ fontSize: "8px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#f06a50", marginBottom: "5px" }}>Nursery - Athens</div>
+        <div style={{ fontFamily: "Nunito, sans-serif", fontSize: "20px", fontWeight: 800, color: "#2d2416", lineHeight: 1.2, marginBottom: "6px" }}>Where Little<br/>Ones <span style={{ color: "#f06a50" }}>Thrive</span></div>
+        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>A nurturing environment for<br/>children aged 3 months to 5 years.</div>
+        <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", borderRadius: "20px", fontWeight: 700 }}>Book a Visit</div>
+      </div>
+      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
+        {["#fffbf5","#f06a50","#5bb8d4","#f5c842","#2d2416"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
+      </div>
+      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+
+  "arcos-architecture": () => (
+    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f4f1ec" }}>
+      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "55%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f4f1ec 44%, transparent 68%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(244,241,236,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(26,25,22,0.1)" }}>
+        <span style={{ fontSize: "11px", fontWeight: 800, color: "#1a1916", letterSpacing: "0.15em", textTransform: "uppercase" as const }}>ARCOS</span>
+        <div style={{ display: "flex", gap: "14px" }}>
+          {["Work","Studio","Services","Contact"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a7568", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
+        </div>
+      </div>
+      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "46%" }}>
+        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4613a", marginBottom: "5px" }}>Architecture Studio</div>
+        <div style={{ fontSize: "22px", fontWeight: 800, color: "#1a1916", lineHeight: 1.1, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "8px" }}>SPACE<br/>THAT<br/><span style={{ color: "#c4613a" }}>SPEAKS</span></div>
+        <div style={{ fontSize: "8px", color: "#7a7568", lineHeight: 1.5, marginBottom: "10px" }}>Architecture that bridges<br/>concept and craft.</div>
+        <div style={{ background: "#1a1916", color: "#f4f1ec", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>View Projects</div>
+      </div>
+      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
+        {["#f4f1ec","#c4613a","#1a1916","#2d2b27","#7a7568"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
+      </div>
+      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+
+  "olio-deli": () => (
+    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1e1c17" }}>
+      <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(30,28,23,0.85) 0%, rgba(74,94,42,0.3) 100%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(200,151,58,0.2)" }}>
+        <span style={{ fontFamily: "Georgia, serif", fontSize: "13px", fontWeight: 700, color: "#c8973a", letterSpacing: "0.08em", fontStyle: "italic" as const }}>Olio Deli</span>
+        <div style={{ display: "flex", gap: "12px" }}>
+          {["Shop","Story","Products"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,151,58,0.7)" }}>{l}</span>)}
+        </div>
+        <div style={{ border: "1px solid #c8973a", color: "#c8973a", fontSize: "8px", padding: "3px 10px" }}>Order Now</div>
+      </div>
+      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
+        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c8973a", marginBottom: "5px" }}>Artisan Deli - Athens</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#faf6ef", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>The Finest<br/>Mediterranean Larder</div>
+        <div style={{ display: "flex", gap: "6px" }}>
+          <div style={{ background: "#c8973a", color: "#1e1c17", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>Shop Now</div>
+          <div style={{ border: "1px solid rgba(200,151,58,0.4)", color: "#c8973a", fontSize: "8px", padding: "5px 12px" }}>Our Story</div>
+        </div>
+      </div>
+      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
+        {["#1e1c17","#4a5e2a","#c8973a","#faf6ef","#7a7060"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
+      </div>
+      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+
+  "horizon-law": () => (
+    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0c1524" }}>
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.3 }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(12,21,36,0.6) 0%, rgba(12,21,36,0.92) 100%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "40px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(184,151,90,0.15)" }}>
+        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 400, color: "#b8975a", letterSpacing: "0.2em", textTransform: "uppercase" as const }}>Horizon Law</span>
+        <div style={{ display: "flex", gap: "14px" }}>
+          {["Practice","Team","Insights"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.65)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
+        </div>
+        <div style={{ border: "1px solid #b8975a", color: "#b8975a", fontSize: "8px", padding: "3px 10px" }}>Consult</div>
+      </div>
+      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
+        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Law Firm - Athens</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Justice Pursued.<br/><em style={{ color: "#b8975a" }}>Excellence</em> Delivered.</div>
+        <div style={{ display: "flex", gap: "6px" }}>
+          <div style={{ background: "#b8975a", color: "#0c1524", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>Our Practice Areas</div>
+          <div style={{ border: "1px solid rgba(184,151,90,0.35)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Meet the Team</div>
+        </div>
+      </div>
+      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
+        {["#0c1524","#b8975a","#f8f4ec","#142035","#8a9ab5"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
+      </div>
+      <div style={{ position: "absolute", top: "46px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+};
+
 function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
+  const Design = CARD_DESIGNS[template.id];
+  if (Design) return <Design />;
   const t = template as any;
-  const palette: string[] = t.palette || ["#1a1a2e", "#16213e", "#0f3460", "#e94560", "#f5f5f5"];
-  const [bg, accent1, accent2, accent3] = palette;
-  const styleLabel: string = t.styleLabel || t.tagline || "";
-  const name: string = template.name;
-
-  // Determine text brightness based on bg darkness
-  const isDark = (() => {
-    const hex = bg.replace("#", "");
-    const r = parseInt(hex.slice(0, 2), 16);
-    const g = parseInt(hex.slice(2, 4), 16);
-    const b = parseInt(hex.slice(4, 6), 16);
-    return (r * 0.299 + g * 0.587 + b * 0.114) < 128;
-  })();
-  const textColor = isDark ? "rgba(255,255,255,0.92)" : "rgba(0,0,0,0.85)";
-  const subColor = isDark ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.4)";
-  const lineColor = isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.1)";
-
+  const palette: string[] = t.palette || ["#1a1a2e","#16213e","#0f3460","#e94560","#f5f5f5"];
+  const [bg, accent1] = palette;
   return (
-    <div
-      className="relative w-full overflow-hidden"
-      style={{
-        height: "280px",
-        borderRadius: "12px 12px 0 0",
-        background: `linear-gradient(145deg, ${bg} 0%, ${accent1} 100%)`,
-      }}
-    >
-      {/* Subtle diagonal line pattern overlay */}
-      <div style={{
-        position: "absolute", inset: 0, opacity: 0.06,
-        backgroundImage: "repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 0, transparent 50%)",
-        backgroundSize: "8px 8px",
-        color: isDark ? "#fff" : "#000",
-        pointerEvents: "none",
-      }} />
-
-      {/* Mock browser chrome bar */}
-      <div style={{
-        position: "absolute", top: 0, left: 0, right: 0,
-        height: "28px",
-        background: isDark ? "rgba(0,0,0,0.35)" : "rgba(255,255,255,0.2)",
-        backdropFilter: "blur(4px)",
-        borderBottom: `1px solid ${lineColor}`,
-        display: "flex", alignItems: "center", padding: "0 10px", gap: "6px",
-      }}>
-        {/* Traffic lights */}
-        {["#ff5f57","#febc2e","#28c840"].map((c, i) => (
-          <div key={i} style={{ width: "7px", height: "7px", borderRadius: "50%", background: c, opacity: 0.8 }} />
-        ))}
-        {/* URL bar */}
-        <div style={{
-          flex: 1, marginLeft: "8px",
-          height: "14px", borderRadius: "4px",
-          background: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-        }}>
-          <span style={{ fontSize: "8px", color: subColor, letterSpacing: "0.02em" }}>{t.domain || "example.com"}</span>
-        </div>
+    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: `linear-gradient(145deg, ${bg} 0%, ${accent1} 100%)` }}>
+      <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column" as const, alignItems: "center", justifyContent: "center", gap: "8px" }}>
+        <div style={{ fontSize: "16px", fontWeight: 700, color: "#fff", opacity: 0.9 }}>{template.name}</div>
+        <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.6)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{t.tagline}</div>
       </div>
-
-      {/* Main content area - mock hero layout */}
-      <div style={{ position: "absolute", top: "28px", left: 0, right: 0, bottom: 0, padding: "16px 18px 14px" }}>
-        {/* Mock nav line */}
-        <div style={{ display: "flex", gap: "8px", marginBottom: "14px", alignItems: "center" }}>
-          <div style={{ width: "28px", height: "6px", borderRadius: "3px", background: accent2, opacity: 0.9 }} />
-          <div style={{ flex: 1, display: "flex", gap: "6px", justifyContent: "flex-end" }}>
-            {[40, 32, 36, 28].map((w, i) => (
-              <div key={i} style={{ width: `${w}px`, height: "4px", borderRadius: "2px", background: isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)" }} />
-            ))}
-          </div>
-        </div>
-
-        {/* Hero text block */}
-        <div style={{ marginBottom: "10px" }}>
-          <div style={{ fontSize: "11px", letterSpacing: "0.1em", textTransform: "uppercase", color: accent3, fontWeight: 600, marginBottom: "5px", opacity: 0.85 }}>
-            {styleLabel}
-          </div>
-          <div style={{ fontSize: "18px", fontWeight: 800, color: textColor, lineHeight: 1.15, marginBottom: "6px", letterSpacing: "-0.02em" }}>
-            {name}
-          </div>
-          {/* Mock subtitle lines */}
-          <div style={{ width: "70%", height: "3px", borderRadius: "2px", background: isDark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.12)", marginBottom: "3px" }} />
-          <div style={{ width: "50%", height: "3px", borderRadius: "2px", background: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)" }} />
-        </div>
-
-        {/* Mock CTA button */}
-        <div style={{
-          display: "inline-flex", alignItems: "center", gap: "5px",
-          padding: "5px 12px", borderRadius: "6px",
-          background: accent2, marginBottom: "14px",
-        }}>
-          <div style={{ width: "32px", height: "4px", borderRadius: "2px", background: isDark ? "rgba(255,255,255,0.9)" : "rgba(0,0,0,0.7)" }} />
-          <div style={{ width: "0", height: "0", borderTop: "3px solid transparent", borderBottom: "3px solid transparent", borderLeft: `5px solid ${isDark ? "rgba(255,255,255,0.9)" : "rgba(0,0,0,0.7)"}` }} />
-        </div>
-
-        {/* Palette swatches row */}
-        <div style={{ display: "flex", gap: "4px", alignItems: "center" }}>
-          {palette.slice(0, 5).map((color, i) => (
-            <div key={i} style={{
-              width: "16px", height: "16px", borderRadius: "50%",
-              background: color,
-              border: `1.5px solid ${isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)"}`,
-              boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
-            }} />
-          ))}
-          <span style={{ fontSize: "9px", color: subColor, marginLeft: "4px", letterSpacing: "0.04em" }}>Colour palette</span>
-        </div>
-      </div>
-
-      {/* Bottom gradient fade */}
-      <div style={{
-        position: "absolute", bottom: 0, left: 0, right: 0, height: "50px",
-        background: `linear-gradient(to top, ${bg}ee 0%, transparent 100%)`,
-        pointerEvents: "none",
-      }} />
-
-      {/* Live badge */}
-      <div style={{
-        position: "absolute", top: "36px", right: "10px",
-        background: "rgba(0,0,0,0.5)", backdropFilter: "blur(8px)",
-        borderRadius: "20px", padding: "3px 8px",
-        display: "flex", alignItems: "center", gap: "4px",
-      }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 5px #4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "9px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      <div style={{ position: "absolute", top: "10px", right: "10px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
       </div>
     </div>
   );
 }
+
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
   { id: "all", label: "All Industries", icon: "✦" },
@@ -696,27 +895,15 @@ const TEMPLATES = [
     previewUrl: "/previews/horizon-law.html",
   },
 ];
-
 // ─── Modal preview renderer ───────────────────────────────────────────────────
-function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0]; page: string; view: "desktop" | "mobile" }) {
+function ModalPreview({ template, page }: { template: typeof TEMPLATES[0]; page: string }) {
   const t = template as any;
-
-  // ── Live iframe preview ────────────────────────────────────────────
   if (t.livePreview && t.previewUrl) {
-    if (view === "mobile") {
-      // Phone frame: the iframe is rendered at exactly 390px wide (iPhone 14 viewport).
-      // We then scale the phone frame down to fit the available container width.
-      // This gives a true "phone in hand" feel  -  the site renders as it would on a real phone.
-      return (
-        <MobilePreview previewUrl={t.previewUrl} title={template.name} />
-      );
-    }
-    // Desktop: browser chrome frame with 16:10 aspect ratio iframe
     return (
       <BrowserFrame url={template.domain}>
         <iframe
           src={t.previewUrl}
-          title={`${template.name} desktop preview`}
+          title={`${template.name} preview`}
           style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", display: "block" }}
           loading="lazy"
           sandbox="allow-scripts allow-same-origin"
@@ -724,49 +911,21 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
       </BrowserFrame>
     );
   }
-
-  // ── Static screenshot preview (existing templates) ───────────────────────────
   const imgs = template.images as any;
-  const imgSrc = view === "mobile"
-    ? (page === "home" ? imgs.homeMobile
-      : page === "menu" ? imgs.menuMobile
-      : page === "services" ? imgs.servicesMobile
-      : imgs.contactMobile)
-    : (page === "home" ? imgs.homeDesktop
-      : page === "menu" ? imgs.menuDesktop
-      : page === "services" ? imgs.servicesDesktop
-      : imgs.contactDesktop);
-
-  if (view === "mobile") {
-    return (
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", background: "#F2F4F7", borderRadius: "12px", padding: "16px 0" }}>
-        <div style={{ width: "375px", maxWidth: "100%", overflow: "hidden", borderRadius: "8px", boxShadow: "0 4px 24px rgba(0,0,0,0.12)" }}>
-          <img
-            src={imgSrc}
-            alt=""
-            loading="eager"
-            decoding="async"
-            style={{
-              width: "100%",
-              height: "auto",
-              display: "block",
-            }}
-          />
-        </div>
-      </div>
-    );
-  }
+  const imgSrc = page === "home" ? imgs.homeDesktop
+    : page === "menu" ? imgs.menuDesktop
+    : page === "services" ? imgs.servicesDesktop
+    : imgs.contactDesktop;
   return (
     <BrowserFrame url={template.domain}>
       <img src={imgSrc} alt="" loading="eager" decoding="async" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
     </BrowserFrame>
   );
 }
-
 // ─── Template Detail Modal ────────────────────────────────────────────────────
 function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; onClose: () => void }) {
   const [activePageIndex, setActivePageIndex] = useState(0);
-  const [activeView, setActiveView] = useState<"desktop" | "mobile">("desktop");
+
   const activePage = template.pages[activePageIndex];
   const waUrl = `https://wa.me/35797472847?text=${encodeURIComponent(template.waMessage)}`;
 
@@ -834,34 +993,27 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
                   {page.label}
                 </button>
               ))}
-              <div className="ml-auto flex gap-1 bg-gray-100 rounded-lg p-1">
-                <button
-                  onClick={() => setActiveView("desktop")}
-                  className={`p-1.5 rounded-md transition-colors ${activeView === "desktop" ? "bg-white text-gray-800 shadow-sm" : "text-gray-400 hover:text-gray-600"}`}
-                  title="Desktop view"
-                >
-                  <Monitor size={15} />
-                </button>
-                <button
-                  onClick={() => setActiveView("mobile")}
-                  className={`p-1.5 rounded-md transition-colors ${activeView === "mobile" ? "bg-white text-gray-800 shadow-sm" : "text-gray-400 hover:text-gray-600"}`}
-                  title="Mobile view"
-                >
-                  <Smartphone size={15} />
-                </button>
-              </div>
+              <a
+                href={`/preview/${template.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-auto flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all hover:opacity-90 flex-shrink-0"
+                style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)", color: "#fff" }}
+              >
+                Open Full Preview
+              </a>
             </div>
 
             {/* Preview */}
             <AnimatePresence mode="wait">
               <motion.div
-                key={`${activePageIndex}-${activeView}`}
+                key={`${activePageIndex}`}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.22 }}
               >
-                <ModalPreview template={template} page={activePage.preview} view={activeView} />
+                <ModalPreview template={template} page={activePage.preview} />
               </motion.div>
             </AnimatePresence>
 

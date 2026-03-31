@@ -1,12 +1,11 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Layout from "./components/Layout";
 import CookieBanner from "./components/CookieBanner";
 import WhatsAppFloat from "./components/WhatsAppFloat";
-
 // Pages
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -23,8 +22,9 @@ import ServiceDetail from "./pages/ServiceDetail";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import WebDesignLimassol from "./pages/WebDesignLimassol";
+import PreviewPage from "./pages/PreviewPage";
 
-function Router() {
+function MainRouter() {
   return (
     <Layout>
       <Switch>
@@ -49,19 +49,31 @@ function Router() {
   );
 }
 
+function AppRoutes() {
+  const [location] = useLocation();
+  // Preview routes render outside the main Layout (no nav/footer, full-screen)
+  if (location.startsWith("/preview/")) {
+    return <Route path="/preview/:id" component={PreviewPage} />;
+  }
+  return (
+    <>
+      <MainRouter />
+      <WhatsAppFloat />
+      <CookieBanner />
+    </>
+  );
+}
+
 function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <Router />
-          <WhatsAppFloat />
-          <CookieBanner />
+          <AppRoutes />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
 }
-
 export default App;
