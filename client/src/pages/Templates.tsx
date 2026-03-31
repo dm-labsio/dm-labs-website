@@ -1156,6 +1156,37 @@ export default function Templates() {
   const [location] = useLocation();
   const [activeIndustry, setActiveIndustry] = useState("all");
   const [selectedTemplate, setSelectedTemplate] = useState<typeof TEMPLATES[0] | null>(null);
+  // Track whether we pushed a history entry for the modal
+  const modalHistoryPushed = useRef(false);
+
+  // Open modal: push a single hash entry so browser back closes it
+  const openModal = (tpl: typeof TEMPLATES[0]) => {
+    setSelectedTemplate(tpl);
+    window.history.pushState({ modal: true }, "");
+    modalHistoryPushed.current = true;
+  };
+
+  // Close modal: if we pushed a history entry, pop it; otherwise just clear state
+  const closeModal = () => {
+    if (modalHistoryPushed.current) {
+      modalHistoryPushed.current = false;
+      window.history.back();
+    } else {
+      setSelectedTemplate(null);
+    }
+  };
+
+  // Listen for browser back button while modal is open
+  useEffect(() => {
+    const onPopState = () => {
+      if (selectedTemplate) {
+        modalHistoryPushed.current = false;
+        setSelectedTemplate(null);
+      }
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, [selectedTemplate]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -1169,10 +1200,10 @@ export default function Templates() {
     if (openId) {
       const tpl = TEMPLATES.find(t => t.id === openId);
       if (tpl) {
-        setSelectedTemplate(tpl);
+        openModal(tpl);
         // Clean the URL so the modal can be closed without re-opening
         const newUrl = window.location.pathname;
-        window.history.replaceState({}, "", newUrl);
+        window.history.replaceState({ modal: true }, "", newUrl);
       }
     }
   }, [location]);
@@ -1229,7 +1260,7 @@ export default function Templates() {
               {/* Custom Build card - always shown first */}
               <CustomBuildCard />
               {filtered.map(template => (
-                <TemplateCard key={template.id} template={template} onClick={() => setSelectedTemplate(template)} />
+                <TemplateCard key={template.id} template={template} onClick={() => openModal(template)} />
               ))}
             </div>
           ) : (
@@ -1282,7 +1313,7 @@ export default function Templates() {
       {/* Modal */}
       <AnimatePresence>
         {selectedTemplate && (
-          <TemplateModal template={selectedTemplate} onClose={() => setSelectedTemplate(null)} />
+          <TemplateModal template={selectedTemplate} onClose={closeModal} />
         )}
       </AnimatePresence>
     </div>
