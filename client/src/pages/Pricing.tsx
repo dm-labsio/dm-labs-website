@@ -6,7 +6,7 @@
    ============================================================ */
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
-import { CheckCircle2, X, MessageCircle, ArrowRight, HelpCircle, Languages, CalendarCheck, Bell, Accessibility, Tag } from "lucide-react";
+import { CheckCircle2, X, MessageCircle, ArrowRight, HelpCircle, Languages, CalendarCheck, Bell, Accessibility, Tag, Zap, Globe, Users, Headphones } from "lucide-react";
 
 const GRADIENT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
@@ -90,7 +90,9 @@ export default function Pricing() {
       {/* Pricing Cards */}
       <section className="section-spacing bg-white">
         <div className="container">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+
+          {/* 3 Standard Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
 
             {/* Starter */}
             <AnimateIn delay={0.1}>
@@ -126,52 +128,54 @@ export default function Pricing() {
 
             {/* Business - Recommended */}
             <AnimateIn delay={0.2}>
-              <div className="brand-gradient-border h-full">
-                <div className="dm-card h-full flex flex-col !shadow-none relative">
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
-                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Business</p>
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-4xl font-bold text-[#111315]">€399</span>
-                    <span className="text-sm text-[#5B6472]">one-time</span>
+              <div className="relative pt-5 h-full">
+                <span className="absolute top-0 left-1/2 -translate-x-1/2 z-10 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap shadow-sm">Recommended</span>
+                <div className="brand-gradient-border h-full">
+                  <div className="dm-card h-full flex flex-col !shadow-none">
+                    <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Business</p>
+                    <div className="flex items-baseline gap-1 mb-1">
+                      <span className="text-4xl font-bold text-[#111315]">€399</span>
+                      <span className="text-sm text-[#5B6472]">one-time</span>
+                    </div>
+                    <p className="text-xs text-[#8B5CFF] font-medium mb-4">€349 with maintenance bundle</p>
+                    <p className="text-sm text-[#5B6472] mb-6">For established businesses that need a complete, conversion-focused website.</p>
+                    <ul className="space-y-3 mb-8 flex-1">
+                      {[
+                        "Up to 5 pages",
+                        "Mobile responsive",
+                        "WhatsApp button + social media links",
+                        "Contact form + booking form",
+                        "Google Maps + Reviews widget",
+                        "Testimonials section",
+                        "Basic SEO optimisation",
+                        "Speed optimisation",
+                        "Accessibility widget (free)",
+                        "3 revision rounds",
+                        "7-10 day delivery",
+                      ].map((f) => (
+                        <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                          <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <a href="/contact" className="btn-primary w-full justify-center">
+                      <MessageCircle size={16} /> Get Started
+                    </a>
                   </div>
-                  <p className="text-xs text-[#8B5CFF] font-medium mb-4">€349 with maintenance bundle</p>
-                  <p className="text-sm text-[#5B6472] mb-6">For established businesses that need a complete, conversion-focused website.</p>
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {[
-                      "Up to 5 pages",
-                      "Mobile responsive",
-                      "WhatsApp button + social media links",
-                      "Contact form + booking form",
-                      "Google Maps + Reviews widget",
-                      "Testimonials section",
-                      "Basic SEO optimisation",
-                      "Speed optimisation",
-                      "Accessibility widget (free)",
-                      "3 revision rounds",
-                      "7-10 day delivery",
-                    ].map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                        <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <a href="/contact" className="btn-primary w-full justify-center">
-                    <MessageCircle size={16} /> Get Started
-                  </a>
                 </div>
               </div>
             </AnimateIn>
 
             {/* Premium */}
             <AnimateIn delay={0.3}>
-              <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Premium</p>
+              <div className="dm-card h-full flex flex-col" style={{ background: "linear-gradient(160deg, #f8f9ff 0%, #ffffff 100%)", border: "1px solid #e0e7ff" }}>
+                <p className="text-sm font-semibold text-[#6B3FD4] uppercase tracking-wide mb-2">Premium</p>
                 <div className="flex items-baseline gap-1 mb-1">
                   <span className="text-4xl font-bold text-[#111315]">€699</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
-                <p className="text-xs text-[#6FE3FF] font-medium mb-4">€649 with maintenance bundle</p>
+                <p className="text-xs font-medium mb-4" style={{ color: "#6B3FD4" }}>€649 with maintenance bundle</p>
                 <p className="text-sm text-[#5B6472] mb-6">For businesses that want a fully custom, feature-rich website with everything included.</p>
                 <ul className="space-y-3 mb-8 flex-1">
                   {[
@@ -191,63 +195,77 @@ export default function Pricing() {
                     "10-14 day delivery",
                   ].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                      <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
+                      <CheckCircle2 size={16} className="shrink-0 mt-0.5" style={{ color: "#6B3FD4" }} />
                       {f}
                     </li>
                   ))}
                 </ul>
-                <a href="/contact" className="btn-secondary w-full justify-center">
+                <a href="/contact" className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90" style={{ background: "linear-gradient(90deg, #6B3FD4, #8B5CFF)" }}>
                   <MessageCircle size={16} /> Get Started
                 </a>
               </div>
             </AnimateIn>
 
-            {/* Enterprise */}
-            <AnimateIn delay={0.4}>
-              <div className="h-full flex flex-col rounded-2xl overflow-hidden" style={{ background: "linear-gradient(145deg, #0f1117 0%, #1a1f2e 60%, #111827 100%)", border: "1px solid rgba(91,140,255,0.25)" }}>
-                <div className="flex flex-col flex-1 p-7">
-                  <span className="inline-block self-start px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
-                  <p className="text-sm font-semibold uppercase tracking-wide mb-2" style={{ color: "#6FE3FF" }}>Enterprise</p>
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-3xl font-bold text-white">Custom</span>
-                  </div>
+          </div>
+
+          {/* Enterprise Wide Banner */}
+          <AnimateIn delay={0.4} className="mt-8 max-w-5xl mx-auto">
+            <div className="rounded-2xl overflow-hidden" style={{ background: "linear-gradient(135deg, #0d1117 0%, #161b2e 50%, #0d1117 100%)", border: "1px solid rgba(91,140,255,0.2)" }}>
+              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 p-8">
+
+                {/* Left: label + price + description */}
+                <div className="flex-shrink-0 lg:w-72">
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
+                  <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise</p>
+                  <p className="text-4xl font-bold text-white mb-1">Custom</p>
                   <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Pricing tailored to your project</p>
-                  <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>For larger businesses, multi-location companies, and organisations that need a fully bespoke solution built around their goals.</p>
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {[
-                      "Fully custom design from scratch",
-                      "Unlimited pages",
-                      "CRM, booking or e-commerce integrations",
-                      "Multi-language support",
-                      "Dedicated project manager",
-                      "Priority support and delivery",
-                      "Ongoing retainer option",
-                      "Custom SEO and content strategy",
-                    ].map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm" style={{ color: "rgba(255,255,255,0.85)" }}>
-                        <CheckCircle2 size={16} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <a href="/contact" className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold text-sm transition-all hover:opacity-90" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+                    For larger businesses, multi-location companies, and organisations that need a fully bespoke solution built around their goals.
+                  </p>
+                  <a
+                    href="/contact"
+                    className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"
+                    style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}
+                  >
                     <MessageCircle size={16} /> Contact Us
                   </a>
                 </div>
-              </div>
-            </AnimateIn>
 
-          </div>
+                {/* Divider */}
+                <div className="hidden lg:block w-px self-stretch" style={{ background: "rgba(91,140,255,0.2)" }} />
+
+                {/* Right: feature grid */}
+                <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
+                  {[
+                    { icon: Globe, label: "Fully custom design from scratch" },
+                    { icon: Zap, label: "Unlimited pages" },
+                    { icon: CalendarCheck, label: "CRM, booking or e-commerce integrations" },
+                    { icon: Languages, label: "Multi-language support" },
+                    { icon: Users, label: "Dedicated project manager" },
+                    { icon: Headphones, label: "Priority support and delivery" },
+                    { icon: ArrowRight, label: "Ongoing retainer option" },
+                    { icon: CheckCircle2, label: "Custom SEO and content strategy" },
+                  ].map(({ icon: Icon, label }) => (
+                    <div key={label} className="flex items-start gap-2.5">
+                      <Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />
+                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>{label}</span>
+                    </div>
+                  ))}
+                </div>
+
+              </div>
+            </div>
+          </AnimateIn>
+
           <AnimateIn delay={0.5} className="text-center mt-8">
             <p className="text-sm text-[#5B6472]">
               All plans include a <span className="font-semibold text-[#111315]">free consultation</span> - no commitment, no pressure. Just a friendly chat about your business.
             </p>
             <p className="text-sm text-[#5B6472] mt-3 flex items-center justify-center gap-2">
-              <CheckCircle2 size={15} className="text-[#5B8CFF]" />
-              <span><span className="font-semibold text-[#111315]">Satisfaction guaranteed</span> - we work until you're happy with the result.</span>
-            </p>
-            <p className="text-sm text-[#5B6472] mt-2">
-              <a href="#maintenance" className="text-[#5B8CFF] hover:underline font-medium">Also see: Monthly Maintenance Plans ↓</a>
+              Prefer to chat directly?{" "}
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline inline-flex items-center gap-1">
+                Message us on WhatsApp <ArrowRight size={14} />
+              </a>
             </p>
           </AnimateIn>
         </div>
@@ -360,14 +378,13 @@ export default function Pricing() {
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <div className="overflow-x-auto rounded-2xl border border-[#E8EAF0] max-w-4xl mx-auto">
-              <table className="text-sm" style={{ minWidth: '560px', width: '100%' }}>
+              <table className="text-sm" style={{ minWidth: '480px', width: '100%' }}>
                 <thead>
                   <tr className="border-b border-[#E8EAF0]">
                     <th className="text-left py-4 px-4 font-semibold text-[#111315]" style={{ minWidth: '160px' }}>Feature</th>
                     <th className="py-4 px-4 font-semibold text-[#5B8CFF] text-center" style={{ minWidth: '80px' }}>Starter<br /><span className="font-normal text-xs text-[#5B6472]">€299</span></th>
                     <th className="py-4 px-4 font-semibold text-[#8B5CFF] text-center bg-[#8B5CFF]/[0.03]" style={{ minWidth: '80px' }}>Business<br /><span className="font-normal text-xs text-[#5B6472]">€399</span></th>
-                    <th className="py-4 px-4 font-semibold text-[#6FE3FF] text-center" style={{ minWidth: '80px' }}>Premium<br /><span className="font-normal text-xs text-[#5B6472]">€699</span></th>
-                    <th className="py-4 px-4 font-semibold text-center" style={{ minWidth: '90px', background: 'linear-gradient(145deg, #0f1117, #1a1f2e)', color: '#6FE3FF' }}>Enterprise<br /><span className="font-normal text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>Custom</span></th>
+                    <th className="py-4 px-4 font-semibold text-center" style={{ minWidth: '80px', color: '#6B3FD4' }}>Premium<br /><span className="font-normal text-xs text-[#5B6472]">€699</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -390,13 +407,10 @@ export default function Pricing() {
                       </td>
                       <td className="py-3.5 px-4 text-center">
                         {typeof row.pro === "boolean" ? (
-                          row.pro ? <CheckCircle2 size={18} className="text-[#6FE3FF] mx-auto" /> : <X size={18} className="text-[#D1D5DB] mx-auto" />
+                          row.pro ? <CheckCircle2 size={18} className="mx-auto" style={{ color: '#6B3FD4' }} /> : <X size={18} className="text-[#D1D5DB] mx-auto" />
                         ) : (
                           <span className="text-sm text-[#5B6472]">{row.pro}</span>
                         )}
-                      </td>
-                      <td className="py-3.5 px-4 text-center" style={{ background: 'rgba(15,17,23,0.04)' }}>
-                        <CheckCircle2 size={18} className="mx-auto" style={{ color: '#6FE3FF' }} />
                       </td>
                     </tr>
                   ))}
@@ -422,6 +436,7 @@ export default function Pricing() {
               { q: "What if I need changes after launch?", a: "Small text changes are free for the first month. After that, our maintenance plans cover ongoing updates, or you can request individual changes at an agreed rate." },
               { q: "Do I own my website?", a: "Yes, 100%. Once paid, the website and all its content belong to you." },
               { q: "Is the consultation really free?", a: "Absolutely. We start with a no-pressure WhatsApp chat to understand your business and recommend the right package. No commitment required." },
+              { q: "What counts as an Enterprise project?", a: "Enterprise is for businesses that need more than our standard packages can offer - think multi-page builds with custom integrations, e-commerce, CRM connections, multi-language support, or organisations that want a dedicated project manager and ongoing retainer. If you're unsure, just contact us and we'll advise honestly." },
             ].map((item) => (
               <StaggerItem key={item.q}>
                 <div className="dm-card !p-6">
@@ -436,23 +451,23 @@ export default function Pricing() {
               </StaggerItem>
             ))}
           </StaggerContainer>
-          <AnimateIn className="text-center mt-8">
-            <Link href="/faq" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
-              See all FAQs <ArrowRight size={14} />
-            </Link>
-          </AnimateIn>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-spacing dark-section text-center">
-        <div className="container">
+      <section className="section-spacing">
+        <div className="container max-w-3xl text-center">
           <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Invest in Your Business?</h2>
-            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Let's discuss which package is the best fit. Free consultation - no commitment, no pressure.</p>
-            <a href="/contact" className="btn-primary">
-              <MessageCircle size={18} /> Book a Free Consultation
-            </a>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-5">Ready to get started?</h2>
+            <p className="text-lg text-[#5B6472] mb-8">Book a free consultation and we'll recommend the right plan for your business.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/contact" className="btn-primary">
+                <MessageCircle size={18} /> Book Free Consultation
+              </a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                WhatsApp Us
+              </a>
+            </div>
           </AnimateIn>
         </div>
       </section>
