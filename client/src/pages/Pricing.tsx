@@ -200,7 +200,7 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <a href="/contact" className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90" style={{ background: "linear-gradient(90deg, #6B3FD4, #8B5CFF)" }}>
+                <a href="/contact" className="btn-secondary w-full justify-center">
                   <MessageCircle size={16} /> Get Started
                 </a>
               </div>
