@@ -180,7 +180,7 @@ export default function HomePage() {
             <AnimateIn variant="fade-up" delay={0.4}>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 <Link href="/templates" className="btn-primary">
-                  Browse Templates
+                  Browse Examples
                   <ArrowRight size={18} />
                 </Link>
                 <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
@@ -276,7 +276,7 @@ export default function HomePage() {
 
           <AnimateIn className="text-center mb-16">
             <Link href="/templates" className="btn-primary">
-              Browse All Examples
+              View All Examples
               <ArrowRight size={16} />
             </Link>
           </AnimateIn>

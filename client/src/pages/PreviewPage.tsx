@@ -1,15 +1,15 @@
 /**
- * PreviewPage — /preview/:id
+ * PreviewPage - /preview/:id
  * Renders the mini-site HTML file at full viewport width and height.
  * On mobile: pressing the browser back button closes it naturally.
  * No iframe scaling, no cramping, no phone frames.
- * A slim top bar shows the template name and a back button.
+ * A slim top bar shows the template name, a clear X close button, and an open-in-tab link.
  */
 import { useParams, useLocation } from "wouter";
 import { useEffect, useState } from "react";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { X, ExternalLink } from "lucide-react";
 
-// Inline TEMPLATES map — just id → { name, previewUrl }
+// Inline TEMPLATES map - just id -> { name, previewUrl }
 // Kept minimal to avoid importing the full Templates page bundle.
 const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
   "bella-salon":          { name: "Bella Salon",          url: "/previews/bella-salon.html" },
@@ -32,10 +32,26 @@ export default function PreviewPage() {
 
   const entry = PREVIEW_MAP[params.id ?? ""];
 
+  const goBack = () => {
+    // Try to go back in history first, fallback to /templates
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      navigate("/templates");
+    }
+  };
+
   useEffect(() => {
     // Prevent body scroll while preview is open
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = ""; };
+  }, []);
+
+  // Handle Escape key to close
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") goBack(); };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
   }, []);
 
   if (!entry) {
@@ -47,60 +63,62 @@ export default function PreviewPage() {
           className="px-6 py-3 rounded-full font-semibold text-white"
           style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
         >
-          Back to Templates
+          Back to Examples
         </button>
       </div>
     );
   }
 
   return (
-    <div className="fixed inset-0 z-[9999] flex flex-col bg-white" style={{ fontFamily: "system-ui, sans-serif" }}>
+    <div className="fixed inset-0 z-[9999] flex flex-col bg-white">
       {/* Slim top bar */}
       <div
-        className="flex items-center justify-between shrink-0"
+        className="flex items-center justify-between shrink-0 px-3 sm:px-4"
         style={{
-          height: "48px",
-          background: "#111",
-          padding: "0 12px",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          height: "44px",
+          background: "#111315",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
         }}
       >
-        <button
-          onClick={() => navigate("/templates")}
-          className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm font-medium"
-          style={{ background: "none", border: "none", cursor: "pointer", padding: "8px 4px" }}
-        >
-          <ArrowLeft size={16} />
-          <span className="hidden sm:inline">Back to Templates</span>
-          <span className="sm:hidden">Back</span>
-        </button>
-
-        <span className="text-white/60 text-xs font-medium tracking-wide uppercase truncate max-w-[180px]">
+        {/* Left: template name */}
+        <span className="text-white/70 text-xs font-medium tracking-wide truncate max-w-[200px] sm:max-w-[300px]">
           {entry.name}
         </span>
 
-        <a
-          href={entry.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-white/60 hover:text-white transition-colors text-xs"
-        >
-          <ExternalLink size={14} />
-          <span className="hidden sm:inline">Open in tab</span>
-        </a>
+        {/* Right: actions */}
+        <div className="flex items-center gap-2">
+          <a
+            href={entry.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors text-xs px-2 py-1.5 rounded-lg hover:bg-white/10"
+          >
+            <ExternalLink size={13} />
+            <span className="hidden sm:inline">New tab</span>
+          </a>
+
+          {/* Clear X close button */}
+          <button
+            onClick={goBack}
+            className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-all"
+            aria-label="Close preview"
+          >
+            <X size={18} />
+          </button>
+        </div>
       </div>
 
       {/* Loading shimmer */}
       {!loaded && (
-        <div className="absolute inset-0 top-[48px] bg-gray-100 flex items-center justify-center">
+        <div className="absolute inset-0 top-[44px] bg-gray-50 flex items-center justify-center">
           <div className="flex flex-col items-center gap-3">
-            <div className="w-8 h-8 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
+            <div className="w-8 h-8 border-2 border-gray-200 border-t-[#5B8CFF] rounded-full animate-spin" />
             <span className="text-gray-400 text-sm">Loading preview...</span>
           </div>
         </div>
       )}
 
-      {/* Full-viewport iframe — no scaling, no cramping */}
+      {/* Full-viewport iframe - no scaling, no cramping */}
       <iframe
         src={entry.url}
         title={entry.name}

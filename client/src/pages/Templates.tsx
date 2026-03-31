@@ -146,78 +146,6 @@ const CDN = {
 // The entire phone is then scaled down proportionally to fit the modal column.
 // Clean mobile preview: renders the iframe at 390px width (iPhone viewport) inside a
 // centered container. No phone shell - just the site at mobile width, scrollable.
-function MobilePreview({ previewUrl, title }: { previewUrl: string; title: string }) {
-  return (
-    <div style={{
-      width: "100%",
-      background: "#F2F4F7",
-      borderRadius: "12px",
-      padding: "20px",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      gap: "12px",
-    }}>
-      {/* Mobile label */}
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" style={{ width: "14px", height: "14px" } as React.CSSProperties}>
-          <rect x="5" y="2" width="14" height="20" rx="2" />
-          <circle cx="12" cy="18" r="1" />
-        </svg>
-        <span style={{ fontSize: "11px", color: "#9CA3AF", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase" }}>Mobile View</span>
-      </div>
-      {/* Iframe container - centered, max 390px, aspect ratio 9:19.5 */}
-      <div style={{
-        width: "100%",
-        maxWidth: "390px",
-        borderRadius: "8px",
-        overflow: "hidden",
-        boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
-        border: "1px solid rgba(0,0,0,0.08)",
-        background: "#fff",
-        aspectRatio: "9 / 19.5",
-        position: "relative",
-      }}>
-        <iframe
-          src={previewUrl}
-          title={`${title} mobile preview`}
-          style={{
-            position: "absolute",
-            top: 0, left: 0,
-            width: "390px",
-            height: "100%",
-            border: "none",
-            display: "block",
-            transformOrigin: "top left",
-          }}
-          loading="lazy"
-          sandbox="allow-scripts allow-same-origin"
-        />
-      </div>
-    </div>
-  );
-}
-function BrowserFrame({ children, url = "example.com" }: { children: React.ReactNode; url?: string; height?: number }) {
-  return (
-    <div className="rounded-xl overflow-hidden shadow-xl border border-gray-200/80" style={{ background: "#fff" }}>
-      <div style={{ height: "32px", background: "#F0F0F0", borderBottom: "1px solid #E0E0E0", display: "flex", alignItems: "center", padding: "0 10px", gap: "6px" }}>
-        <div style={{ display: "flex", gap: "3px" }}>
-          <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#FF5F57" }} />
-          <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#FFBD2E" }} />
-          <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#28C840" }} />
-        </div>
-        <div style={{ flex: 1, background: "#fff", borderRadius: "3px", height: "13px", display: "flex", alignItems: "center", padding: "0 6px", border: "1px solid #E0E0E0" }}>
-          <svg viewBox="0 0 12 12" style={{ width: "7px", height: "7px", marginRight: "3px", flexShrink: 0 }}><path d="M6 1a2.5 2.5 0 0 0-2.5 2.5V5H3a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H8.5V3.5A2.5 2.5 0 0 0 6 1zm1.5 4H4.5V3.5a1.5 1.5 0 0 1 3 0V5z" fill="#aaa"/></svg>
-          <span style={{ fontSize: "8px", color: "#999", letterSpacing: "0.3px" }}>{url}</span>
-        </div>
-      </div>
-      {/* Responsive aspect-ratio container so it never clips on small screens */}
-      <div style={{ position: "relative", width: "100%", aspectRatio: "16/10", overflow: "hidden" }}>
-        {children}
-      </div>
-    </div>
-  );
-}
 
 // ─── Template Card Preview ────────────────────────────────────────────────────
 // For live-preview templates: responsive iframe thumbnail that scales to actual card width.
@@ -895,38 +823,8 @@ const TEMPLATES = [
     previewUrl: "/previews/horizon-law.html",
   },
 ];
-// ─── Modal preview renderer ───────────────────────────────────────────────────
-function ModalPreview({ template, page }: { template: typeof TEMPLATES[0]; page: string }) {
-  const t = template as any;
-  if (t.livePreview && t.previewUrl) {
-    return (
-      <BrowserFrame url={template.domain}>
-        <iframe
-          src={t.previewUrl}
-          title={`${template.name} preview`}
-          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", display: "block" }}
-          loading="lazy"
-          sandbox="allow-scripts allow-same-origin"
-        />
-      </BrowserFrame>
-    );
-  }
-  const imgs = template.images as any;
-  const imgSrc = page === "home" ? imgs.homeDesktop
-    : page === "menu" ? imgs.menuDesktop
-    : page === "services" ? imgs.servicesDesktop
-    : imgs.contactDesktop;
-  return (
-    <BrowserFrame url={template.domain}>
-      <img src={imgSrc} alt="" loading="eager" decoding="async" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
-    </BrowserFrame>
-  );
-}
 // ─── Template Detail Modal ────────────────────────────────────────────────────
 function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; onClose: () => void }) {
-  const [activePageIndex, setActivePageIndex] = useState(0);
-
-  const activePage = template.pages[activePageIndex];
   const waUrl = `https://wa.me/35797472847?text=${encodeURIComponent(template.waMessage)}`;
 
   useEffect(() => {
@@ -945,7 +843,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4"
       style={{ background: "rgba(17,19,21,0.75)", backdropFilter: "blur(12px)" }}
       onClick={onClose}
     >
@@ -954,114 +852,81 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.96, y: 24 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="bg-white rounded-2xl w-full max-w-5xl max-h-[92vh] overflow-y-auto shadow-2xl"
+        className="bg-white rounded-2xl w-full max-w-lg max-h-[92vh] overflow-y-auto shadow-2xl"
         style={{ border: "1px solid rgba(91,140,255,0.15)", WebkitOverflowScrolling: 'touch' } as React.CSSProperties}
         onClick={e => e.stopPropagation()}
       >
-        {/* Modal Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-100">
-          <div>
-            <div className="flex items-center gap-3 mb-1">
-              <h2 className="text-2xl font-bold text-gray-900">{template.name}</h2>
-            </div>
-            <p className="text-gray-500 text-sm">{template.tagline} · {INDUSTRIES.find(i => i.id === template.industry)?.label}</p>
-          </div>
+        {/* Card mockup as hero */}
+        <div className="relative">
+          <TemplateCardPreview template={template} />
           <button
             onClick={onClose}
-            className="p-2 rounded-xl hover:bg-gray-100 transition-colors text-gray-400 hover:text-gray-700"
+            className="absolute top-3 right-3 p-1.5 rounded-full bg-black/40 backdrop-blur-sm text-white/80 hover:text-white hover:bg-black/60 transition-all z-10"
           >
-            <X size={20} />
+            <X size={16} />
           </button>
         </div>
 
-        <div className="p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-          {/* Left: Preview */}
-          <div className="lg:col-span-2 space-y-3 sm:space-y-4">
-            {/* Page + view selector */}
-            <div className="flex flex-wrap gap-1.5 sm:gap-2 items-center">
-              {template.pages.map((page, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActivePageIndex(i)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                    activePageIndex === i
-                      ? "text-white shadow-md"
-                      : "bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
-                  }`}
-                  style={activePageIndex === i ? { background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" } : {}}
-                >
-                  {page.label}
-                </button>
-              ))}
-              <a
-                href={`/preview/${template.id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-auto flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all hover:opacity-90 flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)", color: "#fff" }}
-              >
-                Open Full Preview
-              </a>
-            </div>
-
-            {/* Preview */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`${activePageIndex}`}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.22 }}
-              >
-                <ModalPreview template={template} page={activePage.preview} />
-              </motion.div>
-            </AnimatePresence>
-
-            <p className="text-gray-500 text-sm leading-relaxed">{activePage.description}</p>
+        {/* Content */}
+        <div className="p-5 sm:p-6 space-y-5">
+          {/* Title + tagline */}
+          <div>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{template.name}</h2>
+            <p className="text-gray-500 text-sm">{template.tagline} · {INDUSTRIES.find(i => i.id === template.industry)?.label}</p>
           </div>
 
-          {/* Right: Details + CTA */}
-          <div className="space-y-5">
-            <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-              <p className="text-gray-600 text-sm leading-relaxed">{template.style}</p>
-            </div>
+          {/* Open Full Preview - primary CTA */}
+          <a
+            href={`/preview/${template.id}`}
+            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+            style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
+          >
+            <ExternalLink size={16} />
+            Open Full Preview
+          </a>
 
-            <div>
-              <h3 className="text-gray-900 font-semibold mb-3 text-sm uppercase tracking-widest">What's Included</h3>
-              <ul className="space-y-2">
-                {template.features.map(f => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
-                    <Check size={14} className="text-emerald-500 mt-0.5 flex-shrink-0" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Style description */}
+          <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+            <p className="text-gray-600 text-sm leading-relaxed">{template.style}</p>
+          </div>
 
-            <div className="rounded-xl p-4 border border-gray-200" style={{ background: "linear-gradient(135deg, #F8F9FF, #F5F0FF)" }}>
-              <p className="text-xs text-gray-500 mb-1 font-medium">This is a design inspiration</p>
-              <p className="text-gray-400 text-xs mb-4 leading-relaxed">Every website is built from scratch and tailored to your brand. Pricing depends on your chosen plan - not the template.</p>
-              <a
-                href="/pricing"
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] mb-2"
-                style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
-              >
-                View Pricing Plans
-              </a>
-              <a
-                href="/contact"
-                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-sm border border-gray-200 text-gray-700 transition-all duration-300 hover:border-[#5B8CFF] hover:text-[#5B8CFF]"
-              >
-                Get a Quote for This Design
-              </a>
-            </div>
+          {/* What's included */}
+          <div>
+            <h3 className="text-gray-900 font-semibold mb-3 text-sm uppercase tracking-widest">What's Included</h3>
+            <ul className="space-y-2">
+              {template.features.map(f => (
+                <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
+                  <Check size={14} className="text-emerald-500 mt-0.5 flex-shrink-0" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div className="flex items-center gap-2">
-              <div className="flex">
-                {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-amber-400 text-amber-400" />)}
-              </div>
-              <span className="text-gray-500 text-xs">Loved by 50+ businesses</span>
+          {/* Pricing CTA */}
+          <div className="rounded-xl p-4 border border-gray-200" style={{ background: "linear-gradient(135deg, #F8F9FF, #F5F0FF)" }}>
+            <p className="text-xs text-gray-500 mb-1 font-medium">This is a design inspiration</p>
+            <p className="text-gray-400 text-xs mb-4 leading-relaxed">Every website is built from scratch and tailored to your brand. Pricing depends on your chosen plan - not the template.</p>
+            <a
+              href="/pricing"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] mb-2"
+              style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
+            >
+              View Pricing Plans
+            </a>
+            <a
+              href="/contact"
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-sm border border-gray-200 text-gray-700 transition-all duration-300 hover:border-[#5B8CFF] hover:text-[#5B8CFF]"
+            >
+              Get a Quote for This Design
+            </a>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <div className="flex">
+              {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-amber-400 text-amber-400" />)}
             </div>
+            <span className="text-gray-500 text-xs">Loved by 50+ businesses</span>
           </div>
         </div>
       </motion.div>
