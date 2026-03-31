@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olio Deli Athens | Artisan Greek Deli &amp; Fine Foods</title>
+  <meta name="description" content="Olio Deli in Pangrati, Athens is an artisan deli specialising in premium Greek olive oils, cheeses, charcuterie, and Mediterranean fine foods. Order online or visit us." />
+  <meta name="keywords" content="artisan deli Athens, Greek olive oil shop, fine foods Athens, deli Pangrati, Mediterranean food store Athens, Greek cheese shop, gourmet food Greece" />
+  <link rel="canonical" href="https://oliodeli.gr/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Design: Warm Mediterranean — Playfair Display serif + Lato, olive and warm cream palette */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #faf6ef;
+      --warm: #f5ede0;
+      --olive: #4a5e2a;
+      --olive-2: #3a4b1f;
+      --olive-light: #6a8040;
+      --gold: #c8973a;
+      --gold-light: #d8a84a;
+      --ink: #1e1c17;
+      --text-muted: #7a7060;
+      --border: #e8dece;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 68px;
+      background: var(--cream); border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-leaf {
+      width: 32px; height: 32px; background: var(--olive); border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+    }
+    .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--ink); }
+    .nav-logo-text span { color: var(--olive); font-style: italic; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 400; color: var(--text-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--olive); }
+    .nav-cta {
+      padding: 10px 24px; background: var(--olive); color: white;
+      font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700;
+      border: none; cursor: pointer; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--olive-2); }
+
+    /* HERO */
+    .hero {
+      display: grid; grid-template-columns: 1fr 1fr; min-height: 90vh;
+    }
+    .hero-left {
+      background: var(--olive-2);
+      padding: 80px 48px; display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-left::after {
+      content: ''; position: absolute; bottom: -100px; right: -100px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: rgba(200,151,58,0.1); pointer-events: none;
+    }
+    .hero-label {
+      font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 5vw, 64px); font-weight: 500; line-height: 1.1;
+      color: white; margin-bottom: 24px;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-light); }
+    .hero-sub { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.6); max-width: 400px; margin-bottom: 40px; line-height: 1.8; }
+    .hero-actions { display: flex; gap: 14px; }
+    .btn-gold {
+      padding: 14px 32px; background: var(--gold); color: var(--ink);
+      font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s;
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+    .btn-ghost-olive {
+      padding: 14px 32px; background: transparent; color: rgba(255,255,255,0.7);
+      font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: all 0.2s;
+    }
+    .btn-ghost-olive:hover { border-color: rgba(255,255,255,0.6); color: white; }
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-badge {
+      position: absolute; bottom: 32px; left: 32px;
+      background: var(--cream); padding: 20px 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+    .badge-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+    .badge-text { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 500; color: var(--ink); }
+
+    /* CATEGORIES */
+    .categories-section { padding: 80px 48px; background: var(--warm); }
+    .section-label { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--olive); margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.5vw, 44px); font-weight: 500; color: var(--ink); margin-bottom: 48px; line-height: 1.2; }
+    .section-title em { font-style: italic; color: var(--olive); }
+    .categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .category-card { position: relative; overflow: hidden; cursor: pointer; }
+    .category-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .category-card:hover .category-img { transform: scale(1.05); }
+    .category-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(30,28,23,0.8) 0%, rgba(30,28,23,0.1) 60%);
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 24px;
+    }
+    .category-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; color: white; }
+    .category-count { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+    /* FEATURED PRODUCTS */
+    .products-section { padding: 80px 48px; background: var(--cream); }
+    .products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+    .view-all { font-size: 13px; color: var(--olive); text-decoration: none; border-bottom: 1px solid var(--olive); padding-bottom: 2px; }
+    .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .product-card { cursor: pointer; }
+    .product-img-wrap { position: relative; overflow: hidden; background: var(--warm); margin-bottom: 16px; }
+    .product-img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .product-card:hover .product-img { transform: scale(1.05); }
+    .product-tag {
+      position: absolute; top: 12px; left: 12px;
+      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 4px 10px; background: var(--gold); color: var(--ink);
+    }
+    .product-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+    .product-origin { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+    .product-price { font-size: 15px; font-weight: 700; color: var(--olive); }
+
+    /* ABOUT */
+    .about-section {
+      padding: 80px 48px; background: var(--olive-2);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .about-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    .about-label { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .about-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 500; color: white; margin-bottom: 24px; line-height: 1.2; }
+    .about-title em { font-style: italic; color: var(--gold-light); }
+    .about-body { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.9; margin-bottom: 16px; }
+    .about-detail { font-size: 13px; color: var(--gold); margin-bottom: 6px; }
+
+    /* CONTACT */
+    .contact-section { padding: 80px 48px; background: var(--warm); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .contact-info h2 { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 500; color: var(--ink); margin-bottom: 32px; }
+    .contact-detail { margin-bottom: 20px; }
+    .contact-detail-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--olive); margin-bottom: 6px; }
+    .contact-detail-value { font-size: 15px; color: var(--ink); }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-input {
+      padding: 13px 16px; background: var(--cream); border: 1px solid var(--border);
+      color: var(--ink); font-family: 'Lato', sans-serif; font-size: 14px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder { color: var(--text-muted); }
+    .form-input:focus { border-color: var(--olive); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-submit {
+      padding: 14px 36px; background: var(--olive); color: white;
+      font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer;
+      align-self: flex-start; transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--olive-2); }
+
+    /* FOOTER */
+    footer {
+      padding: 32px 48px; background: var(--ink);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 500; color: white; }
+    .footer-logo span { font-style: italic; color: var(--gold); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.35); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 48px 20px; }
+      .hero-right { height: 60vw; }
+      .categories-section, .products-section { padding: 60px 20px; }
+      .categories-grid { grid-template-columns: 1fr 1fr; }
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .about-section { grid-template-columns: 1fr; padding: 60px 20px; }
+      .contact-section { grid-template-columns: 1fr; padding: 60px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "Olio Deli Athens",
+    "description": "Artisan Greek deli specialising in premium olive oils, cheeses, charcuterie, and Mediterranean fine foods in Pangrati, Athens.",
+    "url": "https://oliodeli.gr",
+    "telephone": "+30 210 901 2345",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Efronios 22",
+      "addressLocality": "Pangrati, Athens",
+      "postalCode": "116 35",
+      "addressCountry": "GR"
+    },
+    "openingHours": ["Mo-Sa 09:00-21:00", "Su 10:00-17:00"]
+  }
+  </script>
+
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-leaf"></div>
+      <span class="nav-logo-text"><span>Olio</span> Deli</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#categories">Shop</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#contact">Visit Us</a></li>
+    </ul>
+    <button class="nav-cta">Order Online</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-label">Artisan Deli — Pangrati, Athens</p>
+      <h1 class="hero-title">The Taste of<br><em>Greece,</em><br>Curated</h1>
+      <p class="hero-sub">Premium olive oils, aged cheeses, cured meats, and Mediterranean pantry essentials — sourced directly from Greek producers who care about quality.</p>
+      <div class="hero-actions">
+        <button class="btn-gold">Shop Now</button>
+        <button class="btn-ghost-olive">Our Story</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=1200&q=80" alt="Premium Greek olive oil and deli products" />
+      <div class="hero-badge">
+        <div class="badge-label">Direct from Producers</div>
+        <div class="badge-text">60+ Greek Artisans</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories-section" id="categories">
+    <p class="section-label">Browse by Category</p>
+    <h2 class="section-title">Everything <em>Greek</em><br>and Good</h2>
+    <div class="categories-grid">
+      <div class="category-card">
+        <img class="category-img" src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&q=80" alt="Greek olive oils" loading="lazy" />
+        <div class="category-overlay">
+          <div class="category-name">Olive Oils</div>
+          <div class="category-count">24 products</div>
+        </div>
+      </div>
+      <div class="category-card">
+        <img class="category-img" src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=600&q=80" alt="Greek cheeses" loading="lazy" />
+        <div class="category-overlay">
+          <div class="category-name">Cheeses</div>
+          <div class="category-count">18 products</div>
+        </div>
+      </div>
+      <div class="category-card">
+        <img class="category-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Greek charcuterie" loading="lazy" />
+        <div class="category-overlay">
+          <div class="category-name">Charcuterie</div>
+          <div class="category-count">12 products</div>
+        </div>
+      </div>
+      <div class="category-card">
+        <img class="category-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Greek pantry essentials" loading="lazy" />
+        <div class="category-overlay">
+          <div class="category-name">Pantry</div>
+          <div class="category-count">32 products</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section" id="products">
+    <div class="products-header">
+      <div>
+        <p class="section-label">Featured Products</p>
+        <h2 class="section-title">This Week's <em>Picks</em></h2>
+      </div>
+      <a href="#" class="view-all">View All Products</a>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img class="product-img" src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&q=80" alt="Kalamata Extra Virgin Olive Oil" loading="lazy" />
+          <div class="product-tag">Best Seller</div>
+        </div>
+        <div class="product-name">Kalamata EVOO</div>
+        <div class="product-origin">Messinia, Peloponnese</div>
+        <div class="product-price">€18.50</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img class="product-img" src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&q=80" alt="Aged Graviera cheese" loading="lazy" />
+        </div>
+        <div class="product-name">Aged Graviera</div>
+        <div class="product-origin">Crete, Greece</div>
+        <div class="product-price">€24.00 / kg</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img class="product-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Thyme honey from Mount Hymettus" loading="lazy" />
+          <div class="product-tag">New</div>
+        </div>
+        <div class="product-name">Hymettus Thyme Honey</div>
+        <div class="product-origin">Mount Hymettus, Attica</div>
+        <div class="product-price">€14.00</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img class="product-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80" alt="Loukaniko Greek sausage" loading="lazy" />
+        </div>
+        <div class="product-name">Smoked Loukaniko</div>
+        <div class="product-origin">Thessaly, Greece</div>
+        <div class="product-price">€19.50 / kg</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section" id="about">
+    <img class="about-img" src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80" alt="Olio Deli Athens store interior" loading="lazy" />
+    <div>
+      <p class="about-label">Our Story</p>
+      <h2 class="about-title">From the Groves<br>of Greece to <em>Your Table</em></h2>
+      <p class="about-body">Olio Deli was founded in 2015 with a simple mission: to connect Athens food lovers with the finest Greek producers. Every product on our shelves has been personally selected by our team, visiting farms, dairies, and workshops across Greece.</p>
+      <p class="about-body">We are located at Efronios 22, Pangrati — a short walk from Syntagma Square — and we ship across Greece and Europe.</p>
+      <div class="about-detail">Efronios 22, Pangrati, Athens 116 35</div>
+      <div class="about-detail">+30 210 901 2345</div>
+      <div class="about-detail">hello@oliodeli.gr</div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-info">
+      <p class="section-label">Visit or Order</p>
+      <h2>Come and<br>Taste Greece</h2>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Address</div>
+        <div class="contact-detail-value">Efronios 22, Pangrati<br>Athens 116 35, Greece</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Phone</div>
+        <div class="contact-detail-value">+30 210 901 2345</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Opening Hours</div>
+        <div class="contact-detail-value">Mon – Sat: 9:00 – 21:00<br>Sunday: 10:00 – 17:00</div>
+      </div>
+    </div>
+    <form class="contact-form">
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Your Name" />
+        <input class="form-input" type="tel" placeholder="Phone Number" />
+      </div>
+      <input class="form-input" type="email" placeholder="Email Address" />
+      <select class="form-input">
+        <option value="" disabled selected>Enquiry Type</option>
+        <option>Product Enquiry</option>
+        <option>Wholesale / Trade</option>
+        <option>Corporate Gifting</option>
+        <option>Shipping &amp; Delivery</option>
+        <option>Other</option>
+      </select>
+      <textarea class="form-input" placeholder="Your message..." style="min-height:100px;resize:vertical;"></textarea>
+      <button type="submit" class="form-submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><span>Olio</span> Deli</div>
+    <div class="footer-copy">© 2025 Olio Deli Athens. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
+  </footer>
+
+</body>
+</html>

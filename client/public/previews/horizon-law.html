@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horizon Law Athens | Corporate &amp; Commercial Law Firm</title>
+  <meta name="description" content="Horizon Law is an Athens-based law firm specialising in corporate law, real estate transactions, immigration, and dispute resolution. Serving clients across Greece and internationally." />
+  <meta name="keywords" content="law firm Athens, lawyer Greece, corporate law Athens, real estate lawyer Athens, immigration lawyer Greece, legal services Athens, Greek law firm" />
+  <link rel="canonical" href="https://horizonlaw.gr/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Design: Authoritative Dark — EB Garamond serif + DM Sans, deep navy with warm gold */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0c1524;
+      --navy-2: #142035;
+      --navy-3: #1c2d47;
+      --gold: #b8975a;
+      --gold-light: #cca96e;
+      --cream: #f8f4ec;
+      --text-light: rgba(248,244,236,0.75);
+      --text-muted: #8a9ab5;
+      --border-dark: rgba(184,151,90,0.15);
+      --border-light: #e8e0d0;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--cream); line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 56px; height: 68px;
+      background: rgba(12,21,36,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-emblem {
+      width: 32px; height: 32px; border: 1.5px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-emblem svg { width: 18px; height: 18px; fill: var(--gold); }
+    .nav-logo-text { font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 500; color: var(--cream); letter-spacing: 0.04em; }
+    .nav-logo-text span { color: var(--gold); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 400; color: var(--text-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-cta {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 10px 24px; border: 1px solid var(--gold); color: var(--gold);
+      background: transparent; cursor: pointer; transition: all 0.25s;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--navy); }
+
+    /* HERO */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: flex-end;
+      padding: 0 56px 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80') center/cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, rgba(12,21,36,0.97) 0%, rgba(12,21,36,0.85) 50%, rgba(12,21,36,0.4) 100%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 700px; }
+    .hero-label {
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px; display: flex; align-items: center; gap: 14px;
+    }
+    .hero-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+    .hero-title {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(48px, 6vw, 80px); font-weight: 500; line-height: 1.05;
+      color: var(--cream); margin-bottom: 28px;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-light); }
+    .hero-sub { font-size: 16px; font-weight: 300; color: var(--text-light); max-width: 520px; margin-bottom: 44px; line-height: 1.8; }
+    .hero-actions { display: flex; gap: 16px; }
+    .btn-gold {
+      padding: 15px 36px; background: var(--gold); color: var(--navy);
+      font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      border: none; cursor: pointer; transition: background 0.25s;
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+    .btn-ghost {
+      padding: 15px 36px; background: transparent; color: var(--cream);
+      font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      border: 1px solid rgba(248,244,236,0.25); cursor: pointer; transition: all 0.25s;
+    }
+    .btn-ghost:hover { border-color: var(--cream); }
+    .hero-credentials {
+      position: absolute; right: 56px; bottom: 80px; z-index: 2;
+      display: flex; flex-direction: column; gap: 20px; text-align: right;
+    }
+    .cred-num { font-family: 'EB Garamond', serif; font-size: 40px; font-weight: 500; color: var(--gold); line-height: 1; }
+    .cred-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; }
+
+    /* PRACTICE AREAS */
+    .practice-section { padding: 100px 56px; background: var(--navy-2); }
+    .section-label { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .section-title { font-family: 'EB Garamond', serif; font-size: clamp(32px, 3.5vw, 48px); font-weight: 500; color: var(--cream); margin-bottom: 60px; line-height: 1.15; }
+    .section-title em { font-style: italic; color: var(--gold-light); }
+    .practice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-dark); }
+    .practice-item { padding: 44px 36px; background: var(--navy-2); transition: background 0.25s; cursor: default; }
+    .practice-item:hover { background: var(--navy-3); }
+    .practice-num { font-family: 'EB Garamond', serif; font-size: 44px; font-weight: 400; color: rgba(184,151,90,0.2); line-height: 1; margin-bottom: 20px; }
+    .practice-name { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--cream); margin-bottom: 12px; }
+    .practice-desc { font-size: 14px; font-weight: 300; color: var(--text-muted); line-height: 1.75; }
+
+    /* TEAM */
+    .team-section { padding: 100px 56px; background: var(--navy); }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
+    .team-card { }
+    .team-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; filter: grayscale(20%); }
+    .team-info { padding: 24px 0 0; }
+    .team-name { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--cream); }
+    .team-title { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
+    .team-bio { font-size: 13px; font-weight: 300; color: var(--text-muted); margin-top: 12px; line-height: 1.7; }
+
+    /* TESTIMONIALS */
+    .testimonials-section { padding: 100px 56px; background: var(--navy-2); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+    .testimonial-card { padding: 40px; border: 1px solid var(--border-dark); }
+    .testimonial-quote { font-family: 'EB Garamond', serif; font-size: 18px; font-style: italic; color: var(--cream); line-height: 1.6; margin-bottom: 24px; }
+    .testimonial-author { font-size: 13px; font-weight: 500; color: var(--gold); letter-spacing: 0.06em; }
+    .testimonial-role { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+    /* CONTACT */
+    .contact-section { padding: 100px 56px; background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .contact-info h2 { font-family: 'EB Garamond', serif; font-size: 40px; font-weight: 500; color: var(--navy); margin-bottom: 40px; }
+    .contact-detail { margin-bottom: 24px; }
+    .contact-detail-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .contact-detail-value { font-size: 15px; font-weight: 300; color: var(--navy); }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-input {
+      padding: 14px 16px; background: var(--cream); border: 1px solid var(--border-light);
+      color: var(--navy); font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder { color: #aaa; }
+    .form-input:focus { border-color: var(--gold); }
+    textarea.form-input { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-submit {
+      padding: 16px 40px; background: var(--navy); color: var(--cream);
+      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; border: none; cursor: pointer;
+      align-self: flex-start; transition: background 0.25s;
+    }
+    .form-submit:hover { background: var(--navy-3); }
+
+    /* FOOTER */
+    footer {
+      padding: 36px 56px; background: var(--navy-2); border-top: 1px solid var(--border-dark);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo { font-family: 'EB Garamond', serif; font-size: 18px; font-weight: 500; color: var(--cream); }
+    .footer-logo span { color: var(--gold); }
+    .footer-copy { font-size: 12px; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links, .nav-cta { display: none; }
+      .hero { padding: 0 20px 60px; }
+      .hero-credentials { display: none; }
+      .practice-section, .team-section, .testimonials-section { padding: 60px 20px; }
+      .practice-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-section { grid-template-columns: 1fr; padding: 60px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Horizon Law Athens",
+    "description": "Athens-based law firm specialising in corporate law, real estate, immigration, and dispute resolution.",
+    "url": "https://horizonlaw.gr",
+    "telephone": "+30 210 567 8901",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Akadimias 56",
+      "addressLocality": "Athens",
+      "postalCode": "106 79",
+      "addressCountry": "GR"
+    },
+    "openingHours": ["Mo-Fr 09:00-18:00"]
+  }
+  </script>
+
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-emblem">
+        <svg viewBox="0 0 24 24"><path d="M12 2L3 7v10l9 5 9-5V7L12 2zm0 2.18L19 8v8l-7 3.88L5 16V8l7-3.82z"/></svg>
+      </div>
+      <span class="nav-logo-text">Horizon<span>Law</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#practice">Practice Areas</a></li>
+      <li><a href="#team">Our Team</a></li>
+      <li><a href="#testimonials">Clients</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Book Consultation</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label">Corporate &amp; Commercial Law — Athens</p>
+      <h1 class="hero-title">Counsel You<br>Can <em>Rely On</em></h1>
+      <p class="hero-sub">Horizon Law provides trusted legal counsel to businesses, investors, and individuals navigating Greek and European law. Clear advice. Decisive action.</p>
+      <div class="hero-actions">
+        <button class="btn-gold">Book a Consultation</button>
+        <button class="btn-ghost">Our Practice Areas</button>
+      </div>
+    </div>
+    <div class="hero-credentials">
+      <div><div class="cred-num">200+</div><div class="cred-label">Clients Served</div></div>
+      <div><div class="cred-num">18</div><div class="cred-label">Years in Practice</div></div>
+      <div><div class="cred-num">4</div><div class="cred-label">Practice Areas</div></div>
+    </div>
+  </section>
+
+  <section class="practice-section" id="practice">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">Our Practice <em>Areas</em></h2>
+    <div class="practice-grid">
+      <div class="practice-item">
+        <div class="practice-num">01</div>
+        <div class="practice-name">Corporate &amp; Commercial</div>
+        <div class="practice-desc">Company formation, M&amp;A transactions, joint ventures, shareholder agreements, and ongoing corporate governance for businesses operating in Greece.</div>
+      </div>
+      <div class="practice-item">
+        <div class="practice-num">02</div>
+        <div class="practice-name">Real Estate &amp; Property</div>
+        <div class="practice-desc">Due diligence, purchase and sale transactions, lease agreements, and Golden Visa property acquisitions for domestic and international clients.</div>
+      </div>
+      <div class="practice-item">
+        <div class="practice-num">03</div>
+        <div class="practice-name">Immigration &amp; Residency</div>
+        <div class="practice-desc">Golden Visa applications, residence permits, citizenship by descent, and all immigration matters for individuals relocating to Greece.</div>
+      </div>
+      <div class="practice-item">
+        <div class="practice-num">04</div>
+        <div class="practice-name">Dispute Resolution</div>
+        <div class="practice-desc">Commercial litigation, arbitration, and mediation. We represent clients in Greek courts and before international arbitral tribunals.</div>
+      </div>
+      <div class="practice-item">
+        <div class="practice-num">05</div>
+        <div class="practice-name">Employment Law</div>
+        <div class="practice-desc">Employment contracts, redundancy procedures, workplace disputes, and HR compliance for companies operating under Greek labour law.</div>
+      </div>
+      <div class="practice-item">
+        <div class="practice-num">06</div>
+        <div class="practice-name">Tax &amp; Succession</div>
+        <div class="practice-desc">Tax planning, inheritance matters, estate administration, and cross-border succession planning for individuals and families.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section" id="team">
+    <p class="section-label">Our Team</p>
+    <h2 class="section-title">Meet the <em>Lawyers</em></h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <img class="team-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Dimitris Horizon, Senior Partner" loading="lazy" />
+        <div class="team-info">
+          <div class="team-name">Dimitris Horizon</div>
+          <div class="team-title">Senior Partner — Corporate Law</div>
+          <div class="team-bio">18 years of experience in corporate and commercial law. Advises multinational corporations and private equity funds on Greek market entry and M&amp;A.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <img class="team-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Elena Papadaki, Partner Real Estate" loading="lazy" />
+        <div class="team-info">
+          <div class="team-name">Elena Papadaki</div>
+          <div class="team-title">Partner — Real Estate &amp; Immigration</div>
+          <div class="team-bio">Specialist in Greek real estate transactions and Golden Visa programmes. Has assisted over 150 international clients with property acquisitions in Greece.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <img class="team-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80" alt="Nikos Stavros, Associate Dispute Resolution" loading="lazy" />
+        <div class="team-info">
+          <div class="team-name">Nikos Stavros</div>
+          <div class="team-title">Associate — Dispute Resolution</div>
+          <div class="team-bio">Experienced litigator representing clients in commercial disputes before Greek courts and international arbitration panels.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-section" id="testimonials">
+    <p class="section-label">Client Testimonials</p>
+    <h2 class="section-title">What Our Clients <em>Say</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Horizon Law guided us through a complex acquisition in Athens with exceptional professionalism. Their knowledge of Greek corporate law is outstanding."</p>
+        <div class="testimonial-author">James Whitfield</div>
+        <div class="testimonial-role">CEO, Whitfield Capital — London</div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Elena handled our Golden Visa application and property purchase seamlessly. The process was smooth and we felt fully supported throughout."</p>
+        <div class="testimonial-author">Sophie &amp; Marc Dubois</div>
+        <div class="testimonial-role">Golden Visa Clients — France</div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Reliable, responsive, and highly knowledgeable. Horizon Law has been our trusted legal partner in Greece for over five years."</p>
+        <div class="testimonial-author">Alexandros Petridis</div>
+        <div class="testimonial-role">Managing Director, Petridis Group — Athens</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-info">
+      <p class="section-label">Get in Touch</p>
+      <h2>Book a<br>Consultation</h2>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Office Address</div>
+        <div class="contact-detail-value">Akadimias 56, Athens 106 79, Greece</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Phone</div>
+        <div class="contact-detail-value">+30 210 567 8901</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Email</div>
+        <div class="contact-detail-value">enquiries@horizonlaw.gr</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Office Hours</div>
+        <div class="contact-detail-value">Monday – Friday: 9:00 – 18:00</div>
+      </div>
+    </div>
+    <form class="contact-form">
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Full Name" />
+        <input class="form-input" type="tel" placeholder="Phone Number" />
+      </div>
+      <input class="form-input" type="email" placeholder="Email Address" />
+      <select class="form-input">
+        <option value="" disabled selected>Practice Area</option>
+        <option>Corporate &amp; Commercial</option>
+        <option>Real Estate &amp; Property</option>
+        <option>Immigration &amp; Residency</option>
+        <option>Dispute Resolution</option>
+        <option>Employment Law</option>
+        <option>Tax &amp; Succession</option>
+        <option>Other</option>
+      </select>
+      <textarea class="form-input" placeholder="Briefly describe your legal matter..."></textarea>
+      <button type="submit" class="form-submit">Request Consultation</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Horizon<span>Law</span></div>
+    <div class="footer-copy">© 2025 Horizon Law Athens. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </footer>
+
+</body>
+</html>

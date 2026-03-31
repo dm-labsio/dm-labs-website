@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Little Stars Nursery Athens | Childcare &amp; Early Years Education</title>
+  <meta name="description" content="Little Stars Nursery in Chalandri, Athens offers nurturing childcare and early years education for children aged 6 months to 5 years. Bilingual programme available." />
+  <meta name="keywords" content="nursery Athens, childcare Chalandri, daycare Athens Greece, early years education Athens, bilingual nursery Greece, kindergarten Athens" />
+  <link rel="canonical" href="https://littlestarsnursery.gr/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Design: Warm Playful — Nunito rounded, warm cream with coral and sky accents */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #fffbf5;
+      --warm-white: #fff8ee;
+      --coral: #f06a50;
+      --coral-light: #f58b75;
+      --sky: #5bb8d4;
+      --sky-light: #7ecce6;
+      --yellow: #f5c842;
+      --green: #6abf7b;
+      --ink: #2d2416;
+      --text-muted: #8a7a65;
+      --border: #ede5d8;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 72px;
+      background: var(--cream); border-bottom: 2px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-star {
+      width: 36px; height: 36px; background: var(--yellow); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 800; color: var(--ink);
+    }
+    .nav-logo-text { font-size: 20px; font-weight: 800; color: var(--ink); }
+    .nav-logo-text span { color: var(--coral); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 15px; font-weight: 600; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--coral); }
+    .nav-cta {
+      padding: 10px 24px; background: var(--coral); color: white;
+      font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700;
+      border: none; border-radius: 100px; cursor: pointer; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--coral-light); }
+
+    /* HERO */
+    .hero {
+      padding: 80px 48px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      background: var(--warm-white);
+      position: relative; overflow: hidden;
+    }
+    .hero-blob-1 {
+      position: absolute; top: -80px; right: -80px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: rgba(91,184,212,0.12); pointer-events: none;
+    }
+    .hero-blob-2 {
+      position: absolute; bottom: -60px; left: 30%;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: rgba(240,106,80,0.08); pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; background: rgba(91,184,212,0.15); border-radius: 100px;
+      font-size: 13px; font-weight: 700; color: var(--sky); margin-bottom: 20px;
+      border: 1.5px solid rgba(91,184,212,0.3);
+    }
+    .hero-title {
+      font-size: clamp(36px, 4.5vw, 56px); font-weight: 800; line-height: 1.15;
+      color: var(--ink); margin-bottom: 20px;
+    }
+    .hero-title span { color: var(--coral); }
+    .hero-sub { font-size: 17px; font-weight: 400; color: var(--text-muted); margin-bottom: 36px; max-width: 460px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-coral {
+      padding: 14px 32px; background: var(--coral); color: white;
+      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      border: none; border-radius: 100px; cursor: pointer; transition: background 0.2s;
+    }
+    .btn-coral:hover { background: var(--coral-light); }
+    .btn-outline {
+      padding: 14px 32px; background: transparent; color: var(--ink);
+      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      border: 2px solid var(--border); border-radius: 100px; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--coral); color: var(--coral); }
+    .hero-trust { display: flex; gap: 24px; margin-top: 40px; flex-wrap: wrap; }
+    .trust-pill {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 16px; background: white; border-radius: 100px;
+      border: 1.5px solid var(--border); font-size: 13px; font-weight: 600; color: var(--ink);
+    }
+    .trust-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    .hero-img-wrap { position: relative; }
+    .hero-img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 24px;
+      display: block; box-shadow: 0 20px 60px rgba(45,36,22,0.12);
+    }
+    .hero-badge-float {
+      position: absolute; bottom: -16px; left: -16px;
+      background: white; border-radius: 16px; padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(45,36,22,0.12);
+      border: 2px solid var(--border);
+    }
+    .badge-num { font-size: 28px; font-weight: 800; color: var(--coral); line-height: 1; }
+    .badge-label { font-size: 12px; font-weight: 600; color: var(--text-muted); margin-top: 2px; }
+
+    /* PROGRAMMES */
+    .programmes-section { padding: 80px 48px; background: var(--cream); }
+    .section-tag { font-size: 13px; font-weight: 700; color: var(--coral); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .section-title { font-size: clamp(28px, 3vw, 40px); font-weight: 800; color: var(--ink); margin-bottom: 48px; line-height: 1.2; }
+    .programmes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .programme-card {
+      padding: 36px 28px; border-radius: 20px; background: white;
+      border: 2px solid var(--border); transition: all 0.25s; cursor: default;
+    }
+    .programme-card:hover { border-color: var(--coral); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(240,106,80,0.1); }
+    .programme-age {
+      display: inline-block; padding: 4px 14px; border-radius: 100px;
+      font-size: 12px; font-weight: 700; margin-bottom: 20px;
+    }
+    .age-baby { background: rgba(91,184,212,0.15); color: var(--sky); }
+    .age-toddler { background: rgba(240,106,80,0.12); color: var(--coral); }
+    .age-pre { background: rgba(106,191,123,0.15); color: var(--green); }
+    .programme-name { font-size: 22px; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
+    .programme-ages { font-size: 14px; font-weight: 600; color: var(--text-muted); margin-bottom: 16px; }
+    .programme-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+    .programme-features { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+    .feature-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+    .feature-check { width: 18px; height: 18px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .feature-check svg { width: 10px; height: 10px; stroke: white; fill: none; stroke-width: 3; }
+
+    /* ABOUT */
+    .about-section {
+      padding: 80px 48px; background: var(--warm-white);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .about-img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 24px; display: block; }
+    .about-text .section-title { margin-bottom: 20px; }
+    .about-body { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 24px; }
+    .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .value-item { padding: 20px; background: white; border-radius: 16px; border: 2px solid var(--border); }
+    .value-name { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+    .value-desc { font-size: 13px; color: var(--text-muted); }
+
+    /* TESTIMONIALS */
+    .testimonials-section { padding: 80px 48px; background: var(--cream); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .testimonial-card { padding: 28px; background: white; border-radius: 20px; border: 2px solid var(--border); }
+    .testimonial-text { font-size: 15px; color: var(--ink); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .testimonial-author { font-size: 14px; font-weight: 800; color: var(--ink); }
+    .testimonial-role { font-size: 13px; color: var(--text-muted); }
+
+    /* CONTACT */
+    .contact-section {
+      padding: 80px 48px; background: var(--coral);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+    }
+    .contact-info h2 { font-size: 36px; font-weight: 800; color: white; margin-bottom: 32px; }
+    .contact-detail { margin-bottom: 20px; }
+    .contact-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.65); margin-bottom: 6px; }
+    .contact-value { font-size: 16px; font-weight: 600; color: white; }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-input {
+      padding: 14px 18px; background: white; border: 2px solid transparent;
+      border-radius: 12px; color: var(--ink); font-family: 'Nunito', sans-serif; font-size: 15px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder { color: var(--text-muted); }
+    .form-input:focus { border-color: var(--ink); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-submit {
+      padding: 16px; background: var(--ink); color: white;
+      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800;
+      border: none; border-radius: 100px; cursor: pointer; transition: opacity 0.2s;
+    }
+    .form-submit:hover { opacity: 0.85; }
+
+    /* FOOTER */
+    footer {
+      padding: 32px 48px; background: var(--ink);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo { font-size: 18px; font-weight: 800; color: white; }
+    .footer-logo span { color: var(--coral); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 48px 20px; }
+      .hero-img-wrap { order: -1; }
+      .programmes-section, .testimonials-section { padding: 60px 20px; }
+      .programmes-grid { grid-template-columns: 1fr; }
+      .about-section { grid-template-columns: 1fr; padding: 60px 20px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-section { grid-template-columns: 1fr; padding: 60px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ChildCare",
+    "name": "Little Stars Nursery Athens",
+    "description": "Nurturing childcare and early years education for children aged 6 months to 5 years in Chalandri, Athens.",
+    "url": "https://littlestarsnursery.gr",
+    "telephone": "+30 210 678 9012",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Agias Paraskevis 14",
+      "addressLocality": "Chalandri, Athens",
+      "postalCode": "152 32",
+      "addressCountry": "GR"
+    },
+    "openingHours": ["Mo-Fr 07:30-18:30"]
+  }
+  </script>
+
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-star">&#9733;</div>
+      <span class="nav-logo-text">Little<span>Stars</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#programmes">Programmes</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#testimonials">Parents</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Book a Visit</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-blob-1"></div>
+    <div class="hero-blob-2"></div>
+    <div>
+      <div class="hero-tag">Chalandri, Athens — Ages 6 months to 5 years</div>
+      <h1 class="hero-title">Where Every Child<br><span>Shines Bright</span></h1>
+      <p class="hero-sub">A warm, nurturing environment where children learn, play, and grow. Bilingual Greek-English programme, qualified staff, and a home away from home.</p>
+      <div class="hero-actions">
+        <button class="btn-coral">Book a Visit</button>
+        <button class="btn-outline">Our Programmes</button>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-pill"><div class="trust-dot" style="background:var(--green)"></div>Ofsted-equivalent rated</div>
+        <div class="trust-pill"><div class="trust-dot" style="background:var(--sky)"></div>Bilingual programme</div>
+        <div class="trust-pill"><div class="trust-dot" style="background:var(--yellow)"></div>Open 7:30 – 18:30</div>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <img class="hero-img" src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80" alt="Children playing at Little Stars Nursery Athens" loading="lazy" />
+      <div class="hero-badge-float">
+        <div class="badge-num">12+</div>
+        <div class="badge-label">Years Caring<br>for Athens Families</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="programmes-section" id="programmes">
+    <div class="section-tag">Our Programmes</div>
+    <h2 class="section-title">Learning Through Play,<br>Every Step of the Way</h2>
+    <div class="programmes-grid">
+      <div class="programme-card">
+        <span class="programme-age age-baby">Baby Room</span>
+        <div class="programme-name">Tiny Explorers</div>
+        <div class="programme-ages">Ages 6 months – 18 months</div>
+        <div class="programme-desc">A gentle, sensory-rich environment where our youngest children develop at their own pace with one-to-one care and nurturing routines.</div>
+        <div class="programme-features">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>1:3 staff ratio</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Daily parent updates</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Sensory play sessions</div>
+        </div>
+      </div>
+      <div class="programme-card">
+        <span class="programme-age age-toddler">Toddler Room</span>
+        <div class="programme-name">Little Adventurers</div>
+        <div class="programme-ages">Ages 18 months – 3 years</div>
+        <div class="programme-desc">Structured play and early language development in a safe, stimulating space. Children begin our bilingual Greek-English programme.</div>
+        <div class="programme-features">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Bilingual sessions</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Music and movement</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Outdoor garden play</div>
+        </div>
+      </div>
+      <div class="programme-card">
+        <span class="programme-age age-pre">Pre-School</span>
+        <div class="programme-name">Rising Stars</div>
+        <div class="programme-ages">Ages 3 – 5 years</div>
+        <div class="programme-desc">School-readiness programme with structured learning, creative arts, early numeracy, and full bilingual Greek-English curriculum.</div>
+        <div class="programme-features">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>School readiness</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Full bilingual curriculum</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>STEM activities</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section" id="about">
+    <img class="about-img" src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&q=80" alt="Little Stars Nursery classroom Athens" loading="lazy" />
+    <div class="about-text">
+      <div class="section-tag">About Us</div>
+      <h2 class="section-title">A Place Where Children<br>Feel at Home</h2>
+      <p class="about-body">Founded in 2012, Little Stars Nursery has been a trusted part of the Chalandri community for over a decade. Our team of qualified early years educators creates a warm, stimulating environment where every child is valued as an individual.</p>
+      <p class="about-body">We are located at Agias Paraskevis 14, Chalandri, Athens — with easy access from Kifissia, Marousi, and central Athens.</p>
+      <div class="about-values">
+        <div class="value-item"><div class="value-name">Qualified Staff</div><div class="value-desc">All educators hold early years qualifications</div></div>
+        <div class="value-item"><div class="value-name">Nutritious Meals</div><div class="value-desc">Fresh, balanced meals prepared daily</div></div>
+        <div class="value-item"><div class="value-name">Safe Environment</div><div class="value-desc">CCTV, secure entry, and first-aid trained team</div></div>
+        <div class="value-item"><div class="value-name">Parent Portal</div><div class="value-desc">Daily updates, photos, and progress reports</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-section" id="testimonials">
+    <div class="section-tag">Parent Reviews</div>
+    <h2 class="section-title">What Athens Parents Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Little Stars has been wonderful for our daughter. She has come on so much with her English and she absolutely loves going every morning."</p>
+        <div class="testimonial-author">Sofia &amp; Giorgos A.</div>
+        <div class="testimonial-role">Parents of Eleni, age 3 — Chalandri</div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"The staff are so caring and professional. We get daily updates and photos which gives us real peace of mind. Highly recommend to any Athens family."</p>
+        <div class="testimonial-author">Katerina M.</div>
+        <div class="testimonial-role">Parent of Nikos, age 2 — Marousi</div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Our son started in the baby room and is now in Rising Stars. The progress he has made is remarkable. Little Stars feels like a second family."</p>
+        <div class="testimonial-author">Andreas &amp; Maria P.</div>
+        <div class="testimonial-role">Parents of Alexandros, age 4 — Kifissia</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-info">
+      <h2>Come and<br>Meet the Team</h2>
+      <div class="contact-detail">
+        <div class="contact-label">Address</div>
+        <div class="contact-value">Agias Paraskevis 14, Chalandri<br>Athens 152 32, Greece</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">+30 210 678 9012</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">hello@littlestarsnursery.gr</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-label">Hours</div>
+        <div class="contact-value">Monday – Friday: 7:30 – 18:30</div>
+      </div>
+    </div>
+    <form class="contact-form">
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Parent Name" />
+        <input class="form-input" type="tel" placeholder="Phone Number" />
+      </div>
+      <input class="form-input" type="email" placeholder="Email Address" />
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Child's Name" />
+        <input class="form-input" type="text" placeholder="Child's Age" />
+      </div>
+      <select class="form-input">
+        <option value="" disabled selected>Programme Interest</option>
+        <option>Tiny Explorers (6–18 months)</option>
+        <option>Little Adventurers (18m–3 years)</option>
+        <option>Rising Stars (3–5 years)</option>
+        <option>Not sure yet</option>
+      </select>
+      <button type="submit" class="form-submit">Book a Nursery Visit</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Little<span>Stars</span> Nursery</div>
+    <div class="footer-copy">© 2025 Little Stars Nursery Athens. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arcos Architecture Athens | Architectural Design Studio</title>
+  <meta name="description" content="Arcos Architecture is an Athens-based design studio specialising in residential, commercial, and interior architecture. Award-winning projects across Greece." />
+  <meta name="keywords" content="architecture studio Athens, architect Greece, residential architecture Athens, interior design Athens, building design Greece, architectural firm Athens" />
+  <link rel="canonical" href="https://arcosarchitecture.gr/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* Design: Brutalist Minimal — Syne display + Inter body, off-white with deep charcoal and terracotta */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #f4f1ec;
+      --white: #ffffff;
+      --charcoal: #1a1916;
+      --charcoal-2: #2d2b27;
+      --terra: #c4613a;
+      --terra-light: #d4775a;
+      --text-muted: #7a7568;
+      --border: #ddd9d0;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--paper); color: var(--charcoal); line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: var(--paper); border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800; color: var(--charcoal); letter-spacing: -0.02em; }
+    .nav-logo span { color: var(--terra); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--charcoal); }
+    .nav-cta {
+      font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
+      padding: 9px 22px; border: 1px solid var(--charcoal); color: var(--charcoal);
+      background: transparent; cursor: pointer; transition: all 0.2s;
+    }
+    .nav-cta:hover { background: var(--charcoal); color: var(--paper); }
+
+    /* HERO */
+    .hero {
+      padding-top: 64px;
+      display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh;
+    }
+    .hero-left {
+      padding: 80px 48px; display: flex; flex-direction: column; justify-content: flex-end;
+      background: var(--charcoal-2);
+    }
+    .hero-label {
+      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--terra); margin-bottom: 24px; display: flex; align-items: center; gap: 12px;
+    }
+    .hero-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--terra); }
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(48px, 5vw, 72px); font-weight: 800; line-height: 1.0;
+      color: var(--white); letter-spacing: -0.03em; margin-bottom: 32px;
+    }
+    .hero-sub { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.55); max-width: 380px; margin-bottom: 48px; line-height: 1.8; }
+    .hero-actions { display: flex; gap: 16px; }
+    .btn-terra {
+      padding: 14px 32px; background: var(--terra); color: white;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      border: none; cursor: pointer; transition: background 0.2s;
+    }
+    .btn-terra:hover { background: var(--terra-light); }
+    .btn-ghost-white {
+      padding: 14px 32px; background: transparent; color: rgba(255,255,255,0.7);
+      font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: all 0.2s;
+    }
+    .btn-ghost-white:hover { border-color: rgba(255,255,255,0.6); color: white; }
+    .hero-right {
+      position: relative; overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .hero-project-tag {
+      position: absolute; bottom: 32px; right: 32px;
+      background: var(--paper); padding: 16px 20px;
+    }
+    .project-tag-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+    .project-tag-name { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--charcoal); margin-top: 4px; }
+
+    /* PROJECTS */
+    .projects-section { padding: 100px 48px; background: var(--paper); }
+    .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
+    .section-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terra); margin-bottom: 12px; }
+    .section-title { font-family: 'Syne', sans-serif; font-size: clamp(32px, 3.5vw, 48px); font-weight: 800; color: var(--charcoal); letter-spacing: -0.02em; line-height: 1.1; }
+    .section-link { font-size: 13px; font-weight: 500; color: var(--terra); text-decoration: none; letter-spacing: 0.06em; border-bottom: 1px solid var(--terra); padding-bottom: 2px; }
+
+    .projects-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: 3px; }
+    .project-card { position: relative; overflow: hidden; cursor: pointer; background: var(--charcoal-2); }
+    .project-card:first-child { grid-row: span 2; }
+    .project-img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .project-card:first-child .project-img { min-height: 560px; }
+    .project-card:hover .project-img { transform: scale(1.04); }
+    .project-info {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 24px; background: linear-gradient(to top, rgba(26,25,22,0.9) 0%, transparent 100%);
+    }
+    .project-cat { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; }
+    .project-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: white; }
+    .project-loc { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+
+    /* SERVICES */
+    .services-section { padding: 100px 48px; background: var(--charcoal-2); }
+    .services-section .section-label { color: var(--terra); }
+    .services-section .section-title { color: var(--white); }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.06); margin-top: 60px; }
+    .service-item { padding: 40px 32px; background: var(--charcoal-2); }
+    .service-num { font-family: 'Syne', sans-serif; font-size: 40px; font-weight: 800; color: rgba(196,97,58,0.2); line-height: 1; margin-bottom: 20px; }
+    .service-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+    .service-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+    /* ABOUT */
+    .about-section { padding: 100px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
+    .about-text .section-title { margin-bottom: 24px; }
+    .about-body { font-size: 15px; font-weight: 300; color: var(--text-muted); line-height: 1.9; margin-bottom: 20px; }
+    .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; border-top: 1px solid var(--border); padding-top: 40px; }
+    .stat-num { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; color: var(--charcoal); line-height: 1; }
+    .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+
+    /* CONTACT */
+    .contact-section { padding: 100px 48px; background: var(--charcoal); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .contact-info h2 { font-family: 'Syne', sans-serif; font-size: 40px; font-weight: 800; color: var(--white); margin-bottom: 40px; letter-spacing: -0.02em; }
+    .contact-detail { margin-bottom: 24px; }
+    .contact-detail-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terra); margin-bottom: 8px; }
+    .contact-detail-value { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.75); }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-input {
+      padding: 14px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      color: white; font-family: 'Inter', sans-serif; font-size: 14px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.3); }
+    .form-input:focus { border-color: var(--terra); }
+    textarea.form-input { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-submit {
+      padding: 16px 40px; background: var(--terra); color: white;
+      font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; border: none; cursor: pointer;
+      align-self: flex-start; transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--terra-light); }
+
+    /* FOOTER */
+    footer {
+      padding: 32px 48px; background: var(--charcoal-2); border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800; color: white; }
+    .footer-logo span { color: var(--terra); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links, .nav-cta { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 48px 20px; min-height: 60vh; }
+      .hero-right { height: 50vw; }
+      .projects-section, .about-section { padding: 60px 20px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card:first-child { grid-row: span 1; }
+      .services-section { padding: 60px 20px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .about-section { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); }
+      .contact-section { grid-template-columns: 1fr; padding: 60px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Arcos Architecture Athens",
+    "description": "Award-winning architectural design studio based in Athens, Greece. Specialising in residential, commercial, and interior architecture.",
+    "url": "https://arcosarchitecture.gr",
+    "telephone": "+30 210 345 6789",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Skoufa 28",
+      "addressLocality": "Kolonaki, Athens",
+      "postalCode": "106 73",
+      "addressCountry": "GR"
+    }
+  }
+  </script>
+
+  <nav>
+    <div class="nav-logo">ARCOS<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">Studio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Start a Project</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-label">Athens Architecture Studio</p>
+      <h1 class="hero-title">Design<br>That<br>Endures</h1>
+      <p class="hero-sub">Residential, commercial, and interior architecture rooted in craft, context, and a deep respect for the built environment.</p>
+      <div class="hero-actions">
+        <button class="btn-terra">View Projects</button>
+        <button class="btn-ghost-white">Our Services</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&q=80" alt="Arcos Architecture Athens project" />
+      <div class="hero-project-tag">
+        <div class="project-tag-label">Featured Project</div>
+        <div class="project-tag-name">Kolonaki Residence, 2024</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section" id="projects">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Selected Work</p>
+        <h2 class="section-title">Recent Projects</h2>
+      </div>
+      <a href="#" class="section-link">View All Projects</a>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img class="project-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="Luxury villa Athens architecture" loading="lazy" />
+        <div class="project-info">
+          <div class="project-cat">Residential</div>
+          <div class="project-name">Ekali Private Villa</div>
+          <div class="project-loc">Ekali, Athens — 2024</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Office interior design Athens" loading="lazy" />
+        <div class="project-info">
+          <div class="project-cat">Commercial</div>
+          <div class="project-name">Syntagma Office</div>
+          <div class="project-loc">Syntagma, Athens — 2023</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-img" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80" alt="Interior design Athens apartment" loading="lazy" />
+        <div class="project-info">
+          <div class="project-cat">Interior</div>
+          <div class="project-name">Glyfada Apartment</div>
+          <div class="project-loc">Glyfada, Athens — 2023</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img class="project-img" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Modern building Athens architecture" loading="lazy" />
+        <div class="project-info">
+          <div class="project-cat">Residential</div>
+          <div class="project-name">Kifissia Townhouse</div>
+          <div class="project-loc">Kifissia, Athens — 2022</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section" id="services">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-num">01</div>
+        <div class="service-name">Residential Architecture</div>
+        <div class="service-desc">New builds, extensions, and renovations for private homes across Athens and the wider Attica region.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">02</div>
+        <div class="service-name">Commercial Design</div>
+        <div class="service-desc">Office spaces, retail environments, hospitality, and mixed-use developments designed for performance and identity.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">03</div>
+        <div class="service-name">Interior Architecture</div>
+        <div class="service-desc">Considered interiors that balance aesthetics, function, and the specific character of each space and client.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">04</div>
+        <div class="service-name">Urban Planning</div>
+        <div class="service-desc">Master planning, feasibility studies, and planning applications for larger-scale urban and mixed-use projects.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section" id="about">
+    <img class="about-img" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="Arcos Architecture studio Athens" loading="lazy" />
+    <div class="about-text">
+      <p class="section-label">The Studio</p>
+      <h2 class="section-title">Architecture<br>as Craft</h2>
+      <p class="about-body">Arcos Architecture was founded in Athens in 2009 by Nikos Arcos. The studio operates at the intersection of rigorous design thinking and deep contextual sensitivity, producing work that is rooted in place and built to last.</p>
+      <p class="about-body">Based in Kolonaki, we work with private clients, developers, and institutions across Greece and internationally.</p>
+      <div class="about-stats">
+        <div><div class="stat-num">85+</div><div class="stat-label">Projects Completed</div></div>
+        <div><div class="stat-num">15</div><div class="stat-label">Years in Practice</div></div>
+        <div><div class="stat-num">7</div><div class="stat-label">Design Awards</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-info">
+      <p class="section-label">Get in Touch</p>
+      <h2>Start a<br>Conversation</h2>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Studio Address</div>
+        <div class="contact-detail-value">Skoufa 28, Kolonaki<br>Athens 106 73, Greece</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Phone</div>
+        <div class="contact-detail-value">+30 210 345 6789</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Email</div>
+        <div class="contact-detail-value">studio@arcosarchitecture.gr</div>
+      </div>
+    </div>
+    <form class="contact-form">
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Name" />
+        <input class="form-input" type="tel" placeholder="Phone" />
+      </div>
+      <input class="form-input" type="email" placeholder="Email" />
+      <select class="form-input">
+        <option value="" disabled selected>Project Type</option>
+        <option>Residential — New Build</option>
+        <option>Residential — Renovation</option>
+        <option>Commercial</option>
+        <option>Interior Architecture</option>
+        <option>Other</option>
+      </select>
+      <textarea class="form-input" placeholder="Tell us about your project..."></textarea>
+      <button type="submit" class="form-submit">Send Enquiry</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-logo">ARCOS<span>.</span></div>
+    <div class="footer-copy">© 2025 Arcos Architecture Athens. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </footer>
+
+</body>
+</html>

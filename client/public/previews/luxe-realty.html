@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxe Realty Athens | Luxury Property &amp; Real Estate Agency</title>
+  <meta name="description" content="Luxe Realty is Athens' premier luxury property agency. We specialise in high-end residential sales, Golden Visa investments, and exclusive rentals across Athens, Glyfada, and the Greek islands." />
+  <meta name="keywords" content="luxury real estate Athens, property agency Greece, Golden Visa Athens, luxury apartments Athens, villas for sale Greece, Glyfada property, Kolonaki real estate" />
+  <link rel="canonical" href="https://luxerealty.gr/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Design: Luxury Editorial — Cormorant Garamond serif + Jost, deep black with champagne gold */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a08;
+      --dark: #111110;
+      --dark-2: #1a1a17;
+      --champagne: #c9a96e;
+      --champagne-light: #d9bb88;
+      --cream: #f5f0e8;
+      --text-light: rgba(245,240,232,0.7);
+      --text-muted: #888880;
+      --border-dark: rgba(201,169,110,0.12);
+      --border-light: #e0d8c8;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--black); color: var(--cream); line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 56px; height: 72px;
+      background: rgba(10,10,8,0.9); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--cream); letter-spacing: 0.12em; text-transform: uppercase; }
+    .nav-logo span { color: var(--champagne); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-cta {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 10px 24px; border: 1px solid var(--champagne); color: var(--champagne);
+      background: transparent; cursor: pointer; transition: all 0.25s;
+    }
+    .nav-cta:hover { background: var(--champagne); color: var(--black); }
+
+    /* HERO */
+    .hero {
+      position: relative; height: 100vh; display: flex; align-items: flex-end;
+      padding: 0 56px 80px; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80') center/cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,8,0.95) 0%, rgba(10,10,8,0.5) 50%, rgba(10,10,8,0.2) 100%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 680px; }
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--champagne); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--champagne); }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 7vw, 96px); font-weight: 300; line-height: 0.95;
+      color: var(--cream); margin-bottom: 28px; letter-spacing: -0.01em;
+    }
+    .hero-title em { font-style: italic; color: var(--champagne-light); }
+    .hero-sub { font-size: 15px; font-weight: 300; color: var(--text-light); max-width: 480px; margin-bottom: 44px; line-height: 1.85; }
+    .hero-actions { display: flex; gap: 16px; }
+    .btn-champagne {
+      padding: 15px 40px; background: var(--champagne); color: var(--black);
+      font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+      border: none; cursor: pointer; transition: background 0.25s;
+    }
+    .btn-champagne:hover { background: var(--champagne-light); }
+    .btn-outline {
+      padding: 15px 40px; background: transparent; color: var(--cream);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+      border: 1px solid rgba(245,240,232,0.25); cursor: pointer; transition: all 0.25s;
+    }
+    .btn-outline:hover { border-color: var(--cream); }
+    .hero-stats {
+      position: absolute; right: 56px; bottom: 80px; z-index: 2;
+      display: flex; gap: 40px;
+    }
+    .stat-item { text-align: right; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: var(--champagne); line-height: 1; }
+    .stat-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-top: 6px; }
+
+    /* SEARCH BAR */
+    .search-bar {
+      background: var(--dark-2); border-top: 1px solid var(--border-dark);
+      padding: 28px 56px; display: flex; gap: 16px; align-items: flex-end;
+    }
+    .search-field { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+    .search-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--champagne); }
+    .search-input {
+      padding: 12px 16px; background: rgba(255,255,255,0.04); border: 1px solid var(--border-dark);
+      color: var(--cream); font-family: 'Jost', sans-serif; font-size: 14px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input::placeholder { color: var(--text-muted); }
+    .search-input:focus { border-color: var(--champagne); }
+    .search-btn {
+      padding: 12px 32px; background: var(--champagne); color: var(--black);
+      font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+      border: none; cursor: pointer; white-space: nowrap; transition: background 0.25s;
+    }
+    .search-btn:hover { background: var(--champagne-light); }
+
+    /* FEATURED PROPERTIES */
+    .properties-section { padding: 100px 56px; background: var(--dark); }
+    .section-eyebrow { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--champagne); margin-bottom: 14px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 54px); font-weight: 300; color: var(--cream); margin-bottom: 60px; line-height: 1.1; }
+    .section-title em { font-style: italic; }
+    .properties-grid { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: auto auto; gap: 3px; }
+    .property-card { position: relative; overflow: hidden; cursor: pointer; background: var(--dark-2); }
+    .property-card:first-child { grid-row: span 2; }
+    .property-img { width: 100%; height: 100%; min-height: 300px; object-fit: cover; display: block; transition: transform 0.7s ease; }
+    .property-card:first-child .property-img { min-height: 600px; }
+    .property-card:hover .property-img { transform: scale(1.04); }
+    .property-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,8,0.92) 0%, transparent 55%);
+      padding: 28px; display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .property-type { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--champagne); margin-bottom: 8px; }
+    .property-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--cream); }
+    .property-card:first-child .property-name { font-size: 32px; }
+    .property-loc { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    .property-price { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--champagne); margin-top: 8px; }
+    .property-card:first-child .property-price { font-size: 28px; }
+
+    /* SERVICES */
+    .services-section { padding: 100px 56px; background: var(--black); }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border-dark); margin-top: 60px; }
+    .service-item { padding: 44px 32px; background: var(--black); }
+    .service-num { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: rgba(201,169,110,0.18); line-height: 1; margin-bottom: 20px; }
+    .service-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--cream); margin-bottom: 12px; }
+    .service-desc { font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.75; }
+
+    /* CONTACT */
+    .contact-section { padding: 100px 56px; background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .contact-info h2 { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--black); margin-bottom: 40px; line-height: 1.1; }
+    .contact-info h2 em { font-style: italic; color: var(--champagne); }
+    .contact-detail { margin-bottom: 24px; }
+    .contact-detail-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--champagne); margin-bottom: 8px; }
+    .contact-detail-value { font-size: 15px; font-weight: 300; color: var(--black); }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-input {
+      padding: 14px 16px; background: white; border: 1px solid var(--border-light);
+      color: var(--black); font-family: 'Jost', sans-serif; font-size: 14px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder { color: #aaa; }
+    .form-input:focus { border-color: var(--champagne); }
+    textarea.form-input { resize: vertical; min-height: 110px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-submit {
+      padding: 16px 40px; background: var(--black); color: var(--cream);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+      border: none; cursor: pointer; align-self: flex-start; transition: background 0.25s;
+    }
+    .form-submit:hover { background: var(--dark-2); }
+
+    /* FOOTER */
+    footer {
+      padding: 36px 56px; background: var(--dark-2); border-top: 1px solid var(--border-dark);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; color: var(--cream); letter-spacing: 0.1em; text-transform: uppercase; }
+    .footer-logo span { color: var(--champagne); }
+    .footer-copy { font-size: 12px; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--champagne); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links, .nav-cta { display: none; }
+      .hero { padding: 0 20px 60px; }
+      .hero-stats { display: none; }
+      .search-bar { flex-direction: column; padding: 24px 20px; }
+      .properties-section, .services-section { padding: 60px 20px; }
+      .properties-grid { grid-template-columns: 1fr; }
+      .property-card:first-child { grid-row: span 1; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .contact-section { grid-template-columns: 1fr; padding: 60px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Luxe Realty Athens",
+    "description": "Premier luxury property agency in Athens specialising in high-end residential sales, Golden Visa investments, and exclusive rentals.",
+    "url": "https://luxerealty.gr",
+    "telephone": "+30 210 234 5678",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Voukourestiou 18",
+      "addressLocality": "Kolonaki, Athens",
+      "postalCode": "106 71",
+      "addressCountry": "GR"
+    },
+    "openingHours": ["Mo-Fr 09:00-19:00", "Sa 10:00-16:00"]
+  }
+  </script>
+
+  <nav>
+    <div class="nav-logo">Luxe<span>.</span>Realty</div>
+    <ul class="nav-links">
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#golden-visa">Golden Visa</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Book Viewing</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Luxury Real Estate — Athens, Greece</p>
+      <h1 class="hero-title">Find Your<br><em>Exceptional</em><br>Property</h1>
+      <p class="hero-sub">Athens' most prestigious residential properties, curated for discerning buyers and investors. From Kolonaki penthouses to Glyfada seafront villas.</p>
+      <div class="hero-actions">
+        <button class="btn-champagne">View Properties</button>
+        <button class="btn-outline">Golden Visa Guide</button>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">320+</div><div class="stat-label">Properties Sold</div></div>
+      <div class="stat-item"><div class="stat-num">14</div><div class="stat-label">Years in Athens</div></div>
+    </div>
+  </section>
+
+  <div class="search-bar">
+    <div class="search-field">
+      <label class="search-label">Location</label>
+      <input class="search-input" type="text" placeholder="Kolonaki, Glyfada, Kifissia..." />
+    </div>
+    <div class="search-field">
+      <label class="search-label">Property Type</label>
+      <select class="search-input">
+        <option>All Types</option>
+        <option>Apartment</option>
+        <option>Villa</option>
+        <option>Penthouse</option>
+        <option>Townhouse</option>
+      </select>
+    </div>
+    <div class="search-field">
+      <label class="search-label">Budget</label>
+      <select class="search-input">
+        <option>Any Budget</option>
+        <option>€250k – €500k</option>
+        <option>€500k – €1M</option>
+        <option>€1M – €3M</option>
+        <option>€3M+</option>
+      </select>
+    </div>
+    <button class="search-btn">Search</button>
+  </div>
+
+  <section class="properties-section" id="properties">
+    <p class="section-eyebrow">Featured Listings</p>
+    <h2 class="section-title">Exceptional <em>Properties</em></h2>
+    <div class="properties-grid">
+      <div class="property-card">
+        <img class="property-img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80" alt="Luxury penthouse Athens Kolonaki" loading="lazy" />
+        <div class="property-overlay">
+          <div class="property-type">Penthouse — For Sale</div>
+          <div class="property-name">Kolonaki Sky Penthouse</div>
+          <div class="property-loc">Kolonaki, Athens — 280 sqm, 4 bed</div>
+          <div class="property-price">€2,400,000</div>
+        </div>
+      </div>
+      <div class="property-card">
+        <img class="property-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Luxury villa Glyfada Athens" loading="lazy" />
+        <div class="property-overlay">
+          <div class="property-type">Villa — For Sale</div>
+          <div class="property-name">Glyfada Seafront Villa</div>
+          <div class="property-loc">Glyfada, Athens — 450 sqm</div>
+          <div class="property-price">€3,800,000</div>
+        </div>
+      </div>
+      <div class="property-card">
+        <img class="property-img" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Modern apartment Kifissia Athens" loading="lazy" />
+        <div class="property-overlay">
+          <div class="property-type">Apartment — For Sale</div>
+          <div class="property-name">Kifissia Modern Apartment</div>
+          <div class="property-loc">Kifissia, Athens — 140 sqm</div>
+          <div class="property-price">€680,000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section" id="services">
+    <p class="section-eyebrow">What We Offer</p>
+    <h2 class="section-title">Our <em>Services</em></h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-num">01</div>
+        <div class="service-name">Property Sales</div>
+        <div class="service-desc">Exclusive listings across Athens' most sought-after neighbourhoods. Discreet, professional, and results-driven.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">02</div>
+        <div class="service-name">Golden Visa</div>
+        <div class="service-desc">Full-service Golden Visa property acquisition. We identify qualifying properties and coordinate the entire legal process.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">03</div>
+        <div class="service-name">Luxury Rentals</div>
+        <div class="service-desc">Short and long-term luxury rentals in Athens and the Greek islands. Managed properties and concierge services available.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">04</div>
+        <div class="service-name">Investment Advisory</div>
+        <div class="service-desc">Market analysis, yield projections, and portfolio strategy for property investors targeting the Greek real estate market.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-info">
+      <p class="section-eyebrow">Get in Touch</p>
+      <h2>Find Your<br><em>Dream Property</em></h2>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Office</div>
+        <div class="contact-detail-value">Voukourestiou 18, Kolonaki<br>Athens 106 71, Greece</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Phone</div>
+        <div class="contact-detail-value">+30 210 234 5678</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Email</div>
+        <div class="contact-detail-value">enquiries@luxerealty.gr</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Hours</div>
+        <div class="contact-detail-value">Mon – Fri: 9:00 – 19:00<br>Sat: 10:00 – 16:00</div>
+      </div>
+    </div>
+    <form class="contact-form">
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Full Name" />
+        <input class="form-input" type="tel" placeholder="Phone Number" />
+      </div>
+      <input class="form-input" type="email" placeholder="Email Address" />
+      <select class="form-input">
+        <option value="" disabled selected>I am interested in...</option>
+        <option>Buying a Property</option>
+        <option>Golden Visa Investment</option>
+        <option>Renting a Property</option>
+        <option>Selling a Property</option>
+        <option>Investment Advisory</option>
+      </select>
+      <select class="form-input">
+        <option value="" disabled selected>Budget Range</option>
+        <option>€250k – €500k</option>
+        <option>€500k – €1M</option>
+        <option>€1M – €3M</option>
+        <option>€3M+</option>
+      </select>
+      <textarea class="form-input" placeholder="Tell us what you are looking for..."></textarea>
+      <button type="submit" class="form-submit">Send Enquiry</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Luxe<span>.</span>Realty</div>
+    <div class="footer-copy">© 2025 Luxe Realty Athens. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </footer>
+
+</body>
+</html>
