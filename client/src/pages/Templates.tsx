@@ -1156,31 +1156,26 @@ export default function Templates() {
   const [location] = useLocation();
   const [activeIndustry, setActiveIndustry] = useState("all");
   const [selectedTemplate, setSelectedTemplate] = useState<typeof TEMPLATES[0] | null>(null);
-  // Track whether we pushed a history entry for the modal
-  const modalHistoryPushed = useRef(false);
+  // Guard so the ?open= / ?industry= effect only runs once on mount
+  const urlParamHandled = useRef(false);
 
-  // Open modal: push a single hash entry so browser back closes it
+  // Open modal: push a single history entry so browser back can close it
   const openModal = (tpl: typeof TEMPLATES[0]) => {
     setSelectedTemplate(tpl);
     window.history.pushState({ modal: true }, "");
-    modalHistoryPushed.current = true;
   };
 
-  // Close modal: if we pushed a history entry, pop it; otherwise just clear state
+  // Close modal: always close immediately — no async history.back() calls.
+  // The popstate listener handles the browser-back case separately.
   const closeModal = () => {
-    if (modalHistoryPushed.current) {
-      modalHistoryPushed.current = false;
-      window.history.back();
-    } else {
-      setSelectedTemplate(null);
-    }
+    setSelectedTemplate(null);
   };
 
   // Listen for browser back button while modal is open
   useEffect(() => {
-    const onPopState = () => {
+    const onPopState = (e: PopStateEvent) => {
+      // Only intercept if the popped state was our modal entry
       if (selectedTemplate) {
-        modalHistoryPushed.current = false;
         setSelectedTemplate(null);
       }
     };
@@ -1188,7 +1183,11 @@ export default function Templates() {
     return () => window.removeEventListener("popstate", onPopState);
   }, [selectedTemplate]);
 
+  // Handle URL params — run only once on mount to avoid re-open loops
   useEffect(() => {
+    if (urlParamHandled.current) return;
+    urlParamHandled.current = true;
+
     const params = new URLSearchParams(window.location.search);
     // Handle ?industry= filter
     const industry = params.get("industry");
@@ -1200,13 +1199,12 @@ export default function Templates() {
     if (openId) {
       const tpl = TEMPLATES.find(t => t.id === openId);
       if (tpl) {
+        // Clean the URL first so closing the modal doesn't re-trigger open
+        window.history.replaceState(null, "", window.location.pathname);
         openModal(tpl);
-        // Clean the URL so the modal can be closed without re-opening
-        const newUrl = window.location.pathname;
-        window.history.replaceState({ modal: true }, "", newUrl);
       }
     }
-  }, [location]);
+  }, []);
 
   const filtered = (() => {
     if (activeIndustry === "all") {
