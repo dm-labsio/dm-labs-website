@@ -222,110 +222,139 @@ function BrowserFrame({ children, url = "example.com" }: { children: React.React
 // ─── Template Card Preview ────────────────────────────────────────────────────
 // For live-preview templates: responsive iframe thumbnail that scales to actual card width.
 // Uses a ResizeObserver to compute the correct scale factor dynamically on any screen size.
+// ─── Template Card Preview ────────────────────────────────────────────────────
+// Static crafted visual: shows the template palette, style label, mock layout sketch,
+// and a "LIVE PREVIEW" badge. Fully responsive, no iframes, works on any screen size.
 function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(0.31);
   const t = template as any;
+  const palette: string[] = t.palette || ["#1a1a2e", "#16213e", "#0f3460", "#e94560", "#f5f5f5"];
+  const [bg, accent1, accent2, accent3] = palette;
+  const styleLabel: string = t.styleLabel || t.tagline || "";
+  const name: string = template.name;
 
-   useEffect(() => {
-    if (!t.livePreview) return;
-    const el = containerRef.current;
-    if (!el) return;
-    // Render iframe at 768px (tablet breakpoint) so it scales well on all screen sizes.
-    // On a 360px mobile card: scale = 360/768 = 0.47 (much better than 360/1280 = 0.28)
-    const IFRAME_W = 768;
-    const update = () => {
-      const w = el.offsetWidth;
-      if (w > 0) setScale(w / IFRAME_W);
-    };
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, [t.livePreview]);
-  // Live preview templates: show a responsive iframe thumbnail
-  if (t.livePreview && t.previewUrl) {
-    const IFRAME_W = 768;
-    const [color1, color2] = t.palette || ["#1a1a2e", "#16213e"];
-    // navHeight on the mini-site is ~68px; after scaling that becomes scale*68px.
-    // We shift the wrapper up by that amount so the hero (not the nav) fills the card.
-    const navOffset = Math.round(scale * 68);
-    return (
-      <div
-        ref={containerRef}
-        className="relative w-full overflow-hidden"
-        style={{
-          height: "280px",
-          borderRadius: "12px 12px 0 0",
-          background: `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`,
-        }}
-      >
-        {/* Scaled-down iframe  -  pointerEvents:none so clicks pass through to the card */}
-        <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-          <div style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            // Scale from top-left, then shift right to center within the container.
-            // containerWidth * (1 - scale) / 2 centers the scaled element.
-            transform: `scale(${scale})`,
-            transformOrigin: "top left",
-            width: `${IFRAME_W}px`,
-            // Extra height to cover the nav area: we scroll past navOffset px of the iframe
-            height: `${Math.ceil((280 + navOffset) / scale)}px`,
-            marginTop: `-${navOffset}px`,
-          }}>
-            <iframe
-              src={t.previewUrl}
-              title={`${template.name} card preview`}
-              style={{ width: "100%", height: "100%", border: "none", display: "block" }}
-              loading="lazy"
-              tabIndex={-1}
-              sandbox="allow-scripts allow-same-origin"
-            />
-          </div>
-        </div>
-        {/* Gradient fade at bottom */}
-        <div style={{
-          position: "absolute", bottom: 0, left: 0, right: 0, height: "70px",
-          background: `linear-gradient(to top, ${color1}cc 0%, transparent 100%)`,
-          pointerEvents: "none",
-        }} />
-        {/* Live badge */}
-        <div style={{
-          position: "absolute", top: "10px", right: "10px",
-          background: "rgba(0,0,0,0.55)", backdropFilter: "blur(8px)",
-          borderRadius: "20px", padding: "3px 10px",
-          display: "flex", alignItems: "center", gap: "5px",
-        }}>
-          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 6px #4ade80" }} />
-          <span style={{ color: "#fff", fontSize: "10px", fontWeight: 600, letterSpacing: "0.05em" }}>LIVE PREVIEW</span>
-        </div>
-      </div>
-    );
-  }
+  // Determine text brightness based on bg darkness
+  const isDark = (() => {
+    const hex = bg.replace("#", "");
+    const r = parseInt(hex.slice(0, 2), 16);
+    const g = parseInt(hex.slice(2, 4), 16);
+    const b = parseInt(hex.slice(4, 6), 16);
+    return (r * 0.299 + g * 0.587 + b * 0.114) < 128;
+  })();
+  const textColor = isDark ? "rgba(255,255,255,0.92)" : "rgba(0,0,0,0.85)";
+  const subColor = isDark ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.4)";
+  const lineColor = isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.1)";
 
   return (
     <div
-      className="relative w-full"
+      className="relative w-full overflow-hidden"
       style={{
         height: "280px",
         borderRadius: "12px 12px 0 0",
-        overflow: "hidden",
-        background: "#e8eaf0",
+        background: `linear-gradient(145deg, ${bg} 0%, ${accent1} 100%)`,
       }}
     >
-      <img
-        src={template.images.card}
-        alt={`${template.name} preview`}
-        loading="lazy"
-        decoding="async"
-        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-      />
+      {/* Subtle diagonal line pattern overlay */}
+      <div style={{
+        position: "absolute", inset: 0, opacity: 0.06,
+        backgroundImage: "repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 0, transparent 50%)",
+        backgroundSize: "8px 8px",
+        color: isDark ? "#fff" : "#000",
+        pointerEvents: "none",
+      }} />
+
+      {/* Mock browser chrome bar */}
+      <div style={{
+        position: "absolute", top: 0, left: 0, right: 0,
+        height: "28px",
+        background: isDark ? "rgba(0,0,0,0.35)" : "rgba(255,255,255,0.2)",
+        backdropFilter: "blur(4px)",
+        borderBottom: `1px solid ${lineColor}`,
+        display: "flex", alignItems: "center", padding: "0 10px", gap: "6px",
+      }}>
+        {/* Traffic lights */}
+        {["#ff5f57","#febc2e","#28c840"].map((c, i) => (
+          <div key={i} style={{ width: "7px", height: "7px", borderRadius: "50%", background: c, opacity: 0.8 }} />
+        ))}
+        {/* URL bar */}
+        <div style={{
+          flex: 1, marginLeft: "8px",
+          height: "14px", borderRadius: "4px",
+          background: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}>
+          <span style={{ fontSize: "8px", color: subColor, letterSpacing: "0.02em" }}>{t.domain || "example.com"}</span>
+        </div>
+      </div>
+
+      {/* Main content area - mock hero layout */}
+      <div style={{ position: "absolute", top: "28px", left: 0, right: 0, bottom: 0, padding: "16px 18px 14px" }}>
+        {/* Mock nav line */}
+        <div style={{ display: "flex", gap: "8px", marginBottom: "14px", alignItems: "center" }}>
+          <div style={{ width: "28px", height: "6px", borderRadius: "3px", background: accent2, opacity: 0.9 }} />
+          <div style={{ flex: 1, display: "flex", gap: "6px", justifyContent: "flex-end" }}>
+            {[40, 32, 36, 28].map((w, i) => (
+              <div key={i} style={{ width: `${w}px`, height: "4px", borderRadius: "2px", background: isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)" }} />
+            ))}
+          </div>
+        </div>
+
+        {/* Hero text block */}
+        <div style={{ marginBottom: "10px" }}>
+          <div style={{ fontSize: "11px", letterSpacing: "0.1em", textTransform: "uppercase", color: accent3, fontWeight: 600, marginBottom: "5px", opacity: 0.85 }}>
+            {styleLabel}
+          </div>
+          <div style={{ fontSize: "18px", fontWeight: 800, color: textColor, lineHeight: 1.15, marginBottom: "6px", letterSpacing: "-0.02em" }}>
+            {name}
+          </div>
+          {/* Mock subtitle lines */}
+          <div style={{ width: "70%", height: "3px", borderRadius: "2px", background: isDark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.12)", marginBottom: "3px" }} />
+          <div style={{ width: "50%", height: "3px", borderRadius: "2px", background: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)" }} />
+        </div>
+
+        {/* Mock CTA button */}
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: "5px",
+          padding: "5px 12px", borderRadius: "6px",
+          background: accent2, marginBottom: "14px",
+        }}>
+          <div style={{ width: "32px", height: "4px", borderRadius: "2px", background: isDark ? "rgba(255,255,255,0.9)" : "rgba(0,0,0,0.7)" }} />
+          <div style={{ width: "0", height: "0", borderTop: "3px solid transparent", borderBottom: "3px solid transparent", borderLeft: `5px solid ${isDark ? "rgba(255,255,255,0.9)" : "rgba(0,0,0,0.7)"}` }} />
+        </div>
+
+        {/* Palette swatches row */}
+        <div style={{ display: "flex", gap: "4px", alignItems: "center" }}>
+          {palette.slice(0, 5).map((color, i) => (
+            <div key={i} style={{
+              width: "16px", height: "16px", borderRadius: "50%",
+              background: color,
+              border: `1.5px solid ${isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)"}`,
+              boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+            }} />
+          ))}
+          <span style={{ fontSize: "9px", color: subColor, marginLeft: "4px", letterSpacing: "0.04em" }}>Colour palette</span>
+        </div>
+      </div>
+
+      {/* Bottom gradient fade */}
+      <div style={{
+        position: "absolute", bottom: 0, left: 0, right: 0, height: "50px",
+        background: `linear-gradient(to top, ${bg}ee 0%, transparent 100%)`,
+        pointerEvents: "none",
+      }} />
+
+      {/* Live badge */}
+      <div style={{
+        position: "absolute", top: "36px", right: "10px",
+        background: "rgba(0,0,0,0.5)", backdropFilter: "blur(8px)",
+        borderRadius: "20px", padding: "3px 8px",
+        display: "flex", alignItems: "center", gap: "4px",
+      }}>
+        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 5px #4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "9px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
     </div>
   );
 }
-
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
   { id: "all", label: "All Industries", icon: "✦" },
@@ -448,7 +477,7 @@ const TEMPLATES = [
     paletteNames: ["Dark Navy", "Navy", "Blue", "Light Blue", "Ice White"],
     styleLabel: "Clean Clinical",
     livePreview: true,
-    previewUrl: "/previews/elara-dental.html",
+    previewUrl: "/previews/dr-elara-dental.html",
     features: [
       "Professional hero with booking CTA",
       "Dental services showcase",
@@ -1063,7 +1092,7 @@ export default function Templates() {
         <div className="relative container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>Website Templates</p>
-            <h1 className="text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Find Your Perfect
               <span className="block" style={{ background: "linear-gradient(135deg, #5B8CFF, #6FE3FF, #8B5CFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 Website Style
@@ -1081,23 +1110,32 @@ export default function Templates() {
 
       {/* Sticky Industry Filter */}
       <section className="sticky top-[72px] z-30 py-4" style={{ background: "rgba(246,246,244,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(226,229,234,0.6)" }}>
-        <div className="container">
-          <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}>
-            {INDUSTRIES.map(industry => (
-              <button
-                key={industry.id}
-                onClick={() => setActiveIndustry(industry.id)}
-                className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 flex-shrink-0"
-                style={
-                  activeIndustry === industry.id
-                    ? { background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)", color: "#fff", boxShadow: "0 4px 12px rgba(91,140,255,0.3)" }
-                    : { background: "#fff", color: "#6B7280", border: "1px solid #E5E7EB" }
-                }
-              >
-                {industry.label}
-              </button>
-            ))}
-          </div>
+        {/* Scroll container goes full-width OUTSIDE .container so it can scroll edge-to-edge on mobile */}
+        <div
+          className="flex gap-2 overflow-x-auto"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            WebkitOverflowScrolling: "touch",
+            paddingLeft: "max(16px, calc((100vw - 1280px) / 2 + 16px))",
+            paddingRight: "max(16px, calc((100vw - 1280px) / 2 + 16px))",
+            paddingBottom: "2px",
+          } as React.CSSProperties}
+        >
+          {INDUSTRIES.map(industry => (
+            <button
+              key={industry.id}
+              onClick={() => setActiveIndustry(industry.id)}
+              className="flex items-center px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 flex-shrink-0"
+              style={
+                activeIndustry === industry.id
+                  ? { background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)", color: "#fff", boxShadow: "0 4px 12px rgba(91,140,255,0.3)" }
+                  : { background: "#fff", color: "#6B7280", border: "1px solid #E5E7EB" }
+              }
+            >
+              {industry.label}
+            </button>
+          ))}
         </div>
       </section>
 
@@ -1105,7 +1143,7 @@ export default function Templates() {
       <section className="py-16">
         <div className="container">
           {filtered.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
               {/* Custom Build card - always shown first */}
               <CustomBuildCard />
               {filtered.map(template => (
@@ -1114,8 +1152,8 @@ export default function Templates() {
             </div>
           ) : (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-24">
-              <div className="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mx-auto mb-6 text-3xl shadow-md border border-gray-100" style={{ fontFamily: "monospace" }}>
-                {INDUSTRIES.find(i => i.id === activeIndustry)?.icon}
+              <div className="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mx-auto mb-6 shadow-md border border-gray-100">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" className="w-8 h-8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
               </div>
               <h3 className="text-gray-900 text-2xl font-bold mb-3">
                 {INDUSTRIES.find(i => i.id === activeIndustry)?.label} Templates
