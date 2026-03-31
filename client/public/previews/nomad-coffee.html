@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nomad Coffee Co. – Limassol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --brown:#3E2A1E; --brown-mid:#5C3D2E; --caramel:#C4813A; --cream:#FAF6F0; --warm-white:#FDF9F4; --sand:#E8D9C5; --text-muted:#7A6355; --border:rgba(62,42,30,0.12); }
+    body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--brown); overflow-x:hidden; }
+    h1,h2,h3,h4 { font-family:'Lora',serif; }
+    a { text-decoration:none; color:inherit; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:100; background:var(--brown); padding:0 6%; display:flex; align-items:center; justify-content:space-between; height:68px; }
+    .nav-logo { font-family:'Lora',serif; font-size:1.3rem; font-weight:600; color:var(--cream); letter-spacing:0.02em; }
+    .nav-logo span { color:var(--caramel); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { font-size:0.82rem; font-weight:400; color:rgba(250,246,240,0.65); transition:color .2s; }
+    .nav-links a:hover { color:var(--caramel); }
+    .nav-cta { background:var(--caramel); color:#fff; border:none; padding:0.6rem 1.4rem; font-size:0.8rem; font-weight:500; border-radius:4px; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; }
+    .nav-cta:hover { background:#b5722e; }
+    @media(max-width:768px){ .nav-links{display:none;} }
+
+    /* HERO */
+    .hero { display:grid; grid-template-columns:1fr 1fr; min-height:90vh; }
+    .hero-img { position:relative; overflow:hidden; }
+    .hero-img img { width:100%; height:100%; object-fit:cover; object-position:center; }
+    .hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to right, rgba(62,42,30,0.3) 0%, transparent 60%); }
+    .hero-content { background:var(--warm-white); display:flex; flex-direction:column; justify-content:center; padding:8% 8% 8% 6%; }
+    .hero-eyebrow { font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--caramel); font-weight:500; margin-bottom:1.5rem; }
+    .hero-title { font-size:clamp(2.5rem,4vw,3.8rem); font-weight:500; line-height:1.15; color:var(--brown); margin-bottom:1.5rem; }
+    .hero-title em { font-style:italic; color:var(--caramel); }
+    .hero-sub { font-size:0.95rem; color:var(--text-muted); line-height:1.9; max-width:420px; margin-bottom:2.5rem; }
+    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:3rem; }
+    .btn-brown { background:var(--brown); color:var(--cream); border:none; padding:0.9rem 2rem; font-size:0.85rem; font-weight:500; border-radius:4px; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; }
+    .btn-brown:hover { background:var(--brown-mid); }
+    .btn-outline { background:transparent; color:var(--brown); border:1.5px solid var(--brown); padding:0.9rem 2rem; font-size:0.85rem; font-weight:500; border-radius:4px; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; }
+    .btn-outline:hover { background:var(--sand); }
+    .hero-hours { display:flex; gap:2rem; }
+    .hour-item { font-size:0.8rem; color:var(--text-muted); }
+    .hour-item strong { display:block; font-size:0.85rem; color:var(--brown); font-weight:600; }
+    @media(max-width:768px){ .hero{grid-template-columns:1fr;} .hero-img{height:55vw;} .hero-content{padding:3rem 1.5rem;} }
+
+    /* MENU STRIP */
+    .menu-strip { background:var(--brown); padding:2.5rem 8%; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:2rem; }
+    .menu-item { text-align:center; }
+    .menu-item-name { font-family:'Lora',serif; font-size:1rem; font-weight:500; color:var(--cream); margin-bottom:0.25rem; }
+    .menu-item-price { font-size:0.8rem; color:var(--caramel); font-weight:500; }
+    .menu-divider { width:1px; height:40px; background:rgba(250,246,240,0.15); }
+    @media(max-width:768px){ .menu-strip{padding:2rem 1.5rem; justify-content:center;} .menu-divider{display:none;} }
+
+    /* STORY */
+    .story { padding:7rem 8%; display:grid; grid-template-columns:1fr 1fr; gap:7rem; align-items:center; }
+    .story-text .eyebrow { font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--caramel); font-weight:500; margin-bottom:1rem; }
+    .story-title { font-size:clamp(2rem,3.5vw,3rem); font-weight:500; color:var(--brown); margin-bottom:1.5rem; line-height:1.2; }
+    .story-title em { font-style:italic; }
+    .story-text p { font-size:0.9rem; color:var(--text-muted); line-height:1.9; margin-bottom:1.25rem; }
+    .story-img { position:relative; }
+    .story-img img { width:100%; border-radius:4px; aspect-ratio:4/5; object-fit:cover; }
+    .story-img-sm { position:absolute; bottom:-2rem; right:-2rem; width:45%; border-radius:4px; border:6px solid var(--cream); box-shadow:0 8px 24px rgba(62,42,30,0.15); }
+    @media(max-width:768px){ .story{grid-template-columns:1fr; gap:3rem; padding:4rem 1.5rem;} .story-img-sm{display:none;} }
+
+    /* MENU */
+    .menu { padding:7rem 8%; background:var(--warm-white); }
+    .section-header { margin-bottom:4rem; }
+    .section-header .eyebrow { font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--caramel); font-weight:500; margin-bottom:0.75rem; }
+    .section-header h2 { font-size:clamp(2rem,3.5vw,3rem); font-weight:500; color:var(--brown); }
+    .menu-tabs { display:flex; gap:0; border-bottom:1px solid var(--border); margin-bottom:3rem; }
+    .menu-tab { padding:0.75rem 1.5rem; font-size:0.85rem; font-weight:500; color:var(--text-muted); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; transition:all .2s; }
+    .menu-tab.active { color:var(--brown); border-bottom-color:var(--caramel); }
+    .menu-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+    .menu-entry { display:flex; justify-content:space-between; align-items:flex-start; padding:1.25rem 0; border-bottom:1px solid var(--border); gap:1rem; }
+    .menu-entry-info h4 { font-family:'Lora',serif; font-size:1rem; font-weight:500; color:var(--brown); margin-bottom:0.25rem; }
+    .menu-entry-info p { font-size:0.78rem; color:var(--text-muted); line-height:1.6; }
+    .menu-entry-price { font-size:0.9rem; font-weight:600; color:var(--caramel); white-space:nowrap; }
+    @media(max-width:768px){ .menu-grid{grid-template-columns:1fr;} .menu{padding:4rem 1.5rem;} }
+
+    /* GALLERY */
+    .gallery { display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:auto auto; gap:4px; }
+    .gallery-item { overflow:hidden; }
+    .gallery-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s; aspect-ratio:1; }
+    .gallery-item:first-child { grid-column:span 2; grid-row:span 2; }
+    .gallery-item:first-child img { aspect-ratio:auto; height:100%; }
+    .gallery-item img:hover { transform:scale(1.05); }
+    @media(max-width:768px){ .gallery{grid-template-columns:1fr 1fr;} .gallery-item:first-child{grid-column:span 2; grid-row:span 1;} }
+
+    /* VISIT */
+    .visit { padding:7rem 8%; display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
+    .visit-map { background:var(--sand); border-radius:4px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .visit-map img { width:100%; height:100%; object-fit:cover; border-radius:4px; }
+    .visit-text .eyebrow { font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--caramel); font-weight:500; margin-bottom:1rem; }
+    .visit-title { font-size:clamp(2rem,3vw,2.8rem); font-weight:500; color:var(--brown); margin-bottom:1.5rem; }
+    .visit-details { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; }
+    .visit-detail { display:flex; gap:1rem; align-items:flex-start; }
+    .visit-icon { font-size:1.1rem; flex-shrink:0; margin-top:0.1rem; }
+    .visit-detail-text strong { display:block; font-size:0.85rem; color:var(--brown); font-weight:600; margin-bottom:0.1rem; }
+    .visit-detail-text span { font-size:0.82rem; color:var(--text-muted); }
+    @media(max-width:768px){ .visit{grid-template-columns:1fr; gap:3rem; padding:4rem 1.5rem;} }
+
+    /* FOOTER */
+    footer { background:var(--brown); padding:4rem 8% 2rem; }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:4rem; margin-bottom:3rem; }
+    .footer-logo { font-family:'Lora',serif; font-size:1.4rem; font-weight:500; color:var(--cream); margin-bottom:1rem; }
+    .footer-logo span { color:var(--caramel); }
+    .footer-desc { font-size:0.83rem; color:rgba(250,246,240,0.45); line-height:1.8; }
+    .footer-heading { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--caramel); margin-bottom:1.25rem; font-weight:500; }
+    .footer-list { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+    .footer-list a { font-size:0.83rem; color:rgba(250,246,240,0.45); transition:color .2s; }
+    .footer-list a:hover { color:var(--caramel); }
+    .footer-bottom { border-top:1px solid rgba(250,246,240,0.1); padding-top:1.5rem; display:flex; justify-content:space-between; }
+    .footer-copy { font-size:0.75rem; color:rgba(250,246,240,0.25); }
+    @media(max-width:768px){ .footer-grid{grid-template-columns:1fr; gap:2rem;} footer{padding:3rem 1.5rem 2rem;} .footer-bottom{flex-direction:column; gap:0.5rem;} }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Nomad <span>Coffee</span> Co.</div>
+    <ul class="nav-links">
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Our Story</a></li>
+      <li><a href="#">Beans</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Find Us</a></li>
+    </ul>
+    <button class="nav-cta">Order Online</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=85" alt="Nomad Coffee" />
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Specialty Coffee · Limassol</p>
+      <h1 class="hero-title">Coffee Worth <em>Slowing Down</em> For</h1>
+      <p class="hero-sub">Single-origin beans, hand-roasted in small batches. Every cup tells the story of where it came from and the people who grew it.</p>
+      <div class="hero-btns">
+        <button class="btn-brown">View Our Menu</button>
+        <button class="btn-outline">Our Story</button>
+      </div>
+      <div class="hero-hours">
+        <div class="hour-item"><strong>Mon – Fri</strong>7:00 am – 8:00 pm</div>
+        <div class="hour-item"><strong>Sat – Sun</strong>8:00 am – 9:00 pm</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU STRIP -->
+  <div class="menu-strip">
+    <div class="menu-item"><div class="menu-item-name">Espresso</div><div class="menu-item-price">€2.50</div></div>
+    <div class="menu-divider"></div>
+    <div class="menu-item"><div class="menu-item-name">Flat White</div><div class="menu-item-price">€3.20</div></div>
+    <div class="menu-divider"></div>
+    <div class="menu-item"><div class="menu-item-name">Pour Over</div><div class="menu-item-price">€4.00</div></div>
+    <div class="menu-divider"></div>
+    <div class="menu-item"><div class="menu-item-name">Cold Brew</div><div class="menu-item-price">€4.50</div></div>
+    <div class="menu-divider"></div>
+    <div class="menu-item"><div class="menu-item-name">Matcha Latte</div><div class="menu-item-price">€4.20</div></div>
+    <div class="menu-divider"></div>
+    <div class="menu-item"><div class="menu-item-name">Avocado Toast</div><div class="menu-item-price">€7.50</div></div>
+  </div>
+
+  <!-- STORY -->
+  <section class="story">
+    <div class="story-text">
+      <p class="eyebrow">Our Story</p>
+      <h2 class="story-title">Rooted in <em>Craft</em>, Guided by Curiosity</h2>
+      <p>Nomad Coffee Co. was born from a simple belief: that great coffee deserves to be understood, not just consumed. We source directly from farmers in Ethiopia, Colombia, and Guatemala — building relationships that ensure quality and fairness at every step.</p>
+      <p>Our roastery in Limassol is open to visitors. Come see how we work, taste the difference between origins, and take home a bag of something extraordinary.</p>
+      <button class="btn-brown" style="margin-top:1rem;">Visit the Roastery</button>
+    </div>
+    <div class="story-img">
+      <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=700&q=80" alt="Coffee roasting" />
+      <img class="story-img-sm" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80" alt="Coffee cup" />
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu">
+    <div class="section-header">
+      <p class="eyebrow">What We Serve</p>
+      <h2>The Menu</h2>
+    </div>
+    <div class="menu-tabs">
+      <div class="menu-tab active">Coffee</div>
+      <div class="menu-tab">Tea & Other</div>
+      <div class="menu-tab">Food</div>
+      <div class="menu-tab">Beans to Go</div>
+    </div>
+    <div class="menu-grid">
+      <div>
+        <div class="menu-entry"><div class="menu-entry-info"><h4>Espresso</h4><p>Double shot, 18g, 28ml extraction</p></div><div class="menu-entry-price">€2.50</div></div>
+        <div class="menu-entry"><div class="menu-entry-info"><h4>Americano</h4><p>Espresso with hot water</p></div><div class="menu-entry-price">€2.80</div></div>
+        <div class="menu-entry"><div class="menu-entry-info"><h4>Flat White</h4><p>Double ristretto, velvety microfoam</p></div><div class="menu-entry-price">€3.20</div></div>
+        <div class="menu-entry"><div class="menu-entry-info"><h4>Cappuccino</h4><p>Espresso, steamed milk, dry foam</p></div><div class="menu-entry-price">€3.20</div></div>
+      </div>
+      <div>
+        <div class="menu-entry"><div class="menu-entry-info"><h4>Pour Over</h4><p>Single origin, filter method of the day</p></div><div class="menu-entry-price">€4.00</div></div>
+        <div class="menu-entry"><div class="menu-entry-info"><h4>Cold Brew</h4><p>12-hour cold extraction, served over ice</p></div><div class="menu-entry-price">€4.50</div></div>
+        <div class="menu-entry"><div class="menu-entry-info"><h4>Cortado</h4><p>Equal parts espresso and warm milk</p></div><div class="menu-entry-price">€3.00</div></div>
+        <div class="menu-entry"><div class="menu-entry-info"><h4>Oat Latte</h4><p>Espresso with oat milk, lightly textured</p></div><div class="menu-entry-price">€3.80</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <div class="gallery">
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&q=80" alt="Coffee" /></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&q=80" alt="Latte art" /></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?w=400&q=80" alt="Cafe interior" /></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&q=80" alt="Beans" /></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=400&q=80" alt="Barista" /></div>
+  </div>
+
+  <!-- VISIT -->
+  <section class="visit">
+    <div class="visit-map">
+      <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&q=80" alt="Cafe" />
+    </div>
+    <div class="visit-text">
+      <p class="eyebrow">Find Us</p>
+      <h2 class="visit-title">Come Visit</h2>
+      <div class="visit-details">
+        <div class="visit-detail"><span class="visit-icon">📍</span><div class="visit-detail-text"><strong>Address</strong><span>8 Anexartisias Street, Limassol Old Town</span></div></div>
+        <div class="visit-detail"><span class="visit-icon">🕐</span><div class="visit-detail-text"><strong>Opening Hours</strong><span>Mon–Fri: 7am – 8pm · Sat–Sun: 8am – 9pm</span></div></div>
+        <div class="visit-detail"><span class="visit-icon">📞</span><div class="visit-detail-text"><strong>Phone</strong><span>+357 25 111 222</span></div></div>
+        <div class="visit-detail"><span class="visit-icon">📧</span><div class="visit-detail-text"><strong>Email</strong><span>hello@nomadcoffee.cy</span></div></div>
+      </div>
+      <button class="btn-brown">Get Directions</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Nomad <span>Coffee</span> Co.</div>
+        <p class="footer-desc">Specialty coffee roasted with care in Limassol. Sourced directly. Brewed honestly.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Explore</p>
+        <ul class="footer-list">
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Our Beans</a></li>
+          <li><a href="#">Roastery Tours</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Visit</p>
+        <ul class="footer-list">
+          <li><a href="#">8 Anexartisias St, Limassol</a></li>
+          <li><a href="#">Mon–Fri: 7am – 8pm</a></li>
+          <li><a href="#">+357 25 111 222</a></li>
+          <li><a href="#">hello@nomadcoffee.cy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Nomad Coffee Co. All rights reserved.</span>
+      <span class="footer-copy">Website by D&amp;M Labs</span>
+    </div>
+  </footer>
+</body>
+</html>

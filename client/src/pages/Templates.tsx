@@ -195,8 +195,75 @@ function BrowserFrame({ children, url = "example.com" }: { children: React.React
 
 // ─── Template Card Preview ────────────────────────────────────────────────────
 // Shows the product_card image with padding so nothing is cropped
+// For live-preview templates, shows a styled gradient placeholder with iframe thumbnail
 function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
   const [loaded, setLoaded] = useState(false);
+  const t = template as any;
+
+  // Live preview templates: show a mini iframe thumbnail
+  if (t.livePreview && t.previewUrl) {
+    const [color1, color2] = t.palette || ["#1a1a2e", "#16213e"];
+    return (
+      <div
+        className="relative w-full overflow-hidden"
+        style={{
+          height: "280px",
+          borderRadius: "12px 12px 0 0",
+          background: `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`,
+        }}
+      >
+        {/* Scaled-down iframe preview */}
+        <div style={{
+          position: "absolute",
+          top: "12px",
+          left: "50%",
+          transform: "translateX(-50%) scale(0.38)",
+          transformOrigin: "top center",
+          width: "1280px",
+          height: "800px",
+          borderRadius: "8px",
+          overflow: "hidden",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+          pointerEvents: "none",
+        }}>
+          <iframe
+            src={t.previewUrl}
+            title={`${template.name} card preview`}
+            style={{ width: "100%", height: "100%", border: "none", display: "block" }}
+            loading="lazy"
+            tabIndex={-1}
+            sandbox="allow-scripts allow-same-origin"
+          />
+        </div>
+        {/* Gradient overlay at bottom */}
+        <div style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: "80px",
+          background: `linear-gradient(to top, ${color1}dd 0%, transparent 100%)`,
+        }} />
+        {/* Live badge */}
+        <div style={{
+          position: "absolute",
+          top: "10px",
+          right: "10px",
+          background: "rgba(0,0,0,0.6)",
+          backdropFilter: "blur(8px)",
+          borderRadius: "20px",
+          padding: "3px 10px",
+          display: "flex",
+          alignItems: "center",
+          gap: "5px",
+        }}>
+          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 6px #4ade80" }} />
+          <span style={{ color: "#fff", fontSize: "10px", fontWeight: 600, letterSpacing: "0.05em" }}>LIVE PREVIEW</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className="relative w-full"
@@ -591,6 +658,193 @@ const TEMPLATES = [
     waMessage: "Hi! I'm interested in the Mindful Psychiatry & Wellness website template.",
     images: CDN.c3,
   },
+  // ── Live Preview templates ──
+  {
+    id: "bella-salon",
+    industry: "beauty",
+    name: "Bella Salon",
+    tagline: "Elegant & Feminine",
+    tier: "Business",
+    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
+    domain: "bellasalon.com",
+    palette: ["#1a0a0f", "#6b2d3e", "#c4748a", "#e8b4c0", "#fdf0f3"],
+    paletteNames: ["Deep Plum", "Rose Dark", "Dusty Rose", "Blush", "Ivory"],
+    styleLabel: "Luxury Feminine",
+    livePreview: true,
+    previewUrl: "/previews/bella-salon.html",
+    features: [
+      "Elegant hero with booking CTA",
+      "Services showcase with pricing",
+      "Gallery / portfolio section",
+      "About our stylists",
+      "Contact & appointment form",
+      "Location & hours",
+      "WhatsApp CTA",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+    ],
+    style: "Luxury feminine aesthetic with deep plum and rose tones, elegant serif typography, and a warm, inviting feel. Perfect for hair salons, beauty studios, and nail bars.",
+    waMessage: "Hi! I'm interested in the Bella Salon website template.",
+    price: "€350",
+    images: { card: "" },
+  },
+  {
+    id: "verde-restaurant",
+    industry: "restaurant",
+    name: "Verde Restaurant",
+    tagline: "Fresh & Mediterranean",
+    tier: "Business",
+    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
+    domain: "verderestaurant.com",
+    palette: ["#1a2e1a", "#2d5a27", "#4a8c3f", "#8bc34a", "#f5f9f0"],
+    paletteNames: ["Forest", "Deep Green", "Leaf", "Fresh Green", "Cream"],
+    styleLabel: "Fresh Mediterranean",
+    livePreview: true,
+    previewUrl: "/previews/verde-restaurant.html",
+    features: [
+      "Full-width hero with reservation CTA",
+      "Signature dishes showcase",
+      "Menu page with categories",
+      "About / Our Story section",
+      "Contact & reservation form",
+      "Google Maps embed",
+      "WhatsApp & social links",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+    ],
+    style: "Fresh Mediterranean aesthetic with deep green tones, warm cream backgrounds, and elegant typography. Ideal for farm-to-table restaurants, Mediterranean cuisine, and healthy dining.",
+    waMessage: "Hi! I'm interested in the Verde Restaurant website template.",
+    price: "€350",
+    images: { card: "" },
+  },
+  {
+    id: "pulse-gym",
+    industry: "fitness",
+    name: "PulseGym",
+    tagline: "Bold & High-Energy",
+    tier: "Business",
+    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
+    domain: "pulsegym.com",
+    palette: ["#0a0a0a", "#1a1a2e", "#ff6b35", "#ffa500", "#ffffff"],
+    paletteNames: ["Black", "Dark Navy", "Orange", "Amber", "White"],
+    styleLabel: "Dark Bold",
+    livePreview: true,
+    previewUrl: "/previews/pulse-gym.html",
+    features: [
+      "Bold dark hero with membership CTA",
+      "Class schedule & programmes",
+      "Trainer profiles",
+      "Membership plans",
+      "Contact & trial booking",
+      "Location & hours",
+      "WhatsApp CTA",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+    ],
+    style: "High-energy dark aesthetic with black and orange accents, bold typography, and dynamic layouts. Perfect for gyms, CrossFit boxes, and strength training studios.",
+    waMessage: "Hi! I'm interested in the PulseGym website template.",
+    price: "€350",
+    images: { card: "" },
+  },
+  {
+    id: "dr-elara-dental",
+    industry: "clinic",
+    name: "Dr. Elara Dental",
+    tagline: "Clean & Professional",
+    tier: "Business",
+    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
+    domain: "elaradental.com",
+    palette: ["#0a1628", "#1e3a5f", "#2196f3", "#64b5f6", "#f5f9ff"],
+    paletteNames: ["Dark Navy", "Navy", "Blue", "Light Blue", "Ice White"],
+    styleLabel: "Clean Clinical",
+    livePreview: true,
+    previewUrl: "/previews/elara-dental.html",
+    features: [
+      "Professional hero with booking CTA",
+      "Dental services showcase",
+      "Doctor profiles section",
+      "Patient testimonials",
+      "Contact & appointment form",
+      "Location & hours",
+      "WhatsApp CTA",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+    ],
+    style: "Clean, professional aesthetic with navy and blue accents on white backgrounds. Perfect for dental clinics, medical offices, and healthcare providers.",
+    waMessage: "Hi! I'm interested in the Dr. Elara Dental website template.",
+    price: "€350",
+    images: { card: "" },
+  },
+  {
+    id: "nomad-coffee",
+    industry: "restaurant",
+    name: "Nomad Coffee",
+    tagline: "Artisan & Minimal",
+    tier: "Starter",
+    tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
+    domain: "nomadcoffee.com",
+    palette: ["#1a1208", "#3d2b1f", "#8b6914", "#c8a96e", "#f7f0e6"],
+    paletteNames: ["Espresso", "Dark Brown", "Gold", "Caramel", "Cream"],
+    styleLabel: "Artisan Minimal",
+    livePreview: true,
+    previewUrl: "/previews/nomad-coffee.html",
+    features: [
+      "Minimal hero with daily specials",
+      "Signature coffee showcase",
+      "Menu with categories",
+      "About / Our Story section",
+      "Contact & find us page",
+      "Phone number CTA",
+      "WhatsApp & social links",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+    ],
+    style: "Artisan minimal aesthetic with espresso and gold tones, clean typography, and a warm, inviting feel. Great for specialty coffee shops, artisan roasters, and café bars.",
+    waMessage: "Hi! I'm interested in the Nomad Coffee website template.",
+    price: "€250",
+    images: { card: "" },
+  },
+  {
+    id: "serenity-yoga",
+    industry: "fitness",
+    name: "Serenity Yoga",
+    tagline: "Calm & Balanced",
+    tier: "Starter",
+    tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
+    domain: "serenityyoga.com",
+    palette: ["#1a2420", "#2d4a3e", "#4a7c6f", "#8bb5a8", "#f0f7f4"],
+    paletteNames: ["Forest Dark", "Deep Teal", "Sage", "Mint", "Pale Green"],
+    styleLabel: "Calm Natural",
+    livePreview: true,
+    previewUrl: "/previews/serenity-yoga.html",
+    features: [
+      "Serene hero with class booking CTA",
+      "Yoga class schedule",
+      "Instructor profiles",
+      "Wellness philosophy section",
+      "Contact & booking form",
+      "Location & hours",
+      "WhatsApp CTA",
+      "Mobile responsive",
+    ],
+    pages: [
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+    ],
+    style: "Calm, balanced aesthetic with deep teal and sage tones, natural textures, and clean typography. Ideal for yoga studios, pilates centres, and mindfulness spaces.",
+    waMessage: "Hi! I'm interested in the Serenity Yoga website template.",
+    price: "€250",
+    images: { card: "" },
+  },
   // ── Fitness templates ──
   {
     id: "iron-forge-gym",
@@ -687,6 +941,39 @@ const TEMPLATES = [
 
 // ─── Modal preview renderer ───────────────────────────────────────────────────
 function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0]; page: string; view: "desktop" | "mobile" }) {
+  const t = template as any;
+
+  // ── Live iframe preview ──────────────────────────────────────────────────────
+  if (t.livePreview && t.previewUrl) {
+    if (view === "mobile") {
+      return (
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", background: "#F2F4F7", borderRadius: "12px", padding: "16px 0", minHeight: "520px" }}>
+          <div style={{ width: "375px", maxWidth: "100%", overflow: "hidden", borderRadius: "8px", boxShadow: "0 4px 24px rgba(0,0,0,0.12)", height: "520px", position: "relative" }}>
+            <iframe
+              src={t.previewUrl}
+              title={`${template.name} mobile preview`}
+              style={{ width: "375px", height: "100%", border: "none", display: "block" }}
+              loading="lazy"
+              sandbox="allow-scripts allow-same-origin"
+            />
+          </div>
+        </div>
+      );
+    }
+    return (
+      <BrowserFrame url={template.domain}>
+        <iframe
+          src={t.previewUrl}
+          title={`${template.name} desktop preview`}
+          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", display: "block" }}
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin"
+        />
+      </BrowserFrame>
+    );
+  }
+
+  // ── Static screenshot preview (existing templates) ───────────────────────────
   const imgs = template.images as any;
   const imgSrc = view === "mobile"
     ? (page === "home" ? imgs.homeMobile

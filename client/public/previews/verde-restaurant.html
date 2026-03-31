@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verde – Mediterranean Restaurant, Limassol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --green:#1A3A2A; --green-mid:#2D5A3D; --green-light:#4A7C5A; --cream:#F5EFE0; --gold:#C9A84C; --text:#1A1A1A; --muted:#6B6B5A; }
+    body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
+    h1,h2,h3 { font-family:'Playfair Display',serif; }
+    a { text-decoration:none; color:inherit; }
+
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:0 6%; display:flex; align-items:center; justify-content:space-between; height:72px; transition:background .3s; }
+    nav.scrolled { background:rgba(26,58,42,0.97); backdrop-filter:blur(8px); }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1.6rem; color:#fff; letter-spacing:0.05em; }
+    .nav-logo span { color:var(--gold); font-style:italic; }
+    .nav-links { display:flex; gap:2.5rem; list-style:none; }
+    .nav-links a { font-size:0.82rem; letter-spacing:0.08em; color:rgba(255,255,255,0.8); transition:color .2s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-res { background:var(--gold); color:var(--green); border:none; padding:0.6rem 1.5rem; font-size:0.8rem; font-weight:500; letter-spacing:0.06em; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; }
+    .nav-res:hover { background:#fff; }
+    @media(max-width:768px){ .nav-links{display:none;} nav{background:rgba(26,58,42,0.97);} }
+
+    /* HERO */
+    .hero { position:relative; height:100vh; display:flex; align-items:flex-end; overflow:hidden; }
+    .hero-bg { position:absolute; inset:0; }
+    .hero-bg img { width:100%; height:100%; object-fit:cover; object-position:center; }
+    .hero-bg::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(10,25,15,0.9) 0%, rgba(10,25,15,0.3) 60%, transparent 100%); }
+    .hero-content { position:relative; z-index:2; padding:0 10% 8%; max-width:700px; }
+    .hero-tag { display:inline-block; border:1px solid var(--gold); color:var(--gold); font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; padding:0.4rem 1rem; margin-bottom:1.5rem; }
+    .hero-title { font-size:clamp(3rem,6vw,5.5rem); font-weight:700; color:#fff; line-height:1.05; margin-bottom:1.5rem; }
+    .hero-title em { font-style:italic; color:var(--gold); }
+    .hero-sub { font-size:1rem; color:rgba(255,255,255,0.75); line-height:1.8; margin-bottom:2.5rem; max-width:480px; }
+    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+    .btn-gold { background:var(--gold); color:var(--green); border:none; padding:0.9rem 2.2rem; font-size:0.85rem; font-weight:500; letter-spacing:0.06em; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; }
+    .btn-gold:hover { background:#fff; }
+    .btn-ghost { background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.5); padding:0.9rem 2.2rem; font-size:0.85rem; letter-spacing:0.06em; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; }
+    .btn-ghost:hover { border-color:#fff; }
+    .hero-scroll { position:absolute; bottom:2rem; right:6%; display:flex; align-items:center; gap:0.75rem; color:rgba(255,255,255,0.5); font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; }
+    .scroll-line { width:40px; height:1px; background:rgba(255,255,255,0.4); }
+    @media(max-width:768px){ .hero-content{padding:0 1.5rem 5rem;} }
+
+    /* INFO STRIP */
+    .info-strip { background:var(--green); display:grid; grid-template-columns:repeat(3,1fr); }
+    .info-item { padding:2rem; border-right:1px solid rgba(255,255,255,0.1); text-align:center; }
+    .info-item:last-child { border-right:none; }
+    .info-label { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem; }
+    .info-value { font-family:'Playfair Display',serif; font-size:1.1rem; color:#fff; }
+    @media(max-width:768px){ .info-strip{grid-template-columns:1fr;} .info-item{border-right:none; border-bottom:1px solid rgba(255,255,255,0.1);} }
+
+    /* MENU PREVIEW */
+    .menu { padding:7rem 10%; }
+    .menu-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:4rem; }
+    .section-label { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem; }
+    .section-title { font-size:clamp(2rem,3.5vw,3rem); color:var(--green); }
+    .menu-tabs { display:flex; gap:0; }
+    .tab { padding:0.6rem 1.4rem; font-size:0.8rem; letter-spacing:0.08em; border:1px solid var(--green-light); cursor:pointer; font-family:'DM Sans',sans-serif; background:transparent; color:var(--green-light); transition:all .2s; }
+    .tab.active { background:var(--green); color:#fff; border-color:var(--green); }
+    .menu-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0; }
+    .menu-item { padding:2rem; border-bottom:1px solid rgba(26,58,42,0.12); border-right:1px solid rgba(26,58,42,0.12); display:flex; justify-content:space-between; align-items:start; gap:1rem; }
+    .menu-item:nth-child(even) { border-right:none; }
+    .menu-item:nth-last-child(-n+2) { border-bottom:none; }
+    .menu-name { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green); margin-bottom:0.4rem; }
+    .menu-desc { font-size:0.82rem; color:var(--muted); line-height:1.6; }
+    .menu-price { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--gold); white-space:nowrap; }
+    @media(max-width:768px){ .menu{padding:4rem 1.5rem;} .menu-header{flex-direction:column; align-items:flex-start; gap:1.5rem;} .menu-grid{grid-template-columns:1fr;} .menu-item{border-right:none;} .menu-item:nth-last-child(-n+2){border-bottom:1px solid rgba(26,58,42,0.12);} .menu-item:last-child{border-bottom:none;} }
+
+    /* ATMOSPHERE */
+    .atmosphere { display:grid; grid-template-columns:1fr 1fr; min-height:70vh; }
+    .atm-images { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; }
+    .atm-images img { width:100%; height:100%; object-fit:cover; display:block; }
+    .atm-text { background:var(--green); display:flex; flex-direction:column; justify-content:center; padding:6rem 5rem; }
+    .atm-text .section-label { color:rgba(201,168,76,0.8); }
+    .atm-text .section-title { color:#fff; margin-bottom:2rem; }
+    .atm-text p { font-size:0.9rem; color:rgba(255,255,255,0.65); line-height:1.9; margin-bottom:1.5rem; }
+    .atm-detail { display:flex; gap:2rem; margin-top:1rem; }
+    .atm-detail-item { text-align:center; }
+    .atm-detail-num { font-family:'Playfair Display',serif; font-size:2rem; color:var(--gold); display:block; }
+    .atm-detail-label { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); }
+    @media(max-width:768px){ .atmosphere{grid-template-columns:1fr;} .atm-images{grid-template-rows:200px 200px;} .atm-text{padding:3.5rem 1.5rem;} }
+
+    /* RESERVATIONS */
+    .reservations { padding:7rem 10%; background:var(--cream); }
+    .res-inner { max-width:700px; margin:0 auto; text-align:center; }
+    .res-inner .section-title { color:var(--green); margin-bottom:1rem; }
+    .res-inner p { font-size:0.9rem; color:var(--muted); margin-bottom:2.5rem; }
+    .res-form { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .res-form input, .res-form select { padding:0.9rem 1rem; border:1px solid rgba(26,58,42,0.2); background:#fff; font-family:'DM Sans',sans-serif; font-size:0.85rem; color:var(--text); outline:none; }
+    .res-form input:focus, .res-form select:focus { border-color:var(--green); }
+    .res-form .full { grid-column:span 2; }
+    @media(max-width:768px){ .reservations{padding:4rem 1.5rem;} .res-form{grid-template-columns:1fr;} .res-form .full{grid-column:span 1;} }
+
+    /* FOOTER */
+    footer { background:var(--green); padding:5rem 10% 2rem; }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:4rem; margin-bottom:4rem; }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:2rem; color:#fff; margin-bottom:1rem; }
+    .footer-logo span { color:var(--gold); font-style:italic; }
+    .footer-desc { font-size:0.85rem; color:rgba(255,255,255,0.45); line-height:1.8; }
+    .footer-heading { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1.25rem; }
+    .footer-list { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+    .footer-list a { font-size:0.85rem; color:rgba(255,255,255,0.5); transition:color .2s; }
+    .footer-list a:hover { color:var(--gold); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,0.1); padding-top:1.5rem; display:flex; justify-content:space-between; }
+    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.3); }
+    @media(max-width:768px){ .footer-grid{grid-template-columns:1fr; gap:2rem;} footer{padding:3rem 1.5rem 2rem;} .footer-bottom{flex-direction:column; gap:0.5rem;} }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-logo">Verde<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="nav-res">Reserve a Table</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=85" alt="Verde Restaurant" />
+    </div>
+    <div class="hero-content">
+      <span class="hero-tag">Mediterranean Fine Dining</span>
+      <h1 class="hero-title">Where the <em>Sea</em> Meets the Table</h1>
+      <p class="hero-sub">Seasonal Mediterranean cuisine crafted from the finest local ingredients. A dining experience that honours Cyprus's rich culinary heritage.</p>
+      <div class="hero-btns">
+        <button class="btn-gold">Reserve a Table</button>
+        <button class="btn-ghost">View Our Menu</button>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-item"><div class="info-label">Location</div><div class="info-value">Marina Promenade, Limassol</div></div>
+    <div class="info-item"><div class="info-label">Hours</div><div class="info-value">Tue–Sun: 12pm – 11pm</div></div>
+    <div class="info-item"><div class="info-label">Reservations</div><div class="info-value">+357 25 111 222</div></div>
+  </div>
+
+  <!-- MENU PREVIEW -->
+  <section class="menu">
+    <div class="menu-header">
+      <div>
+        <p class="section-label">Seasonal Selection</p>
+        <h2 class="section-title">A Taste of Verde</h2>
+      </div>
+      <div class="menu-tabs">
+        <button class="tab active">Starters</button>
+        <button class="tab">Mains</button>
+        <button class="tab">Desserts</button>
+      </div>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-name">Octopus Carpaccio</div><div class="menu-desc">Thinly sliced octopus, capers, lemon oil, micro herbs</div></div><div class="menu-price">€16</div></div>
+      <div class="menu-item"><div><div class="menu-name">Burrata &amp; Heirloom Tomato</div><div class="menu-desc">Creamy burrata, heritage tomatoes, aged balsamic, basil</div></div><div class="menu-price">€14</div></div>
+      <div class="menu-item"><div><div class="menu-name">Halloumi Saganaki</div><div class="menu-desc">Pan-fried halloumi, honey, sesame, fresh thyme</div></div><div class="menu-price">€12</div></div>
+      <div class="menu-item"><div><div class="menu-name">Smoked Salmon Tartare</div><div class="menu-desc">Hand-cut salmon, avocado cream, cucumber, dill oil</div></div><div class="menu-price">€18</div></div>
+      <div class="menu-item"><div><div class="menu-name">Mezze Platter</div><div class="menu-desc">Hummus, tzatziki, taramasalata, warm pita, olives</div></div><div class="menu-price">€22</div></div>
+      <div class="menu-item"><div><div class="menu-name">Grilled Prawns</div><div class="menu-desc">Tiger prawns, garlic butter, chilli, charred lemon</div></div><div class="menu-price">€20</div></div>
+    </div>
+  </section>
+
+  <!-- ATMOSPHERE -->
+  <section class="atmosphere">
+    <div class="atm-images">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Restaurant interior" />
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Food presentation" />
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Wine selection" />
+      <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80" alt="Terrace dining" />
+    </div>
+    <div class="atm-text">
+      <p class="section-label">The Verde Experience</p>
+      <h2 class="section-title">More Than a Meal</h2>
+      <p>Every detail at Verde is intentional — from the hand-selected ceramics to the curated wine list featuring over 80 labels from Cyprus, Greece, and Italy.</p>
+      <p>Our open kitchen lets you watch our chefs work with the same ingredients that have defined Mediterranean cooking for centuries.</p>
+      <div class="atm-detail">
+        <div class="atm-detail-item"><span class="atm-detail-num">80+</span><span class="atm-detail-label">Wine Labels</span></div>
+        <div class="atm-detail-item"><span class="atm-detail-num">12yr</span><span class="atm-detail-label">In Limassol</span></div>
+        <div class="atm-detail-item"><span class="atm-detail-num">4.9★</span><span class="atm-detail-label">Google Rating</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVATIONS -->
+  <section class="reservations">
+    <div class="res-inner">
+      <p class="section-label">Join Us</p>
+      <h2 class="section-title">Reserve Your Table</h2>
+      <p>Book online and receive a complimentary welcome drink. We look forward to welcoming you.</p>
+      <form class="res-form" onsubmit="return false">
+        <input type="text" placeholder="Full Name" />
+        <input type="tel" placeholder="Phone Number" />
+        <input type="date" />
+        <input type="time" placeholder="Preferred Time" />
+        <select class="full"><option>Number of Guests</option><option>1–2 Guests</option><option>3–4 Guests</option><option>5–6 Guests</option><option>7+ Guests (Private Dining)</option></select>
+        <button class="btn-gold full" type="submit" style="cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:500;letter-spacing:0.06em;padding:0.9rem 2.2rem;border:none;">Confirm Reservation</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Verde<span>.</span></div>
+        <p class="footer-desc">Mediterranean fine dining on the Limassol Marina. Seasonal menus, exceptional wines, unforgettable evenings.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Menu</p>
+        <ul class="footer-list">
+          <li><a href="#">Starters</a></li>
+          <li><a href="#">Mains</a></li>
+          <li><a href="#">Desserts</a></li>
+          <li><a href="#">Wine List</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Visit</p>
+        <ul class="footer-list">
+          <li><a href="#">Marina Promenade, Limassol</a></li>
+          <li><a href="#">Tue–Sun: 12pm – 11pm</a></li>
+          <li><a href="#">+357 25 111 222</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Events</p>
+        <ul class="footer-list">
+          <li><a href="#">Private Dining</a></li>
+          <li><a href="#">Wine Evenings</a></li>
+          <li><a href="#">Corporate Events</a></li>
+          <li><a href="#">Gift Vouchers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Verde Restaurant. All rights reserved.</span>
+      <span class="footer-copy">Website by D&amp;M Labs</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

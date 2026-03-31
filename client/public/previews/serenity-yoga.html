@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serenity Yoga Studio – Limassol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --sage:#6B8F71; --sage-light:#EFF5F0; --sage-dark:#3D5940; --sand:#C9B99A; --sand-light:#F5EFE6; --warm:#FAF7F2; --dark:#2C2C2C; --muted:#7A7A6E; --border:rgba(107,143,113,0.2); }
+    body { font-family:'Jost',sans-serif; background:var(--warm); color:var(--dark); overflow-x:hidden; font-weight:300; }
+    h1,h2,h3,h4 { font-family:'Cormorant Garamond',serif; font-weight:400; }
+    a { text-decoration:none; color:inherit; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:100; background:rgba(250,247,242,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 6%; display:flex; align-items:center; justify-content:space-between; height:70px; }
+    .nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:400; color:var(--dark); letter-spacing:0.05em; }
+    .nav-logo em { font-style:italic; color:var(--sage); }
+    .nav-links { display:flex; gap:2.5rem; list-style:none; }
+    .nav-links a { font-size:0.8rem; font-weight:400; letter-spacing:0.08em; color:var(--muted); transition:color .2s; }
+    .nav-links a:hover { color:var(--sage); }
+    .nav-cta { background:var(--sage); color:#fff; border:none; padding:0.6rem 1.5rem; font-size:0.78rem; font-weight:400; letter-spacing:0.1em; border-radius:100px; cursor:pointer; font-family:'Jost',sans-serif; transition:all .2s; }
+    .nav-cta:hover { background:var(--sage-dark); }
+    @media(max-width:768px){ .nav-links{display:none;} }
+
+    /* HERO */
+    .hero { position:relative; min-height:95vh; display:flex; align-items:center; overflow:hidden; }
+    .hero-bg { position:absolute; inset:0; }
+    .hero-bg img { width:100%; height:100%; object-fit:cover; object-position:center 30%; }
+    .hero-bg::after { content:''; position:absolute; inset:0; background:linear-gradient(to right, rgba(250,247,242,0.92) 45%, rgba(250,247,242,0.3) 100%); }
+    .hero-content { position:relative; z-index:2; padding:0 8%; max-width:700px; }
+    .hero-eyebrow { font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--sage); font-weight:400; margin-bottom:2rem; }
+    .hero-title { font-size:clamp(3.5rem,7vw,6.5rem); font-weight:300; line-height:1.05; color:var(--dark); margin-bottom:2rem; }
+    .hero-title em { font-style:italic; color:var(--sage); }
+    .hero-sub { font-size:1rem; font-weight:300; color:var(--muted); line-height:1.9; max-width:420px; margin-bottom:3rem; }
+    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:4rem; }
+    .btn-sage { background:var(--sage); color:#fff; border:none; padding:0.9rem 2.5rem; font-size:0.82rem; font-weight:400; letter-spacing:0.1em; border-radius:100px; cursor:pointer; font-family:'Jost',sans-serif; transition:all .2s; }
+    .btn-sage:hover { background:var(--sage-dark); }
+    .btn-outline { background:transparent; color:var(--dark); border:1px solid rgba(44,44,44,0.3); padding:0.9rem 2.5rem; font-size:0.82rem; font-weight:400; letter-spacing:0.1em; border-radius:100px; cursor:pointer; font-family:'Jost',sans-serif; transition:all .2s; }
+    .btn-outline:hover { border-color:var(--sage); color:var(--sage); }
+    .hero-quote { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:var(--muted); }
+    @media(max-width:768px){ .hero-content{padding:4rem 1.5rem 2rem;} }
+
+    /* CLASSES */
+    .classes { padding:7rem 8%; }
+    .section-header { margin-bottom:4rem; }
+    .eyebrow { font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--sage); font-weight:400; margin-bottom:0.75rem; }
+    .section-title { font-size:clamp(2.5rem,4.5vw,4rem); font-weight:300; color:var(--dark); line-height:1.15; }
+    .section-title em { font-style:italic; color:var(--sage); }
+    .classes-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    .class-card { background:var(--sage-light); border:1px solid var(--border); border-radius:2px; overflow:hidden; transition:all .3s; }
+    .class-card:hover { box-shadow:0 12px 40px rgba(107,143,113,0.15); transform:translateY(-4px); }
+    .class-img { aspect-ratio:16/9; overflow:hidden; }
+    .class-img img { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+    .class-card:hover .class-img img { transform:scale(1.05); }
+    .class-body { padding:1.75rem; }
+    .class-level { font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--sage); font-weight:400; margin-bottom:0.5rem; }
+    .class-name { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:400; color:var(--dark); margin-bottom:0.5rem; }
+    .class-desc { font-size:0.82rem; color:var(--muted); line-height:1.8; margin-bottom:1.25rem; }
+    .class-meta { display:flex; gap:1.5rem; font-size:0.75rem; color:var(--muted); }
+    @media(max-width:768px){ .classes-grid{grid-template-columns:1fr;} .classes{padding:4rem 1.5rem;} }
+
+    /* SCHEDULE */
+    .schedule { padding:7rem 8%; background:var(--sand-light); }
+    .schedule-table { width:100%; border-collapse:collapse; margin-top:3rem; }
+    .schedule-table th { text-align:left; padding:1rem 1.5rem; font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--sage); font-weight:400; border-bottom:1px solid var(--border); }
+    .schedule-table td { padding:1rem 1.5rem; font-size:0.85rem; color:var(--dark); border-bottom:1px solid var(--border); }
+    .schedule-table tr:hover td { background:var(--sage-light); }
+    .badge { display:inline-block; padding:0.2rem 0.7rem; border-radius:100px; font-size:0.7rem; font-weight:400; }
+    .badge-all { background:var(--sage-light); color:var(--sage); }
+    .badge-inter { background:#FFF3E0; color:#E67E22; }
+    .badge-adv { background:#FCE4EC; color:#C2185B; }
+    @media(max-width:768px){ .schedule{padding:4rem 1.5rem;} .schedule-table th:nth-child(3), .schedule-table td:nth-child(3){display:none;} }
+
+    /* TEACHERS */
+    .teachers { padding:7rem 8%; }
+    .teachers-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem; }
+    .teacher-card { text-align:center; }
+    .teacher-img { width:160px; height:160px; border-radius:50%; overflow:hidden; margin:0 auto 1.5rem; border:3px solid var(--sage-light); }
+    .teacher-img img { width:100%; height:100%; object-fit:cover; object-position:top; }
+    .teacher-name { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:var(--dark); margin-bottom:0.25rem; }
+    .teacher-spec { font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--sage); margin-bottom:0.75rem; }
+    .teacher-bio { font-size:0.82rem; color:var(--muted); line-height:1.8; }
+    @media(max-width:768px){ .teachers-grid{grid-template-columns:1fr 1fr;} .teachers{padding:4rem 1.5rem;} }
+
+    /* PRICING */
+    .pricing { padding:7rem 8%; background:var(--sage-dark); }
+    .pricing .section-title { color:#fff; }
+    .pricing .eyebrow { color:var(--sand); }
+    .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+    .price-card { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:2px; padding:2.5rem 2rem; }
+    .price-card.featured { background:var(--warm); }
+    .price-name { font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:1.5rem; }
+    .price-card.featured .price-name { color:var(--muted); }
+    .price-amount { font-family:'Cormorant Garamond',serif; font-size:3.5rem; font-weight:300; color:#fff; line-height:1; margin-bottom:0.25rem; }
+    .price-card.featured .price-amount { color:var(--dark); }
+    .price-period { font-size:0.78rem; color:rgba(255,255,255,0.4); margin-bottom:2rem; }
+    .price-card.featured .price-period { color:var(--muted); }
+    .price-features { list-style:none; display:flex; flex-direction:column; gap:0.75rem; margin-bottom:2.5rem; }
+    .price-features li { font-size:0.83rem; color:rgba(255,255,255,0.65); display:flex; align-items:center; gap:0.5rem; }
+    .price-card.featured .price-features li { color:var(--muted); }
+    .price-features li::before { content:'◦'; color:var(--sand); }
+    .price-card.featured .price-features li::before { color:var(--sage); }
+    .price-btn { width:100%; padding:0.85rem; font-family:'Jost',sans-serif; font-size:0.8rem; font-weight:400; letter-spacing:0.1em; cursor:pointer; border:1px solid rgba(255,255,255,0.25); background:transparent; color:#fff; border-radius:100px; transition:all .2s; }
+    .price-btn:hover { border-color:#fff; }
+    .price-card.featured .price-btn { background:var(--sage); color:#fff; border-color:var(--sage); }
+    @media(max-width:768px){ .pricing-grid{grid-template-columns:1fr;} .pricing{padding:4rem 1.5rem;} }
+
+    /* FOOTER */
+    footer { background:var(--warm); border-top:1px solid var(--border); padding:4rem 8% 2rem; }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:4rem; margin-bottom:3rem; }
+    .footer-logo { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:400; color:var(--dark); margin-bottom:1rem; }
+    .footer-logo em { font-style:italic; color:var(--sage); }
+    .footer-desc { font-size:0.82rem; color:var(--muted); line-height:1.8; }
+    .footer-heading { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--sage); margin-bottom:1.25rem; font-weight:400; }
+    .footer-list { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+    .footer-list a { font-size:0.82rem; color:var(--muted); transition:color .2s; }
+    .footer-list a:hover { color:var(--sage); }
+    .footer-bottom { border-top:1px solid var(--border); padding-top:1.5rem; display:flex; justify-content:space-between; }
+    .footer-copy { font-size:0.75rem; color:rgba(44,44,44,0.35); }
+    @media(max-width:768px){ .footer-grid{grid-template-columns:1fr; gap:2rem;} footer{padding:3rem 1.5rem 2rem;} .footer-bottom{flex-direction:column; gap:0.5rem;} }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo"><em>Serenity</em> Yoga</div>
+    <ul class="nav-links">
+      <li><a href="#">Classes</a></li>
+      <li><a href="#">Schedule</a></li>
+      <li><a href="#">Teachers</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Book a Class</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600&q=85" alt="Serenity Yoga" />
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Yoga Studio · Limassol</p>
+      <h1 class="hero-title">Find Your <em>Still</em> Place</h1>
+      <p class="hero-sub">A sanctuary for movement, breath, and stillness. Whether you're stepping onto the mat for the first time or deepening a long practice — you belong here.</p>
+      <div class="hero-btns">
+        <button class="btn-sage">Explore Classes</button>
+        <button class="btn-outline">View Schedule</button>
+      </div>
+      <p class="hero-quote">"The pose begins when you want to leave it."</p>
+    </div>
+  </section>
+
+  <!-- CLASSES -->
+  <section class="classes">
+    <div class="section-header">
+      <p class="eyebrow">What We Offer</p>
+      <h2 class="section-title">Classes for Every <em>Journey</em></h2>
+    </div>
+    <div class="classes-grid">
+      <div class="class-card">
+        <div class="class-img"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Hatha Yoga" /></div>
+        <div class="class-body"><div class="class-level">All Levels</div><div class="class-name">Hatha Yoga</div><div class="class-desc">Foundational postures and breathing techniques. The ideal starting point for beginners and a reliable anchor for experienced practitioners.</div><div class="class-meta"><span>⏱ 60 min</span><span>👥 Max 12</span></div></div>
+      </div>
+      <div class="class-card">
+        <div class="class-img"><img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80" alt="Vinyasa Flow" /></div>
+        <div class="class-body"><div class="class-level">Intermediate</div><div class="class-name">Vinyasa Flow</div><div class="class-desc">Dynamic sequences that link breath with movement. Builds strength, flexibility, and a meditative focus through continuous flow.</div><div class="class-meta"><span>⏱ 75 min</span><span>👥 Max 10</span></div></div>
+      </div>
+      <div class="class-card">
+        <div class="class-img"><img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&q=80" alt="Yin Yoga" /></div>
+        <div class="class-body"><div class="class-level">All Levels</div><div class="class-name">Yin & Restore</div><div class="class-desc">Long-held, passive postures targeting deep connective tissue. The perfect antidote to a busy week — deeply calming and restorative.</div><div class="class-meta"><span>⏱ 75 min</span><span>👥 Max 14</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="schedule">
+    <div class="section-header">
+      <p class="eyebrow">Weekly Schedule</p>
+      <h2 class="section-title">This Week's <em>Classes</em></h2>
+    </div>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Class</th>
+          <th>Teacher</th>
+          <th>Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Monday</td><td>7:00 am</td><td>Hatha Yoga</td><td>Sofia</td><td><span class="badge badge-all">All Levels</span></td></tr>
+        <tr><td>Monday</td><td>6:30 pm</td><td>Vinyasa Flow</td><td>Nadia</td><td><span class="badge badge-inter">Intermediate</span></td></tr>
+        <tr><td>Tuesday</td><td>8:00 am</td><td>Yin & Restore</td><td>Sofia</td><td><span class="badge badge-all">All Levels</span></td></tr>
+        <tr><td>Wednesday</td><td>7:00 am</td><td>Power Yoga</td><td>Nadia</td><td><span class="badge badge-adv">Advanced</span></td></tr>
+        <tr><td>Thursday</td><td>6:30 pm</td><td>Hatha Yoga</td><td>Elena</td><td><span class="badge badge-all">All Levels</span></td></tr>
+        <tr><td>Friday</td><td>7:00 am</td><td>Vinyasa Flow</td><td>Sofia</td><td><span class="badge badge-inter">Intermediate</span></td></tr>
+        <tr><td>Saturday</td><td>9:00 am</td><td>Weekend Flow</td><td>Nadia</td><td><span class="badge badge-all">All Levels</span></td></tr>
+        <tr><td>Sunday</td><td>10:00 am</td><td>Yin & Restore</td><td>Elena</td><td><span class="badge badge-all">All Levels</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- TEACHERS -->
+  <section class="teachers">
+    <div class="section-header">
+      <p class="eyebrow">Our Teachers</p>
+      <h2 class="section-title">Guides on Your <em>Path</em></h2>
+    </div>
+    <div class="teachers-grid">
+      <div class="teacher-card">
+        <div class="teacher-img"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&q=80" alt="Sofia" /></div>
+        <div class="teacher-name">Sofia Andreou</div>
+        <div class="teacher-spec">Hatha · Vinyasa · Meditation</div>
+        <p class="teacher-bio">500-hour certified in Rishikesh, India. Sofia has been teaching in Limassol for 8 years with a focus on alignment and breath awareness.</p>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-img"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80" alt="Nadia" /></div>
+        <div class="teacher-name">Nadia Petrou</div>
+        <div class="teacher-spec">Vinyasa · Power Yoga · Pilates</div>
+        <p class="teacher-bio">Former professional dancer turned yoga teacher. Nadia's classes are dynamic, music-driven, and deeply energising.</p>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-img"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80" alt="Elena" /></div>
+        <div class="teacher-name">Elena Christodoulou</div>
+        <div class="teacher-spec">Yin · Restorative · Yoga Nidra</div>
+        <p class="teacher-bio">Specialising in slow, therapeutic practices. Elena's sessions are a sanctuary for nervous system recovery and deep rest.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <div class="section-header">
+      <p class="eyebrow">Membership</p>
+      <h2 class="section-title">Choose Your <em>Practice</em></h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Drop-In</div>
+        <div class="price-amount">€15</div>
+        <div class="price-period">per class</div>
+        <ul class="price-features">
+          <li>Single class access</li>
+          <li>Mat rental available</li>
+          <li>No commitment</li>
+        </ul>
+        <button class="price-btn">Book a Class</button>
+      </div>
+      <div class="price-card featured">
+        <div class="price-name">Monthly</div>
+        <div class="price-amount">€79</div>
+        <div class="price-period">per month</div>
+        <ul class="price-features">
+          <li>Unlimited classes</li>
+          <li>Priority booking</li>
+          <li>Mat storage included</li>
+          <li>1 guest pass/month</li>
+        </ul>
+        <button class="price-btn">Join Monthly</button>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Class Pack</div>
+        <div class="price-amount">€99</div>
+        <div class="price-period">10 classes</div>
+        <ul class="price-features">
+          <li>10 class credits</li>
+          <li>Valid 3 months</li>
+          <li>Shareable with a friend</li>
+        </ul>
+        <button class="price-btn">Buy Pack</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><em>Serenity</em> Yoga</div>
+        <p class="footer-desc">A yoga studio in the heart of Limassol. Classes for all levels, taught by experienced teachers who genuinely care.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Practice</p>
+        <ul class="footer-list">
+          <li><a href="#">Classes</a></li>
+          <li><a href="#">Schedule</a></li>
+          <li><a href="#">Teachers</a></li>
+          <li><a href="#">Workshops</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Visit</p>
+        <ul class="footer-list">
+          <li><a href="#">22 Makarios Ave, Limassol</a></li>
+          <li><a href="#">Mon–Fri: 7am – 9pm</a></li>
+          <li><a href="#">+357 25 444 555</a></li>
+          <li><a href="#">hello@serenityyoga.cy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Serenity Yoga Studio. All rights reserved.</span>
+      <span class="footer-copy">Website by D&amp;M Labs</span>
+    </div>
+  </footer>
+</body>
+</html>

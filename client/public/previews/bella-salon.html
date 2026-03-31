@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bella Salon – Limassol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --rose:#C9847A; --rose-light:#F2D9D5; --gold:#B8975A; --cream:#FAF6F1; --dark:#2C1810; --mid:#7A5C54; }
+    body { font-family:'Lato',sans-serif; background:var(--cream); color:var(--dark); overflow-x:hidden; }
+    h1,h2,h3,h4 { font-family:'Cormorant Garamond',serif; }
+    a { text-decoration:none; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:100; background:rgba(250,246,241,0.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(184,151,90,0.2); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:68px; }
+    .nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:600; color:var(--dark); letter-spacing:0.08em; }
+    .nav-logo span { color:var(--gold); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid); transition:color .2s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta { background:var(--rose); color:#fff; border:none; padding:0.6rem 1.4rem; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; font-family:'Lato',sans-serif; transition:background .2s; }
+    .nav-cta:hover { background:var(--gold); }
+    @media(max-width:768px){ .nav-links{display:none;} }
+
+    /* HERO */
+    .hero { min-height:92vh; display:grid; grid-template-columns:1fr 1fr; }
+    .hero-text { display:flex; flex-direction:column; justify-content:center; padding:6% 8% 6% 10%; }
+    .eyebrow { font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; }
+    .hero-title { font-size:clamp(2.8rem,5vw,4.5rem); font-weight:300; line-height:1.1; color:var(--dark); margin-bottom:1.5rem; }
+    .hero-title em { font-style:italic; color:var(--rose); }
+    .hero-sub { font-size:1rem; font-weight:300; color:var(--mid); line-height:1.8; max-width:380px; margin-bottom:2.5rem; }
+    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+    .btn-primary { background:var(--rose); color:#fff; padding:0.85rem 2rem; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; border:none; cursor:pointer; font-family:'Lato',sans-serif; transition:all .2s; }
+    .btn-primary:hover { background:var(--gold); }
+    .btn-outline { background:transparent; color:var(--dark); padding:0.85rem 2rem; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; border:1px solid var(--dark); cursor:pointer; font-family:'Lato',sans-serif; transition:all .2s; }
+    .btn-outline:hover { border-color:var(--gold); color:var(--gold); }
+    .hero-image { position:relative; overflow:hidden; }
+    .hero-image img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+    .hero-badge { position:absolute; bottom:2rem; left:2rem; background:rgba(250,246,241,0.95); padding:1rem 1.5rem; border-left:3px solid var(--gold); }
+    .hero-badge p { font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:0.25rem; }
+    .hero-badge strong { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--dark); }
+    @media(max-width:768px){ .hero{grid-template-columns:1fr;} .hero-image{height:60vw;} .hero-text{padding:3rem 1.5rem;} }
+
+    /* SERVICES */
+    .services { padding:6rem 10%; background:#fff; }
+    .section-label { font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem; }
+    .section-title { font-size:clamp(2rem,3.5vw,3rem); font-weight:300; color:var(--dark); margin-bottom:3rem; }
+    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+    .service-card { background:var(--cream); padding:2.5rem 2rem; transition:background .3s; cursor:default; }
+    .service-card:hover { background:var(--rose-light); }
+    .service-num { font-family:'Cormorant Garamond',serif; font-size:2.5rem; color:var(--rose-light); font-weight:300; margin-bottom:1rem; }
+    .service-card:hover .service-num { color:rgba(201,132,122,0.4); }
+    .service-name { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--dark); margin-bottom:0.75rem; }
+    .service-desc { font-size:0.85rem; color:var(--mid); line-height:1.7; }
+    @media(max-width:768px){ .services-grid{grid-template-columns:1fr;} .services{padding:4rem 1.5rem;} }
+
+    /* GALLERY */
+    .gallery { padding:6rem 10%; }
+    .gallery-grid { display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:280px 280px; gap:8px; margin-top:2rem; }
+    .gallery-grid img { width:100%; height:100%; object-fit:cover; display:block; }
+    .gallery-grid .tall { grid-row:span 2; }
+    @media(max-width:768px){ .gallery-grid{grid-template-columns:1fr 1fr; grid-template-rows:auto;} .gallery-grid .tall{grid-row:span 1;} .gallery-grid img{height:40vw;} .gallery{padding:3rem 1.5rem;} }
+
+    /* ABOUT */
+    .about { padding:6rem 10%; background:var(--dark); display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
+    .about-img img { width:100%; aspect-ratio:3/4; object-fit:cover; }
+    .about-text .section-label { color:var(--rose); }
+    .about-text .section-title { color:#fff; }
+    .about-text p { font-size:0.9rem; color:rgba(255,255,255,0.65); line-height:1.9; margin-bottom:1.5rem; }
+    .about-stats { display:flex; gap:3rem; margin-top:2rem; }
+    .stat-num { font-family:'Cormorant Garamond',serif; font-size:2.5rem; color:var(--gold); display:block; }
+    .stat-label { font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.5); }
+    @media(max-width:768px){ .about{grid-template-columns:1fr; gap:3rem; padding:4rem 1.5rem;} }
+
+    /* TEAM */
+    .team { padding:6rem 10%; background:#fff; }
+    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem; }
+    .team-card img { width:100%; aspect-ratio:3/4; object-fit:cover; object-position:top; margin-bottom:1.25rem; filter:grayscale(20%); transition:filter .3s; }
+    .team-card:hover img { filter:grayscale(0%); }
+    .team-name { font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--dark); margin-bottom:0.25rem; }
+    .team-role { font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); }
+    @media(max-width:768px){ .team-grid{grid-template-columns:1fr 1fr;} .team{padding:4rem 1.5rem;} }
+
+    /* BOOKING */
+    .booking { padding:6rem 10%; background:var(--rose-light); display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .booking-title { font-size:clamp(2rem,3.5vw,3rem); font-weight:300; color:var(--dark); margin-bottom:1rem; }
+    .booking-title em { font-style:italic; color:var(--rose); }
+    .booking-sub { font-size:0.9rem; color:var(--mid); line-height:1.8; margin-bottom:1.5rem; }
+    .booking-addr { font-size:0.8rem; color:var(--mid); }
+    .booking-form { display:flex; flex-direction:column; gap:1rem; }
+    .booking-form input, .booking-form select { padding:0.9rem 1rem; border:1px solid rgba(184,151,90,0.3); background:#fff; font-family:'Lato',sans-serif; font-size:0.85rem; color:var(--dark); outline:none; }
+    .booking-form input:focus, .booking-form select:focus { border-color:var(--rose); }
+    @media(max-width:768px){ .booking{grid-template-columns:1fr; gap:2.5rem; padding:4rem 1.5rem;} }
+
+    /* FOOTER */
+    footer { background:var(--dark); padding:4rem 10% 2rem; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:4rem; margin-bottom:3rem; }
+    .footer-logo { font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#fff; margin-bottom:1rem; }
+    .footer-logo span { color:var(--gold); }
+    .footer-desc { font-size:0.85rem; color:rgba(255,255,255,0.45); line-height:1.8; }
+    .footer-heading { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1.25rem; }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+    .footer-links a { font-size:0.85rem; color:rgba(255,255,255,0.5); transition:color .2s; }
+    .footer-links a:hover { color:var(--rose); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,0.08); padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; }
+    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.3); }
+    @media(max-width:768px){ .footer-top{grid-template-columns:1fr; gap:2rem;} footer{padding:3rem 1.5rem 2rem;} .footer-bottom{flex-direction:column; gap:0.5rem; text-align:center;} }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Bella<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Book Now</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Limassol's Premier Hair &amp; Beauty Studio</p>
+      <h1 class="hero-title">Where Beauty <em>Meets</em> Artistry</h1>
+      <p class="hero-sub">Expert hair, skin, and nail treatments in a serene, luxurious environment. Because you deserve to feel extraordinary.</p>
+      <div class="hero-btns">
+        <button class="btn-primary">Book an Appointment</button>
+        <button class="btn-outline">View Services</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&q=85" alt="Bella Salon interior" />
+      <div class="hero-badge">
+        <p>Est. 2018</p>
+        <strong>Award-Winning Studio</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Our Signature Services</h2>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-num">01</div><div class="service-name">Hair Design</div><div class="service-desc">Cuts, colour, balayage, and styling by our master stylists. Every appointment is a bespoke experience.</div></div>
+      <div class="service-card"><div class="service-num">02</div><div class="service-name">Skin Treatments</div><div class="service-desc">Facials, peels, and advanced skin therapies tailored to your unique skin type and goals.</div></div>
+      <div class="service-card"><div class="service-num">03</div><div class="service-name">Nail Artistry</div><div class="service-desc">Manicures, pedicures, gel extensions, and nail art that express your personal style.</div></div>
+      <div class="service-card"><div class="service-num">04</div><div class="service-name">Bridal Packages</div><div class="service-desc">Complete bridal beauty packages for your most important day. Trials included.</div></div>
+      <div class="service-card"><div class="service-num">05</div><div class="service-name">Lash &amp; Brow</div><div class="service-desc">Lash lifts, extensions, brow lamination, and tinting for a polished, effortless look.</div></div>
+      <div class="service-card"><div class="service-num">06</div><div class="service-name">Massage &amp; Spa</div><div class="service-desc">Relaxing and therapeutic massages to restore balance and relieve tension.</div></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <p class="section-label">Our Work</p>
+    <h2 class="section-title">A Glimpse of Bella</h2>
+    <div class="gallery-grid">
+      <img class="tall" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80" alt="Salon work" />
+      <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=500&q=80" alt="Hair styling" />
+      <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=500&q=80" alt="Nail art" />
+      <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&q=80" alt="Skincare" />
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&q=80" alt="Makeup" />
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=80" alt="About Bella Salon" />
+    </div>
+    <div class="about-text">
+      <p class="section-label">Our Story</p>
+      <h2 class="section-title">Crafted with Passion, Built on Trust</h2>
+      <p>Bella was born from a simple belief: every person deserves to leave feeling more confident than when they arrived. Since 2018, we have been Limassol's trusted destination for beauty that lasts.</p>
+      <p>Our team of 12 specialists brings decades of combined experience from London, Paris, and Athens — now right here in Cyprus.</p>
+      <div class="about-stats">
+        <div><span class="stat-num">2,400+</span><span class="stat-label">Happy Clients</span></div>
+        <div><span class="stat-num">12</span><span class="stat-label">Specialists</span></div>
+        <div><span class="stat-num">6yr</span><span class="stat-label">In Limassol</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team">
+    <p class="section-label">Meet the Team</p>
+    <h2 class="section-title">The Artists Behind Bella</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80" alt="Sofia Andreou" />
+        <div class="team-name">Sofia Andreou</div>
+        <div class="team-role">Creative Director &amp; Senior Stylist</div>
+      </div>
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" alt="Maria Petrou" />
+        <div class="team-name">Maria Petrou</div>
+        <div class="team-role">Skin &amp; Aesthetics Specialist</div>
+      </div>
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80" alt="Elena Stavrou" />
+        <div class="team-name">Elena Stavrou</div>
+        <div class="team-role">Nail Artist &amp; Brow Expert</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="booking">
+    <div>
+      <p class="section-label">Ready to Visit?</p>
+      <h2 class="booking-title">Book Your <em>Experience</em></h2>
+      <p class="booking-sub">Reserve your appointment online in under 2 minutes. We'll confirm within the hour.</p>
+      <p class="booking-addr">25 Anexartisias Street, Limassol &nbsp;|&nbsp; +357 25 000 000</p>
+    </div>
+    <form class="booking-form" onsubmit="return false">
+      <input type="text" placeholder="Your Name" />
+      <input type="tel" placeholder="Phone Number" />
+      <select><option>Select a Service</option><option>Hair Design</option><option>Skin Treatment</option><option>Nails</option><option>Bridal Package</option></select>
+      <input type="date" />
+      <button class="btn-primary" type="submit">Request Appointment</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Bella<span>.</span></div>
+        <p class="footer-desc">Limassol's premier hair and beauty studio. Crafting confidence since 2018.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Services</p>
+        <ul class="footer-links">
+          <li><a href="#">Hair Design</a></li>
+          <li><a href="#">Skin Treatments</a></li>
+          <li><a href="#">Nail Artistry</a></li>
+          <li><a href="#">Bridal Packages</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Visit Us</p>
+        <ul class="footer-links">
+          <li><a href="#">25 Anexartisias St, Limassol</a></li>
+          <li><a href="#">Mon–Sat: 9am – 8pm</a></li>
+          <li><a href="#">+357 25 000 000</a></li>
+          <li><a href="#">hello@bellasalon.cy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Bella Salon. All rights reserved.</span>
+      <span class="footer-copy">Website by D&amp;M Labs</span>
+    </div>
+  </footer>
+</body>
+</html>
