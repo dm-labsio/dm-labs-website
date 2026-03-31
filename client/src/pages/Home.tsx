@@ -10,7 +10,8 @@ import {
   Globe, Smartphone, Search, Zap, Shield, Clock,
   CheckCircle2, ArrowRight, MessageCircle,
   Utensils, Scissors, Stethoscope, Dumbbell,
-  Palette, Code, Rocket, Headphones, Quote, HelpCircle
+  Palette, Code, Rocket, Headphones, Quote, HelpCircle,
+  Users, CalendarCheck, Languages
 } from "lucide-react";
 
 const HERO_DEVICES = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/hero-devices-v2-8JXhBrX7f82um3hxnU6TmE.webp";
@@ -402,7 +403,7 @@ export default function HomePage() {
             <span className="text-sm sm:text-base text-white/90 font-medium">Introductory rates available now. <span className="font-bold text-white">Claim yours today.</span></span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
 
             {/* Starter */}
             <AnimateIn delay={0.1}>
@@ -479,40 +480,56 @@ export default function HomePage() {
               </div>
             </AnimateIn>
 
-            {/* Enterprise */}
-            <AnimateIn delay={0.4}>
-              <div className="h-full flex flex-col rounded-2xl overflow-hidden" style={{ background: "linear-gradient(145deg, #0f1117 0%, #1a1f2e 60%, #111827 100%)", border: "1px solid rgba(91,140,255,0.25)" }}>
-                <div className="flex flex-col flex-1 p-7">
-                  <span className="inline-block self-start px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
-                  <p className="text-sm font-semibold uppercase tracking-wide mb-2" style={{ color: "#6FE3FF" }}>Enterprise</p>
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-3xl font-bold text-white">Custom</span>
-                  </div>
+          </div>
+
+          {/* Enterprise Wide Banner */}
+          <AnimateIn delay={0.4} className="mt-8 max-w-5xl mx-auto">
+            <div className="rounded-2xl overflow-hidden" style={{ background: "linear-gradient(135deg, #0d1117 0%, #161b2e 50%, #0d1117 100%)", border: "1px solid rgba(91,140,255,0.2)" }}>
+              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 p-8">
+
+                {/* Left: label + price + description */}
+                <div className="flex-shrink-0 lg:w-64">
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
+                  <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise</p>
+                  <p className="text-4xl font-bold text-white mb-1">Custom</p>
                   <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Pricing tailored to your project</p>
-                  <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>For larger businesses and organisations that need a fully bespoke solution built around their goals.</p>
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {[
-                      "Fully custom design from scratch",
-                      "Unlimited pages",
-                      "CRM and e-commerce integrations",
-                      "Multi-language support",
-                      "Dedicated project manager",
-                      "Priority support and delivery",
-                    ].map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm" style={{ color: "rgba(255,255,255,0.85)" }}>
-                        <CheckCircle2 size={16} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/contact" className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold text-sm transition-all hover:opacity-90" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>
-                    Contact Us
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+                    For larger businesses and organisations that need a fully bespoke solution built around their goals.
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"
+                    style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}
+                  >
+                    <MessageCircle size={16} /> Contact Us
                   </Link>
                 </div>
-              </div>
-            </AnimateIn>
 
-          </div>
+                {/* Divider */}
+                <div className="hidden lg:block w-px self-stretch" style={{ background: "rgba(91,140,255,0.2)" }} />
+
+                {/* Right: feature grid */}
+                <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
+                  {[
+                    { icon: Globe, label: "Fully custom design from scratch" },
+                    { icon: Zap, label: "Unlimited pages" },
+                    { icon: CalendarCheck, label: "CRM, booking or e-commerce integrations" },
+                    { icon: Languages, label: "Multi-language support" },
+                    { icon: Users, label: "Dedicated project manager" },
+                    { icon: Headphones, label: "Priority support and delivery" },
+                    { icon: ArrowRight, label: "Ongoing retainer option" },
+                    { icon: CheckCircle2, label: "Custom SEO and content strategy" },
+                  ].map(({ icon: Icon, label }) => (
+                    <div key={label} className="flex items-start gap-2.5">
+                      <Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />
+                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>{label}</span>
+                    </div>
+                  ))}
+                </div>
+
+              </div>
+            </div>
+          </AnimateIn>
 
           <AnimateIn className="text-center mt-10">
             <p className="text-sm text-[#5B6472] mb-3">
