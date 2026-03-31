@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Star, ArrowRight, Check, ChevronRight, ExternalLink } from "lucide-react";
+import { X, Star, ArrowRight, Check, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
 // ─── CDN URLs - all fresh uploads Expires=1804155913+ ───────────────────────
 const CDN = {
@@ -1060,6 +1060,97 @@ function CustomBuildCard() {
   );
 }
 
+// ─── Industry Tabs with scroll arrows ────────────────────────────────────────
+function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: string; setActiveIndustry: (id: string) => void }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener("scroll", checkScroll, { passive: true });
+    const ro = new ResizeObserver(checkScroll);
+    ro.observe(el);
+    return () => { el.removeEventListener("scroll", checkScroll); ro.disconnect(); };
+  }, []);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === "left" ? -200 : 200, behavior: "smooth" });
+  };
+
+  return (
+    <div className="relative">
+      {/* Left fade + arrow */}
+      {canScrollLeft && (
+        <>
+          <div className="absolute left-0 top-0 bottom-0 w-12 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(246,246,244,0.95), transparent)" }} />
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-1 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft size={16} className="text-gray-600" />
+          </button>
+        </>
+      )}
+
+      {/* Right fade + arrow */}
+      {canScrollRight && (
+        <>
+          <div className="absolute right-0 top-0 bottom-0 w-12 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, rgba(246,246,244,0.95), transparent)" }} />
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-1 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
+            aria-label="Scroll right"
+          >
+            <ChevronRight size={16} className="text-gray-600" />
+          </button>
+        </>
+      )}
+
+      {/* Scrollable row */}
+      <div
+        ref={scrollRef}
+        className="flex gap-2 overflow-x-auto"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          WebkitOverflowScrolling: "touch",
+          paddingLeft: "max(16px, calc((100vw - 1280px) / 2 + 16px))",
+          paddingRight: "max(16px, calc((100vw - 1280px) / 2 + 16px))",
+          paddingBottom: "2px",
+        } as React.CSSProperties}
+      >
+        {INDUSTRIES.map(industry => (
+          <button
+            key={industry.id}
+            onClick={() => setActiveIndustry(industry.id)}
+            className="flex items-center px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 flex-shrink-0"
+            style={
+              activeIndustry === industry.id
+                ? { background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)", color: "#fff", boxShadow: "0 4px 12px rgba(91,140,255,0.3)" }
+                : { background: "#fff", color: "#6B7280", border: "1px solid #E5E7EB" }
+            }
+          >
+            {industry.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function Templates() {
   const [location] = useLocation();
@@ -1127,33 +1218,7 @@ export default function Templates() {
 
       {/* Sticky Industry Filter */}
       <section className="sticky top-[72px] z-30 py-4" style={{ background: "rgba(246,246,244,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(226,229,234,0.6)" }}>
-        {/* Scroll container goes full-width OUTSIDE .container so it can scroll edge-to-edge on mobile */}
-        <div
-          className="flex gap-2 overflow-x-auto"
-          style={{
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-            WebkitOverflowScrolling: "touch",
-            paddingLeft: "max(16px, calc((100vw - 1280px) / 2 + 16px))",
-            paddingRight: "max(16px, calc((100vw - 1280px) / 2 + 16px))",
-            paddingBottom: "2px",
-          } as React.CSSProperties}
-        >
-          {INDUSTRIES.map(industry => (
-            <button
-              key={industry.id}
-              onClick={() => setActiveIndustry(industry.id)}
-              className="flex items-center px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 flex-shrink-0"
-              style={
-                activeIndustry === industry.id
-                  ? { background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)", color: "#fff", boxShadow: "0 4px 12px rgba(91,140,255,0.3)" }
-                  : { background: "#fff", color: "#6B7280", border: "1px solid #E5E7EB" }
-              }
-            >
-              {industry.label}
-            </button>
-          ))}
-        </div>
+        <IndustryTabs activeIndustry={activeIndustry} setActiveIndustry={setActiveIndustry} />
       </section>
 
       {/* Templates Grid */}
