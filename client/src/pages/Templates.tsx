@@ -140,38 +140,107 @@ const CDN = {
 };
 
 
-// ─── Phone Frame ──────────────────────────────────────────────────────────────
-function PhoneFrame({ children }: { children: React.ReactNode }) {
-  const W = 200;
-  const CONTENT_H = Math.round(W * (19.5 / 9)) - 48;
+
+// ─── Browser Chrome Frame ─────────────────────────────────────────────────────
+// Renders a mini-site inside a realistic phone shell at 390px viewport width.
+// The entire phone is then scaled down proportionally to fit the modal column.
+function PhoneFrame({ previewUrl, title }: { previewUrl: string; title: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.7);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    // Phone shell is 420px wide (390px screen + 15px sides). Scale to fit container.
+    const update = () => {
+      const w = el.offsetWidth;
+      if (w > 0) setScale(Math.min(1, w / 420));
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  // Phone shell: 420px wide, 860px tall (roughly 19.5:9 ratio like modern phones)
+  const phoneW = 420;
+  const phoneH = 860;
+
   return (
-    <div style={{
-      width: `${W}px`,
-      borderRadius: "28px",
-      overflow: "hidden",
-      border: "3px solid #2A2A2A",
-      background: "#1A1A1A",
-      boxShadow: "0 20px 60px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.06)",
-      flexShrink: 0,
-      position: "relative",
-    }}>
-      <div style={{ height: "28px", background: "#1A1A1A", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-        <div style={{ position: "absolute", left: "-3px", top: "30px", width: "3px", height: "28px", background: "#333", borderRadius: "2px 0 0 2px" }} />
-        <div style={{ position: "absolute", left: "-3px", top: "66px", width: "3px", height: "28px", background: "#333", borderRadius: "2px 0 0 2px" }} />
-        <div style={{ position: "absolute", right: "-3px", top: "44px", width: "3px", height: "44px", background: "#333", borderRadius: "0 2px 2px 0" }} />
-        <div style={{ width: "72px", height: "14px", borderRadius: "20px", background: "#000" }} />
-      </div>
-      <div style={{ height: `${CONTENT_H}px`, overflow: "hidden", position: "relative", background: "#fff", padding: "6px 4px" }}>
-        {children}
-      </div>
-      <div style={{ height: "20px", background: "#1A1A1A", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ width: "60px", height: "4px", borderRadius: "4px", background: "rgba(255,255,255,0.25)" }} />
+    <div
+      ref={containerRef}
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        background: "#F2F4F7",
+        borderRadius: "12px",
+        padding: "24px 0",
+        // Height matches the scaled phone so no wasted space
+        height: `${Math.round(phoneH * scale) + 48}px`,
+        overflow: "hidden",
+      }}
+    >
+      <div style={{
+        width: `${phoneW}px`,
+        height: `${phoneH}px`,
+        transform: `scale(${scale})`,
+        transformOrigin: "top center",
+        flexShrink: 0,
+        position: "relative",
+      }}>
+        {/* Phone shell SVG outline */}
+        <div style={{
+          position: "absolute", inset: 0,
+          borderRadius: "52px",
+          border: "12px solid #1a1a1a",
+          background: "#1a1a1a",
+          boxShadow: "0 0 0 2px #333, 0 24px 60px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.08)",
+          zIndex: 2,
+          pointerEvents: "none",
+        }} />
+        {/* Dynamic island */}
+        <div style={{
+          position: "absolute", top: "18px", left: "50%", transform: "translateX(-50%)",
+          width: "120px", height: "34px", borderRadius: "20px",
+          background: "#0a0a0a", zIndex: 3, pointerEvents: "none",
+        }} />
+        {/* Screen area */}
+        <div style={{
+          position: "absolute",
+          top: "12px", left: "12px", right: "12px", bottom: "12px",
+          borderRadius: "42px",
+          overflow: "hidden",
+          background: "#fff",
+          zIndex: 1,
+        }}>
+          <iframe
+            src={previewUrl}
+            title={`${title} mobile preview`}
+            style={{
+              width: "390px",
+              height: "100%",
+              border: "none",
+              display: "block",
+              // Shift down to clear the dynamic island area (34px island + 18px top + some padding)
+              marginTop: "0",
+            }}
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin"
+          />
+        </div>
+        {/* Home indicator */}
+        <div style={{
+          position: "absolute", bottom: "20px", left: "50%", transform: "translateX(-50%)",
+          width: "130px", height: "5px", borderRadius: "3px",
+          background: "rgba(255,255,255,0.35)", zIndex: 3, pointerEvents: "none",
+        }} />
       </div>
     </div>
   );
 }
 
-// ─── Browser Chrome Frame ─────────────────────────────────────────────────────
 function BrowserFrame({ children, url = "example.com" }: { children: React.ReactNode; url?: string; height?: number }) {
   return (
     <div className="rounded-xl overflow-hidden shadow-xl border border-gray-200/80" style={{ background: "#fff" }}>
@@ -202,22 +271,25 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
   const [scale, setScale] = useState(0.31);
   const t = template as any;
 
-  useEffect(() => {
+   useEffect(() => {
     if (!t.livePreview) return;
     const el = containerRef.current;
     if (!el) return;
+    // Render iframe at 768px (tablet breakpoint) so it scales well on all screen sizes.
+    // On a 360px mobile card: scale = 360/768 = 0.47 (much better than 360/1280 = 0.28)
+    const IFRAME_W = 768;
     const update = () => {
       const w = el.offsetWidth;
-      if (w > 0) setScale(w / 1280);
+      if (w > 0) setScale(w / IFRAME_W);
     };
     update();
     const ro = new ResizeObserver(update);
     ro.observe(el);
     return () => ro.disconnect();
   }, [t.livePreview]);
-
   // Live preview templates: show a responsive iframe thumbnail
   if (t.livePreview && t.previewUrl) {
+    const IFRAME_W = 768;
     const [color1, color2] = t.palette || ["#1a1a2e", "#16213e"];
     // navHeight on the mini-site is ~68px; after scaling that becomes scale*68px.
     // We shift the wrapper up by that amount so the hero (not the nav) fills the card.
@@ -240,7 +312,7 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
             left: "50%",
             transform: `translateX(-50%) scale(${scale})`,
             transformOrigin: "top center",
-            width: "1280px",
+            width: `${IFRAME_W}px`,
             height: `${Math.ceil((280 + navOffset) / scale)}px`,
           }}>
             <iframe
@@ -302,7 +374,6 @@ const INDUSTRIES = [
   { id: "clinic", label: "Clinics & Health", icon: "+" },
   { id: "fitness", label: "Fitness & Sport", icon: "◈" },
   { id: "realestate", label: "Real Estate", icon: "◻" },
-  { id: "tech", label: "Tech & Repairs", icon: "◑" },
   { id: "childcare", label: "Childcare", icon: "◎" },
   { id: "architecture", label: "Architecture", icon: "△" },
   { id: "deli", label: "Deli & Food Shop", icon: "◇" },
@@ -528,33 +599,6 @@ const TEMPLATES = [
     previewUrl: "/previews/luxe-realty.html",
   },
   {
-    id: "techfix-repairs",
-    industry: "tech",
-    name: "TechFix Repairs",
-    tagline: "Clean & Technical",
-    tier: "Starter",
-    tierGradient: "linear-gradient(135deg, #0066ff, #0044cc)",
-    domain: "techfixrepairs.gr",
-    palette: ["#0d1117", "#1c2333", "#0066ff", "#e8f0ff", "#f8f9fc"],
-    paletteNames: ["Ink", "Dark", "Electric Blue", "Blue Pale", "Off White"],
-    features: [
-      "Device repair services grid",
-      "4-step process section",
-      "Customer reviews",
-      "Booking & quote form",
-      "SEO-optimised for Thessaloniki repairs",
-    ],
-    pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
-    ],
-    style: "Clean technical aesthetic with Space Grotesk and Space Mono, electric blue on dark navy. Perfect for electronics repair shops.",
-    waMessage: "Hi! I'm interested in the TechFix Repairs website template.",
-    price: "€250",
-    images: { card: "" },
-    livePreview: true,
-    previewUrl: "/previews/techfix-repairs.html",
-  },
-  {
     id: "little-stars-nursery",
     industry: "childcare",
     name: "Little Stars Nursery",
@@ -671,24 +715,11 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
   // ── Live iframe preview ────────────────────────────────────────────
   if (t.livePreview && t.previewUrl) {
     if (view === "mobile") {
-      // On mobile: render the iframe at full width so it uses the device's real viewport.
-      // We wrap it in an aspect-ratio container (9:16) so the height scales proportionally.
+      // Phone frame: the iframe is rendered at exactly 390px wide (iPhone 14 viewport).
+      // We then scale the phone frame down to fit the available container width.
+      // This gives a true "phone in hand" feel — the site renders as it would on a real phone.
       return (
-        <div style={{ width: "100%", background: "#F2F4F7", borderRadius: "12px", overflow: "hidden" }}>
-          <div style={{ position: "relative", width: "100%", paddingBottom: "177.78%" /* 16:9 inverted = 9:16 */ }}>
-            <iframe
-              src={t.previewUrl}
-              title={`${template.name} mobile preview`}
-              style={{
-                position: "absolute", top: 0, left: 0,
-                width: "100%", height: "100%",
-                border: "none", display: "block",
-              }}
-              loading="lazy"
-              sandbox="allow-scripts allow-same-origin"
-            />
-          </div>
-        </div>
+        <PhoneFrame previewUrl={t.previewUrl} title={template.name} />
       );
     }
     // Desktop: browser chrome frame with 16:10 aspect ratio iframe
@@ -964,7 +995,7 @@ function CustomBuildCard() {
       {/* Gradient banner */}
       <div
         className="relative flex flex-col items-center justify-center px-8 py-12 text-center"
-        style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)", minHeight: "220px" }}
+        style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)", height: "280px" }}
       >
         {/* Subtle animated gradient orbs */}
         <div className="absolute top-4 left-6 w-24 h-24 rounded-full blur-2xl" style={{ background: "rgba(91,140,255,0.25)" }} />
@@ -1030,9 +1061,21 @@ export default function Templates() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    // Handle ?industry= filter
     const industry = params.get("industry");
     if (industry && INDUSTRIES.find(i => i.id === industry)) {
       setActiveIndustry(industry);
+    }
+    // Handle ?open=templateId — auto-open the modal for a specific template
+    const openId = params.get("open");
+    if (openId) {
+      const tpl = TEMPLATES.find(t => t.id === openId);
+      if (tpl) {
+        setSelectedTemplate(tpl);
+        // Clean the URL so the modal can be closed without re-opening
+        const newUrl = window.location.pathname;
+        window.history.replaceState({}, "", newUrl);
+      }
     }
   }, [location]);
 

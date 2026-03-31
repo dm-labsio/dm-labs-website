@@ -23,7 +23,7 @@ function HomepageTemplateThumb({ tpl }: { tpl: { name: string; category: string;
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-    const update = () => { const w = el.offsetWidth; if (w > 0) setScale(w / 1280); };
+    const update = () => { const w = el.offsetWidth; if (w > 0) setScale(w / 768); };
     update();
     const ro = new ResizeObserver(update);
     ro.observe(el);
@@ -46,7 +46,7 @@ function HomepageTemplateThumb({ tpl }: { tpl: { name: string; category: string;
           left: "50%",
           transform: `translateX(-50%) scale(${scale})`,
           transformOrigin: "top center",
-          width: "1280px",
+          width: "768px",
           height: `${Math.ceil((220 + navOffset) / scale)}px`,
         }}>
           <iframe
@@ -250,7 +250,7 @@ export default function HomePage() {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 items-stretch">
             {FEATURED_TEMPLATES.map((tpl) => (
               <StaggerItem key={tpl.id} className="flex">
-                <Link href={`/templates?industry=${tpl.industry}`} className="flex w-full">
+                <Link href={`/templates?open=${tpl.id}`} className="flex w-full">
                   <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
                     {/* Live iframe thumbnail - responsive, scales to card width */}
                     <HomepageTemplateThumb tpl={tpl} />
