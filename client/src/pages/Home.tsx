@@ -20,7 +20,7 @@ import {
 const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
   "nomad-coffee": () => (
     <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a1208" }}>
-      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80" alt="Nomad Coffee cafe interior with warm lighting" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,18,8,0.88) 40%, rgba(26,18,8,0.3) 100%)" }} />
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 700, color: "#c8a96e", letterSpacing: "0.06em" }}>Nomad Co.</span>
@@ -42,7 +42,7 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
   ),
   "bella-salon": () => (
     <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f7f0e8" }}>
-      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "55%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="Bella Salon beauty studio interior" style={{ position: "absolute", right: 0, top: 0, width: "55%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f7f0e8 45%, transparent 75%)" }} />
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", background: "rgba(247,240,232,0.95)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 700, color: "#2a1a14", letterSpacing: "0.04em" }}>Bella.</span>
@@ -64,7 +64,7 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
   ),
   "dr-elara-dental": () => (
     <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f5f9ff" }}>
-      <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "50%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+      <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80" alt="Dr. Elara Dental modern dental clinic" style={{ position: "absolute", right: 0, top: 0, width: "50%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f5f9ff 48%, transparent 72%)" }} />
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", background: "rgba(245,249,255,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(33,150,243,0.12)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
@@ -167,8 +167,8 @@ const TESTIMONIALS = [
 
 export default function HomePage() {
   useSEO({
-    title: "D&M Labs - Professional Website Design for Your Business",
-    description: "Custom websites built fast, built right. Mobile-first, SEO-optimised, launched in 5-14 days. Starting from €299.",
+    title: "D&M Labs | Professional Website Design from €299",
+    description: "D&M Labs builds custom, mobile-first websites for businesses. Fast delivery, SEO-ready, starting from €299.",
   });
   return (
     <>
@@ -181,15 +181,16 @@ export default function HomePage() {
           <img
             src={GRADIENT_BG}
             alt=""
+            role="presentation"
             className="absolute inset-0 w-full h-full object-cover opacity-15"
             aria-hidden="true"
           />
         </div>
         <div className="absolute top-10 right-0 w-[500px] h-[500px] opacity-[0.06] animate-float-slower pointer-events-none z-0">
-          <img src={TRIANGLE_GEO} alt="" className="w-full h-full object-contain" aria-hidden="true" />
+          <img src={TRIANGLE_GEO} alt="" role="presentation" className="w-full h-full object-contain" aria-hidden="true" />
         </div>
         <div className="absolute bottom-0 left-10 w-[300px] h-[300px] opacity-[0.04] animate-float-slow pointer-events-none z-0" style={{ animationDelay: "-8s" }}>
-          <img src={TRIANGLE_GEO} alt="" className="w-full h-full object-contain rotate-180" aria-hidden="true" />
+          <img src={TRIANGLE_GEO} alt="" role="presentation" className="w-full h-full object-contain rotate-180" aria-hidden="true" />
         </div>
         {/* Ambient glow */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#5B8CFF] rounded-full blur-[120px] opacity-[0.08] animate-pulse-glow pointer-events-none z-0" />
@@ -272,7 +273,7 @@ export default function HomePage() {
           ═══════════════════════════════════════════ */}
       <section className="section-spacing relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
         </div>
         <div className="container relative z-10">
           {/* -- Template Showcase Grid -- */}
@@ -369,7 +370,7 @@ export default function HomePage() {
           ═══════════════════════════════════════════ */}
       <section className="section-spacing relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 100%)" }}>
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
         </div>
 
         <div className="container relative z-10">
@@ -466,7 +467,7 @@ export default function HomePage() {
           ═══════════════════════════════════════════ */}
       <section className="section-spacing relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 100%)" }}>
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
         </div>
 
         <div className="container relative z-10">
@@ -740,7 +741,7 @@ export default function HomePage() {
                   <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
                     <img
                       src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                      alt="Anastacia B."
+                      alt="Anastacia B. - Creative Director and AI Specialist at D&M Labs"
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{ objectPosition: 'center 12%' }}
                     />
@@ -797,7 +798,7 @@ export default function HomePage() {
                   <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
                     <img
                       src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                      alt="Tom B."
+                      alt="Tom B. - Technical Director and SEO Expert at D&M Labs"
                       className="absolute inset-0 w-full h-full object-cover object-top"
                     />
                     <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
@@ -859,6 +860,7 @@ export default function HomePage() {
           <img
             src={DARK_CTA_BG}
             alt=""
+            role="presentation"
             className="absolute inset-0 w-full h-full object-cover opacity-40"
             aria-hidden="true"
           />

@@ -14,9 +14,9 @@ import { useEffect } from "react";
 import { useLocation } from "wouter";
 
 const BASE_URL = "https://dm-labs.io";
-const DEFAULT_TITLE = "D&M Labs - Professional Website Design for Your Business";
+const DEFAULT_TITLE = "D&M Labs | Professional Website Design from €299";
 const DEFAULT_DESCRIPTION =
-  "Custom websites built fast, built right. Mobile-first, SEO-optimised, launched in 5-14 days. Starting from €299.";
+  "D&M Labs builds custom, mobile-first websites for businesses. Fast delivery, SEO-ready, starting from €299.";
 const DEFAULT_OG_IMAGE = "https://dm-labs.io/og-image.png";
 
 interface SEOOptions {
