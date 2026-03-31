@@ -402,7 +402,7 @@ export default function HomePage() {
             <span className="text-sm sm:text-base text-white/90 font-medium">Introductory rates available now. <span className="font-bold text-white">Claim yours today.</span></span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
 
             {/* Starter */}
             <AnimateIn delay={0.1}>
@@ -476,6 +476,39 @@ export default function HomePage() {
                 <Link href="/contact" className="btn-secondary w-full justify-center">
                   Get Started
                 </Link>
+              </div>
+            </AnimateIn>
+
+            {/* Enterprise */}
+            <AnimateIn delay={0.4}>
+              <div className="h-full flex flex-col rounded-2xl overflow-hidden" style={{ background: "linear-gradient(145deg, #0f1117 0%, #1a1f2e 60%, #111827 100%)", border: "1px solid rgba(91,140,255,0.25)" }}>
+                <div className="flex flex-col flex-1 p-7">
+                  <span className="inline-block self-start px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
+                  <p className="text-sm font-semibold uppercase tracking-wide mb-2" style={{ color: "#6FE3FF" }}>Enterprise</p>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-3xl font-bold text-white">Custom</span>
+                  </div>
+                  <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Pricing tailored to your project</p>
+                  <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>For larger businesses and organisations that need a fully bespoke solution built around their goals.</p>
+                  <ul className="space-y-3 mb-8 flex-1">
+                    {[
+                      "Fully custom design from scratch",
+                      "Unlimited pages",
+                      "CRM and e-commerce integrations",
+                      "Multi-language support",
+                      "Dedicated project manager",
+                      "Priority support and delivery",
+                    ].map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-sm" style={{ color: "rgba(255,255,255,0.85)" }}>
+                        <CheckCircle2 size={16} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="/contact" className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold text-sm transition-all hover:opacity-90" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>
+                    Contact Us
+                  </Link>
+                </div>
               </div>
             </AnimateIn>
 
