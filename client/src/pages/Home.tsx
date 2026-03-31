@@ -4,7 +4,7 @@
    Sections: Hero, Trust Strip, Template Showcase + Industries, Services, Process, Testimonials, Pricing, Stats, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
-import { useState, useEffect, useRef } from "react";
+import { } from "react";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import {
@@ -15,56 +15,89 @@ import {
   Users, CalendarCheck, Languages
 } from "lucide-react";
 
-// ─── Responsive live-preview iframe thumbnail for homepage template cards ────
-function HomepageTemplateThumb({ tpl }: { tpl: { name: string; category: string; previewUrl: string; palette: string[] } }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(0.31);
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const update = () => { const w = el.offsetWidth; if (w > 0) setScale(w / 768); };
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
-
-  const [color1, color2] = tpl.palette;
-  const navOffset = Math.round(scale * 68);
-
-  return (
-    <div
-      ref={containerRef}
-      className="relative w-full overflow-hidden"
-      style={{ height: "220px", background: `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)` }}
-    >
-      <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
-        <div style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          transform: `scale(${scale})`,
-          transformOrigin: "top left",
-          width: "768px",
-          height: `${Math.ceil((220 + navOffset) / scale)}px`,
-          marginTop: `-${navOffset}px`,
-        }}>
-          <iframe
-            src={tpl.previewUrl}
-            title={`${tpl.name} preview`}
-            style={{ width: "100%", height: "100%", border: "none", display: "block" }}
-            loading="lazy"
-            tabIndex={-1}
-            sandbox="allow-scripts allow-same-origin"
-          />
+// ─── Hand-crafted card mockups for homepage template showcase ────
+const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
+  "nomad-coffee": () => (
+    <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a1208" }}>
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,18,8,0.88) 40%, rgba(26,18,8,0.3) 100%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
+        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 700, color: "#c8a96e", letterSpacing: "0.06em" }}>Nomad Co.</span>
+        <div style={{ display: "flex", gap: "10px" }}>
+          {["Menu","Story","Beans"].map(l => <span key={l} style={{ fontSize: "7px", color: "rgba(200,169,110,0.7)" }}>{l}</span>)}
         </div>
       </div>
-      {/* Fade at bottom */}
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "60px", background: `linear-gradient(to top, ${color1}cc 0%, transparent 100%)`, pointerEvents: "none" }} />
+      <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "55%" }}>
+        <div style={{ fontSize: "7px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "4px" }}>Specialty Coffee</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "5px" }}>Coffee Worth<br/><em style={{ color: "#c8a96e" }}>Slow Down</em> For</div>
+        <div style={{ fontSize: "7px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "8px" }}>Single-origin beans, hand-roasted<br/>in small batches.</div>
+        <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "7px", padding: "4px 10px", fontWeight: 700, display: "inline-block" }}>View Our Menu</div>
+      </div>
+      <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
+        <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+  "bella-salon": () => (
+    <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f7f0e8" }}>
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "55%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f7f0e8 45%, transparent 75%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", background: "rgba(247,240,232,0.95)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
+        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 700, color: "#2a1a14", letterSpacing: "0.04em" }}>Bella.</span>
+        <div style={{ display: "flex", gap: "10px" }}>
+          {["Services","Gallery","Book"].map(l => <span key={l} style={{ fontSize: "7px", color: "#7a5a4a", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{l}</span>)}
+        </div>
+      </div>
+      <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "48%" }}>
+        <div style={{ fontSize: "7px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "5px" }}>Beauty Studio</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "6px", fontStyle: "italic" as const }}>Where Beauty<br/><em style={{ color: "#c4735a" }}>Meets</em> Artistry</div>
+        <div style={{ fontSize: "7px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "8px" }}>Expert hair, skin &amp; nail<br/>treatments in luxury.</div>
+        <div style={{ background: "#c4735a", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", letterSpacing: "0.1em" }}>Book a Treatment</div>
+      </div>
+      <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
+        <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+  "dr-elara-dental": () => (
+    <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f5f9ff" }}>
+      <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "50%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f5f9ff 48%, transparent 72%)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", background: "rgba(245,249,255,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(33,150,243,0.12)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+          <div style={{ width: "14px", height: "14px", borderRadius: "3px", background: "#2196f3" }} />
+          <span style={{ fontSize: "9px", fontWeight: 700, color: "#0a1628" }}>Dr. Elara Dental</span>
+        </div>
+        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "3px 8px", borderRadius: "3px", fontWeight: 600 }}>Book Appointment</div>
+      </div>
+      <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "50%" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "6px" }}>
+          <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
+          <span style={{ fontSize: "7px", color: "#2196f3", fontWeight: 600 }}>Accepting New Patients</span>
+        </div>
+        <div style={{ fontSize: "17px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "5px" }}>Your Smile,<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>Perfected</span><br/>with Care</div>
+        <div style={{ fontSize: "7px", color: "#4a6080", lineHeight: 1.5, marginBottom: "8px" }}>Modern dentistry in a calm,<br/>comfortable environment.</div>
+        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", borderRadius: "3px", fontWeight: 600 }}>View Treatments</div>
+      </div>
+      <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
+        <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
+        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+      </div>
+    </div>
+  ),
+};
+
+function HomepageCardPreview({ tplId, category }: { tplId: string; category: string }) {
+  const Design = HOMEPAGE_CARD_DESIGNS[tplId];
+  if (!Design) return null;
+  return (
+    <div className="relative w-full overflow-hidden">
+      <Design />
       {/* Category badge */}
-      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#111315]">
-        {tpl.category}
+      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#111315] z-10">
+        {category}
       </div>
     </div>
   );
@@ -244,7 +277,7 @@ export default function HomePage() {
               See What We Can Create for You
             </h2>
             <p className="text-base text-[#5B6472] max-w-2xl mx-auto">
-              Every website we build is <strong className="text-[#111315]">fully custom</strong> - designed from scratch around your brand, your content, and your customers. These examples show the range of styles and industries we work with. Think of them as inspiration, not off-the-shelf templates.
+              Every website we build is <strong className="text-[#111315]">fully custom</strong> - designed from scratch around your brand, your content, and your customers. These examples show the range of styles and industries we work with. Think of them as inspiration, not off-the-shelf packages.
             </p>
           </AnimateIn>
 
@@ -253,8 +286,8 @@ export default function HomePage() {
               <StaggerItem key={tpl.id} className="flex">
                 <Link href={`/templates?open=${tpl.id}`} className="flex w-full">
                   <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
-                    {/* Live iframe thumbnail - responsive, scales to card width */}
-                    <HomepageTemplateThumb tpl={tpl} />
+                    {/* Hand-crafted card mockup */}
+                    <HomepageCardPreview tplId={tpl.id} category={tpl.category} />
 
                     {/* Card Details */}
                     <div className="p-5 flex flex-col flex-1">
@@ -300,7 +333,7 @@ export default function HomePage() {
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
-              { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No templates - every site is built from scratch.", anchor: "custom-design" },
+              { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No off-the-shelf designs - every site is built from scratch.", anchor: "custom-design" },
               { icon: Smartphone, title: "Mobile-First Development", desc: "Every website is designed mobile-first, ensuring a flawless experience on phones, tablets, and desktops.", anchor: "mobile-first" },
               { icon: Search, title: "SEO Optimisation", desc: "Built-in search engine optimisation so your customers can find you on Google from day one.", anchor: "seo" },
               { icon: Zap, title: "Fast Performance", desc: "Lightning-fast load times with optimised code and assets. Speed matters for conversions and rankings.", anchor: "performance" },
@@ -563,7 +596,7 @@ export default function HomePage() {
                   {[
                     { icon: Globe, label: "Fully custom design from scratch" },
                     { icon: Zap, label: "Unlimited pages" },
-                    { icon: CalendarCheck, label: "CRM, booking or e-commerce integrations" },
+                    { icon: CalendarCheck, label: "CRM and booking integrations" },
                     { icon: Languages, label: "Multi-language support" },
                     { icon: Users, label: "Dedicated project manager" },
                     { icon: Headphones, label: "Priority support and delivery" },
@@ -738,7 +771,7 @@ export default function HomePage() {
                       <h3 className="text-xl font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
                       <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Creative Director &amp; AI Specialist</p>
                       <p className="text-sm text-[#5B6472] leading-relaxed">
-                        I worked with global tech companies, training AI models and making sure digital products actually work the way they should. I bring that same dedication with quality and detail to every website we build - because your online presence deserves more than just a pretty template.
+                        I worked with global tech companies, training AI models and making sure digital products actually work the way they should. I bring that same dedication with quality and detail to every website we build - because your online presence deserves more than just a pretty design.
                       </p>
                     </div>
                     <div className="border-t border-[#E2E5EA] mt-5 pt-4">

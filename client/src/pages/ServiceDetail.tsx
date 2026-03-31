@@ -34,10 +34,10 @@ const SERVICES: Record<string, {
     icon: Globe,
     accentColor: "#5B8CFF",
     title: "Custom Website Design",
-    subtitle: "A website that looks and feels like your brand - not a template.",
+    subtitle: "A website that looks and feels like your brand - not a generic design.",
     intro: "Every business is different. Your website should reflect that. We design every site from scratch, starting with your brand identity, your audience, and your goals. No page builders, no recycled layouts - just a thoughtfully crafted digital presence built specifically for you.",
     why: [
-      { heading: "First impressions matter", body: "Visitors form an opinion about your business within 50 milliseconds of landing on your site. A generic template signals that you don't care about the details. A custom design signals professionalism, trust, and attention to quality." },
+      { heading: "First impressions matter", body: "Visitors form an opinion about your business within 50 milliseconds of landing on your site. A generic design signals that you don't care about the details. A custom design signals professionalism, trust, and attention to quality." },
       { heading: "Your brand, not ours", body: "We study your logo, your colours, your tone of voice, and your competitors before writing a single line of code. The result is a website that feels like an extension of your business - not a website that could belong to anyone." },
       { heading: "Designed to convert", body: "Beautiful design is only half the job. We structure every page with conversion in mind - clear calls to action, logical information hierarchy, and friction-free paths to contact or purchase." },
     ],

@@ -39,7 +39,7 @@ export const POSTS: BlogPost[] = [
 
 <h3>Option 1 - DIY Website Builders (Wix, Squarespace, Jimdo)</h3>
 <p>These platforms let you drag and drop your way to a website for as little as €10 to €30 per month. On the surface, that sounds like a bargain. In practice, the limitations add up quickly.</p>
-<p>You spend hours learning the platform. The design looks like thousands of other websites using the same template. SEO capabilities are limited. You cannot fully customise the code. And if you ever want to move to a different platform, your content is often locked in.</p>
+<p>You spend hours learning the platform. The design looks like thousands of other websites using the same layout. SEO capabilities are limited. You cannot fully customise the code. And if you ever want to move to a different platform, your content is often locked in.</p>
 <p>DIY builders work well for very early-stage businesses that need something online immediately and have zero budget. For any business that wants to grow and be found on Google, they tend to become a ceiling rather than a launchpad.</p>
 
 <h3>Option 2 - Freelancers</h3>
@@ -56,7 +56,7 @@ export const POSTS: BlogPost[] = [
     <tr><th>Price Range</th><th>What You Typically Get</th><th>Best For</th></tr>
   </thead>
   <tbody>
-    <tr><td>€0 - €150/yr</td><td>DIY builder template, limited SEO, platform branding</td><td>Absolute beginners, zero budget</td></tr>
+    <tr><td>€0 - €150/yr</td><td>DIY builder layout, limited SEO, platform branding</td><td>Absolute beginners, zero budget</td></tr>
     <tr><td>€300 - €800</td><td>Freelancer-built, basic design, varies in quality</td><td>Small budgets, simple needs</td></tr>
     <tr><td>€299 - €699</td><td>Agency-built, custom design, SEO-ready, mobile-first</td><td>Businesses serious about growth</td></tr>
     <tr><td>€1,500 - €5,000+</td><td>Complex functionality, e-commerce, custom integrations</td><td>Larger businesses, online stores</td></tr>
@@ -68,7 +68,7 @@ export const POSTS: BlogPost[] = [
 <p>When any agency or freelancer quotes you for a professional website in Cyprus, these are the main variables that move the price up or down:</p>
 <ul>
   <li><strong>Number of pages</strong> - A 1-page landing site costs less than a 7-page business website with individual service pages, a blog, and a contact form.</li>
-  <li><strong>Custom design vs. template</strong> - A site built from scratch around your brand takes more time than adapting a pre-made template.</li>
+  <li><strong>Custom design vs. template</strong> - A site built from scratch around your brand takes more time than adapting a pre-made design.</li>
   <li><strong>SEO optimisation</strong> - Basic on-page SEO (meta titles, headings, image alt tags) should be included in any professional build. Full SEO content writing and keyword strategy is a separate service.</li>
   <li><strong>E-commerce functionality</strong> - Adding an online shop with product pages, a cart, and payment processing significantly increases complexity and cost.</li>
   <li><strong>Integrations</strong> - Booking systems, CRM connections, live chat, and third-party tools all add to the build time.</li>
@@ -133,7 +133,7 @@ export const POSTS: BlogPost[] = [
 <p>A properly built nail salon website in Cyprus must be designed for mobile first. That means large text, tap-friendly buttons, fast loading times, and a WhatsApp or booking button that is always visible.</p>
 
 <h2>What a Good Beauty Salon Website Looks Like</h2>
-<p>At D&M Labs, we have built website templates specifically designed for beauty businesses. The <strong>Aura Hair Studio</strong> and <strong>L'Atelier des Ongles</strong> templates on our <a href="/templates" class="blog-link">Templates page</a> show exactly what a professional beauty salon website looks like in practice: clean layout, gallery section, service menu, booking CTA, and mobile-first design. These are not generic templates - they are built around how beauty clients actually browse and decide.</p>
+<p>At D&M Labs, we have built website examples specifically designed for beauty businesses. The <strong>Aura Hair Studio</strong> and <strong>L'Atelier des Ongles</strong> designs on our <a href="/templates" class="blog-link">Examples page</a> show exactly what a professional beauty salon website looks like in practice: clean layout, gallery section, service menu, booking CTA, and mobile-first design. These are not generic designs - they are built around how beauty clients actually browse and decide.</p>
 
 <h2>How D&M Labs Builds Beauty Salon Websites</h2>
 <p>We build beauty salon and nail salon websites in Cyprus from €249, delivered in 5 to 7 days. Every site includes a mobile-first design, your service menu, a photo gallery, Google Maps integration, a WhatsApp contact button, and on-page SEO setup so Google can find you from day one.</p>
@@ -141,7 +141,7 @@ export const POSTS: BlogPost[] = [
 
 <div class="blog-cta">
   <h3>Ready to get your beauty studio online?</h3>
-  <p>View our beauty salon template examples and get in touch for a free consultation. We will tell you exactly what your website needs and give you a clear quote within 24 hours.</p>
+  <p>View our beauty salon design examples and get in touch for a free consultation. We will tell you exactly what your website needs and give you a clear quote within 24 hours.</p>
   <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
 </div>
     `,

@@ -164,7 +164,7 @@ export default function WebDesignLimassol() {
             {[
               {
                 title: "Custom Design",
-                desc: "No templates. Every site is designed from scratch to match your brand, your audience, and your goals."
+                desc: "No off-the-shelf designs. Every site is designed from scratch to match your brand, your audience, and your goals."
               },
               {
                 title: "Mobile-First",

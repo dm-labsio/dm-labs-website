@@ -239,7 +239,7 @@ export default function Pricing() {
                   {[
                     { icon: Globe, label: "Fully custom design from scratch" },
                     { icon: Zap, label: "Unlimited pages" },
-                    { icon: CalendarCheck, label: "CRM, booking or e-commerce integrations" },
+                    { icon: CalendarCheck, label: "CRM and booking integrations" },
                     { icon: Languages, label: "Multi-language support" },
                     { icon: Users, label: "Dedicated project manager" },
                     { icon: Headphones, label: "Priority support and delivery" },
@@ -436,7 +436,7 @@ export default function Pricing() {
               { q: "What if I need changes after launch?", a: "Small text changes are free for the first month. After that, our maintenance plans cover ongoing updates, or you can request individual changes at an agreed rate." },
               { q: "Do I own my website?", a: "Yes, 100%. Once paid, the website and all its content belong to you." },
               { q: "Is the consultation really free?", a: "Absolutely. We start with a no-pressure WhatsApp chat to understand your business and recommend the right package. No commitment required." },
-              { q: "What counts as an Enterprise project?", a: "Enterprise is for businesses that need more than our standard packages can offer - think multi-page builds with custom integrations, e-commerce, CRM connections, multi-language support, or organisations that want a dedicated project manager and ongoing retainer. If you're unsure, just contact us and we'll advise honestly." },
+              { q: "What counts as an Enterprise project?", a: "Enterprise is for businesses that need more than our standard packages can offer - think multi-page builds with custom integrations, CRM connections, multi-language support, or organisations that want a dedicated project manager and ongoing retainer. If you're unsure, just contact us and we'll advise honestly." },
             ].map((item) => (
               <StaggerItem key={item.q}>
                 <div className="dm-card !p-6">

@@ -86,3 +86,36 @@
 - [ ] Accessibility: UserWay widget free in all plans, full audit as €40 add-on
 - [ ] Revisions: Starter 1 round, Business 2 rounds, Professional 3 rounds
 - [ ] Pop-up: included in Professional, €40 add-on for others
+
+---
+
+## Current Sprint: Mar 31, 2026
+
+### Fix homepage example cards
+- [ ] Replace iframe-based HomepageTemplateThumb with static card mockups for all 3 featured templates
+- [ ] Ensure Bella Salon and Dr. Elara Dental have clear hero imagery like Nomad Coffee
+
+### Remove e-commerce/shop references
+- [ ] Home.tsx Enterprise: remove e-commerce from feature text
+- [ ] Services.tsx Enterprise: remove e-commerce from feature text
+- [ ] Pricing.tsx Enterprise: remove e-commerce from feature text + FAQ
+- [ ] Olio Deli card: Shop -> Menu/Products, Shop Now -> Browse Products
+
+### Remove calendar references from mini-sites
+- [ ] Check pulse-gym.html Schedule references (keep - this is class schedule, not calendar widget)
+- [ ] Check serenity-yoga.html Schedule references (keep - this is class schedule, not calendar widget)
+
+### Rename Templates to Examples everywhere
+- [ ] Layout.tsx nav link
+- [ ] Templates.tsx page hero text
+- [ ] Templates.tsx waMessage strings
+- [ ] Templates.tsx hover text and copy
+- [ ] Home.tsx any visible template references
+
+### Full QA audit
+- [ ] All 11 preview URLs load
+- [ ] Industry filters work
+- [ ] Modal and full preview flow
+- [ ] No em/en dashes
+- [ ] No emojis
+- [ ] TypeScript 0 errors

@@ -179,7 +179,7 @@ export default function Services() {
                   {[
                     { icon: Globe, label: "Fully custom design from scratch" },
                     { icon: Zap, label: "Unlimited pages" },
-                    { icon: CalendarCheck, label: "CRM, booking or e-commerce integrations" },
+                    { icon: CalendarCheck, label: "CRM and booking integrations" },
                     { icon: Languages, label: "Multi-language support" },
                     { icon: Users, label: "Dedicated project manager" },
                     { icon: Headphones, label: "Priority support and delivery" },
@@ -214,7 +214,7 @@ export default function Services() {
               { icon: Search, title: "SEO Optimised", desc: "Built-in search engine optimisation so customers find you on Google.", anchor: "seo" },
               { icon: Zap, title: "Fast Loading", desc: "Optimised code and assets for lightning-fast page speeds.", anchor: "performance" },
               { icon: Shield, title: "SSL Security", desc: "Free SSL certificate to keep your site and visitors secure.", anchor: "security" },
-              { icon: Image, title: "Custom Design", desc: "No templates - every design is tailored to your brand identity.", anchor: "custom-design" },
+              { icon: Image, title: "Custom Design", desc: "No off-the-shelf designs - every website is tailored to your brand identity.", anchor: "custom-design" },
               { icon: MapPin, title: "Google Maps", desc: "Embedded maps so customers can find your physical location easily.", anchor: "maps" },
               { icon: FileText, title: "Contact Forms", desc: "Professional forms that send inquiries directly to your email.", anchor: "forms" },
               { icon: Share2, title: "Social Integration", desc: "Links to all your social media profiles in one place.", anchor: "social" },

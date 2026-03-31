@@ -410,7 +410,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(200,151,58,0.2)" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "13px", fontWeight: 700, color: "#c8973a", letterSpacing: "0.08em", fontStyle: "italic" as const }}>Olio Deli</span>
         <div style={{ display: "flex", gap: "12px" }}>
-          {["Shop","Story","Products"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,151,58,0.7)" }}>{l}</span>)}
+          {["Menu","Story","Products"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,151,58,0.7)" }}>{l}</span>)}
         </div>
         <div style={{ border: "1px solid #c8973a", color: "#c8973a", fontSize: "8px", padding: "3px 10px" }}>Order Now</div>
       </div>
@@ -418,7 +418,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c8973a", marginBottom: "5px" }}>Artisan Deli - Athens</div>
         <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#faf6ef", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>The Finest<br/>Mediterranean Larder</div>
         <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#c8973a", color: "#1e1c17", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>Shop Now</div>
+          <div style={{ background: "#c8973a", color: "#1e1c17", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>Browse Products</div>
           <div style={{ border: "1px solid rgba(200,151,58,0.4)", color: "#c8973a", fontSize: "8px", padding: "5px 12px" }}>Our Story</div>
         </div>
       </div>
@@ -492,7 +492,7 @@ const INDUSTRIES = [
   { id: "realestate", label: "Real Estate", icon: "◻" },
   { id: "childcare", label: "Childcare", icon: "◎" },
   { id: "architecture", label: "Architecture", icon: "△" },
-  { id: "deli", label: "Deli & Food Shop", icon: "◇" },
+  { id: "deli", label: "Deli & Food Store", icon: "◇" },
   { id: "legal", label: "Legal Services", icon: "▣" },
 ];
 
@@ -526,7 +526,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Luxury feminine aesthetic with deep plum and rose tones, elegant serif typography, and a warm, inviting feel. Perfect for hair salons, beauty studios, and nail bars.",
-    waMessage: "Hi! I'm interested in the Bella Salon website template.",
+    waMessage: "Hi! I'm interested in the Bella Salon website design.",
     price: "€350",
     images: { card: "" },
   },
@@ -557,7 +557,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Fresh Mediterranean aesthetic with deep green tones, warm cream backgrounds, and elegant typography. Ideal for farm-to-table restaurants, Mediterranean cuisine, and healthy dining.",
-    waMessage: "Hi! I'm interested in the Verde Restaurant website template.",
+    waMessage: "Hi! I'm interested in the Verde Restaurant website design.",
     price: "€350",
     images: { card: "" },
   },
@@ -588,7 +588,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "High-energy dark aesthetic with black and orange accents, bold typography, and dynamic layouts. Perfect for gyms, CrossFit boxes, and strength training studios.",
-    waMessage: "Hi! I'm interested in the PulseGym website template.",
+    waMessage: "Hi! I'm interested in the PulseGym website design.",
     price: "€350",
     images: { card: "" },
   },
@@ -619,7 +619,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Clean, professional aesthetic with navy and blue accents on white backgrounds. Perfect for dental clinics, medical offices, and healthcare providers.",
-    waMessage: "Hi! I'm interested in the Dr. Elara Dental website template.",
+    waMessage: "Hi! I'm interested in the Dr. Elara Dental website design.",
     price: "€350",
     images: { card: "" },
   },
@@ -650,7 +650,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Artisan minimal aesthetic with espresso and gold tones, clean typography, and a warm, inviting feel. Great for specialty coffee shops, artisan roasters, and café bars.",
-    waMessage: "Hi! I'm interested in the Nomad Coffee website template.",
+    waMessage: "Hi! I'm interested in the Nomad Coffee website design.",
     price: "€250",
     images: { card: "" },
   },
@@ -681,7 +681,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Calm, balanced aesthetic with deep teal and sage tones, natural textures, and clean typography. Ideal for yoga studios, pilates centres, and mindfulness spaces.",
-    waMessage: "Hi! I'm interested in the Serenity Yoga website template.",
+    waMessage: "Hi! I'm interested in the Serenity Yoga website design.",
     price: "€250",
     images: { card: "" },
   },
@@ -708,7 +708,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Dark luxury editorial with Cormorant Garamond serif, champagne gold accents, and cinematic full-screen photography. Ideal for premium real estate agencies.",
-    waMessage: "Hi! I'm interested in the Luxe Realty website template.",
+    waMessage: "Hi! I'm interested in the Luxe Realty website design.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -735,7 +735,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Warm, rounded Nunito typography with coral and sky accents on a cream base. Friendly design with organic shapes. Ideal for nurseries and childcare.",
-    waMessage: "Hi! I'm interested in the Little Stars Nursery website template.",
+    waMessage: "Hi! I'm interested in the Little Stars Nursery website design.",
     price: "€299",
     images: { card: "" },
     livePreview: true,
@@ -762,7 +762,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Brutalist minimal with Syne display font, off-white paper tones, and terracotta accents. Asymmetric split layouts. Ideal for architecture studios.",
-    waMessage: "Hi! I'm interested in the Arcos Architecture website template.",
+    waMessage: "Hi! I'm interested in the Arcos Architecture website design.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -789,7 +789,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Warm Mediterranean with Playfair Display serif, deep olive and gold tones. Ideal for artisan delis, food shops, and specialty grocers.",
-    waMessage: "Hi! I'm interested in the Olio Deli website template.",
+    waMessage: "Hi! I'm interested in the Olio Deli website design.",
     price: "€299",
     images: { card: "" },
     livePreview: true,
@@ -816,7 +816,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Authoritative dark with EB Garamond serif, deep navy and warm gold. Ideal for law firms, legal consultancies, and professional services.",
-    waMessage: "Hi! I'm interested in the Horizon Law website template.",
+    waMessage: "Hi! I'm interested in the Horizon Law website design.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -906,7 +906,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
           {/* Pricing CTA */}
           <div className="rounded-xl p-4 border border-gray-200" style={{ background: "linear-gradient(135deg, #F8F9FF, #F5F0FF)" }}>
             <p className="text-xs text-gray-500 mb-1 font-medium">This is a design inspiration</p>
-            <p className="text-gray-400 text-xs mb-4 leading-relaxed">Every website is built from scratch and tailored to your brand. Pricing depends on your chosen plan - not the template.</p>
+            <p className="text-gray-400 text-xs mb-4 leading-relaxed">Every website is built from scratch and tailored to your brand. Pricing depends on your chosen plan - not the example.</p>
             <a
               href="/pricing"
               className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] mb-2"
@@ -954,7 +954,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
             className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white text-gray-900 px-5 py-2.5 rounded-full font-semibold text-sm shadow-xl flex items-center gap-2"
             style={{ transform: "translateY(8px)" }}
           >
-            Preview Template <ArrowRight size={14} />
+            Preview Example <ArrowRight size={14} />
           </motion.div>
         </div>
       </div>
@@ -1025,13 +1025,13 @@ function CustomBuildCard() {
       {/* Card body */}
       <div className="p-5 flex flex-col flex-1">
         <p className="text-gray-600 text-sm leading-relaxed mb-4">
-          No template fits your vision? We design your website entirely from scratch - unique layout, custom graphics, and a brand identity built just for you.
+          None of these fit your vision? We design your website entirely from scratch - unique layout, custom graphics, and a brand identity built just for you.
         </p>
 
         {/* Feature list */}
         <ul className="space-y-2 mb-5 flex-1">
           {[
-            "100% unique layout - no template base",
+            "100% unique layout - fully bespoke",
             "Custom illustrations & brand graphics",
             "Tailored colour palette & typography",
             "Built around your specific business goals",
@@ -1199,7 +1199,7 @@ export default function Templates() {
         <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(139,92,255,0.07)" }} />
         <div className="relative container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>Website Templates</p>
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>Website Examples</p>
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Find Your Perfect
               <span className="block" style={{ background: "linear-gradient(135deg, #5B8CFF, #6FE3FF, #8B5CFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
@@ -1207,10 +1207,10 @@ export default function Templates() {
               </span>
             </h1>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
-              Browse our curated designs by industry. Each template is fully customised for your business - your logo, your colours, your content.
+              Browse our curated designs by industry. Each example is fully customised for your business - your logo, your colours, your content.
             </p>
             <p className="text-sm text-gray-400 max-w-xl mx-auto">
-              These are <strong className="text-gray-500">design inspirations</strong>, not fixed packages. Every website we build is tailored from scratch - pricing depends on your chosen plan, not the template.
+              These are <strong className="text-gray-500">design inspirations</strong>, not fixed packages. Every website we build is tailored from scratch - pricing depends on your chosen plan, not the example.
             </p>
           </motion.div>
         </div>
@@ -1238,10 +1238,10 @@ export default function Templates() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" className="w-8 h-8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
               </div>
               <h3 className="text-gray-900 text-2xl font-bold mb-3">
-                {INDUSTRIES.find(i => i.id === activeIndustry)?.label} Templates
+                {INDUSTRIES.find(i => i.id === activeIndustry)?.label} Examples
               </h3>
               <p className="text-gray-500 max-w-md mx-auto mb-8 leading-relaxed">
-                We're crafting beautiful templates for this industry. In the meantime, we can build a completely custom design for your business - just reach out.
+                We're crafting beautiful examples for this industry. In the meantime, we can build a completely custom design for your business - just reach out.
               </p>
               <a
                 href="/contact"

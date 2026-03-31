@@ -3,7 +3,7 @@
  * Renders the mini-site HTML file at full viewport width and height.
  * On mobile: pressing the browser back button closes it naturally.
  * No iframe scaling, no cramping, no phone frames.
- * A slim top bar shows the template name, a clear X close button, and an open-in-tab link.
+ * A slim top bar shows the example name, a clear X close button, and an open-in-tab link.
  */
 import { useParams, useLocation } from "wouter";
 import { useEffect, useState } from "react";
@@ -80,7 +80,7 @@ export default function PreviewPage() {
           borderBottom: "1px solid rgba(255,255,255,0.06)",
         }}
       >
-        {/* Left: template name */}
+        {/* Left: example name */}
         <span className="text-white/70 text-xs font-medium tracking-wide truncate max-w-[200px] sm:max-w-[300px]">
           {entry.name}
         </span>
