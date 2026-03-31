@@ -262,5 +262,43 @@
       });
     });
   </script>
+<script>
+/* DM Labs: prevent hash links from pushing browser history entries.
+   Uses history.replaceState() + scrollIntoView() so iframe nav never
+   adds entries to the parent page's history stack. */
+(function() {
+  function scrollToHash(id) {
+    if (!id) return false;
+    var dest = document.getElementById(id) ||
+               document.querySelector('[name="' + id + '"]');
+    if (!dest) return false;
+    dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Replace instead of push - keeps the URL in sync without adding history
+    try { history.replaceState(null, '', '#' + id); } catch(e) {}
+    return true;
+  }
+
+  document.addEventListener('click', function(e) {
+    var el = e.target;
+    while (el && el.tagName !== 'A') { el = el.parentElement; }
+    if (!el) return;
+    var href = el.getAttribute('href');
+    if (!href || href.charAt(0) !== '#') return;
+    var id = href.slice(1);
+    if (!id) return;
+    if (scrollToHash(id)) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
+
+  // Also handle initial hash on page load (e.g. if URL already has #section)
+  if (window.location.hash) {
+    window.addEventListener('load', function() {
+      scrollToHash(window.location.hash.slice(1));
+    });
+  }
+})();
+</script>
 </body>
 </html>
