@@ -42,12 +42,13 @@ function HomepageTemplateThumb({ tpl }: { tpl: { name: string; category: string;
       <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
         <div style={{
           position: "absolute",
-          top: `-${navOffset}px`,
-          left: "50%",
-          transform: `translateX(-50%) scale(${scale})`,
-          transformOrigin: "top center",
+          top: 0,
+          left: 0,
+          transform: `scale(${scale})`,
+          transformOrigin: "top left",
           width: "768px",
           height: `${Math.ceil((220 + navOffset) / scale)}px`,
+          marginTop: `-${navOffset}px`,
         }}>
           <iframe
             src={tpl.previewUrl}

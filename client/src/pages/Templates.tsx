@@ -144,103 +144,59 @@ const CDN = {
 // ─── Browser Chrome Frame ─────────────────────────────────────────────────────
 // Renders a mini-site inside a realistic phone shell at 390px viewport width.
 // The entire phone is then scaled down proportionally to fit the modal column.
-function PhoneFrame({ previewUrl, title }: { previewUrl: string; title: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(0.7);
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    // Phone shell is 420px wide (390px screen + 15px sides). Scale to fit container.
-    const update = () => {
-      const w = el.offsetWidth;
-      if (w > 0) setScale(Math.min(1, w / 420));
-    };
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
-
-  // Phone shell: 420px wide, 860px tall (roughly 19.5:9 ratio like modern phones)
-  const phoneW = 420;
-  const phoneH = 860;
-
+// Clean mobile preview: renders the iframe at 390px width (iPhone viewport) inside a
+// centered container. No phone shell - just the site at mobile width, scrollable.
+function MobilePreview({ previewUrl, title }: { previewUrl: string; title: string }) {
   return (
-    <div
-      ref={containerRef}
-      style={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "flex-start",
-        background: "#F2F4F7",
-        borderRadius: "12px",
-        padding: "24px 0",
-        // Height matches the scaled phone so no wasted space
-        height: `${Math.round(phoneH * scale) + 48}px`,
-        overflow: "hidden",
-      }}
-    >
+    <div style={{
+      width: "100%",
+      background: "#F2F4F7",
+      borderRadius: "12px",
+      padding: "20px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: "12px",
+    }}>
+      {/* Mobile label */}
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" style={{ width: "14px", height: "14px" } as React.CSSProperties}>
+          <rect x="5" y="2" width="14" height="20" rx="2" />
+          <circle cx="12" cy="18" r="1" />
+        </svg>
+        <span style={{ fontSize: "11px", color: "#9CA3AF", fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase" }}>Mobile View</span>
+      </div>
+      {/* Iframe container - centered, max 390px, aspect ratio 9:19.5 */}
       <div style={{
-        width: `${phoneW}px`,
-        height: `${phoneH}px`,
-        transform: `scale(${scale})`,
-        transformOrigin: "top center",
-        flexShrink: 0,
+        width: "100%",
+        maxWidth: "390px",
+        borderRadius: "8px",
+        overflow: "hidden",
+        boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
+        border: "1px solid rgba(0,0,0,0.08)",
+        background: "#fff",
+        aspectRatio: "9 / 19.5",
         position: "relative",
       }}>
-        {/* Phone shell SVG outline */}
-        <div style={{
-          position: "absolute", inset: 0,
-          borderRadius: "52px",
-          border: "12px solid #1a1a1a",
-          background: "#1a1a1a",
-          boxShadow: "0 0 0 2px #333, 0 24px 60px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.08)",
-          zIndex: 2,
-          pointerEvents: "none",
-        }} />
-        {/* Dynamic island */}
-        <div style={{
-          position: "absolute", top: "18px", left: "50%", transform: "translateX(-50%)",
-          width: "120px", height: "34px", borderRadius: "20px",
-          background: "#0a0a0a", zIndex: 3, pointerEvents: "none",
-        }} />
-        {/* Screen area */}
-        <div style={{
-          position: "absolute",
-          top: "12px", left: "12px", right: "12px", bottom: "12px",
-          borderRadius: "42px",
-          overflow: "hidden",
-          background: "#fff",
-          zIndex: 1,
-        }}>
-          <iframe
-            src={previewUrl}
-            title={`${title} mobile preview`}
-            style={{
-              width: "390px",
-              height: "100%",
-              border: "none",
-              display: "block",
-              // Shift down to clear the dynamic island area (34px island + 18px top + some padding)
-              marginTop: "0",
-            }}
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin"
-          />
-        </div>
-        {/* Home indicator */}
-        <div style={{
-          position: "absolute", bottom: "20px", left: "50%", transform: "translateX(-50%)",
-          width: "130px", height: "5px", borderRadius: "3px",
-          background: "rgba(255,255,255,0.35)", zIndex: 3, pointerEvents: "none",
-        }} />
+        <iframe
+          src={previewUrl}
+          title={`${title} mobile preview`}
+          style={{
+            position: "absolute",
+            top: 0, left: 0,
+            width: "390px",
+            height: "100%",
+            border: "none",
+            display: "block",
+            transformOrigin: "top left",
+          }}
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin"
+        />
       </div>
     </div>
   );
 }
-
 function BrowserFrame({ children, url = "example.com" }: { children: React.ReactNode; url?: string; height?: number }) {
   return (
     <div className="rounded-xl overflow-hidden shadow-xl border border-gray-200/80" style={{ background: "#fff" }}>
@@ -304,16 +260,20 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
           background: `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`,
         }}
       >
-        {/* Scaled-down iframe — pointerEvents:none so clicks pass through to the card */}
+        {/* Scaled-down iframe  -  pointerEvents:none so clicks pass through to the card */}
         <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div style={{
             position: "absolute",
-            top: `-${navOffset}px`,
-            left: "50%",
-            transform: `translateX(-50%) scale(${scale})`,
-            transformOrigin: "top center",
+            top: 0,
+            left: 0,
+            // Scale from top-left, then shift right to center within the container.
+            // containerWidth * (1 - scale) / 2 centers the scaled element.
+            transform: `scale(${scale})`,
+            transformOrigin: "top left",
             width: `${IFRAME_W}px`,
+            // Extra height to cover the nav area: we scroll past navOffset px of the iframe
             height: `${Math.ceil((280 + navOffset) / scale)}px`,
+            marginTop: `-${navOffset}px`,
           }}>
             <iframe
               src={t.previewUrl}
@@ -407,7 +367,7 @@ const TEMPLATES = [
       "Mobile responsive",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Luxury feminine aesthetic with deep plum and rose tones, elegant serif typography, and a warm, inviting feel. Perfect for hair salons, beauty studios, and nail bars.",
     waMessage: "Hi! I'm interested in the Bella Salon website template.",
@@ -438,7 +398,7 @@ const TEMPLATES = [
       "Mobile responsive",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Fresh Mediterranean aesthetic with deep green tones, warm cream backgrounds, and elegant typography. Ideal for farm-to-table restaurants, Mediterranean cuisine, and healthy dining.",
     waMessage: "Hi! I'm interested in the Verde Restaurant website template.",
@@ -469,7 +429,7 @@ const TEMPLATES = [
       "Mobile responsive",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "High-energy dark aesthetic with black and orange accents, bold typography, and dynamic layouts. Perfect for gyms, CrossFit boxes, and strength training studios.",
     waMessage: "Hi! I'm interested in the PulseGym website template.",
@@ -500,7 +460,7 @@ const TEMPLATES = [
       "Mobile responsive",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Clean, professional aesthetic with navy and blue accents on white backgrounds. Perfect for dental clinics, medical offices, and healthcare providers.",
     waMessage: "Hi! I'm interested in the Dr. Elara Dental website template.",
@@ -531,7 +491,7 @@ const TEMPLATES = [
       "Mobile responsive",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Artisan minimal aesthetic with espresso and gold tones, clean typography, and a warm, inviting feel. Great for specialty coffee shops, artisan roasters, and café bars.",
     waMessage: "Hi! I'm interested in the Nomad Coffee website template.",
@@ -562,7 +522,7 @@ const TEMPLATES = [
       "Mobile responsive",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Calm, balanced aesthetic with deep teal and sage tones, natural textures, and clean typography. Ideal for yoga studios, pilates centres, and mindfulness spaces.",
     waMessage: "Hi! I'm interested in the Serenity Yoga website template.",
@@ -589,7 +549,7 @@ const TEMPLATES = [
       "SEO-optimised for Athens property",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Dark luxury editorial with Cormorant Garamond serif, champagne gold accents, and cinematic full-screen photography. Ideal for premium real estate agencies.",
     waMessage: "Hi! I'm interested in the Luxe Realty website template.",
@@ -616,7 +576,7 @@ const TEMPLATES = [
       "SEO-optimised for Athens childcare",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Warm, rounded Nunito typography with coral and sky accents on a cream base. Friendly design with organic shapes. Ideal for nurseries and childcare.",
     waMessage: "Hi! I'm interested in the Little Stars Nursery website template.",
@@ -643,7 +603,7 @@ const TEMPLATES = [
       "SEO-optimised for Athens architecture",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Brutalist minimal with Syne display font, off-white paper tones, and terracotta accents. Asymmetric split layouts. Ideal for architecture studios.",
     waMessage: "Hi! I'm interested in the Arcos Architecture website template.",
@@ -670,7 +630,7 @@ const TEMPLATES = [
       "SEO-optimised for Athens deli",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Warm Mediterranean with Playfair Display serif, deep olive and gold tones. Ideal for artisan delis, food shops, and specialty grocers.",
     waMessage: "Hi! I'm interested in the Olio Deli website template.",
@@ -697,7 +657,7 @@ const TEMPLATES = [
       "SEO-optimised for Athens law firm",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview — scroll, click, and explore the full website" },
+      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Authoritative dark with EB Garamond serif, deep navy and warm gold. Ideal for law firms, legal consultancies, and professional services.",
     waMessage: "Hi! I'm interested in the Horizon Law website template.",
@@ -717,9 +677,9 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
     if (view === "mobile") {
       // Phone frame: the iframe is rendered at exactly 390px wide (iPhone 14 viewport).
       // We then scale the phone frame down to fit the available container width.
-      // This gives a true "phone in hand" feel — the site renders as it would on a real phone.
+      // This gives a true "phone in hand" feel  -  the site renders as it would on a real phone.
       return (
-        <PhoneFrame previewUrl={t.previewUrl} title={template.name} />
+        <MobilePreview previewUrl={t.previewUrl} title={template.name} />
       );
     }
     // Desktop: browser chrome frame with 16:10 aspect ratio iframe
@@ -989,6 +949,7 @@ function CustomBuildCard() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -6 }}
       className="group bg-white rounded-2xl overflow-hidden transition-all duration-400 flex flex-col"
       style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid rgba(226,229,234,0.8)" }}
     >
@@ -1066,7 +1027,7 @@ export default function Templates() {
     if (industry && INDUSTRIES.find(i => i.id === industry)) {
       setActiveIndustry(industry);
     }
-    // Handle ?open=templateId — auto-open the modal for a specific template
+    // Handle ?open=templateId  -  auto-open the modal for a specific template
     const openId = params.get("open");
     if (openId) {
       const tpl = TEMPLATES.find(t => t.id === openId);
@@ -1133,7 +1094,6 @@ export default function Templates() {
                     : { background: "#fff", color: "#6B7280", border: "1px solid #E5E7EB" }
                 }
               >
-                <span style={{ fontSize: "12px" }}>{industry.icon}</span>
                 {industry.label}
               </button>
             ))}
