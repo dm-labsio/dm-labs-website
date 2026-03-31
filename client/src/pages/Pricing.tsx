@@ -4,6 +4,7 @@
    Add-ons + 2 maintenance tiers (Essential €39 / Premium €59)
    Bundle deal: €50 off build when signing up for maintenance at same time.
    ============================================================ */
+import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import { CheckCircle2, X, MessageCircle, ArrowRight, HelpCircle, Languages, CalendarCheck, Bell, Accessibility, Tag, Zap, Globe, Users, Headphones } from "lucide-react";
@@ -42,6 +43,10 @@ const addons = [
 ];
 
 export default function Pricing() {
+  useSEO({
+    title: "Website Pricing Cyprus | D&M Labs",
+    description: "Transparent website pricing for businesses in Cyprus. Starter from €299, Business €399, Premium €699. No hidden fees.",
+  });
   return (
     <>
       {/* Hero */}

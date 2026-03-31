@@ -2,6 +2,7 @@
    D&M LABS - Contact Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
+import { useSEO } from "@/hooks/useSEO";
 import { useState } from "react";
 import AnimateIn from "@/components/AnimateIn";
 import { MessageCircle, Mail, Clock, MapPin, Send, Instagram } from "lucide-react";
@@ -13,6 +14,10 @@ const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "bfd3c955-1bc9-4a43-b497-f4c6776db7d1";
 
 export default function Contact() {
+  useSEO({
+    title: "Contact D&M Labs | Get a Free Website Quote",
+    description: "Get in touch with D&M Labs for a free website consultation. We reply within 24 hours. WhatsApp, email, or contact form.",
+  });
   const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
   const [sending, setSending] = useState(false);
 

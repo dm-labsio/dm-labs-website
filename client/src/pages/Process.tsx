@@ -4,6 +4,7 @@
    Design: Airy vertical timeline - no step numbers, large icons,
            generous breathing room between each stage
    ============================================================ */
+import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 import { MessageCircle, Palette, Code, Rocket, ArrowRight, CheckCircle2, CreditCard } from "lucide-react";
@@ -60,6 +61,10 @@ const steps = [
 ];
 
 export default function Process() {
+  useSEO({
+    title: "Our Process | How We Build Websites | D&M Labs",
+    description: "From discovery call to launch in 5-14 days. See exactly how D&M Labs designs and builds your website, step by step.",
+  });
   return (
     <>
       {/* Hero */}

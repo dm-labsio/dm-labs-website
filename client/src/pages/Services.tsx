@@ -2,6 +2,7 @@
    D&M LABS - Services Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #F6F6F4 base
    ============================================================ */
+import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import {
@@ -15,6 +16,10 @@ const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
 export default function Services() {
+  useSEO({
+    title: "Web Design Services Cyprus | D&M Labs",
+    description: "Professional web design services in Cyprus. Custom websites, mobile-first development, SEO optimisation, and ongoing maintenance. From €299.",
+  });
   return (
     <>
       {/* Hero */}

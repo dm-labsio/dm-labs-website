@@ -3,8 +3,8 @@
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
    Clean long-form reading layout with SEO meta injection
    ============================================================ */
-import { useEffect } from "react";
 import { Link, useParams } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 import { getPostBySlug } from "@/data/blogPosts";
 import { ArrowLeft, Clock, Tag, Calendar } from "lucide-react";
 import AnimateIn from "@/components/AnimateIn";
@@ -21,37 +21,14 @@ export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = getPostBySlug(slug);
 
-  // Inject SEO meta tags dynamically
-  useEffect(() => {
-    if (!post) return;
-    document.title = post.metaTitle;
-    let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.name = "description";
-      document.head.appendChild(meta);
-    }
-    meta.content = post.metaDescription;
-
-    // OG tags
-    const setOg = (property: string, content: string) => {
-      let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null;
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute("property", property);
-        document.head.appendChild(el);
-      }
-      el.content = content;
-    };
-    setOg("og:title", post.metaTitle);
-    setOg("og:description", post.metaDescription);
-    setOg("og:image", post.coverImage);
-    setOg("og:type", "article");
-
-    return () => {
-      document.title = "D&M Labs - Professional Website Design for Your Business";
-    };
-  }, [post]);
+  // useSEO must be called unconditionally (Rules of Hooks)
+  useSEO({
+    title: post ? post.metaTitle : "Article | D&M Labs",
+    description: post ? post.metaDescription : "Read the latest web design insights from D&M Labs.",
+    ogImage: post ? post.coverImage : undefined,
+    ogType: "article",
+    canonicalPath: post ? `/blog/${post.slug}` : undefined,
+  });
 
   if (!post) {
     return (

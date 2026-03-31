@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 
 // SEO landing page: /web-design-limassol
 // Target keywords: "web design Limassol", "website design Limassol"
@@ -61,6 +62,11 @@ const faqs = [
 ];
 
 export default function WebDesignLimassol() {
+  useSEO({
+    title: "Web Design Limassol | Websites from €299 | D&M Labs",
+    description: "D&M Labs builds professional websites for Limassol businesses from €299. Mobile-first, SEO-ready, fast delivery. Get online today.",
+    canonicalPath: "/web-design-limassol",
+  });
   useEffect(() => {
     // Inject schema markup
     const script = document.createElement("script");
@@ -68,29 +74,6 @@ export default function WebDesignLimassol() {
     script.id = "limassol-schema";
     script.text = JSON.stringify(schemaMarkup);
     document.head.appendChild(script);
-
-    // Set meta tags
-    document.title = "Web Design Limassol | Websites from €299 | D&M Labs";
-
-    const setMeta = (name: string, content: string, property?: boolean) => {
-      const attr = property ? "property" : "name";
-      let el = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement | null;
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute(attr, name);
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", content);
-    };
-
-    setMeta("description", "D&M Labs builds professional websites for Limassol businesses from €299. Mobile-first, SEO-ready, fast delivery. Get online today.");
-    setMeta("keywords", "web design Limassol, website design Limassol, web design Cyprus, professional website Limassol");
-    setMeta("og:title", "Web Design Limassol | D&M Labs", true);
-    setMeta("og:description", "Professional websites for Limassol businesses from €299. Mobile-first, SEO-ready, fast delivery.", true);
-    setMeta("og:url", "https://dm-labs.io/web-design-limassol", true);
-    setMeta("twitter:title", "Web Design Limassol | D&M Labs");
-    setMeta("twitter:description", "Professional websites for Limassol businesses from €299. Mobile-first, SEO-ready.");
-
     return () => {
       const s = document.getElementById("limassol-schema");
       if (s) s.remove();

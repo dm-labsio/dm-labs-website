@@ -5,6 +5,7 @@
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import { } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import {
@@ -165,6 +166,10 @@ const TESTIMONIALS = [
 ];
 
 export default function HomePage() {
+  useSEO({
+    title: "D&M Labs - Professional Website Design for Your Business",
+    description: "Custom websites built fast, built right. Mobile-first, SEO-optimised, launched in 5-14 days. Starting from €299.",
+  });
   return (
     <>
       {/* ═══════════════════════════════════════════

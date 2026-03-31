@@ -5,6 +5,7 @@
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import { Link, useParams } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import {
   Globe, Smartphone, Search, Zap, Shield, Clock,
@@ -254,6 +255,10 @@ export default function ServiceDetailPage() {
   const params = useParams<{ serviceId: string }>();
   const serviceId = params.serviceId || "";
   const service = SERVICES[serviceId];
+  useSEO({
+    title: service ? `${service.title} | D&M Labs` : "Service | D&M Labs",
+    description: service ? service.intro : "Professional web design services in Cyprus. Custom websites built fast, built right.",
+  });
 
   if (!service) {
     return (

@@ -1,6 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Route, Switch, useLocation } from "wouter";
+import { useSEO } from "./hooks/useSEO";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Layout from "./components/Layout";
@@ -24,9 +25,17 @@ import BlogPost from "./pages/BlogPost";
 import WebDesignLimassol from "./pages/WebDesignLimassol";
 import PreviewPage from "./pages/PreviewPage";
 
+// Global SEO updater: fires on every route change to keep canonical + OG URL correct.
+// Individual pages can call useSEO() themselves to override title/description.
+function GlobalSEO() {
+  useSEO();
+  return null;
+}
+
 function MainRouter() {
   return (
     <Layout>
+      <GlobalSEO />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/services" component={Services} />

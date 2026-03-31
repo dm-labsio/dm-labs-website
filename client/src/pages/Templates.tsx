@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Star, ArrowRight, Check, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
@@ -1153,6 +1154,10 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function Templates() {
+  useSEO({
+    title: "Website Examples | See Our Work | D&M Labs",
+    description: "Browse real website examples built by D&M Labs for restaurants, salons, dental clinics, yoga studios, and more. Starting from €299.",
+  });
   const [location] = useLocation();
   const [activeIndustry, setActiveIndustry] = useState("all");
   const [selectedTemplate, setSelectedTemplate] = useState<typeof TEMPLATES[0] | null>(null);

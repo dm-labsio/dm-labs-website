@@ -3,6 +3,7 @@
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
    Clean editorial layout, card grid, category filters
    ============================================================ */
+import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 import { POSTS } from "@/data/blogPosts";
@@ -17,6 +18,10 @@ function formatDate(dateStr: string) {
 }
 
 export default function Blog() {
+  useSEO({
+    title: "Blog | Web Design Tips & Guides | D&M Labs",
+    description: "Practical guides, honest advice, and web design insights for businesses in Cyprus and beyond.",
+  });
   return (
     <>
       {/* Hero */}

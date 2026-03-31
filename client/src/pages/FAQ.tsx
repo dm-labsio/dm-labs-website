@@ -2,6 +2,7 @@
    D&M LABS - FAQ Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
+import { useSEO } from "@/hooks/useSEO";
 import { useState } from "react";
 import AnimateIn from "@/components/AnimateIn";
 import { ChevronDown, MessageCircle } from "lucide-react";
@@ -74,6 +75,10 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function FAQ() {
+  useSEO({
+    title: "FAQ | D&M Labs Web Design",
+    description: "Answers to the most common questions about working with D&M Labs. Pricing, timelines, process, and more.",
+  });
   return (
     <>
       {/* Hero */}
