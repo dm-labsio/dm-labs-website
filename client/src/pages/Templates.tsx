@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Monitor, Smartphone, Star, ArrowRight, Check, ChevronRight } from "lucide-react";
@@ -195,17 +195,36 @@ function BrowserFrame({ children, url = "example.com" }: { children: React.React
 }
 
 // ─── Template Card Preview ────────────────────────────────────────────────────
-// Shows the product_card image with padding so nothing is cropped
-// For live-preview templates, shows a styled gradient placeholder with iframe thumbnail
+// For live-preview templates: responsive iframe thumbnail that scales to actual card width.
+// Uses a ResizeObserver to compute the correct scale factor dynamically on any screen size.
 function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
-  const [loaded, setLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.31);
   const t = template as any;
 
-  // Live preview templates: show a mini iframe thumbnail
+  useEffect(() => {
+    if (!t.livePreview) return;
+    const el = containerRef.current;
+    if (!el) return;
+    const update = () => {
+      const w = el.offsetWidth;
+      if (w > 0) setScale(w / 1280);
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [t.livePreview]);
+
+  // Live preview templates: show a responsive iframe thumbnail
   if (t.livePreview && t.previewUrl) {
     const [color1, color2] = t.palette || ["#1a1a2e", "#16213e"];
+    // navHeight on the mini-site is ~68px; after scaling that becomes scale*68px.
+    // We shift the wrapper up by that amount so the hero (not the nav) fills the card.
+    const navOffset = Math.round(scale * 68);
     return (
       <div
+        ref={containerRef}
         className="relative w-full overflow-hidden"
         style={{
           height: "280px",
@@ -213,27 +232,16 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
           background: `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`,
         }}
       >
-        {/* Scaled-down iframe preview — offset so hero section is visible, not nav */}
-        <div style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          overflow: "hidden",
-          pointerEvents: "none",
-        }}>
-          {/* Wrapper that scales the 1280px-wide page down to fit the 400px card width */}
-          {/* The scaled wrapper: scale(0.31) means 1px nav = 0.31px on card */}
-          {/* We set top: -21px (68px * 0.31 ≈ 21px) so the nav is clipped and hero shows */}
+        {/* Scaled-down iframe — pointerEvents:none so clicks pass through to the card */}
+        <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div style={{
             position: "absolute",
-            top: "-21px",
+            top: `-${navOffset}px`,
             left: "50%",
-            transform: "translateX(-50%) scale(0.31)",
+            transform: `translateX(-50%) scale(${scale})`,
             transformOrigin: "top center",
             width: "1280px",
-            height: "1100px",
+            height: `${Math.ceil((280 + navOffset) / scale)}px`,
           }}>
             <iframe
               src={t.previewUrl}
@@ -245,27 +253,18 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
             />
           </div>
         </div>
-        {/* Gradient overlay at bottom */}
+        {/* Gradient fade at bottom */}
         <div style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: "80px",
-          background: `linear-gradient(to top, ${color1}dd 0%, transparent 100%)`,
+          position: "absolute", bottom: 0, left: 0, right: 0, height: "70px",
+          background: `linear-gradient(to top, ${color1}cc 0%, transparent 100%)`,
+          pointerEvents: "none",
         }} />
         {/* Live badge */}
         <div style={{
-          position: "absolute",
-          top: "10px",
-          right: "10px",
-          background: "rgba(0,0,0,0.6)",
-          backdropFilter: "blur(8px)",
-          borderRadius: "20px",
-          padding: "3px 10px",
-          display: "flex",
-          alignItems: "center",
-          gap: "5px",
+          position: "absolute", top: "10px", right: "10px",
+          background: "rgba(0,0,0,0.55)", backdropFilter: "blur(8px)",
+          borderRadius: "20px", padding: "3px 10px",
+          display: "flex", alignItems: "center", gap: "5px",
         }}>
           <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 6px #4ade80" }} />
           <span style={{ color: "#fff", fontSize: "10px", fontWeight: 600, letterSpacing: "0.05em" }}>LIVE PREVIEW</span>
@@ -282,37 +281,14 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
         borderRadius: "12px 12px 0 0",
         overflow: "hidden",
         background: "#e8eaf0",
-        padding: "16px 16px 0",
-        display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "center",
       }}
     >
-      {!loaded && (
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(90deg, #e8eaf0 25%, #f0f2f5 50%, #e8eaf0 75%)",
-            backgroundSize: "200% 100%",
-            animation: "shimmer 1.5s infinite",
-          }}
-        />
-      )}
       <img
         src={template.images.card}
         alt={`${template.name} preview`}
         loading="lazy"
         decoding="async"
-        onLoad={() => setLoaded(true)}
-        style={{
-          maxWidth: "100%",
-          maxHeight: "100%",
-          objectFit: "contain",
-          objectPosition: "center top",
-          borderRadius: "6px 6px 0 0",
-          opacity: loaded ? 1 : 0,
-          transition: "opacity 0.3s ease",
-        }}
+        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
       />
     </div>
   );
@@ -692,16 +668,22 @@ const TEMPLATES = [
 function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0]; page: string; view: "desktop" | "mobile" }) {
   const t = template as any;
 
-  // ── Live iframe preview ──────────────────────────────────────────────────────
+  // ── Live iframe preview ────────────────────────────────────────────
   if (t.livePreview && t.previewUrl) {
     if (view === "mobile") {
+      // On mobile: render the iframe at full width so it uses the device's real viewport.
+      // We wrap it in an aspect-ratio container (9:16) so the height scales proportionally.
       return (
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", background: "#F2F4F7", borderRadius: "12px", padding: "16px 0", minHeight: "520px" }}>
-          <div style={{ width: "375px", maxWidth: "100%", overflow: "hidden", borderRadius: "8px", boxShadow: "0 4px 24px rgba(0,0,0,0.12)", height: "520px", position: "relative" }}>
+        <div style={{ width: "100%", background: "#F2F4F7", borderRadius: "12px", overflow: "hidden" }}>
+          <div style={{ position: "relative", width: "100%", paddingBottom: "177.78%" /* 16:9 inverted = 9:16 */ }}>
             <iframe
               src={t.previewUrl}
               title={`${template.name} mobile preview`}
-              style={{ width: "375px", height: "100%", border: "none", display: "block" }}
+              style={{
+                position: "absolute", top: 0, left: 0,
+                width: "100%", height: "100%",
+                border: "none", display: "block",
+              }}
               loading="lazy"
               sandbox="allow-scripts allow-same-origin"
             />
@@ -709,6 +691,7 @@ function ModalPreview({ template, page, view }: { template: typeof TEMPLATES[0];
         </div>
       );
     }
+    // Desktop: browser chrome frame with 16:10 aspect ratio iframe
     return (
       <BrowserFrame url={template.domain}>
         <iframe

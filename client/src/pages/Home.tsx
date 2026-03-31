@@ -4,6 +4,7 @@
    Sections: Hero, Trust Strip, Template Showcase + Industries, Services, Process, Testimonials, Pricing, Stats, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
+import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import {
@@ -14,36 +15,94 @@ import {
   Users, CalendarCheck, Languages
 } from "lucide-react";
 
+// ─── Responsive live-preview iframe thumbnail for homepage template cards ────
+function HomepageTemplateThumb({ tpl }: { tpl: { name: string; category: string; previewUrl: string; palette: string[] } }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.31);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const update = () => { const w = el.offsetWidth; if (w > 0) setScale(w / 1280); };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  const [color1, color2] = tpl.palette;
+  const navOffset = Math.round(scale * 68);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative w-full overflow-hidden"
+      style={{ height: "220px", background: `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)` }}
+    >
+      <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
+        <div style={{
+          position: "absolute",
+          top: `-${navOffset}px`,
+          left: "50%",
+          transform: `translateX(-50%) scale(${scale})`,
+          transformOrigin: "top center",
+          width: "1280px",
+          height: `${Math.ceil((220 + navOffset) / scale)}px`,
+        }}>
+          <iframe
+            src={tpl.previewUrl}
+            title={`${tpl.name} preview`}
+            style={{ width: "100%", height: "100%", border: "none", display: "block" }}
+            loading="lazy"
+            tabIndex={-1}
+            sandbox="allow-scripts allow-same-origin"
+          />
+        </div>
+      </div>
+      {/* Fade at bottom */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "60px", background: `linear-gradient(to top, ${color1}cc 0%, transparent 100%)`, pointerEvents: "none" }} />
+      {/* Category badge */}
+      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#111315]">
+        {tpl.category}
+      </div>
+    </div>
+  );
+}
+
 const HERO_DEVICES = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/hero-devices-v2-8JXhBrX7f82um3hxnU6TmE.webp";
 const GRADIENT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
 const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
 const DARK_CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/dark-cta-bg-LgZ8epcpi9XDGLof5Q9KgS.webp";
 
-// Featured template card images for the homepage showcase
+// Featured live-preview mini-sites for the homepage showcase
+// Using the same mini-site HTML files as the Templates page
 const FEATURED_TEMPLATES = [
   {
-    id: "iron-forge-gym",
-    industry: "fitness",
-    name: "Iron Forge Gym",
-    category: "Fitness & Sport",
-    styleLabel: "Bold & Energetic",
-    cardImage: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/MgTbsRcvqoiXiYbH.png?Expires=1804248067&Signature=eKzwv3T-wSElP2qcg3J4FLEMHcl40qoYKk4jnvNKaP2vXtW6Vm7NVcDqU40OsugAe8wu0hgW5ECxxvML~K~Z8-GR97iqDqCLNNGyLSIaTvkvpM9SDinuGMUi32-9KoSmMGl08yMUkXLU6~lq9aaSeBLwVWA7hK3NvoCAum8qtRbKdLYwpCRTs9d7tWgZsaxujYNFVfQ1dfWhp9epOs1U6KgvzfD8s-~dg40GNN3cBWcXZrTZxt0WflJqL5EbV45SCOlCKjbXXEcoCgcuFmaAmMhkf06Ck58x2uxMI8AekTK6~ojFiURJVGbqqLgaF-5b7hVetymcO4G4Gws3d3Z3MQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    id: "nomad-coffee",
+    industry: "restaurant",
+    name: "Nomad Coffee",
+    category: "Cafe & Coffee",
+    styleLabel: "Artisan Minimal",
+    previewUrl: "/previews/nomad-coffee.html",
+    palette: ["#1a1208", "#2c1f0e"],
   },
   {
-    id: "aura-hair-studio",
+    id: "bella-salon",
     industry: "beauty",
-    name: "Aura Hair Studio",
+    name: "Bella Salon",
     category: "Beauty & Wellness",
-    styleLabel: "Luxury Dark",
-    cardImage: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/JyHQRjqPVlblrfxy.png?Expires=1804155917&Signature=nXItT-k29wLV-5kRmvnIZi-2~BybQGrUswsZYub5OO8LHaCP7de8yE26ZHoMELyNwHttk686yxhHpSB6b1YCJssJ-4~5AoAIYSITW-s87XJjwZugsuD-CED4gjf3UNTU05~gqRRjO5APKZGgn5idkjrFyF-g12tnho49W9gdcW~AcTJ1H~l~Z1RlMbV051WcZm80PEnBzw0DaC01A0aVfwHM0OEtf1Fh4wLBgFn7aPXXukB~aBrru8Cl5fGSUIX2fhAZ3PB1r2U3YbtfIK-0d7cYzJuJ8~Wd0NJp~sz0R1U79XiZDPEuCsl27~~gv3JVFy5nOZwJCyThZzwcfXGrVA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    styleLabel: "Elegant & Feminine",
+    previewUrl: "/previews/bella-salon.html",
+    palette: ["#1a0a0f", "#6b2d3e"],
   },
   {
-    id: "vitality-medical-clinic",
+    id: "dr-elara-dental",
     industry: "clinic",
-    name: "Vitality Medical Clinic",
+    name: "Dr. Elara Dental",
     category: "Clinics & Health",
     styleLabel: "Clean & Professional",
-    cardImage: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/vHiXcgVzfwvNVOeM.png?Expires=1804248063&Signature=ZzohmEbDPrne9IuEegn0BwtkTJXFDhaGAsPBm9laKfqJ0XcUr8wfSoTtoi1aOYtX7JcnT46gXq7AIuGQRJ0tnThKxddiggu8~2k5jMEIv29FNuWZ5a6nYT4-dGBGJUc1ukwLk8Sa8O9o8MfXClwr7FYhC2Jv8748ztNqCntTFB-BRey-LWpcFY5dffhPIIiih1jbkwcbJyC-2TuEfO8uZjhn6YuMNWcBlXGe6yBd~v9U-qFY8B2H9VqsyeuGZKSEwyHug2m5ROSr6~sFi8S41WCC~knstnwhQap7wWqGkzWDNmyYfKaBpdkWBKIgVo99Rgd2OCmsxfCK8eB4kix8BA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+    previewUrl: "/previews/dr-elara-dental.html",
+    palette: ["#0a1628", "#0d2040"],
   },
 ];
 
@@ -193,18 +252,8 @@ export default function HomePage() {
               <StaggerItem key={tpl.id} className="flex">
                 <Link href={`/templates?industry=${tpl.industry}`} className="flex w-full">
                   <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
-                    {/* Card Image - 16:9 ratio, no cropping */}
-                    <div className="relative overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-                      <img
-                        src={tpl.cardImage}
-                        alt={tpl.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {/* Category badge */}
-                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#111315]">
-                        {tpl.category}
-                      </div>
-                    </div>
+                    {/* Live iframe thumbnail - responsive, scales to card width */}
+                    <HomepageTemplateThumb tpl={tpl} />
 
                     {/* Card Details */}
                     <div className="p-5 flex flex-col flex-1">
