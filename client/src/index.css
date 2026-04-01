@@ -593,3 +593,65 @@
   opacity: 0.9;
   transform: translateY(-1px);
 }
+
+/* ============================================================
+   ACCESSIBILITY: Forced Colors / High Contrast Mode
+   Ensures the site remains usable when OS high-contrast is active.
+   We use forced-color-adjust: none on key branded elements so they
+   keep their visual identity, and ensure text contrast is maintained.
+   ============================================================ */
+@media (forced-colors: active) {
+  /* Preserve gradient buttons */
+  .btn-primary,
+  [class*="bg-gradient"],
+  [class*="from-brand"],
+  button[class*="gradient"] {
+    forced-color-adjust: none;
+    background: ButtonFace !important;
+    color: ButtonText !important;
+    border: 2px solid ButtonText !important;
+  }
+
+  /* Ensure card backgrounds are visible */
+  [class*="bg-card"],
+  [class*="bg-white"],
+  [class*="bg-background"] {
+    forced-color-adjust: none;
+    background: Canvas !important;
+    color: CanvasText !important;
+    border: 1px solid ButtonText !important;
+  }
+
+  /* Navigation */
+  nav, header {
+    forced-color-adjust: none;
+    background: Canvas !important;
+    border-bottom: 2px solid ButtonText !important;
+  }
+
+  /* Links */
+  a { color: LinkText !important; }
+  a:visited { color: VisitedText !important; }
+
+  /* WhatsApp FAB and floating buttons */
+  .whatsapp-fab,
+  [class*="fixed"][class*="rounded-full"],
+  [class*="fixed bottom"] {
+    forced-color-adjust: none;
+    background: ButtonFace !important;
+    color: ButtonText !important;
+    border: 2px solid ButtonText !important;
+  }
+}
+
+/* Respect prefers-reduced-motion for animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

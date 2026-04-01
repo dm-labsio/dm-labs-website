@@ -214,6 +214,39 @@
       .form-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
     }
+  
+    /* === DM Labs: Universal Mobile Safety === */
+    html, body { overflow-x: hidden; max-width: 100%; }
+    img, video, iframe { max-width: 100%; }
+    /* Forced-colors / high-contrast accessibility */
+    @media (forced-colors: active) {
+      * { border-color: ButtonText !important; }
+      a { color: LinkText !important; }
+      button, .btn, [class*="btn"], [class*="cta"] {
+        forced-color-adjust: none;
+        background: ButtonFace !important;
+        color: ButtonText !important;
+        border: 2px solid ButtonText !important;
+      }
+    }
+
+  
+    /* === DM Labs: Little Stars Mobile Fix === */
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links, .nav-cta, .nav-book { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-content { padding: 100px 20px 40px; }
+      .hero-image { min-height: 260px; }
+      .programmes-section { padding: 48px 16px; }
+      .programmes-grid { grid-template-columns: 1fr; }
+      .about-section { padding: 48px 16px; grid-template-columns: 1fr; gap: 32px; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .contact-section { padding: 48px 16px; grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 16px; }
+    }
+
   </style>
 </head>
 <body>

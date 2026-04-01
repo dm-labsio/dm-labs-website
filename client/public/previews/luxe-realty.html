@@ -198,6 +198,38 @@
       .form-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
     }
+  
+    /* === DM Labs: Universal Mobile Safety === */
+    html, body { overflow-x: hidden; max-width: 100%; }
+    img, video, iframe { max-width: 100%; }
+    /* Forced-colors / high-contrast accessibility */
+    @media (forced-colors: active) {
+      * { border-color: ButtonText !important; }
+      a { color: LinkText !important; }
+      button, .btn, [class*="btn"], [class*="cta"] {
+        forced-color-adjust: none;
+        background: ButtonFace !important;
+        color: ButtonText !important;
+        border: 2px solid ButtonText !important;
+      }
+    }
+
+  
+    /* === DM Labs: Luxe Realty Mobile Fix === */
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links, .nav-cta { display: none; }
+      .hero { padding: 100px 16px 60px; min-height: 70vh; }
+      .hero h1 { font-size: clamp(28px, 8vw, 52px); }
+      .search-bar { flex-direction: column; gap: 8px; padding: 16px; }
+      .listings-section { padding: 48px 16px; }
+      .listings-grid { grid-template-columns: 1fr; }
+      .stats-section { padding: 48px 16px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .contact-section { padding: 48px 16px; grid-template-columns: 1fr; gap: 40px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 16px; }
+    }
+
   </style>
 </head>
 <body>

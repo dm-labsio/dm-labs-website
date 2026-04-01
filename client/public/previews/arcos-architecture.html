@@ -184,6 +184,44 @@
       .form-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
     }
+  
+    /* === DM Labs: Universal Mobile Safety === */
+    html, body { overflow-x: hidden; max-width: 100%; }
+    img, video, iframe { max-width: 100%; }
+    /* Forced-colors / high-contrast accessibility */
+    @media (forced-colors: active) {
+      * { border-color: ButtonText !important; }
+      a { color: LinkText !important; }
+      button, .btn, [class*="btn"], [class*="cta"] {
+        forced-color-adjust: none;
+        background: ButtonFace !important;
+        color: ButtonText !important;
+        border: 2px solid ButtonText !important;
+      }
+    }
+
+  
+    /* === DM Labs: Arcos Mobile Fix === */
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links, .nav-cta { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: 70vh; }
+      .hero-content { padding: 80px 20px 40px; }
+      .hero-image { min-height: 280px; }
+      .projects-section { padding: 48px 16px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card:first-child { grid-row: span 1; }
+      .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .services-section { padding: 48px 16px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .about-section { padding: 48px 16px; grid-template-columns: 1fr; gap: 32px; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .contact-section { padding: 48px 16px; grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 16px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+
   </style>
 </head>
 <body>

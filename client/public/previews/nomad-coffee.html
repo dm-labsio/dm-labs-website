@@ -113,6 +113,22 @@
     .footer-bottom { border-top:1px solid rgba(250,246,240,0.1); padding-top:1.5rem; display:flex; justify-content:space-between; }
     .footer-copy { font-size:0.75rem; color:rgba(250,246,240,0.25); }
     @media(max-width:768px){ .footer-grid{grid-template-columns:1fr; gap:2rem;} footer{padding:3rem 1.5rem 2rem;} .footer-bottom{flex-direction:column; gap:0.5rem;} }
+  
+    /* === DM Labs: Universal Mobile Safety === */
+    html, body { overflow-x: hidden; max-width: 100%; }
+    img, video, iframe { max-width: 100%; }
+    /* Forced-colors / high-contrast accessibility */
+    @media (forced-colors: active) {
+      * { border-color: ButtonText !important; }
+      a { color: LinkText !important; }
+      button, .btn, [class*="btn"], [class*="cta"] {
+        forced-color-adjust: none;
+        background: ButtonFace !important;
+        color: ButtonText !important;
+        border: 2px solid ButtonText !important;
+      }
+    }
+
   </style>
 </head>
 <body>
