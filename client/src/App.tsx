@@ -23,6 +23,7 @@ import ServiceDetail from "./pages/ServiceDetail";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import WebDesignLimassol from "./pages/WebDesignLimassol";
+import WebDesignThessaloniki from "./pages/WebDesignThessaloniki";
 import PreviewPage from "./pages/PreviewPage";
 
 // Global SEO updater: fires on every route change to keep canonical + OG URL correct.
@@ -51,6 +52,7 @@ function MainRouter() {
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog" component={Blog} />
         <Route path="/web-design-limassol" component={WebDesignLimassol} />
+        <Route path="/web-design-thessaloniki" component={WebDesignThessaloniki} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>
