@@ -17,7 +17,7 @@ const BASE_URL = "https://dm-labs.io";
 const DEFAULT_TITLE = "D&M Labs | Professional Website Design from €299";
 const DEFAULT_DESCRIPTION =
   "D&M Labs builds custom, mobile-first websites for businesses. Fast delivery, SEO-ready, starting from €299.";
-const DEFAULT_OG_IMAGE = "https://dm-labs.io/og-image.png";
+const DEFAULT_OG_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/og-image-eCewwbJbnjWGm9GQ4q35sN.png";
 
 interface SEOOptions {
   title?: string;
