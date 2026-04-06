@@ -256,6 +256,74 @@ export const POSTS: BlogPost[] = [
 </div>
     `,
   },
+
+  // ─── Article 5 ────────────────────────────────────────────────────────────
+  {
+    slug: "restaurant-website-design-cyprus",
+    title: "Why Every Restaurant in Cyprus Needs a Website (Not Just a Facebook Page)",
+    metaTitle: "Restaurant Website Design Cyprus | Why You Need More Than Facebook",
+    metaDescription: "Running a restaurant in Cyprus? Here is why a Facebook page is not enough and what your website needs to attract diners, drive reservations, and beat the competition.",
+    date: "2026-04-06",
+    readTime: "6 min read",
+    category: "Web Design Tips",
+    excerpt: "Over 3,200 restaurants operate in Cyprus. Most rely on Facebook and word of mouth. Here is why that is a risk — and what a proper website does that social media never can.",
+    coverImage: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80",
+    content: `
+<p class="blog-lead">There are over 3,200 restaurants, caf\u00e9s, and takeaways operating in Cyprus. Most of them have a Facebook page, a few Instagram posts, and maybe a listing on Tripadvisor. Very few have a proper website. That gap is an opportunity \u2014 and if your competitors are not taking it, you should.</p>
+
+<p>This is not about having a website for the sake of it. It is about the specific, measurable ways a restaurant website in Cyprus drives more covers, more reservations, and more revenue than a social media presence alone ever can.</p>
+
+<h2>The Problem with Relying on Facebook and Instagram</h2>
+
+<p>Facebook and Instagram are useful tools. But they have three serious limitations for a restaurant business.</p>
+
+<p>First, the algorithm decides who sees your content. Organic reach on Facebook has declined by over 60% in the past five years. A post you spend an hour crafting might reach 3% of your followers. You are not in control of your own audience.</p>
+
+<p>Second, social media does not appear when someone searches Google for \u201crestaurants near me\u201d or \u201cbest taverna Limassol.\u201d These are the highest-intent searches in the food industry \u2014 people who are hungry, ready to book, and looking for somewhere to go right now. A Facebook page is invisible to them.</p>
+
+<p>Third, your account can be restricted, hacked, or banned with no warning. Restaurants that have built their entire online presence on a single platform have lost everything overnight. A website is an asset you own and control.</p>
+
+<h2>What Google Searches Look Like for Restaurants in Cyprus</h2>
+
+<p>When someone searches \u201crestaurant Nicosia,\u201d \u201cseafood Limassol,\u201d or \u201cbreakfast caf\u00e9 Paphos,\u201d Google shows two types of results: the local pack (the map with three listings) and organic results (the blue links below). Both are driven by your website and your Google Business Profile working together.</p>
+
+<p>A restaurant with a fast, well-structured website that clearly states its cuisine, location, and opening hours will consistently outrank one that only has a Facebook page \u2014 even if the Facebook page has more followers. Google cannot read your Facebook posts the way it reads your website.</p>
+
+<h2>What a Restaurant Website in Cyprus Actually Needs</h2>
+
+<p>A restaurant website does not need to be complex. It needs to do a small number of things very well.</p>
+
+<p><strong>A clear, mobile-friendly menu.</strong> Over 70% of restaurant searches in Cyprus happen on mobile. If your menu is a PDF that takes 10 seconds to load and requires pinching and zooming to read, you are losing customers before they even see your food. Your menu should be readable on a phone in under three seconds.</p>
+
+<p><strong>A reservation or enquiry system.</strong> Whether it is a simple contact form, a WhatsApp button, or an integrated booking tool, customers need a frictionless way to reserve a table. Every extra step between \u201cI want to book\u201d and \u201cI have booked\u201d loses you a percentage of potential diners.</p>
+
+<p><strong>Your location, hours, and contact details on every page.</strong> This sounds obvious, but a surprising number of restaurant websites bury this information. Google uses it to match your site to local searches. Customers use it to decide whether to visit. It should be impossible to miss.</p>
+
+<p><strong>Photos that make people hungry.</strong> You do not need a professional photographer for every shot, but you do need images that represent your food and atmosphere honestly and appetisingly. A website with no photos \u2014 or with blurry, poorly lit images \u2014 undermines trust before a customer has read a single word.</p>
+
+<p><strong>A Google Maps embed and schema markup.</strong> Embedding a Google Map on your contact page and adding structured data (schema markup) to your site tells Google exactly where you are, what type of restaurant you are, and what your opening hours are. This directly improves your chances of appearing in the local pack.</p>
+
+<h2>The Tripadvisor Problem</h2>
+
+<p>Many restaurant owners in Cyprus rely heavily on Tripadvisor for online visibility. Tripadvisor is valuable \u2014 but it has the same fundamental problem as Facebook: you are building on someone else\u2019s platform, paying their fees, and subject to their rules.</p>
+
+<p>More importantly, Tripadvisor listings rank in Google search results \u2014 but so do restaurant websites. A restaurant with a strong website can appear above its own Tripadvisor listing for branded searches, and appear in searches where Tripadvisor does not rank at all. You want both, not just one.</p>
+
+<h2>How Much Does a Restaurant Website Cost in Cyprus?</h2>
+
+<p>A professional restaurant website in Cyprus does not need to cost thousands of euros. At D&amp;M Labs, our restaurant websites start from <strong>\u20ac249</strong> for a Starter package \u2014 a fully custom, mobile-first site with your menu, photos, contact form, Google Maps integration, and SEO setup. Most restaurant sites are live within 5 to 7 days.</p>
+
+<p>The Business package at \u20ac399 adds a blog or news section (useful for posting specials and events), a WhatsApp reservation button, and more advanced SEO. For restaurants that want online ordering or a full booking system, the Premium package at \u20ac699 covers everything.</p>
+
+<p>Every website we build is designed to work on mobile, load fast, and be found on Google. We handle the technical side completely \u2014 you provide your menu, photos, and opening hours, and we do the rest.</p>
+
+<div class="blog-cta">
+  <h3>Ready to get your restaurant online?</h3>
+  <p>Get in touch for a free consultation. We will review your current online presence and tell you exactly what your restaurant website needs \u2014 no jargon, no obligation.</p>
+  <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
+</div>
+    `,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
