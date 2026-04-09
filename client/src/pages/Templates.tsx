@@ -1156,7 +1156,8 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 export default function Templates() {
   useSEO({
     title: "Website Examples | See Our Work | D&M Labs",
-    description: "Browse real website examples built by D&M Labs for restaurants, salons, dental clinics, yoga studios, and more. Starting from €299.",
+    description: "Browse real website examples built by D&M Labs for restaurants, salons, dental clinics, yoga studios, and more. Starting from \u20ac299.",
+    canonicalPath: "/examples",
   });
   const [location] = useLocation();
   const [activeIndustry, setActiveIndustry] = useState("all");

@@ -49,6 +49,7 @@ function MainRouter() {
         <Route path="/cookies" component={CookiePolicy} />
         <Route path="/terms" component={Terms} />
         <Route path="/templates" component={Templates} />
+        <Route path="/examples" component={Templates} />
         <Route path="/services/:serviceId" component={ServiceDetail} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog" component={Blog} />
