@@ -1,11 +1,10 @@
 // =============================================================================
-// /web-design-cyprus — National Cyprus Pillar Page
+// /web-design-cyprus -- National Cyprus Pillar Page
 // Design: matches city pages (Limassol / Nicosia / Thessaloniki)
 // SEO goal: rank for "web design Cyprus", "website design Cyprus",
 //           "web designer Cyprus", "website designer Cyprus",
 //           "web development Cyprus", "affordable web design Cyprus",
-//           "professional website Cyprus", "e-commerce Cyprus",
-//           "SEO Cyprus", "digital agency Cyprus"
+//           "professional website Cyprus", "SEO Cyprus", "digital agency Cyprus"
 // =============================================================================
 import { useEffect } from "react";
 import { Link } from "wouter";
@@ -16,7 +15,7 @@ const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "D&M Labs",
-  "description": "Professional web design and website development agency serving businesses across Cyprus — Limassol, Nicosia, Larnaca, Paphos, Famagusta, and all districts.",
+  "description": "Professional web design and website development agency serving businesses across Cyprus - Limassol, Nicosia, Larnaca, Paphos, Famagusta, and all districts.",
   "url": "https://dm-labs.io/web-design-cyprus",
   "telephone": "+35797472847",
   "priceRange": "€€",
@@ -32,9 +31,9 @@ const schemaMarkup = {
     "@type": "OfferCatalog",
     "name": "Web Design Cyprus Services",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starter Website Cyprus", "description": "5-page professional website for Cyprus businesses" }, "price": "299", "priceCurrency": "EUR" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Website Cyprus", "description": "10-page website with blog and SEO for Cyprus businesses" }, "price": "499", "priceCurrency": "EUR" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium E-commerce Cyprus", "description": "Full e-commerce website for Cyprus online shops" }, "price": "899", "priceCurrency": "EUR" }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starter Website Cyprus", "description": "Branded business page for Cyprus businesses" }, "price": "299", "priceCurrency": "EUR" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Website Cyprus", "description": "Up to 5-page website with SEO and contact forms for Cyprus businesses" }, "price": "399", "priceCurrency": "EUR" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium Website Cyprus", "description": "Fully custom website with animations, blog articles, and full SEO structure" }, "price": "699", "priceCurrency": "EUR" }
     ]
   }
 };
@@ -49,12 +48,12 @@ const cities = [
 ];
 
 const industries = [
-  { icon: "🍽️", name: "Restaurants & Cafés", desc: "Cyprus has over 3,200 food and beverage businesses. A fast, mobile-first website with your menu, opening hours, and Google Maps integration drives walk-ins and reservations." },
+  { icon: "🍽️", name: "Restaurants & Cafes", desc: "Cyprus has over 3,200 food and beverage businesses. A fast, mobile-first website with your menu, opening hours, and Google Maps integration drives walk-ins and reservations." },
   { icon: "🏨", name: "Hotels & Tourism", desc: "Tourism is Cyprus's largest industry. Hotels, villas, and tour operators need a website that ranks on Google and converts international visitors before they land." },
   { icon: "⚖️", name: "Law Firms & Legal Services", desc: "Cyprus is a major European legal and financial hub. Law firms and corporate service providers need a professional website that builds trust with high-value clients." },
   { icon: "🏠", name: "Real Estate & Property", desc: "Property buyers search online first. A clean, fast website with listings, maps, and enquiry forms converts browsers into serious leads." },
   { icon: "🏥", name: "Clinics & Healthcare", desc: "Private clinics, dentists, physiotherapists, and specialists across Cyprus need a trustworthy online presence to attract and retain patients." },
-  { icon: "🛍️", name: "Retail & E-commerce", desc: "Whether you run a boutique in Limassol or an online shop shipping across Cyprus and Europe, a well-built e-commerce website is your most powerful sales channel." },
+  { icon: "🛍️", name: "Retail & Boutiques", desc: "Whether you run a boutique in Limassol or a specialty shop in Nicosia, a professional website helps customers find you and builds credibility before they walk through the door." },
   { icon: "📊", name: "Accounting & Finance", desc: "Cyprus's financial services sector is one of the largest in the EU. A polished, professional website signals credibility to corporate and international clients." },
   { icon: "🎓", name: "Education & Tutoring", desc: "Private schools, language centres, and tutoring services across Cyprus use websites to attract students and communicate their curriculum and fees." },
 ];
@@ -62,19 +61,19 @@ const industries = [
 const faqs = [
   {
     q: "How much does web design cost in Cyprus?",
-    a: "Web design in Cyprus typically ranges from €299 to €2,500+ depending on the size and complexity of the project. At D&M Labs, our Starter package begins at €299 for a 5-page professional website, our Business package is €499 for up to 10 pages with a blog and SEO setup, and our Premium e-commerce package starts at €899. All prices are transparent with no hidden fees or monthly retainers unless you choose ongoing support."
+    a: "Web design in Cyprus typically ranges from €299 to €2,500+ depending on the size and complexity of the project. At D&M Labs, our Starter package begins at €299 for a branded business page, our Business package is €399 for up to 5 pages with contact forms and SEO, and our Premium package is €699 for a fully custom website with animations, blog articles, and full SEO structure. All prices are transparent with no hidden fees."
   },
   {
     q: "What is the difference between web design and web development in Cyprus?",
-    a: "Web design refers to the visual and user experience side — layout, colours, typography, and how the site looks and feels. Web development refers to the technical build — the code, database, and functionality that makes the site work. At D&M Labs we handle both: we design and develop your website from start to finish, so you work with one team rather than coordinating between a designer and a separate developer."
+    a: "Web design refers to the visual and user experience side - layout, colours, typography, and how the site looks and feels. Web development refers to the technical build - the code and functionality that makes the site work. At D&M Labs we handle both: we design and develop your website from start to finish, so you work with one team rather than coordinating between a designer and a separate developer."
   },
   {
     q: "Do I need a website if I already have a Facebook or Instagram page?",
-    a: "Yes. Social media platforms are rented land — Facebook and Instagram can change their algorithm, restrict your reach, or suspend your account at any time. A website is your owned digital property. It also ranks on Google, which is where the majority of Cypriot consumers search for businesses. A website and social media work together, but the website is the foundation."
+    a: "Yes. Social media platforms are rented land - Facebook and Instagram can change their algorithm, restrict your reach, or suspend your account at any time. A website is your owned digital property. It also ranks on Google, which is where the majority of Cypriot consumers search for businesses. A website and social media work together, but the website is the foundation."
   },
   {
     q: "How long does it take to build a website in Cyprus?",
-    a: "Our Starter websites launch within 5 to 7 business days from the moment we have your content and feedback. Business and Premium packages take 10 to 14 days. We keep you updated throughout the process and do not disappear between milestones. Rush delivery is available on request."
+    a: "Our Starter websites launch within 5 to 7 business days from the moment we have your content and feedback. Business packages take 7 to 10 days, and Premium packages take 10 to 14 days. We keep you updated throughout the process and do not disappear between milestones. Rush delivery is available on request."
   },
   {
     q: "Can you build a bilingual website in Greek and English?",
@@ -82,22 +81,18 @@ const faqs = [
   },
   {
     q: "Do you offer SEO with your web design packages?",
-    a: "All our websites are built with on-page SEO included as standard — correct heading structure, meta titles, meta descriptions, canonical tags, fast loading, and mobile-first design. For businesses that want ongoing SEO work (keyword targeting, content strategy, link building), we offer this as a separate service. Ask us about our SEO packages when you get in touch."
-  },
-  {
-    q: "Can you build an e-commerce website for my Cyprus business?",
-    a: "Yes. Our Premium package includes a full e-commerce website with product listings, shopping cart, payment integration (credit card, PayPal, JCC), and shipping configuration. We have built online shops for businesses across Cyprus in retail, food, fashion, and more. E-commerce websites start from €899."
+    a: "All our websites are built with on-page SEO included as standard - correct heading structure, meta titles, meta descriptions, canonical tags, fast loading, and mobile-first design. Our Business and Premium packages include a more comprehensive SEO setup. For businesses that want ongoing SEO work (keyword targeting, content strategy, link building), we offer this as a separate service."
   },
   {
     q: "Do you work with businesses outside Limassol and Nicosia?",
-    a: "Yes. D&M Labs works with businesses across all of Cyprus — Larnaca, Paphos, Famagusta, Paralimni, Ayia Napa, and every district. We also work with businesses in Greece (Athens, Thessaloniki), the UK, and Israel. All work is done remotely via WhatsApp, email, and video call. Distance is not a factor."
+    a: "Yes. D&M Labs works with businesses across all of Cyprus - Larnaca, Paphos, Famagusta, Paralimni, Ayia Napa, and every district. We also work with businesses in Greece (Athens, Thessaloniki), the UK, and Israel. All work is done remotely via WhatsApp, email, and video call. Distance is not a factor."
   }
 ];
 
 const whyUs = [
-  { icon: "⚡", title: "Fast Delivery", desc: "Starter websites live in 5–7 days. No waiting months for a basic site." },
+  { icon: "⚡", title: "Fast Delivery", desc: "Starter websites live in 5-7 days. No waiting months for a basic site." },
   { icon: "📱", title: "Mobile-First Design", desc: "Over 70% of Cypriot web traffic is mobile. Every site we build is optimised for phones first." },
-  { icon: "🔍", title: "SEO Built In", desc: "On-page SEO, correct meta tags, fast loading, and structured data — included in every package." },
+  { icon: "🔍", title: "SEO Built In", desc: "On-page SEO, correct meta tags, fast loading, and structured data - included in every package." },
   { icon: "💬", title: "WhatsApp Support", desc: "We communicate on WhatsApp, not ticketing systems. You always reach a real person quickly." },
   { icon: "💶", title: "Transparent Pricing", desc: "Fixed prices from €299. No hourly billing, no hidden fees, no surprise invoices." },
   { icon: "🌍", title: "Bilingual Capability", desc: "Greek and English websites for businesses serving both local and international audiences." },
@@ -106,7 +101,7 @@ const whyUs = [
 export default function WebDesignCyprus() {
   useSEO({
     title: "Web Design Cyprus | Professional Websites from €299 | D&M Labs",
-    description: "Professional web design for businesses across Cyprus — Limassol, Nicosia, Larnaca, Paphos, and beyond. Custom websites from €299. Mobile-first, SEO-optimised, delivered in 5–14 days. Free consultation.",
+    description: "Professional web design for businesses across Cyprus - Limassol, Nicosia, Larnaca, Paphos, and beyond. Custom websites from €299. Mobile-first, SEO-optimised, delivered in 5-14 days. Free consultation.",
     canonicalPath: "/web-design-cyprus"
   });
 
@@ -127,7 +122,7 @@ export default function WebDesignCyprus() {
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
 
-      {/* ── HERO ── */}
+      {/* -- HERO -- */}
       <section className="section-spacing bg-gradient-to-br from-[#F0F4FF] via-[#F6F6F4] to-[#F0EAFF]">
         <div className="container max-w-4xl mx-auto text-center">
           <AnimateIn>
@@ -142,7 +137,7 @@ export default function WebDesignCyprus() {
               {" "}from €299
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-6 leading-relaxed">
-              D&M Labs is a web design and website development studio serving businesses across Cyprus — from Limassol and Nicosia to Larnaca, Paphos, and Famagusta. We build fast, mobile-first, SEO-optimised websites that help Cypriot businesses get found on Google and convert visitors into customers.
+              D&M Labs is a web design and website development studio serving businesses across Cyprus - from Limassol and Nicosia to Larnaca, Paphos, and Famagusta. We build fast, mobile-first, SEO-optimised websites that help Cypriot businesses get found on Google and convert visitors into customers.
             </p>
             <p className="text-sm text-[#9CA3AF] mb-8">
               Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version is available on request.)
@@ -167,7 +162,7 @@ export default function WebDesignCyprus() {
         </div>
       </section>
 
-      {/* ── WHY YOUR CYPRUS BUSINESS NEEDS A WEBSITE ── */}
+      {/* -- WHY YOUR CYPRUS BUSINESS NEEDS A WEBSITE -- */}
       <section className="section-spacing bg-white">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
@@ -176,23 +171,23 @@ export default function WebDesignCyprus() {
             </h2>
             <div className="prose prose-lg max-w-none text-[#5B6472] leading-relaxed space-y-5">
               <p>
-                The short answer is yes — and the longer answer is that the cost of <strong>not having a website</strong> in Cyprus is growing every year. Over 80% of Cypriot consumers search on Google before making a purchase or booking a service. If your business does not appear in those search results, you are invisible to the majority of your potential customers.
+                The short answer is yes - and the longer answer is that the cost of <strong>not having a website</strong> in Cyprus is growing every year. Over 80% of Cypriot consumers search on Google before making a purchase or booking a service. If your business does not appear in those search results, you are invisible to the majority of your potential customers.
               </p>
               <p>
-                <strong>Website design in Cyprus</strong> has evolved significantly in the last five years. A basic brochure site is no longer enough. Businesses across Cyprus — from restaurants in Limassol to law firms in Nicosia, from hotels in Paphos to clinics in Larnaca — need a website that loads fast on mobile, ranks on Google, and converts visitors into enquiries or sales.
+                <strong>Website design in Cyprus</strong> has evolved significantly in the last five years. A basic brochure site is no longer enough. Businesses across Cyprus - from restaurants in Limassol to law firms in Nicosia, from hotels in Paphos to clinics in Larnaca - need a website that loads fast on mobile, ranks on Google, and converts visitors into enquiries or bookings.
               </p>
               <p>
                 At D&M Labs, we build <strong>professional websites for Cyprus businesses</strong> that do exactly that. Every website we deliver is mobile-first (because over 70% of web traffic in Cyprus comes from smartphones), SEO-optimised from day one, and designed to make your business look credible and trustworthy to potential clients.
               </p>
               <p>
-                Whether you are a small business owner in Nicosia looking for your first website, a restaurant in Limassol that needs an online menu and booking form, or an e-commerce business wanting to sell products across Cyprus and Europe — we have a package for you starting from <strong>€299</strong>.
+                Whether you are a small business owner in Nicosia looking for your first website, a restaurant in Limassol that needs an online menu and booking form, or a service business wanting to attract more clients from Google - we have a package for you starting from <strong>€299</strong>.
               </p>
             </div>
           </AnimateIn>
         </div>
       </section>
 
-      {/* ── WHAT WE BUILD ── */}
+      {/* -- WHAT WE BUILD -- */}
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
@@ -200,17 +195,17 @@ export default function WebDesignCyprus() {
               What We Build for Cyprus Businesses
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              We are a full-service <strong>web design and web development agency in Cyprus</strong>. We handle everything from the initial design concept to the final launch — and beyond.
+              We are a full-service <strong>web design and web development agency in Cyprus</strong>. We handle everything from the initial design concept to the final launch - and beyond.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               { title: "Business Websites", desc: "Professional multi-page websites for service businesses, consultancies, and agencies across Cyprus. Clean design, fast loading, and built to rank on Google." },
-              { title: "E-commerce Websites", desc: "Full online shops for Cyprus businesses selling products locally or internationally. Payment integration, shipping configuration, and product management included." },
-              { title: "Restaurant & Café Websites", desc: "Mobile-first websites with digital menus, opening hours, Google Maps, and reservation forms. Designed to drive walk-ins and online orders." },
+              { title: "Restaurant & Cafe Websites", desc: "Mobile-first websites with digital menus, opening hours, Google Maps, and reservation forms. Designed to drive walk-ins and online enquiries." },
               { title: "Hotel & Tourism Websites", desc: "Booking-focused websites for hotels, villas, apartments, and tour operators in Cyprus. Optimised for international visitors searching in English, Russian, and Greek." },
               { title: "Portfolio & Creative Websites", desc: "Showcase websites for architects, photographers, interior designers, and creative professionals across Cyprus." },
-              { title: "Landing Pages & SEO Pages", desc: "Targeted landing pages built to rank for specific keywords — 'web design Limassol', 'dentist Nicosia', 'car rental Larnaca' — and convert visitors into leads." },
+              { title: "Professional Services Websites", desc: "Credibility-building websites for law firms, accountants, clinics, and consultancies. Designed to convert high-value enquiries." },
+              { title: "Landing Pages & SEO Pages", desc: "Targeted landing pages built to rank for specific keywords - 'web design Limassol', 'dentist Nicosia', 'car rental Larnaca' - and convert visitors into leads." },
             ].map((item) => (
               <AnimateIn key={item.title}>
                 <div className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm h-full">
@@ -223,7 +218,7 @@ export default function WebDesignCyprus() {
         </div>
       </section>
 
-      {/* ── INDUSTRIES ── */}
+      {/* -- INDUSTRIES -- */}
       <section className="section-spacing bg-white">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
@@ -250,7 +245,7 @@ export default function WebDesignCyprus() {
         </div>
       </section>
 
-      {/* ── PRICING ── */}
+      {/* -- PRICING -- */}
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
@@ -266,22 +261,51 @@ export default function WebDesignCyprus() {
               {
                 name: "Starter",
                 price: "€299",
-                desc: "Perfect for small businesses, freelancers, and sole traders in Cyprus who need a clean, professional online presence fast.",
-                features: ["5 pages", "Mobile-first design", "On-page SEO", "Contact form", "Google Maps", "Delivered in 5–7 days"],
+                desc: "Perfect for new businesses that need a clean, professional online presence fast.",
+                features: [
+                  "Branded Business Page",
+                  "Mobile responsive",
+                  "WhatsApp button",
+                  "Social media links",
+                  "Accessibility widget",
+                  "2 revision rounds",
+                  "5-7 day delivery",
+                ],
                 highlight: false,
               },
               {
                 name: "Business",
-                price: "€499",
-                desc: "For growing Cyprus businesses that need more content, a blog, and stronger SEO to compete on Google.",
-                features: ["Up to 10 pages", "Blog / News section", "Full SEO setup", "WhatsApp button", "Analytics integration", "Delivered in 10–14 days"],
+                price: "€399",
+                desc: "For established Cyprus businesses that need a complete, conversion-focused website.",
+                features: [
+                  "Up to 5 pages",
+                  "Mobile responsive",
+                  "Contact form + booking form",
+                  "Google Maps + Reviews widget",
+                  "Testimonials section",
+                  "Basic SEO optimisation",
+                  "Speed optimisation",
+                  "3 revision rounds",
+                  "7-10 day delivery",
+                ],
                 highlight: true,
               },
               {
                 name: "Premium",
-                price: "€899",
-                desc: "Full e-commerce or complex websites for Cyprus businesses that need to sell online or manage bookings.",
-                features: ["Unlimited pages", "E-commerce / online shop", "Payment integration", "Booking system", "Bilingual (EN + GR)", "Priority delivery"],
+                price: "€699",
+                desc: "For businesses that want a fully custom, feature-rich website with everything included.",
+                features: [
+                  "Up to 7 pages",
+                  "Fully custom design + animations",
+                  "Contact form + booking form",
+                  "Google Maps + Reviews widget",
+                  "Testimonials + gallery",
+                  "5 SEO blog articles",
+                  "Full meta/SEO structure",
+                  "Pop-up included",
+                  "5 revision rounds",
+                  "10-14 day delivery",
+                ],
                 highlight: false,
               },
             ].map((pkg) => (
@@ -309,10 +333,18 @@ export default function WebDesignCyprus() {
               </AnimateIn>
             ))}
           </div>
+          <AnimateIn>
+            <p className="text-center text-sm text-[#5B6472] mt-6">
+              All prices are one-time fees. No monthly retainers unless you choose an optional maintenance plan.{" "}
+              <Link href="/pricing">
+                <span className="text-[#5B8CFF] font-semibold hover:underline cursor-pointer">View full pricing details</span>
+              </Link>
+            </p>
+          </AnimateIn>
         </div>
       </section>
 
-      {/* ── WHY D&M LABS ── */}
+      {/* -- WHY D&M LABS -- */}
       <section className="section-spacing bg-white">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
@@ -337,7 +369,7 @@ export default function WebDesignCyprus() {
         </div>
       </section>
 
-      {/* ── CITIES ── */}
+      {/* -- CITIES -- */}
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
@@ -345,7 +377,7 @@ export default function WebDesignCyprus() {
               Web Design Across All of Cyprus
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              We serve businesses in every city and district of Cyprus. Whether you are in the capital or a coastal town, we deliver the same quality and speed:
+              We serve businesses in every city and district of Cyprus. Click on a city below to learn more about our services in your area.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -376,7 +408,7 @@ export default function WebDesignCyprus() {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ── */}
+      {/* -- HOW IT WORKS -- */}
       <section className="section-spacing bg-white">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
@@ -389,10 +421,10 @@ export default function WebDesignCyprus() {
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { step: "01", title: "Free Consultation", desc: "Tell us about your business, your goals, and your budget. We will recommend the right package and answer any questions — no commitment required." },
+              { step: "01", title: "Free Consultation", desc: "Tell us about your business, your goals, and your budget. We will recommend the right package and answer any questions - no commitment required." },
               { step: "02", title: "Design & Build", desc: "We design your website and share a live preview for your feedback. You can request changes before anything goes live." },
               { step: "03", title: "Review & Approve", desc: "You review the finished website, we make any final adjustments, and you approve the launch." },
-              { step: "04", title: "Launch & Support", desc: "Your website goes live. We handle the technical setup — domain, hosting, SSL certificate — and provide post-launch support." },
+              { step: "04", title: "Launch & Support", desc: "Your website goes live. We handle the technical setup - domain, hosting, SSL certificate - and provide post-launch support." },
             ].map((s) => (
               <AnimateIn key={s.step}>
                 <div className="bg-[#F8F9FC] rounded-2xl p-5 border border-[#E8EAF0]">
@@ -406,7 +438,7 @@ export default function WebDesignCyprus() {
         </div>
       </section>
 
-      {/* ── MAP ── */}
+      {/* -- MAP -- */}
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
@@ -414,7 +446,7 @@ export default function WebDesignCyprus() {
               Serving Businesses Across Cyprus
             </h2>
             <p className="text-[#5B6472] mb-8 leading-relaxed">
-              D&M Labs works with businesses throughout Cyprus — from Limassol and Nicosia to Larnaca, Paphos, Famagusta, Paralimni, and every district in between. We also serve businesses in Greece (Athens, Thessaloniki) and internationally. Distance is never a factor.
+              D&M Labs works with businesses throughout Cyprus - from Limassol and Nicosia to Larnaca, Paphos, Famagusta, Paralimni, and every district in between. We also serve businesses in Greece (Athens, Thessaloniki) and internationally. Distance is never a factor.
             </p>
           </AnimateIn>
           <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
@@ -432,12 +464,12 @@ export default function WebDesignCyprus() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* -- FAQ -- */}
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl mx-auto">
           <AnimateIn>
             <h2 className="text-3xl font-bold text-[#111315] mb-10">
-              Frequently Asked Questions — Web Design Cyprus
+              Frequently Asked Questions - Web Design Cyprus
             </h2>
           </AnimateIn>
           <div className="flex flex-col gap-6">
@@ -453,7 +485,7 @@ export default function WebDesignCyprus() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
+      {/* -- CTA -- */}
       <section className="section-spacing bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF]">
         <div className="container max-w-3xl mx-auto text-center">
           <AnimateIn>
@@ -461,7 +493,7 @@ export default function WebDesignCyprus() {
               Ready to get your Cyprus business online?
             </h2>
             <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-              Tell us about your business and we will send you a free proposal within 24 hours. No commitment, no pressure. You can also reach us directly on WhatsApp — we are quick to respond.
+              Tell us about your business and we will send you a free proposal within 24 hours. No commitment, no pressure. You can also reach us directly on WhatsApp - we are quick to respond.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
