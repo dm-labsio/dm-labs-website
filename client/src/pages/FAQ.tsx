@@ -3,7 +3,7 @@
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AnimateIn from "@/components/AnimateIn";
 import { ChevronDown, MessageCircle } from "lucide-react";
 
@@ -79,6 +79,37 @@ export default function FAQ() {
     title: "FAQ | D&M Labs Web Design",
     description: "Answers to the most common questions about working with D&M Labs. Pricing, timelines, process, and more.",
   });
+
+  // Inject FAQPage JSON-LD schema for Google rich results (FAQ snippets in search)
+  useEffect(() => {
+    const SCHEMA_ID = "faq-jsonld-schema";
+    const allItems = faqs.flatMap(section => section.items);
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": allItems.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    };
+    let el = document.getElementById(SCHEMA_ID) as HTMLScriptElement | null;
+    if (!el) {
+      el = document.createElement("script");
+      el.id = SCHEMA_ID;
+      el.type = "application/ld+json";
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(schema);
+    return () => {
+      const s = document.getElementById(SCHEMA_ID);
+      if (s) s.remove();
+    };
+  }, []);
+
   return (
     <>
       {/* Hero */}

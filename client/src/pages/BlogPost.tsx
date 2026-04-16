@@ -3,6 +3,7 @@
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
    Clean long-form reading layout with SEO meta injection
    ============================================================ */
+import { useEffect } from "react";
 import { Link, useParams } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { getPostBySlug } from "@/data/blogPosts";
@@ -29,6 +30,56 @@ export default function BlogPost() {
     ogType: "article",
     canonicalPath: post ? `/blog/${post.slug}` : undefined,
   });
+
+  // Inject Article JSON-LD schema for Google rich results
+  useEffect(() => {
+    const SCHEMA_ID = "article-jsonld-schema";
+    let el = document.getElementById(SCHEMA_ID) as HTMLScriptElement | null;
+
+    if (post) {
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": post.metaTitle,
+        "description": post.metaDescription,
+        "image": post.coverImage,
+        "datePublished": post.date,
+        "dateModified": post.date,
+        "author": {
+          "@type": "Organization",
+          "name": "D&M Labs",
+          "url": "https://dm-labs.io"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "D&M Labs",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://dm-labs.io/dmlabs-logo.png"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://dm-labs.io/blog/${post.slug}`
+        }
+      };
+
+      if (!el) {
+        el = document.createElement("script");
+        el.id = SCHEMA_ID;
+        el.type = "application/ld+json";
+        document.head.appendChild(el);
+      }
+      el.textContent = JSON.stringify(schema);
+    } else {
+      if (el) el.remove();
+    }
+
+    return () => {
+      const s = document.getElementById(SCHEMA_ID);
+      if (s) s.remove();
+    };
+  }, [post]);
 
   if (!post) {
     return (
