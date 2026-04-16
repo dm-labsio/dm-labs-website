@@ -79,6 +79,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Cyprus national pillar page -->
+  <url>
+    <loc>https://dm-labs.io/web-design-cyprus</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
   <!-- City landing pages -->
   <url>
     <loc>https://dm-labs.io/web-design-limassol</loc>

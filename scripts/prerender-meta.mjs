@@ -109,6 +109,11 @@ const STATIC_ROUTES = [
     title: "Web Design Nicosia | Professional Websites from €249 | D&M Labs",
     description: "Professional web design for businesses in Nicosia, Cyprus. Custom websites built in 5-14 days from €249. Mobile-first, SEO-optimised, no hidden fees. Free consultation.",
   },
+  {
+    path: "/web-design-cyprus",
+    title: "Web Design Cyprus | Professional Websites from €299 | D&M Labs",
+    description: "Professional web design for businesses across Cyprus — Limassol, Nicosia, Larnaca, Paphos, and beyond. Custom websites from €299. Mobile-first, SEO-optimised, delivered in 5–14 days. Free consultation.",
+  },
   // Legal pages — minimal SEO, just correct canonical
   {
     path: "/privacy",
