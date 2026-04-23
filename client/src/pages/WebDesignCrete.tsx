@@ -112,6 +112,12 @@ const industries = [
     desc: "Builders, electricians, plumbers, and contractors. A straightforward website that shows your work, your services, and makes it easy for customers to call or message you.",
     img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
     alt: "Construction and trades business in Crete for professional website"
+  },
+  {
+    title: "Fitness, Yoga and Wellness",
+    desc: "Personal trainers, yoga studios, Pilates instructors, and wellness coaches. A website that showcases your classes, your story, and makes it easy for clients to book a session with you.",
+    img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80",
+    alt: "Yoga and fitness studio in Crete for wellness business website"
   }
 ];
 
@@ -154,9 +160,7 @@ export default function WebDesignCrete() {
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-6 leading-relaxed">
             D&M Labs builds professional, fast, and mobile-first websites for small businesses across Crete - from Heraklion and Chania to Rethymno, Agios Nikolaos, and every village in between. Starting from €299, delivered in 5 to 14 days.
           </p>
-          <p className="text-sm text-[#9CA3AF] mb-8">
-            Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
-          </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
@@ -177,10 +181,10 @@ export default function WebDesignCrete() {
         <div className="container max-w-4xl mx-auto px-4">
           <figure className="rounded-2xl overflow-hidden shadow-md">
             <img
-              src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1200&q=80"
-              alt="Chania harbour Crete Greece - web design for local businesses"
+              src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/NIKoLQKtylnVMtQG.jpg?Expires=1808465447&Signature=NekukXt3to-~bJhXPzQNUorg179u8Hc-UKLNcR0nu416WRSXgRmm3LpMz5SjHKM2823T-nWQuRrEO83bif~n~wMm9FZfuJLLvbXTgOLh-VfN-yqrtQG~8fLV6IUdWWkdw45F1cS6COY747zhjWWe0fgce52M7xXpHbslHFFaVl87dJxtRu9kvT59mRZ0Mh3iiRi0xTWkK-y0mo~37FgVuETIlXxnTSBjsOwVHR7kv-I2vGjMH5kvswUS8eiXNp~Gca7L7dw~dAVmvqYJO1kKJ7IVIkfhCEjZLBP3RYZT~7TMTEA98AJxywMJY13yUOhDVQVa72sQTOTGMqn9TfXX-Q__&Key-Pair-Id=K2HSFNDJXOU9YS"
+              alt="Chania old harbour at sunset - web design for businesses in Crete Greece"
               className="w-full object-cover"
-              style={{ maxHeight: "420px", objectPosition: "center 60%" }}
+              style={{ maxHeight: "420px", objectPosition: "center 50%" }}
               loading="eager"
             />
           </figure>
@@ -394,10 +398,10 @@ export default function WebDesignCrete() {
             </div>
             <figure className="rounded-2xl overflow-hidden shadow-md">
               <img
-                src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=700&q=80"
-                alt="Tourists exploring Crete Greece - local business website for tourism market"
+                src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/vjogCczdOXQNydol.jpg?Expires=1808465447&Signature=JrB-tEOKwnwYOXiwzbFZfcPMnRGALbh7XJMrSUn62RNA8EE7JYOp4ig5HrnbHT4Ok3ec9K2u1i97UnXL~Y5q4jGz6DXFT5KRaJDk6bm00Vb2ZQjLqvPSJZmq0kdo-5LZ4ksSkgUGfGbDsTN6i7iyuxHX9pIEM36H5jppUfovJe0y0TND5t-fNuyWciKGC5NTQHGwFxzXMDqubN3-cVxdtUi-Cvvi0t5rHrQILJbYln~5O3BKWvMDMjkpciv6h-zYqP4qM8Hs5Ld3Rrpp9zR196DYIUKlyZ5XZYf27CG0pSjmRUzkHh6Rq68UAmTfhuuRYShcyPfDm3rwokvM~pvyeg__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                alt="Crete island aerial view - tourism and local business website design"
                 className="w-full object-cover"
-                style={{ height: "300px", objectPosition: "center 50%" }}
+                style={{ height: "300px", objectPosition: "center 40%" }}
                 loading="lazy"
               />
             </figure>
