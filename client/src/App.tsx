@@ -4,10 +4,12 @@ import { Route, Switch, useLocation } from "wouter";
 import { useSEO } from "./hooks/useSEO";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import Layout from "./components/Layout";
 import CookieBanner from "./components/CookieBanner";
 import WhatsAppFloat from "./components/WhatsAppFloat";
-// Pages
+
+// ── English Pages ──
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Process from "./pages/Process";
@@ -29,8 +31,32 @@ import WebDesignCyprus from "./pages/WebDesignCyprus";
 import WebDesignCrete from "./pages/WebDesignCrete";
 import PreviewPage from "./pages/PreviewPage";
 
+// ── Greek Pages ──
+import HomeEl from "./pages/el/HomeEl";
+import ServicesEl from "./pages/el/ServicesEl";
+import ProcessEl from "./pages/el/ProcessEl";
+import PricingEl from "./pages/el/PricingEl";
+import FAQEl from "./pages/el/FAQEl";
+import ContactEl from "./pages/el/ContactEl";
+import PrivacyEl from "./pages/el/PrivacyEl";
+import CookiePolicyEl from "./pages/el/CookiePolicyEl";
+import TermsEl from "./pages/el/TermsEl";
+import BlogEl from "./pages/el/BlogEl";
+import WebDesignCyprusEl from "./pages/el/WebDesignCyprusEl";
+import WebDesignCreteEl from "./pages/el/WebDesignCreteEl";
+import WebDesignLimassol_El from "./pages/el/WebDesignLimassol";
+import WebDesignNicosia_El from "./pages/el/WebDesignNicosia";
+import WebDesignThessaloniki_El from "./pages/el/WebDesignThessaloniki";
+
+// ── Greek Blog Posts ──
+import WixVsDesignerEl from "./pages/el/blog/WixVsDesignerEl";
+import WebsiteCostEl from "./pages/el/blog/WebsiteCostEl";
+import NailSalonEl from "./pages/el/blog/NailSalonEl";
+import YogaEl from "./pages/el/blog/YogaEl";
+import GoogleVisibilityEl from "./pages/el/blog/GoogleVisibilityEl";
+import RestaurantEl from "./pages/el/blog/RestaurantEl";
+
 // Global SEO updater: fires on every route change to keep canonical + OG URL correct.
-// Individual pages can call useSEO() themselves to override title/description.
 function GlobalSEO() {
   useSEO();
   return null;
@@ -41,6 +67,7 @@ function MainRouter() {
     <Layout>
       <GlobalSEO />
       <Switch>
+        {/* ── English Routes ── */}
         <Route path="/" component={Home} />
         <Route path="/services" component={Services} />
         <Route path="/process" component={Process} />
@@ -60,6 +87,34 @@ function MainRouter() {
         <Route path="/web-design-nicosia" component={WebDesignNicosia} />
         <Route path="/web-design-cyprus" component={WebDesignCyprus} />
         <Route path="/web-design-crete" component={WebDesignCrete} />
+
+        {/* ── Greek Routes ── */}
+        <Route path="/el" component={HomeEl} />
+        <Route path="/el/" component={HomeEl} />
+        <Route path="/el/services" component={ServicesEl} />
+        <Route path="/el/process" component={ProcessEl} />
+        <Route path="/el/pricing" component={PricingEl} />
+        <Route path="/el/faq" component={FAQEl} />
+        <Route path="/el/contact" component={ContactEl} />
+        <Route path="/el/privacy" component={PrivacyEl} />
+        <Route path="/el/cookie-policy" component={CookiePolicyEl} />
+        <Route path="/el/terms" component={TermsEl} />
+        <Route path="/el/blog" component={BlogEl} />
+        <Route path="/el/web-design-cyprus" component={WebDesignCyprusEl} />
+        <Route path="/el/web-design-crete" component={WebDesignCreteEl} />
+        <Route path="/el/web-design-limassol" component={WebDesignLimassol_El} />
+        <Route path="/el/web-design-nicosia" component={WebDesignNicosia_El} />
+        <Route path="/el/web-design-thessaloniki" component={WebDesignThessaloniki_El} />
+
+        {/* ── Greek Blog Posts ── */}
+        <Route path="/el/blog/wix-vs-epaggelmatias-web-designer-kypros" component={WixVsDesignerEl} />
+        <Route path="/el/blog/posso-kostizei-istoselidha-kypros" component={WebsiteCostEl} />
+        <Route path="/el/blog/istoselidha-nail-salon-beauty-studio-kypros" component={NailSalonEl} />
+        <Route path="/el/blog/istoselidha-yoga-pilates-studio-kypros" component={YogaEl} />
+        <Route path="/el/blog/pos-na-vretheite-google-kypros" component={GoogleVisibilityEl} />
+        <Route path="/el/blog/istoselidha-estiatorio-kypros" component={RestaurantEl} />
+
+        {/* ── Fallback ── */}
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>
@@ -86,10 +141,12 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
-        <TooltipProvider>
-          <Toaster />
-          <AppRoutes />
-        </TooltipProvider>
+        <LanguageProvider>
+          <TooltipProvider>
+            <Toaster />
+            <AppRoutes />
+          </TooltipProvider>
+        </LanguageProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
