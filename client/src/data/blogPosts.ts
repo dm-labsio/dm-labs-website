@@ -345,6 +345,11 @@ export const POSTS: BlogPost[] = [
 <p>And to be fair, these tools have improved a lot. Wix in particular has become genuinely capable. You can build a decent-looking site, connect a domain, and get something live in a weekend. If you are a freelancer, a photographer, or someone testing a very early-stage idea, a website builder can absolutely be the right starting point.</p>
 <p>But here is what the ads do not tell you.</p>
 
+<figure class="blog-image">
+  <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80" alt="Small business owner frustrated trying to build a website on a laptop" loading="lazy" />
+  <figcaption>Most business owners spend 20 to 40 hours trying to get a website builder to do what they want - time that could go into running their business.</figcaption>
+</figure>
+
 <h2>The Real Limitations of Wix and Website Builders</h2>
 
 <h3>You Are Building on Someone Else's Platform</h3>
@@ -363,6 +368,11 @@ export const POSTS: BlogPost[] = [
 <p>WordPress deserves its own mention because it is in a different category from Wix. WordPress.org (the self-hosted version) is the platform that powers roughly 40% of all websites on the internet. It is powerful, flexible, and genuinely excellent when used properly.</p>
 <p>The catch is that "used properly" requires real technical knowledge. You need to choose and pay for hosting, install WordPress, choose a theme, install plugins, keep everything updated, manage security, and troubleshoot problems when they arise. A poorly built WordPress site is actually worse than a well-built Wix site - it is slower, less secure, and harder to maintain.</p>
 <p>WordPress is a tool for professionals. In the hands of a skilled web designer, it produces outstanding results. In the hands of a business owner who just wants a website, it often produces frustration and an outdated site that nobody updates.</p>
+
+<figure class="blog-image">
+  <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=900&q=80" alt="Professional web designer working on a custom website design on screen" loading="lazy" />
+  <figcaption>A custom website is designed around your business from the start - not adapted from a template that was built for someone else.</figcaption>
+</figure>
 
 <h2>What a Professional Web Designer Actually Does Differently</h2>
 <p>This is the part that matters most, and it is the part that rarely gets talked about clearly.</p>
@@ -391,20 +401,15 @@ export const POSTS: BlogPost[] = [
 <p>If you are at the very beginning of a business idea and you genuinely need something online this week with zero budget, a Wix site is better than nothing. If you are a one-person creative business - a photographer, a graphic designer, an artist - and you enjoy building things yourself, Wix can work well for a portfolio site. If you are testing a concept before committing to a full build, a temporary Wix page is a reasonable placeholder.</p>
 <p>But for an established small business in Cyprus that wants to grow, attract new customers through Google, and present itself professionally - a DIY website builder is a short-term solution that creates long-term limitations.</p>
 
-<h2>The Cost Comparison: What You Actually Pay</h2>
-<table class="blog-table">
-  <thead>
-    <tr><th>Option</th><th>Upfront Cost</th><th>Annual Cost</th><th>Your Time</th><th>SEO Potential</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Wix (Business plan)</td><td>€0</td><td>€180 - €300/yr</td><td>20-40 hours to build</td><td>Limited</td></tr>
-    <tr><td>Squarespace</td><td>€0</td><td>€180 - €360/yr</td><td>15-30 hours to build</td><td>Limited</td></tr>
-    <tr><td>WordPress (self-hosted)</td><td>€50 - €150 setup</td><td>€80 - €200/yr hosting</td><td>40+ hours, ongoing</td><td>Excellent (if done right)</td></tr>
-    <tr><td>D&M Labs Starter</td><td>€299 one-time</td><td>€0 (hosting not included)</td><td>1-2 hours of your input</td><td>Strong from day one</td></tr>
-    <tr><td>D&M Labs Business</td><td>€399 one-time</td><td>€0 (hosting not included)</td><td>2-3 hours of your input</td><td>Strong from day one</td></tr>
-  </tbody>
-</table>
-<p>When you factor in your time, the ongoing subscription costs of website builders, and the SEO limitations that cost you customers you never knew you were missing, a professionally built website from €299 is often the more economical choice over a two to three year period.</p>
+<h2>What Does It Actually Cost?</h2>
+<p>Wix and Squarespace are not free. Their paid plans - the ones you actually need to run a business - cost between €180 and €360 per year, every year, indefinitely. WordPress requires you to pay for hosting separately, typically €80 to €200 per year, plus the time and cost of setting everything up and keeping it maintained.</p>
+<p>A professionally built website from D&M Labs starts at €299 as a one-time investment. We include hosting setup guidance and manage the technical side for you. You own your domain - we always recommend that clients register their own domain name so it is fully theirs, independent of any platform or agency. The website itself is built and delivered to you, and we are here for updates whenever you need them.</p>
+<p>When you factor in the ongoing annual costs of website builders, the 20 to 40 hours most business owners spend trying to build their own site, and the SEO limitations that quietly cost you customers you never knew you were missing - a professionally built website is often the more economical choice over a two to three year period.</p>
+
+<figure class="blog-image">
+  <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80" alt="Web designer and business owner in a consultation meeting discussing website requirements" loading="lazy" />
+  <figcaption>The process starts with a conversation - no technical questions, no jargon. Just us learning about your business and what you want your website to do.</figcaption>
+</figure>
 
 <h2>What the D&M Labs Process Looks Like</h2>
 <p>We want to be specific about what working with us actually involves, because we think the process matters as much as the result.</p>

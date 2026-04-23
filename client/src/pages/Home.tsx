@@ -741,7 +741,7 @@ export default function HomePage() {
                   <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
                     <img
                       src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                      alt="Anastacia B. - Creative Director and AI Specialist at D&M Labs"
+                      alt="Anastacia B. - Creative Director at D&M Labs"
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{ objectPosition: 'center 12%' }}
                     />
@@ -750,9 +750,9 @@ export default function HomePage() {
                   <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
                     <div>
                       <h3 className="text-base font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
-                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Creative Director &amp; AI Specialist</p>
+                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Creative Director</p>
                       <p className="text-xs text-[#5B6472] leading-relaxed">
-                        I worked with global tech companies, training AI models and making sure digital products actually work the way they should. I bring that same dedication to every website we build.
+                        I worked with global tech companies, making sure digital products actually work the way they should. I bring that same dedication to every website we build.
                       </p>
                     </div>
                     <div className="border-t border-[#E2E5EA] mt-3 pt-2">
@@ -766,7 +766,7 @@ export default function HomePage() {
                   <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px' }}>
                     <img
                       src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                      alt="Anastacia B. - Creative Director & AI Specialist at D&M Labs"
+                      alt="Anastacia B. - Creative Director at D&M Labs"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       style={{ objectPosition: 'center 12%' }}
                     />
@@ -775,9 +775,9 @@ export default function HomePage() {
                   <div className="flex flex-col justify-between p-7 flex-1">
                     <div>
                       <h3 className="text-xl font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
-                      <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Creative Director &amp; AI Specialist</p>
+                      <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Creative Director</p>
                       <p className="text-sm text-[#5B6472] leading-relaxed">
-                        I worked with global tech companies, training AI models and making sure digital products actually work the way they should. I bring that same dedication with quality and detail to every website we build - because your online presence deserves more than just a pretty design.
+                        I worked with global tech companies, making sure digital products actually work the way they should. I bring that same dedication with quality and detail to every website we build - because your online presence deserves more than just a pretty design.
                       </p>
                     </div>
                     <div className="border-t border-[#E2E5EA] mt-5 pt-4">
