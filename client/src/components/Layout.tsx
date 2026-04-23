@@ -2,7 +2,7 @@
    D&M LABS - Layout Component
    Glassmorphism nav, mobile hamburger, dark footer
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
-   Language toggle: EN/EL in nav, navigates to /el/ prefix routes
+   Language toggle: flag-based EN/EL, visible on mobile as floating pill
    ============================================================ */
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
@@ -32,10 +32,39 @@ const EL_NAV_LINKS = [
   { label: "Διαδικασία", href: "/el/process" },
   { label: "Παραδείγματα", href: "/templates" },
   { label: "Τιμές", href: "/el/pricing" },
-  { label: "Blog", href: "/el/blog" },
+  { label: "Άρθρα", href: "/el/blog" },
   { label: "FAQ", href: "/el/faq" },
   { label: "Επικοινωνία", href: "/el/contact" },
 ];
+
+/* ── Flag SVGs (inline, no external deps) ── */
+const FlagUK = () => (
+  <svg width="20" height="14" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ borderRadius: "2px", display: "block" }}>
+    <rect width="60" height="40" fill="#012169"/>
+    <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" strokeWidth="8"/>
+    <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" strokeWidth="5"/>
+    <path d="M30,0 V40 M0,20 H60" stroke="#fff" strokeWidth="12"/>
+    <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" strokeWidth="7"/>
+  </svg>
+);
+
+const FlagGR = () => (
+  <svg width="20" height="14" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ borderRadius: "2px", display: "block" }}>
+    <rect width="60" height="40" fill="#0D5EAF"/>
+    <rect y="0"  width="60" height="4.44" fill="#0D5EAF"/>
+    <rect y="4.44"  width="60" height="4.44" fill="#fff"/>
+    <rect y="8.88"  width="60" height="4.44" fill="#0D5EAF"/>
+    <rect y="13.32" width="60" height="4.44" fill="#fff"/>
+    <rect y="17.76" width="60" height="4.44" fill="#0D5EAF"/>
+    <rect y="22.2"  width="60" height="4.44" fill="#fff"/>
+    <rect y="26.64" width="60" height="4.44" fill="#0D5EAF"/>
+    <rect y="31.08" width="60" height="4.44" fill="#fff"/>
+    <rect y="35.52" width="60" height="4.44" fill="#0D5EAF"/>
+    <rect width="24" height="22.2" fill="#0D5EAF"/>
+    <rect x="8.88" y="0" width="6.24" height="22.2" fill="#fff"/>
+    <rect y="8.88" width="24" height="4.44" fill="#fff"/>
+  </svg>
+);
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location, navigate] = useLocation();
@@ -64,43 +93,55 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   // Language toggle: switch between EN and EL versions of the current page
   function handleLangToggle(targetLang: "en" | "el") {
     if (targetLang === "el" && !isGreek) {
-      // Going EN -> EL: add /el prefix
       const elPath = location === "/" ? "/el" : "/el" + location;
       navigate(elPath);
     } else if (targetLang === "en" && isGreek) {
-      // Going EL -> EN: strip /el prefix
       const enPath = location.replace(/^\/el/, "") || "/";
       navigate(enPath);
     }
   }
 
-  // Language toggle button component
-  const LangToggle = ({ className = "" }: { className?: string }) => (
-    <div className={`flex items-center gap-1 rounded-lg border border-[#E2E5EA] overflow-hidden ${className}`}>
-      <button
-        onClick={() => handleLangToggle("en")}
-        className={`px-2.5 py-1 text-xs font-semibold transition-colors ${
-          !isGreek
-            ? "bg-[#5B8CFF] text-white"
-            : "text-[#5B6472] hover:text-[#5B8CFF] bg-white"
-        }`}
-        aria-label="Switch to English"
+  // Flag-based language toggle
+  const LangToggle = ({ className = "", size = "md" }: { className?: string; size?: "sm" | "md" }) => {
+    const isSmall = size === "sm";
+    return (
+      <div
+        className={`flex items-center rounded-full border border-[#E2E5EA] bg-white shadow-sm overflow-hidden ${className}`}
+        style={{ padding: "2px" }}
       >
-        EN
-      </button>
-      <button
-        onClick={() => handleLangToggle("el")}
-        className={`px-2.5 py-1 text-xs font-semibold transition-colors ${
-          isGreek
-            ? "bg-[#5B8CFF] text-white"
-            : "text-[#5B6472] hover:text-[#5B8CFF] bg-white"
-        }`}
-        aria-label="Εναλλαγή σε Ελληνικά"
-      >
-        EL
-      </button>
-    </div>
-  );
+        <button
+          onClick={() => handleLangToggle("en")}
+          aria-label="Switch to English"
+          title="English"
+          className={`flex items-center gap-1.5 rounded-full transition-all duration-200 font-semibold ${
+            isSmall ? "px-2 py-1 text-xs" : "px-3 py-1.5 text-xs"
+          } ${
+            !isGreek
+              ? "bg-[#5B8CFF] text-white shadow-sm"
+              : "text-[#5B6472] hover:bg-[#F0F4FF] hover:text-[#5B8CFF]"
+          }`}
+        >
+          <FlagUK />
+          <span>EN</span>
+        </button>
+        <button
+          onClick={() => handleLangToggle("el")}
+          aria-label="Εναλλαγή σε Ελληνικά"
+          title="Ελληνικά"
+          className={`flex items-center gap-1.5 rounded-full transition-all duration-200 font-semibold ${
+            isSmall ? "px-2 py-1 text-xs" : "px-3 py-1.5 text-xs"
+          } ${
+            isGreek
+              ? "bg-[#5B8CFF] text-white shadow-sm"
+              : "text-[#5B6472] hover:bg-[#F0F4FF] hover:text-[#5B8CFF]"
+          }`}
+        >
+          <FlagGR />
+          <span>EL</span>
+        </button>
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -146,14 +187,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </Link>
           </div>
 
-          {/* Mobile Hamburger */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-[#111315]"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile: lang toggle pill + hamburger */}
+          <div className="lg:hidden flex items-center gap-2">
+            <LangToggle size="sm" />
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="p-2 text-[#111315]"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -182,12 +226,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
             </nav>
-            <div className="flex items-center gap-4 mt-6">
-              <LangToggle />
-            </div>
             <Link
               href={isGreek ? "/el/contact" : "/contact"}
-              className="btn-primary w-full mt-4"
+              className="btn-primary w-full mt-6"
             >
               {isGreek ? "Ξεκινήστε" : "Get Started"}
             </Link>
@@ -301,7 +342,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       </div>{/* end a11y-content-wrapper */}
 
-      {/* Accessibility Widget */}
+      {/* Accessibility Widget - bottom-left, z-[9998] (defined in component) */}
       <AccessibilityWidget />
     </div>
   );

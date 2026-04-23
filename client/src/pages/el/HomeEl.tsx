@@ -207,6 +207,128 @@ export default function HomeEl() {
         </div>
       </section>
 
+      {/* ── WHO WE ARE ── */}
+      <section className="section-spacing bg-white">
+        <div className="container">
+          <AnimateIn className="text-center mb-14">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#5B8CFF] mb-3">Οι άνθρωποι πίσω από τη δουλειά</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">Ποιοι Είμαστε</h2>
+          </AnimateIn>
+
+          <div className="flex flex-col gap-8 max-w-3xl mx-auto">
+
+            {/* Anastacia Card */}
+            <AnimateIn delay={0.1}>
+              <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 overflow-hidden">
+                {/* MOBILE */}
+                <div className="flex md:hidden flex-row">
+                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
+                    <img
+                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                      alt="Anastacia B. - Δημιουργική Διευθύντρια και Ειδικός AI στη D&M Labs"
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{ objectPosition: 'center 12%' }}
+                    />
+                    <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
+                  </div>
+                  <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
+                    <div>
+                      <h3 className="text-base font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
+                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Δημιουργική Διευθύντρια &amp; Ειδικός AI</p>
+                      <p className="text-xs text-[#5B6472] leading-relaxed">
+                        Εργάστηκα με παγκόσμιες εταιρείες τεχνολογίας σε ψηφιακά προϊόντα και εφαρμογές AI. Ξέρω πώς να χρησιμοποιώ τα καλύτερα AI εργαλεία σήμερα - όχι για να αντικαταστήσω τη δημιουργικότητα, αλλά για να παραδίδω καλύτερα αποτελέσματα για κάθε πελάτη.
+                      </p>
+                    </div>
+                    <div className="border-t border-[#E2E5EA] mt-3 pt-2">
+                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;Η ιστοσελίδα σας πρέπει να δουλεύει τόσο σκληρά όσο κι εσείς.&rdquo;</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* DESKTOP */}
+                <div className="hidden md:flex flex-row">
+                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px' }}>
+                    <img
+                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                      alt="Anastacia B. - Δημιουργική Διευθύντρια και Ειδικός AI στη D&M Labs"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{ objectPosition: 'center 12%' }}
+                    />
+                    <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
+                  </div>
+                  <div className="flex flex-col justify-between p-7 flex-1">
+                    <div>
+                      <h3 className="text-xl font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
+                      <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Δημιουργική Διευθύντρια &amp; Ειδικός AI</p>
+                      <p className="text-sm text-[#5B6472] leading-relaxed">
+                        Εργάστηκα με παγκόσμιες εταιρείες τεχνολογίας σε ψηφιακά προϊόντα και εφαρμογές τεχνητής νοημοσύνης. Καταλαβαίνω πώς να χρησιμοποιώ τα καλύτερα AI εργαλεία που υπάρχουν σήμερα - όχι για να αντικαταστήσουν τη δημιουργικότητα ή την ανθρώπινη κρίση, αλλά για να παραδίδουμε πιο αποτελεσματικά αποτελέσματα για κάθε πελάτη μας.
+                      </p>
+                    </div>
+                    <div className="border-t border-[#E2E5EA] mt-5 pt-4">
+                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;Η ιστοσελίδα σας πρέπει να δουλεύει τόσο σκληρά όσο κι εσείς.&rdquo;</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+
+            {/* Tom Card */}
+            <AnimateIn delay={0.2}>
+              <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 overflow-hidden">
+                {/* MOBILE */}
+                <div className="flex md:hidden flex-row">
+                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
+                    <img
+                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                      alt="Tom B. - Τεχνικός Διευθυντής και Ειδικός SEO στη D&M Labs"
+                      className="absolute inset-0 w-full h-full object-cover object-top"
+                    />
+                    <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
+                  </div>
+                  <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
+                    <div>
+                      <h3 className="text-base font-bold text-[#111315] mb-0.5">Tom B.</h3>
+                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Τεχνικός Διευθυντής &amp; Ειδικός SEO</p>
+                      <p className="text-xs text-[#5B6472] leading-relaxed">
+                        Το υπόβαθρό μου είναι στην αυτοματοποίηση, την ανάπτυξη και την ενσωμάτωση πολύπλοκων συστημάτων για παγκόσμιους οργανισμούς. Λατρεύω να λύνω τα τεχνικά θέματα ώστε εσείς να μην χρειαστεί να σκεφτείτε ποτέ γι' αυτά.
+                      </p>
+                    </div>
+                    <div className="border-t border-[#E2E5EA] mt-3 pt-2">
+                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;Πρώτα λύσε το πρόβλημα. Μετά γράψε τον κώδικα.&rdquo;</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* DESKTOP */}
+                <div className="hidden md:flex flex-row">
+                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px' }}>
+                    <img
+                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                      alt="Tom B. - Τεχνικός Διευθυντής και Ειδικός SEO στη D&M Labs"
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
+                  </div>
+                  <div className="flex flex-col justify-between p-7 flex-1">
+                    <div>
+                      <h3 className="text-xl font-bold text-[#111315] mb-0.5">Tom B.</h3>
+                      <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Τεχνικός Διευθυντής &amp; Ειδικός SEO</p>
+                      <p className="text-sm text-[#5B6472] leading-relaxed">
+                        Το υπόβαθρό μου είναι στην αυτοματοποίηση, την ανάπτυξη λογισμικού και την ενσωμάτωση πολύπλοκων συστημάτων για παγκόσμιους οργανισμούς. Λατρεύω να λύνω τα τεχνικά θέματα ώστε εσείς να μην χρειαστεί ποτέ να τα σκεφτείτε - αυτό που παίρνετε είναι μια ιστοσελίδα σταθερή, γρήγορη και φτιαγμένη για να αντέξει στον χρόνο.
+                      </p>
+                    </div>
+                    <div className="border-t border-[#E2E5EA] mt-5 pt-4">
+                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;Πρώτα λύσε το πρόβλημα. Μετά γράψε τον κώδικα.&rdquo;</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="section-spacing bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF]">
         <div className="container max-w-3xl mx-auto text-center">
