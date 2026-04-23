@@ -1,107 +1,185 @@
-import { Link } from "wouter";
+/* ============================================================
+   D&M LABS - Process Page
+   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
+   Σχεδιασμός: Airy vertical timeline - no step numbers, large icons,
+           generous breathing room between each stage
+   ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
+import { Link } from "wouter";
+import AnimateIn from "@/components/AnimateIn";
+import { MessageCircle, Palette, Code, Rocket, ArrowRight, CheckCircle2, CreditCard } from "lucide-react";
 
-// Greek Process page — /el/process
-// Primary keyword: "πώς κατασκευάζεται ιστοσελίδα" / "διαδικασία κατασκευής ιστοσελίδας"
+const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
+
+const steps = [
+  {
+    step: "01",
+    icon: MessageCircle,
+    title: "Discovery Call",
+    time: "~1 μέρα",
+    desc: "We start with a quick WhatsApp chat. Tell us about your business, what you need, and your goals. No technical jargon - just a friendly conversation.",
+    details: ["15-20 minute WhatsApp call", "We learn about your business", "You tell us what you need", "We recommend the best package"],
+    color: "#5B8CFF",
+  },
+  {
+    step: "02",
+    icon: CreditCard,
+    title: "Secure Your Spot",
+    time: "Same day",
+    desc: "Once we agree on the scope and price, you pay and we begin work immediately. Simple, transparent, no surprises.",
+    details: ["Clear pricing - no hidden fees", "Pay once, own it forever", "Work begins immediately", "Secure payment options"],
+    color: "#6FE3FF",
+  },
+  {
+    step: "03",
+    icon: Palette,
+    title: "Σχεδιασμός & Build",
+    time: "3-7 days",
+    desc: "We design and develop your website. You'll see progress along the way and can provide feedback at key milestones.",
+    details: ["Custom design for your brand", "Mobile-first development", "Regular progress updates", "Your feedback shapes the result"],
+    color: "#8B5CFF",
+  },
+  {
+    step: "04",
+    icon: Code,
+    title: "Review & Αναθεωρήσεις",
+    time: "1-2 μέρες",
+    desc: "You review the website and request changes. We refine everything until you're completely happy with the result.",
+    details: ["Full website preview", "Starter: 2 γύροι αναθεωρήσεων, Business: 3, Premium: 5", "We adjust until you're satisfied", "No extra charges for included revisions"],
+    color: "#5B8CFF",
+  },
+  {
+    step: "05",
+    icon: Rocket,
+    title: "Launch",
+    time: "~1 μέρα",
+    desc: "Your website goes live. We handle domain setup, hosting, and make sure everything works perfectly.",
+    details: ["Domain connection", "SSL certificate setup", "Speed optimisation", "Your website is live!"],
+    color: "#6FE3FF",
+  },
+];
 
 export default function ProcessEl() {
   useSEO({
-    title: "Πώς Κατασκευάζουμε την Ιστοσελίδα σας | D&M Labs",
-    description: "Η διαδικασία κατασκευής ιστοσελίδας στη D&M Labs - απλή, διαφανής και χωρίς τεχνικές ορολογίες. Από τη συζήτηση μέχρι το launch σε 5-14 ημέρες.",
-    canonicalPath: "/el/process"
+    title: "Η Διαδικασία μας | How We Build Websites | D&M Labs",
+    description: "From discovery call to launch in 5-14 days. See exactly how D&M Labs designs and builds your website, step by step.",
   });
-  useHreflang();
-
-  const steps = [
-    {
-      num: "01",
-      title: "Συζήτηση και Κατανόηση",
-      desc: "Ξεκινάμε με μια ελεύθερη συζήτηση για την επιχείρησή σας. Τι κάνετε, ποιοι είναι οι πελάτες σας, τι θέλετε να πετύχετε με την ιστοσελίδα. Δεν χρειάζεστε τεχνικές γνώσεις - εσείς ξέρετε την επιχείρησή σας, εμείς ξέρουμε τις ιστοσελίδες."
-    },
-    {
-      num: "02",
-      title: "Πρόταση και Σχεδιασμός",
-      desc: "Σας στέλνουμε μια πρόταση με το πακέτο που ταιριάζει στις ανάγκες σας και ξεκινάμε τον σχεδιασμό. Σας δείχνουμε πώς θα μοιάζει η ιστοσελίδα πριν γράψουμε κώδικα, ώστε να εγκρίνετε την κατεύθυνση."
-    },
-    {
-      num: "03",
-      title: "Ανάπτυξη",
-      desc: "Αναπτύσσουμε την ιστοσελίδα βάσει του εγκεκριμένου σχεδιασμού. Σας κρατάμε ενήμερους σε κάθε βήμα. Δεν εξαφανιζόμαστε για εβδομάδες - υπάρχει πάντα κάποιος να απαντήσει στις ερωτήσεις σας."
-    },
-    {
-      num: "04",
-      title: "Αναθεωρήσεις",
-      desc: "Σας δείχνουμε την ολοκληρωμένη ιστοσελίδα και ακούμε τα σχόλιά σας. Κάνουμε τις αλλαγές που χρειάζονται μέχρι να είστε απολύτως ικανοποιημένοι. Κάθε πακέτο περιλαμβάνει συγκεκριμένο αριθμό αναθεωρήσεων."
-    },
-    {
-      num: "05",
-      title: "Launch",
-      desc: "Μόλις εγκρίνετε την ιστοσελίδα, σας καθοδηγούμε για το πώς να αποκτήσετε domain και hosting, και κάνουμε τη δημοσίευση. Η ιστοσελίδα σας είναι online και έτοιμη να δέχεται επισκέπτες."
-    },
-    {
-      num: "06",
-      title: "Υποστήριξη μετά το Launch",
-      desc: "Δεν εξαφανιζόμαστε μετά το launch. Είμαστε εδώ για ενημερώσεις, αλλαγές και ερωτήσεις. Η επιχείρησή σας αλλάζει - η ιστοσελίδα σας πρέπει να αλλάζει μαζί της."
-    }
-  ];
-
   return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
-
-      {/* ── HERO ── */}
-      <section className="section-spacing bg-gradient-to-br from-[#F0F4FF] via-[#F6F6F4] to-[#F0EAFF]">
-        <div className="container max-w-3xl mx-auto text-center">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Η Διαδικασία μας</span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">
-            Πώς Κατασκευάζουμε{" "}
-            <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
-              την Ιστοσελίδα σας
-            </span>
-          </h1>
-          <p className="text-lg text-[#5B6472] mb-3 leading-relaxed">
-            Μια απλή, διαφανής διαδικασία χωρίς τεχνικές ορολογίες. Εσείς φέρτε την επιχείρησή σας - εμείς αναλαμβάνουμε τα υπόλοιπα.
-          </p>
-          <p className="text-sm text-[#9CA3AF] italic">
-            Η υπηρεσία παρέχεται στα αγγλικά. Επικοινωνούμε μαζί σας στα ελληνικά.
-          </p>
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <div className="absolute top-10 left-10 w-[300px] h-[300px] opacity-[0.04] animate-float-slower pointer-events-none">
+          <img src={TRIANGLE_GEO} alt="" className="w-full h-full object-contain" aria-hidden="true" />
+        </div>
+        <div className="container relative z-10 text-center">
+          <AnimateIn>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Πώς Λειτουργεί</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
+              From Idea to <span className="brand-gradient-text">Launch</span>
+            </h1>
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+              A simple, transparent process designed to get your website live as quickly as possible - without the stress.
+            </p>
+          </AnimateIn>
         </div>
       </section>
 
-      {/* ── STEPS ── */}
-      <section className="section-spacing">
-        <div className="container max-w-3xl mx-auto">
-          <div className="flex flex-col gap-8">
-            {steps.map((step, i) => (
-              <div key={step.num} className="flex gap-6 items-start">
-                <div className="shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF] flex items-center justify-center text-white font-extrabold text-sm">
-                  {step.num}
-                </div>
-                <div className="flex-1 bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
-                  <h2 className="font-bold text-[#111315] text-lg mb-2">{step.title}</h2>
-                  <p className="text-[#5B6472] text-sm leading-relaxed">{step.desc}</p>
-                </div>
-              </div>
-            ))}
+      {/* Steps */}
+      <section className="section-spacing bg-white">
+        <div className="container max-w-3xl">
+          <div className="relative">
+{/* Vertical connector line - sits between icons, hidden behind each icon box */}
+            <div
+              className="absolute left-[35px] sm:left-[39px] top-[96px] sm:top-[104px] bottom-[96px] sm:bottom-[104px] w-[2px] pointer-events-none"
+              style={{ background: "linear-gradient(to bottom, #5B8CFF, #6FE3FF, #8B5CFF, #5B8CFF, #6FE3FF)", zIndex: 1 }}
+            />
+
+            <div className="space-y-0">
+              {steps.map((step, i) => (
+                <AnimateIn key={step.title} delay={i * 0.12}>
+                  <div className="relative flex gap-8 sm:gap-10" style={{ paddingBottom: i < steps.length - 1 ? "clamp(3rem, 6vh, 5rem)" : 0 }}>
+                    {/* Icon circle - z-10 so it sits above the connector line */}
+                    <div className="shrink-0 flex flex-col items-center" style={{ position: "relative", zIndex: 10 }}>
+                      <div
+                        className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-2xl flex items-center justify-center shadow-sm"
+                        style={{ background: `white`, border: `1.5px solid ${step.color}30`, boxShadow: `0 0 0 4px white` }}
+                      >
+                        <div className="w-full h-full rounded-2xl flex items-center justify-center" style={{ background: `${step.color}18` }}>
+                          <step.icon size={34} style={{ color: step.color }} strokeWidth={1.5} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 pt-3">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-xs font-bold text-white px-2.5 py-1 rounded-full" style={{ background: step.color }}>Step {step.step}</span>
+                        <span className="text-xs font-semibold text-[#5B6472] bg-[#F0F4FF] px-2.5 py-1 rounded-full">{step.time}</span>
+                      </div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">{step.title}</h3>
+                      <p className="text-base text-[#5B6472] leading-relaxed mb-5 max-w-xl">{step.desc}</p>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {step.details.map((d) => (
+                          <li key={d} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                            <CheckCircle2 size={16} style={{ color: step.color }} className="shrink-0 mt-0.5" />
+                            {d}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </AnimateIn>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="section-spacing bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF]">
-        <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-extrabold text-white mb-4">Έτοιμοι να ξεκινήσετε;</h2>
-          <p className="text-blue-100 text-lg mb-8">
-            Επικοινωνήστε μαζί μας για μια δωρεάν συμβουλευτική. Δεν χρειάζεστε να ξέρετε τι θέλετε - θα το βρούμε μαζί.
-          </p>
-          <Link href="/el/contact">
-            <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-              Επικοινωνήστε μαζί μας
-            </button>
-          </Link>
+      {/* Timeline */}
+      <section className="section-spacing">
+        <div className="container">
+          <AnimateIn className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Typical Timeline</h2>
+            <p className="text-lg text-[#5B6472]">Most projects go from first message to live website in under two weeks.</p>
+          </AnimateIn>
+          <AnimateIn delay={0.2}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+              {[
+                { label: "Starter Website", time: "5-7 days", price: "from €299" },
+                { label: "Business Website", time: "7-10 days", price: "from €399" },
+                { label: "Premium Website", time: "10-14 days", price: "from €699" },
+              ].map((item) => (
+                <div key={item.label} className="dm-card text-center !p-8">
+                  <p className="text-3xl font-bold brand-gradient-text mb-2">{item.time}</p>
+                  <p className="text-sm font-semibold text-[#111315] mb-1">{item.label}</p>
+                  <p className="text-xs text-[#5B6472]">{item.price}</p>
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
         </div>
       </section>
 
-    </main>
+      {/* CTA */}
+      <section className="section-spacing dark-section text-center">
+        <div className="container">
+          <AnimateIn>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Start the Process?</h2>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">
+              The first step is a quick, no-pressure WhatsApp chat. Let's talk about your business.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="/el/contact" className="btn-primary">
+                <MessageCircle size={18} /> Start the Conversation
+              </a>
+              <Link href="/el/pricing" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
+                Δείτε τις Τιμές <ArrowRight size={16} />
+              </Link>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+    </>
   );
 }

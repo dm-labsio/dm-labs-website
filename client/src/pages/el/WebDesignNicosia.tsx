@@ -1,170 +1,346 @@
+/* ============================================================
+   D&M LABS — /web-design-nicosia landing page
+   Design: #0F172A dark, #5B8CFF→#8B5CFF gradient accents, #F6F6F4 bg
+   SEO target: "web design Λευκωσία", "website design Λευκωσία Cyprus"
+   LocalBusiness schema injected on mount
+   ============================================================ */
 import { Link } from "wouter";
+import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
-import { Check } from "lucide-react";
+import AnimateIn from "@/components/AnimateIn";
 
-// Greek Web Design Nicosia page — /el/web-design-nicosia
-// Primary keyword: "κατασκευή ιστοσελίδας Λευκωσία"
-// Secondary: "web design Λευκωσία", "ιστοσελίδα επιχείρηση Λευκωσία"
-
-const schema = {
+const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "D&M Labs",
-  "description": "Κατασκευή επαγγελματικών ιστοσελίδων για επιχειρήσεις στη Λευκωσία. Από €299.",
-  "url": "https://dm-labs.io/el/web-design-nicosia",
+  "description": "D&M Labs designs and builds professional websites for businesses in Λευκωσία and across Cyprus. Mobile-first, SEO-optimised, delivered in 5-14 days.",
+  "url": "https://dm-labs.io/web-design-nicosia",
+  "logo": "https://dm-labs.io/logo.png",
+  "image": "https://dm-labs.io/og-image.png",
   "telephone": "+35797472847",
   "email": "info@dm-labs.io",
-  "inLanguage": "el",
-  "areaServed": {
-    "@type": "City",
-    "name": "Nicosia"
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Λευκωσία",
+    "addressCountry": "CY"
   },
-  "priceRange": "€€"
+  "areaServed": [
+    { "@type": "City", "name": "Λευκωσία" },
+    { "@type": "City", "name": "Strovolos" },
+    { "@type": "City", "name": "Aglandjia" },
+    { "@type": "City", "name": "Latsia" },
+    { "@type": "City", "name": "Lakatamia" },
+    { "@type": "AdministrativeArea", "name": "Λευκωσία District" }
+  ],
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Bank Transfer, PayPal",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.instagram.com/dmlabs.io"
+  ]
 };
 
-export default function WebDesignNicosiaEl() {
+const faqs = [
+  {
+    q: "How much does a website cost for a Λευκωσία business?",
+    a: "Our packages start from €249 for a Starter site — a fully custom, mobile-responsive website with SEO setup, a contact form, and everything needed to go live. The Business package starts from €399 and the Premium from €699. We always recommend a free consultation first so you get an accurate quote with no surprises."
+  },
+  {
+    q: "Do you work with businesses in Λευκωσία remotely?",
+    a: "Yes, entirely. D&M Labs works with clients across Cyprus without any need for in-person meetings. The full process — initial brief, design, revisions, and launch — is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits."
+  },
+  {
+    q: "Can you build a website in Greek and English?",
+    a: "Absolutely. We build bilingual websites in both Greek and English, and a full Greek-language version is available on request. If your audience is primarily Greek-speaking, we can build a Greek-only site. We are comfortable working with Greek content and advise on how to structure copy for both readability and search visibility."
+  },
+  {
+    q: "How long does it take to build a website for a Λευκωσία business?",
+    a: "The Starter package typically launches within 5 to 7 days from the moment we have your content and feedback. The Business and Premium packages take 10 to 14 days depending on the number of pages and any custom features involved. We keep you updated throughout and do not disappear between milestones."
+  }
+];
+
+const industries = [
+  { name: "Law Firms & Legal Services", icon: "⚖️", desc: "Λευκωσία is Cyprus's legal and financial hub. A professional website builds credibility and attracts high-value clients." },
+  { name: "Restaurants & Cafés", icon: "🍽️", desc: "From the old city to Engomi, Λευκωσία's F&B scene is competitive. A fast, menu-rich website drives reservations and walk-ins." },
+  { name: "Κλινικές & Υγεία", icon: "🏥", desc: "Private clinics, dentists, and specialists in Λευκωσία need a trustworthy online presence to attract and retain patients." },
+  { name: "Λιανική & Μπουτίκ", icon: "🛍️", desc: "Whether in the Makarios Avenue shopping corridor or a neighbourhood side street, a website extends your reach beyond foot traffic." },
+  { name: "Accounting & Finance", icon: "📊", desc: "Cyprus's financial services sector is centred in Λευκωσία. A polished website signals professionalism to corporate clients." },
+  { name: "Real Estate Agencies", icon: "🏠", desc: "Property buyers search online first. A clean, fast website with listings and contact forms converts browsers into enquiries." },
+];
+
+export default function WebDesignΛευκωσίαEl() {
   useSEO({
-    title: "Κατασκευή Ιστοσελίδας Λευκωσία | Από €299 | D&M Labs",
-    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Λευκωσία. Custom σχεδιασμός, SEO, mobile-first. Starter €299, Business €399, Premium €699.",
+    title: "Κατασκευή Ιστοσελίδας Λευκωσία | Professional Websites from €249 | D&M Labs",
+    description: "Professional web design for businesses in Λευκωσία, Cyprus. Custom websites built in 5-14 days from €249. Mobile-first, SEO-optimised, no hidden fees. Free consultation.",
     canonicalPath: "/el/web-design-nicosia"
   });
-  useHreflang();
+
+  useEffect(() => {
+    const existing = document.getElementById("schema-nicosia");
+    if (existing) existing.remove();
+    const script = document.createElement("script");
+    script.id = "schema-nicosia";
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(schemaMarkup);
+    document.head.appendChild(script);
+    return () => {
+      const s = document.getElementById("schema-nicosia");
+      if (s) s.remove();
+    };
+  }, []);
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
 
       {/* ── HERO ── */}
-      <section className="min-h-[80vh] flex items-center relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80')" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/85 via-[#0F172A]/60 to-transparent" />
-        <div className="container max-w-5xl mx-auto relative z-10 py-20">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#6FE3FF] mb-4">
-            Κατασκευή Ιστοσελίδας Λευκωσία
-          </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight max-w-2xl">
-            Επαγγελματική Ιστοσελίδα για την Επιχείρησή σας στη Λευκωσία
-          </h1>
-          <p className="text-lg text-blue-100 mb-3 leading-relaxed max-w-xl">
-            Κατασκευάζουμε custom, mobile-first ιστοσελίδες για επιχειρήσεις στη Λευκωσία. Από €299, παράδοση σε 5-14 ημέρες.
-          </p>
-          <p className="text-sm text-blue-200/70 mb-8 italic">
-            Η υπηρεσία παρέχεται στα αγγλικά. Επικοινωνούμε μαζί σας στα ελληνικά.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/el/contact">
-              <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity shadow-lg">
-                Ζητήστε Δωρεάν Πρόταση
-              </button>
-            </Link>
-            <Link href="/el/pricing">
-              <button className="px-8 py-3.5 rounded-xl border border-white/40 text-white font-semibold text-base hover:bg-white/10 transition-colors">
-                Δείτε τις Τιμές
-              </button>
-            </Link>
-          </div>
+      <section className="section-spacing bg-gradient-to-br from-[#F0F4FF] via-[#F6F6F4] to-[#F0EAFF]">
+        <div className="container max-w-4xl mx-auto text-center">
+          <AnimateIn>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">
+              Κατασκευή Ιστοσελίδας Λευκωσία
+            </span>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">
+              Professional Websites for{" "}
+              <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
+                Λευκωσία Businesses
+              </span>
+            </h1>
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
+              D&M Labs is a web design studio helping businesses in Λευκωσία build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites — starting from €249 — so your business stands out in Cyprus's capital city.
+            </p>
+            <p className="text-sm text-[#9CA3AF] mb-8">
+              Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/el/contact">
+                <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
+                  Get a Free Consultation
+                </button>
+              </Link>
+              <Link href="/el/pricing">
+                <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors bg-white">
+                  Δείτε τις Τιμές
+                </button>
+              </Link>
+            </div>
+          </AnimateIn>
         </div>
       </section>
 
-      {/* ── WHY NICOSIA ── */}
+      {/* ── WHY NICOSIA BUSINESSES NEED A WEBSITE ── */}
       <section className="section-spacing bg-white">
         <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-4">
-            Γιατί η Επιχείρησή σας στη Λευκωσία Χρειάζεται Ιστοσελίδα
-          </h2>
-          <p className="text-[#5B6472] mb-6 leading-relaxed max-w-2xl">
-            Η Λευκωσία είναι η πρωτεύουσα της Κύπρου και το επιχειρηματικό κέντρο του νησιού. Εδώ βρίσκονται οι περισσότερες εταιρείες, τα γραφεία και οι επαγγελματικές υπηρεσίες - και ο ανταγωνισμός για online ορατότητα είναι πιο έντονος από ποτέ.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {[
-              { title: "Βρεθείτε στη Google", desc: "Κατασκευάζουμε κάθε ιστοσελίδα με σωστή SEO δομή ώστε να εμφανίζεστε όταν κάποιος ψάχνει για αυτό που προσφέρετε στη Λευκωσία." },
-              { title: "Αξιοπιστία", desc: "Στη Λευκωσία, οι επαγγελματικές υπηρεσίες κρίνονται από την online παρουσία τους. Μια επαγγελματική ιστοσελίδα δείχνει αξιοπιστία και σοβαρότητα." },
-              { title: "Διαθέσιμοι 24/7", desc: "Η ιστοσελίδα σας δουλεύει ακόμα και όταν εσείς δεν είστε. Πελάτες μπορούν να βρουν πληροφορίες και να επικοινωνήσουν οποιαδήποτε ώρα." },
-              { title: "Ανταγωνιστικό Πλεονέκτημα", desc: "Στη Λευκωσία, μια καλά σχεδιασμένη ιστοσελίδα σας ξεχωρίζει από τον ανταγωνισμό και σας φέρνει νέους πελάτες." }
-            ].map((w) => (
-              <div key={w.title} className="bg-[#F8F9FC] rounded-2xl p-6 border border-[#E8EAF0]">
-                <h3 className="font-bold text-[#111315] text-base mb-2">{w.title}</h3>
-                <p className="text-[#5B6472] text-sm leading-relaxed">{w.desc}</p>
-              </div>
+          <AnimateIn>
+            <h2 className="text-3xl font-bold text-[#111315] mb-4">
+              Why Λευκωσία Businesses Need a Proper Website in 2026
+            </h2>
+            <p className="text-[#5B6472] leading-relaxed mb-6">
+              Λευκωσία is the commercial, legal, and administrative capital of Cyprus. It is home to the island's largest concentration of law firms, financial services companies, government contractors, private clinics, and retail businesses. Competition is intense — and the first place most potential clients look is Google.
+            </p>
+            <p className="text-[#5B6472] leading-relaxed mb-6">
+              A slow, outdated, or non-existent website is not just a missed opportunity — it actively loses you business. Studies consistently show that over 75% of users judge a company's credibility based on its website design. In a market as professional as Λευκωσία, first impressions are everything.
+            </p>
+            <p className="text-[#5B6472] leading-relaxed">
+              D&M Labs builds websites that are fast, mobile-first, and optimised for Google from day one. Whether you are a law firm on Makarios Avenue, a restaurant in the old city, or a clinic in Strovolos, we build the kind of website that converts visitors into clients.
+            </p>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* ── INDUSTRIES WE SERVE ── */}
+      <section className="section-spacing bg-[#F8F9FC]">
+        <div className="container max-w-4xl mx-auto">
+          <AnimateIn>
+            <h2 className="text-3xl font-bold text-[#111315] mb-3">
+              Κλάδοι που Εξυπηρετούμε in Λευκωσία
+            </h2>
+            <p className="text-[#5B6472] mb-10 leading-relaxed">
+              We work with a wide range of businesses across Λευκωσία. Every website is built to the specific needs of your industry — not a generic template.
+            </p>
+          </AnimateIn>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {industries.map((ind) => (
+              <AnimateIn key={ind.name}>
+                <div className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm h-full">
+                  <span className="text-3xl mb-3 block">{ind.icon}</span>
+                  <h3 className="font-bold text-[#111315] text-base mb-2">{ind.name}</h3>
+                  <p className="text-[#5B6472] text-sm leading-relaxed">{ind.desc}</p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── PACKAGES ── */}
-      <section className="section-spacing">
+      {/* ── PRICING ── */}
+      <section className="section-spacing bg-white">
         <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-4">Τιμές Κατασκευής Ιστοσελίδας στη Λευκωσία</h2>
-          <p className="text-[#5B6472] mb-8">Εφάπαξ τιμές, χωρίς μηνιαίες χρεώσεις.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <AnimateIn>
+            <h2 className="text-3xl font-bold text-[#111315] mb-3">
+              Web Design Pricing for Λευκωσία Businesses
+            </h2>
+            <p className="text-[#5B6472] mb-10 leading-relaxed">
+              Transparent, fixed pricing. No hidden fees, no hourly billing surprises. Every package includes custom design, mobile-first build, SEO setup, and a contact form.
+            </p>
+          </AnimateIn>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { name: "Starter", price: "€299", highlight: false, features: ["1 σελίδα", "Mobile-responsive", "WhatsApp κουμπί", "Βασική SEO", "Παράδοση 5-7 ημέρες"] },
-              { name: "Business", price: "€399", highlight: true, features: ["Έως 5 σελίδες", "Φόρμα επικοινωνίας", "Google Maps", "Reviews widget", "SEO", "Παράδοση 7-10 ημέρες"] },
-              { name: "Premium", price: "€699", highlight: false, features: ["Έως 7 σελίδες", "Custom animations", "Gallery", "5 SEO άρθρα", "Πλήρης SEO", "Παράδοση 10-14 ημέρες"] }
+              {
+                name: "Starter",
+                price: "€249",
+                desc: "Perfect for sole traders, freelancers, and small businesses that need a clean, professional online presence.",
+                features: ["Έως 5 σελίδες", "Mobile-first design", "Contact form", "Basic SEO setup", "Google Maps integration", "Delivered in 5-7 days"],
+                highlight: false
+              },
+              {
+                name: "Business",
+                price: "€399",
+                desc: "Ideal for established businesses in Λευκωσία that need more content, more pages, and stronger SEO foundations.",
+                features: ["Up to 10 pages", "Advanced SEO setup", "Blog or news section", "WhatsApp chat button", "Analytics integration", "Delivered in 7-10 days"],
+                highlight: true
+              },
+              {
+                name: "Premium",
+                price: "€699",
+                desc: "For businesses that want a fully custom, feature-rich website with booking systems, multilingual content, or e-commerce.",
+                features: ["Unlimited pages", "Booking / enquiry system", "Bilingual (Greek + English)", "Custom animations", "Priority support", "Delivered in 10-14 days"],
+                highlight: false
+              }
             ].map((pkg) => (
-              <div key={pkg.name} className={`rounded-2xl p-6 border flex flex-col ${pkg.highlight ? "border-[#5B8CFF] bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] shadow-xl" : "border-[#E8EAF0] bg-white shadow-sm"}`}>
-                {pkg.highlight && <span className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wider mb-2">Πιο Δημοφιλές</span>}
-                <div className="text-2xl font-extrabold text-[#111315] mb-1">{pkg.price}</div>
-                <div className="font-bold text-[#111315] mb-4">{pkg.name}</div>
-                <ul className="space-y-2 flex-1 mb-6">
-                  {pkg.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-[#5B6472]">
-                      <Check size={14} className="text-[#5B8CFF] shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/el/contact">
-                  <button className={`w-full py-3 rounded-xl font-semibold text-sm ${pkg.highlight ? "bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white hover:opacity-90" : "border border-[#5B8CFF] text-[#5B8CFF] hover:bg-[#EEF3FF]"}`}>
-                    Ξεκινήστε Τώρα
-                  </button>
-                </Link>
-              </div>
+              <AnimateIn key={pkg.name}>
+                <div className={`rounded-2xl p-6 border h-full flex flex-col ${pkg.highlight ? "border-[#5B8CFF] shadow-lg bg-gradient-to-b from-[#EEF3FF] to-white" : "border-[#E8EAF0] shadow-sm bg-white"}`}>
+                  {pkg.highlight && (
+                    <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#5B8CFF] mb-2">Πιο Δημοφιλές</span>
+                  )}
+                  <h3 className="font-extrabold text-[#111315] text-xl mb-1">{pkg.name}</h3>
+                  <p className="text-3xl font-extrabold text-[#5B8CFF] mb-3">{pkg.price}</p>
+                  <p className="text-[#5B6472] text-sm leading-relaxed mb-4">{pkg.desc}</p>
+                  <ul className="flex flex-col gap-2 mb-6 flex-1">
+                    {pkg.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-sm text-[#374151]">
+                        <span className="text-[#5B8CFF] mt-0.5 shrink-0">✓</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="/el/contact">
+                    <button className={`w-full py-3 rounded-xl font-semibold text-sm transition-colors ${pkg.highlight ? "bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white hover:opacity-90" : "border border-[#5B8CFF] text-[#5B8CFF] hover:bg-[#EEF3FF]"}`}>
+                      Get started
+                    </button>
+                  </Link>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY D&M LABS ── */}
+      <section className="section-spacing bg-[#F8F9FC]">
+        <div className="container max-w-4xl mx-auto">
+          <AnimateIn>
+            <h2 className="text-3xl font-bold text-[#111315] mb-4">
+              Why Λευκωσία Businesses Choose D&M Labs
+            </h2>
+            <p className="text-[#5B6472] leading-relaxed mb-8">
+              D&M Labs is a remote web design studio. We work with businesses across Cyprus — from Λευκωσία and Limassol to smaller towns — entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
+            </p>
+          </AnimateIn>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Fast delivery",
+                desc: "Most websites are live within 5 to 14 days. We work quickly, communicate clearly, and do not leave you waiting."
+              },
+              {
+                title: "No technical knowledge needed",
+                desc: "You do not need to understand code, hosting, or SEO. We handle everything and explain what matters in plain language."
+              },
+              {
+                title: "Built to convert",
+                desc: "Every page is designed with one goal in mind — turning visitors into enquiries. Good design is only useful if it drives results."
+              }
+            ].map((w) => (
+              <AnimateIn key={w.title}>
+                <div className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
+                  <h3 className="font-bold text-[#111315] text-lg mb-2">{w.title}</h3>
+                  <p className="text-[#5B6472] text-sm leading-relaxed">{w.desc}</p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── MAP ── */}
-      <section className="section-spacing bg-[#F8F9FC]">
+      <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-[#111315] mb-4">Εξυπηρετούμε τη Λευκωσία και Ολόκληρη την Κύπρο</h2>
-          <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm">
+          <AnimateIn>
+            <h2 className="text-3xl font-bold text-[#111315] mb-3">
+              Serving Businesses Across Λευκωσία
+            </h2>
+            <p className="text-[#5B6472] mb-8">
+              We work with businesses throughout Λευκωσία — from the old walled city and Makarios Avenue to Strovolos, Aglandjia, Latsia, Lakatamia, and the wider Λευκωσία District. Distance is not a factor.
+            </p>
+          </AnimateIn>
+          <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
             <iframe
-              title="Χάρτης Λευκωσίας - Κατασκευή Ιστοσελίδων"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52428.3!2d33.36!3d35.17!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de1767b1b3c3c3%3A0x400bd2ce2b9c5f0!2sNicosia%2C%20Cyprus!5e0!3m2!1sel!2sgr!4v1"
+              title="Λευκωσία, Cyprus"
               width="100%"
-              height="300"
+              height="100%"
               style={{ border: 0 }}
-              allowFullScreen
               loading="lazy"
+              allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52000!2d33.3642!3d35.1856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de1767b0b5c3e7%3A0x5a4e7e1b2a3c4d5e!2sΛευκωσία%2C%20Cyprus!5e0!3m2!1sen!2scy!4v1700000000001!5m2!1sen!2scy"
             />
           </div>
         </div>
       </section>
 
+      {/* ── CROSS-LINKS ── */}
+      <section className="section-spacing bg-[#F8F9FC]">
+        <div className="container max-w-4xl mx-auto">
+          <AnimateIn>
+            <h2 className="text-2xl font-bold text-[#111315] mb-3">
+              Also Serving Other Cities
+            </h2>
+            <p className="text-[#5B6472] mb-6 leading-relaxed">
+              D&M Labs works with businesses across Cyprus and beyond. We also have dedicated pages for other cities we serve:
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/el/web-design-limassol">
+                <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-sm hover:bg-[#EEF3FF] transition-colors cursor-pointer">
+                  Web Design Limassol →
+                </span>
+              </Link>
+              <Link href="/el/web-design-thessaloniki">
+                <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#8B5CFF] text-[#8B5CFF] font-semibold text-sm hover:bg-[#F3EEFF] transition-colors cursor-pointer">
+                  Web Design Thessaloniki →
+                </span>
+              </Link>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
-      <section className="section-spacing">
+      <section className="section-spacing bg-white">
         <div className="container max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-8">Συχνές Ερωτήσεις</h2>
-          <div className="flex flex-col gap-4">
-            {[
-              { q: "Πόσο κοστίζει μια ιστοσελίδα στη Λευκωσία;", a: "Οι τιμές ξεκινούν από €299 για το Starter πακέτο. Δεν υπάρχουν επιπλέον χρεώσεις για τη γεωγραφική τοποθεσία." },
-              { q: "Χρειάζεστε να συναντηθούμε φυσικά;", a: "Όχι. Δουλεύουμε εξ αποστάσεως με επικοινωνία μέσω email, WhatsApp ή τηλεφώνου." },
-              { q: "Σε ποια γλώσσα παρέχεται η υπηρεσία;", a: "Η υπηρεσία κατασκευής παρέχεται στα αγγλικά, αλλά επικοινωνούμε μαζί σας στα ελληνικά χωρίς κανένα πρόβλημα." }
-            ].map((faq) => (
-              <div key={faq.q} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
-                <h3 className="font-bold text-[#111315] text-base mb-2">{faq.q}</h3>
-                <p className="text-[#5B6472] text-sm leading-relaxed">{faq.a}</p>
-              </div>
+          <AnimateIn>
+            <h2 className="text-3xl font-bold text-[#111315] mb-10">
+              Συχνές Ερωτήσεις
+            </h2>
+          </AnimateIn>
+          <div className="flex flex-col gap-6">
+            {faqs.map((faq) => (
+              <AnimateIn key={faq.q}>
+                <div className="bg-[#F8F9FC] rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
+                  <h3 className="font-bold text-[#111315] text-base mb-3">{faq.q}</h3>
+                  <p className="text-[#5B6472] text-sm leading-relaxed">{faq.a}</p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
@@ -173,13 +349,30 @@ export default function WebDesignNicosiaEl() {
       {/* ── CTA ── */}
       <section className="section-spacing bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF]">
         <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-extrabold text-white mb-4">Έτοιμοι για την Ιστοσελίδα σας στη Λευκωσία;</h2>
-          <p className="text-blue-100 text-lg mb-8">Δωρεάν πρόταση μέσα σε 24 ώρες.</p>
-          <Link href="/el/contact">
-            <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-              Ζητήστε Δωρεάν Πρόταση
-            </button>
-          </Link>
+          <AnimateIn>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+              Ready to get your Λευκωσία business online?
+            </h2>
+            <p className="text-blue-100 text-lg mb-8 leading-relaxed">
+              Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. You can also reach us directly on WhatsApp — we are quick to respond.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/el/contact">
+                <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
+                  Contact us today
+                </button>
+              </Link>
+              <a
+                href="https://wa.me/35797472847?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Λευκωσία"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="px-10 py-4 rounded-xl bg-white/20 border border-white/40 text-white font-bold text-base hover:bg-white/30 transition-colors">
+                  Συνομιλήστε στο WhatsApp
+                </button>
+              </a>
+            </div>
+          </AnimateIn>
         </div>
       </section>
 

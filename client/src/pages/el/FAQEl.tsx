@@ -1,117 +1,165 @@
-import { useState } from "react";
-import { Link } from "wouter";
+/* ============================================================
+   D&M LABS - FAQ Page
+   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
+   ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
-import { ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
+import AnimateIn from "@/components/AnimateIn";
+import { ChevronDown, MessageCircle } from "lucide-react";
 
-// Greek FAQ page — /el/faq
-// Primary keyword: "συχνές ερωτήσεις κατασκευή ιστοσελίδας"
+const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%20have%20a%20question.";
 
 const faqs = [
   {
-    q: "Πόσο κοστίζει μια επαγγελματική ιστοσελίδα;",
-    a: "Οι τιμές μας ξεκινούν από €299 για το Starter πακέτο (1 σελίδα), €399 για το Business (έως 5 σελίδες) και €699 για το Premium (έως 7 σελίδες με SEO άρθρα). Όλες οι τιμές είναι εφάπαξ - χωρίς μηνιαίες συνδρομές."
+    category: "Getting Started",
+    items: [
+      { q: "How do I get started?", a: "Just send us a message on WhatsApp. We'll have a quick chat about your business, recommend the best package, and get started right away. No forms, no waiting." },
+      { q: "What information do I need to provide?", a: "At minimum, your business name and a brief description of what you do. If you have a logo, photos, or specific text you'd like to use - great. If not, we can work with what you have." },
+      { q: "How long does it take to build my website?", a: "Starter websites take 5-7 working days. Business websites take 7-10 working days. The timeline starts once we receive your content and confirm the project scope." },
+      { q: "Do I need any technical knowledge?", a: "Absolutely not. We handle everything technical. You just need to tell us about your business and what you want - we take care of the rest." },
+      { q: "Do you work with clients outside your country?", a: "Yes. We work with clients worldwide. All communication happens over WhatsApp and email, so location is never a barrier. Our pricing is in euros and we serve businesses across Europe and beyond." },
+      { q: "Can I see a preview before paying?", a: "Yes. Before any development begins, we share a design direction for your approval - colours, layout, and overall look and feel. You won't pay anything until you're happy with the direction. During development, we share progress checkpoints so you can follow along and give feedback at each stage. Nothing is finalised without your sign-off." },
+      { q: "Can I upgrade my plan later?", a: "Absolutely. If you start with the Starter plan and later decide you need more pages or features, we can upgrade your site at any time. You only pay the difference between the plans." },
+    ],
   },
   {
-    q: "Πόσο καιρό παίρνει να φτιαχτεί η ιστοσελίδα μου;",
-    a: "Το Starter παραδίδεται σε 5-7 ημέρες, το Business σε 7-10 ημέρες και το Premium σε 10-14 ημέρες από τη στιγμή που έχουμε το περιεχόμενό σας (κείμενα, φωτογραφίες). Αν δεν έχετε περιεχόμενο, σας βοηθάμε να το δημιουργήσετε."
+    category: "Τιμές & Payment",
+    items: [
+      { q: "Υπάρχουν κρυφές χρεώσεις;", a: "No. The price you see is the price you pay. Your first-year domain is included - we register it for you and set everything up. After the first year, you'll receive a reminder to renew your domain licence (typically €10-15/year). Hosting is a separate ongoing cost (typically €10-15/μήνα) and we explain everything clearly before you commit." },
+      { q: "How does payment work?", a: "We take a deposit to secure your project and begin work. The remaining balance is due on delivery, once you've reviewed and approved the final website. Simple, transparent, and no surprises." },
+      { q: "What payment methods do you accept?", a: "We accept bank transfers and major payment methods. We'll provide payment details when you're ready to proceed." },
+      { q: "Do I own my website after it's built?", a: "Yes, 100%. Once paid in full, the website and all its content belong to you completely." },
+    ],
   },
   {
-    q: "Χρειάζομαι τεχνικές γνώσεις;",
-    a: "Καθόλου. Δεν χρειάζεστε να καταλαβαίνετε από hosting, SEO, κώδικα ή οτιδήποτε τεχνικό. Εσείς φέρτε την επιχείρησή σας και τις ιδέες σας - εμείς αναλαμβάνουμε τα υπόλοιπα."
+    category: "Σχεδιασμός & Features",
+    items: [
+      { q: "Can I see examples of your work?", a: "Yes! Contact us on WhatsApp and we'll share recent examples relevant to your industry." },
+      { q: "Θα λειτουργεί η ιστοσελίδα μου σε κινητά τηλέφωνα;", a: "Absolutely. Κάθε ιστοσελίδα που φτιάχνουμε είναι mobile-first - meaning it's designed to look and work perfectly on phones, tablets, and desktops." },
+      { q: "Can I make changes after the website is live?", a: "Yes. Small text changes are free for the first month after launch. After that, our maintenance plans (from €39/μήνα) cover ongoing updates, or you can request individual changes." },
+      { q: "Do you provide hosting?", a: "Yes. We handle the full technical setup - hosting, domain registration, SSL certificate, and everything in between. Your first-year domain is included in the build price. Hosting is a separate ongoing cost (typically €10-15/μήνα) which we explain clearly before you commit. You will receive a reminder when your domain is due for renewal after the first year." },
+    ],
   },
   {
-    q: "Τι γίνεται με το hosting και το domain;",
-    a: "Σας καθοδηγούμε για το πώς να αποκτήσετε το δικό σας domain (όνομα ιστοσελίδας) και hosting. Θέλουμε εσείς να είστε ιδιοκτήτες της ιστοσελίδας σας. Το κόστος domain και hosting είναι συνήθως €10-30 ετησίως."
+    category: "Μετά το Launch",
+    items: [
+      { q: "What happens after my website launches?", a: "We make sure everything is working perfectly. For the first month, we're available for small adjustments at no extra cost. After that, you can opt into our maintenance plan or manage things independently." },
+      { q: "What does the maintenance plan include?", a: "We offer two tiers: Essential (€39/μήνα) covers up to 3 content updates, hosting monitoring, backups, and WhatsApp support. Premium (€59/μήνα) adds unlimited updates, priority response, monthly performance checks, seasonal banners, and new section additions. No contracts - cancel any time." },
+      { q: "Can I cancel the maintenance plan?", a: "Yes, anytime. There are no contracts or commitments. You can cancel whenever you want." },
+    ],
   },
-  {
-    q: "Μπορώ να κάνω αλλαγές μετά την παράδοση;",
-    a: "Φυσικά. Για μικρές αλλαγές (κείμενα, φωτογραφίες, τιμές) επικοινωνείτε μαζί μας και τις κάνουμε γρήγορα. Για μεγαλύτερες αλλαγές ή νέες σελίδες, συμφωνούμε σε μια μικρή αμοιβή ανάλογα με το εύρος."
-  },
-  {
-    q: "Η ιστοσελίδα μου θα εμφανίζεται στη Google;",
-    a: "Κάθε ιστοσελίδα παραδίδεται με σωστή SEO δομή - σωστούς τίτλους, meta descriptions, heading structure, image alt texts και γρήγορους χρόνους φόρτωσης. Σας βοηθάμε επίσης να ρυθμίσετε το Google Business Profile σας."
-  },
-  {
-    q: "Σε ποιες περιοχές εξυπηρετείτε;",
-    a: "Εξυπηρετούμε επιχειρήσεις σε ολόκληρη την Κύπρο (Λεμεσός, Λευκωσία, Λάρνακα, Πάφος) και την Ελλάδα (Θεσσαλονίκη, Κρήτη, Αθήνα και αλλού). Δουλεύουμε εξ αποστάσεως, οπότε η τοποθεσία δεν αποτελεί εμπόδιο."
-  },
-  {
-    q: "Χρησιμοποιείτε AI στη δουλειά σας;",
-    a: "Ναι, χρησιμοποιούμε τα καλύτερα AI εργαλεία της αγοράς για να παραδώσουμε πιο αποτελεσματικές ιστοσελίδες. Αυτό δεν σημαίνει ότι το AI κάνει τη δουλειά - κάθε ιστοσελίδα σχεδιάζεται και ελέγχεται από εμάς για να είναι σωστή, μοναδική και κατάλληλη για την επιχείρησή σας."
-  },
-  {
-    q: "Σε ποια γλώσσα παρέχεται η υπηρεσία;",
-    a: "Η υπηρεσία παρέχεται στα αγγλικά, αλλά επικοινωνούμε μαζί σας στα ελληνικά. Μπορείτε να μας στείλετε email, WhatsApp ή να μας τηλεφωνήσετε στα ελληνικά - δεν υπάρχει πρόβλημα."
-  }
 ];
 
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="bg-white rounded-2xl border border-[#E8EAF0] shadow-sm overflow-hidden">
+    <div className="border-b border-[#E2E5EA] last:border-0">
       <button
-        className="w-full flex items-center justify-between p-6 text-left"
         onClick={() => setOpen(!open)}
-        aria-expanded={open}
+        className="w-full flex items-center justify-between py-5 text-left group"
       >
-        <span className="font-bold text-[#111315] text-base pr-4">{q}</span>
+        <span className="text-base font-medium text-[#111315] pr-4 group-hover:text-[#5B8CFF] transition-colors">{q}</span>
         <ChevronDown
           size={20}
-          className={`shrink-0 text-[#5B8CFF] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`text-[#5B6472] shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-[#5B8CFF]" : ""}`}
         />
       </button>
-      {open && (
-        <div className="px-6 pb-6 text-[#5B6472] text-sm leading-relaxed border-t border-[#E8EAF0] pt-4">
-          {a}
-        </div>
-      )}
+      <div
+        className="overflow-hidden transition-all duration-300"
+        style={{ maxHeight: open ? "600px" : "0", opacity: open ? 1 : 0 }}
+      >
+        <p className="text-sm text-[#5B6472] leading-relaxed pb-5">{a}</p>
+      </div>
     </div>
   );
 }
 
 export default function FAQEl() {
-  useHreflang();
-  return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
+  useSEO({
+    title: "Συχνές Ερωτήσεις | D&M Labs Web Σχεδιασμός",
+    description: "Answers to the most common questions about working with D&M Labs. Τιμές, timelines, process, and more.",
+  });
 
-      <section className="section-spacing bg-gradient-to-br from-[#F0F4FF] via-[#F6F6F4] to-[#F0EAFF]">
-        <div className="container max-w-3xl mx-auto text-center">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">FAQ</span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">
-            Συχνές Ερωτήσεις
-          </h1>
-          <p className="text-lg text-[#5B6472] mb-3 leading-relaxed">
-            Απαντάμε στις πιο συχνές ερωτήσεις για την κατασκευή ιστοσελίδων, τις τιμές και τη διαδικασία μας.
-          </p>
-          <p className="text-sm text-[#9CA3AF] italic">
-            Η υπηρεσία παρέχεται στα αγγλικά. Επικοινωνούμε μαζί σας στα ελληνικά.
-          </p>
+  // Inject FAQPage JSON-LD schema for Google rich results (FAQ snippets in search)
+  useEffect(() => {
+    const SCHEMA_ID = "faq-jsonld-schema";
+    const allItems = faqs.flatMap(section => section.items);
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": allItems.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    };
+    let el = document.getElementById(SCHEMA_ID) as HTMLScriptElement | null;
+    if (!el) {
+      el = document.createElement("script");
+      el.id = SCHEMA_ID;
+      el.type = "application/ld+json";
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(schema);
+    return () => {
+      const s = document.getElementById(SCHEMA_ID);
+      if (s) s.remove();
+    };
+  }, []);
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <div className="container relative z-10 text-center">
+          <AnimateIn>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">FAQ</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
+              Frequently Asked <span className="brand-gradient-text">Questions</span>
+            </h1>
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+              Everything you need to know about working with D&M Labs. Can't find your answer? Just message us.
+            </p>
+          </AnimateIn>
         </div>
       </section>
 
-      <section className="section-spacing">
-        <div className="container max-w-3xl mx-auto flex flex-col gap-4">
-          {faqs.map((faq) => (
-            <FAQItem key={faq.q} q={faq.q} a={faq.a} />
+      {/* FAQ Sections */}
+      <section className="section-spacing bg-white">
+        <div className="container max-w-3xl">
+          {faqs.map((section, si) => (
+            <AnimateIn key={section.category} delay={si * 0.1} className="mb-12 last:mb-0">
+              <h2 className="text-xl font-semibold text-[#111315] mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-6 brand-gradient rounded-full" />
+                {section.category}
+              </h2>
+              <div className="dm-card !p-0 overflow-hidden">
+                <div className="px-6">
+                  {section.items.map((item) => (
+                    <FAQItem key={item.q} q={item.q} a={item.a} />
+                  ))}
+                </div>
+              </div>
+            </AnimateIn>
           ))}
         </div>
       </section>
 
-      <section className="section-spacing bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF]">
-        <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-extrabold text-white mb-4">Δεν βρήκατε την απάντησή σας;</h2>
-          <p className="text-blue-100 text-lg mb-8">
-            Επικοινωνήστε μαζί μας απευθείας - απαντάμε μέσα σε 24 ώρες.
-          </p>
-          <Link href="/el/contact">
-            <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-              Επικοινωνήστε μαζί μας
-            </button>
-          </Link>
+      {/* CTA */}
+      <section className="section-spacing dark-section text-center">
+        <div className="container">
+          <AnimateIn>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Still Have Questions?</h2>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">We're always happy to help. Send us a message and we'll get back to you quickly.</p>
+            <a href="/el/contact" className="btn-primary">
+              <MessageCircle size={18} /> Επικοινωνήστε μαζί μας
+            </a>
+          </AnimateIn>
         </div>
       </section>
-
-    </main>
+    </>
   );
 }

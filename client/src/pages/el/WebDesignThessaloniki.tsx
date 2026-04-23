@@ -1,71 +1,120 @@
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
-import { Check } from "lucide-react";
 
-// Greek Web Design Thessaloniki page — /el/web-design-thessaloniki
-// Primary keyword: "κατασκευή ιστοσελίδας Θεσσαλονίκη"
-// Secondary: "web design Θεσσαλονίκη", "ιστοσελίδα επιχείρηση Θεσσαλονίκη"
+// SEO landing page: /web-design-thessaloniki
+// Primary keyword: "web design Θεσσαλονίκη"
+// Secondary (GR): "κατασκευή ιστοσελίδας Θεσσαλονίκη"
+// Tertiary (GR, price-intent): "κατασκευή ιστοσελίδας Θεσσαλονίκη τιμές"
+// Design: matches D&M Labs site style - light bg, brand gradient accents, clean typography
 
-const schema = {
+const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "D&M Labs",
-  "description": "Κατασκευή επαγγελματικών ιστοσελίδων για επιχειρήσεις στη Θεσσαλονίκη. Από €299.",
-  "url": "https://dm-labs.io/el/web-design-thessaloniki",
+  "url": "https://dm-labs.io",
   "telephone": "+35797472847",
   "email": "info@dm-labs.io",
-  "inLanguage": "el",
-  "areaServed": {
-    "@type": "City",
-    "name": "Thessaloniki"
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Eleftheriou Chandrinou 5",
+    "addressLocality": "Paphos",
+    "postalCode": "8045",
+    "addressCountry": "CY"
   },
-  "priceRange": "€€"
+  "areaServed": [
+    "Θεσσαλονίκη",
+    "Central Macedonia",
+    "Greece"
+  ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.6401,
+      "longitude": 22.9444
+    },
+    "geoRadius": "50000"
+  },
+  "description": "D&M Labs is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Θεσσαλονίκη and across Greece. Websites from €249, delivered in 5-14 days.",
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Bank Transfer, PayPal",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.instagram.com/dmlabs.io"
+  ]
 };
 
-export default function WebDesignThessalonikiEl() {
+const faqs = [
+  {
+    q: "How much does web design cost in Θεσσαλονίκη?",
+    a: "Our packages for businesses in Θεσσαλονίκη start from €249 for a Starter site. That includes a fully custom design, mobile-responsive layout, SEO setup, a contact form, and everything you need to go live. The Business package starts from €399 and the Premium from €699. Pricing depends on the scope of the project, so we always recommend a free consultation first - that way you get an accurate quote with no surprises."
+  },
+  {
+    q: "Do you work with businesses in Θεσσαλονίκη remotely?",
+    a: "Yes, entirely. D&M Labs works with clients across Greece without any need for in-person meetings. The full process - initial brief, design, revisions, and launch - is handled via WhatsApp, email, and video call. Most of our clients find it more convenient than scheduling office visits, and it means we can move faster. Being remote has never been a barrier to delivering a great result."
+  },
+  {
+    q: "Can you build a website in Greek?",
+    a: "Absolutely. We build bilingual websites in both Greek and English, and a full Greek-language version of any site is available on request. If your audience is primarily Greek-speaking, we can also build a Greek-only site. We are comfortable working with Greek content and can advise on how to structure the copy for both readability and search visibility."
+  },
+  {
+    q: "How long does it take to build a website for a Θεσσαλονίκη business?",
+    a: "The Starter package typically launches within 5 to 7 days from the moment we have your content and feedback. The Business and Premium packages take 10 to 14 days depending on the number of pages and any custom features involved. We keep you updated throughout and do not disappear between milestones."
+  }
+];
+
+export default function WebDesignΘεσσαλονίκηEl() {
   useSEO({
-    title: "Κατασκευή Ιστοσελίδας Θεσσαλονίκη | Από €299 | D&M Labs",
-    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Θεσσαλονίκη. Custom σχεδιασμός, SEO, mobile-first. Starter €299, Business €399, Premium €699.",
+    title: "Κατασκευή Ιστοσελίδας Θεσσαλονίκη | Professional Websites from €249 | D&M Labs",
+    description: "Professional web design for businesses in Θεσσαλονίκη. Custom websites built in 5-14 days from €249. Mobile-first, SEO-optimised, no hidden fees. Get a free consultation.",
     canonicalPath: "/el/web-design-thessaloniki"
   });
-  useHreflang();
+
+  useEffect(() => {
+    // Inject LocalBusiness schema
+    const existing = document.getElementById("schema-thessaloniki");
+    if (existing) existing.remove();
+    const script = document.createElement("script");
+    script.id = "schema-thessaloniki";
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(schemaMarkup);
+    document.head.appendChild(script);
+    return () => {
+      const s = document.getElementById("schema-thessaloniki");
+      if (s) s.remove();
+    };
+  }, []);
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
-
       {/* ── HERO ── */}
-      <section className="min-h-[80vh] flex items-center relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1555993539-1732b0258235?w=1400&q=80')" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/85 via-[#0F172A]/60 to-transparent" />
-        <div className="container max-w-5xl mx-auto relative z-10 py-20">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#6FE3FF] mb-4">
+      <section className="section-spacing bg-gradient-to-br from-[#F0F4FF] via-[#F6F6F4] to-[#F0EAFF]">
+        <div className="container max-w-4xl mx-auto text-center">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">
             Κατασκευή Ιστοσελίδας Θεσσαλονίκη
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight max-w-2xl">
-            Επαγγελματική Ιστοσελίδα για την Επιχείρησή σας στη Θεσσαλονίκη
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">
+            Professional Websites for{" "}
+            <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
+              Θεσσαλονίκη Businesses
+            </span>
           </h1>
-          <p className="text-lg text-blue-100 mb-3 leading-relaxed max-w-xl">
-            Κατασκευάζουμε custom, mobile-first ιστοσελίδες για επιχειρήσεις στη Θεσσαλονίκη. Από €299, παράδοση σε 5-14 ημέρες.
+          <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
+            D&M Labs is a remote web design studio helping businesses in Θεσσαλονίκη build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites - starting from €249 - so your business stands out in Greece's second-largest city.
           </p>
-          <p className="text-sm text-blue-200/70 mb-8 italic">
-            Η υπηρεσία παρέχεται στα αγγλικά. Επικοινωνούμε μαζί σας στα ελληνικά.
+          <p className="text-sm text-[#9CA3AF] mb-8">
+            Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/el/contact">
-              <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity shadow-lg">
-                Ζητήστε Δωρεάν Πρόταση
+              <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
+                Get a Free Consultation
               </button>
             </Link>
             <Link href="/el/pricing">
-              <button className="px-8 py-3.5 rounded-xl border border-white/40 text-white font-semibold text-base hover:bg-white/10 transition-colors">
+              <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors bg-white">
                 Δείτε τις Τιμές
               </button>
             </Link>
@@ -73,24 +122,153 @@ export default function WebDesignThessalonikiEl() {
         </div>
       </section>
 
-      {/* ── WHY THESSALONIKI ── */}
-      <section className="section-spacing bg-white">
+      {/* ── WHY THESSALONIKI NEEDS A WEBSITE ── */}
+      <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-4">
-            Γιατί η Επιχείρησή σας στη Θεσσαλονίκη Χρειάζεται Ιστοσελίδα
+          <h2 className="text-3xl font-bold text-[#111315] mb-6">
+            Why Businesses in Θεσσαλονίκη Need a Professional Website
           </h2>
-          <p className="text-[#5B6472] mb-6 leading-relaxed max-w-2xl">
-            Η Θεσσαλονίκη είναι η δεύτερη μεγαλύτερη πόλη της Ελλάδας με έντονη επιχειρηματική δραστηριότητα. Εστιατόρια, καταστήματα, επαγγελματικές υπηρεσίες - ο ανταγωνισμός για online ορατότητα αυξάνεται κάθε χρόνο.
+          <p className="text-[#5B6472] leading-relaxed mb-5">
+            Θεσσαλονίκη is Greece's second-largest city and one of its most commercially active. The business districts along Tsimiski Street and the historic neighbourhood of Ladadika are home to hundreds of restaurants, boutiques, law firms, and professional services all competing for the same local customers. Aristotle University brings over 100,000 students and academics into the city, and the Θεσσαλονίκη International Fair - one of the largest trade fairs in Southeast Europe - draws business visitors from across the continent every year.
+          </p>
+          <p className="text-[#5B6472] leading-relaxed mb-5">
+            That level of economic activity also means a highly competitive digital landscape. According to Google's own data, over 60% of Greek consumers research a business online before making contact. If your website is slow, outdated, or simply does not exist, you are not just missing out on visibility - you are actively sending potential clients to competitors who do have a professional online presence.
+          </p>
+          <p className="text-[#5B6472] leading-relaxed mb-5">
+            A well-built website does more than look good. It ranks on Google for the searches your customers are already making, loads quickly on mobile, and turns visitors into enquiries without requiring any ongoing effort from you. For a business in Θεσσαλονίκη - where the market is dense and digital expectations are rising - that kind of presence is no longer a nice-to-have.
+          </p>
+          <p className="text-[#5B6472] leading-relaxed">
+            The businesses that invest in a quality website now, before their sector becomes fully saturated online, are the ones that capture the most valuable search traffic and build lasting credibility with both local and international clients.
+          </p>
+        </div>
+      </section>
+
+      {/* ── SERVICES OVERVIEW ── */}
+      <section className="section-spacing bg-[#F8F9FC]">
+        <div className="container max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#111315] mb-3">
+            What We Build for Θεσσαλονίκη Businesses
+          </h2>
+          <p className="text-[#5B6472] mb-10">
+            Every site we deliver is built to perform - not just to look good.{" "}
+            <Link href="/el/services" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+              See our full services
+            </Link>
+            .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
-              { title: "Βρεθείτε στη Google", desc: "Κατασκευάζουμε κάθε ιστοσελίδα με σωστή SEO δομή ώστε να εμφανίζεστε όταν κάποιος ψάχνει για αυτό που προσφέρετε στη Θεσσαλονίκη." },
-              { title: "Αξιοπιστία", desc: "Στη Θεσσαλονίκη, οι καταναλωτές ελέγχουν online πριν επισκεφτούν μια επιχείρηση. Μια επαγγελματική ιστοσελίδα δείχνει αξιοπιστία." },
-              { title: "Διαθέσιμοι 24/7", desc: "Η ιστοσελίδα σας δουλεύει ακόμα και όταν εσείς δεν είστε. Πελάτες μπορούν να βρουν πληροφορίες και να επικοινωνήσουν οποιαδήποτε ώρα." },
-              { title: "Ανταγωνιστικό Πλεονέκτημα", desc: "Στη Θεσσαλονίκη, μια καλά σχεδιασμένη ιστοσελίδα σας ξεχωρίζει από τον ανταγωνισμό." }
+              {
+                title: "Business Websites",
+                desc: "A complete, multi-page website for your business - home, about, services, and contact. Designed to build trust and turn visitors into enquiries from day one."
+              },
+              {
+                title: "Landing Pages",
+                desc: "A single, focused page built around one goal - whether that is capturing leads, promoting a service, or driving bookings. Fast to build, fast to convert."
+              },
+              {
+                title: "Service Pages",
+                desc: "Dedicated pages for each of your core services, optimised for the specific searches your customers are making in Θεσσαλονίκη and across Greece."
+              },
+              {
+                title: "Blog and SEO Setup",
+                desc: "A blog structure and initial SEO configuration that gives your site the foundation to rank on Google over time - without you needing to understand the technical side."
+              }
+            ].map((s) => (
+              <div key={s.title} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
+                <h3 className="font-bold text-[#111315] text-lg mb-2">{s.title}</h3>
+                <p className="text-[#5B6472] text-sm leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRICING SUMMARY ── */}
+      <section className="section-spacing">
+        <div className="container max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#111315] mb-3">
+            Transparent Pricing for Θεσσαλονίκη Businesses
+          </h2>
+          <p className="text-[#5B6472] mb-10">
+            No hidden fees. No hourly billing. One fixed price, everything included.{" "}
+            <Link href="/el/pricing" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+              View full pricing breakdown
+            </Link>
+            .
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Starter",
+                price: "from €249",
+                desc: "Ideal for new businesses that need a clean, professional online presence fast. Everything you need to go live with confidence.",
+                highlight: false
+              },
+              {
+                name: "Business",
+                price: "from €399",
+                desc: "For established businesses that need a full, conversion-focused website with more pages, stronger SEO, and a polished design.",
+                highlight: true
+              },
+              {
+                name: "Premium",
+                price: "from €699",
+                desc: "For businesses that want a fully custom, feature-rich website with everything included - from custom functionality to priority support.",
+                highlight: false
+              }
+            ].map((p) => (
+              <div
+                key={p.name}
+                className={`rounded-2xl p-6 border ${
+                  p.highlight
+                    ? "border-[#5B8CFF] bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] shadow-md"
+                    : "border-[#E8EAF0] bg-white shadow-sm"
+                }`}
+              >
+                {p.highlight && (
+                  <span className="inline-block text-xs font-semibold text-[#5B8CFF] uppercase tracking-wider mb-2">
+                    Πιο Δημοφιλές
+                  </span>
+                )}
+                <div className="text-2xl font-extrabold text-[#111315] mb-1">{p.price}</div>
+                <div className="font-semibold text-[#111315] mb-3">{p.name}</div>
+                <p className="text-[#5B6472] text-sm leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-[#9CA3AF] mt-4">
+            All prices are εφάπαξ fees. No monthly charges, no hidden costs.
+          </p>
+        </div>
+      </section>
+
+      {/* ── WHY CHOOSE D&M LABS ── */}
+      <section className="section-spacing bg-[#F8F9FC]">
+        <div className="container max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#111315] mb-6">
+            Why Θεσσαλονίκη Businesses Choose D&M Labs
+          </h2>
+          <p className="text-[#5B6472] leading-relaxed mb-8">
+            D&M Labs is a remote web design studio. We work with businesses across Greece - from Θεσσαλονίκη and Athens to smaller cities and islands - entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Fast delivery",
+                desc: "Most websites are live within 5 to 14 days. We work quickly, communicate clearly, and do not leave you waiting."
+              },
+              {
+                title: "No technical knowledge needed",
+                desc: "You do not need to understand code, hosting, or SEO. We handle everything and explain what matters in plain language."
+              },
+              {
+                title: "Built to convert",
+                desc: "Every page is designed with one goal in mind - turning visitors into enquiries. Good design is only useful if it drives results."
+              }
             ].map((w) => (
-              <div key={w.title} className="bg-[#F8F9FC] rounded-2xl p-6 border border-[#E8EAF0]">
-                <h3 className="font-bold text-[#111315] text-base mb-2">{w.title}</h3>
+              <div key={w.title} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
+                <h3 className="font-bold text-[#111315] text-lg mb-2">{w.title}</h3>
                 <p className="text-[#5B6472] text-sm leading-relaxed">{w.desc}</p>
               </div>
             ))}
@@ -98,71 +276,40 @@ export default function WebDesignThessalonikiEl() {
         </div>
       </section>
 
-      {/* ── PACKAGES ── */}
+      {/* ── MAP ── */}
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-4">Τιμές Κατασκευής Ιστοσελίδας στη Θεσσαλονίκη</h2>
-          <p className="text-[#5B6472] mb-8">Εφάπαξ τιμές, χωρίς μηνιαίες χρεώσεις.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { name: "Starter", price: "€299", highlight: false, features: ["1 σελίδα", "Mobile-responsive", "WhatsApp κουμπί", "Βασική SEO", "Παράδοση 5-7 ημέρες"] },
-              { name: "Business", price: "€399", highlight: true, features: ["Έως 5 σελίδες", "Φόρμα επικοινωνίας", "Google Maps", "Reviews widget", "SEO", "Παράδοση 7-10 ημέρες"] },
-              { name: "Premium", price: "€699", highlight: false, features: ["Έως 7 σελίδες", "Custom animations", "Gallery", "5 SEO άρθρα", "Πλήρης SEO", "Παράδοση 10-14 ημέρες"] }
-            ].map((pkg) => (
-              <div key={pkg.name} className={`rounded-2xl p-6 border flex flex-col ${pkg.highlight ? "border-[#5B8CFF] bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] shadow-xl" : "border-[#E8EAF0] bg-white shadow-sm"}`}>
-                {pkg.highlight && <span className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wider mb-2">Πιο Δημοφιλές</span>}
-                <div className="text-2xl font-extrabold text-[#111315] mb-1">{pkg.price}</div>
-                <div className="font-bold text-[#111315] mb-4">{pkg.name}</div>
-                <ul className="space-y-2 flex-1 mb-6">
-                  {pkg.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-[#5B6472]">
-                      <Check size={14} className="text-[#5B8CFF] shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/el/contact">
-                  <button className={`w-full py-3 rounded-xl font-semibold text-sm ${pkg.highlight ? "bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white hover:opacity-90" : "border border-[#5B8CFF] text-[#5B8CFF] hover:bg-[#EEF3FF]"}`}>
-                    Ξεκινήστε Τώρα
-                  </button>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── MAP ── */}
-      <section className="section-spacing bg-[#F8F9FC]">
-        <div className="container max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-[#111315] mb-4">Εξυπηρετούμε τη Θεσσαλονίκη και Ολόκληρη την Ελλάδα</h2>
-          <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm">
+          <h2 className="text-3xl font-bold text-[#111315] mb-3">
+            Serving Businesses Across Θεσσαλονίκη
+          </h2>
+          <p className="text-[#5B6472] mb-8">
+            We work with businesses throughout Θεσσαλονίκη - from the centre and the waterfront to Kalamaria, Stavroupoli, Pylaia, and the wider Central Macedonia region. Distance is not a factor.
+          </p>
+          <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
             <iframe
-              title="Χάρτης Θεσσαλονίκης - Κατασκευή Ιστοσελίδων"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60047.3!2d22.9!3d40.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a838f41428e0ed%3A0x9bae715b8d574a9!2sThessaloniki%2C%20Greece!5e0!3m2!1sel!2sgr!4v1"
+              title="Θεσσαλονίκη, Greece"
               width="100%"
-              height="300"
+              height="100%"
               style={{ border: 0 }}
-              allowFullScreen
               loading="lazy"
+              allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47480.85!2d22.9444!3d40.6401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a838f41428e0ed%3A0x9bae715b8d574a9!2sΘεσσαλονίκη%2C%20Greece!5e0!3m2!1sen!2sgr!4v1700000000000!5m2!1sen!2sgr"
             />
           </div>
         </div>
       </section>
 
       {/* ── FAQ ── */}
-      <section className="section-spacing">
+      <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-8">Συχνές Ερωτήσεις</h2>
-          <div className="flex flex-col gap-4">
-            {[
-              { q: "Πόσο κοστίζει μια ιστοσελίδα στη Θεσσαλονίκη;", a: "Οι τιμές ξεκινούν από €299 για το Starter πακέτο. Δεν υπάρχουν επιπλέον χρεώσεις για τη γεωγραφική τοποθεσία." },
-              { q: "Χρειάζεστε να συναντηθούμε φυσικά;", a: "Όχι. Δουλεύουμε εξ αποστάσεως με επικοινωνία μέσω email, WhatsApp ή τηλεφώνου." },
-              { q: "Σε ποια γλώσσα παρέχεται η υπηρεσία;", a: "Η υπηρεσία κατασκευής παρέχεται στα αγγλικά, αλλά επικοινωνούμε μαζί σας στα ελληνικά χωρίς κανένα πρόβλημα." }
-            ].map((faq) => (
+          <h2 className="text-3xl font-bold text-[#111315] mb-10">
+            Συχνές Ερωτήσεις
+          </h2>
+          <div className="flex flex-col gap-6">
+            {faqs.map((faq) => (
               <div key={faq.q} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
-                <h3 className="font-bold text-[#111315] text-base mb-2">{faq.q}</h3>
+                <h3 className="font-bold text-[#111315] text-base mb-3">{faq.q}</h3>
                 <p className="text-[#5B6472] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
@@ -173,16 +320,30 @@ export default function WebDesignThessalonikiEl() {
       {/* ── CTA ── */}
       <section className="section-spacing bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF]">
         <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-extrabold text-white mb-4">Έτοιμοι για την Ιστοσελίδα σας στη Θεσσαλονίκη;</h2>
-          <p className="text-blue-100 text-lg mb-8">Δωρεάν πρόταση μέσα σε 24 ώρες.</p>
-          <Link href="/el/contact">
-            <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-              Ζητήστε Δωρεάν Πρόταση
-            </button>
-          </Link>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+            Ready to get your Θεσσαλονίκη business online?
+          </h2>
+          <p className="text-blue-100 text-lg mb-8 leading-relaxed">
+            Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. You can also reach us directly on WhatsApp - we are quick to respond.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/el/contact">
+              <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
+                Contact us today
+              </button>
+            </Link>
+            <a
+              href="https://wa.me/35797472847?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Θεσσαλονίκη"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="px-10 py-4 rounded-xl bg-white/20 border border-white/40 text-white font-bold text-base hover:bg-white/30 transition-colors">
+                Συνομιλήστε στο WhatsApp
+              </button>
+            </a>
+          </div>
         </div>
       </section>
-
     </main>
   );
 }

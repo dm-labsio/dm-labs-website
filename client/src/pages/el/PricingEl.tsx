@@ -1,195 +1,481 @@
-import { Link } from "wouter";
+/* ============================================================
+   D&M LABS - Τιμές Page
+   3 tiers: Starter €299 / Business €399 (recommended) / Premium €699
+   Add-ons + 2 maintenance tiers (Essential €39 / Premium €59)
+   Bundle deal: €50 off build when signing up for maintenance at same time.
+   ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
-import { Check } from "lucide-react";
+import { Link } from "wouter";
+import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
+import { CheckCircle2, X, MessageCircle, ArrowRight, HelpCircle, Languages, CalendarCheck, Bell, Accessibility, Tag, Zap, Globe, Users, Headphones } from "lucide-react";
 
-// Greek Pricing page — /el/pricing
-// Primary keyword: "τιμές κατασκευής ιστοσελίδας" / "κόστος ιστοσελίδας Κύπρος"
+const GRADIENT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
-const packages = [
-  {
-    name: "Starter",
-    price: "€299",
-    tagline: "Η τέλεια αρχή για κάθε επιχείρηση",
-    delivery: "5-7 ημέρες",
-    revisions: "2 αναθεωρήσεις",
-    highlight: false,
-    features: [
-      "Branded Business Page (1 σελίδα)",
-      "Mobile-responsive σχεδιασμός",
-      "Κουμπί WhatsApp",
-      "Σύνδεσμοι social media",
-      "Accessibility widget",
-      "Βασική SEO ρύθμιση",
-      "Φόρμα επικοινωνίας",
-      "Hosting setup guidance",
-    ]
-  },
-  {
-    name: "Business",
-    price: "€399",
-    tagline: "Για επιχειρήσεις που θέλουν να ξεχωρίζουν",
-    delivery: "7-10 ημέρες",
-    revisions: "3 αναθεωρήσεις",
-    highlight: true,
-    features: [
-      "Έως 5 σελίδες",
-      "Φόρμα επικοινωνίας και κράτησης",
-      "Google Maps ενσωμάτωση",
-      "Reviews widget",
-      "Testimonials section",
-      "SEO βελτιστοποίηση",
-      "Speed optimisation",
-      "Mobile-first σχεδιασμός",
-    ]
-  },
-  {
-    name: "Premium",
-    price: "€699",
-    tagline: "Πλήρης online παρουσία με SEO περιεχόμενο",
-    delivery: "10-14 ημέρες",
-    revisions: "5 αναθεωρήσεις",
-    highlight: false,
-    features: [
-      "Έως 7 σελίδες",
-      "Custom σχεδιασμός και animations",
-      "Gallery",
-      "5 SEO blog άρθρα",
-      "Πλήρης meta/SEO δομή",
-      "Pop-up",
-      "Speed optimisation",
-      "Hosting setup guidance",
-    ]
-  }
+const comparison = [
+  { feature: "Custom-designed pages", starter: "1 page", business: "Up to 5", pro: "Up to 7" },
+  { feature: "Mobile responsive", starter: true, business: true, pro: true },
+  { feature: "Κουμπί WhatsApp", starter: true, business: true, pro: true },
+  { feature: "Σύνδεσμοι social media", starter: true, business: true, pro: true },
+  { feature: "Accessibility widget", starter: true, business: true, pro: true },
+  { feature: "Contact form", starter: false, business: true, pro: true },
+  { feature: "Booking form", starter: false, business: true, pro: true },
+  { feature: "Google Maps", starter: false, business: true, pro: true },
+  { feature: "Ενότητα testimonials", starter: false, business: true, pro: true },
+  { feature: "Βασική SEO βελτιστοποίηση", starter: false, business: true, pro: true },
+  { feature: "Google Reviews widget", starter: false, business: true, pro: true },
+  { feature: "Speed optimisation", starter: false, business: true, pro: true },
+  { feature: "Gallery", starter: false, business: false, pro: true },
+  { feature: "Custom animations", starter: false, business: false, pro: true },
+  { feature: "5 SEO blog άρθρα", starter: false, business: false, pro: true },
+  { feature: "Πλήρης meta/SEO δομή", starter: false, business: false, pro: true },
+  { feature: "Pop-up included", starter: false, business: false, pro: true },
+  { feature: "Revision rounds", starter: "2 rounds", business: "3 rounds", pro: "5 rounds" },
+  { feature: "Delivery time", starter: "5-7 days", business: "7-10 days", pro: "10-14 days" },
 ];
 
-export default function PricingEl() {
+const addons = [
+  { icon: Languages, label: "Multilingual - 2 languages", price: "€80" },
+  { icon: Languages, label: "Multilingual - up to 4 languages", price: "€150" },
+  { icon: CalendarCheck, label: "Booking / reservation redirect (Calendly, Wolt, etc.)", price: "€30" },
+  { icon: Bell, label: "Pop-up (promo, announcement, cookie notice)", price: "€40" },
+  { icon: Accessibility, label: "Full WCAG 2.1 AA accessibility audit", price: "€40" },
+];
+
+export default function ΤιμέςEl() {
   useSEO({
-    title: "Τιμές Κατασκευής Ιστοσελίδας | D&M Labs | Κύπρος - Ελλάδα",
-    description: "Διαφανείς τιμές κατασκευής ιστοσελίδας για επιχειρήσεις στην Κύπρο και την Ελλάδα. Starter €299, Business €399, Premium €699. Χωρίς κρυφές χρεώσεις.",
-    canonicalPath: "/el/pricing"
+    title: "Τιμές Κατασκευής Ιστοσελίδας | D&M Labs",
+    description: "Transparent website pricing for businesses in Cyprus. Starter from €299, Business €399, Premium €699. No hidden fees.",
   });
-  useHreflang();
-
   return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
-
-      {/* ── HERO ── */}
-      <section className="section-spacing bg-gradient-to-br from-[#F0F4FF] via-[#F6F6F4] to-[#F0EAFF]">
-        <div className="container max-w-3xl mx-auto text-center">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Τιμοκατάλογος</span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">
-            Τιμές Κατασκευής{" "}
-            <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
-              Ιστοσελίδας
-            </span>
-          </h1>
-          <p className="text-lg text-[#5B6472] mb-3 leading-relaxed">
-            Μία σταθερή τιμή, όλα συμπεριλαμβάνονται. Χωρίς κρυφές χρεώσεις, χωρίς μηνιαίες συνδρομές, χωρίς εκπλήξεις.
-          </p>
-          <p className="text-sm text-[#9CA3AF] italic">
-            Η υπηρεσία παρέχεται στα αγγλικά. Επικοινωνούμε μαζί σας στα ελληνικά.
-          </p>
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
+          <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+        </div>
+        <div className="container relative z-10 text-center">
+          <AnimateIn>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Διαφανείς Τιμές</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
+              Simple, <span className="brand-gradient-text">Honest Τιμές</span>
+            </h1>
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-5">
+              No hidden fees. No surprises. Choose the package that fits your business - every plan includes a δωρεάν συμβουλευτική.
+            </p>
+          </AnimateIn>
         </div>
       </section>
 
-      {/* ── PACKAGES ── */}
-      <section className="section-spacing">
-        <div className="container max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {packages.map((pkg) => (
-              <div
-                key={pkg.name}
-                className={`rounded-2xl p-8 border flex flex-col ${
-                  pkg.highlight
-                    ? "border-[#5B8CFF] bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] shadow-xl"
-                    : "border-[#E8EAF0] bg-white shadow-sm"
-                }`}
-              >
-                {pkg.highlight && (
-                  <span className="inline-block text-xs font-semibold text-[#5B8CFF] uppercase tracking-wider mb-3">
-                    Πιο Δημοφιλές
-                  </span>
-                )}
-                <div className="text-3xl font-extrabold text-[#111315] mb-1">{pkg.price}</div>
-                <div className="text-xl font-bold text-[#111315] mb-1">{pkg.name}</div>
-                <p className="text-sm text-[#5B6472] mb-2">{pkg.tagline}</p>
-                <p className="text-xs text-[#9CA3AF] mb-6">
-                  Παράδοση: {pkg.delivery} - {pkg.revisions}
-                </p>
-                <ul className="space-y-2 flex-1 mb-8">
-                  {pkg.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm text-[#5B6472]">
-                      <Check size={15} className="text-[#5B8CFF] shrink-0 mt-0.5" />
+      {/* Τιμές Εκκίνησης Full-Width Banner */}
+      <div
+        className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-8"
+        style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
+      >
+        <span className="inline-block w-2.5 h-2.5 rounded-full bg-white animate-pulse opacity-80" />
+        <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Τιμές Εκκίνησης</span>
+        <span className="hidden sm:block w-px h-5 bg-white/40" />
+        <span className="text-sm sm:text-base text-white/90 font-medium">Εισαγωγικές τιμές διαθέσιμες τώρα. <span className="font-bold text-white">Κλείστε τη θέση σας σήμερα.</span></span>
+      </div>
+
+      {/* Bundle Deal Banner */}
+      <section className="bg-[#EEF3FF] border-y border-[#5B8CFF]/20 py-4">
+        <div className="container">
+          <AnimateIn>
+            <div className="flex items-center justify-center gap-3 flex-wrap text-center">
+              <Tag size={18} className="text-[#5B8CFF] shrink-0" />
+              <p className="text-sm font-semibold text-[#111315]">
+                Bundle Deal: Add a monthly maintenance plan at checkout and get <span className="text-[#5B8CFF]">€50 off your build price</span> - εφάπαξ discount, applied once at the start.
+              </p>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* Τιμές Cards */}
+      <section className="section-spacing bg-white">
+        <div className="container">
+
+          {/* 3 Standard Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+            {/* Starter */}
+            <AnimateIn delay={0.1}>
+              <div className="dm-card h-full flex flex-col">
+                <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Starter</p>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="text-4xl font-bold text-[#111315]">€299</span>
+                  <span className="text-sm text-[#5B6472]">εφάπαξ</span>
+                </div>
+                <p className="text-xs text-[#5B8CFF] font-medium mb-4">€249 με πακέτο συντήρησης</p>
+                <p className="text-sm text-[#5B6472] mb-6">Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική online παρουσία.</p>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {[
+                    "Branded Business Page",
+                    "Mobile responsive",
+                    "Κουμπί WhatsApp",
+                    "Σύνδεσμοι social media",
+                    "Accessibility widget (δωρεάν)",
+                    "2 γύροι αναθεωρήσεων",
+                    "Παράδοση σε 5-7 μέρες",
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                      <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}
                     </li>
                   ))}
                 </ul>
-                <Link href="/el/contact">
-                  <button className={`w-full py-3 rounded-xl font-semibold text-sm transition-all ${
-                    pkg.highlight
-                      ? "bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white hover:opacity-90"
-                      : "border border-[#5B8CFF] text-[#5B8CFF] hover:bg-[#EEF3FF]"
-                  }`}>
-                    Ξεκινήστε Τώρα
-                  </button>
-                </Link>
+                <a href="/el/contact" className="btn-secondary w-full justify-center">
+                  <MessageCircle size={16} /> Ξεκινήστε
+                </a>
               </div>
-            ))}
+            </AnimateIn>
+
+            {/* Business - Προτεινόμενο */}
+            <AnimateIn delay={0.2}>
+              <div className="relative pt-5 h-full">
+                <span className="absolute top-0 left-1/2 -translate-x-1/2 z-10 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap shadow-sm">Προτεινόμενο</span>
+                <div className="brand-gradient-border h-full">
+                  <div className="dm-card h-full flex flex-col !shadow-none">
+                    <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Business</p>
+                    <div className="flex items-baseline gap-1 mb-1">
+                      <span className="text-4xl font-bold text-[#111315]">€399</span>
+                      <span className="text-sm text-[#5B6472]">εφάπαξ</span>
+                    </div>
+                    <p className="text-xs text-[#8B5CFF] font-medium mb-4">€349 με πακέτο συντήρησης</p>
+                    <p className="text-sm text-[#5B6472] mb-6">Για καθιερωμένες επιχειρήσεις που χρειάζονται ολοκληρωμένη ιστοσελίδα εστιασμένη στις μετατροπές.</p>
+                    <ul className="space-y-3 mb-8 flex-1">
+                      {[
+                        "Έως 5 σελίδες",
+                        "Mobile responsive",
+                        "Κουμπί WhatsApp + social media",
+                        "Φόρμα επικοινωνίας + κρατήσεων",
+                        "Google Maps + Reviews widget",
+                        "Ενότητα testimonials",
+                        "Βασική SEO βελτιστοποίηση",
+                        "Speed optimisation",
+                        "Accessibility widget (δωρεάν)",
+                        "3 γύροι αναθεωρήσεων",
+                        "Παράδοση σε 7-10 μέρες",
+                      ].map((f) => (
+                        <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                          <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <a href="/el/contact" className="btn-primary w-full justify-center">
+                      <MessageCircle size={16} /> Ξεκινήστε
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+
+            {/* Premium */}
+            <AnimateIn delay={0.3}>
+              <div className="dm-card h-full flex flex-col" style={{ background: "linear-gradient(160deg, #f8f9ff 0%, #ffffff 100%)", border: "1px solid #e0e7ff" }}>
+                <p className="text-sm font-semibold text-[#6B3FD4] uppercase tracking-wide mb-2">Premium</p>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="text-4xl font-bold text-[#111315]">€699</span>
+                  <span className="text-sm text-[#5B6472]">εφάπαξ</span>
+                </div>
+                <p className="text-xs font-medium mb-4" style={{ color: "#6B3FD4" }}>€649 με πακέτο συντήρησης</p>
+                <p className="text-sm text-[#5B6472] mb-6">Για επιχειρήσεις που θέλουν πλήρως custom ιστοσελίδα με όλα τα χαρακτηριστικά.</p>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {[
+                    "Έως 7 σελίδες",
+                    "Πλήρως custom σχεδιασμός + animations",
+                    "Mobile responsive",
+                    "Κουμπί WhatsApp + social media",
+                    "Φόρμα επικοινωνίας + κρατήσεων",
+                    "Google Maps + Reviews widget",
+                    "Testimonials + gallery",
+                    "5 SEO blog άρθρα",
+                    "Πλήρης meta/SEO δομή",
+                    "Speed optimisation",
+                    "Pop-up included",
+                    "Accessibility widget (δωρεάν)",
+                    "5 γύροι αναθεωρήσεων",
+                    "Παράδοση σε 10-14 μέρες",
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                      <CheckCircle2 size={16} className="shrink-0 mt-0.5" style={{ color: "#6B3FD4" }} />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a href="/el/contact" className="btn-secondary w-full justify-center">
+                  <MessageCircle size={16} /> Ξεκινήστε
+                </a>
+              </div>
+            </AnimateIn>
+
           </div>
-          <p className="text-xs text-[#9CA3AF] text-center mt-6">
-            Όλες οι τιμές είναι εφάπαξ. Δεν υπάρχουν μηνιαίες χρεώσεις ή κρυφά κόστη.
-          </p>
+
+          {/* Enterprise Wide Banner */}
+          <AnimateIn delay={0.4} className="mt-8 max-w-5xl mx-auto">
+            <div className="rounded-2xl overflow-hidden" style={{ background: "linear-gradient(135deg, #0d1117 0%, #161b2e 50%, #0d1117 100%)", border: "1px solid rgba(91,140,255,0.2)" }}>
+              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 p-8">
+
+                {/* Left: label + price + description */}
+                <div className="flex-shrink-0 lg:w-72">
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Φτιαγμένο για Εσάς</span>
+                  <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise</p>
+                  <p className="text-4xl font-bold text-white mb-1">Custom</p>
+                  <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Τιμολόγηση προσαρμοσμένη στο project σας</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+                    Για μεγαλύτερες επιχειρήσεις και οργανισμούς που χρειάζονται πλήρως custom λύση.
+                  </p>
+                  <a
+                    href="/el/contact"
+                    className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"
+                    style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}
+                  >
+                    <MessageCircle size={16} /> Επικοινωνήστε μαζί μας
+                  </a>
+                </div>
+
+                {/* Divider */}
+                <div className="hidden lg:block w-px self-stretch" style={{ background: "rgba(91,140,255,0.2)" }} />
+
+                {/* Right: feature grid */}
+                <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
+                  {[
+                    { icon: Globe, label: "Πλήρως custom σχεδιασμός από μηδέν" },
+                    { icon: Zap, label: "Απεριόριστες σελίδες" },
+                    { icon: CalendarCheck, label: "CRM και ενσωματώσεις κρατήσεων" },
+                    { icon: Languages, label: "Υποστήριξη πολλαπλών γλωσσών" },
+                    { icon: Users, label: "Αφοσιωμένος project manager" },
+                    { icon: Headphones, label: "Priority support και παράδοση" },
+                    { icon: ArrowRight, label: "Επιλογή ongoing retainer" },
+                    { icon: CheckCircle2, label: "Custom SEO και στρατηγική περιεχομένου" },
+                  ].map(({ icon: Icon, label }) => (
+                    <div key={label} className="flex items-start gap-2.5">
+                      <Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />
+                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>{label}</span>
+                    </div>
+                  ))}
+                </div>
+
+              </div>
+            </div>
+          </AnimateIn>
+
+          <AnimateIn delay={0.5} className="text-center mt-8">
+            <p className="text-sm text-[#5B6472]">
+              Όλα τα πλάνα περιλαμβάνουν <span className="font-semibold text-[#111315]">δωρεάν συμβουλευτική</span> - χωρίς δέσμευση, χωρίς πίεση. Just a friendly chat about your business.
+            </p>
+            <p className="text-sm text-[#5B6472] mt-3 flex items-center justify-center gap-2">
+              Prefer to chat directly?{" "}
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline inline-flex items-center gap-1">
+                Message us on WhatsApp <ArrowRight size={14} />
+              </a>
+            </p>
+          </AnimateIn>
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="section-spacing bg-[#F8F9FC]">
-        <div className="container max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-10">Συχνές Ερωτήσεις για τις Τιμές</h2>
-          <div className="flex flex-col gap-6">
+      {/* Add-ons */}
+      <section className="section-spacing">
+        <div className="container max-w-3xl">
+          <AnimateIn className="text-center mb-12">
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Optional Extras</p>
+            <h2 className="text-3xl font-bold text-[#111315] mb-4">Add-Ons</h2>
+            <p className="text-[#5B6472]">Enhance your website with these optional features, available for any plan.</p>
+          </AnimateIn>
+          <StaggerContainer className="space-y-3">
+            {addons.map((a) => (
+              <StaggerItem key={a.label}>
+                <div className="dm-card !p-5 flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="icon-container-gradient !w-10 !h-10 shrink-0">
+                      <a.icon size={18} className="text-[#5B8CFF]" strokeWidth={1.75} />
+                    </div>
+                    <p className="text-sm font-medium text-[#111315]">{a.label}</p>
+                  </div>
+                  <span className="text-base font-bold text-[#5B8CFF] shrink-0">{a.price}</span>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+          <AnimateIn delay={0.3} className="mt-6">
+            <div className="dm-card !p-5 flex items-start gap-4 border-[#5B8CFF]/20 bg-[#5B8CFF]/[0.03]">
+              <Accessibility size={20} className="text-[#5B8CFF] shrink-0 mt-0.5" />
+              <div>
+                <p className="text-sm font-semibold text-[#111315] mb-1">Accessibility included in every plan</p>
+                <p className="text-xs text-[#5B6472] leading-relaxed">
+                  Every website we build includes a basic <strong>accessibility widget</strong> at no extra cost - covering font size controls, contrast adjustments, and keyboard navigation. For businesses that need a full WCAG 2.1 AA audit and compliance certificate, we offer this as a €40 add-on.
+                </p>
+              </div>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* Maintenance */}
+      <section id="maintenance" className="section-spacing bg-white">
+        <div className="container max-w-4xl">
+          <AnimateIn className="text-center mb-4">
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Keep It Fresh</p>
+            <h2 className="text-3xl font-bold text-[#111315] mb-4">Monthly Maintenance</h2>
+            <p className="text-[#5B6472] max-w-xl mx-auto">Your website is a living thing. Keep it updated, fast, and relevant with one of our maintenance plans.</p>
+          </AnimateIn>
+
+          {/* Bundle reminder */}
+          <AnimateIn delay={0.1} className="mb-10">
+            <div className="max-w-2xl mx-auto flex items-start gap-3 bg-[#EEF3FF] border border-[#5B8CFF]/20 rounded-xl px-5 py-4">
+              <Tag size={18} className="text-[#5B8CFF] shrink-0 mt-0.5" />
+              <p className="text-sm text-[#111315]">
+                <span className="font-semibold">Bundle deal:</span> Sign up for any maintenance plan together with your website build and get <span className="font-semibold text-[#5B8CFF]">€50 off your build price</span>. This is a εφάπαξ discount applied at the start - your monthly plan continues at the regular rate afterwards. Cancel anytime, no long-term contract.
+              </p>
+            </div>
+          </AnimateIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            <AnimateIn delay={0.2}>
+              <div className="dm-card h-full flex flex-col">
+                <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Essential</p>
+                <div className="flex items-baseline gap-1 mb-4">
+                  <span className="text-3xl font-bold text-[#111315]">€39</span>
+                  <span className="text-sm text-[#5B6472]">/μήνα</span>
+                </div>
+                <ul className="space-y-3 flex-1">
+                  {["Up to 3 content updates/μήνα", "Text, images, prices and hours", "Hosting and uptime monitoring", "WhatsApp support (48h response)", "Monthly backup"].map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                      <CheckCircle2 size={15} className="text-[#5B8CFF] shrink-0 mt-0.5" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a href="/el/contact" className="btn-secondary w-full justify-center mt-6">Choose Essential</a>
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={0.3}>
+              <div className="brand-gradient-border h-full">
+                <div className="dm-card h-full flex flex-col !shadow-none">
+                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Premium</p>
+                  <div className="flex items-baseline gap-1 mb-4">
+                    <span className="text-3xl font-bold text-[#111315]">€59</span>
+                    <span className="text-sm text-[#5B6472]">/μήνα</span>
+                  </div>
+                  <ul className="space-y-3 flex-1">
+                    {["Unlimited content updates", "Priority WhatsApp response", "Monthly performance check", "Seasonal banners and promotions", "New section additions", "Hosting and uptime monitoring", "Monthly backup"].map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                        <CheckCircle2 size={15} className="text-[#8B5CFF] shrink-0 mt-0.5" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="/el/contact" className="btn-primary w-full justify-center mt-6">Choose Premium</a>
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="section-spacing">
+        <div className="container">
+          <AnimateIn className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#111315] mb-4">Compare Plans</h2>
+          </AnimateIn>
+          <AnimateIn delay={0.1}>
+            <div className="overflow-x-auto rounded-2xl border border-[#E8EAF0] max-w-4xl mx-auto">
+              <table className="text-sm" style={{ minWidth: '480px', width: '100%' }}>
+                <thead>
+                  <tr className="border-b border-[#E8EAF0]">
+                    <th className="text-left py-4 px-4 font-semibold text-[#111315]" style={{ minWidth: '160px' }}>Feature</th>
+                    <th className="py-4 px-4 font-semibold text-[#5B8CFF] text-center" style={{ minWidth: '80px' }}>Starter<br /><span className="font-normal text-xs text-[#5B6472]">€299</span></th>
+                    <th className="py-4 px-4 font-semibold text-[#8B5CFF] text-center bg-[#8B5CFF]/[0.03]" style={{ minWidth: '80px' }}>Business<br /><span className="font-normal text-xs text-[#5B6472]">€399</span></th>
+                    <th className="py-4 px-4 font-semibold text-center" style={{ minWidth: '80px', color: '#6B3FD4' }}>Premium<br /><span className="font-normal text-xs text-[#5B6472]">€699</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparison.map((row, i) => (
+                    <tr key={row.feature} className={i % 2 === 0 ? "bg-[#FAFAFA]" : "bg-white"}>
+                      <td className="py-3.5 px-4 text-[#111315] font-medium">{row.feature}</td>
+                      <td className="py-3.5 px-4 text-center">
+                        {typeof row.starter === "boolean" ? (
+                          row.starter ? <CheckCircle2 size={18} className="text-[#5B8CFF] mx-auto" /> : <X size={18} className="text-[#D1D5DB] mx-auto" />
+                        ) : (
+                          <span className="text-sm text-[#5B6472]">{row.starter}</span>
+                        )}
+                      </td>
+                      <td className="py-3.5 px-4 text-center bg-[#8B5CFF]/[0.03]">
+                        {typeof row.business === "boolean" ? (
+                          row.business ? <CheckCircle2 size={18} className="text-[#8B5CFF] mx-auto" /> : <X size={18} className="text-[#D1D5DB] mx-auto" />
+                        ) : (
+                          <span className="text-sm text-[#5B6472]">{row.business}</span>
+                        )}
+                      </td>
+                      <td className="py-3.5 px-4 text-center">
+                        {typeof row.pro === "boolean" ? (
+                          row.pro ? <CheckCircle2 size={18} className="mx-auto" style={{ color: '#6B3FD4' }} /> : <X size={18} className="text-[#D1D5DB] mx-auto" />
+                        ) : (
+                          <span className="text-sm text-[#5B6472]">{row.pro}</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* FAQ Preview */}
+      <section className="section-spacing bg-white">
+        <div className="container max-w-3xl">
+          <AnimateIn className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#111315] mb-4">Common Questions</h2>
+          </AnimateIn>
+          <StaggerContainer className="space-y-4">
             {[
-              {
-                q: "Τι περιλαμβάνεται στην τιμή;",
-                a: "Κάθε πακέτο περιλαμβάνει τον πλήρη σχεδιασμό και ανάπτυξη της ιστοσελίδας, βασική SEO ρύθμιση, mobile-responsive σχεδιασμό, φόρμα επικοινωνίας και όλα τα χαρακτηριστικά που αναφέρονται στο πακέτο. Δεν υπάρχουν κρυφές χρεώσεις."
-              },
-              {
-                q: "Τι γίνεται με το hosting και το domain;",
-                a: "Σας καθοδηγούμε για το πώς να αποκτήσετε το δικό σας domain (όνομα ιστοσελίδας) και hosting. Θέλουμε εσείς να είστε ιδιοκτήτες της ιστοσελίδας σας - όχι εμείς. Το κόστος domain και hosting είναι συνήθως €10-30 ετησίως και πληρώνεται απευθείας στον πάροχο."
-              },
-              {
-                q: "Μπορώ να κάνω αλλαγές μετά την παράδοση;",
-                a: "Φυσικά. Για μικρές αλλαγές (κείμενα, φωτογραφίες, τιμές) επικοινωνείτε μαζί μας και τις κάνουμε γρήγορα. Για μεγαλύτερες αλλαγές ή νέες σελίδες, συμφωνούμε σε μια μικρή αμοιβή ανάλογα με το εύρος της εργασίας."
-              },
-              {
-                q: "Πόσο καιρό παίρνει να φτιαχτεί η ιστοσελίδα μου;",
-                a: "Το Starter πακέτο παραδίδεται σε 5-7 ημέρες από τη στιγμή που έχουμε το περιεχόμενό σας. Το Business παραδίδεται σε 7-10 ημέρες και το Premium σε 10-14 ημέρες. Σας κρατάμε ενήμερους σε κάθε βήμα."
-              }
-            ].map((faq) => (
-              <div key={faq.q} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
-                <h3 className="font-bold text-[#111315] text-base mb-3">{faq.q}</h3>
-                <p className="text-[#5B6472] text-sm leading-relaxed">{faq.a}</p>
-              </div>
+              { q: "Can I see a preview before paying?", a: "Yes. We always share a design preview for your approval before we proceed to development. You won't pay a penny until you're happy with the direction." },
+              { q: "Can I upgrade my plan later?", a: "Absolutely. If you start with the Starter plan and later decide you need more pages or features, we can upgrade your site at any time. You only pay the difference." },
+              { q: "Υπάρχουν κρυφές χρεώσεις;", a: "No. The price you see is the price you pay. Hosting and domain costs are separate (typically €10-15/μήνα) but we will explain everything upfront." },
+              { q: "What is the maintenance bundle deal?", a: "If you sign up for any monthly maintenance plan at the same time as your website build, you get €50 off your build price. This is a εφάπαξ discount - your monthly plan continues at the regular rate afterwards. You can cancel the maintenance plan at any time with no penalty." },
+              { q: "Τι γίνεται αν χρειαστώ αλλαγές μετά το launch;", a: "Small text changes are free for the first month. After that, our maintenance plans cover ongoing updates, or you can request individual changes at an agreed rate." },
+              { q: "Do I own my website?", a: "Yes, 100%. Once paid, the website and all its content belong to you." },
+              { q: "Is the consultation really free?", a: "Absolutely. We start with a no-pressure WhatsApp chat to understand your business and recommend the right package. No commitment required." },
+              { q: "What counts as an Enterprise project?", a: "Enterprise is for businesses that need more than το πρότυπό μας packages can offer - think multi-page builds with custom integrations, CRM connections, multi-language support, or organisations that want a dedicated project manager and ongoing retainer. If you're unsure, just contact us and we'll advise honestly." },
+            ].map((item) => (
+              <StaggerItem key={item.q}>
+                <div className="dm-card !p-6">
+                  <div className="flex items-start gap-3">
+                    <HelpCircle size={20} className="text-[#5B8CFF] shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="text-base font-semibold text-[#111315] mb-2">{item.q}</h3>
+                      <p className="text-sm text-[#5B6472] leading-relaxed">{item.a}</p>
+                    </div>
+                  </div>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="section-spacing bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF]">
-        <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-extrabold text-white mb-4">Έχετε ερωτήσεις;</h2>
-          <p className="text-blue-100 text-lg mb-8">
-            Επικοινωνήστε μαζί μας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες.
-          </p>
-          <Link href="/el/contact">
-            <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-              Επικοινωνήστε μαζί μας
-            </button>
-          </Link>
+      {/* CTA */}
+      <section className="section-spacing">
+        <div className="container max-w-3xl text-center">
+          <AnimateIn>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-5">Ready to get started?</h2>
+            <p className="text-lg text-[#5B6472] mb-8">Book a δωρεάν συμβουλευτική and we'll recommend the right plan for your business.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/el/contact" className="btn-primary">
+                <MessageCircle size={18} /> Book Free Consultation
+              </a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                WhatsApp Us
+              </a>
+            </div>
+          </AnimateIn>
         </div>
       </section>
-
-    </main>
+    </>
   );
 }

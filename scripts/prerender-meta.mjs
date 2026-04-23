@@ -105,7 +105,7 @@ const EN_STATIC_ROUTES = [
     path: "/examples",
     title: "Website Examples | See Our Work | D&M Labs",
     description: "Browse real website examples built by D&M Labs for restaurants, salons, dental clinics, yoga studios, and more. Starting from €299.",
-    elPath: null,
+    elPath: "/el/examples",
   },
   {
     path: "/blog",
@@ -299,6 +299,12 @@ const EL_STATIC_ROUTES = [
     title: "Γιατί Κάθε Εστιατόριο στην Κύπρο Χρειάζεται Ιστοσελίδα | D&M Labs",
     description: "Το Facebook δεν αρκεί για εστιατόριο στην Κύπρο. Δείτε τι χάνετε χωρίς επαγγελματική ιστοσελίδα.",
     enPath: "/blog/restaurant-website-design-cyprus",
+  },
+  {
+    path: "/el/examples",
+    title: "Παραδείγματα Ιστοσελίδων | D&M Labs",
+    description: "Δείτε το portfolio μας με custom ιστοσελίδες για επιχειρήσεις στην Κύπρο και την Ελλάδα. Κάθε site χτίζεται από μηδέν.",
+    enPath: "/examples",
   },
 ];
 

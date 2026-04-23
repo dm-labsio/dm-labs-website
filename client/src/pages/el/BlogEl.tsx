@@ -1,97 +1,111 @@
-import { Link } from "wouter";
+/* ============================================================
+   D&M LABS - Blog Index Page
+   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
+   Clean editorial layout, card grid, category filters
+   ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
+import { Link } from "wouter";
+import AnimateIn from "@/components/AnimateIn";
+import { POSTS } from "@/data/blogPosts";
+import { ArrowRight, Clock, Tag } from "lucide-react";
 
-// Greek Blog index page — /el/blog
-// Primary keyword: "κατασκευή ιστοσελίδας blog", "συμβουλές ιστοσελίδα επιχείρηση"
-
-const posts = [
-  {
-    slug: "posso-kostizei-istoselidha-kypros",
-    title: "Πόσο Κοστίζει μια Ιστοσελίδα στην Κύπρο; (Ειλικρινής Οδηγός 2026)",
-    excerpt: "Η αλήθεια για τις τιμές κατασκευής ιστοσελίδας στην Κύπρο - τι περιλαμβάνεται, τι δεν περιλαμβάνεται και πώς να επιλέξετε σωστά.",
-    date: "Ιανουάριος 2026",
-    readTime: "6 λεπτά"
-  },
-  {
-    slug: "wix-vs-epaggelmatias-web-designer-kypros",
-    title: "Wix ή Επαγγελματίας Web Designer; Τι Συμφέρει την Επιχείρησή σου στην Κύπρο",
-    excerpt: "Μια ειλικρινής σύγκριση μεταξύ Wix, WordPress και επαγγελματικής κατασκευής ιστοσελίδας - πότε συμφέρει το καθένα.",
-    date: "Απρίλιος 2026",
-    readTime: "7 λεπτά"
-  },
-  {
-    slug: "istoselidha-nail-salon-beauty-studio-kypros",
-    title: "Ιστοσελίδα για Nail Salon και Beauty Studio στην Κύπρο: Τι Χρειάζεστε Πραγματικά",
-    excerpt: "Τι πρέπει να έχει η ιστοσελίδα ενός nail salon ή beauty studio στην Κύπρο για να φέρνει νέους πελάτες.",
-    date: "Φεβρουάριος 2026",
-    readTime: "5 λεπτά"
-  },
-  {
-    slug: "istoselidha-yoga-pilates-studio-kypros",
-    title: "Γιατί το Yoga ή Pilates Studio σας στην Κύπρο Χρειάζεται Ιστοσελίδα",
-    excerpt: "Το Instagram δεν αρκεί. Δείτε γιατί μια επαγγελματική ιστοσελίδα φέρνει περισσότερους μαθητές στο studio σας.",
-    date: "Μάρτιος 2026",
-    readTime: "5 λεπτά"
-  },
-  {
-    slug: "pos-na-vretheite-google-kypros",
-    title: "Πώς να Βρεθεί η Επιχείρησή σας στη Google στην Κύπρο: Ένας Απλός Οδηγός",
-    excerpt: "Χωρίς τεχνικές ορολογίες - τι πρέπει να κάνετε για να εμφανίζεστε στη Google όταν κάποιος ψάχνει για αυτό που προσφέρετε.",
-    date: "Μάρτιος 2026",
-    readTime: "6 λεπτά"
-  },
-  {
-    slug: "istoselidha-estiatorio-kypros",
-    title: "Γιατί Κάθε Εστιατόριο στην Κύπρο Χρειάζεται Ιστοσελίδα (Όχι Μόνο Facebook)",
-    excerpt: "Το Facebook δεν είναι αρκετό για ένα εστιατόριο. Δείτε τι χάνετε χωρίς επαγγελματική ιστοσελίδα.",
-    date: "Απρίλιος 2026",
-    readTime: "5 λεπτά"
-  }
-];
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
 
 export default function BlogEl() {
   useSEO({
-    title: "Blog | Συμβουλές Κατασκευής Ιστοσελίδας | D&M Labs",
-    description: "Άρθρα και συμβουλές για κατασκευή ιστοσελίδας, SEO και online παρουσία για επιχειρήσεις στην Κύπρο και την Ελλάδα.",
-    canonicalPath: "/el/blog"
+    title: "Blog | Web Σχεδιασμός Tips & Guides | D&M Labs",
+    description: "Practical guides, honest advice, and web design insights for businesses in Cyprus and beyond.",
   });
-  useHreflang();
-
   return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
-
-      <section className="section-spacing bg-gradient-to-br from-[#F0F4FF] via-[#F6F6F4] to-[#F0EAFF]">
-        <div className="container max-w-4xl mx-auto text-center">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Blog</span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">
-            Συμβουλές για Ιστοσελίδες και Online Παρουσία
-          </h1>
-          <p className="text-lg text-[#5B6472] leading-relaxed">
-            Χρήσιμα άρθρα για επιχειρήσεις στην Κύπρο και την Ελλάδα που θέλουν να βρεθούν στο Google και να αποκτήσουν επαγγελματική online παρουσία.
-          </p>
+    <>
+      {/* Hero */}
+      <section
+        className="relative overflow-hidden"
+        style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(3rem, 6vh, 5rem)" }}
+      >
+        <div className="container relative z-10 text-center">
+          <AnimateIn>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Resources & Insights</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
+              The D&M Labs <span className="brand-gradient-text">Blog</span>
+            </h1>
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+              Practical guides, honest advice, and web design insights for businesses in Cyprus and beyond.
+            </p>
+          </AnimateIn>
         </div>
       </section>
 
-      <section className="section-spacing">
-        <div className="container max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-          {posts.map((post) => (
-            <Link key={post.slug} href={`/el/blog/${post.slug}`}>
-              <article className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm hover:shadow-md hover:border-[#5B8CFF] transition-all cursor-pointer h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-xs text-[#9CA3AF]">{post.date}</span>
-                  <span className="text-xs text-[#9CA3AF]">-</span>
-                  <span className="text-xs text-[#9CA3AF]">{post.readTime} ανάγνωση</span>
-                </div>
-                <h2 className="font-bold text-[#111315] text-base mb-3 leading-snug flex-1">{post.title}</h2>
-                <p className="text-[#5B6472] text-sm leading-relaxed mb-4">{post.excerpt}</p>
-                <span className="text-[#5B8CFF] text-sm font-semibold">Διαβάστε περισσότερα →</span>
-              </article>
+      {/* Posts Grid */}
+      <section className="section-spacing bg-white">
+        <div className="container">
+          {POSTS.length === 0 ? (
+            <div className="text-center py-20 text-[#5B6472]">No articles yet. Check back soon.</div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {POSTS.map((post, i) => (
+                <AnimateIn key={post.slug} delay={i * 0.08}>
+                  <Link href={`/blog/${post.slug}`} className="group block dm-card overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
+                    {/* Cover image */}
+                    <div className="relative overflow-hidden" style={{ height: "200px" }}>
+                      <img
+                        src={post.coverImage}
+                        alt={post.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                      <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-white"
+                        style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}>
+                        <Tag size={10} />
+                        {post.category}
+                      </span>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6 flex flex-col flex-1">
+                      <div className="flex items-center gap-3 text-xs text-[#9BA3AF] mb-3">
+                        <span>{formatDate(post.date)}</span>
+                        <span>·</span>
+                        <span className="flex items-center gap-1"><Clock size={11} />{post.readTime}</span>
+                      </div>
+                      <h2 className="text-base font-bold text-[#111315] mb-3 leading-snug group-hover:text-[#5B8CFF] transition-colors">
+                        {post.title}
+                      </h2>
+                      <p className="text-sm text-[#5B6472] leading-relaxed flex-1 mb-4">
+                        {post.excerpt}
+                      </p>
+                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#5B8CFF] group-hover:gap-2.5 transition-all">
+                        Read article <ArrowRight size={14} />
+                      </span>
+                    </div>
+                  </Link>
+                </AnimateIn>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section-spacing dark-section text-center">
+        <div className="container">
+          <AnimateIn>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Get Your Website Built?</h2>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">
+              Stop reading and start growing. Get a δωρεάν συμβουλευτική and a clear quote within 24 hours.
+            </p>
+            <Link href="/el/contact" className="btn-primary">
+              Get a Free Consultation <ArrowRight size={18} />
             </Link>
-          ))}
+          </AnimateIn>
         </div>
       </section>
-
-    </main>
+    </>
   );
 }

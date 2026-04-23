@@ -1,71 +1,110 @@
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
-import { Check } from "lucide-react";
 
-// Greek Web Design Limassol page — /el/web-design-limassol
-// Primary keyword: "κατασκευή ιστοσελίδας Λεμεσός"
-// Secondary: "web design Λεμεσός", "ιστοσελίδα επιχείρηση Λεμεσός"
+// SEO landing page: /web-design-limassol
+// Target keywords: "web design Λεμεσός", "website design Λεμεσός"
+// Design: matches D&M Labs site style - light bg, brand gradient accents, clean typography
 
-const schema = {
+const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "D&M Labs",
-  "description": "Κατασκευή επαγγελματικών ιστοσελίδων για επιχειρήσεις στη Λεμεσό. Από €299.",
-  "url": "https://dm-labs.io/el/web-design-limassol",
-  "telephone": "+35797472847",
-  "email": "info@dm-labs.io",
-  "inLanguage": "el",
+  "description": "Professional web design agency serving businesses in Λεμεσός, Cyprus. Custom websites from €299.",
+  "url": "https://dm-labs.io/web-design-limassol",
+  "telephone": "+357-96-000000",
   "areaServed": {
     "@type": "City",
-    "name": "Limassol"
+    "name": "Λεμεσός, Cyprus"
   },
-  "priceRange": "€€"
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Λεμεσός",
+    "addressCountry": "CY"
+  },
+  "priceRange": "€€",
+  "serviceType": "Web Design",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Starter Website",
+      "price": "299",
+      "priceCurrency": "EUR"
+    },
+    {
+      "@type": "Offer",
+      "name": "Business Website",
+      "price": "399",
+      "priceCurrency": "EUR"
+    },
+    {
+      "@type": "Offer",
+      "name": "Premium Website",
+      "price": "699",
+      "priceCurrency": "EUR"
+    }
+  ]
 };
 
-export default function WebDesignLimassolEl() {
+const faqs = [
+  {
+    q: "How much does web design cost in Λεμεσός?",
+    a: "Our web design packages for Λεμεσός businesses start from €299 for a Starter site, €399 for a Business site, and €699 for a Premium site. All packages include mobile-responsive design, SEO setup, and a contact form. These are limited time introductory prices - check our Pricing page for the full breakdown."
+  },
+  {
+    q: "How long does it take to build a website?",
+    a: "Most websites are delivered within 7 to 14 days from the moment we receive your content and feedback. Starter sites typically take 5 to 7 days. Business and Premium sites with more pages and custom functionality take 10 to 14 days. We keep you updated at every stage."
+  },
+  {
+    q: "Do you work with businesses in Λεμεσός remotely?",
+    a: "Yes, absolutely. We work with businesses across Cyprus and internationally entirely online. Our process is built around clear communication via WhatsApp, email, and video calls - so location is never a barrier. Many of our clients in Λεμεσός have never needed a face-to-face meeting."
+  }
+];
+
+export default function WebDesignΛεμεσόςEl() {
   useSEO({
-    title: "Κατασκευή Ιστοσελίδας Λεμεσός | Από €299 | D&M Labs",
-    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Λεμεσό. Custom σχεδιασμός, SEO, mobile-first. Starter €299, Business €399, Premium €699.",
-    canonicalPath: "/el/web-design-limassol"
+    title: "Κατασκευή Ιστοσελίδας Λεμεσός | Ιστοσελίδες από €299 | D&M Labs",
+    description: "D&M Labs builds professional websites for Λεμεσός businesses from €299. Mobile-first, SEO-ready, fast delivery. Get online today.",
+    canonicalPath: "/el/web-design-limassol",
   });
-  useHreflang();
+  useEffect(() => {
+    // Inject schema markup
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "limassol-schema";
+    script.text = JSON.stringify(schemaMarkup);
+    document.head.appendChild(script);
+    return () => {
+      const s = document.getElementById("limassol-schema");
+      if (s) s.remove();
+    };
+  }, []);
 
   return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
-
+    <main className="bg-white">
       {/* ── HERO ── */}
-      <section className="min-h-[80vh] flex items-center relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80')" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/85 via-[#0F172A]/60 to-transparent" />
-        <div className="container max-w-5xl mx-auto relative z-10 py-20">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#6FE3FF] mb-4">
-            Κατασκευή Ιστοσελίδας Λεμεσός
+      <section className="section-spacing bg-gradient-to-br from-[#EEF3FF] via-white to-[#F0EAFF]">
+        <div className="container max-w-4xl mx-auto text-center">
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5B8CFF] mb-4">
+            Serving Λεμεσός, Cyprus
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight max-w-2xl">
-            Επαγγελματική Ιστοσελίδα για την Επιχείρησή σας στη Λεμεσό
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] leading-tight mb-6">
+            Κατασκευή Ιστοσελίδας Λεμεσός<br />
+            <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
+              Professional Websites for Local Businesses
+            </span>
           </h1>
-          <p className="text-lg text-blue-100 mb-3 leading-relaxed max-w-xl">
-            Κατασκευάζουμε custom, mobile-first ιστοσελίδες για επιχειρήσεις στη Λεμεσό. Από €299, παράδοση σε 5-14 ημέρες.
+          <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
+            D&M Labs is a dedicated web design agency helping Λεμεσός businesses build a strong online presence. We create fast, mobile-first, and conversion-focused websites - starting from €299 - so your business stands out in one of Cyprus's most competitive markets.
           </p>
-          <p className="text-sm text-blue-200/70 mb-8 italic">
-            Η υπηρεσία παρέχεται στα αγγλικά. Επικοινωνούμε μαζί σας στα ελληνικά.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/el/contact">
-              <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity shadow-lg">
-                Ζητήστε Δωρεάν Πρόταση
+              <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
+                Λάβετε Δωρεάν Προσφορά
               </button>
             </Link>
             <Link href="/el/pricing">
-              <button className="px-8 py-3.5 rounded-xl border border-white/40 text-white font-semibold text-base hover:bg-white/10 transition-colors">
+              <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors">
                 Δείτε τις Τιμές
               </button>
             </Link>
@@ -73,96 +112,158 @@ export default function WebDesignLimassolEl() {
         </div>
       </section>
 
-      {/* ── WHY LIMASSOL ── */}
-      <section className="section-spacing bg-white">
+      {/* ── WHY LIMASSOL NEEDS A WEBSITE ── */}
+      <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-4">
-            Γιατί η Επιχείρησή σας στη Λεμεσό Χρειάζεται Ιστοσελίδα
+          <h2 className="text-3xl font-bold text-[#111315] mb-6">
+            Why Λεμεσός Businesses Need a Professional Website
           </h2>
-          <p className="text-[#5B6472] mb-6 leading-relaxed max-w-2xl">
-            Η Λεμεσός είναι η πιο δυναμική επιχειρηματική πόλη της Κύπρου. Ο ανταγωνισμός είναι έντονος - και οι επιχειρήσεις που έχουν επαγγελματική online παρουσία κερδίζουν πελάτες από αυτές που δεν έχουν.
+          <p className="text-[#5B6472] leading-relaxed mb-5">
+            Λεμεσός is Cyprus's business and financial capital - home to international law firms, shipping companies, fintech startups, and a thriving hospitality sector. It also has one of the largest expat communities in the Eastern Mediterranean, with residents and visitors from Russia, Israel, the UK, and across Europe actively searching online for local services.
+          </p>
+          <p className="text-[#5B6472] leading-relaxed mb-5">
+            In this environment, a professional website is not optional - it is your first impression. When a potential client searches "accountant in Λεμεσός" or "restaurant near the seafront," your website is either working for you or handing that client to a competitor. A well-built site with proper SEO, fast load times, and a clear call to action converts visitors into enquiries around the clock.
+          </p>
+          <p className="text-[#5B6472] leading-relaxed">
+            The Λεμεσός market is competitive and increasingly digital. Businesses that invest in a quality online presence now - before their competitors do - capture the most valuable search traffic and build lasting credibility with both local and international clients.
+          </p>
+        </div>
+      </section>
+
+      {/* ── SERVICES OVERVIEW ── */}
+      <section className="section-spacing bg-[#F8F9FC]">
+        <div className="container max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#111315] mb-3">
+            What We Build for Λεμεσός Businesses
+          </h2>
+          <p className="text-[#5B6472] mb-10">
+            Every site we deliver is built to perform - not just to look good.{" "}
+            <Link href="/el/services" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+              See our full services
+            </Link>
+            .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
-              { title: "Βρεθείτε στη Google", desc: "Όταν κάποιος ψάχνει για αυτό που προσφέρετε στη Λεμεσό, η ιστοσελίδα σας πρέπει να εμφανίζεται. Κατασκευάζουμε κάθε ιστοσελίδα με σωστή SEO δομή από την αρχή." },
-              { title: "Αξιοπιστία", desc: "Στη Λεμεσό, πολλοί πελάτες ελέγχουν online πριν επισκεφτούν μια επιχείρηση. Μια επαγγελματική ιστοσελίδα δείχνει ότι είστε σοβαρή επιχείρηση." },
-              { title: "Διαθέσιμοι 24/7", desc: "Η ιστοσελίδα σας δουλεύει ακόμα και όταν εσείς δεν είστε. Πελάτες μπορούν να βρουν πληροφορίες και να επικοινωνήσουν οποιαδήποτε ώρα." },
-              { title: "Ανταγωνιστικό Πλεονέκτημα", desc: "Πολλές επιχειρήσεις στη Λεμεσό δεν έχουν ακόμα καλή ιστοσελίδα. Αυτή είναι η ευκαιρία σας να ξεχωρίσετε." }
-            ].map((w) => (
-              <div key={w.title} className="bg-[#F8F9FC] rounded-2xl p-6 border border-[#E8EAF0]">
-                <h3 className="font-bold text-[#111315] text-base mb-2">{w.title}</h3>
-                <p className="text-[#5B6472] text-sm leading-relaxed">{w.desc}</p>
+              {
+                title: "Custom Design",
+                desc: "No off-the-shelf designs. Every site is designed from scratch to match your brand, your audience, and your goals."
+              },
+              {
+                title: "Mobile-First",
+                desc: "Over 70% of web traffic in Cyprus comes from mobile. Every site we build looks and works perfectly on any screen."
+              },
+              {
+                title: "SEO-Ready",
+                desc: "Clean code, fast load times, proper meta tags, and structured data - everything Google needs to rank your site."
+              },
+              {
+                title: "Fast Delivery",
+                desc: "Most sites are live within 7 to 14 days. We move quickly without cutting corners on quality."
+              }
+            ].map((s) => (
+              <div key={s.title} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
+                <h3 className="font-bold text-[#111315] text-lg mb-2">{s.title}</h3>
+                <p className="text-[#5B6472] text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── PACKAGES ── */}
+      {/* ── PRICING SUMMARY ── */}
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-4">Τιμές Κατασκευής Ιστοσελίδας στη Λεμεσό</h2>
-          <p className="text-[#5B6472] mb-8">Εφάπαξ τιμές, χωρίς μηνιαίες χρεώσεις.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <h2 className="text-3xl font-bold text-[#111315] mb-3">
+            Transparent Pricing for Λεμεσός Businesses
+          </h2>
+          <p className="text-[#5B6472] mb-10">
+            No hidden fees. No hourly billing. One fixed price, everything included.{" "}
+            <Link href="/el/pricing" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+              View full pricing breakdown
+            </Link>
+            .
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { name: "Starter", price: "€299", highlight: false, features: ["1 σελίδα", "Mobile-responsive", "WhatsApp κουμπί", "Βασική SEO", "Παράδοση 5-7 ημέρες"] },
-              { name: "Business", price: "€399", highlight: true, features: ["Έως 5 σελίδες", "Φόρμα επικοινωνίας", "Google Maps", "Reviews widget", "SEO", "Παράδοση 7-10 ημέρες"] },
-              { name: "Premium", price: "€699", highlight: false, features: ["Έως 7 σελίδες", "Custom animations", "Gallery", "5 SEO άρθρα", "Πλήρης SEO", "Παράδοση 10-14 ημέρες"] }
-            ].map((pkg) => (
-              <div key={pkg.name} className={`rounded-2xl p-6 border flex flex-col ${pkg.highlight ? "border-[#5B8CFF] bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] shadow-xl" : "border-[#E8EAF0] bg-white shadow-sm"}`}>
-                {pkg.highlight && <span className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wider mb-2">Πιο Δημοφιλές</span>}
-                <div className="text-2xl font-extrabold text-[#111315] mb-1">{pkg.price}</div>
-                <div className="font-bold text-[#111315] mb-4">{pkg.name}</div>
-                <ul className="space-y-2 flex-1 mb-6">
-                  {pkg.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-[#5B6472]">
-                      <Check size={14} className="text-[#5B8CFF] shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/el/contact">
-                  <button className={`w-full py-3 rounded-xl font-semibold text-sm ${pkg.highlight ? "bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white hover:opacity-90" : "border border-[#5B8CFF] text-[#5B8CFF] hover:bg-[#EEF3FF]"}`}>
-                    Ξεκινήστε Τώρα
-                  </button>
-                </Link>
+              {
+                name: "Starter",
+                price: "€299",
+                desc: "Perfect for freelancers and small businesses needing a clean, professional online presence.",
+                highlight: false
+              },
+              {
+                name: "Business",
+                price: "€399",
+                desc: "Ideal for established businesses wanting more pages, animations, and advanced SEO.",
+                highlight: true
+              },
+              {
+                name: "Premium",
+                price: "€699",
+                desc: "Full-featured site with custom functionality, booking forms, and priority support.",
+                highlight: false
+              }
+            ].map((p) => (
+              <div
+                key={p.name}
+                className={`rounded-2xl p-6 border ${
+                  p.highlight
+                    ? "border-[#5B8CFF] bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] shadow-md"
+                    : "border-[#E8EAF0] bg-white shadow-sm"
+                }`}
+              >
+                {p.highlight && (
+                  <span className="inline-block text-xs font-semibold text-[#5B8CFF] uppercase tracking-wider mb-2">
+                    Πιο Δημοφιλές
+                  </span>
+                )}
+                <div className="text-3xl font-extrabold text-[#111315] mb-1">{p.price}</div>
+                <div className="font-semibold text-[#111315] mb-3">{p.name}</div>
+                <p className="text-[#5B6472] text-sm leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
+          <p className="text-xs text-[#9CA3AF] mt-4">
+            * These are limited time introductory prices.
+          </p>
         </div>
       </section>
 
-      {/* ── MAP ── */}
-      <section className="section-spacing bg-[#F8F9FC]">
+      {/* ── GOOGLE MAPS ── */}
+      <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-[#111315] mb-4">Εξυπηρετούμε τη Λεμεσό και Ολόκληρη την Κύπρο</h2>
-          <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm">
+          <h2 className="text-3xl font-bold text-[#111315] mb-3">
+            Based in Cyprus, Serving Λεμεσός
+          </h2>
+          <p className="text-[#5B6472] mb-8">
+            We serve businesses across Λεμεσός - from the old town and seafront to the business district and suburbs like Agios Athanasios, Polemidia, and Germasogeia.
+          </p>
+          <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
             <iframe
-              title="Χάρτης Λεμεσού - Κατασκευή Ιστοσελίδων"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52428.3!2d33.0!3d34.68!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14e7335b7b5d3c3d%3A0x400bd2ce2b9c5f0!2sLimassol%2C%20Cyprus!5e0!3m2!1sel!2sgr!4v1"
+              title="Λεμεσός, Cyprus"
               width="100%"
-              height="300"
+              height="100%"
               style={{ border: 0 }}
-              allowFullScreen
               loading="lazy"
+              allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52427.36!2d33.0413!3d34.6841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14e733d5b1b3b3b3%3A0x1234567890abcdef!2sΛεμεσός%2C%20Cyprus!5e0!3m2!1sen!2scy!4v1700000000000!5m2!1sen!2scy"
             />
           </div>
         </div>
       </section>
 
       {/* ── FAQ ── */}
-      <section className="section-spacing">
+      <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-8">Συχνές Ερωτήσεις</h2>
-          <div className="flex flex-col gap-4">
-            {[
-              { q: "Πόσο κοστίζει μια ιστοσελίδα στη Λεμεσό;", a: "Οι τιμές ξεκινούν από €299 για το Starter πακέτο. Δεν υπάρχουν επιπλέον χρεώσεις για τη γεωγραφική τοποθεσία." },
-              { q: "Χρειάζεστε να συναντηθούμε φυσικά;", a: "Όχι. Δουλεύουμε εξ αποστάσεως με επικοινωνία μέσω email, WhatsApp ή τηλεφώνου. Είναι εξίσου αποτελεσματικό." },
-              { q: "Σε ποια γλώσσα παρέχεται η υπηρεσία;", a: "Η υπηρεσία κατασκευής παρέχεται στα αγγλικά, αλλά επικοινωνούμε μαζί σας στα ελληνικά χωρίς κανένα πρόβλημα." }
-            ].map((faq) => (
+          <h2 className="text-3xl font-bold text-[#111315] mb-10">
+            Συχνές Ερωτήσεις
+          </h2>
+          <div className="flex flex-col gap-6">
+            {faqs.map((faq) => (
               <div key={faq.q} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
-                <h3 className="font-bold text-[#111315] text-base mb-2">{faq.q}</h3>
+                <h3 className="font-bold text-[#111315] text-base mb-3">{faq.q}</h3>
                 <p className="text-[#5B6472] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
@@ -173,16 +274,19 @@ export default function WebDesignLimassolEl() {
       {/* ── CTA ── */}
       <section className="section-spacing bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF]">
         <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-extrabold text-white mb-4">Έτοιμοι για την Ιστοσελίδα σας στη Λεμεσό;</h2>
-          <p className="text-blue-100 text-lg mb-8">Δωρεάν πρόταση μέσα σε 24 ώρες.</p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+            Ready to get your Λεμεσός business online?
+          </h2>
+          <p className="text-blue-100 text-lg mb-8 leading-relaxed">
+            Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση.
+          </p>
           <Link href="/el/contact">
             <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-              Ζητήστε Δωρεάν Πρόταση
+              Contact us today
             </button>
           </Link>
         </div>
       </section>
-
     </main>
   );
 }
