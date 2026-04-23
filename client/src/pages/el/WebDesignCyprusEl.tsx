@@ -15,7 +15,7 @@ const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "D&M Labs",
-  "description": "Professional web design and website development agency serving businesses σε όλη την Κύπρο - Λεμεσός, Λευκωσία, Λάρνακα, Πάφος, Αμμόχωστος, and all districts.",
+  "description": "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε όλη την Κύπρο - Λεμεσός, Λευκωσία, Λάρνακα, Πάφος, Αμμόχωστος και όλες τις επαρχίες.",
   "url": "https://dm-labs.io/web-design-cyprus",
   "telephone": "+35797472847",
   "priceRange": "€€",
@@ -31,7 +31,7 @@ const schemaMarkup = {
     "@type": "OfferCatalog",
     "name": "Κατασκευή Ιστοσελίδας Κύπρος Υπηρεσίες",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starter Website Cyprus", "description": "Branded business page for Cyprus businesses" }, "price": "299", "priceCurrency": "EUR" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starter Ιστοσελίδα Κύπρος", "description": "Branded επαγγελματική σελίδα για επιχειρήσεις στην Κύπρο" }, "price": "299", "priceCurrency": "EUR" },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Website Cyprus", "description": "Up to 5-page website with SEO and contact forms for Cyprus businesses" }, "price": "399", "priceCurrency": "EUR" },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium Website Cyprus", "description": "Fully custom website with animations, blog articles, and full SEO structure" }, "price": "699", "priceCurrency": "EUR" }
     ]
@@ -51,11 +51,11 @@ const industries = [
   { icon: "🍽️", name: "Εστιατόρια & Καφέ", desc: "Η Κύπρος έχει πάνω από 3.200 επιχειρήσεις τροφίμων και ποτών. Μια γρήγορη, mobile-first ιστοσελίδα με το μενού σας, τις ώρες λειτουργίας και ενσωμάτωση Google Maps αυξάνει τις επισκέψεις και τις κρατήσεις." },
   { icon: "🏨", name: "Hotels & Tourism", desc: "Tourism is Cyprus's largest industry. Hotels, villas, and tour operators need a website that ranks on Google and converts international visitors before they land." },
   { icon: "⚖️", name: "Law Firms & Legal Υπηρεσίες", desc: "Cyprus is a major European legal and financial hub. Law firms and corporate service providers need a professional website that builds trust with high-value clients." },
-  { icon: "🏠", name: "Real Estate & Property", desc: "Property buyers search online first. A clean, fast website with listings, maps, and enquiry forms converts browsers into serious leads." },
-  { icon: "🏥", name: "Κλινικές & Υγεία", desc: "Private clinics, dentists, physiotherapists, and specialists σε όλη την Κύπρο need a trustworthy online presence to attract and retain patients." },
-  { icon: "🛍️", name: "Λιανική & Μπουτίκ", desc: "Whether you run a boutique in Λεμεσός or a specialty shop in Λευκωσία, a professional website helps customers find you and builds credibility before they walk through the door." },
+  { icon: "🏠", name: "Κτηματομεσιτικά & Ακίνητα", desc: "Οι αγοραστές ακινήτων αναζητούν πρώτα online. Μια καθαρή, γρήγορη ιστοσελίδα με listings, χάρτες και φόρμες επικοινωνίας μετατρέπει τους επισκέπτες σε σοβαρούς υποψήφιους αγοραστές." },
+  { icon: "🏥", name: "Κλινικές & Υγεία", desc: "Ιδιωτικές κλινικές, οδοντίατροι, φυσιοθεραπευτές και ειδικοί σε όλη την Κύπρο χρειάζονται μια αξιόπιστη online παρουσία για να προσελκύσουν και να διατηρήσουν ασθενείς." },
+  { icon: "🛍️", name: "Λιανική & Μπουτίκ", desc: "Είτε έχετε μπουτίκ στη Λεμεσό είτε εξειδικευμένο κατάστημα στη Λευκωσία, μια επαγγελματική ιστοσελίδα βοηθά τους πελάτες να σας βρουν και χτίζει αξιοπιστία πριν ακόμα μπουν στο κατάστημά σας." },
   { icon: "📊", name: "Λογιστική & Χρηματοοικονομικά", desc: "Ο χρηματοοικονομικός τομέας της Κύπρου είναι ένας από τους μεγαλύτερους στην ΕΕ. Μια κομψή, επαγγελματική ιστοσελίδα σηματοδοτεί αξιοπιστία σε εταιρικούς και διεθνείς πελάτες." },
-  { icon: "🎓", name: "Education & Tutoring", desc: "Private schools, language centres, and tutoring services σε όλη την Κύπρο use websites to attract students and communicate their curriculum and fees." },
+  { icon: "🎓", name: "Εκπαίδευση & Φροντιστήρια", desc: "Ιδιωτικά σχολεία, κέντρα ξένων γλωσσών και φροντιστήρια σε όλη την Κύπρο χρησιμοποιούν ιστοσελίδες για να προσελκύσουν μαθητές και να παρουσιάσουν το πρόγραμμα και τα δίδακτρά τους." },
 ];
 
 const faqs = [
@@ -90,12 +90,12 @@ const faqs = [
 ];
 
 const whyUs = [
-  { icon: "⚡", title: "Γρήγορη Παράδοση", desc: "Starter websites live in 5-7 days. No waiting months for a basic site." },
+  { icon: "⚡", title: "Γρήγορη Παράδοση", desc: "Οι Starter ιστοσελίδες είναι online σε 5-7 μέρες. Χωρίς αναμονή μηνών για μια βασική σελίδα." },
   { icon: "📱", title: "Mobile-First Design", desc: "Over 70% of Cypriot web traffic is mobile. Every site we build is optimised for phones first." },
   { icon: "🔍", title: "SEO Built In", desc: "On-page SEO, correct meta tags, fast loading, and structured data - included in every package." },
   { icon: "💬", title: "WhatsApp Support", desc: "We communicate on WhatsApp, not ticketing systems. You always reach a real person quickly." },
-  { icon: "💶", title: "Διαφανείς Τιμές", desc: "Fixed prices από €299. No hourly billing, χωρίς κρυφές χρεώσεις, no surprise invoices." },
-  { icon: "🌍", title: "Bilingual Capability", desc: "Greek and English websites for businesses serving both local and international audiences." },
+  { icon: "💶", title: "Διαφανείς Τιμές", desc: "Σταθερές τιμές από €299. Χωρίς χρέωση ανά ώρα, χωρίς κρυφές χρεώσεις, χωρίς εκπλήξεις στο τιμολόγιο." },
+  { icon: "🌍", title: "Δίγλωσση Δυνατότητα", desc: "Ελληνικές και αγγλικές ιστοσελίδες για επιχειρήσεις που εξυπηρετούν τόσο τοπικό όσο και διεθνές κοινό." },
 ];
 
 export default function WebDesignCyprusEl() {
@@ -203,7 +203,7 @@ export default function WebDesignCyprusEl() {
               { title: "Business Websites", desc: "Professional multi-page websites for service businesses, consultancies, and agencies σε όλη την Κύπρο. Clean design, fast loading, and built to rank on Google." },
               { title: "Εστιατόριο & Cafe Websites", desc: "Mobile-first websites with digital menus, opening hours, Google Maps, and reservation forms. Designed to drive walk-ins and online enquiries." },
               { title: "Hotel & Tourism Websites", desc: "Booking-focused websites for hotels, villas, apartments, and tour operators στην Κύπρο. Optimised for international visitors searching in English, Russian, and Greek." },
-              { title: "Portfolio & Creative Websites", desc: "Showcase websites for architects, photographers, interior designers, and creative professionals σε όλη την Κύπρο." },
+              { title: "Portfolio & Creative Websites", desc: "Showcase ιστοσελίδες για αρχιτέκτονες, φωτογράφους, interior designers και δημιουργικούς επαγγελματίες σε όλη την Κύπρο." },
               { title: "Ιστοσελίδες Επαγγελματικών Υπηρεσιών", desc: "Credibility-building websites for law firms, accountants, clinics, and consultancies. Designed to convert high-value enquiries." },
               { title: "Landing Pages & SEO Pages", desc: "Targeted landing pages built to rank for specific keywords - 'web design Λεμεσός', 'dentist Λευκωσία', 'car rental Λάρνακα' - and convert visitors into leads." },
             ].map((item) => (
@@ -264,10 +264,10 @@ export default function WebDesignCyprusEl() {
                 desc: "Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική παρουσία στο διαδίκτυο.",
                 features: [
                   "Branded Business Page",
-                  "Mobile responsive",
+                  "Responsive για κινητά",
                   "Κουμπί WhatsApp",
                   "Σύνδεσμοι social media",
-                  "Accessibility widget",
+                  "Widget προσβασιμότητας",
                   "2 γύροι αναθεωρήσεων",
                   "Παράδοση σε 5-7 μέρες",
                 ],
@@ -279,12 +279,12 @@ export default function WebDesignCyprusEl() {
                 desc: "Για καθιερωμένες κυπριακές επιχειρήσεις που χρειάζονται μια ολοκληρωμένη ιστοσελίδα με έμφαση στη μετατροπή επισκεπτών σε πελάτες.",
                 features: [
                   "Έως 5 σελίδες",
-                  "Mobile responsive",
+                  "Responsive για κινητά",
                   "Φόρμα επικοινωνίας + κρατήσεων",
                   "Google Maps + Reviews widget",
                   "Ενότητα testimonials",
                   "Βασική SEO βελτιστοποίηση",
-                  "Speed optimisation",
+                  "Βελτιστοποίηση ταχύτητας",
                   "3 γύροι αναθεωρήσεων",
                   "Παράδοση σε 7-10 μέρες",
                 ],

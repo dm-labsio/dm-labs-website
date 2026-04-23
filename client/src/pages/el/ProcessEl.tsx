@@ -26,7 +26,7 @@ const steps = [
     step: "02",
     icon: CreditCard,
     title: "Secure Your Spot",
-    time: "Same day",
+    time: "Ίδια μέρα",
     desc: "Once we agree on the scope and price, you pay and we begin work immediately. Simple, transparent, no surprises.",
     details: ["Clear pricing - χωρίς κρυφές χρεώσεις", "Pay once, own it forever", "Work begins immediately", "Secure payment options"],
     color: "#6FE3FF",
@@ -37,7 +37,7 @@ const steps = [
     title: "Σχεδιασμός & Build",
     time: "3-7 days",
     desc: "Σχεδιάζουμε and develop η ιστοσελίδα σας. You'll see progress along the way and can provide feedback at key milestones.",
-    details: ["Custom design for your brand", "Mobile-first development", "Regular progress updates", "Your feedback shapes the result"],
+    details: ["Custom σχεδιασμός για το brand σας", "Ανάπτυξη με προτεραιότητα στο κινητό", "Τακτικές ενημερώσεις προόδου", "Η γνώμη σας διαμορφώνει το αποτέλεσμα"],
     color: "#8B5CFF",
   },
   {
@@ -46,7 +46,7 @@ const steps = [
     title: "Review & Αναθεωρήσεις",
     time: "1-2 μέρες",
     desc: "You review the website and request changes. We refine everything until you're completely happy with the result.",
-    details: ["Full website preview", "Starter: 2 γύροι αναθεωρήσεων, Business: 3, Premium: 5", "We adjust until you're satisfied", "No extra charges for included revisions"],
+    details: ["Πλήρης προεπισκόπηση ιστοσελίδας", "Starter: 2 γύροι αναθεωρήσεων, Business: 3, Premium: 5", "Προσαρμόζουμε μέχρι να είστε ικανοποιημένοι", "Χωρίς επιπλέον χρεώσεις για τις συμπεριλαμβανόμενες αναθεωρήσεις"],
     color: "#5B8CFF",
   },
   {

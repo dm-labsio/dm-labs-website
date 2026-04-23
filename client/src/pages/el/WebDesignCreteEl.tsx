@@ -71,7 +71,7 @@ const faqs = [
     a: "Yes - and this is something we do well. Many of our clients στην Κρήτη and Cyprus serve both local customers and international tourists. Φτιάχνουμε bilingual or multilingual websites that are optimised for both Greek and English search queries, load quickly on mobile (which is how most tourists browse), and include features like online booking forms, photo galleries, and Google Maps integration. A well-built website is one of the most effective ways to capture tourist bookings before they arrive on the island."
   },
   {
-    q: "What kinds of businesses στην Κρήτη do you work with?",
+    q: "Με ποιες επιχειρήσεις στην Κρήτη συνεργάζεστε;",
     a: "Συνεργαζόμαστε με κάθε είδους μικρές και μεσαίες επιχειρήσεις σε όλη την Κρήτη - εστιατόρια, ταβέρνες, ξενοδοχεία, βίλες, κέντρα αισθητικής, yoga studios, δικηγόρους, λογιστές, κατασκευαστικές εταιρείες, καταστήματα λιανικής και επαγγελματικές υπηρεσίες κάθε είδους. Αν η επιχείρησή σας χρειάζεται να βρίσκεται online και να παρουσιάζεται επαγγελματικά, μπορούμε να φτιάξουμε την κατάλληλη ιστοσελίδα για εσάς."
   }
 ];
@@ -87,7 +87,7 @@ const industries = [
     title: "Hotels, Villas and Accommodation",
     desc: "Παρουσιάστε το κατάλυμά σας με εντυπωσιακή γκαλερί, πληροφορίες διαθεσιμότητας και φόρμα άμεσης κράτησης. Μειώστε την εξάρτησή σας από πλατφόρμες κρατήσεων και χτίστε απευθείας σχέσεις με τους επισκέπτες σας.",
     img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80",
-    alt: "Luxury villa with pool στην Κρήτη Greece for accommodation website"
+    alt: "Πολυτελής βίλα με πισίνα στην Κρήτη για ιστοσελίδα καταλύματος"
   },
   {
     title: "Ομορφιά and Wellness",
@@ -99,25 +99,25 @@ const industries = [
     title: "Επαγγελματικές Υπηρεσίες",
     desc: "Δικηγόροι, λογιστές, αρχιτέκτονες και σύμβουλοι. Μια αξιόπιστη, καλά δομημένη ιστοσελίδα που επικοινωνεί την εξειδίκευσή σας και διευκολύνει τους πελάτες να επικοινωνήσουν μαζί σας.",
     img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
-    alt: "Professional services office meeting στην Κρήτη for business website"
+    alt: "Επαγγελματική συνάντηση στην Κρήτη για επαγγελματική ιστοσελίδα"
   },
   {
-    title: "Retail and Boutiques",
+    title: "Λιανική & Μπουτίκ",
     desc: "Μια κομψή online παρουσία για το κατάστημά σας - τα προϊόντα, η ιστορία, η τοποθεσία και τα στοιχεία επικοινωνίας σας. Κάντε εύκολο για τους πελάτες να σας βρουν πριν σας επισκεφτούν.",
     img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80",
-    alt: "Boutique retail shop στην Κρήτη Greece for small business website"
+    alt: "Μπουτίκ κατάστημα στην Κρήτη για ιστοσελίδα μικρής επιχείρησης"
   },
   {
-    title: "Construction and Trades",
+    title: "Κατασκευές & Τεχνικά Επαγγέλματα",
     desc: "Κατασκευαστές, ηλεκτρολόγοι, υδραυλικοί και εργολάβοι. Μια απλή ιστοσελίδα που δείχνει τη δουλειά σας, τις υπηρεσίες σας και διευκολύνει τους πελάτες να σας καλέσουν ή να σας στείλουν μήνυμα.",
     img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
-    alt: "Construction and trades business στην Κρήτη for professional website"
+    alt: "Κατασκευαστική επιχείρηση στην Κρήτη για επαγγελματική ιστοσελίδα"
   },
   {
     title: "Fitness και Γυμναστήρια, Yoga and Wellness",
     desc: "Personal trainers, yoga studios, εκπαιδευτές Pilates και wellness coaches. Μια ιστοσελίδα που παρουσιάζει τα μαθήματά σας, την ιστορία σας και διευκολύνει τους πελάτες να κλείσουν συνεδρία μαζί σας.",
     img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80",
-    alt: "Yoga and fitness studio στην Κρήτη for wellness business website"
+    alt: "Yoga και fitness studio στην Κρήτη για ιστοσελίδα wellness επιχείρησης"
   }
 ];
 
@@ -339,7 +339,7 @@ export default function WebDesignCreteEl() {
                 desc: "Δεν χρειάζεται να καταλαβαίνετε hosting, SEO ή κώδικα. Εσείς φέρνετε την επιχείρησή σας. Εμείς αναλαμβάνουμε τα υπόλοιπα και εξηγούμε ό,τι έχει σημασία με απλά λόγια."
               },
               {
-                title: "Updates whenever you need them",
+                title: "Ενημερώσεις όποτε τις χρειάζεστε",
                 desc: "Η επιχείρησή σας αλλάζει. Η ιστοσελίδα σας πρέπει να αλλάζει μαζί της. Όταν χρειαστεί να ενημερώσετε τιμές, να προσθέσετε μια υπηρεσία ή να αλλάξετε μια φωτογραφία, επικοινωνείτε μαζί μας και το τακτοποιούμε γρήγορα."
               }
             ].map((w) => (

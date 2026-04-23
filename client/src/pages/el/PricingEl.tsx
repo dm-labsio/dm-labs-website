@@ -13,10 +13,10 @@ const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%
 
 const comparison = [
   { feature: "Σελίδες custom σχεδιασμού", starter: "1 σελίδα", business: "Έως 5", pro: "Έως 7" },
-  { feature: "Mobile responsive", starter: true, business: true, pro: true },
+  { feature: "Responsive για κινητά", starter: true, business: true, pro: true },
   { feature: "Κουμπί WhatsApp", starter: true, business: true, pro: true },
   { feature: "Σύνδεσμοι social media", starter: true, business: true, pro: true },
-  { feature: "Accessibility widget", starter: true, business: true, pro: true },
+  { feature: "Widget προσβασιμότητας", starter: true, business: true, pro: true },
   { feature: "Φόρμα επικοινωνίας", starter: false, business: true, pro: true },
   { feature: "Φόρμα κρατήσεων", starter: false, business: true, pro: true },
   { feature: "Google Maps", starter: false, business: true, pro: true },
@@ -111,10 +111,10 @@ export default function PricingEl() {
                 <ul className="space-y-3 mb-8 flex-1">
                   {[
                     "Branded Business Page",
-                    "Mobile responsive",
+                    "Responsive για κινητά",
                     "Κουμπί WhatsApp",
                     "Σύνδεσμοι social media",
-                    "Accessibility widget (δωρεάν)",
+                    "Widget προσβασιμότητας (δωρεάν)",
                     "2 γύροι αναθεωρήσεων",
                     "Παράδοση σε 5-7 μέρες",
                   ].map((f) => (
@@ -146,14 +146,14 @@ export default function PricingEl() {
                     <ul className="space-y-3 mb-8 flex-1">
                       {[
                         "Έως 5 σελίδες",
-                        "Mobile responsive",
+                        "Responsive για κινητά",
                         "Κουμπί WhatsApp + σύνδεσμοι social media",
                         "Φόρμα επικοινωνίας + φόρμα κρατήσεων",
                         "Google Maps + Reviews widget",
                         "Ενότητα testimonials",
                         "Βασική SEO βελτιστοποίηση",
                         "Βελτιστοποίηση ταχύτητας",
-                        "Accessibility widget (δωρεάν)",
+                        "Widget προσβασιμότητας (δωρεάν)",
                         "3 γύροι αναθεωρήσεων",
                         "Παράδοση σε 7-10 μέρες",
                       ].map((f) => (
@@ -185,7 +185,7 @@ export default function PricingEl() {
                   {[
                     "Έως 7 σελίδες",
                     "Πλήρως custom σχεδιασμός + animations",
-                    "Mobile responsive",
+                    "Responsive για κινητά",
                     "Κουμπί WhatsApp + σύνδεσμοι social media",
                     "Φόρμα επικοινωνίας + φόρμα κρατήσεων",
                     "Google Maps + Reviews widget",
@@ -194,7 +194,7 @@ export default function PricingEl() {
                     "Πλήρης meta/SEO δομή",
                     "Βελτιστοποίηση ταχύτητας",
                     "Pop-up included",
-                    "Accessibility widget (δωρεάν)",
+                    "Widget προσβασιμότητας (δωρεάν)",
                     "5 γύροι αναθεωρήσεων",
                     "Παράδοση σε 10-14 μέρες",
                   ].map((f) => (

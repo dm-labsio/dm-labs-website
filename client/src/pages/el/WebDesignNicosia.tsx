@@ -250,8 +250,8 @@ export default function WebDesignΛευκωσίαEl() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               {
-                title: "Fast delivery",
-                desc: "Most websites are live within 5 to 14 days. We work quickly, communicate clearly, and do not leave you waiting."
+                title: "Γρήγορη παράδοση",
+                desc: "Οι περισσότερες ιστοσελίδες είναι online εντός 5 έως 14 ημερών. Δουλεύουμε γρήγορα, επικοινωνούμε ξεκάθαρα και δεν σας αφήνουμε να περιμένετε."
               },
               {
                 title: "No technical knowledge needed",
@@ -259,7 +259,7 @@ export default function WebDesignΛευκωσίαEl() {
               },
               {
                 title: "Built to convert",
-                desc: "Every page is designed with one goal in mind — turning visitors into enquiries. Good design is only useful if it drives results."
+                desc: "Κάθε σελίδα σχεδιάζεται με έναν στόχο - να μετατρέπει τους επισκέπτες σε υποψήφιους πελάτες. Ένα καλό σχεδιασμό έχει αξία μόνο αν φέρνει αποτελέσματα."
               }
             ].map((w) => (
               <AnimateIn key={w.title}>

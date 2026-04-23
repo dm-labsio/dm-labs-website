@@ -38,7 +38,7 @@ export default function ΕπικοινωνίαEl() {
         }),
       });
       if (res.ok) {
-        toast.success("Message sent! Θα get back to you within 24 hours.");
+        toast.success("Το μήνυμά σας στάλθηκε! Θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.");
         setForm({ name: "", email: "", business: "", message: "" });
       } else {
         toast.error("Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε το WhatsApp.");
@@ -187,7 +187,7 @@ export default function ΕπικοινωνίαEl() {
                     <label className="block text-sm font-medium text-[#111315] mb-1.5">Tell Us About Your Project</label>
                     <textarea required rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all resize-none"
-                      placeholder="What kind of website do you need? Any specific features?" />
+                      placeholder="Τι είδους ιστοσελίδα χρειάζεστε; Υπάρχουν συγκεκριμένα χαρακτηριστικά που θέλετε;" />
                   </div>
                   <button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60">
                     {sending ? (

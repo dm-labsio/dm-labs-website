@@ -187,7 +187,7 @@ export default function ΥπηρεσίεςEl() {
                     { icon: CalendarCheck, label: "CRM και ενσωματώσεις κρατήσεων" },
                     { icon: Languages, label: "Υποστήριξη πολλαπλών γλωσσών" },
                     { icon: Users, label: "Αφοσιωμένος project manager" },
-                    { icon: Headphones, label: "Priority support και παράδοση" },
+                    { icon: Headphones, label: "Προτεραιότητα υποστήριξης και παράδοσης" },
                     { icon: ArrowRight, label: "Επιλογή ongoing retainer" },
                     { icon: CheckCircle2, label: "Custom SEO και στρατηγική περιεχομένου" },
                   ].map(({ icon: Icon, label }) => (
