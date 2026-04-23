@@ -119,6 +119,11 @@ const STATIC_ROUTES = [
     title: "Web Design Cyprus | Professional Websites from €299 | D&M Labs",
     description: "Professional web design for businesses across Cyprus — Limassol, Nicosia, Larnaca, Paphos, and beyond. Custom websites from €299. Mobile-first, SEO-optimised, delivered in 5–14 days. Free consultation.",
   },
+  {
+    path: "/web-design-crete",
+    title: "Web Design Crete | Professional Websites from €299 | D&M Labs",
+    description: "Professional web design for small businesses across Crete - Heraklion, Chania, Rethymno and beyond. Custom websites from €299, delivered in 5-14 days. Mobile-first, SEO-ready, no hidden fees.",
+  },
   // Legal pages — minimal SEO, just correct canonical
   {
     path: "/privacy",

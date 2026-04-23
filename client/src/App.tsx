@@ -26,6 +26,7 @@ import WebDesignLimassol from "./pages/WebDesignLimassol";
 import WebDesignThessaloniki from "./pages/WebDesignThessaloniki";
 import WebDesignNicosia from "./pages/WebDesignNicosia";
 import WebDesignCyprus from "./pages/WebDesignCyprus";
+import WebDesignCrete from "./pages/WebDesignCrete";
 import PreviewPage from "./pages/PreviewPage";
 
 // Global SEO updater: fires on every route change to keep canonical + OG URL correct.
@@ -58,6 +59,7 @@ function MainRouter() {
         <Route path="/web-design-thessaloniki" component={WebDesignThessaloniki} />
         <Route path="/web-design-nicosia" component={WebDesignNicosia} />
         <Route path="/web-design-cyprus" component={WebDesignCyprus} />
+        <Route path="/web-design-crete" component={WebDesignCrete} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>
