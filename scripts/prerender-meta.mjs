@@ -51,6 +51,11 @@ const BLOG_POSTS = [
     title: "Restaurant Website Design Cyprus | Why You Need More Than Facebook",
     description: "Running a restaurant in Cyprus? Here is why a Facebook page is not enough and what your website needs to attract diners, drive reservations, and beat the competition.",
   },
+  {
+    slug: "wix-vs-professional-web-designer-cyprus",
+    title: "Wix vs Professional Web Designer Cyprus | Honest Comparison",
+    description: "Wix or a professional web designer? We give you an honest, no-jargon answer for small business owners in Cyprus - and explain why the right choice depends on where you are in your business journey.",
+  },
 ];
 
 const STATIC_ROUTES = [

@@ -266,10 +266,10 @@ export const POSTS: BlogPost[] = [
     date: "2026-04-06",
     readTime: "6 min read",
     category: "Web Design Tips",
-    excerpt: "Over 3,200 restaurants operate in Cyprus. Most rely on Facebook and word of mouth. Here is why that is a risk — and what a proper website does that social media never can.",
+    excerpt: "Over 3,200 restaurants operate in Cyprus. Most rely on Facebook and word of mouth. Here is why that is a risk  -  and what a proper website does that social media never can.",
     coverImage: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80",
     content: `
-<p class="blog-lead">There are over 3,200 restaurants, caf\u00e9s, and takeaways operating in Cyprus. Most of them have a Facebook page, a few Instagram posts, and maybe a listing on Tripadvisor. Very few have a proper website. That gap is an opportunity \u2014 and if your competitors are not taking it, you should.</p>
+<p class="blog-lead">There are over 3,200 restaurants, caf\u00e9s, and takeaways operating in Cyprus. Most of them have a Facebook page, a few Instagram posts, and maybe a listing on Tripadvisor. Very few have a proper website. That gap is an opportunity  -  and if your competitors are not taking it, you should.</p>
 
 <p>This is not about having a website for the sake of it. It is about the specific, measurable ways a restaurant website in Cyprus drives more covers, more reservations, and more revenue than a social media presence alone ever can.</p>
 
@@ -279,7 +279,7 @@ export const POSTS: BlogPost[] = [
 
 <p>First, the algorithm decides who sees your content. Organic reach on Facebook has declined by over 60% in the past five years. A post you spend an hour crafting might reach 3% of your followers. You are not in control of your own audience.</p>
 
-<p>Second, social media does not appear when someone searches Google for \u201crestaurants near me\u201d or \u201cbest taverna Limassol.\u201d These are the highest-intent searches in the food industry \u2014 people who are hungry, ready to book, and looking for somewhere to go right now. A Facebook page is invisible to them.</p>
+<p>Second, social media does not appear when someone searches Google for \u201crestaurants near me\u201d or \u201cbest taverna Limassol.\u201d These are the highest-intent searches in the food industry  -  people who are hungry, ready to book, and looking for somewhere to go right now. A Facebook page is invisible to them.</p>
 
 <p>Third, your account can be restricted, hacked, or banned with no warning. Restaurants that have built their entire online presence on a single platform have lost everything overnight. A website is an asset you own and control.</p>
 
@@ -287,7 +287,7 @@ export const POSTS: BlogPost[] = [
 
 <p>When someone searches \u201crestaurant Nicosia,\u201d \u201cseafood Limassol,\u201d or \u201cbreakfast caf\u00e9 Paphos,\u201d Google shows two types of results: the local pack (the map with three listings) and organic results (the blue links below). Both are driven by your website and your Google Business Profile working together.</p>
 
-<p>A restaurant with a fast, well-structured website that clearly states its cuisine, location, and opening hours will consistently outrank one that only has a Facebook page \u2014 even if the Facebook page has more followers. Google cannot read your Facebook posts the way it reads your website.</p>
+<p>A restaurant with a fast, well-structured website that clearly states its cuisine, location, and opening hours will consistently outrank one that only has a Facebook page  -  even if the Facebook page has more followers. Google cannot read your Facebook posts the way it reads your website.</p>
 
 <h2>What a Restaurant Website in Cyprus Actually Needs</h2>
 
@@ -299,27 +299,127 @@ export const POSTS: BlogPost[] = [
 
 <p><strong>Your location, hours, and contact details on every page.</strong> This sounds obvious, but a surprising number of restaurant websites bury this information. Google uses it to match your site to local searches. Customers use it to decide whether to visit. It should be impossible to miss.</p>
 
-<p><strong>Photos that make people hungry.</strong> You do not need a professional photographer for every shot, but you do need images that represent your food and atmosphere honestly and appetisingly. A website with no photos \u2014 or with blurry, poorly lit images \u2014 undermines trust before a customer has read a single word.</p>
+<p><strong>Photos that make people hungry.</strong> You do not need a professional photographer for every shot, but you do need images that represent your food and atmosphere honestly and appetisingly. A website with no photos  -  or with blurry, poorly lit images  -  undermines trust before a customer has read a single word.</p>
 
 <p><strong>A Google Maps embed and schema markup.</strong> Embedding a Google Map on your contact page and adding structured data (schema markup) to your site tells Google exactly where you are, what type of restaurant you are, and what your opening hours are. This directly improves your chances of appearing in the local pack.</p>
 
 <h2>The Tripadvisor Problem</h2>
 
-<p>Many restaurant owners in Cyprus rely heavily on Tripadvisor for online visibility. Tripadvisor is valuable \u2014 but it has the same fundamental problem as Facebook: you are building on someone else\u2019s platform, paying their fees, and subject to their rules.</p>
+<p>Many restaurant owners in Cyprus rely heavily on Tripadvisor for online visibility. Tripadvisor is valuable  -  but it has the same fundamental problem as Facebook: you are building on someone else\u2019s platform, paying their fees, and subject to their rules.</p>
 
-<p>More importantly, Tripadvisor listings rank in Google search results \u2014 but so do restaurant websites. A restaurant with a strong website can appear above its own Tripadvisor listing for branded searches, and appear in searches where Tripadvisor does not rank at all. You want both, not just one.</p>
+<p>More importantly, Tripadvisor listings rank in Google search results  -  but so do restaurant websites. A restaurant with a strong website can appear above its own Tripadvisor listing for branded searches, and appear in searches where Tripadvisor does not rank at all. You want both, not just one.</p>
 
 <h2>How Much Does a Restaurant Website Cost in Cyprus?</h2>
 
-<p>A professional restaurant website in Cyprus does not need to cost thousands of euros. At D&amp;M Labs, our restaurant websites start from <strong>\u20ac249</strong> for a Starter package \u2014 a fully custom, mobile-first site with your menu, photos, contact form, Google Maps integration, and SEO setup. Most restaurant sites are live within 5 to 7 days.</p>
+<p>A professional restaurant website in Cyprus does not need to cost thousands of euros. At D&amp;M Labs, our restaurant websites start from <strong>\u20ac249</strong> for a Starter package  -  a fully custom, mobile-first site with your menu, photos, contact form, Google Maps integration, and SEO setup. Most restaurant sites are live within 5 to 7 days.</p>
 
 <p>The Business package at \u20ac399 adds a blog or news section (useful for posting specials and events), a WhatsApp reservation button, and more advanced SEO. For restaurants that want online ordering or a full booking system, the Premium package at \u20ac699 covers everything.</p>
 
-<p>Every website we build is designed to work on mobile, load fast, and be found on Google. We handle the technical side completely \u2014 you provide your menu, photos, and opening hours, and we do the rest.</p>
+<p>Every website we build is designed to work on mobile, load fast, and be found on Google. We handle the technical side completely  -  you provide your menu, photos, and opening hours, and we do the rest.</p>
 
 <div class="blog-cta">
   <h3>Ready to get your restaurant online?</h3>
-  <p>Get in touch for a free consultation. We will review your current online presence and tell you exactly what your restaurant website needs \u2014 no jargon, no obligation.</p>
+  <p>Get in touch for a free consultation. We will review your current online presence and tell you exactly what your restaurant website needs - no jargon, no obligation.</p>
+  <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
+</div>
+    `,
+  },
+
+  // --- Article 6 ---
+  {
+    slug: "wix-vs-professional-web-designer-cyprus",
+    title: "Wix vs a Professional Web Designer: What Is Actually Better for Your Business in Cyprus?",
+    metaTitle: "Wix vs Professional Web Designer Cyprus | Honest Comparison",
+    metaDescription: "Wix or a professional web designer? We give you an honest, no-jargon answer for small business owners in Cyprus - and explain why the right choice depends on where you are in your business journey.",
+    date: "2026-04-23",
+    readTime: "7 min read",
+    category: "Web Design",
+    excerpt: "Wix, Squarespace, WordPress, or a professional web designer? Here is the honest answer for small business owners in Cyprus - no jargon, no sales pitch, just the truth.",
+    coverImage: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80",
+    content: `
+<p class="blog-lead">If you are a small business owner in Cyprus and you have started looking into getting a website, you have probably already come across Wix, Squarespace, or WordPress. They look easy. They look affordable. And they make a very convincing case for themselves. So the question is fair: do you actually need to hire a professional web designer, or can you just do it yourself?</p>
+<p class="blog-lead">This article gives you an honest answer. Not a sales pitch. Not a list of scary technical reasons to avoid DIY tools. Just a clear, plain-English comparison so you can make the right decision for your business.</p>
+
+<h2>What Are Website Builders, and What Do They Actually Offer?</h2>
+<p>Wix, Squarespace, Jimdo, and WordPress.com are all website builders. They are platforms that let you drag and drop elements onto a page, choose from pre-made templates, and publish a website without writing a single line of code. For many people, this sounds like the obvious choice.</p>
+<p>And to be fair, these tools have improved a lot. Wix in particular has become genuinely capable. You can build a decent-looking site, connect a domain, and get something live in a weekend. If you are a freelancer, a photographer, or someone testing a very early-stage idea, a website builder can absolutely be the right starting point.</p>
+<p>But here is what the ads do not tell you.</p>
+
+<h2>The Real Limitations of Wix and Website Builders</h2>
+
+<h3>You Are Building on Someone Else's Platform</h3>
+<p>When you build on Wix, you do not own your website. You rent space on Wix's platform. If Wix changes its pricing, changes its features, or shuts down a tool you rely on, you have no control. If you ever want to move your website to a different platform, you cannot simply export it. You start from scratch. For a business that is serious about its long-term online presence, this is a significant risk.</p>
+
+<h3>SEO Has Real Limitations</h3>
+<p>Search engine optimisation - getting your business to appear on Google - is one of the most important things a website does for a local business in Cyprus. Wix has improved its SEO tools considerably, but it still has structural limitations that professional developers do not have. Page loading speed, code quality, schema markup, and the ability to fully customise technical SEO elements are all restricted on Wix. For a business that wants to rank for searches like "web design Limassol" or "hair salon Nicosia", these limitations matter.</p>
+
+<h3>Templates Look Like Templates</h3>
+<p>Wix has hundreds of templates. They are all designed to look good in a screenshot. But when you start filling them with your own content - your actual photos, your real service descriptions, your specific layout needs - the template often starts to fight you. You end up with a website that looks like a Wix website, not like your business. Customers notice this, even if they cannot articulate why. A generic template communicates a generic business.</p>
+
+<h3>Your Time Has a Cost</h3>
+<p>Wix is marketed as easy. And for someone who enjoys this kind of thing, it can be. But for most business owners, building a website is not easy - it is a steep, frustrating learning curve. You spend hours figuring out why things do not align, why the mobile version looks different from the desktop version, why your images are blurry, and why your contact form is not sending emails. That time has a real cost. Every hour you spend fighting a website builder is an hour you are not running your business.</p>
+
+<h2>What About WordPress?</h2>
+<p>WordPress deserves its own mention because it is in a different category from Wix. WordPress.org (the self-hosted version) is the platform that powers roughly 40% of all websites on the internet. It is powerful, flexible, and genuinely excellent when used properly.</p>
+<p>The catch is that "used properly" requires real technical knowledge. You need to choose and pay for hosting, install WordPress, choose a theme, install plugins, keep everything updated, manage security, and troubleshoot problems when they arise. A poorly built WordPress site is actually worse than a well-built Wix site - it is slower, less secure, and harder to maintain.</p>
+<p>WordPress is a tool for professionals. In the hands of a skilled web designer, it produces outstanding results. In the hands of a business owner who just wants a website, it often produces frustration and an outdated site that nobody updates.</p>
+
+<h2>What a Professional Web Designer Actually Does Differently</h2>
+<p>This is the part that matters most, and it is the part that rarely gets talked about clearly.</p>
+<p>A professional web designer does not just make your website look nice. They build something that is designed specifically for your business, your customers, and your goals. Here is what that actually means in practice.</p>
+
+<h3>Your Website Is Built Around You - Not a Template</h3>
+<p>When you work with a professional, the design starts from your brand, your colours, your personality, and your customers. If you have a clear vision, they build it. If you are not sure what you want, they sit with you, ask the right questions, and translate your business into a design that feels right. You are not picking from a dropdown menu of options. You are getting something made for you.</p>
+
+<h3>SEO Is Built In from the Start</h3>
+<p>A professionally built website for a business in Cyprus is structured from the ground up to be found on Google. That means the right page titles, the right headings, the right keywords in the right places, fast loading speeds, mobile-first design, and proper technical foundations. You do not need to understand any of this. It is just done correctly, from day one.</p>
+
+<h3>You Do Not Need to Know Anything Technical</h3>
+<p>This is one of the most important things we want to say clearly. When you work with a good web designer, you do not need to understand hosting, or SSL certificates, or image compression, or meta tags, or any of it. You bring your business. You bring your photos, your story, your services, and your goals. The designer handles everything else. You are not expected to become a web developer. You are expected to be the expert on your own business - and that is exactly what you already are.</p>
+
+<h3>You Get Revisions - Real Ones</h3>
+<p>A professional web design process includes revision rounds. You see the work, you give feedback, and changes are made until it is right. This is a conversation, not a transaction. You are not left alone with a template wondering why nothing looks the way you imagined.</p>
+
+<h3>Someone Is There When You Need Changes</h3>
+<p>Your business changes. Your prices change. You add a new service. You move location. You want to add a new photo. With a DIY website, every one of these updates is your problem to figure out. With a professional web designer, you send a message and it gets done. Your website stays current, accurate, and relevant - without you having to touch it.</p>
+
+<h3>Your Website Does Not Become Outdated</h3>
+<p>One of the most common problems we see in Cyprus is businesses with websites that were built three or four years ago and never touched since. Outdated photos. Old prices. A contact number that no longer works. An outdated website does not just fail to attract customers - it actively damages trust. A professional relationship means someone is watching over your site and keeping it alive.</p>
+
+<h2>So When Does Wix Make Sense?</h2>
+<p>To be completely honest: Wix makes sense in a few specific situations.</p>
+<p>If you are at the very beginning of a business idea and you genuinely need something online this week with zero budget, a Wix site is better than nothing. If you are a one-person creative business - a photographer, a graphic designer, an artist - and you enjoy building things yourself, Wix can work well for a portfolio site. If you are testing a concept before committing to a full build, a temporary Wix page is a reasonable placeholder.</p>
+<p>But for an established small business in Cyprus that wants to grow, attract new customers through Google, and present itself professionally - a DIY website builder is a short-term solution that creates long-term limitations.</p>
+
+<h2>The Cost Comparison: What You Actually Pay</h2>
+<table class="blog-table">
+  <thead>
+    <tr><th>Option</th><th>Upfront Cost</th><th>Annual Cost</th><th>Your Time</th><th>SEO Potential</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Wix (Business plan)</td><td>€0</td><td>€180 - €300/yr</td><td>20-40 hours to build</td><td>Limited</td></tr>
+    <tr><td>Squarespace</td><td>€0</td><td>€180 - €360/yr</td><td>15-30 hours to build</td><td>Limited</td></tr>
+    <tr><td>WordPress (self-hosted)</td><td>€50 - €150 setup</td><td>€80 - €200/yr hosting</td><td>40+ hours, ongoing</td><td>Excellent (if done right)</td></tr>
+    <tr><td>D&M Labs Starter</td><td>€299 one-time</td><td>€0 (hosting not included)</td><td>1-2 hours of your input</td><td>Strong from day one</td></tr>
+    <tr><td>D&M Labs Business</td><td>€399 one-time</td><td>€0 (hosting not included)</td><td>2-3 hours of your input</td><td>Strong from day one</td></tr>
+  </tbody>
+</table>
+<p>When you factor in your time, the ongoing subscription costs of website builders, and the SEO limitations that cost you customers you never knew you were missing, a professionally built website from €299 is often the more economical choice over a two to three year period.</p>
+
+<h2>What the D&M Labs Process Looks Like</h2>
+<p>We want to be specific about what working with us actually involves, because we think the process matters as much as the result.</p>
+<p>It starts with a free consultation - a conversation where we learn about your business, your customers, and what you want your website to do. No jargon, no technical questions you cannot answer. Just a conversation about your business.</p>
+<p>From there, we handle the design, the build, the SEO setup, and the launch. You review the work and give us feedback. We make revisions until it is right. The whole process, from first conversation to live website, takes between 5 and 14 days depending on the package.</p>
+<p>After launch, we are still here. If you need to update your prices, add a new service, or change a photo, you contact us and we sort it. You do not need to log into anything, learn any platform, or worry about breaking something.</p>
+<p>That is the difference. Not just a better website - a better experience of having a website.</p>
+
+<h2>The Honest Summary</h2>
+<p>Wix is a capable tool that works well for specific situations. For a small business in Cyprus that wants to be found on Google, look professional, and not spend hours managing a platform, a professional web designer is the better investment. Not because DIY tools are bad, but because your time and your business deserve something built specifically for you.</p>
+<p>You do not need to understand websites. You just need to understand your business. That is your job. Building the website is ours.</p>
+
+<div class="blog-cta">
+  <h3>Ready to talk about your website?</h3>
+  <p>Get in touch for a free, no-obligation consultation. We will listen to what you need, give you an honest recommendation, and tell you exactly what your website will cost - no surprises.</p>
   <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
 </div>
     `,
