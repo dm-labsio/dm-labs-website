@@ -7,7 +7,7 @@ import { useHreflang } from "@/hooks/useHreflang";
 
 export default function WixVsDesignerEl() {
   useSEO({
-    title: "Wix ή Επαγγελματίας Web Designer; Τι Συμφέρει στην Κύπρο | D&M Labs",
+    title: "Wix ή Επαγγελματίας Κατασκευή Ιστοσελίδαςer; Τι Συμφέρει στην Κύπρο | D&M Labs",
     description: "Μια ειλικρινής σύγκριση Wix, WordPress και επαγγελματικής κατασκευής ιστοσελίδας για επιχειρήσεις στην Κύπρο. Πότε συμφέρει το καθένα.",
     canonicalPath: "/el/blog/wix-vs-epaggelmatias-web-designer-kypros"
   });
@@ -18,7 +18,7 @@ export default function WixVsDesignerEl() {
       <article className="container max-w-3xl mx-auto py-16 px-4">
 
         <div className="mb-8">
-          <Link href="/el/blog" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Blog</Link>
+          <Link href="/el/blog" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Άρθρα</Link>
         </div>
 
         <header className="mb-10">
@@ -28,7 +28,7 @@ export default function WixVsDesignerEl() {
             <span className="text-xs text-[#9CA3AF]">7 λεπτά ανάγνωση</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#111315] leading-tight mb-4">
-            Wix ή Επαγγελματίας Web Designer; Τι Συμφέρει την Επιχείρησή σου στην Κύπρο
+            Wix ή Επαγγελματίας Κατασκευή Ιστοσελίδαςer; Τι Συμφέρει την Επιχείρησή σου στην Κύπρο
           </h1>
           <p className="text-lg text-[#5B6472] leading-relaxed">
             Αν ψάχνετε να φτιάξετε ιστοσελίδα για την επιχείρησή σας στην Κύπρο, σίγουρα έχετε αναρωτηθεί: να πάω σε Wix ή να πληρώσω κάποιον επαγγελματία; Εδώ είναι η ειλικρινής απάντηση.
@@ -89,7 +89,7 @@ export default function WixVsDesignerEl() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι Σημαίνει "Επαγγελματίας Web Designer" στην Πράξη</h2>
+            <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι Σημαίνει "Επαγγελματίας Κατασκευή Ιστοσελίδαςer" στην Πράξη</h2>
             <p className="leading-relaxed mb-4">
               Όταν δουλεύετε με επαγγελματία, δεν πληρώνετε απλά για κώδικα. Πληρώνετε για:
             </p>

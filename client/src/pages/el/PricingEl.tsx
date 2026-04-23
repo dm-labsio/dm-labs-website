@@ -1,11 +1,10 @@
 /* ============================================================
-   D&M LABS - Τιμές Page
-   3 tiers: Starter €299 / Business €399 (recommended) / Premium €699
-   Add-ons + 2 maintenance tiers (Essential €39 / Premium €59)
-   Bundle deal: €50 off build when signing up for maintenance at same time.
+   D&M LABS - Σελίδα Τιμών (Greek)
+   3 πακέτα: Starter €299 / Business €399 (προτεινόμενο) / Premium €699
+   Extras + 2 επίπεδα συντήρησης (Essential €39 / Premium €59)
+   Προσφορά bundle: €50 έκπτωση στην κατασκευή με ταυτόχρονη εγγραφή σε συντήρηση.
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
-import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import { CheckCircle2, X, MessageCircle, ArrowRight, HelpCircle, Languages, CalendarCheck, Bell, Accessibility, Tag, Zap, Globe, Users, Headphones } from "lucide-react";
 
@@ -13,39 +12,39 @@ const GRADIENT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
 const comparison = [
-  { feature: "Custom-designed pages", starter: "1 page", business: "Up to 5", pro: "Up to 7" },
+  { feature: "Σελίδες custom σχεδιασμού", starter: "1 σελίδα", business: "Έως 5", pro: "Έως 7" },
   { feature: "Mobile responsive", starter: true, business: true, pro: true },
   { feature: "Κουμπί WhatsApp", starter: true, business: true, pro: true },
   { feature: "Σύνδεσμοι social media", starter: true, business: true, pro: true },
   { feature: "Accessibility widget", starter: true, business: true, pro: true },
-  { feature: "Contact form", starter: false, business: true, pro: true },
-  { feature: "Booking form", starter: false, business: true, pro: true },
+  { feature: "Φόρμα επικοινωνίας", starter: false, business: true, pro: true },
+  { feature: "Φόρμα κρατήσεων", starter: false, business: true, pro: true },
   { feature: "Google Maps", starter: false, business: true, pro: true },
   { feature: "Ενότητα testimonials", starter: false, business: true, pro: true },
   { feature: "Βασική SEO βελτιστοποίηση", starter: false, business: true, pro: true },
   { feature: "Google Reviews widget", starter: false, business: true, pro: true },
-  { feature: "Speed optimisation", starter: false, business: true, pro: true },
+  { feature: "Βελτιστοποίηση ταχύτητας", starter: false, business: true, pro: true },
   { feature: "Gallery", starter: false, business: false, pro: true },
   { feature: "Custom animations", starter: false, business: false, pro: true },
   { feature: "5 SEO blog άρθρα", starter: false, business: false, pro: true },
   { feature: "Πλήρης meta/SEO δομή", starter: false, business: false, pro: true },
   { feature: "Pop-up included", starter: false, business: false, pro: true },
-  { feature: "Revision rounds", starter: "2 rounds", business: "3 rounds", pro: "5 rounds" },
-  { feature: "Delivery time", starter: "5-7 days", business: "7-10 days", pro: "10-14 days" },
+  { feature: "Γύροι αναθεωρήσεων", starter: "2 γύροι", business: "3 γύροι", pro: "5 γύροι" },
+  { feature: "Χρόνος παράδοσης", starter: "5-7 μέρες", business: "7-10 μέρες", pro: "10-14 μέρες" },
 ];
 
 const addons = [
-  { icon: Languages, label: "Multilingual - 2 languages", price: "€80" },
-  { icon: Languages, label: "Multilingual - up to 4 languages", price: "€150" },
-  { icon: CalendarCheck, label: "Booking / reservation redirect (Calendly, Wolt, etc.)", price: "€30" },
-  { icon: Bell, label: "Pop-up (promo, announcement, cookie notice)", price: "€40" },
-  { icon: Accessibility, label: "Full WCAG 2.1 AA accessibility audit", price: "€40" },
+  { icon: Languages, label: "Πολύγλωσση ιστοσελίδα - 2 γλώσσες", price: "€80" },
+  { icon: Languages, label: "Πολύγλωσση ιστοσελίδα - έως 4 γλώσσες", price: "€150" },
+  { icon: CalendarCheck, label: "Ανακατεύθυνση κρατήσεων (Calendly, Wolt κ.ά.)", price: "€30" },
+  { icon: Bell, label: "Pop-up (προσφορά, ανακοίνωση, cookie notice)", price: "€40" },
+  { icon: Accessibility, label: "Πλήρης έλεγχος προσβασιμότητας WCAG 2.1 AA", price: "€40" },
 ];
 
-export default function ΤιμέςEl() {
+export default function PricingEl() {
   useSEO({
     title: "Τιμές Κατασκευής Ιστοσελίδας | D&M Labs",
-    description: "Transparent website pricing for businesses in Cyprus. Starter from €299, Business €399, Premium €699. No hidden fees.",
+    description: "Διαφανείς τιμές κατασκευής ιστοσελίδας για επιχειρήσεις στην Κύπρο και Ελλάδα. Starter από €299, Business €399, Premium €699. Χωρίς κρυφές χρεώσεις.",
   });
   return (
     <>
@@ -58,10 +57,10 @@ export default function ΤιμέςEl() {
           <AnimateIn>
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Διαφανείς Τιμές</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              Simple, <span className="brand-gradient-text">Honest Τιμές</span>
+              Απλές, <span className="brand-gradient-text">Ειλικρινείς Τιμές</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-5">
-              No hidden fees. No surprises. Choose the package that fits your business - every plan includes a δωρεάν συμβουλευτική.
+              Χωρίς κρυφές χρεώσεις. Χωρίς εκπλήξεις. Επιλέξτε το πακέτο που ταιριάζει στην επιχείρησή σας - κάθε πλάνο περιλαμβάνει δωρεάν συμβουλευτική.
             </p>
           </AnimateIn>
         </div>
@@ -85,14 +84,14 @@ export default function ΤιμέςEl() {
             <div className="flex items-center justify-center gap-3 flex-wrap text-center">
               <Tag size={18} className="text-[#5B8CFF] shrink-0" />
               <p className="text-sm font-semibold text-[#111315]">
-                Bundle Deal: Add a monthly maintenance plan at checkout and get <span className="text-[#5B8CFF]">€50 off your build price</span> - εφάπαξ discount, applied once at the start.
+                Προσφορά Bundle: Προσθέστε μηνιαίο πλάνο συντήρησης και κερδίστε <span className="text-[#5B8CFF]">€50 έκπτωση στην κατασκευή</span> - εφάπαξ έκπτωση, που εφαρμόζεται μία φορά στην αρχή.
               </p>
             </div>
           </AnimateIn>
         </div>
       </section>
 
-      {/* Τιμές Cards */}
+      {/* Κάρτες Τιμών */}
       <section className="section-spacing bg-white">
         <div className="container">
 
@@ -148,12 +147,12 @@ export default function ΤιμέςEl() {
                       {[
                         "Έως 5 σελίδες",
                         "Mobile responsive",
-                        "Κουμπί WhatsApp + social media",
-                        "Φόρμα επικοινωνίας + κρατήσεων",
+                        "Κουμπί WhatsApp + σύνδεσμοι social media",
+                        "Φόρμα επικοινωνίας + φόρμα κρατήσεων",
                         "Google Maps + Reviews widget",
                         "Ενότητα testimonials",
                         "Βασική SEO βελτιστοποίηση",
-                        "Speed optimisation",
+                        "Βελτιστοποίηση ταχύτητας",
                         "Accessibility widget (δωρεάν)",
                         "3 γύροι αναθεωρήσεων",
                         "Παράδοση σε 7-10 μέρες",
@@ -187,13 +186,13 @@ export default function ΤιμέςEl() {
                     "Έως 7 σελίδες",
                     "Πλήρως custom σχεδιασμός + animations",
                     "Mobile responsive",
-                    "Κουμπί WhatsApp + social media",
-                    "Φόρμα επικοινωνίας + κρατήσεων",
+                    "Κουμπί WhatsApp + σύνδεσμοι social media",
+                    "Φόρμα επικοινωνίας + φόρμα κρατήσεων",
                     "Google Maps + Reviews widget",
                     "Testimonials + gallery",
                     "5 SEO blog άρθρα",
                     "Πλήρης meta/SEO δομή",
-                    "Speed optimisation",
+                    "Βελτιστοποίηση ταχύτητας",
                     "Pop-up included",
                     "Accessibility widget (δωρεάν)",
                     "5 γύροι αναθεωρήσεων",
@@ -225,7 +224,7 @@ export default function ΤιμέςEl() {
                   <p className="text-4xl font-bold text-white mb-1">Custom</p>
                   <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Τιμολόγηση προσαρμοσμένη στο project σας</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-                    Για μεγαλύτερες επιχειρήσεις και οργανισμούς που χρειάζονται πλήρως custom λύση.
+                    Για μεγαλύτερες επιχειρήσεις, εταιρείες με πολλαπλές τοποθεσίες και οργανισμούς που χρειάζονται πλήρως custom λύση σχεδιασμένη γύρω από τους στόχους τους.
                   </p>
                   <a
                     href="/el/contact"
@@ -247,7 +246,7 @@ export default function ΤιμέςEl() {
                     { icon: CalendarCheck, label: "CRM και ενσωματώσεις κρατήσεων" },
                     { icon: Languages, label: "Υποστήριξη πολλαπλών γλωσσών" },
                     { icon: Users, label: "Αφοσιωμένος project manager" },
-                    { icon: Headphones, label: "Priority support και παράδοση" },
+                    { icon: Headphones, label: "Προτεραιότητα υποστήριξης και παράδοσης" },
                     { icon: ArrowRight, label: "Επιλογή ongoing retainer" },
                     { icon: CheckCircle2, label: "Custom SEO και στρατηγική περιεχομένου" },
                   ].map(({ icon: Icon, label }) => (
@@ -264,25 +263,25 @@ export default function ΤιμέςEl() {
 
           <AnimateIn delay={0.5} className="text-center mt-8">
             <p className="text-sm text-[#5B6472]">
-              Όλα τα πλάνα περιλαμβάνουν <span className="font-semibold text-[#111315]">δωρεάν συμβουλευτική</span> - χωρίς δέσμευση, χωρίς πίεση. Just a friendly chat about your business.
+              Όλα τα πλάνα περιλαμβάνουν <span className="font-semibold text-[#111315]">δωρεάν συμβουλευτική</span> - χωρίς δέσμευση, χωρίς πίεση. Απλά μια φιλική συζήτηση για την επιχείρησή σας.
             </p>
             <p className="text-sm text-[#5B6472] mt-3 flex items-center justify-center gap-2">
-              Prefer to chat directly?{" "}
+              Προτιμάτε να μιλήσετε απευθείας;{" "}
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline inline-flex items-center gap-1">
-                Message us on WhatsApp <ArrowRight size={14} />
+                Στείλτε μήνυμα στο WhatsApp <ArrowRight size={14} />
               </a>
             </p>
           </AnimateIn>
         </div>
       </section>
 
-      {/* Add-ons */}
+      {/* Extras */}
       <section className="section-spacing">
         <div className="container max-w-3xl">
           <AnimateIn className="text-center mb-12">
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Optional Extras</p>
-            <h2 className="text-3xl font-bold text-[#111315] mb-4">Add-Ons</h2>
-            <p className="text-[#5B6472]">Enhance your website with these optional features, available for any plan.</p>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Προαιρετικά Extras</p>
+            <h2 className="text-3xl font-bold text-[#111315] mb-4">Πρόσθετες Υπηρεσίες</h2>
+            <p className="text-[#5B6472]">Εμπλουτίστε την ιστοσελίδα σας με αυτές τις προαιρετικές λειτουργίες, διαθέσιμες για οποιοδήποτε πλάνο.</p>
           </AnimateIn>
           <StaggerContainer className="space-y-3">
             {addons.map((a) => (
@@ -303,9 +302,9 @@ export default function ΤιμέςEl() {
             <div className="dm-card !p-5 flex items-start gap-4 border-[#5B8CFF]/20 bg-[#5B8CFF]/[0.03]">
               <Accessibility size={20} className="text-[#5B8CFF] shrink-0 mt-0.5" />
               <div>
-                <p className="text-sm font-semibold text-[#111315] mb-1">Accessibility included in every plan</p>
+                <p className="text-sm font-semibold text-[#111315] mb-1">Προσβασιμότητα σε κάθε πλάνο</p>
                 <p className="text-xs text-[#5B6472] leading-relaxed">
-                  Every website we build includes a basic <strong>accessibility widget</strong> at no extra cost - covering font size controls, contrast adjustments, and keyboard navigation. For businesses that need a full WCAG 2.1 AA audit and compliance certificate, we offer this as a €40 add-on.
+                  Κάθε ιστοσελίδα που φτιάχνουμε περιλαμβάνει βασικό <strong>accessibility widget</strong> χωρίς επιπλέον κόστος - με έλεγχο μεγέθους γραμματοσειράς, ρύθμιση αντίθεσης και πλοήγηση με πληκτρολόγιο. Για επιχειρήσεις που χρειάζονται πλήρη έλεγχο WCAG 2.1 AA και πιστοποιητικό συμμόρφωσης, το προσφέρουμε ως πρόσθετο €40.
                 </p>
               </div>
             </div>
@@ -313,13 +312,13 @@ export default function ΤιμέςEl() {
         </div>
       </section>
 
-      {/* Maintenance */}
+      {/* Μηνιαία Συντήρηση */}
       <section id="maintenance" className="section-spacing bg-white">
         <div className="container max-w-4xl">
           <AnimateIn className="text-center mb-4">
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Keep It Fresh</p>
-            <h2 className="text-3xl font-bold text-[#111315] mb-4">Monthly Maintenance</h2>
-            <p className="text-[#5B6472] max-w-xl mx-auto">Your website is a living thing. Keep it updated, fast, and relevant with one of our maintenance plans.</p>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Κρατήστε την Ενημερωμένη</p>
+            <h2 className="text-3xl font-bold text-[#111315] mb-4">Μηνιαία Συντήρηση</h2>
+            <p className="text-[#5B6472] max-w-xl mx-auto">Η ιστοσελίδα σας είναι ζωντανό πράγμα. Κρατήστε την ενημερωμένη, γρήγορη και σχετική με ένα από τα πλάνα συντήρησής μας.</p>
           </AnimateIn>
 
           {/* Bundle reminder */}
@@ -327,7 +326,7 @@ export default function ΤιμέςEl() {
             <div className="max-w-2xl mx-auto flex items-start gap-3 bg-[#EEF3FF] border border-[#5B8CFF]/20 rounded-xl px-5 py-4">
               <Tag size={18} className="text-[#5B8CFF] shrink-0 mt-0.5" />
               <p className="text-sm text-[#111315]">
-                <span className="font-semibold">Bundle deal:</span> Sign up for any maintenance plan together with your website build and get <span className="font-semibold text-[#5B8CFF]">€50 off your build price</span>. This is a εφάπαξ discount applied at the start - your monthly plan continues at the regular rate afterwards. Cancel anytime, no long-term contract.
+                <span className="font-semibold">Προσφορά bundle:</span> Εγγραφείτε σε οποιοδήποτε μηνιαίο πλάνο συντήρησης ταυτόχρονα με την κατασκευή της ιστοσελίδας σας και κερδίστε <span className="font-semibold text-[#5B8CFF]">€50 έκπτωση στην κατασκευή</span>. Πρόκειται για εφάπαξ έκπτωση που εφαρμόζεται στην αρχή - το μηνιαίο πλάνο συνεχίζεται στην κανονική τιμή. Ακύρωση ανά πάσα στιγμή, χωρίς μακροχρόνιο συμβόλαιο.
               </p>
             </div>
           </AnimateIn>
@@ -341,14 +340,20 @@ export default function ΤιμέςEl() {
                   <span className="text-sm text-[#5B6472]">/μήνα</span>
                 </div>
                 <ul className="space-y-3 flex-1">
-                  {["Up to 3 content updates/μήνα", "Text, images, prices and hours", "Hosting and uptime monitoring", "WhatsApp support (48h response)", "Monthly backup"].map((f) => (
+                  {[
+                    "Έως 3 ενημερώσεις περιεχομένου/μήνα",
+                    "Κείμενα, εικόνες, τιμές και ωράρια",
+                    "Παρακολούθηση hosting και διαθεσιμότητας",
+                    "Υποστήριξη WhatsApp (απάντηση 48ω)",
+                    "Μηνιαίο backup",
+                  ].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={15} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}
                     </li>
                   ))}
                 </ul>
-                <a href="/el/contact" className="btn-secondary w-full justify-center mt-6">Choose Essential</a>
+                <a href="/el/contact" className="btn-secondary w-full justify-center mt-6">Επιλέξτε Essential</a>
               </div>
             </AnimateIn>
             <AnimateIn delay={0.3}>
@@ -360,14 +365,22 @@ export default function ΤιμέςEl() {
                     <span className="text-sm text-[#5B6472]">/μήνα</span>
                   </div>
                   <ul className="space-y-3 flex-1">
-                    {["Unlimited content updates", "Priority WhatsApp response", "Monthly performance check", "Seasonal banners and promotions", "New section additions", "Hosting and uptime monitoring", "Monthly backup"].map((f) => (
+                    {[
+                      "Απεριόριστες ενημερώσεις περιεχομένου",
+                      "Προτεραιότητα απόκρισης WhatsApp",
+                      "Μηνιαίος έλεγχος απόδοσης",
+                      "Εποχιακά banners και προσφορές",
+                      "Προσθήκη νέων ενοτήτων",
+                      "Παρακολούθηση hosting και διαθεσιμότητας",
+                      "Μηνιαίο backup",
+                    ].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <a href="/el/contact" className="btn-primary w-full justify-center mt-6">Choose Premium</a>
+                  <a href="/el/contact" className="btn-primary w-full justify-center mt-6">Επιλέξτε Premium</a>
                 </div>
               </div>
             </AnimateIn>
@@ -375,18 +388,18 @@ export default function ΤιμέςEl() {
         </div>
       </section>
 
-      {/* Comparison Table */}
+      {/* Πίνακας Σύγκρισης */}
       <section className="section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#111315] mb-4">Compare Plans</h2>
+            <h2 className="text-3xl font-bold text-[#111315] mb-4">Σύγκριση Πλάνων</h2>
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <div className="overflow-x-auto rounded-2xl border border-[#E8EAF0] max-w-4xl mx-auto">
               <table className="text-sm" style={{ minWidth: '480px', width: '100%' }}>
                 <thead>
                   <tr className="border-b border-[#E8EAF0]">
-                    <th className="text-left py-4 px-4 font-semibold text-[#111315]" style={{ minWidth: '160px' }}>Feature</th>
+                    <th className="text-left py-4 px-4 font-semibold text-[#111315]" style={{ minWidth: '160px' }}>Χαρακτηριστικό</th>
                     <th className="py-4 px-4 font-semibold text-[#5B8CFF] text-center" style={{ minWidth: '80px' }}>Starter<br /><span className="font-normal text-xs text-[#5B6472]">€299</span></th>
                     <th className="py-4 px-4 font-semibold text-[#8B5CFF] text-center bg-[#8B5CFF]/[0.03]" style={{ minWidth: '80px' }}>Business<br /><span className="font-normal text-xs text-[#5B6472]">€399</span></th>
                     <th className="py-4 px-4 font-semibold text-center" style={{ minWidth: '80px', color: '#6B3FD4' }}>Premium<br /><span className="font-normal text-xs text-[#5B6472]">€699</span></th>
@@ -426,22 +439,22 @@ export default function ΤιμέςEl() {
         </div>
       </section>
 
-      {/* FAQ Preview */}
+      {/* Συχνές Ερωτήσεις */}
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl">
           <AnimateIn className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#111315] mb-4">Common Questions</h2>
+            <h2 className="text-3xl font-bold text-[#111315] mb-4">Συχνές Ερωτήσεις</h2>
           </AnimateIn>
           <StaggerContainer className="space-y-4">
             {[
-              { q: "Can I see a preview before paying?", a: "Yes. We always share a design preview for your approval before we proceed to development. You won't pay a penny until you're happy with the direction." },
-              { q: "Can I upgrade my plan later?", a: "Absolutely. If you start with the Starter plan and later decide you need more pages or features, we can upgrade your site at any time. You only pay the difference." },
-              { q: "Υπάρχουν κρυφές χρεώσεις;", a: "No. The price you see is the price you pay. Hosting and domain costs are separate (typically €10-15/μήνα) but we will explain everything upfront." },
-              { q: "What is the maintenance bundle deal?", a: "If you sign up for any monthly maintenance plan at the same time as your website build, you get €50 off your build price. This is a εφάπαξ discount - your monthly plan continues at the regular rate afterwards. You can cancel the maintenance plan at any time with no penalty." },
-              { q: "Τι γίνεται αν χρειαστώ αλλαγές μετά το launch;", a: "Small text changes are free for the first month. After that, our maintenance plans cover ongoing updates, or you can request individual changes at an agreed rate." },
-              { q: "Do I own my website?", a: "Yes, 100%. Once paid, the website and all its content belong to you." },
-              { q: "Is the consultation really free?", a: "Absolutely. We start with a no-pressure WhatsApp chat to understand your business and recommend the right package. No commitment required." },
-              { q: "What counts as an Enterprise project?", a: "Enterprise is for businesses that need more than το πρότυπό μας packages can offer - think multi-page builds with custom integrations, CRM connections, multi-language support, or organisations that want a dedicated project manager and ongoing retainer. If you're unsure, just contact us and we'll advise honestly." },
+              { q: "Μπορώ να δω προεπισκόπηση πριν πληρώσω;", a: "Ναι. Πάντα μοιραζόμαστε μια προεπισκόπηση σχεδιασμού για έγκρισή σας πριν προχωρήσουμε στην ανάπτυξη. Δεν θα πληρώσετε ούτε ένα ευρώ μέχρι να είστε ικανοποιημένοι με την κατεύθυνση." },
+              { q: "Μπορώ να αναβαθμίσω το πλάνο μου αργότερα;", a: "Φυσικά. Αν ξεκινήσετε με το Starter πλάνο και αργότερα αποφασίσετε ότι χρειάζεστε περισσότερες σελίδες ή λειτουργίες, μπορούμε να αναβαθμίσουμε την ιστοσελίδα σας ανά πάσα στιγμή. Πληρώνετε μόνο τη διαφορά." },
+              { q: "Υπάρχουν κρυφές χρεώσεις;", a: "Όχι. Η τιμή που βλέπετε είναι η τιμή που πληρώνετε. Τα κόστη hosting και domain είναι ξεχωριστά (συνήθως €10-15/μήνα) αλλά θα σας εξηγήσουμε τα πάντα εκ των προτέρων." },
+              { q: "Τι είναι η προσφορά bundle συντήρησης;", a: "Αν εγγραφείτε σε οποιοδήποτε μηνιαίο πλάνο συντήρησης ταυτόχρονα με την κατασκευή της ιστοσελίδας σας, κερδίζετε €50 έκπτωση στην κατασκευή. Πρόκειται για εφάπαξ έκπτωση - το μηνιαίο πλάνο συνεχίζεται στην κανονική τιμή. Μπορείτε να ακυρώσετε το πλάνο συντήρησης ανά πάσα στιγμή χωρίς ποινή." },
+              { q: "Τι γίνεται αν χρειαστώ αλλαγές μετά το launch;", a: "Μικρές αλλαγές κειμένου είναι δωρεάν για τον πρώτο μήνα. Μετά από αυτό, τα πλάνα συντήρησής μας καλύπτουν συνεχείς ενημερώσεις, ή μπορείτε να ζητήσετε μεμονωμένες αλλαγές σε συμφωνημένη τιμή." },
+              { q: "Είναι δική μου η ιστοσελίδα;", a: "Ναι, 100%. Μόλις πληρωθεί, η ιστοσελίδα και όλο το περιεχόμενό της ανήκουν σε εσάς." },
+              { q: "Είναι πραγματικά δωρεάν η συμβουλευτική;", a: "Απολύτως. Ξεκινάμε με μια χαλαρή συνομιλία στο WhatsApp για να κατανοήσουμε την επιχείρησή σας και να προτείνουμε το κατάλληλο πακέτο. Χωρίς δέσμευση." },
+              { q: "Τι θεωρείται Enterprise project;", a: "Το Enterprise αφορά επιχειρήσεις που χρειάζονται κάτι πέρα από τα τυπικά μας πακέτα - σκεφτείτε multi-page builds με custom ενσωματώσεις, CRM συνδέσεις, υποστήριξη πολλαπλών γλωσσών, ή οργανισμούς που θέλουν αφοσιωμένο project manager και ongoing retainer. Αν δεν είστε σίγουροι, απλά επικοινωνήστε μαζί μας και θα σας συμβουλεύσουμε ειλικρινά." },
             ].map((item) => (
               <StaggerItem key={item.q}>
                 <div className="dm-card !p-6">
@@ -463,14 +476,14 @@ export default function ΤιμέςEl() {
       <section className="section-spacing">
         <div className="container max-w-3xl text-center">
           <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-5">Ready to get started?</h2>
-            <p className="text-lg text-[#5B6472] mb-8">Book a δωρεάν συμβουλευτική and we'll recommend the right plan for your business.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-5">Έτοιμοι να ξεκινήσετε;</h2>
+            <p className="text-lg text-[#5B6472] mb-8">Κλείστε δωρεάν συμβουλευτική και θα σας προτείνουμε το κατάλληλο πλάνο για την επιχείρησή σας.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/el/contact" className="btn-primary">
-                <MessageCircle size={18} /> Book Free Consultation
+                <MessageCircle size={18} /> Κλείστε Δωρεάν Συμβουλευτική
               </a>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">
-                WhatsApp Us
+                WhatsApp
               </a>
             </div>
           </AnimateIn>

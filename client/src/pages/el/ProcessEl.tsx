@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS - Process Page
+   D&M LABS - Διαδικασία Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    Σχεδιασμός: Airy vertical timeline - no step numbers, large icons,
            generous breathing room between each stage
@@ -16,10 +16,10 @@ const steps = [
   {
     step: "01",
     icon: MessageCircle,
-    title: "Discovery Call",
+    title: "Αρχική Κλήση",
     time: "~1 μέρα",
-    desc: "We start with a quick WhatsApp chat. Tell us about your business, what you need, and your goals. No technical jargon - just a friendly conversation.",
-    details: ["15-20 minute WhatsApp call", "We learn about your business", "You tell us what you need", "We recommend the best package"],
+    desc: "We start with a quick WhatsApp chat. Tell us about η επιχείρησή σας, what you need, and your goals. No technical jargon - just a friendly conversation.",
+    details: ["15-20 minute WhatsApp call", "We learn about η επιχείρησή σας", "You tell us what you need", "We recommend the best package"],
     color: "#5B8CFF",
   },
   {
@@ -28,7 +28,7 @@ const steps = [
     title: "Secure Your Spot",
     time: "Same day",
     desc: "Once we agree on the scope and price, you pay and we begin work immediately. Simple, transparent, no surprises.",
-    details: ["Clear pricing - no hidden fees", "Pay once, own it forever", "Work begins immediately", "Secure payment options"],
+    details: ["Clear pricing - χωρίς κρυφές χρεώσεις", "Pay once, own it forever", "Work begins immediately", "Secure payment options"],
     color: "#6FE3FF",
   },
   {
@@ -36,7 +36,7 @@ const steps = [
     icon: Palette,
     title: "Σχεδιασμός & Build",
     time: "3-7 days",
-    desc: "We design and develop your website. You'll see progress along the way and can provide feedback at key milestones.",
+    desc: "Σχεδιάζουμε and develop η ιστοσελίδα σας. You'll see progress along the way and can provide feedback at key milestones.",
     details: ["Custom design for your brand", "Mobile-first development", "Regular progress updates", "Your feedback shapes the result"],
     color: "#8B5CFF",
   },
@@ -52,18 +52,18 @@ const steps = [
   {
     step: "05",
     icon: Rocket,
-    title: "Launch",
+    title: "Κυκλοφορία",
     time: "~1 μέρα",
-    desc: "Your website goes live. We handle domain setup, hosting, and make sure everything works perfectly.",
-    details: ["Domain connection", "SSL certificate setup", "Speed optimisation", "Your website is live!"],
+    desc: "Η ιστοσελίδα σας goes live. Αναλαμβάνουμε domain setup, hosting, and make sure everything works perfectly.",
+    details: ["Domain connection", "SSL certificate setup", "Speed optimisation", "Η ιστοσελίδα σας is live!"],
     color: "#6FE3FF",
   },
 ];
 
-export default function ProcessEl() {
+export default function ΔιαδικασίαEl() {
   useSEO({
     title: "Η Διαδικασία μας | How We Build Websites | D&M Labs",
-    description: "From discovery call to launch in 5-14 days. See exactly how D&M Labs designs and builds your website, step by step.",
+    description: "From discovery call to launch in 5-14 days. See exactly how D&M Labs designs and builds η ιστοσελίδα σας, step by step.",
   });
   return (
     <>
@@ -76,10 +76,10 @@ export default function ProcessEl() {
           <AnimateIn>
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Πώς Λειτουργεί</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              From Idea to <span className="brand-gradient-text">Launch</span>
+              From Idea to <span className="brand-gradient-text">Κυκλοφορία</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              A simple, transparent process designed to get your website live as quickly as possible - without the stress.
+              A simple, transparent process designed to get η ιστοσελίδα σας live as quickly as possible - without the stress.
             </p>
           </AnimateIn>
         </div>
@@ -146,7 +146,7 @@ export default function ProcessEl() {
           <AnimateIn delay={0.2}>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
-                { label: "Starter Website", time: "5-7 days", price: "from €299" },
+                { label: "Starter Website", time: "5-7 days", price: "από €299" },
                 { label: "Business Website", time: "7-10 days", price: "from €399" },
                 { label: "Premium Website", time: "10-14 days", price: "from €699" },
               ].map((item) => (
@@ -165,9 +165,9 @@ export default function ProcessEl() {
       <section className="section-spacing dark-section text-center">
         <div className="container">
           <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Start the Process?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Έτοιμοι να Ξεκινήσετε;</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">
-              The first step is a quick, no-pressure WhatsApp chat. Let's talk about your business.
+              The first step is a quick, no-pressure WhatsApp chat. Ας μιλήσουμε about η επιχείρησή σας.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a href="/el/contact" className="btn-primary">

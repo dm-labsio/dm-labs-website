@@ -13,7 +13,7 @@ const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "D&M Labs",
-  "description": "D&M Labs designs and builds professional websites for businesses in Λευκωσία and across Cyprus. Mobile-first, SEO-optimised, delivered in 5-14 days.",
+  "description": "D&M Labs designs and builds professional websites for businesses in Λευκωσία and σε όλη την Κύπρο. Mobile-first, SEO-optimised, delivered in 5-14 days.",
   "url": "https://dm-labs.io/web-design-nicosia",
   "logo": "https://dm-labs.io/logo.png",
   "image": "https://dm-labs.io/og-image.png",
@@ -48,11 +48,11 @@ const faqs = [
   },
   {
     q: "Do you work with businesses in Λευκωσία remotely?",
-    a: "Yes, entirely. D&M Labs works with clients across Cyprus without any need for in-person meetings. The full process — initial brief, design, revisions, and launch — is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits."
+    a: "Yes, entirely. D&M Labs works with clients σε όλη την Κύπρο without any need for in-person meetings. The full process — initial brief, design, revisions, and launch — is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits."
   },
   {
     q: "Can you build a website in Greek and English?",
-    a: "Absolutely. We build bilingual websites in both Greek and English, and a full Greek-language version is available on request. If your audience is primarily Greek-speaking, we can build a Greek-only site. We are comfortable working with Greek content and advise on how to structure copy for both readability and search visibility."
+    a: "Absolutely. Φτιάχνουμε bilingual websites in both Greek and English, and a full Greek-language version is available on request. If your audience is primarily Greek-speaking, we can build a Greek-only site. We are comfortable working with Greek content and advise on how to structure copy for both readability and search visibility."
   },
   {
     q: "How long does it take to build a website for a Λευκωσία business?",
@@ -61,18 +61,18 @@ const faqs = [
 ];
 
 const industries = [
-  { name: "Law Firms & Legal Services", icon: "⚖️", desc: "Λευκωσία is Cyprus's legal and financial hub. A professional website builds credibility and attracts high-value clients." },
-  { name: "Restaurants & Cafés", icon: "🍽️", desc: "From the old city to Engomi, Λευκωσία's F&B scene is competitive. A fast, menu-rich website drives reservations and walk-ins." },
+  { name: "Law Firms & Legal Υπηρεσίες", icon: "⚖️", desc: "Λευκωσία is Cyprus's legal and financial hub. A professional website builds credibility and attracts high-value clients." },
+  { name: "Εστιατόρια & Καφέ", icon: "🍽️", desc: "Από την παλιά πόλη μέχρι το Έγκωμη, η γαστρονομική σκηνή της Λευκωσίας είναι ανταγωνιστική. Μια γρήγορη ιστοσελίδα με πλούσιο μενού αυξάνει τις κρατήσεις και τις επισκέψεις." },
   { name: "Κλινικές & Υγεία", icon: "🏥", desc: "Private clinics, dentists, and specialists in Λευκωσία need a trustworthy online presence to attract and retain patients." },
   { name: "Λιανική & Μπουτίκ", icon: "🛍️", desc: "Whether in the Makarios Avenue shopping corridor or a neighbourhood side street, a website extends your reach beyond foot traffic." },
-  { name: "Accounting & Finance", icon: "📊", desc: "Cyprus's financial services sector is centred in Λευκωσία. A polished website signals professionalism to corporate clients." },
+  { name: "Λογιστική & Χρηματοοικονομικά", icon: "📊", desc: "Ο χρηματοοικονομικός τομέας της Κύπρου έχει κέντρο τη Λευκωσία. Μια κομψή ιστοσελίδα σηματοδοτεί επαγγελματισμό στους εταιρικούς πελάτες." },
   { name: "Real Estate Agencies", icon: "🏠", desc: "Property buyers search online first. A clean, fast website with listings and contact forms converts browsers into enquiries." },
 ];
 
 export default function WebDesignΛευκωσίαEl() {
   useSEO({
-    title: "Κατασκευή Ιστοσελίδας Λευκωσία | Professional Websites from €249 | D&M Labs",
-    description: "Professional web design for businesses in Λευκωσία, Cyprus. Custom websites built in 5-14 days from €249. Mobile-first, SEO-optimised, no hidden fees. Free consultation.",
+    title: "Κατασκευή Ιστοσελίδας Λευκωσία | Επαγγελματικές Ιστοσελίδες from €249 | D&M Labs",
+    description: "Professional web design for businesses in Λευκωσία, Cyprus. Custom websites built in 5-14 days from €249. Mobile-first, SEO-optimised, χωρίς κρυφές χρεώσεις. Δωρεάν συμβουλευτική.",
     canonicalPath: "/el/web-design-nicosia"
   });
 
@@ -101,13 +101,13 @@ export default function WebDesignΛευκωσίαEl() {
               Κατασκευή Ιστοσελίδας Λευκωσία
             </span>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">
-              Professional Websites for{" "}
+              Επαγγελματικές Ιστοσελίδες for{" "}
               <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
                 Λευκωσία Businesses
               </span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-              D&M Labs is a web design studio helping businesses in Λευκωσία build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites — starting from €249 — so your business stands out in Cyprus's capital city.
+              D&M Labs is a web design studio helping businesses in Λευκωσία build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites — starting from €249 — so η επιχείρησή σας stands out στην Κύπρο's capital city.
             </p>
             <p className="text-sm text-[#9CA3AF] mb-8">
               Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
@@ -156,7 +156,7 @@ export default function WebDesignΛευκωσίαEl() {
               Κλάδοι που Εξυπηρετούμε in Λευκωσία
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              We work with a wide range of businesses across Λευκωσία. Every website is built to the specific needs of your industry — not a generic template.
+              Συνεργαζόμαστε με a wide range of businesses across Λευκωσία. Every website is built to the specific needs of your industry — not a generic template.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -178,10 +178,10 @@ export default function WebDesignΛευκωσίαEl() {
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
             <h2 className="text-3xl font-bold text-[#111315] mb-3">
-              Web Design Pricing for Λευκωσία Businesses
+              Κατασκευή Ιστοσελίδας Τιμές for Λευκωσία Businesses
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              Transparent, fixed pricing. No hidden fees, no hourly billing surprises. Every package includes custom design, mobile-first build, SEO setup, and a contact form.
+              Transparent, fixed pricing. Χωρίς κρυφές χρεώσεις, no hourly billing surprises. Every package includes custom design, mobile-first build, SEO setup, and a contact form.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -189,22 +189,22 @@ export default function WebDesignΛευκωσίαEl() {
               {
                 name: "Starter",
                 price: "€249",
-                desc: "Perfect for sole traders, freelancers, and small businesses that need a clean, professional online presence.",
-                features: ["Έως 5 σελίδες", "Mobile-first design", "Contact form", "Basic SEO setup", "Google Maps integration", "Delivered in 5-7 days"],
+                desc: "Ιδανικό για αυτοαπασχολούμενους, freelancers και μικρές επιχειρήσεις που χρειάζονται μια καθαρή, επαγγελματική online παρουσία.",
+                features: ["Έως 5 σελίδες", "Mobile-first design", "Επικοινωνία form", "Basic SEO setup", "Google Maps integration", "Delivered in 5-7 days"],
                 highlight: false
               },
               {
                 name: "Business",
                 price: "€399",
-                desc: "Ideal for established businesses in Λευκωσία that need more content, more pages, and stronger SEO foundations.",
-                features: ["Up to 10 pages", "Advanced SEO setup", "Blog or news section", "WhatsApp chat button", "Analytics integration", "Delivered in 7-10 days"],
+                desc: "Ιδανικό για καθιερωμένες επιχειρήσεις στη Λευκωσία που χρειάζονται περισσότερο περιεχόμενο, περισσότερες σελίδες και ισχυρότερα θεμέλια SEO.",
+                features: ["Up to 10 pages", "Advanced SEO setup", "Άρθρα or news section", "WhatsApp chat button", "Analytics integration", "Delivered in 7-10 days"],
                 highlight: true
               },
               {
                 name: "Premium",
                 price: "€699",
                 desc: "For businesses that want a fully custom, feature-rich website with booking systems, multilingual content, or e-commerce.",
-                features: ["Unlimited pages", "Booking / enquiry system", "Bilingual (Greek + English)", "Custom animations", "Priority support", "Delivered in 10-14 days"],
+                features: ["Απεριόριστες σελίδες", "Booking / enquiry system", "Bilingual (Greek + English)", "Custom animations", "Priority support", "Delivered in 10-14 days"],
                 highlight: false
               }
             ].map((pkg) => (
@@ -244,7 +244,7 @@ export default function WebDesignΛευκωσίαEl() {
               Why Λευκωσία Businesses Choose D&M Labs
             </h2>
             <p className="text-[#5B6472] leading-relaxed mb-8">
-              D&M Labs is a remote web design studio. We work with businesses across Cyprus — from Λευκωσία and Limassol to smaller towns — entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
+              D&M Labs is a remote web design studio. Συνεργαζόμαστε με businesses σε όλη την Κύπρο — from Λευκωσία and Limassol to smaller towns — entirely online. No office visits, no delays waiting for in-person meetings. The full process, από την πρώτη κλήση to launch, is managed by us so you can focus on running η επιχείρησή σας.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -255,7 +255,7 @@ export default function WebDesignΛευκωσίαEl() {
               },
               {
                 title: "No technical knowledge needed",
-                desc: "You do not need to understand code, hosting, or SEO. We handle everything and explain what matters in plain language."
+                desc: "Δεν χρειάζεται να καταλαβαίνετε κώδικα, hosting ή SEO. Αναλαμβάνουμε τα πάντα και εξηγούμε ό,τι έχει σημασία με απλά λόγια."
               },
               {
                 title: "Built to convert",
@@ -281,7 +281,7 @@ export default function WebDesignΛευκωσίαEl() {
               Serving Businesses Across Λευκωσία
             </h2>
             <p className="text-[#5B6472] mb-8">
-              We work with businesses throughout Λευκωσία — from the old walled city and Makarios Avenue to Strovolos, Aglandjia, Latsia, Lakatamia, and the wider Λευκωσία District. Distance is not a factor.
+              Συνεργαζόμαστε με businesses throughout Λευκωσία — from the old walled city and Makarios Avenue to Strovolos, Aglandjia, Latsia, Lakatamia, and the wider Λευκωσία District. Distance is not a factor.
             </p>
           </AnimateIn>
           <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
@@ -307,17 +307,17 @@ export default function WebDesignΛευκωσίαEl() {
               Also Serving Other Cities
             </h2>
             <p className="text-[#5B6472] mb-6 leading-relaxed">
-              D&M Labs works with businesses across Cyprus and beyond. We also have dedicated pages for other cities we serve:
+              D&M Labs works with businesses σε όλη την Κύπρο and beyond. We also have dedicated pages for other cities we serve:
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/el/web-design-limassol">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-sm hover:bg-[#EEF3FF] transition-colors cursor-pointer">
-                  Web Design Limassol →
+                  Κατασκευή Ιστοσελίδας Limassol →
                 </span>
               </Link>
               <Link href="/el/web-design-thessaloniki">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#8B5CFF] text-[#8B5CFF] font-semibold text-sm hover:bg-[#F3EEFF] transition-colors cursor-pointer">
-                  Web Design Thessaloniki →
+                  Κατασκευή Ιστοσελίδας Thessaloniki →
                 </span>
               </Link>
             </div>
@@ -325,7 +325,7 @@ export default function WebDesignΛευκωσίαEl() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* ── Συχνές Ερωτήσεις ── */}
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl mx-auto">
           <AnimateIn>
@@ -359,7 +359,7 @@ export default function WebDesignΛευκωσίαEl() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/el/contact">
                 <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-                  Contact us today
+                  Επικοινωνία us today
                 </button>
               </Link>
               <a

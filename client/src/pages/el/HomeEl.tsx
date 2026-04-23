@@ -1,7 +1,7 @@
 /* ============================================================
-   D&M LABS - Homepage
+   D&M LABS - Αρχικήpage
    Hero with gradient atmosphere + floating devices
-   Sections: Hero, Trust Strip, Template Showcase + Industries, Services, Process, Testimonials, Pricing, Stats, CTA
+   Sections: Hero, Trust Strip, Template Showcase + Industries, Υπηρεσίες, Διαδικασία, Testimonials, Τιμές, Stats, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import { } from "react";
@@ -47,12 +47,12 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", background: "rgba(247,240,232,0.95)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 700, color: "#2a1a14", letterSpacing: "0.04em" }}>Bella.</span>
         <div style={{ display: "flex", gap: "10px" }}>
-          {["Services","Gallery","Book"].map(l => <span key={l} style={{ fontSize: "7px", color: "#7a5a4a", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{l}</span>)}
+          {["Υπηρεσίες","Gallery","Book"].map(l => <span key={l} style={{ fontSize: "7px", color: "#7a5a4a", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{l}</span>)}
         </div>
       </div>
       <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "48%" }}>
-        <div style={{ fontSize: "7px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "5px" }}>Beauty Studio</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "6px", fontStyle: "italic" as const }}>Where Beauty<br/><em style={{ color: "#c4735a" }}>Meets</em> Artistry</div>
+        <div style={{ fontSize: "7px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "5px" }}>Ομορφιά Studio</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "6px", fontStyle: "italic" as const }}>Where Ομορφιά<br/><em style={{ color: "#c4735a" }}>Meets</em> Artistry</div>
         <div style={{ fontSize: "7px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "8px" }}>Expert hair, skin &amp; nail<br/>treatments in luxury.</div>
         <div style={{ background: "#c4735a", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", letterSpacing: "0.1em" }}>Book a Treatment</div>
       </div>
@@ -90,7 +90,7 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
   ),
 };
 
-function HomepageCardPreview({ tplId, category }: { tplId: string; category: string }) {
+function ΑρχικήpageCardPreview({ tplId, category }: { tplId: string; category: string }) {
   const Σχεδιασμός = HOMEPAGE_CARD_DESIGNS[tplId];
   if (!Σχεδιασμός) return null;
   return (
@@ -145,30 +145,30 @@ const TESTIMONIALS = [
   {
     name: "Maria K.",
     role: "Ιδιοκτήτρια Εστιατορίου",
-    text: "Our new website brought in three new bookings within the first week. The team understood exactly what we needed and delivered faster than I expected. Highly recommend.",
+    text: "Η νέα μας ιστοσελίδα έφερε τρεις νέες κρατήσεις μέσα στην πρώτη εβδομάδα. Η ομάδα κατάλαβε ακριβώς τι χρειαζόμασταν και παρέδωσε πιο γρήγορα από ό,τι περίμενα. Το συνιστώ ανεπιφύλακτα.",
     rating: 5,
     initial: "M",
   },
   {
     name: "Andreas P.",
     role: "Κλινική Φυσιοθεραπείας",
-    text: "Professional, responsive, and genuinely invested in making our clinic look its best online. The mobile version is perfect - most of our patients book from their phones.",
+    text: "Επαγγελματικοί, άμεσοι και πραγματικά αφοσιωμένοι στο να κάνουν την κλινική μας να φαίνεται στο καλύτερό της online. Η mobile έκδοση είναι τέλεια - οι περισσότεροι ασθενείς μας κλείνουν ραντεβού από το κινητό τους.",
     rating: 5,
     initial: "A",
   },
   {
     name: "Sophia L.",
-    role: "Beauty Salon Owner",
-    text: "I was nervous about getting a website built but D&M Labs made it completely stress-free. They handled everything and the result looks incredible. Worth every cent.",
+    role: "Ιδιοκτήτρια Σαλονιού Ομορφιάς",
+    text: "Ήμουν ανήσυχη για την κατασκευή ιστοσελίδας, αλλά η D&M Labs το έκανε εντελώς αγχωτικό. Ανέλαβαν τα πάντα και το αποτέλεσμα είναι εκπληκτικό. Άξιζε κάθε σεντ.",
     rating: 5,
     initial: "S",
   },
 ];
 
-export default function HomePage() {
+export default function ΑρχικήPage() {
   useSEO({
-    title: "D&M Labs | Professional Website Σχεδιασμός from €299",
-    description: "D&M Labs builds custom, mobile-first websites for businesses. Fast delivery, SEO-ready, starting from €299.",
+    title: "D&M Labs | Professional Website Σχεδιασμός από €299",
+    description: "D&M Labs builds custom, mobile-first websites for businesses. Fast delivery, SEO-ready, starting από €299.",
   });
   return (
     <>
@@ -201,7 +201,7 @@ export default function HomePage() {
           <div className="flex-1 max-w-xl text-center md:text-left">
             <AnimateIn variant="fade-up" delay={0.1}>
               <p className="text-sm font-medium text-[#5B6472] mb-4 tracking-wide uppercase">
-                Complete Website Solutions
+                Ολοκληρωμένες Λύσεις Ιστοσελίδας
               </p>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.2}>
@@ -212,18 +212,18 @@ export default function HomePage() {
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.3}>
               <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-md">
-                We are a dedicated web design agency. We build professional, fast, and conversion-focused websites for businesses like yours - from €299.
+                Είμαστε μια εξειδικευμένη εταιρεία web design. Φτιάχνουμε επαγγελματικές, γρήγορες ιστοσελίδες που φέρνουν αποτελέσματα για επιχειρήσεις σαν τη δική σας - από €299.
               </p>
             </AnimateIn>
 
             <AnimateIn variant="fade-up" delay={0.4}>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 <Link href="/el/templates" className="btn-primary">
-                  Browse Examples
+                  Δείτε Παραδείγματα
                   <ArrowRight size={18} />
                 </Link>
                 <Link href="/el/services" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
-                  View Όλες οι Υπηρεσίες
+                  Δείτε Όλες τις Υπηρεσίες
                   <ArrowRight size={18} />
                 </Link>
               </div>
@@ -256,7 +256,7 @@ export default function HomePage() {
               "Παράδοση σε Μέρες",
               "Mobile Responsive",
               "SEO Βελτιστοποιημένο",
-              "European-Based Team",
+              "Ευρωπαϊκή Ομάδα",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
                 <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0" />
@@ -280,10 +280,10 @@ export default function HomePage() {
           <AnimateIn className="text-center mb-10">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Έμπνευση Σχεδιασμού</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">
-              See What We Can Create for You
+              Δείτε Τι Μπορούμε να Δημιουργήσουμε για Εσάς
             </h2>
             <p className="text-base text-[#5B6472] max-w-2xl mx-auto">
-              Κάθε ιστοσελίδα που φτιάχνουμε είναι <strong className="text-[#111315]">εντελώς custom</strong> - designed from scratch around your brand, your content, and your customers. These examples show the range of styles and industries we work with. Think of them as inspiration, not off-the-shelf packages.
+              Κάθε ιστοσελίδα που φτιάχνουμε είναι <strong className="text-[#111315]">εντελώς custom</strong> - designed από μηδενική βάση around your brand, your content, and οι πελάτες σας. These examples show the range of styles and industries we work with. Think of them as inspiration, not off-the-shelf packages.
             </p>
           </AnimateIn>
 
@@ -293,7 +293,7 @@ export default function HomePage() {
                 <Link href={`/templates?open=${tpl.id}`} className="flex w-full">
                   <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
                     {/* Hand-crafted card mockup */}
-                    <HomepageCardPreview tplId={tpl.id} category={tpl.category} />
+                    <ΑρχικήpageCardPreview tplId={tpl.id} category={tpl.category} />
 
                     {/* Card Details */}
                     <div className="p-5 flex flex-col flex-1">
@@ -315,7 +315,7 @@ export default function HomePage() {
 
           <AnimateIn className="text-center mb-16">
             <Link href="/el/templates" className="btn-primary">
-              View All Examples
+              Δείτε Όλα τα Παραδείγματα
               <ArrowRight size={16} />
             </Link>
           </AnimateIn>
@@ -333,18 +333,18 @@ export default function HomePage() {
               Εξειδικευμένες Λύσεις για την Online Παρουσία σας
             </h2>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Everything you need to establish a professional web presence, from design to launch and beyond.
+              Ό,τι χρειάζεστε για να αποκτήσετε επαγγελματική παρουσία στο διαδίκτυο, από τον σχεδιασμό μέχρι την κυκλοφορία και πέρα από αυτή.
             </p>
           </AnimateIn>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
-              { icon: Globe, title: "Custom Σχεδιασμός Ιστοσελίδας", desc: "Unique, branded websites tailored to your business identity and goals. No off-the-shelf designs - every site is built from scratch.", anchor: "custom-design" },
+              { icon: Globe, title: "Custom Σχεδιασμός Ιστοσελίδας", desc: "Μοναδικές, branded ιστοσελίδες προσαρμοσμένες στην ταυτότητα και τους στόχους της επιχείρησής σας. Κανένα έτοιμο πρότυπο - κάθε ιστοσελίδα φτιάχνεται από μηδενική βάση.", anchor: "custom-design" },
               { icon: Smartphone, title: "Mobile-First Ανάπτυξη", desc: "Κάθε ιστοσελίδα σχεδιάζεται mobile-first, εξασφαλίζοντας άψογη εμπειρία σε κινητά, tablet και desktop.", anchor: "mobile-first" },
-              { icon: Search, title: "SEO Βελτιστοποίηση", desc: "Built-in search engine optimisation so your customers can find you on Google from day one.", anchor: "seo" },
-              { icon: Zap, title: "Fast Γρήγορη Απόδοση", desc: "Lightning-fast load times with optimised code and assets. Speed matters for conversions and rankings.", anchor: "performance" },
-              { icon: Shield, title: "Ασφαλής & Αξιόπιστη", desc: "SSL certificates, secure hosting, and regular backups to keep your website safe and always online.", anchor: "security" },
-              { icon: Clock, title: "Quick Turnaround", desc: "From concept to launch in 5-14 business days. We move fast without compromising quality.", anchor: "turnaround" },
+              { icon: Search, title: "SEO Βελτιστοποίηση", desc: "Ενσωματωμένη βελτιστοποίηση μηχανών αναζήτησης ώστε οι πελάτες σας να σας βρίσκουν στο Google από την πρώτη μέρα.", anchor: "seo" },
+              { icon: Zap, title: "Γρήγορη Απόδοση", desc: "Εξαιρετικά γρήγοροι χρόνοι φόρτωσης με βελτιστοποιημένο κώδικα. Η ταχύτητα έχει σημασία για τις μετατροπές και τις κατατάξεις.", anchor: "performance" },
+              { icon: Shield, title: "Ασφαλής και Αξιόπιστη", desc: "Πιστοποιητικά SSL, ασφαλής φιλοξενία και τακτικά αντίγραφα ασφαλείας για να παραμένει η ιστοσελίδα σας ασφαλής και πάντα διαθέσιμη.", anchor: "security" },
+              { icon: Clock, title: "Γρήγορη Παράδοση", desc: "Από την ιδέα στην κυκλοφορία σε 5-14 εργάσιμες μέρες. Κινούμαστε γρήγορα χωρίς να θυσιάζουμε την ποιότητα.", anchor: "turnaround" },
             ].map((service) => (
               <StaggerItem key={service.title}>
                 <Link href={`/services/${service.anchor}`}>
@@ -355,7 +355,7 @@ export default function HomePage() {
                     <h3 className="text-lg font-semibold text-[#111315] mb-2">{service.title}</h3>
                     <p className="text-sm text-[#5B6472] leading-relaxed mb-4">{service.desc}</p>
                     <span className="text-sm font-medium text-[#5B8CFF] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Read more <ArrowRight size={14} />
+                      Μάθετε περισσότερα <ArrowRight size={14} />
                     </span>
                   </div>
                 </Link>
@@ -377,20 +377,20 @@ export default function HomePage() {
           <AnimateIn className="text-center mb-16">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Πώς Λειτουργεί</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Από την Ιδέα στο Launch σε 5 Απλά Βήματα
+              Από την Ιδέα στο Κυκλοφορία σε 5 Απλά Βήματα
             </h2>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              We've streamlined the process so you can focus on running your business.
+              We've streamlined the process so you can focus on running η επιχείρησή σας.
             </p>
           </AnimateIn>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {[
-              { icon: MessageCircle, step: "01", title: "Discovery Call", desc: "Quick WhatsApp chat to understand your business and goals.", time: "~1 μέρα", color: "#5B8CFF" },
+              { icon: MessageCircle, step: "01", title: "Αρχική Κλήση", desc: "Quick WhatsApp chat to understand η επιχείρησή σας and goals.", time: "~1 μέρα", color: "#5B8CFF" },
               { icon: Palette, step: "02", title: "Σχεδιασμός", desc: "Δημιουργούμε custom σχεδιασμό βάσει του brand και των προτιμήσεων σας.", time: "2-3 μέρες", color: "#6FE3FF" },
-              { icon: Code, step: "03", title: "Build", desc: "Your website is developed with clean code, optimised for speed and SEO.", time: "3-5 μέρες", color: "#8B5CFF" },
+              { icon: Code, step: "03", title: "Build", desc: "Η ιστοσελίδα σας is developed with clean code, optimised for speed and SEO.", time: "3-5 μέρες", color: "#8B5CFF" },
               { icon: Headphones, step: "04", title: "Αναθεωρήσεις", desc: "We refine the design based on your feedback until you're happy.", time: "1-2 μέρες", color: "#5B8CFF" },
-              { icon: Rocket, step: "05", title: "Launch", desc: "We deploy your site, connect your domain, and make sure everything works.", time: "~1 μέρα", color: "#6FE3FF" },
+              { icon: Rocket, step: "05", title: "Κυκλοφορία", desc: "We deploy your site, connect your domain, and make sure everything works.", time: "~1 μέρα", color: "#6FE3FF" },
             ].map((item) => (
               <StaggerItem key={item.step}>
                 <div className="text-center">
@@ -423,12 +423,12 @@ export default function HomePage() {
       <section className="section-spacing bg-white">
         <div className="container">
           <AnimateIn className="text-center mb-14">
-              <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Client Stories</p>
+              <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Ιστορίες Πελατών</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
               Τι Λένε οι Πελάτες μας
             </h2>
             <p className="text-lg text-[#5B6472] max-w-xl mx-auto">
-              Early feedback from the businesses we've worked with.
+              Πρώτες εντυπώσεις από τις επιχειρήσεις με τις οποίες έχουμε συνεργαστεί.
             </p>
           </AnimateIn>
 
@@ -474,22 +474,22 @@ export default function HomePage() {
           <AnimateIn className="text-center mb-16">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Διαφανείς Τιμές</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Simple, Honest Pricing
+              Απλές, Ειλικρινείς Τιμές
             </h2>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-5">
               Χωρίς κρυφές χρεώσεις. Χωρίς εκπλήξεις. Διαφανείς τιμές για κάθε project.
             </p>
            </AnimateIn>
 
-          {/* Launching Prices Full-Width Banner */}
+          {/* Τιμές Εκκίνησης Full-Width Banner */}
           <div
             className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl text-center sm:text-left"
             style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
           >
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-white animate-pulse opacity-80" />
-            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Launching Prices</span>
+            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Τιμές Εκκίνησης</span>
             <span className="hidden sm:block w-px h-5 bg-white/40" />
-            <span className="text-sm sm:text-base text-white/90 font-medium">Introductory rates available now. <span className="font-bold text-white">Claim yours today.</span></span>
+            <span className="text-sm sm:text-base text-white/90 font-medium">Εισαγωγικές τιμές διαθέσιμες τώρα. <span className="font-bold text-white">Κλείστε τη θέση σας σήμερα.</span></span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
@@ -503,7 +503,7 @@ export default function HomePage() {
                   <span className="text-sm text-[#5B6472]">εφάπαξ</span>
                 </div>
                 <p className="text-xs text-[#5B8CFF] font-medium mb-4">€249 με πακέτο συντήρησης</p>
-                <p className="text-sm text-[#5B6472] mb-6">Perfect for new businesses that need a clean, professional online presence fast.</p>
+                <p className="text-sm text-[#5B6472] mb-6">Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική παρουσία στο διαδίκτυο.</p>
                 <ul className="space-y-3 mb-8 flex-1">
                   {["Branded Business Page", "Mobile responsive", "Κουμπί WhatsApp", "Σύνδεσμοι social media", "Accessibility widget (δωρεάν)", "2 γύροι αναθεωρήσεων", "Παράδοση σε 5-7 μέρες"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
@@ -529,7 +529,7 @@ export default function HomePage() {
                     <span className="text-sm text-[#5B6472]">εφάπαξ</span>
                   </div>
                   <p className="text-xs text-[#8B5CFF] font-medium mb-4">€349 με πακέτο συντήρησης</p>
-                  <p className="text-sm text-[#5B6472] mb-6">For established businesses that need a complete, conversion-focused website.</p>
+                  <p className="text-sm text-[#5B6472] mb-6">Για εδραιωμένες επιχειρήσεις που χρειάζονται μια ολοκληρωμένη ιστοσελίδα με έμφαση στις μετατροπές.</p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {["Έως 5 σελίδες", "Mobile responsive", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Ενότητα testimonials", "Βασική SEO βελτιστοποίηση", "Speed optimisation", "Accessibility widget (δωρεάν)", "3 γύροι αναθεωρήσεων", "Παράδοση σε 7-10 μέρες"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
@@ -554,7 +554,7 @@ export default function HomePage() {
                   <span className="text-sm text-[#5B6472]">εφάπαξ</span>
                 </div>
                 <p className="text-xs text-[#6FE3FF] font-medium mb-4">€649 με πακέτο συντήρησης</p>
-                <p className="text-sm text-[#5B6472] mb-6">For businesses that want a εντελώς custom, feature-rich website with everything included.</p>
+                <p className="text-sm text-[#5B6472] mb-6">Για επιχειρήσεις που θέλουν μια εντελώς custom, πλούσια σε λειτουργίες ιστοσελίδα με τα πάντα συμπεριλαμβανόμενα.</p>
                 <ul className="space-y-3 mb-8 flex-1">
                   {["Έως 7 σελίδες", "Πλήρως custom σχεδιασμός + animations", "Mobile responsive", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Testimonials + gallery", "5 SEO blog άρθρα", "Πλήρης meta/SEO δομή", "Pop-up included", "Accessibility widget (δωρεάν)", "5 γύροι αναθεωρήσεων", "Παράδοση σε 10-14 μέρες"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
@@ -578,12 +578,12 @@ export default function HomePage() {
 
                 {/* Left: label + price + description */}
                 <div className="flex-shrink-0 lg:w-64">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Φτιαγμένο για Εσάς</span>
                   <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise</p>
                   <p className="text-4xl font-bold text-white mb-1">Custom</p>
-                  <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Pricing tailored to your project</p>
+                  <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Τιμολόγηση προσαρμοσμένη στο project σας</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-                    For larger businesses and organisations that need a fully bespoke solution built around their goals.
+                    Για μεγαλύτερες επιχειρήσεις και οργανισμούς που χρειάζονται μια πλήρως εξατομικευμένη λύση χτισμένη γύρω από τους στόχους τους.
                   </p>
                   <Link
                     href="/el/contact"
@@ -600,14 +600,14 @@ export default function HomePage() {
                 {/* Right: feature grid */}
                 <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
                   {[
-                    { icon: Globe, label: "Fully custom design from scratch" },
-                    { icon: Zap, label: "Unlimited pages" },
-                    { icon: CalendarCheck, label: "CRM and booking integrations" },
-                    { icon: Languages, label: "Multi-language support" },
-                    { icon: Users, label: "Dedicated project manager" },
-                    { icon: Headphones, label: "Priority support and delivery" },
-                    { icon: ArrowRight, label: "Ongoing retainer option" },
-                    { icon: CheckCircle2, label: "Custom SEO and content strategy" },
+                    { icon: Globe, label: "Πλήρως custom σχεδιασμός από μηδενική βάση" },
+                    { icon: Zap, label: "Απεριόριστες σελίδες" },
+                    { icon: CalendarCheck, label: "Ενσωματώσεις CRM και κρατήσεων" },
+                    { icon: Languages, label: "Υποστήριξη πολλαπλών γλωσσών" },
+                    { icon: Users, label: "Αποκλειστικός project manager" },
+                    { icon: Headphones, label: "Προτεραιότητα υποστήριξης και παράδοσης" },
+                    { icon: ArrowRight, label: "Επιλογή συνεχούς συνεργασίας" },
+                    { icon: CheckCircle2, label: "Custom SEO και στρατηγική περιεχομένου" },
                   ].map(({ icon: Icon, label }) => (
                     <div key={label} className="flex items-start gap-2.5">
                       <Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />
@@ -625,7 +625,7 @@ export default function HomePage() {
               Όλα τα πλάνα περιλαμβάνουν <span className="font-semibold text-[#111315]">δωρεάν συμβουλευτική</span> - χωρίς δέσμευση, χωρίς πίεση.
             </p>
             <Link href="/el/pricing" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
-              See full pricing &amp; add-ons <ArrowRight size={14} />
+              Δείτε πλήρεις τιμές και πρόσθετα <ArrowRight size={14} />
             </Link>
           </AnimateIn>
         </div>
@@ -637,14 +637,14 @@ export default function HomePage() {
       <section className="section-spacing bg-white">
         <div className="container">
           <AnimateIn className="text-center mb-8">
-            <p className="text-base text-[#5B6472]">Industries we work with:</p>
+            <p className="text-base text-[#5B6472]">Κλάδοι με τους οποίους συνεργαζόμαστε:</p>
           </AnimateIn>
           <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
             {[
               { icon: Utensils, label: "Εστιατόρια", industry: "restaurant" },
-              { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
+              { icon: Scissors, label: "Κομμωτήρια και Σαλόνια Ομορφιάς", industry: "beauty" },
               { icon: Stethoscope, label: "Κλινικές", industry: "clinic" },
-              { icon: Dumbbell, label: "Fitness", industry: "fitness" },
+              { icon: Dumbbell, label: "Fitness και Γυμναστήρια", industry: "fitness" },
 
             ].map((biz) => (
               <StaggerItem key={biz.label}>
@@ -654,7 +654,7 @@ export default function HomePage() {
                       <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
                     </div>
                     <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
-                    <p className="text-xs mt-1 text-[#5B8CFF]">View examples →</p>
+                    <p className="text-xs mt-1 text-[#5B8CFF]">Δείτε παραδείγματα →</p>
                   </div>
                 </Link>
               </StaggerItem>
@@ -666,9 +666,9 @@ export default function HomePage() {
               <HelpCircle size={18} className="text-[#5B8CFF] shrink-0" />
               <p className="text-sm text-[#5B6472]">
                 <strong className="text-[#111315]">Δεν βλέπετε τον κλάδο σας;</strong>{" "}
-                We work with all types of businesses.{" "}
+                Συνεργαζόμαστε με όλους τους τύπους επιχειρήσεων.{" "}
                 <Link href="/el/contact" className="text-[#5B8CFF] font-medium hover:underline">
-                  Get in touch →
+                  Επικοινωνήστε μαζί μας →
                 </Link>
               </p>
             </div>
@@ -689,10 +689,10 @@ export default function HomePage() {
         <div className="container relative z-10">
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
-              { value: "5-14", label: "Μέρες έως Launch", sub: "from first call" },
+              { value: "5-14", label: "Μέρες έως Κυκλοφορία", sub: "από την πρώτη κλήση" },
               { value: "5★", label: "Ικανοποίηση Πελατών", sub: "το πρότυπό μας" },
               { value: "100%", label: "Mobile Βελτιστοποιημένο", sub: "κάθε project" },
-              { value: "∞", label: "Ongoing Υποστήριξη", sub: "we’re always here" },
+              { value: "∞", label: "Συνεχής Υποστήριξη", sub: "we’re always here" },
             ].map((stat, i) => (
               <StaggerItem key={stat.label}>
                 <div className="text-center group">
@@ -752,11 +752,11 @@ export default function HomePage() {
                       <h3 className="text-base font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
                       <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Creative Director &amp; AI Specialist</p>
                       <p className="text-xs text-[#5B6472] leading-relaxed">
-                        I worked with global tech companies on digital products and AI implementation. I know how to use the best AI tools available today - not to replace craft, but to deliver sharper results, faster, for every client.
+                        Εργάστηκα με παγκόσμιες εταιρείες τεχνολογίας σε ψηφιακά προϊόντα και εφαρμογές τεχνητής νοημοσύνης. Ξέρω πώς να χρησιμοποιώ τα καλύτερα AI εργαλεία που υπάρχουν σήμερα - όχι για να αντικαταστήσουν τη δημιουργικότητα, αλλά για να παραδίδουμε πιο αποτελεσματικά αποτελέσματα, πιο γρήγορα, για κάθε πελάτη.
                       </p>
                     </div>
                     <div className="border-t border-[#E2E5EA] mt-3 pt-2">
-                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;Your website should work as hard as you do.&rdquo;</p>
+                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;Η ιστοσελίδα σας πρέπει να δουλεύει τόσο σκληρά όσο εσείς.&rdquo;</p>
                     </div>
                   </div>
                 </div>
@@ -781,7 +781,7 @@ export default function HomePage() {
                       </p>
                     </div>
                     <div className="border-t border-[#E2E5EA] mt-5 pt-4">
-                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;Your website should work as hard as you do.&rdquo;</p>
+                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;Η ιστοσελίδα σας πρέπει να δουλεύει τόσο σκληρά όσο εσείς.&rdquo;</p>
                     </div>
                   </div>
                 </div>
@@ -808,11 +808,11 @@ export default function HomePage() {
                       <h3 className="text-base font-bold text-[#111315] mb-0.5">Tom B.</h3>
                       <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Technical Director &amp; SEO Expert</p>
                       <p className="text-xs text-[#5B6472] leading-relaxed">
-                        My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side so you never have to think about it.
+                        Το υπόβαθρό μου είναι στην αυτοματοποίηση, την ανάπτυξη και την ενσωμάτωση πολύπλοκων συστημάτων για παγκόσμιους οργανισμούς. Λατρεύω να λύνω το τεχνικό κομμάτι ώστε εσείς να μην χρειάζεται να το σκέφτεστε.
                       </p>
                     </div>
                     <div className="border-t border-[#E2E5EA] mt-3 pt-2">
-                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;First, solve the problem. Then, write the code.&rdquo;</p>
+                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;Πρώτα λύσε το πρόβλημα. Μετά γράψε τον κώδικα.&rdquo;</p>
                     </div>
                   </div>
                 </div>
@@ -832,11 +832,11 @@ export default function HomePage() {
                       <h3 className="text-xl font-bold text-[#111315] mb-0.5">Tom B.</h3>
                       <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Technical Director &amp; SEO Expert</p>
                       <p className="text-sm text-[#5B6472] leading-relaxed">
-                        My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side of things so you never have to think about it - what you get is a site that is solid, fast, and built to last.
+                        Το υπόβαθρό μου είναι στην αυτοματοποίηση, την ανάπτυξη και την ενσωμάτωση πολύπλοκων συστημάτων για παγκόσμιους οργανισμούς. Λατρεύω να λύνω το τεχνικό κομμάτι ώστε εσείς να μην χρειάζεται να το σκέφτεστε - αυτό που παίρνετε είναι μια ιστοσελίδα γερή, γρήγορη και χτισμένη για να αντέξει.
                       </p>
                     </div>
                     <div className="border-t border-[#E2E5EA] mt-5 pt-4">
-                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;First, solve the problem. Then, write the code.&rdquo;</p>
+                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;Πρώτα λύσε το πρόβλημα. Μετά γράψε τον κώδικα.&rdquo;</p>
                     </div>
                   </div>
                 </div>
@@ -868,12 +868,12 @@ export default function HomePage() {
 
         <div className="container relative z-10 section-spacing text-center">
           <AnimateIn>
-            <p className="text-sm font-medium text-[#6FE3FF] mb-4 tracking-wide uppercase">Ready to Start?</p>
+            <p className="text-sm font-medium text-[#6FE3FF] mb-4 tracking-wide uppercase">Έτοιμοι να Ξεκινήσετε;</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-3xl mx-auto leading-tight">
               Ας Χτίσουμε την Ιστοσελίδα σας Μαζί
             </h2>
             <p className="text-lg text-[#94A3B8] mb-10 max-w-xl mx-auto">
-              Get in touch and we'll get back to you within hours. No commitment, no pressure - just a friendly conversation about your business.
+              Επικοινωνήστε μαζί μας και θα σας απαντήσουμε μέσα σε ώρες. Χωρίς δέσμευση, χωρίς πίεση - απλά μια φιλική συνομιλία για την επιχείρησή σας.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/el/contact" className="btn-primary !h-14 !text-base !px-8">

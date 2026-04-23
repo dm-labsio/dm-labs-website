@@ -36,7 +36,7 @@ const schemaMarkup = {
     },
     "geoRadius": "50000"
   },
-  "description": "D&M Labs is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Θεσσαλονίκη and across Greece. Websites from €249, delivered in 5-14 days.",
+  "description": "D&M Labs is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Θεσσαλονίκη and σε όλη την Ελλάδα. Websites from €249, delivered in 5-14 days.",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Bank Transfer, PayPal",
@@ -49,15 +49,15 @@ const schemaMarkup = {
 const faqs = [
   {
     q: "How much does web design cost in Θεσσαλονίκη?",
-    a: "Our packages for businesses in Θεσσαλονίκη start from €249 for a Starter site. That includes a fully custom design, mobile-responsive layout, SEO setup, a contact form, and everything you need to go live. The Business package starts from €399 and the Premium from €699. Pricing depends on the scope of the project, so we always recommend a free consultation first - that way you get an accurate quote with no surprises."
+    a: "Our packages for businesses in Θεσσαλονίκη start from €249 for a Starter site. That includes a fully custom design, mobile-responsive layout, SEO setup, a contact form, and everything you need to go live. The Business package starts from €399 and the Premium from €699. Τιμές depends on the scope of the project, so we always recommend a free consultation first - that way you get an accurate quote with no surprises."
   },
   {
     q: "Do you work with businesses in Θεσσαλονίκη remotely?",
-    a: "Yes, entirely. D&M Labs works with clients across Greece without any need for in-person meetings. The full process - initial brief, design, revisions, and launch - is handled via WhatsApp, email, and video call. Most of our clients find it more convenient than scheduling office visits, and it means we can move faster. Being remote has never been a barrier to delivering a great result."
+    a: "Yes, entirely. D&M Labs works with clients σε όλη την Ελλάδα without any need for in-person meetings. The full process - initial brief, design, revisions, and launch - is handled via WhatsApp, email, and video call. Most of our clients find it more convenient than scheduling office visits, and it means we can move faster. Being remote has never been a barrier to delivering a great result."
   },
   {
     q: "Can you build a website in Greek?",
-    a: "Absolutely. We build bilingual websites in both Greek and English, and a full Greek-language version of any site is available on request. If your audience is primarily Greek-speaking, we can also build a Greek-only site. We are comfortable working with Greek content and can advise on how to structure the copy for both readability and search visibility."
+    a: "Absolutely. Φτιάχνουμε bilingual websites in both Greek and English, and a full Greek-language version of any site is available on request. If your audience is primarily Greek-speaking, we can also build a Greek-only site. We are comfortable working with Greek content and can advise on how to structure the copy for both readability and search visibility."
   },
   {
     q: "How long does it take to build a website for a Θεσσαλονίκη business?",
@@ -67,8 +67,8 @@ const faqs = [
 
 export default function WebDesignΘεσσαλονίκηEl() {
   useSEO({
-    title: "Κατασκευή Ιστοσελίδας Θεσσαλονίκη | Professional Websites from €249 | D&M Labs",
-    description: "Professional web design for businesses in Θεσσαλονίκη. Custom websites built in 5-14 days from €249. Mobile-first, SEO-optimised, no hidden fees. Get a free consultation.",
+    title: "Κατασκευή Ιστοσελίδας Θεσσαλονίκη | Επαγγελματικές Ιστοσελίδες from €249 | D&M Labs",
+    description: "Professional web design for businesses in Θεσσαλονίκη. Custom websites built in 5-14 days from €249. Mobile-first, SEO-optimised, χωρίς κρυφές χρεώσεις. Get a free consultation.",
     canonicalPath: "/el/web-design-thessaloniki"
   });
 
@@ -96,13 +96,13 @@ export default function WebDesignΘεσσαλονίκηEl() {
             Κατασκευή Ιστοσελίδας Θεσσαλονίκη
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">
-            Professional Websites for{" "}
+            Επαγγελματικές Ιστοσελίδες for{" "}
             <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
               Θεσσαλονίκη Businesses
             </span>
           </h1>
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-            D&M Labs is a remote web design studio helping businesses in Θεσσαλονίκη build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites - starting from €249 - so your business stands out in Greece's second-largest city.
+            D&M Labs is a remote web design studio helping businesses in Θεσσαλονίκη build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites - starting from €249 - so η επιχείρησή σας stands out στην Ελλάδα's second-largest city.
           </p>
           <p className="text-sm text-[#9CA3AF] mb-8">
             Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
@@ -132,10 +132,10 @@ export default function WebDesignΘεσσαλονίκηEl() {
             Θεσσαλονίκη is Greece's second-largest city and one of its most commercially active. The business districts along Tsimiski Street and the historic neighbourhood of Ladadika are home to hundreds of restaurants, boutiques, law firms, and professional services all competing for the same local customers. Aristotle University brings over 100,000 students and academics into the city, and the Θεσσαλονίκη International Fair - one of the largest trade fairs in Southeast Europe - draws business visitors from across the continent every year.
           </p>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            That level of economic activity also means a highly competitive digital landscape. According to Google's own data, over 60% of Greek consumers research a business online before making contact. If your website is slow, outdated, or simply does not exist, you are not just missing out on visibility - you are actively sending potential clients to competitors who do have a professional online presence.
+            Αυτό το επίπεδο οικονομικής δραστηριότητας σημαίνει επίσης ένα ιδιαίτερα ανταγωνιστικό ψηφιακό τοπίο. Σύμφωνα με τα δεδομένα της Google, πάνω από το 60% των Ελλήνων καταναλωτών αναζητά μια επιχείρηση online πριν επικοινωνήσει. Αν η ιστοσελίδα σας είναι αργή, παλιά ή απλά δεν υπάρχει, δεν χάνετε απλά ορατότητα - στέλνετε ενεργά πιθανούς πελάτες στους ανταγωνιστές σας που έχουν επαγγελματική online παρουσία.
           </p>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            A well-built website does more than look good. It ranks on Google for the searches your customers are already making, loads quickly on mobile, and turns visitors into enquiries without requiring any ongoing effort from you. For a business in Θεσσαλονίκη - where the market is dense and digital expectations are rising - that kind of presence is no longer a nice-to-have.
+            A well-built website does more than look good. It ranks on Google for the searches οι πελάτες σας are already making, loads quickly on mobile, and turns visitors into enquiries without requiring any ongoing effort from you. For a business in Θεσσαλονίκη - where the market is dense and digital expectations are rising - that kind of presence is no longer a nice-to-have.
           </p>
           <p className="text-[#5B6472] leading-relaxed">
             The businesses that invest in a quality website now, before their sector becomes fully saturated online, are the ones that capture the most valuable search traffic and build lasting credibility with both local and international clients.
@@ -160,7 +160,7 @@ export default function WebDesignΘεσσαλονίκηEl() {
             {[
               {
                 title: "Business Websites",
-                desc: "A complete, multi-page website for your business - home, about, services, and contact. Designed to build trust and turn visitors into enquiries from day one."
+                desc: "A complete, multi-page website for η επιχείρησή σας - home, about, services, and contact. Designed to build trust and turn visitors into enquiries from day one."
               },
               {
                 title: "Landing Pages",
@@ -168,10 +168,10 @@ export default function WebDesignΘεσσαλονίκηEl() {
               },
               {
                 title: "Service Pages",
-                desc: "Dedicated pages for each of your core services, optimised for the specific searches your customers are making in Θεσσαλονίκη and across Greece."
+                desc: "Dedicated pages for each of your core services, optimised for the specific searches οι πελάτες σας are making in Θεσσαλονίκη and σε όλη την Ελλάδα."
               },
               {
-                title: "Blog and SEO Setup",
+                title: "Άρθρα and SEO Setup",
                 desc: "A blog structure and initial SEO configuration that gives your site the foundation to rank on Google over time - without you needing to understand the technical side."
               }
             ].map((s) => (
@@ -188,10 +188,10 @@ export default function WebDesignΘεσσαλονίκηEl() {
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Transparent Pricing for Θεσσαλονίκη Businesses
+            Διαφανείς Τιμές for Θεσσαλονίκη Businesses
           </h2>
           <p className="text-[#5B6472] mb-10">
-            No hidden fees. No hourly billing. One fixed price, everything included.{" "}
+            Χωρίς κρυφές χρεώσεις. No hourly billing. One fixed price, everything included.{" "}
             <Link href="/el/pricing" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               View full pricing breakdown
             </Link>
@@ -202,13 +202,13 @@ export default function WebDesignΘεσσαλονίκηEl() {
               {
                 name: "Starter",
                 price: "from €249",
-                desc: "Ideal for new businesses that need a clean, professional online presence fast. Everything you need to go live with confidence.",
+                desc: "Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική online παρουσία. Ό,τι χρειάζεστε για να ξεκινήσετε με σιγουριά.",
                 highlight: false
               },
               {
                 name: "Business",
                 price: "from €399",
-                desc: "For established businesses that need a full, conversion-focused website with more pages, stronger SEO, and a polished design.",
+                desc: "Για καθιερωμένες επιχειρήσεις που χρειάζονται ολοκληρωμένη ιστοσελίδα με περισσότερες σελίδες, ισχυρότερο SEO και κομψό σχεδιασμό.",
                 highlight: true
               },
               {
@@ -250,7 +250,7 @@ export default function WebDesignΘεσσαλονίκηEl() {
             Why Θεσσαλονίκη Businesses Choose D&M Labs
           </h2>
           <p className="text-[#5B6472] leading-relaxed mb-8">
-            D&M Labs is a remote web design studio. We work with businesses across Greece - from Θεσσαλονίκη and Athens to smaller cities and islands - entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
+            D&M Labs is a remote web design studio. Συνεργαζόμαστε με businesses σε όλη την Ελλάδα - from Θεσσαλονίκη and Athens to smaller cities and islands - entirely online. No office visits, no delays waiting for in-person meetings. The full process, από την πρώτη κλήση to launch, is managed by us so you can focus on running η επιχείρησή σας.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
@@ -260,7 +260,7 @@ export default function WebDesignΘεσσαλονίκηEl() {
               },
               {
                 title: "No technical knowledge needed",
-                desc: "You do not need to understand code, hosting, or SEO. We handle everything and explain what matters in plain language."
+                desc: "Δεν χρειάζεται να καταλαβαίνετε κώδικα, hosting ή SEO. Αναλαμβάνουμε τα πάντα και εξηγούμε ό,τι έχει σημασία με απλά λόγια."
               },
               {
                 title: "Built to convert",
@@ -283,7 +283,7 @@ export default function WebDesignΘεσσαλονίκηEl() {
             Serving Businesses Across Θεσσαλονίκη
           </h2>
           <p className="text-[#5B6472] mb-8">
-            We work with businesses throughout Θεσσαλονίκη - from the centre and the waterfront to Kalamaria, Stavroupoli, Pylaia, and the wider Central Macedonia region. Distance is not a factor.
+            Συνεργαζόμαστε με businesses throughout Θεσσαλονίκη - from the centre and the waterfront to Kalamaria, Stavroupoli, Pylaia, and the wider Central Macedonia region. Distance is not a factor.
           </p>
           <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
             <iframe
@@ -300,7 +300,7 @@ export default function WebDesignΘεσσαλονίκηEl() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* ── Συχνές Ερωτήσεις ── */}
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-10">
@@ -329,7 +329,7 @@ export default function WebDesignΘεσσαλονίκηEl() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/el/contact">
               <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-                Contact us today
+                Επικοινωνία us today
               </button>
             </Link>
             <a

@@ -1,6 +1,5 @@
 /* ============================================================
-   D&M LABS - FAQ Page
-   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
+   D&M LABS - Συχνές Ερωτήσεις (Greek)
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
 import { useState, useEffect } from "react";
@@ -11,41 +10,41 @@ const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%20ha
 
 const faqs = [
   {
-    category: "Getting Started",
+    category: "Ξεκινώντας",
     items: [
-      { q: "How do I get started?", a: "Just send us a message on WhatsApp. We'll have a quick chat about your business, recommend the best package, and get started right away. No forms, no waiting." },
-      { q: "What information do I need to provide?", a: "At minimum, your business name and a brief description of what you do. If you have a logo, photos, or specific text you'd like to use - great. If not, we can work with what you have." },
-      { q: "How long does it take to build my website?", a: "Starter websites take 5-7 working days. Business websites take 7-10 working days. The timeline starts once we receive your content and confirm the project scope." },
-      { q: "Do I need any technical knowledge?", a: "Absolutely not. We handle everything technical. You just need to tell us about your business and what you want - we take care of the rest." },
-      { q: "Do you work with clients outside your country?", a: "Yes. We work with clients worldwide. All communication happens over WhatsApp and email, so location is never a barrier. Our pricing is in euros and we serve businesses across Europe and beyond." },
-      { q: "Can I see a preview before paying?", a: "Yes. Before any development begins, we share a design direction for your approval - colours, layout, and overall look and feel. You won't pay anything until you're happy with the direction. During development, we share progress checkpoints so you can follow along and give feedback at each stage. Nothing is finalised without your sign-off." },
-      { q: "Can I upgrade my plan later?", a: "Absolutely. If you start with the Starter plan and later decide you need more pages or features, we can upgrade your site at any time. You only pay the difference between the plans." },
+      { q: "Πώς ξεκινάω;", a: "Απλά στείλτε μας μήνυμα στο WhatsApp. Θα κάνουμε μια σύντομη συζήτηση για την επιχείρησή σας, θα προτείνουμε το καλύτερο πακέτο και θα ξεκινήσουμε αμέσως. Χωρίς φόρμες, χωρίς αναμονή." },
+      { q: "Τι πληροφορίες χρειάζεται να παρέχω;", a: "Τουλάχιστον το όνομα της επιχείρησής σας και μια σύντομη περιγραφή του τι κάνετε. Αν έχετε λογότυπο, φωτογραφίες ή συγκεκριμένο κείμενο που θέλετε να χρησιμοποιήσετε, τέλεια. Αν όχι, μπορούμε να δουλέψουμε με αυτό που έχετε." },
+      { q: "Πόσο καιρό χρειάζεται για να φτιαχτεί η ιστοσελίδα μου;", a: "Οι ιστοσελίδες Starter παραδίδονται σε 5-7 εργάσιμες μέρες. Οι Business ιστοσελίδες σε 7-10 εργάσιμες μέρες. Το χρονοδιάγραμμα ξεκινά μόλις λάβουμε το περιεχόμενό σας και επιβεβαιώσουμε το εύρος του project." },
+      { q: "Χρειάζομαι τεχνικές γνώσεις;", a: "Απολύτως όχι. Αναλαμβάνουμε τα πάντα τεχνικά. Χρειάζεται μόνο να μας πείτε για την επιχείρησή σας και τι θέλετε - εμείς φροντίζουμε τα υπόλοιπα." },
+      { q: "Συνεργάζεστε με πελάτες εκτός της χώρας σας;", a: "Ναι. Συνεργαζόμαστε με πελάτες παγκοσμίως. Όλη η επικοινωνία γίνεται μέσω WhatsApp και email, οπότε η τοποθεσία δεν αποτελεί ποτέ εμπόδιο. Οι τιμές μας είναι σε ευρώ και εξυπηρετούμε επιχειρήσεις σε όλη την Ευρώπη και πέρα από αυτήν." },
+      { q: "Μπορώ να δω προεπισκόπηση πριν πληρώσω;", a: "Ναι. Πριν ξεκινήσει οποιαδήποτε ανάπτυξη, μοιραζόμαστε μια κατεύθυνση σχεδιασμού για έγκρισή σας - χρώματα, διάταξη και γενική εμφάνιση. Δεν θα πληρώσετε τίποτα μέχρι να είστε ικανοποιημένοι με την κατεύθυνση. Κατά τη διάρκεια της ανάπτυξης, μοιραζόμαστε σημεία ελέγχου προόδου ώστε να μπορείτε να παρακολουθείτε και να δίνετε σχόλια σε κάθε στάδιο. Τίποτα δεν οριστικοποιείται χωρίς την έγκρισή σας." },
+      { q: "Μπορώ να αναβαθμίσω το πλάνο μου αργότερα;", a: "Απολύτως. Αν ξεκινήσετε με το Starter πλάνο και αργότερα αποφασίσετε ότι χρειάζεστε περισσότερες σελίδες ή λειτουργίες, μπορούμε να αναβαθμίσουμε την ιστοσελίδα σας ανά πάσα στιγμή. Πληρώνετε μόνο τη διαφορά μεταξύ των πλάνων." },
     ],
   },
   {
-    category: "Τιμές & Payment",
+    category: "Τιμές και Πληρωμή",
     items: [
-      { q: "Υπάρχουν κρυφές χρεώσεις;", a: "No. The price you see is the price you pay. Your first-year domain is included - we register it for you and set everything up. After the first year, you'll receive a reminder to renew your domain licence (typically €10-15/year). Hosting is a separate ongoing cost (typically €10-15/μήνα) and we explain everything clearly before you commit." },
-      { q: "How does payment work?", a: "We take a deposit to secure your project and begin work. The remaining balance is due on delivery, once you've reviewed and approved the final website. Simple, transparent, and no surprises." },
-      { q: "What payment methods do you accept?", a: "We accept bank transfers and major payment methods. We'll provide payment details when you're ready to proceed." },
-      { q: "Do I own my website after it's built?", a: "Yes, 100%. Once paid in full, the website and all its content belong to you completely." },
+      { q: "Υπάρχουν κρυφές χρεώσεις;", a: "Όχι. Η τιμή που βλέπετε είναι η τιμή που πληρώνετε. Το domain του πρώτου χρόνου περιλαμβάνεται - το καταχωρούμε για εσάς και ρυθμίζουμε τα πάντα. Μετά τον πρώτο χρόνο, θα λάβετε υπενθύμιση για ανανέωση της άδειας domain (συνήθως €10-15/χρόνο). Το hosting είναι ξεχωριστό ongoing κόστος (συνήθως €10-15/μήνα) και εξηγούμε τα πάντα ξεκάθαρα πριν δεσμευτείτε." },
+      { q: "Πώς λειτουργεί η πληρωμή;", a: "Λαμβάνουμε προκαταβολή για να εξασφαλίσουμε το project σας και να ξεκινήσουμε τη δουλειά. Το υπόλοιπο υπόλοιπο οφείλεται κατά την παράδοση, αφού έχετε ελέγξει και εγκρίνει την τελική ιστοσελίδα. Απλό, διαφανές και χωρίς εκπλήξεις." },
+      { q: "Ποιες μεθόδους πληρωμής δέχεστε;", a: "Δεχόμαστε τραπεζικές μεταφορές και κύριες μεθόδους πληρωμής. Θα παρέχουμε στοιχεία πληρωμής όταν είστε έτοιμοι να προχωρήσετε." },
+      { q: "Είναι δική μου η ιστοσελίδα μετά την κατασκευή;", a: "Ναι, 100%. Μόλις εξοφληθεί πλήρως, η ιστοσελίδα και όλο το περιεχόμενό της ανήκουν αποκλειστικά σε εσάς." },
     ],
   },
   {
-    category: "Σχεδιασμός & Features",
+    category: "Σχεδιασμός και Λειτουργίες",
     items: [
-      { q: "Can I see examples of your work?", a: "Yes! Contact us on WhatsApp and we'll share recent examples relevant to your industry." },
-      { q: "Θα λειτουργεί η ιστοσελίδα μου σε κινητά τηλέφωνα;", a: "Absolutely. Κάθε ιστοσελίδα που φτιάχνουμε είναι mobile-first - meaning it's designed to look and work perfectly on phones, tablets, and desktops." },
-      { q: "Can I make changes after the website is live?", a: "Yes. Small text changes are free for the first month after launch. After that, our maintenance plans (from €39/μήνα) cover ongoing updates, or you can request individual changes." },
-      { q: "Do you provide hosting?", a: "Yes. We handle the full technical setup - hosting, domain registration, SSL certificate, and everything in between. Your first-year domain is included in the build price. Hosting is a separate ongoing cost (typically €10-15/μήνα) which we explain clearly before you commit. You will receive a reminder when your domain is due for renewal after the first year." },
+      { q: "Μπορώ να δω παραδείγματα της δουλειάς σας;", a: "Ναι! Επικοινωνήστε μαζί μας στο WhatsApp και θα μοιραστούμε πρόσφατα παραδείγματα σχετικά με τον κλάδο σας." },
+      { q: "Θα λειτουργεί η ιστοσελίδα μου σε κινητά τηλέφωνα;", a: "Απολύτως. Κάθε ιστοσελίδα που φτιάχνουμε είναι mobile-first - δηλαδή σχεδιασμένη να φαίνεται και να λειτουργεί τέλεια σε τηλέφωνα, tablets και υπολογιστές." },
+      { q: "Μπορώ να κάνω αλλαγές αφού η ιστοσελίδα είναι ζωντανή;", a: "Ναι. Μικρές αλλαγές κειμένου είναι δωρεάν για τον πρώτο μήνα μετά το launch. Μετά από αυτό, τα πλάνα συντήρησής μας (από €39/μήνα) καλύπτουν συνεχείς ενημερώσεις, ή μπορείτε να ζητήσετε μεμονωμένες αλλαγές." },
+      { q: "Παρέχετε hosting;", a: "Ναι. Αναλαμβάνουμε την πλήρη τεχνική εγκατάσταση - hosting, καταχώρηση domain, SSL πιστοποιητικό και τα πάντα ενδιάμεσα. Το domain του πρώτου χρόνου περιλαμβάνεται στην τιμή κατασκευής. Το hosting είναι ξεχωριστό ongoing κόστος (συνήθως €10-15/μήνα) το οποίο εξηγούμε ξεκάθαρα πριν δεσμευτείτε. Θα λάβετε υπενθύμιση όταν το domain σας είναι προς ανανέωση μετά τον πρώτο χρόνο." },
     ],
   },
   {
     category: "Μετά το Launch",
     items: [
-      { q: "What happens after my website launches?", a: "We make sure everything is working perfectly. For the first month, we're available for small adjustments at no extra cost. After that, you can opt into our maintenance plan or manage things independently." },
-      { q: "What does the maintenance plan include?", a: "We offer two tiers: Essential (€39/μήνα) covers up to 3 content updates, hosting monitoring, backups, and WhatsApp support. Premium (€59/μήνα) adds unlimited updates, priority response, monthly performance checks, seasonal banners, and new section additions. No contracts - cancel any time." },
-      { q: "Can I cancel the maintenance plan?", a: "Yes, anytime. There are no contracts or commitments. You can cancel whenever you want." },
+      { q: "Τι γίνεται αφού η ιστοσελίδα μου κυκλοφορήσει;", a: "Φροντίζουμε να λειτουργεί τέλεια τα πάντα. Για τον πρώτο μήνα, είμαστε διαθέσιμοι για μικρές προσαρμογές χωρίς επιπλέον κόστος. Μετά από αυτό, μπορείτε να επιλέξετε το πλάνο συντήρησής μας ή να διαχειριστείτε τα πράγματα ανεξάρτητα." },
+      { q: "Τι περιλαμβάνει το πλάνο συντήρησης;", a: "Προσφέρουμε δύο επίπεδα: Essential (€39/μήνα) καλύπτει έως 3 ενημερώσεις περιεχομένου, παρακολούθηση hosting, backups και υποστήριξη WhatsApp. Premium (€59/μήνα) προσθέτει απεριόριστες ενημερώσεις, προτεραιότητα απόκρισης, μηνιαίους ελέγχους απόδοσης, εποχιακά banners και προσθήκες νέων ενοτήτων. Χωρίς συμβόλαια - ακύρωση ανά πάσα στιγμή." },
+      { q: "Μπορώ να ακυρώσω το πλάνο συντήρησης;", a: "Ναι, ανά πάσα στιγμή. Δεν υπάρχουν συμβόλαια ή δεσμεύσεις. Μπορείτε να ακυρώσετε όποτε θέλετε." },
     ],
   },
 ];
@@ -76,11 +75,10 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function FAQEl() {
   useSEO({
-    title: "Συχνές Ερωτήσεις | D&M Labs Web Σχεδιασμός",
-    description: "Answers to the most common questions about working with D&M Labs. Τιμές, timelines, process, and more.",
+    title: "Συχνές Ερωτήσεις | D&M Labs Κατασκευή Ιστοσελίδων",
+    description: "Απαντήσεις στις πιο συχνές ερωτήσεις για τη συνεργασία με τη D&M Labs. Τιμές, χρόνοι παράδοσης, διαδικασία και πολλά άλλα.",
   });
 
-  // Inject FAQPage JSON-LD schema for Google rich results (FAQ snippets in search)
   useEffect(() => {
     const SCHEMA_ID = "faq-jsonld-schema";
     const allItems = faqs.flatMap(section => section.items);
@@ -116,12 +114,12 @@ export default function FAQEl() {
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
         <div className="container relative z-10 text-center">
           <AnimateIn>
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">FAQ</p>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Συχνές Ερωτήσεις</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              Frequently Asked <span className="brand-gradient-text">Questions</span>
+              Απαντήσεις στις <span className="brand-gradient-text">Ερωτήσεις σας</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Everything you need to know about working with D&M Labs. Can't find your answer? Just message us.
+              Όλα όσα χρειάζεστε να γνωρίζετε για τη συνεργασία με τη D&M Labs. Δεν βρίσκετε την απάντησή σας; Απλά στείλτε μας μήνυμα.
             </p>
           </AnimateIn>
         </div>
@@ -152,8 +150,8 @@ export default function FAQEl() {
       <section className="section-spacing dark-section text-center">
         <div className="container">
           <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Still Have Questions?</h2>
-            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">We're always happy to help. Send us a message and we'll get back to you quickly.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Έχετε Ακόμα Ερωτήσεις;</h2>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Είμαστε πάντα εδώ να βοηθήσουμε. Στείλτε μας μήνυμα και θα σας απαντήσουμε γρήγορα.</p>
             <a href="/el/contact" className="btn-primary">
               <MessageCircle size={18} /> Επικοινωνήστε μαζί μας
             </a>

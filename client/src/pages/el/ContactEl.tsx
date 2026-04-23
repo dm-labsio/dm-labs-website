@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS - Contact Page
+   D&M LABS - Επικοινωνία Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
@@ -13,10 +13,10 @@ const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "bfd3c955-1bc9-4a43-b497-f4c6776db7d1";
 
-export default function ContactEl() {
+export default function ΕπικοινωνίαEl() {
   useSEO({
     title: "Επικοινωνία D&M Labs | Λάβετε Δωρεάν Προσφορά",
-    description: "Get in touch with D&M Labs for a free website consultation. We reply within 24 hours. WhatsApp, email, or contact form.",
+    description: "Επικοινωνήστε μαζί μας with D&M Labs for a free website consultation. We reply within 24 hours. WhatsApp, email, or contact form.",
   });
   const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
   const [sending, setSending] = useState(false);
@@ -38,7 +38,7 @@ export default function ContactEl() {
         }),
       });
       if (res.ok) {
-        toast.success("Message sent! We'll get back to you within 24 hours.");
+        toast.success("Message sent! Θα get back to you within 24 hours.");
         setForm({ name: "", email: "", business: "", message: "" });
       } else {
         toast.error("Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε το WhatsApp.");
@@ -61,17 +61,17 @@ export default function ContactEl() {
               Let's Build <span className="brand-gradient-text">Something Great</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Ready to get started? Send us a message on WhatsApp for the fastest response, or use the form below.
+              Έτοιμοι να ξεκινήσετε; Στείλτε μας μήνυμα on WhatsApp for the fastest response, or use the form below.
             </p>
           </AnimateIn>
         </div>
       </section>
 
-      {/* Contact Methods + Form */}
+      {/* Επικοινωνία Methods + Form */}
       <section className="section-spacing bg-white">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 max-w-5xl mx-auto">
-            {/* Left - Contact Methods */}
+            {/* Left - Επικοινωνία Methods */}
             <div className="md:col-span-2 space-y-6">
               <AnimateIn>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block dm-card !p-6 group hover:shadow-lg transition-shadow">

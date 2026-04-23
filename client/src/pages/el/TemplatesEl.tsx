@@ -78,7 +78,7 @@ const CDN = {
     contactDesktop: "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/PRWXpMxlGwHmMFfC.png?Expires=1804155921&Signature=qClfpJHakJw8n9cXsyUr1r9iI766bBKlIdO8oBym0DaVUl7mUnlJOpfQfaxB2xW0d5gxN5SpaaLv9MYcz5lc9pHOZLBeZjC8FguXp9OCf7kxfZ8Iy~OuZC2C5KCqjHInbJL6z8QTos~3ONsLDEou8br81cbfn-CBBpcE4SFCIK~1yXkFjwEbvHBRLYjnyagRSfox6HE~ZKkqgJTEgpOB5laXpvKbsCtohHQuQR9sNiGXD5TxqdNif6OD9Jo6-AgVEiBvbs~ssxIy6MlTV2VoFrSZFwEfoSWIaKoNm1Re5o2H70KDqu-5iMJ8QNHuFP-wAQg8eScZE5tRQP2xsWwmLA__&Key-Pair-Id=K2HSFNDJXOU9YS",
     contactMobile:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/QiUFEwUITGElevmR.jpg?Expires=1804155921&Signature=TywWDa93NJ0C2GxBtHRmXccoc1VLMuVAIXSRe75Y-ocHwL4GfFqHralRtzkgbBNvAhL4qJQ9lE1mzSNQH~vpAFA~6nQUGGrhKEk977HXVs1VRF3lyAlnRZMsINVBuK7PTY5zDBbRLR2RFqwQ4QSX9p0LH~zboPZtNenCn~3bk37kDBsOFxnK0SLRLD4dfmf9v5U6mGKfB4IzEybhID2nIDYIfsTqpwT~jfx7Yt8Q7F4qTY6gUHrAuzlLoPAukn7EM2Cf-80NaJAp7kodDldczL5vO3akKPZovaqoVHePFtky1u2MZOMJdFbR3AiuUv5NEsze6KRuCwRBTp4RPz7fGw__&Key-Pair-Id=K2HSFNDJXOU9YS",
   },
-  // ── Clinic 1 ──
+  // ── Κλινική 1 ──
   c1: {
     card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/vHiXcgVzfwvNVOeM.png?Expires=1804248063&Signature=ZzohmEbDPrne9IuEegn0BwtkTJXFDhaGAsPBm9laKfqJ0XcUr8wfSoTtoi1aOYtX7JcnT46gXq7AIuGQRJ0tnThKxddiggu8~2k5jMEIv29FNuWZ5a6nYT4-dGBGJUc1ukwLk8Sa8O9o8MfXClwr7FYhC2Jv8748ztNqCntTFB-BRey-LWpcFY5dffhPIIiih1jbkwcbJyC-2TuEfO8uZjhn6YuMNWcBlXGe6yBd~v9U-qFY8B2H9VqsyeuGZKSEwyHug2m5ROSr6~sFi8S41WCC~knstnwhQap7wWqGkzWDNmyYfKaBpdkWBKIgVo99Rgd2OCmsxfCK8eB4kix8BA__&Key-Pair-Id=K2HSFNDJXOU9YS",
     homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/YCnlUDrgdfYcRFcp.jpg?Expires=1804248064&Signature=F8HWR2x8YPs7Zvci1KmCJl5f4zmlZPWLQ0Kn6LjK6mqf726v36eQb7ja3xeY1OjJZQ4YYvpN5im83ftyZl0WTFebKZxWjPvFAgkJorR-pKR234I5b38gvo2pqoH-31duVaAaYPtrto8q2c6p5xwFQeVvekBS9UkS9nl3gKnDF4Gawoav-ipV-CfK~w~qKpvDhs3-~-LbIL~BgPuw4v-UyaQj1rT9zC~YK0r5iI6qa3W4jt5tBEACkUTahzkN0l~C7U6nS776WGwIvBBxq~s4KdJFwOKkFLLoJp7RoajyCXMsL3ycDfgSmHGw~EjQsae~Xh5-smxdKo8CWqHJO~qV~A__&Key-Pair-Id=K2HSFNDJXOU9YS",
@@ -88,7 +88,7 @@ const CDN = {
     contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/fLgMqFfxfaBAZUUg.jpg?Expires=1804248065&Signature=ACfdK5zI8EfbqNPU4ivObN6wRJeW7NAp1Yb-QIWi0vSv9dVeJT-MzMPfnDg2Q9~~u8ZEu4Ab2yCaT4U1rNoJR~TdBERyQpM2fSSy0G0dR1Q-06NfSP7xP6OflG2ZWYjCOV5Ky5WGSjqyaLQzkYuf~EyAEys7GnmjYD1zAzb1T5Y6cARRAt5nYgoTTMMoUd5JZZXk-e1cqNed73TAstZ2D0xBRiyMYZhLihUY0ubqJw8nhDVrf9rckTeEg5IieAsSwRHN3byAS4eXas117oefKUHj7P1D4H~h8mzOqw7KFBmhEhaQcTXCevIZX0RtzfcbB~AqyEEhSg3BqHjKBbj70Q__&Key-Pair-Id=K2HSFNDJXOU9YS",
     contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/IeKYfaoTBkvBtsGW.jpg?Expires=1804248065&Signature=jpdU7mSLi4Y2fSbn0VRwmhLRDdHWbzX6qhuxNZp6VgP-gOlUYWFHCF9zr~ZNcchSGXCA0ll8zqFCt2DQrvWRgSara8Z87zn7K9-p97URjZfaEOj8jNqj4SvykcSo-9Xhr3zPrYipPeKnqsGKatW9U-Q8oWYXw3rLL2vrbHfi~ijPgaFwxOHq2HiZCLzSqrEpVknlDDG5K9jAT9bT-~WvhKlSTL-mgID0c1hWVGNFkmKS59NVbz4w-~rKzs0SPWtiUVYcMlx14plvEyAcriyRziPGt9pQS2UNTYUFqXv~OsnSImPrnTcTjZvt73-xeX4qaIQQKDr8WJt7XORko3A2QA__&Key-Pair-Id=K2HSFNDJXOU9YS",
   },
-  // ── Clinic 2 ──
+  // ── Κλινική 2 ──
   c2: {
     card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/YbjSXbLAerjQxXvn.png?Expires=1804248065&Signature=AqXkP6kbr8jVZKOU3CwlcH71Uerr5-CciWqMtPuELMMpn5eXU4rKbOc-kS82OreflByIDQRnJ-Enw1ESNjg~ZjZzUst9zOet7jlRLUoZE3xVgHa~7u5Fmhj40vevK3rnNEjo-D3lw09qPPSzptOiPQ3bdzI-dx5z5QH3I5Yqc3sxhk4svPpHA4s-Mykr2nA5DwspnKXvvKnHZGSjApntTQ4K~h8DC2a5iJYAb9XzJegfBdhPnSOTcofta~UpH4KS9gN-6epL~SyDWYI67j5C17zBw0ISpRPrzbFSE8D9kVJHBNG8SvG5XKAY-ezv4xGZdWtgl58EIv3gBC89njfDYA__&Key-Pair-Id=K2HSFNDJXOU9YS",
     homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/xdClqTPSaZedbOrH.jpg?Expires=1804248065&Signature=HV0056r6qtQBPL1EYaOmGIfaIQG~~8j579mT08TvBGmQOKHmKthqF7ANfIBdfLNuqzzHUN7TxmZOmGKkGmvqqompYASPosc2Ag5Boh2obca5CaBzIVhZccB99PTECLPVbOtclDevBEf-96CWhL-LIcUbYa880j1I80WW6TAkRgjVpOOY0M7-umCL3Lymy6iSqgj3x0BeGJ2Hc4D9ztkojKJNlCH-Vtv~v~MXXhxCIXxNOeuHvM1wpP7obcASI7FEJy6I3ztWDjcmJc9nMdx0wzhNaGHmkAzS3on0YfwGfw59I5rj~GzEdh3xENNsiQFtV-K6g-9v7tRJjnwlA3h32w__&Key-Pair-Id=K2HSFNDJXOU9YS",
@@ -98,7 +98,7 @@ const CDN = {
     contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/BQfFdAkGYebKMKpk.jpg?Expires=1804248066&Signature=QMboxheXQB32k0M~Y4GPPsKftm5xTyca~crG--HnLMInmwOZdZC9SxkTeQ8zF1oFvyZgqb4Gk1xRCNMERZ3A404MIlb3Kya-hPobo5P8uYt9XxzpRqky4~3~8nMLRRTqrQHw7IurLwTbQdmRX0LxlHFixpzD98LMLPOOpJTrkOmSEMYIHbwoM3reQISjjDKZueH73FLazvA8cc05tYZZlkIwL7zV-ETL~jVufN~15V3bDmKfgUEuBe-IzV3a2l-6FgYpe8WHaCPXKbu7r75qQgRuh8FDaIb3Coe4sJOIeka0e0iC3NmA5y5~~DP2zczk2xZkBlYgm74T~69zSt9sBg__&Key-Pair-Id=K2HSFNDJXOU9YS",
     contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/RkvwuDSBgYRbTqkU.jpg?Expires=1804248066&Signature=YGRCjvrczh9b0LpFrRie77YMhcHrFqTZBGuqSp2vsfviRDyx2P01AF1csxnsRvBsaw0NFps5DgsuyhY0AgJhJVxxc1RhyQYwlcHmBT1muVwxLzHfxUDSE0aH8XsCR3qJqDe2CEfR9lXpNxBEA3Wz0JvFpM~dVwV1Ik9nFR~dINd08nAh0hCLcpMwOxkVa008msvKiZGN1iX87zA61EoiujWFommYFFatPC8v3S2~WXMOljtZr6kSCp3JAjHY5pBqiLaER~zaEXahW0vz9KeCE0tGMo9cGRYGIZktospi9ghYTaeKc-wBUPnbeF4YfBUEpK3TKBt4vnsFiW8fzyMoLg__&Key-Pair-Id=K2HSFNDJXOU9YS",
   },
-  // ── Clinic 3 ──
+  // ── Κλινική 3 ──
   c3: {
     card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/ChvLohPuUByZeIQC.png?Expires=1804251563&Signature=UtyOwyQRclD893vAxC6TSzouWZJwrTvXywRaYZ5jiWdGOKq56Bvf9jpkDh2xZwTL2uipANP9ahtcE1KDSPWJc0huwSqFR83tvtWP2txSE9EleD2QtHAnOSMHTLZxB4vMYO0LmCGmmLWKEzReZQTeh~QBrf5Gsy2GgtusdMd85mmfadUpq4Jdink1DigKxJrGmKkQvTI63GhwCEnqOMPufMVVhq0ns8vOIw1D5ed6gZdLY0Ae5Oe73a6EXomIixxn1BUnuBqGbZSf7xe1BQqQ6UH2l1EI9Ib9~uU9cEcjMvJGoxZ9FuQVkHgJoHxkeRksZN8dxGza7n2f3nLxO8cbdQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
     homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/NHQujbHpKEVeITwp.jpg?Expires=1804251563&Signature=fYiXUFLnds7lAkGjakyEXOeEo3TdsYR52N4mxlKvvX2h0yCe9KU1gyJwayKyNVTb1eVim7IYwuoHDtvfldWMQunp9FZdlq2SYp1gtoZCn~Yfv3d24P4DizRsL9izbfWa5a10OGIt9q9AYLBcPuq4Cqb7f~Fi-EosY8UGbk0fYp46A1JirrYrEecbaZkTwGbUUmrTPEjFsh61GTAdNUihVu9lSFk5PpqiItKrgFDXQ3eB86zKpBe4AXKJU0T85XIfj0gjQ6rdZjJhlNgNyI6Aufx56yFxQkgmOMn7rwYasWc3LTl5e68h64npNyZcKcyRumqxAXuphtQZxIHziNJFmA__&Key-Pair-Id=K2HSFNDJXOU9YS",
@@ -108,7 +108,7 @@ const CDN = {
     contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/HmjUPHfgkXKrwmUi.jpg?Expires=1804251564&Signature=v0iR0U-x~uwZZWp4f-0WgXd6rJhEHONG6WR6h92KHXzyqTlD7-4Y3xRTL8MwuzJz91h8ZGBqPLjU0qDKUjePW~F-A4qrwrDLfuC8HWjr7x~3eH5gdW7h4boDUMyh6EjCyA0OMpYPwe1A2vm0I7dQqPPQ90vdamdQqcuOrSax~Qi-LBOvK8beYsCnWIh1uj5Kv8yme1ODYWld3HmPmgb1g2i9JaN2QE2unTQK7raKTo~tVPWZdjsUfAexKdpXBCPcprgr5p4dEdM-Z0QH3kaqUcM5PN8wIAdWQ7KNw-msrHDfxyhzAedGKMExbSKsWdHrkB16ure32aDxcvOb0euhDw__&Key-Pair-Id=K2HSFNDJXOU9YS",
     contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/gSjiYlaDNuHSgRBB.jpg?Expires=1804251564&Signature=vm~vR30FVce705v6HKOhFNG2NlWRSoQ96q3CaTG4GlnK3zffwYs9rF1jyCpqEk8SHVYEQrt07xZS5ak8BRDjIUcJeh8mUZdxhq89bO7LlG2r2WVq45IR5kbf7aUyfTo72HGX8AiicARnq2PzUs-IBUvIiYXYvdafxEbTqwtJLfXF7Y-78zS4M3~1OPAstI8Z7JqrrU5LfnryiFXeBytChVy8J4h8FLPVonVzxE9iZ2rGFFiXylPQEl3E2-lXh4OawS98VO6crDkSxO99CejZhg3ESzt6vLQ2h7beRGMHDuzMLRSsFPAn4frbyjfiZPkNUpFcGafb2lTrCg__&Key-Pair-Id=K2HSFNDJXOU9YS",
   },
-  // ── Fitness 1 ──
+  // ── Fitness και Γυμναστήρια 1 ──
   f1: {
     card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/MgTbsRcvqoiXiYbH.png?Expires=1804248067&Signature=eKzwv3T-wSElP2qcg3J4FLEMHcl40qoYKk4jnvNKaP2vXtW6Vm7NVcDqU40OsugAe8wu0hgW5ECxxvML~K~Z8-GR97iqDqCLNNGyLSIaTvkvpM9SDinuGMUi32-9KoSmMGl08yMUkXLU6~lq9aaSeBLwVWA7hK3NvoCAum8qtRbKdLYwpCRTs9d7tWgZsaxujYNFVfQ1dfWhp9epOs1U6KgvzfD8s-~dg40GNN3cBWcXZrTZxt0WflJqL5EbV45SCOlCKjbXXEcoCgcuFmaAmMhkf06Ck58x2uxMI8AekTK6~ojFiURJVGbqqLgaF-5b7hVetymcO4G4Gws3d3Z3MQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
     homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/SPFIMdyocJfvNgUg.jpg?Expires=1804248067&Signature=C0oi7csiJqVuJCggzm0NZzL6ikxZjJ3URzI-tbB~vtss~tpVOG2st2m9S~yl4CchS-FTXY-kEhZUNA~KXHQ71eGScjEVAf5rTD2l9bhuNiEperltf9F1zKfc~DqBOhVo1mzZeYrU-Sg1I4uHzMYc7rF9UY-qR9d4Cd2s46ogJHopBcOzkp4uG4VU1~alDwKw5fQdINXqzBvfROGG0XM84gcWR1IehQqmO5tLomfS2NdzfrxdH4h4km0edQe6N8pIw3xi~ljRAvUclGDTc0Kf7WKSZMO8fS9JZfaVIZxRwoyJxhurLgi52RQK~TLPCLwJb1hfSV0fpK9tX3TRuXvYaA__&Key-Pair-Id=K2HSFNDJXOU9YS",
@@ -118,7 +118,7 @@ const CDN = {
     contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/dwsiQRBVsDHirGfC.jpg?Expires=1804248068&Signature=I-DuPYDJtDRFPtWBoXaWCN6-VnEXyJ2N9CjazFGCRux3YC784tEgFtDtN4wkVla9UmmC99MwFIUdIu39jtGgnPF7jARfwsN8Nh9fSabXqwQ-7SUqdHWOqWEifh2E5fq83FO8KU0DeTcO8XC56NkQ-3gl1m6TiMneT26N51Q5DCWMETWTMEmVzUvtc5jiBfgnIkoM3PELBIVrBnUk-1khW1kMF9E5GkCsvpDjL9GbNaP~HGSwfO6rpp4wNH9gzyC5IRw0w0oB8n1iDBBGqDDXfyiE-gVZZ98R~mj6qKtks~4zL1Q-jWyQOGF-o-cNNw2NOsO3SECxvlxj-lhOzo9Z5w__&Key-Pair-Id=K2HSFNDJXOU9YS",
     contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/BKpCjEWdimSQcHBz.jpg?Expires=1804248069&Signature=JTxpVTM4uaTgOHqXlpo1orrPgJ2c9ZekBp50LWNzhXAmhZpoUxWbq2Mv2iEX1v20N263hPEeZsBQfzVD5uWg110yRNBcn75ph8UM-~VCFdzMfWj3kXLx7uKX-Dg1bT1ZT93Pa4eLmp8wJ1JhMabrMSnF2sG3fILGxcDVPyFezR-wDUqilm1G7nL8hEJ9DjGYZoXa9jbVOVJlNXdRyb3K6riIPzXoO8Mq-U9s9oOiZvra1HdxMzP3cHgOTWNQb8n1osdXwOimOAUiDh0vrYaOMokW1FMvFyLrWEhbeQ2xT7J9rAKk0dJxLyHZ-vZNb~S8hAKYEoZiY1XOlKbjW3cADQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
   },
-  // ── Fitness 2 ──
+  // ── Fitness και Γυμναστήρια 2 ──
   f2: {
     card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DHunfxWXbmZPGjxJ.png?Expires=1804248070&Signature=TzfP8AdoLDL8gRbLQpimU1ycKwgQPrh~7FTVadNz41eU6wYN4vSeP2qAZyiHT1TNBL1huEgOSrxrqy~ajtIZnnmragDAuZEPzcFDsZTA1dcWFXst76WEv5WxQkf083CqnKBHLd9t70H220SBjLXKNIBPlbYn405JRuEklGl~SFVazOdf9vKByMvooHr0qQMT-vpFbGdyGNwKK93vQfvRGp-X3vpHqktatCWk8~7sPS4~AsOBcXnh2DT-5TI532ow72MvDo3wPh3iIStOmuk530P8w8CbKLuBOEwNI18j4-8yxNNKK-YV1129kD9ZPJwPWE2jcVNkc0VekbmwQTth9w__&Key-Pair-Id=K2HSFNDJXOU9YS",
     homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/JtNJcvmMdIcsxfuT.png?Expires=1804248070&Signature=dc~RRJ-tCxZkmZW9YcpC~2DJQA804kIR2lOoW91GuzdqJ5rtKsNUqru9u0tTGtavt31IUt10-b4aF-UQ6~bnKVg8UrSsN35zMS-O~7Mf05k0F904Cx97eFejigCmTIfDTo11-AOWQhXWJS3AFy25P1FMF8Z5b0J~A~YhlJz4Nod0~HojTkPMrpEmdIq1jpVdLnKh7m4E9QMuY2GVMedeJ3~R~3Uds9EX2x8goahTTqSTAsr-ByUIzVk902J~W05R~j4nCwxDDHH5eGgQmhTgE5PxLab814f-zsH6CwRw5sQBKzDJBYHVoXAck7igR9uXzf50RuFlD~Z8yQ1yCkEXjg__&Key-Pair-Id=K2HSFNDJXOU9YS",
@@ -128,7 +128,7 @@ const CDN = {
     contactDesktop:  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/WqWEFvWUEoLNZqgI.png?Expires=1804248070&Signature=BGuYhRhxmeRD6Qz6xMjg5z7Mo0tzBjZ1DgoR~7Ff33rQSU1KDBAo6d8EWo8mjLOhO3naekBleqqJQ0KlFWc9CtgWgj9yXJJDBZAhFcgOnps~LCHgT1hj1Sz5b~sCWBnBYYyc4FgAAVArWOSQSm5p-kXhosvo4znKVxMgkBk1JnWiH0s7SJ5AlcJvMMb6stn8zkjlX0VvUaxLIesXDT4Yu3petc3pk27mdiS05HVU1383kcjeKoo19g5usCA6yrYCFPA0Fteu1TH5GSU7M~2ieZOAout602qKe4vrxL1MDESzfJQnQtS87V6ymE1dNjmgFAJNyAguEGm5nGUqhCgWdQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
     contactMobile:   "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/qxjutkZlzdoHvUbe.png?Expires=1804248070&Signature=PMk3MR1DVhedGRpJNCIGWuei0yfYkGi8KKdVreihzxwyokZtV4lEFA~Ahd84dU8scAXoDFBUs8-cNTD~HZ2~5K1FsTumeXho8wtY0jBprtPuOVleS1rtbdVy~3y6zbGZwJE~SHnJbnynb0AY54Tg53DnElHwV9XttWniHJx-51U83ZwF5r91T-TYigvY2mwPmMfR6Mvdg4CfhQAjYcSLy94VTy40T~WQOE3IxbfCWTis2hrc3tHfsIVNOV-JnbjRfZWJ-SZHU7mfoO1MTDmrv0tBUgfGcsCO861-IUnrihwUGJwZBTj5xOJk2wH~X1I4f89A8g-wXRjA-b52Y1AU9g__&Key-Pair-Id=K2HSFNDJXOU9YS",
   },
-  // ── Fitness 3 ──
+  // ── Fitness και Γυμναστήρια 3 ──
   f3: {
     card:            "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/QBsSNVdHmBlaibGE.png?Expires=1804248071&Signature=DEz7~9VRKpQfyOwOeyB~NkzcIzKk~6UHhy1Bk1~WD3uESNkshnXYl0AIXDjW3nUvy2WEQHvJ7uxrCdhrbAX65q76hsU-lUrNfzbTWC4Tww730O86dGTzPBkRpRKSsL~WPS-2oE~ZhSwXYxWdYVNMxbx6AKoxtCZg1mfhjP8WWTps4gPVLbzEm4Or3-zFOtKVqLRU6VTLXAiNTXgSwW61KQpktxNEUGQli8s~R41V9s8dh8xeRRIzigAwtTnxxiyXNNTVFOjgATnGniNY-02V3EaE31s801iTB-WUU-ruzQDDmA8O6upHVp4hxatg7iI2LglNAJMs6pywXBNnJs~R8g__&Key-Pair-Id=K2HSFNDJXOU9YS",
     homeDesktop:     "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/PupniWGtadNIoPMs.jpg?Expires=1804248071&Signature=mGFj4ah3Bi8pwk2WjXfayCb-7bOdHf4DoLPhaTZIRVM3L-W0quEh-DIV7wJIC3Q3z8BEcdd5VCQs6rlKGUVMD0iAyDcEVTtNHpmq1xk~fz9ibtVO5dEuy4lWRkfJqUNrRVsH3VvwqtVkOB3uXkEVHyf-UZSSYwUR1Vm9UnJ3uO86NvoBhtyHjCxaKItExqvecX~MXZDyZNwdG4GwXJB2JcWwuA2SjGNsYe01KhSswyIlS5KauCB~nMzL~YPFsZqXMNy~nQ4K9CnDck1i5JDwMVRQbmgkttx8r0bJKMmG2vFJ~~lWLecVCPHseVoObhKcOBLoo0i5jEZrouVgxUhzsg__&Key-Pair-Id=K2HSFNDJXOU9YS",
@@ -169,8 +169,8 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "3px 10px", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Book Now</div>
       </div>
       <div style={{ position: "absolute", top: "56px", left: "18px", maxWidth: "48%" }}>
-        <div style={{ fontSize: "9px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "6px" }}>Beauty Studio</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Where Beauty<br/><em style={{ color: "#c4735a" }}>Meets</em> Artistry</div>
+        <div style={{ fontSize: "9px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "6px" }}>Ομορφιά Studio</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Where Ομορφιά<br/><em style={{ color: "#c4735a" }}>Meets</em> Artistry</div>
         <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>Expert hair, skin &amp; nail treatments<br/>in a luxurious environment.</div>
         <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em" }}>Book a Treatment</div>
       </div>
@@ -302,7 +302,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "12px", fontWeight: 400, color: "#8bb5a8", letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Serenity Yoga</span>
         <div style={{ display: "flex", gap: "12px" }}>
-          {["Classes","Schedule","Teachers","Pricing"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(139,181,168,0.7)" }}>{l}</span>)}
+          {["Classes","Schedule","Teachers","Τιμές"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(139,181,168,0.7)" }}>{l}</span>)}
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
@@ -335,7 +335,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
         <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Athens - Premium Properties</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Extraordinary<br/>Homes in Greece</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Extraordinary<br/>Αρχικήs στην Ελλάδα</div>
         <div style={{ display: "flex", gap: "6px" }}>
           <div style={{ background: "#b8975a", color: "#0a0a0a", fontSize: "8px", padding: "5px 14px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>View Properties</div>
           <div style={{ border: "1px solid rgba(184,151,90,0.4)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Visa Guide</div>
@@ -385,7 +385,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(244,241,236,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(26,25,22,0.1)" }}>
         <span style={{ fontSize: "11px", fontWeight: 800, color: "#1a1916", letterSpacing: "0.15em", textTransform: "uppercase" as const }}>ARCOS</span>
         <div style={{ display: "flex", gap: "14px" }}>
-          {["Work","Studio","Υπηρεσίες","Contact"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a7568", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
+          {["Work","Studio","Υπηρεσίες","Επικοινωνία"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a7568", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
         </div>
       </div>
       <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "46%" }}>
@@ -489,7 +489,7 @@ const INDUSTRIES = [
   { id: "restaurant", label: "Εστιατόρια & Cafés", icon: "☕" },
   { id: "beauty", label: "Ομορφιά & Wellness", icon: "✂" },
   { id: "clinic", label: "Κλινικές & Υγεία", icon: "+" },
-  { id: "fitness", label: "Fitness & Sport", icon: "◈" },
+  { id: "fitness", label: "Fitness και Γυμναστήρια & Sport", icon: "◈" },
   { id: "realestate", label: "Real Estate", icon: "◻" },
   { id: "childcare", label: "Childcare", icon: "◎" },
   { id: "architecture", label: "Architecture", icon: "△" },
@@ -518,7 +518,7 @@ const TEMPLATES = [
       "Υπηρεσίες showcase with pricing",
       "Gallery / portfolio section",
       "About our stylists",
-      "Contact & appointment form",
+      "Επικοινωνία & appointment form",
       "Location & hours",
       "WhatsApp CTA",
       "Mobile responsive",
@@ -534,7 +534,7 @@ const TEMPLATES = [
   {
     id: "verde-restaurant",
     industry: "restaurant",
-    name: "Verde Restaurant",
+    name: "Verde Εστιατόριο",
     tagline: "Fresh & Mediterranean",
     tier: "Business",
     tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
@@ -549,7 +549,7 @@ const TEMPLATES = [
       "Signature dishes showcase",
       "Menu page with categories",
       "About / Our Story section",
-      "Contact & reservation form",
+      "Επικοινωνία & reservation form",
       "Google Maps embed",
       "WhatsApp & social links",
       "Mobile responsive",
@@ -558,7 +558,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Fresh Mediterranean aesthetic with deep green tones, warm cream backgrounds, and elegant typography. Ideal for farm-to-table restaurants, Mediterranean cuisine, and healthy dining.",
-    waMessage: "Hi! I'm interested in the Verde Restaurant website design.",
+    waMessage: "Hi! I'm interested in the Verde Εστιατόριο website design.",
     price: "€350",
     images: { card: "" },
   },
@@ -580,7 +580,7 @@ const TEMPLATES = [
       "Class schedule & programmes",
       "Trainer profiles",
       "Membership plans",
-      "Contact & trial booking",
+      "Επικοινωνία & trial booking",
       "Location & hours",
       "WhatsApp CTA",
       "Mobile responsive",
@@ -603,7 +603,7 @@ const TEMPLATES = [
     domain: "elaradental.com",
     palette: ["#0a1628", "#1e3a5f", "#2196f3", "#64b5f6", "#f5f9ff"],
     paletteNames: ["Dark Navy", "Navy", "Blue", "Light Blue", "Ice White"],
-    styleLabel: "Clean Clinical",
+    styleLabel: "Clean Κλινικήal",
     livePreview: true,
     previewUrl: "/previews/dr-elara-dental.html",
     features: [
@@ -611,7 +611,7 @@ const TEMPLATES = [
       "Dental services showcase",
       "Doctor profiles section",
       "Patient testimonials",
-      "Contact & appointment form",
+      "Επικοινωνία & appointment form",
       "Location & hours",
       "WhatsApp CTA",
       "Mobile responsive",
@@ -642,7 +642,7 @@ const TEMPLATES = [
       "Signature coffee showcase",
       "Menu with categories",
       "About / Our Story section",
-      "Contact & find us page",
+      "Επικοινωνία & find us page",
       "Phone number CTA",
       "WhatsApp & social links",
       "Mobile responsive",
@@ -673,7 +673,7 @@ const TEMPLATES = [
       "Yoga class schedule",
       "Instructor profiles",
       "Wellness philosophy section",
-      "Contact & booking form",
+      "Επικοινωνία & booking form",
       "Location & hours",
       "WhatsApp CTA",
       "Mobile responsive",
@@ -686,7 +686,7 @@ const TEMPLATES = [
     price: "€250",
     images: { card: "" },
   },
-  // ── Fitness templates ──
+  // ── Fitness και Γυμναστήρια templates ──
   // ── Batch 2: Athens / Greece ──
   {
     id: "luxe-realty",
@@ -702,7 +702,7 @@ const TEMPLATES = [
       "Full-screen hero with property search bar",
       "Featured property listings grid",
       "Golden Visa services section",
-      "Contact & enquiry form",
+      "Επικοινωνία & enquiry form",
       "SEO-optimised for Athens property",
     ],
     pages: [
@@ -893,7 +893,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
 
           {/* What's included */}
           <div>
-            <h3 className="text-gray-900 font-semibold mb-3 text-sm uppercase tracking-widest">What's Included</h3>
+            <h3 className="text-gray-900 font-semibold mb-3 text-sm uppercase tracking-widest">Τι Περιλαμβάνεται</h3>
             <ul className="space-y-2">
               {template.features.map(f => (
                 <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
@@ -904,16 +904,16 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             </ul>
           </div>
 
-          {/* Pricing CTA */}
+          {/* Τιμές CTA */}
           <div className="rounded-xl p-4 border border-gray-200" style={{ background: "linear-gradient(135deg, #F8F9FF, #F5F0FF)" }}>
             <p className="text-xs text-gray-500 mb-1 font-medium">This is a design inspiration</p>
-            <p className="text-gray-400 text-xs mb-4 leading-relaxed">Every website is built from scratch and tailored to your brand. Pricing depends on your chosen plan - not the example.</p>
+            <p className="text-gray-400 text-xs mb-4 leading-relaxed">Every website is built από μηδενική βάση and tailored to your brand. Τιμές depends on your chosen plan - not the example.</p>
             <a
               href="/el/pricing"
               className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] mb-2"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >
-              View Pricing Plans
+              Δείτε Τιμές Plans
             </a>
             <a
               href="/el/contact"
@@ -978,7 +978,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Design inspiration - pricing from €299</span>
+          <span className="text-xs text-gray-400 italic">Design inspiration - pricing από €299</span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
             Preview <ChevronRight size={14} />
           </button>
@@ -1026,7 +1026,7 @@ function CustomBuildCard() {
       {/* Card body */}
       <div className="p-5 flex flex-col flex-1">
         <p className="text-gray-600 text-sm leading-relaxed mb-4">
-          None of these fit your vision? We design your website entirely from scratch - unique layout, custom graphics, and a brand identity built just for you.
+          None of these fit your vision? Σχεδιάζουμε η ιστοσελίδα σας entirely από μηδενική βάση - unique layout, custom graphics, and a brand identity built just for you.
         </p>
 
         {/* Feature list */}
@@ -1046,7 +1046,7 @@ function CustomBuildCard() {
         </ul>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Pricing from €299 - quote on request</span>
+          <span className="text-xs text-gray-400 italic">Τιμές από €299 - quote on request</span>
           <a
             href="/el/contact"
             className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
@@ -1156,7 +1156,7 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 export default function TemplatesEl() {
   useSEO({
     title: "Παραδείγματα Ιστοσελίδων | See Η Δουλειά μας | D&M Labs",
-    description: "Browse real website examples built by D&M Labs for restaurants, salons, dental clinics, yoga studios, and more. Starting from \u20ac299.",
+    description: "Browse real website examples built by D&M Labs for restaurants, salons, dental clinics, yoga studios, and more. Ξεκινώντας από \u20ac299.",
     canonicalPath: "/el/examples",
   });
   const [location] = useLocation();
@@ -1242,10 +1242,10 @@ export default function TemplatesEl() {
               </span>
             </h1>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
-              Browse our curated designs by industry. Each example is fully customised for your business - your logo, your colours, your content.
+              Browse our curated designs by industry. Each example is fully customised for η επιχείρησή σας - your logo, your colours, your content.
             </p>
             <p className="text-sm text-gray-400 max-w-xl mx-auto">
-              These are <strong className="text-gray-500">design inspirations</strong>, not fixed packages. Every website we build is tailored from scratch - pricing depends on your chosen plan, not the example.
+              These are <strong className="text-gray-500">design inspirations</strong>, not fixed packages. Κάθε ιστοσελίδα που φτιάχνουμε is tailored από μηδενική βάση - pricing depends on your chosen plan, not the example.
             </p>
           </motion.div>
         </div>
@@ -1273,10 +1273,10 @@ export default function TemplatesEl() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" className="w-8 h-8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
               </div>
               <h3 className="text-gray-900 text-2xl font-bold mb-3">
-                {INDUSTRIES.find(i => i.id === activeIndustry)?.label} Examples
+                {INDUSTRIES.find(i => i.id === activeIndustry)?.label} Παραδείγματα
               </h3>
               <p className="text-gray-500 max-w-md mx-auto mb-8 leading-relaxed">
-                We're crafting beautiful examples for this industry. In the meantime, we can build a completely custom design for your business - just reach out.
+                We're crafting beautiful examples for this industry. In the meantime, we can build a completely custom design for η επιχείρησή σας - just reach out.
               </p>
               <a
                 href="/el/contact"
@@ -1301,7 +1301,7 @@ export default function TemplatesEl() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl font-bold text-gray-900 mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Don't see what you're looking for?</h2>
             <p className="text-gray-500 mb-8 max-w-lg mx-auto">
-              Every website we build is fully custom. Tell us about your business and we'll design something unique - just for you.
+              Κάθε ιστοσελίδα που φτιάχνουμε is fully custom. Tell us about η επιχείρησή σας and we'll design something unique - just for you.
             </p>
             <a
               href="/el/contact"

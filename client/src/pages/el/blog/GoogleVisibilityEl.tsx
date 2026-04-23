@@ -14,7 +14,7 @@ export default function GoogleVisibilityEl() {
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
         <div className="mb-8">
-          <Link href="/el/blog" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Blog</Link>
+          <Link href="/el/blog" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Άρθρα</Link>
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">

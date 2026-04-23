@@ -39,7 +39,7 @@ const schemaMarkup = {
     },
     "geoRadius": "150000"
   },
-  "description": "D&M Labs is a remote web design studio building professional, mobile-first, SEO-optimised websites for small businesses across Crete - Ηράκλειο, Χανιά, Ρέθυμνο, and beyond. Websites from €299, delivered in 5-14 days.",
+  "description": "D&M Labs is a remote web design studio building professional, mobile-first, SEO-optimised websites for small businesses σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο, and beyond. Websites από €299, delivered in 5-14 days.",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Bank Transfer, PayPal",
@@ -51,80 +51,80 @@ const schemaMarkup = {
 
 const faqs = [
   {
-    q: "How much does a website cost for a business in Crete?",
-    a: "Our packages start from €299 for a Starter site - a fully custom, mobile-responsive website with SEO setup, a contact form, Κουμπί WhatsApp, and everything your business needs to go live. The Business package is €399 and includes up to 5 pages, booking forms, Google Maps integration, and stronger SEO. The Premium package is €699 and includes up to 7 pages, a full blog setup, pop-up, and 5 SEO articles. All prices are εφάπαξ fees with no monthly charges."
+    q: "How much does a website cost for a business στην Κρήτη?",
+    a: "Our packages start από €299 for a Starter site - a fully custom, mobile-responsive website with SEO setup, a contact form, Κουμπί WhatsApp, and everything η επιχείρησή σας needs to go live. The Business package is €399 and includes up to 5 pages, booking forms, Google Maps integration, and stronger SEO. The Premium package is €699 and includes up to 7 pages, a full blog setup, pop-up, and 5 SEO articles. All prices are εφάπαξ fees with no monthly charges."
   },
   {
-    q: "Do you work with businesses in Crete remotely?",
-    a: "Yes, entirely. D&M Labs works with clients across Crete - Ηράκλειο, Χανιά, Ρέθυμνο, Άγιος Νικόλαος, and everywhere in between - without any need for in-person meetings. The full process is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits, and it means we can move quickly from brief to launch."
+    q: "Do you work with businesses στην Κρήτη remotely?",
+    a: "Yes, entirely. D&M Labs works with clients σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο, Άγιος Νικόλαος, and everywhere in between - without any need for in-person meetings. The full process is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits, and it means we can move quickly from brief to launch."
   },
   {
     q: "Can you build a website in Greek for my Cretan business?",
-    a: "Absolutely. We build bilingual websites in both Greek and English, and a full Greek-language version is available on request. If your audience is primarily Greek-speaking - local residents, domestic tourists, or Greek-speaking customers - we can build a Greek-only site or a bilingual site with a language toggle. We are comfortable working with Greek content and can advise on how to structure it for both readability and Google visibility."
+    a: "Absolutely. Φτιάχνουμε bilingual websites in both Greek and English, and a full Greek-language version is available on request. If your audience is primarily Greek-speaking - local residents, domestic tourists, or Greek-speaking customers - we can build a Greek-only site or a bilingual site with a language toggle. We are comfortable working with Greek content and can advise on how to structure it for both readability and Google visibility."
   },
   {
-    q: "How long does it take to build a website for a business in Crete?",
+    q: "How long does it take to build a website for a business στην Κρήτη?",
     a: "The Starter package typically launches within 5 to 7 days from the moment we have your content and feedback. The Business and Premium packages take 10 to 14 days depending on the number of pages and features. We keep you updated at every stage and do not disappear between milestones."
   },
   {
     q: "My business depends on tourism. Can you build a website that attracts international visitors?",
-    a: "Yes - and this is something we do well. Many of our clients in Crete and Cyprus serve both local customers and international tourists. We build bilingual or multilingual websites that are optimised for both Greek and English search queries, load quickly on mobile (which is how most tourists browse), and include features like online booking forms, photo galleries, and Google Maps integration. A well-built website is one of the most effective ways to capture tourist bookings before they arrive on the island."
+    a: "Yes - and this is something we do well. Many of our clients στην Κρήτη and Cyprus serve both local customers and international tourists. Φτιάχνουμε bilingual or multilingual websites that are optimised for both Greek and English search queries, load quickly on mobile (which is how most tourists browse), and include features like online booking forms, photo galleries, and Google Maps integration. A well-built website is one of the most effective ways to capture tourist bookings before they arrive on the island."
   },
   {
-    q: "What kinds of businesses in Crete do you work with?",
-    a: "We work with all kinds of small and medium businesses across Crete - restaurants, tavernas, hotels, villas, beauty salons, yoga studios, lawyers, accountants, construction companies, retail shops, and professional services of all kinds. If your business needs to be found online and present itself professionally, we can build the right website for you."
+    q: "What kinds of businesses στην Κρήτη do you work with?",
+    a: "Συνεργαζόμαστε με κάθε είδους μικρές και μεσαίες επιχειρήσεις σε όλη την Κρήτη - εστιατόρια, ταβέρνες, ξενοδοχεία, βίλες, κέντρα αισθητικής, yoga studios, δικηγόρους, λογιστές, κατασκευαστικές εταιρείες, καταστήματα λιανικής και επαγγελματικές υπηρεσίες κάθε είδους. Αν η επιχείρησή σας χρειάζεται να βρίσκεται online και να παρουσιάζεται επαγγελματικά, μπορούμε να φτιάξουμε την κατάλληλη ιστοσελίδα για εσάς."
   }
 ];
 
 const industries = [
   {
-    title: "Restaurants and Tavernas",
+    title: "Εστιατόριοs and Tavernas",
     desc: "A professional website with your menu, photos, location, and a booking form. Built to be found by both locals and tourists searching for the best food in your area.",
     img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
-    alt: "Traditional Greek taverna restaurant in Crete with outdoor seating"
+    alt: "Traditional Greek taverna restaurant στην Κρήτη with outdoor seating"
   },
   {
     title: "Hotels, Villas and Accommodation",
-    desc: "Showcase your property with a stunning gallery, availability information, and a direct booking enquiry form. Reduce your dependency on booking platforms and own your guest relationships.",
+    desc: "Παρουσιάστε το κατάλυμά σας με εντυπωσιακή γκαλερί, πληροφορίες διαθεσιμότητας και φόρμα άμεσης κράτησης. Μειώστε την εξάρτησή σας από πλατφόρμες κρατήσεων και χτίστε απευθείας σχέσεις με τους επισκέπτες σας.",
     img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80",
-    alt: "Luxury villa with pool in Crete Greece for accommodation website"
+    alt: "Luxury villa with pool στην Κρήτη Greece for accommodation website"
   },
   {
-    title: "Beauty and Wellness",
-    desc: "Hair salons, nail studios, massage therapists, and beauty clinics. A clean, professional website with your services, prices, and an easy way for clients to book.",
+    title: "Ομορφιά and Wellness",
+    desc: "Κομμωτήρια, nail studios, θεραπευτές μασάζ και κλινικές αισθητικής. Μια καθαρή, επαγγελματική ιστοσελίδα με τις υπηρεσίες, τις τιμές σας και έναν εύκολο τρόπο για τους πελάτες να κλείσουν ραντεβού.",
     img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80",
-    alt: "Beauty salon interior in Crete for professional website design"
+    alt: "Ομορφιά salon interior στην Κρήτη for professional website design"
   },
   {
     title: "Επαγγελματικές Υπηρεσίες",
-    desc: "Lawyers, accountants, architects, and consultants. A credible, well-structured website that communicates your expertise and makes it easy for clients to get in touch.",
+    desc: "Δικηγόροι, λογιστές, αρχιτέκτονες και σύμβουλοι. Μια αξιόπιστη, καλά δομημένη ιστοσελίδα που επικοινωνεί την εξειδίκευσή σας και διευκολύνει τους πελάτες να επικοινωνήσουν μαζί σας.",
     img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
-    alt: "Professional services office meeting in Crete for business website"
+    alt: "Professional services office meeting στην Κρήτη for business website"
   },
   {
     title: "Retail and Boutiques",
-    desc: "A polished online presence for your shop - your products, your story, your location, and your contact details. Make it easy for customers to find you before they visit.",
+    desc: "Μια κομψή online παρουσία για το κατάστημά σας - τα προϊόντα, η ιστορία, η τοποθεσία και τα στοιχεία επικοινωνίας σας. Κάντε εύκολο για τους πελάτες να σας βρουν πριν σας επισκεφτούν.",
     img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80",
-    alt: "Boutique retail shop in Crete Greece for small business website"
+    alt: "Boutique retail shop στην Κρήτη Greece for small business website"
   },
   {
     title: "Construction and Trades",
-    desc: "Builders, electricians, plumbers, and contractors. A straightforward website that shows your work, your services, and makes it easy for customers to call or message you.",
+    desc: "Κατασκευαστές, ηλεκτρολόγοι, υδραυλικοί και εργολάβοι. Μια απλή ιστοσελίδα που δείχνει τη δουλειά σας, τις υπηρεσίες σας και διευκολύνει τους πελάτες να σας καλέσουν ή να σας στείλουν μήνυμα.",
     img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
-    alt: "Construction and trades business in Crete for professional website"
+    alt: "Construction and trades business στην Κρήτη for professional website"
   },
   {
-    title: "Fitness, Yoga and Wellness",
-    desc: "Personal trainers, yoga studios, Pilates instructors, and wellness coaches. A website that showcases your classes, your story, and makes it easy for clients to book a session with you.",
+    title: "Fitness και Γυμναστήρια, Yoga and Wellness",
+    desc: "Personal trainers, yoga studios, εκπαιδευτές Pilates και wellness coaches. Μια ιστοσελίδα που παρουσιάζει τα μαθήματά σας, την ιστορία σας και διευκολύνει τους πελάτες να κλείσουν συνεδρία μαζί σας.",
     img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80",
-    alt: "Yoga and fitness studio in Crete for wellness business website"
+    alt: "Yoga and fitness studio στην Κρήτη for wellness business website"
   }
 ];
 
 export default function WebDesignCreteEl() {
   useSEO({
-    title: "Κατασκευή Ιστοσελίδας Κρήτη | Professional Websites from €299 | D&M Labs",
-    description: "Professional web design for small businesses across Crete - Ηράκλειο, Χανιά, Ρέθυμνο and beyond. Custom websites from €299, delivered in 5-14 days. Mobile-first, SEO-ready, no hidden fees.",
+    title: "Κατασκευή Ιστοσελίδας Κρήτη | Επαγγελματικές Ιστοσελίδες από €299 | D&M Labs",
+    description: "Professional web design for small businesses σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο and beyond. Custom websites από €299, delivered in 5-14 days. Mobile-first, SEO-ready, χωρίς κρυφές χρεώσεις.",
     canonicalPath: "/el/web-design-crete"
   });
 
@@ -152,13 +152,13 @@ export default function WebDesignCreteEl() {
             Κατασκευή Ιστοσελίδας Κρήτη
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">
-            Professional Websites for{" "}
+            Επαγγελματικές Ιστοσελίδες for{" "}
             <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
-              Businesses in Crete
+              Businesses στην Κρήτη
             </span>
           </h1>
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-6 leading-relaxed">
-            D&M Labs builds professional, fast, and mobile-first websites for small businesses across Crete - from Ηράκλειο and Χανιά to Ρέθυμνο, Άγιος Νικόλαος, and every village in between. Starting from €299, delivered in 5 to 14 days.
+            D&M Labs builds professional, fast, and mobile-first websites for small businesses σε όλη την Κρήτη - from Ηράκλειο and Χανιά to Ρέθυμνο, Άγιος Νικόλαος, and every village in between. Ξεκινώντας από €299, delivered in 5 to 14 days.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -182,7 +182,7 @@ export default function WebDesignCreteEl() {
           <figure className="rounded-2xl overflow-hidden shadow-md">
             <img
               src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/NIKoLQKtylnVMtQG.jpg?Expires=1808465447&Signature=NekukXt3to-~bJhXPzQNUorg179u8Hc-UKLNcR0nu416WRSXgRmm3LpMz5SjHKM2823T-nWQuRrEO83bif~n~wMm9FZfuJLLvbXTgOLh-VfN-yqrtQG~8fLV6IUdWWkdw45F1cS6COY747zhjWWe0fgce52M7xXpHbslHFFaVl87dJxtRu9kvT59mRZ0Mh3iiRi0xTWkK-y0mo~37FgVuETIlXxnTSBjsOwVHR7kv-I2vGjMH5kvswUS8eiXNp~Gca7L7dw~dAVmvqYJO1kKJ7IVIkfhCEjZLBP3RYZT~7TMTEA98AJxywMJY13yUOhDVQVa72sQTOTGMqn9TfXX-Q__&Key-Pair-Id=K2HSFNDJXOU9YS"
-              alt="Χανιά old harbour at sunset - web design for businesses in Crete Greece"
+              alt="Χανιά old harbour at sunset - web design for businesses στην Κρήτη Greece"
               className="w-full object-cover"
               style={{ maxHeight: "420px", objectPosition: "center 50%" }}
               loading="eager"
@@ -195,19 +195,19 @@ export default function WebDesignCreteEl() {
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-6">
-            Why Businesses in Crete Need a Professional Website
+            Why Businesses στην Κρήτη Need a Professional Website
           </h2>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            Crete is Greece's largest island and one of the most visited destinations in the Mediterranean. Every year, millions of tourists arrive in Ηράκλειο, Χανιά, and Ρέθυμνο - and the vast majority of them research where to eat, where to stay, and what to do before they ever set foot on the island. If your business does not have a professional website, you are invisible to that audience before they even arrive.
+            Η Κρήτη είναι το μεγαλύτερο νησί της Ελλάδας και ένας από τους πιο δημοφιλείς προορισμούς στη Μεσόγειο. Κάθε χρόνο, εκατομμύρια τουρίστες φτάνουν στο Ηράκλειο, τα Χανιά και το Ρέθυμνο - και η συντριπτική πλειοψηφία τους ερευνά πού να φάει, πού να μείνει και τι να κάνει πριν ακόμα πατήσει το πόδι του στο νησί. Αν η επιχείρησή σας δεν έχει επαγγελματική ιστοσελίδα, είστε αόρατοι σε αυτό το κοινό πριν καν φτάσει.
           </p>
           <p className="text-[#5B6472] leading-relaxed mb-5">
             But it is not only about tourism. Crete has a thriving local economy - construction, professional services, retail, beauty, healthcare, and agriculture all depend on local customers who are increasingly searching on Google before making a decision. A business without a website, or with an outdated one, is simply not in the conversation.
           </p>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            A well-built website does several things at once. It ranks on Google for the searches your customers are already making - whether that is "restaurant Ηράκλειο", "hair salon Χανιά", or "villa rental Ρέθυμνο". It loads quickly on mobile, which is how most people browse. It builds trust before a customer has even spoken to you. And it works for your business 24 hours a day, seven days a week, without any ongoing effort from you.
+            A well-built website does several things at once. It ranks on Google for the searches οι πελάτες σας are already making - whether that is "restaurant Ηράκλειο", "hair salon Χανιά", or "villa rental Ρέθυμνο". It loads quickly on mobile, which is how most people browse. It builds trust before a customer has even spoken to you. And it works for η επιχείρησή σας 24 hours a day, seven days a week, without any ongoing effort from you.
           </p>
           <p className="text-[#5B6472] leading-relaxed">
-            The businesses in Crete that invest in a quality website now - before their sector becomes fully saturated online - are the ones that capture the most valuable search traffic and build lasting credibility with both local customers and international visitors.
+            The businesses στην Κρήτη that invest in a quality website now - before their sector becomes fully saturated online - are the ones that capture the most valuable search traffic and build lasting credibility with both local customers and international visitors.
           </p>
         </div>
       </section>
@@ -216,10 +216,10 @@ export default function WebDesignCreteEl() {
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            We Build Websites for Every Kind of Business in Crete
+            We Build Websites for Every Kind of Business στην Κρήτη
           </h2>
           <p className="text-[#5B6472] mb-10">
-            From tavernas in Ηράκλειο to villas in Χανιά and beauty salons in Ρέθυμνο - we understand the Cretan market and build websites that speak to your customers.
+            From tavernas in Ηράκλειο to villas in Χανιά and beauty salons in Ρέθυμνο - we understand the Cretan market and build websites that speak to οι πελάτες σας.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {industries.map((ind) => (
@@ -246,10 +246,10 @@ export default function WebDesignCreteEl() {
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Transparent Pricing for Crete Businesses
+            Διαφανείς Τιμές for Crete Businesses
           </h2>
           <p className="text-[#5B6472] mb-10">
-            No hidden fees. No hourly billing. One fixed price, everything included.{" "}
+            Χωρίς κρυφές χρεώσεις. No hourly billing. One fixed price, everything included.{" "}
             <Link href="/el/pricing" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               View full pricing breakdown
             </Link>
@@ -260,19 +260,19 @@ export default function WebDesignCreteEl() {
               {
                 name: "Starter",
                 price: "€299",
-                desc: "A clean, professional branded page with mobile-responsive design, Κουμπί WhatsApp, social links, accessibility widget, and 2 revisions. Live in 5-7 days.",
+                desc: "Μια καθαρή, επαγγελματική σελίδα με mobile-responsive σχεδιασμό, κουμπί WhatsApp, σύνδεσμοι social media, accessibility widget και 2 γύροι αναθεωρήσεων. Online σε 5-7 μέρες.",
                 highlight: false
               },
               {
                 name: "Business",
                 price: "€399",
-                desc: "Έως 5 σελίδες with contact and booking forms, Google Maps, reviews widget, testimonials, SEO setup, and speed optimisation. Live in 7-10 days.",
+                desc: "Έως 5 σελίδες με φόρμες επικοινωνίας και κρατήσεων, Google Maps, reviews widget, testimonials, SEO βελτιστοποίηση και βελτιστοποίηση ταχύτητας. Online σε 7-10 μέρες.",
                 highlight: true
               },
               {
                 name: "Premium",
                 price: "€699",
-                desc: "Έως 7 σελίδες with custom design and animations, gallery, 5 SEO blog άρθρα, full meta and SEO structure, pop-up, and 5 revisions. Live in 10-14 days.",
+                desc: "Έως 7 σελίδες με custom σχεδιασμό και animations, gallery, 5 SEO blog άρθρα, πλήρης meta και SEO δομή, pop-up και 5 γύροι αναθεωρήσεων. Online σε 10-14 μέρες.",
                 highlight: false
               }
             ].map((p) => (
@@ -312,13 +312,13 @@ export default function WebDesignCreteEl() {
             Why Crete Businesses Choose D&M Labs
           </h2>
           <p className="text-[#5B6472] leading-relaxed mb-8">
-            D&M Labs is a remote web design studio with deep roots in the Greek and Cypriot market. We work with businesses across Crete entirely online - no office visits, no delays. The full process, from the first conversation to your website going live, is managed by us so you can focus on running your business.
+            D&M Labs is a remote web design studio with deep roots in the Greek and Cypriot market. Συνεργαζόμαστε με businesses σε όλη την Κρήτη entirely online - no office visits, no delays. The full process, from the first conversation to η ιστοσελίδα σας going live, is managed by us so you can focus on running η επιχείρησή σας.
           </p>
 
           <figure className="rounded-2xl overflow-hidden shadow-sm mb-10 border border-[#E8EAF0]">
             <img
               src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1000&q=80"
-              alt="Web designer working remotely with a small business owner in Crete via video call"
+              alt="Web designer working remotely with a small business owner στην Κρήτη via video call"
               className="w-full object-cover"
               style={{ maxHeight: "320px", objectPosition: "center 30%" }}
               loading="lazy"
@@ -332,15 +332,15 @@ export default function WebDesignCreteEl() {
             {[
               {
                 title: "We are with you every step",
-                desc: "From the first conversation to launch and beyond, you have a real person to talk to. No support tickets, no waiting. Just a direct line to the people building your site."
+                desc: "Από την πρώτη συζήτηση μέχρι το launch και μετά, έχετε έναν πραγματικό άνθρωπο να μιλάτε. Χωρίς support tickets, χωρίς αναμονή. Απλά μια άμεση γραμμή με τους ανθρώπους που φτιάχνουν την ιστοσελίδα σας."
               },
               {
                 title: "No technical knowledge needed",
-                desc: "You do not need to understand hosting, SEO, or code. You bring your business. We handle everything else and explain what matters in plain language."
+                desc: "Δεν χρειάζεται να καταλαβαίνετε hosting, SEO ή κώδικα. Εσείς φέρνετε την επιχείρησή σας. Εμείς αναλαμβάνουμε τα υπόλοιπα και εξηγούμε ό,τι έχει σημασία με απλά λόγια."
               },
               {
                 title: "Updates whenever you need them",
-                desc: "Your business changes. Your website should too. When you need to update prices, add a service, or change a photo, you contact us and we sort it - fast."
+                desc: "Η επιχείρησή σας αλλάζει. Η ιστοσελίδα σας πρέπει να αλλάζει μαζί της. Όταν χρειαστεί να ενημερώσετε τιμές, να προσθέσετε μια υπηρεσία ή να αλλάξετε μια φωτογραφία, επικοινωνείτε μαζί μας και το τακτοποιούμε γρήγορα."
               }
             ].map((w) => (
               <div key={w.title} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
@@ -359,7 +359,7 @@ export default function WebDesignCreteEl() {
             Serving Businesses Across All of Crete
           </h2>
           <p className="text-[#5B6472] mb-8">
-            We work with businesses throughout the island - Ηράκλειο, Χανιά, Ρέθυμνο, Άγιος Νικόλαος, Ιεράπετρα, Σητεία, and every town and village in between. Distance is never a factor.
+            Συνεργαζόμαστε με businesses throughout the island - Ηράκλειο, Χανιά, Ρέθυμνο, Άγιος Νικόλαος, Ιεράπετρα, Σητεία, and every town and village in between. Distance is never a factor.
           </p>
           <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "380px" }}>
             <iframe
@@ -385,14 +385,14 @@ export default function WebDesignCreteEl() {
                 Built for Crete's Tourism Economy
               </h2>
               <p className="text-[#5B6472] leading-relaxed mb-4">
-                Crete receives over 4 million visitors a year. Most of them plan their trip online - searching for restaurants, accommodation, activities, and services weeks before they arrive. A professionally built, bilingual website puts your business in front of that audience at exactly the right moment.
+                Crete receives over 4 million visitors a year. Most of them plan their trip online - searching for restaurants, accommodation, activities, and services weeks before they arrive. A professionally built, bilingual website puts η επιχείρησή σας in front of that audience at exactly the right moment.
               </p>
               <p className="text-[#5B6472] leading-relaxed mb-4">
-                We build websites that work for both local customers and international visitors - fast-loading on mobile, available in Greek and English, and optimised for the searches that bring tourists to your door.
+                Φτιάχνουμε websites that work for both local customers and international visitors - fast-loading on mobile, available in Greek and English, and optimised for the searches that bring tourists to your door.
               </p>
               <Link href="/el/contact">
                 <button className="mt-2 px-7 py-3 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-sm hover:opacity-90 transition-opacity">
-                  Talk to us about your business
+                  Μιλήστε μαζί μας about η επιχείρησή σας
                 </button>
               </Link>
             </div>
@@ -409,7 +409,7 @@ export default function WebDesignCreteEl() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* ── Συχνές Ερωτήσεις ── */}
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-10">
@@ -463,7 +463,7 @@ export default function WebDesignCreteEl() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/el/contact">
               <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-                Contact us today
+                Επικοινωνία us today
               </button>
             </Link>
             <a

@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS - Blog Index Page
+   D&M LABS - Άρθρα Index Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
    Clean editorial layout, card grid, category filters
    ============================================================ */
@@ -17,10 +17,10 @@ function formatDate(dateStr: string) {
   });
 }
 
-export default function BlogEl() {
+export default function ΆρθραEl() {
   useSEO({
-    title: "Blog | Web Σχεδιασμός Tips & Guides | D&M Labs",
-    description: "Practical guides, honest advice, and web design insights for businesses in Cyprus and beyond.",
+    title: "Άρθρα | Web Σχεδιασμός Tips & Guides | D&M Labs",
+    description: "Practical guides, honest advice, and web design insights for businesses στην Κύπρο and beyond.",
   });
   return (
     <>
@@ -33,10 +33,10 @@ export default function BlogEl() {
           <AnimateIn>
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Resources & Insights</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              The D&M Labs <span className="brand-gradient-text">Blog</span>
+              The D&M Labs <span className="brand-gradient-text">Άρθρα</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Practical guides, honest advice, and web design insights for businesses in Cyprus and beyond.
+              Practical guides, honest advice, and web design insights for businesses στην Κύπρο and beyond.
             </p>
           </AnimateIn>
         </div>

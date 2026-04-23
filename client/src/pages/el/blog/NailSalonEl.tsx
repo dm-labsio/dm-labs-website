@@ -4,7 +4,7 @@ import { useHreflang } from "@/hooks/useHreflang";
 
 export default function NailSalonEl() {
   useSEO({
-    title: "Ιστοσελίδα για Nail Salon και Beauty Studio στην Κύπρο | D&M Labs",
+    title: "Ιστοσελίδα για Nail Salon και Ομορφιά Studio στην Κύπρο | D&M Labs",
     description: "Τι χρειάζεται η ιστοσελίδα ενός nail salon ή beauty studio στην Κύπρο για να φέρνει νέους πελάτες. Πρακτικός οδηγός.",
     canonicalPath: "/el/blog/istoselidha-nail-salon-beauty-studio-kypros"
   });
@@ -14,7 +14,7 @@ export default function NailSalonEl() {
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
         <div className="mb-8">
-          <Link href="/el/blog" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Blog</Link>
+          <Link href="/el/blog" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Άρθρα</Link>
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
@@ -23,7 +23,7 @@ export default function NailSalonEl() {
             <span className="text-xs text-[#9CA3AF]">5 λεπτά ανάγνωση</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#111315] leading-tight mb-4">
-            Ιστοσελίδα για Nail Salon και Beauty Studio στην Κύπρο: Τι Χρειάζεστε Πραγματικά
+            Ιστοσελίδα για Nail Salon και Ομορφιά Studio στην Κύπρο: Τι Χρειάζεστε Πραγματικά
           </h1>
           <p className="text-lg text-[#5B6472] leading-relaxed">
             Έχετε nail salon ή beauty studio στην Κύπρο; Δείτε τι πρέπει να έχει η ιστοσελίδα σας για να γεμίζει ραντεβού και να βρίσκεστε στη Google.

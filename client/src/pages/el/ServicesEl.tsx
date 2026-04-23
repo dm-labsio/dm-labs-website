@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS - Services Page
+   D&M LABS - Υπηρεσίες Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #F6F6F4 base
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
@@ -15,7 +15,7 @@ const SERVICES_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9
 const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
-export default function ServicesEl() {
+export default function ΥπηρεσίεςEl() {
   useSEO({
     title: "Υπηρεσίες Web Σχεδιασμός Κύπρος | D&M Labs",
     description: "Επαγγελματικές υπηρεσίες web design στην Κύπρο. Custom ιστοσελίδες, mobile-first ανάπτυξη, SEO βελτιστοποίηση και συντήρηση. Από €299.",
@@ -205,25 +205,25 @@ export default function ServicesEl() {
         </div>
       </section>
 
-      {/* What's Included */}
+      {/* Τι Περιλαμβάνεται */}
       <section className="section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Included in Every Website</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">Everything You Need, Nothing You Don't</h2>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Σε Κάθε Ιστοσελίδα</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">Ό,τι Χρειάζεστε, Τίποτα Παραπάνω</h2>
           </AnimateIn>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {[
-              { icon: Smartphone, title: "Mobile Responsive", desc: "Looks perfect on every device - phones, tablets, and desktops.", anchor: "mobile-first" },
-              { icon: Search, title: "SEO Βελτιστοποιημένο", desc: "Built-in search engine optimisation so customers find you on Google.", anchor: "seo" },
-              { icon: Zap, title: "Fast Loading", desc: "Optimised code and assets for lightning-fast page speeds.", anchor: "performance" },
-              { icon: Shield, title: "SSL Security", desc: "Free SSL certificate to keep your site and visitors secure.", anchor: "security" },
-              { icon: Image, title: "Custom Σχεδιασμός", desc: "No off-the-shelf designs - every website is tailored to your brand identity.", anchor: "custom-design" },
-              { icon: MapPin, title: "Google Maps", desc: "Embedded maps so customers can find your physical location easily.", anchor: "maps" },
-              { icon: FileText, title: "Contact Forms", desc: "Professional forms that send inquiries directly to your email.", anchor: "forms" },
-              { icon: Share2, title: "Social Integration", desc: "Links to all your social media profiles in one place.", anchor: "social" },
-              { icon: Headphones, title: "Post-Launch Support", desc: "We don't disappear after launch - ongoing support when you need it.", anchor: "turnaround" },
+              { icon: Smartphone, title: "Mobile Responsive", desc: "Τέλεια εμφάνιση σε κάθε συσκευή - κινητά, tablet και desktop.", anchor: "mobile-first" },
+              { icon: Search, title: "SEO Βελτιστοποιημένο", desc: "Ενσωματωμένη βελτιστοποίηση μηχανών αναζήτησης ώστε οι πελάτες να σας βρίσκουν στο Google.", anchor: "seo" },
+              { icon: Zap, title: "Γρήγορη Φόρτωση", desc: "Βελτιστοποιημένος κώδικας και assets για εξαιρετικά γρήγορες ταχύτητες σελίδας.", anchor: "performance" },
+              { icon: Shield, title: "Ασφάλεια SSL", desc: "Δωρεάν πιστοποιητικό SSL για να παραμένει η ιστοσελίδα σας και οι επισκέπτες ασφαλείς.", anchor: "security" },
+              { icon: Image, title: "Custom Σχεδιασμός", desc: "Κανένα έτοιμο πρότυπο - κάθε ιστοσελίδα είναι προσαρμοσμένη στην ταυτότητα της μάρκας σας.", anchor: "custom-design" },
+              { icon: MapPin, title: "Google Maps", desc: "Ενσωματωμένοι χάρτες ώστε οι πελάτες να βρίσκουν εύκολα τη φυσική σας τοποθεσία.", anchor: "maps" },
+              { icon: FileText, title: "Φόρμες Επικοινωνίας", desc: "Επαγγελματικές φόρμες που στέλνουν αιτήματα απευθείας στο email σας.", anchor: "forms" },
+              { icon: Share2, title: "Ενσωμάτωση Social Media", desc: "Σύνδεσμοι σε όλα τα προφίλ σας στα social media σε ένα μέρος.", anchor: "social" },
+              { icon: Headphones, title: "Υποστήριξη Μετά την Κυκλοφορία", desc: "Δεν εξαφανιζόμαστε μετά την κυκλοφορία - συνεχής υποστήριξη όταν τη χρειάζεστε.", anchor: "turnaround" },
             ].map((item) => (
               <StaggerItem key={item.title}>
                 <Link href={`/services/${item.anchor}`}>
@@ -251,18 +251,18 @@ export default function ServicesEl() {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <AnimateIn>
-              <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Optional Add-On</p>
+              <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Προαιρετική Υπηρεσία</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-5">
-                Monthly Maintenance - <span className="brand-gradient-text">from €39/mo</span>
+                Μηνιαία Συντήρηση - <span className="brand-gradient-text">από €39/μήνα</span>
               </h2>
               <p className="text-lg text-[#5B6472] mb-6 leading-relaxed">
-                Keep your website fresh, secure, and performing at its best. Choose the plan that fits your needs.
+                Κρατήστε την ιστοσελίδα σας ενημερωμένη, ασφαλή και σε κορυφαία απόδοση. Επιλέξτε το πλάνο που ταιριάζει στις ανάγκες σας.
               </p>
               <div className="space-y-5 mb-8">
                 <div className="dm-card !p-5">
                   <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Essential - €39/μήνα</p>
                   <ul className="space-y-2">
-                    {["Up to 3 content updates/μήνα", "Text, images, prices & hours", "Hosting & uptime monitoring", "WhatsApp support (48h response)", "Monthly backup"].map((f) => (
+                    {["Έως 3 ενημερώσεις περιεχομένου/μήνα", "Κείμενα, εικόνες, τιμές & ωράρια", "Παρακολούθηση hosting & διαθεσιμότητας", "Υποστήριξη WhatsApp (απάντηση 48ω)", "Μηνιαίο backup"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#5B8CFF] shrink-0 mt-0.5" />{f}
                       </li>
@@ -272,7 +272,7 @@ export default function ServicesEl() {
                 <div className="dm-card !p-5 border-[#8B5CFF]/30">
                   <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Premium - €59/μήνα</p>
                   <ul className="space-y-2">
-                    {["Unlimited content updates", "Priority WhatsApp response", "Monthly performance check", "Seasonal banners & promotions", "New section additions", "Hosting & uptime monitoring", "Monthly backup"].map((f) => (
+                    {["Απεριόριστες ενημερώσεις περιεχομένου", "Προτεραιότητα απόκρισης WhatsApp", "Μηνιαίος έλεγχος απόδοσης", "Εποχιακά banners & προσφορές", "Προσθήκη νέων ενοτήτων", "Παρακολούθηση hosting & διαθεσιμότητας", "Μηνιαίο backup"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}
                       </li>
@@ -282,7 +282,7 @@ export default function ServicesEl() {
               </div>
               <a href="/el/contact" className="btn-primary">
                 <MessageCircle size={18} />
-                Ask About Maintenance
+                Ρωτήστε για τη Συντήρηση
               </a>
             </AnimateIn>
             <AnimateIn delay={0.2}>
@@ -290,12 +290,12 @@ export default function ServicesEl() {
                 <div className="text-center py-8">
                   <div className="flex items-baseline justify-center gap-3 mb-2">
                     <span className="text-5xl font-bold brand-gradient-text">€39</span>
-                    <span className="text-2xl text-[#5B6472]">or</span>
+                    <span className="text-2xl text-[#5B6472]">ή</span>
                     <span className="text-5xl font-bold brand-gradient-text">€59</span>
                   </div>
-                  <p className="text-lg text-[#5B6472] mb-6">per month</p>
+                  <p className="text-lg text-[#5B6472] mb-6">ανά μήνα</p>
                   <div className="w-16 h-0.5 brand-gradient mx-auto rounded-full mb-6" />
-                  <p className="text-sm text-[#5B6472] max-w-xs mx-auto">Cancel anytime. No contracts. No commitments. Just ongoing care for your website.</p>
+                  <p className="text-sm text-[#5B6472] max-w-xs mx-auto">Ακύρωση ανά πάσα στιγμή. Χωρίς συμβόλαια. Χωρίς δεσμεύσεις. Απλά συνεχής φροντίδα για την ιστοσελίδα σας.</p>
                 </div>
               </div>
             </AnimateIn>
@@ -308,14 +308,14 @@ export default function ServicesEl() {
         <div className="container">
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Έτοιμοι να Ξεκινήσετε;</h2>
-            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Send us a message and we'll discuss which package is right for your business.</p>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Στείλτε μας μήνυμα και θα συζητήσουμε ποιο πακέτο ταιριάζει στην επιχείρησή σας.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <a href="/el/contact" className="btn-primary">
                 <MessageCircle size={18} />
                 Συνομιλήστε στο WhatsApp
               </a>
               <Link href="/el/pricing" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
-                Compare Τιμές <ArrowRight size={16} />
+                Σύγκριση Τιμών <ArrowRight size={16} />
               </Link>
             </div>
           </AnimateIn>
