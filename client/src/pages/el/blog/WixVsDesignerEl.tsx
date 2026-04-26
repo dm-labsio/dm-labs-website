@@ -7,7 +7,7 @@ import { useHreflang } from "@/hooks/useHreflang";
 
 export default function WixVsDesignerEl() {
   useSEO({
-    title: "Wix ή Επαγγελματίας Κατασκευή Ιστοσελίδαςer; Τι Συμφέρει στην Κύπρο | D&M Labs",
+    title: "Wix ή Επαγγελματίας Κατασκευή Ιστοσελίδας; Τι Συμφέρει στην Κύπρο | D&M Labs",
     description: "Μια ειλικρινής σύγκριση Wix, WordPress και επαγγελματικής κατασκευής ιστοσελίδας για επιχειρήσεις στην Κύπρο. Πότε συμφέρει το καθένα.",
     canonicalPath: "/el/blog/wix-vs-epaggelmatias-web-designer-kypros"
   });
@@ -28,7 +28,7 @@ export default function WixVsDesignerEl() {
             <span className="text-xs text-[#9CA3AF]">7 λεπτά ανάγνωση</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#111315] leading-tight mb-4">
-            Wix ή Επαγγελματίας Κατασκευή Ιστοσελίδαςer; Τι Συμφέρει την Επιχείρησή σου στην Κύπρο
+            Wix ή Επαγγελματίας Κατασκευή Ιστοσελίδας; Τι Συμφέρει την Επιχείρησή σου στην Κύπρο
           </h1>
           <p className="text-lg text-[#5B6472] leading-relaxed">
             Αν ψάχνετε να φτιάξετε ιστοσελίδα για την επιχείρησή σας στην Κύπρο, σίγουρα έχετε αναρωτηθεί: να πάω σε Wix ή να πληρώσω κάποιον επαγγελματία; Εδώ είναι η ειλικρινής απάντηση.
@@ -89,14 +89,14 @@ export default function WixVsDesignerEl() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι Σημαίνει "Επαγγελματίας Κατασκευή Ιστοσελίδαςer" στην Πράξη</h2>
+            <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι Σημαίνει "Επαγγελματίας Κατασκευή Ιστοσελίδας" στην Πράξη</h2>
             <p className="leading-relaxed mb-4">
               Όταν δουλεύετε με επαγγελματία, δεν πληρώνετε απλά για κώδικα. Πληρώνετε για:
             </p>
             <ul className="space-y-3 pl-4">
               <li className="leading-relaxed"><strong>Σχεδιασμό που αντικατοπτρίζει την επιχείρησή σας.</strong> Όχι ένα template που χρησιμοποιούν άλλοι 10.000 επιχειρήσεις.</li>
               <li className="leading-relaxed"><strong>SEO δομή από την αρχή.</strong> Σωστοί τίτλοι, meta descriptions, heading structure, image alt texts - όλα στημένα σωστά ώστε η Google να σας βρει.</li>
-              <li className="leading-relaxed"><strong>Κάποιον που ξέρει τι κάνει.</strong> Δεν χρειάζεστε να μάθετε τι είναι "mobile responsive" ή "page speed" - εμείς το αναλαμβάνουμε.</li>
+              <li className="leading-relaxed"><strong>Κάποιον που ξέρει τι κάνει.</strong> Δεν χρειάζεστε να μάθετε τι είναι η απόκριση στα κινητά ή η ταχύτητα φόρτωσης σελίδας - εμείς το αναλαμβάνουμε.</li>
               <li className="leading-relaxed"><strong>Υποστήριξη μετά το launch.</strong> Αν κάτι χρειαστεί αλλαγή, έχετε κάποιον να το κάνει.</li>
             </ul>
           </section>

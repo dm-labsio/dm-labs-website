@@ -39,7 +39,7 @@ const schemaMarkup = {
     },
     "geoRadius": "150000"
   },
-  "description": "D&M Labs is a remote web design studio building professional, mobile-first, SEO-optimised websites for small businesses σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο, and beyond. Websites από €299, delivered in 5-14 days.",
+  "description": "Η D&M Labs είναι ένα απομακρυσμένο στούντιο web design που δημιουργεί επαγγελματικές, mobile-first, βελτιστοποιημένες για SEO ιστοσελίδες για μικρές επιχειρήσεις σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο και αλλού. Ιστοσελίδες από €299, με παράδοση σε 5-14 ημέρες.",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Bank Transfer, PayPal",
@@ -51,24 +51,24 @@ const schemaMarkup = {
 
 const faqs = [
   {
-    q: "How much does a website cost for a business στην Κρήτη?",
-    a: "Our packages start από €299 for a Starter site - a fully custom, mobile-responsive website with SEO setup, a contact form, Κουμπί WhatsApp, and everything η επιχείρησή σας needs to go live. The Business package is €399 and includes up to 5 pages, booking forms, Google Maps integration, and stronger SEO. The Premium package is €699 and includes up to 7 pages, a full blog setup, pop-up, and 5 SEO articles. All prices are εφάπαξ fees with no monthly charges."
+    q: "Πόσο κοστίζει μια ιστοσελίδα για μια επιχείρηση στην Κρήτη;",
+    a: "Τα πακέτα μας ξεκινούν από €299 για μια ιστοσελίδα Starter - μια πλήρως προσαρμοσμένη, responsive για κινητά ιστοσελίδα με εγκατάσταση SEO, φόρμα επικοινωνίας, κουμπί WhatsApp και όλα όσα χρειάζεται η επιχείρησή σας για να βγει online. Το πακέτο Business κοστίζει €399 και περιλαμβάνει έως 5 σελίδες, φόρμες κράτησης, ενσωμάτωση Google Maps και ισχυρότερο SEO. Το πακέτο Premium κοστίζει €699 και περιλαμβάνει έως 7 σελίδες, πλήρη εγκατάσταση blog, pop-up και 5 άρθρα SEO. Όλες οι τιμές είναι εφάπαξ, χωρίς μηνιαίες χρεώσεις."
   },
   {
-    q: "Do you work with businesses στην Κρήτη remotely?",
-    a: "Yes, entirely. D&M Labs works with clients σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο, Άγιος Νικόλαος, and everywhere in between - without any need for in-person meetings. The full process is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits, and it means we can move quickly from brief to launch."
+    q: "Συνεργάζεστε με επιχειρήσεις στην Κρήτη απομακρυσμένα;",
+    a: "Ναι, αποκλειστικά. Η D&M Labs συνεργάζεται με πελάτες σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο, Άγιο Νικόλαο και οπουδήποτε αλλού - χωρίς να απαιτούνται συναντήσεις από κοντά. Η όλη διαδικασία γίνεται μέσω WhatsApp, email και βιντεοκλήσεων. Οι περισσότεροι πελάτες το βρίσκουν ταχύτερο και πιο βολικό από τον προγραμματισμό επισκέψεων σε γραφείο, και σημαίνει ότι μπορούμε να κινηθούμε γρήγορα από την ενημέρωση στην έναρξη λειτουργίας."
   },
   {
-    q: "Can you build a website in Greek for my Cretan business?",
-    a: "Absolutely. Φτιάχνουμε bilingual websites in both Greek and English, and a full Greek-language version is available on request. If your audience is primarily Greek-speaking - local residents, domestic tourists, or Greek-speaking customers - we can build a Greek-only site or a bilingual site with a language toggle. We are comfortable working with Greek content and can advise on how to structure it for both readability and Google visibility."
+    q: "Μπορείτε να φτιάξετε μια ιστοσελίδα στα ελληνικά για την κρητική επιχείρησή μου;",
+    a: "Φυσικά. Φτιάχνουμε δίγλωσσες ιστοσελίδες, τόσο στα ελληνικά όσο και στα αγγλικά, και μια πλήρως ελληνική έκδοση είναι διαθέσιμη κατόπιν αιτήματος. Εάν το κοινό σας είναι κυρίως ελληνόφωνο - κάτοικοι της περιοχής, εγχώριοι τουρίστες ή ελληνόφωνοι πελάτες - μπορούμε να δημιουργήσουμε μια αποκλειστικά ελληνική ιστοσελίδα ή μια δίγλωσση με δυνατότητα εναλλαγής γλώσσας. Είμαστε άνετοι να δουλεύουμε με ελληνικό περιεχόμενο και μπορούμε να σας συμβουλεύσουμε για το πώς να το δομήσετε τόσο για αναγνωσιμότητα όσο και για ορατότητα στο Google."
   },
   {
-    q: "How long does it take to build a website for a business στην Κρήτη?",
-    a: "The Starter package typically launches within 5 to 7 days from the moment we have your content and feedback. The Business and Premium packages take 10 to 14 days depending on the number of pages and features. We keep you updated at every stage and do not disappear between milestones."
+    q: "Πόσος χρόνος χρειάζεται για την κατασκευή μιας ιστοσελίδας για μια επιχείρηση στην Κρήτη;",
+    a: "Το πακέτο Starter συνήθως παραδίδεται εντός 5 έως 7 ημερών από τη στιγμή που έχουμε το περιεχόμενο και τα σχόλιά σας. Τα πακέτα Business και Premium χρειάζονται 10 έως 14 ημέρες, ανάλογα με τον αριθμό των σελίδων και των λειτουργιών. Σας κρατάμε ενήμερους σε κάθε στάδιο και δεν εξαφανιζόμαστε μεταξύ των οροσήμων."
   },
   {
-    q: "My business depends on tourism. Can you build a website that attracts international visitors?",
-    a: "Yes - and this is something we do well. Many of our clients στην Κρήτη and Cyprus serve both local customers and international tourists. Φτιάχνουμε bilingual or multilingual websites that are optimised for both Greek and English search queries, load quickly on mobile (which is how most tourists browse), and include features like online booking forms, photo galleries, and Google Maps integration. A well-built website is one of the most effective ways to capture tourist bookings before they arrive on the island."
+    q: "Η επιχείρησή μου εξαρτάται από τον τουρισμό. Μπορείτε να φτιάξετε μια ιστοσελίδα που προσελκύει διεθνείς επισκέπτες;",
+    a: "Ναι - και αυτό είναι κάτι που το κάνουμε καλά. Πολλοί από τους πελάτες μας στην Κρήτη και την Κύπρο εξυπηρετούν τόσο ντόπιους πελάτες όσο και διεθνείς τουρίστες. Φτιάχνουμε δίγλωσσες ή πολύγλωσσες ιστοσελίδες που είναι βελτιστοποιημένες για αναζητήσεις τόσο στα ελληνικά όσο και στα αγγλικά, φορτώνουν γρήγορα σε κινητά (από όπου περιηγούνται οι περισσότεροι τουρίστες) και περιλαμβάνουν λειτουργίες όπως φόρμες online κρατήσεων, γκαλερί φωτογραφιών και ενσωμάτωση Google Maps. Μια καλοφτιαγμένη ιστοσελίδα είναι ένας από τους πιο αποτελεσματικούς τρόπους για να εξασφαλίσετε κρατήσεις από τουρίστες πριν καν φτάσουν στο νησί."
   },
   {
     q: "Με ποιες επιχειρήσεις στην Κρήτη συνεργάζεστε;",
@@ -78,22 +78,22 @@ const faqs = [
 
 const industries = [
   {
-    title: "Εστιατόριοs and Tavernas",
-    desc: "A professional website with your menu, photos, location, and a booking form. Built to be found by both locals and tourists searching for the best food in your area.",
+    title: "Εστιατόρια και Ταβέρνες",
+    desc: "Μια επαγγελματική ιστοσελίδα με το μενού, τις φωτογραφίες, την τοποθεσία σας και μια φόρμα κράτησης. Κατασκευασμένη για να σας βρίσκουν τόσο οι ντόπιοι όσο και οι τουρίστες που αναζητούν το καλύτερο φαγητό στην περιοχή σας.",
     img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
-    alt: "Traditional Greek taverna restaurant στην Κρήτη with outdoor seating"
+    alt: "Παραδοσιακή ελληνική ταβέρνα-εστιατόριο στην Κρήτη με εξωτερικό χώρο"
   },
   {
-    title: "Hotels, Villas and Accommodation",
+    title: "Ξενοδοχεία, Βίλες και Καταλύματα",
     desc: "Παρουσιάστε το κατάλυμά σας με εντυπωσιακή γκαλερί, πληροφορίες διαθεσιμότητας και φόρμα άμεσης κράτησης. Μειώστε την εξάρτησή σας από πλατφόρμες κρατήσεων και χτίστε απευθείας σχέσεις με τους επισκέπτες σας.",
     img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80",
     alt: "Πολυτελής βίλα με πισίνα στην Κρήτη για ιστοσελίδα καταλύματος"
   },
   {
-    title: "Ομορφιά and Wellness",
-    desc: "Κομμωτήρια, nail studios, θεραπευτές μασάζ και κλινικές αισθητικής. Μια καθαρή, επαγγελματική ιστοσελίδα με τις υπηρεσίες, τις τιμές σας και έναν εύκολο τρόπο για τους πελάτες να κλείσουν ραντεβού.",
+    title: "Ομορφιά και Ευεξία",
+    desc: "Κομμωτήρια, στούντιο νυχιών, θεραπευτές μασάζ και κλινικές αισθητικής. Μια καθαρή, επαγγελματική ιστοσελίδα με τις υπηρεσίες, τις τιμές σας και έναν εύκολο τρόπο για τους πελάτες να κλείσουν ραντεβού.",
     img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80",
-    alt: "Ομορφιά salon interior στην Κρήτη for professional website design"
+    alt: "Εσωτερικός χώρος σαλονιού ομορφιάς στην Κρήτη για επαγγελματική ιστοσελίδα"
   },
   {
     title: "Επαγγελματικές Υπηρεσίες",
@@ -105,7 +105,7 @@ const industries = [
     title: "Λιανική & Μπουτίκ",
     desc: "Μια κομψή online παρουσία για το κατάστημά σας - τα προϊόντα, η ιστορία, η τοποθεσία και τα στοιχεία επικοινωνίας σας. Κάντε εύκολο για τους πελάτες να σας βρουν πριν σας επισκεφτούν.",
     img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80",
-    alt: "Μπουτίκ κατάστημα στην Κρήτη για ιστοσελίδα μικρής επιχείρησης"
+    alt: "Κατάστημα μπουτίκ στην Κρήτη για ιστοσελίδα μικρής επιχείρησης"
   },
   {
     title: "Κατασκευές & Τεχνικά Επαγγέλματα",
@@ -114,17 +114,17 @@ const industries = [
     alt: "Κατασκευαστική επιχείρηση στην Κρήτη για επαγγελματική ιστοσελίδα"
   },
   {
-    title: "Fitness και Γυμναστήρια, Yoga and Wellness",
-    desc: "Personal trainers, yoga studios, εκπαιδευτές Pilates και wellness coaches. Μια ιστοσελίδα που παρουσιάζει τα μαθήματά σας, την ιστορία σας και διευκολύνει τους πελάτες να κλείσουν συνεδρία μαζί σας.",
+    title: "Fitness, Γυμναστήρια και Yoga",
+    desc: "Personal trainers, yoga studios, εκπαιδευτές Pilates και σύμβουλοι ευεξίας. Μια ιστοσελίδα που παρουσιάζει τα μαθήματά σας, την ιστορία σας και διευκολύνει τους πελάτες να κλείσουν συνεδρία μαζί σας.",
     img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80",
-    alt: "Yoga και fitness studio στην Κρήτη για ιστοσελίδα wellness επιχείρησης"
+    alt: "Στούντιο Yoga και fitness στην Κρήτη για ιστοσελίδα επιχείρησης ευεξίας"
   }
 ];
 
 export default function WebDesignCreteEl() {
   useSEO({
-    title: "Κατασκευή Ιστοσελίδας Κρήτη | Επαγγελματικές Ιστοσελίδες από €299 | D&M Labs",
-    description: "Professional web design for small businesses σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο and beyond. Custom websites από €299, delivered in 5-14 days. Mobile-first, SEO-ready, χωρίς κρυφές χρεώσεις.",
+    title: "Κατασκευή Ιστοσελίδας Κρήτη | Web Design από €299 | D&M Labs",
+    description: "Επαγγελματικό web design για μικρές επιχειρήσεις σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο. Custom ιστοσελίδες από €299, παράδοση σε 5-14 ημέρες. Mobile-first, SEO-ready, χωρίς κρυφές χρεώσεις.",
     canonicalPath: "/el/web-design-crete"
   });
 
@@ -152,19 +152,19 @@ export default function WebDesignCreteEl() {
             Κατασκευή Ιστοσελίδας Κρήτη
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">
-            Επαγγελματικές Ιστοσελίδες for{" "}
+            Επαγγελματικές Ιστοσελίδες για{" "}
             <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
-              Businesses στην Κρήτη
+              Επιχειρήσεις στην Κρήτη
             </span>
           </h1>
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-6 leading-relaxed">
-            D&M Labs builds professional, fast, and mobile-first websites for small businesses σε όλη την Κρήτη - from Ηράκλειο and Χανιά to Ρέθυμνο, Άγιος Νικόλαος, and every village in between. Ξεκινώντας από €299, delivered in 5 to 14 days.
+            Η D&M Labs κατασκευάζει επαγγελματικές, γρήγορες και mobile-first ιστοσελίδες για μικρές επιχειρήσεις σε όλη την Κρήτη - από το Ηράκλειο και τα Χανιά μέχρι το Ρέθυμνο, τον Άγιο Νικόλαο και κάθε χωριό. Ξεκινώντας από €299, με παράδοση σε 5 έως 14 ημέρες.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/el/contact">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
-                Get a Free Consultation
+                Δωρεάν Συμβουλευτική
               </button>
             </Link>
             <Link href="/el/pricing">
@@ -182,59 +182,87 @@ export default function WebDesignCreteEl() {
           <figure className="rounded-2xl overflow-hidden shadow-md">
             <img
               src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/NIKoLQKtylnVMtQG.jpg?Expires=1808465447&Signature=NekukXt3to-~bJhXPzQNUorg179u8Hc-UKLNcR0nu416WRSXgRmm3LpMz5SjHKM2823T-nWQuRrEO83bif~n~wMm9FZfuJLLvbXTgOLh-VfN-yqrtQG~8fLV6IUdWWkdw45F1cS6COY747zhjWWe0fgce52M7xXpHbslHFFaVl87dJxtRu9kvT59mRZ0Mh3iiRi0xTWkK-y0mo~37FgVuETIlXxnTSBjsOwVHR7kv-I2vGjMH5kvswUS8eiXNp~Gca7L7dw~dAVmvqYJO1kKJ7IVIkfhCEjZLBP3RYZT~7TMTEA98AJxywMJY13yUOhDVQVa72sQTOTGMqn9TfXX-Q__&Key-Pair-Id=K2HSFNDJXOU9YS"
-              alt="Χανιά old harbour at sunset - web design for businesses στην Κρήτη Greece"
-              className="w-full object-cover"
-              style={{ maxHeight: "420px", objectPosition: "center 50%" }}
-              loading="eager"
+              alt="Το παλιό λιμάνι των Χανίων στο ηλιοβασίλεμα - web design για επιχειρήσεις στην Κρήτη"
+              className="w-full h-auto object-cover"
             />
           </figure>
         </div>
       </section>
 
-      {/* ── WHY CRETE NEEDS A WEBSITE ── */}
+      {/* ── LOGO CLOUD ── */}
       <section className="section-spacing">
-        <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-6">
-            Why Businesses στην Κρήτη Need a Professional Website
-          </h2>
-          <p className="text-[#5B6472] leading-relaxed mb-5">
-            Η Κρήτη είναι το μεγαλύτερο νησί της Ελλάδας και ένας από τους πιο δημοφιλείς προορισμούς στη Μεσόγειο. Κάθε χρόνο, εκατομμύρια τουρίστες φτάνουν στο Ηράκλειο, τα Χανιά και το Ρέθυμνο - και η συντριπτική πλειοψηφία τους ερευνά πού να φάει, πού να μείνει και τι να κάνει πριν ακόμα πατήσει το πόδι του στο νησί. Αν η επιχείρησή σας δεν έχει επαγγελματική ιστοσελίδα, είστε αόρατοι σε αυτό το κοινό πριν καν φτάσει.
+        <div className="container mx-auto text-center">
+          <p className="text-sm font-semibold text-[#5B6472] mb-6">
+            Εμπιστεύονται οι καλύτερες μικρές επιχειρήσεις στην Κρήτη
           </p>
-          <p className="text-[#5B6472] leading-relaxed mb-5">
-            But it is not only about tourism. Crete has a thriving local economy - construction, professional services, retail, beauty, healthcare, and agriculture all depend on local customers who are increasingly searching on Google before making a decision. A business without a website, or with an outdated one, is simply not in the conversation.
-          </p>
-          <p className="text-[#5B6472] leading-relaxed mb-5">
-            A well-built website does several things at once. It ranks on Google for the searches οι πελάτες σας are already making - whether that is "restaurant Ηράκλειο", "hair salon Χανιά", or "villa rental Ρέθυμνο". It loads quickly on mobile, which is how most people browse. It builds trust before a customer has even spoken to you. And it works for η επιχείρησή σας 24 hours a day, seven days a week, without any ongoing effort from you.
-          </p>
-          <p className="text-[#5B6472] leading-relaxed">
-            The businesses στην Κρήτη that invest in a quality website now - before their sector becomes fully saturated online - are the ones that capture the most valuable search traffic and build lasting credibility with both local customers and international visitors.
-          </p>
+          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-60">
+            <p className="font-display font-bold text-xl">Εστιατόριο</p>
+            <p className="font-display font-bold text-xl">Στούντιο Yoga</p>
+            <p className="font-display font-bold text-xl">Δικηγορικό Γραφείο</p>
+            <p className="font-display font-bold text-xl">Boutique Ξενοδοχείο</p>
+            <p className="font-display font-bold text-xl">Κλινική Αισθητικής</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURES ── */}
+      <section className="section-spacing bg-white">
+        <div className="container max-w-5xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">
+              Όλα όσα χρειάζεστε
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111315] mb-4 leading-tight">
+              Ιστοσελίδες για μικρές επιχειρήσεις που λειτουργούν
+            </h2>
+            <p className="text-lg text-[#5B6472] leading-relaxed">
+              Κάθε ιστοσελίδα που φτιάχνουμε είναι πλήρως εξοπλισμένη για να σας φέρει αποτελέσματα. Χωρίς κρυφές χρεώσεις, χωρίς μηνιαίες συνδρομές. Απλά μια εφάπαξ τιμή για μια επαγγελματική online παρουσία.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[ 
+              { title: "Επώνυμη επαγγελματική σελίδα", desc: "Μια πλήρως προσαρμοσμένη ιστοσελίδα που ταιριάζει με την επωνυμία και το στυλ σας." },
+              { title: "Responsive για κινητά", desc: "Φαίνεται τέλεια σε κάθε συσκευή - κινητά, tablet και υπολογιστές." },
+              { title: "Βελτιστοποίηση ταχύτητας", desc: "Γρήγοροι χρόνοι φόρτωσης για να κρατήσετε τους επισκέπτες και να βελτιώσετε το Google ranking." },
+              { title: "Βασικό SEO On-Page", desc: "Βελτιστοποιημένο για να σας βρίσκουν στις μηχανές αναζήτησης για τους όρους-κλειδιά σας." },
+              { title: "Φόρμα Επικοινωνίας & Κρατήσεων", desc: "Εύκολοι τρόποι για τους πελάτες να επικοινωνήσουν μαζί σας ή να κλείσουν ραντεβού." },
+              { title: "Ενσωμάτωση Social Media", desc: "Σύνδεση με τα προφίλ σας στα social media για να αυξήσετε το κοινό σας." },
+              { title: "Ενσωμάτωση Google Maps", desc: "Βοηθήστε τους πελάτες να σας βρουν εύκολα με έναν ενσωματωμένο χάρτη." },
+              { title: "Πιστοποιητικό SSL", desc: "Για ασφάλεια και εμπιστοσύνη, με το λουκέτο HTTPS στη διεύθυνσή σας." },
+              { title: "Ενσωμάτωση WhatsApp", desc: "Επιτρέψτε στους πελάτες να σας στείλουν μήνυμα απευθείας από την ιστοσελίδα σας." }
+            ].map(f => (
+              <div key={f.title} className="bg-[#F6F6F4] p-6 rounded-xl">
+                <h3 className="font-bold text-lg text-[#111315] mb-2">{f.title}</h3>
+                <p className="text-[#5B6472] text-sm">{f.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ── INDUSTRIES ── */}
-      <section className="section-spacing bg-[#F8F9FC]">
-        <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            We Build Websites for Every Kind of Business στην Κρήτη
-          </h2>
-          <p className="text-[#5B6472] mb-10">
-            From tavernas in Ηράκλειο to villas in Χανιά and beauty salons in Ρέθυμνο - we understand the Cretan market and build websites that speak to οι πελάτες σας.
-          </p>
+      <section className="section-spacing">
+        <div className="container max-w-5xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">
+              Για κάθε επιχείρηση στην Κρήτη
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111315] mb-4 leading-tight">
+              Ειδικευόμαστε στις μικρές επιχειρήσεις
+            </h2>
+            <p className="text-lg text-[#5B6472] leading-relaxed">
+              Από εστιατόρια στο Ηράκλειο μέχρι βίλες στα Χανιά, κατασκευάζουμε ιστοσελίδες που ταιριάζουν στις μοναδικές ανάγκες των τοπικών επιχειρήσεων στην Κρήτη. Κατανοούμε την αγορά και τι χρειάζεται για να ξεχωρίσετε.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((ind) => (
-              <div key={ind.title} className="bg-white rounded-2xl border border-[#E8EAF0] shadow-sm overflow-hidden">
-                <div className="overflow-hidden" style={{ height: "160px" }}>
-                  <img
-                    src={ind.img}
-                    alt={ind.alt}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-bold text-[#111315] text-base mb-2">{ind.title}</h3>
-                  <p className="text-[#5B6472] text-sm leading-relaxed">{ind.desc}</p>
+            {industries.map(i => (
+              <div key={i.title} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200/80">
+                <img src={i.img} alt={i.alt} className="w-full h-40 object-cover" />
+                <div className="p-6">
+                  <h3 className="font-bold text-lg text-[#111315] mb-2">{i.title}</h3>
+                  <p className="text-[#5B6472] text-sm">{i.desc}</p>
                 </div>
               </div>
             ))}
@@ -242,239 +270,78 @@ export default function WebDesignCreteEl() {
         </div>
       </section>
 
-      {/* ── PRICING SUMMARY ── */}
-      <section className="section-spacing">
-        <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Διαφανείς Τιμές for Crete Businesses
-          </h2>
-          <p className="text-[#5B6472] mb-10">
-            Χωρίς κρυφές χρεώσεις. No hourly billing. One fixed price, everything included.{" "}
-            <Link href="/el/pricing" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
-              View full pricing breakdown
-            </Link>
-            .
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Starter",
-                price: "€299",
-                desc: "Μια καθαρή, επαγγελματική σελίδα με mobile-responsive σχεδιασμό, κουμπί WhatsApp, σύνδεσμοι social media, accessibility widget και 2 γύροι αναθεωρήσεων. Online σε 5-7 μέρες.",
-                highlight: false
-              },
-              {
-                name: "Business",
-                price: "€399",
-                desc: "Έως 5 σελίδες με φόρμες επικοινωνίας και κρατήσεων, Google Maps, reviews widget, testimonials, SEO βελτιστοποίηση και βελτιστοποίηση ταχύτητας. Online σε 7-10 μέρες.",
-                highlight: true
-              },
-              {
-                name: "Premium",
-                price: "€699",
-                desc: "Έως 7 σελίδες με custom σχεδιασμό και animations, gallery, 5 SEO blog άρθρα, πλήρης meta και SEO δομή, pop-up και 5 γύροι αναθεωρήσεων. Online σε 10-14 μέρες.",
-                highlight: false
-              }
-            ].map((p) => (
-              <div
-                key={p.name}
-                className={`rounded-2xl p-6 border ${
-                  p.highlight
-                    ? "border-[#5B8CFF] bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] shadow-md"
-                    : "border-[#E8EAF0] bg-white shadow-sm"
-                }`}
-              >
-                {p.highlight && (
-                  <span className="inline-block text-xs font-semibold text-[#5B8CFF] uppercase tracking-wider mb-2">
-                    Πιο Δημοφιλές
-                  </span>
-                )}
-                <div className="text-2xl font-extrabold text-[#111315] mb-1">{p.price}</div>
-                <div className="font-semibold text-[#111315] mb-3">{p.name}</div>
-                <p className="text-[#5B6472] text-sm leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-xs text-[#9CA3AF] mt-4">
-            All prices are εφάπαξ fees. No monthly charges, no hidden costs.{" "}
-            <Link href="/el/pricing" className="text-[#5B8CFF] underline underline-offset-2">
-              Δείτε πλήρεις τιμές
-            </Link>
-            .
-          </p>
-        </div>
-      </section>
-
-      {/* ── WHY CHOOSE D&M LABS ── */}
-      <section className="section-spacing bg-[#F8F9FC]">
-        <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-6">
-            Why Crete Businesses Choose D&M Labs
-          </h2>
-          <p className="text-[#5B6472] leading-relaxed mb-8">
-            D&M Labs is a remote web design studio with deep roots in the Greek and Cypriot market. Συνεργαζόμαστε με businesses σε όλη την Κρήτη entirely online - no office visits, no delays. The full process, from the first conversation to η ιστοσελίδα σας going live, is managed by us so you can focus on running η επιχείρησή σας.
-          </p>
-
-          <figure className="rounded-2xl overflow-hidden shadow-sm mb-10 border border-[#E8EAF0]">
-            <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1000&q=80"
-              alt="Web designer working remotely with a small business owner στην Κρήτη via video call"
-              className="w-full object-cover"
-              style={{ maxHeight: "320px", objectPosition: "center 30%" }}
-              loading="lazy"
-            />
-            <figcaption className="text-xs text-[#9CA3AF] text-center italic px-4 py-2 bg-white">
-              The entire process - from brief to launch - is handled remotely, at your pace.
-            </figcaption>
-          </figure>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                title: "We are with you every step",
-                desc: "Από την πρώτη συζήτηση μέχρι το launch και μετά, έχετε έναν πραγματικό άνθρωπο να μιλάτε. Χωρίς support tickets, χωρίς αναμονή. Απλά μια άμεση γραμμή με τους ανθρώπους που φτιάχνουν την ιστοσελίδα σας."
-              },
-              {
-                title: "No technical knowledge needed",
-                desc: "Δεν χρειάζεται να καταλαβαίνετε hosting, SEO ή κώδικα. Εσείς φέρνετε την επιχείρησή σας. Εμείς αναλαμβάνουμε τα υπόλοιπα και εξηγούμε ό,τι έχει σημασία με απλά λόγια."
-              },
-              {
-                title: "Ενημερώσεις όποτε τις χρειάζεστε",
-                desc: "Η επιχείρησή σας αλλάζει. Η ιστοσελίδα σας πρέπει να αλλάζει μαζί της. Όταν χρειαστεί να ενημερώσετε τιμές, να προσθέσετε μια υπηρεσία ή να αλλάξετε μια φωτογραφία, επικοινωνείτε μαζί μας και το τακτοποιούμε γρήγορα."
-              }
-            ].map((w) => (
-              <div key={w.title} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
-                <h3 className="font-bold text-[#111315] text-lg mb-2">{w.title}</h3>
-                <p className="text-[#5B6472] text-sm leading-relaxed">{w.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── MAP ── */}
-      <section className="section-spacing">
-        <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Serving Businesses Across All of Crete
-          </h2>
-          <p className="text-[#5B6472] mb-8">
-            Συνεργαζόμαστε με businesses throughout the island - Ηράκλειο, Χανιά, Ρέθυμνο, Άγιος Νικόλαος, Ιεράπετρα, Σητεία, and every town and village in between. Distance is never a factor.
-          </p>
-          <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "380px" }}>
-            <iframe
-              title="Crete, Greece - web design services for local businesses"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d415000!2d24.8093!3d35.2401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x149a5a5b1f4c9e3d%3A0x400d318bd5200b0!2sCrete%2C%20Greece!5e0!3m2!1sen!2sgr!4v1700000000000!5m2!1sen!2sgr"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── TOURISM CALLOUT ── */}
-      <section className="section-spacing bg-gradient-to-br from-[#F0F4FF] to-[#F0EAFF]">
-        <div className="container max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <div>
-              <h2 className="text-2xl font-bold text-[#111315] mb-4">
-                Built for Crete's Tourism Economy
-              </h2>
-              <p className="text-[#5B6472] leading-relaxed mb-4">
-                Crete receives over 4 million visitors a year. Most of them plan their trip online - searching for restaurants, accommodation, activities, and services weeks before they arrive. A professionally built, bilingual website puts η επιχείρησή σας in front of that audience at exactly the right moment.
-              </p>
-              <p className="text-[#5B6472] leading-relaxed mb-4">
-                Φτιάχνουμε websites that work for both local customers and international visitors - fast-loading on mobile, available in Greek and English, and optimised for the searches that bring tourists to your door.
-              </p>
-              <Link href="/el/contact">
-                <button className="mt-2 px-7 py-3 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-sm hover:opacity-90 transition-opacity">
-                  Μιλήστε μαζί μας about η επιχείρησή σας
-                </button>
-              </Link>
-            </div>
-            <figure className="rounded-2xl overflow-hidden shadow-md">
-              <img
-                src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/vjogCczdOXQNydol.jpg?Expires=1808465447&Signature=JrB-tEOKwnwYOXiwzbFZfcPMnRGALbh7XJMrSUn62RNA8EE7JYOp4ig5HrnbHT4Ok3ec9K2u1i97UnXL~Y5q4jGz6DXFT5KRaJDk6bm00Vb2ZQjLqvPSJZmq0kdo-5LZ4ksSkgUGfGbDsTN6i7iyuxHX9pIEM36H5jppUfovJe0y0TND5t-fNuyWciKGC5NTQHGwFxzXMDqubN3-cVxdtUi-Cvvi0t5rHrQILJbYln~5O3BKWvMDMjkpciv6h-zYqP4qM8Hs5Ld3Rrpp9zR196DYIUKlyZ5XZYf27CG0pSjmRUzkHh6Rq68UAmTfhuuRYShcyPfDm3rwokvM~pvyeg__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                alt="Crete island aerial view - tourism and local business website design"
-                className="w-full object-cover"
-                style={{ height: "300px", objectPosition: "center 40%" }}
-                loading="lazy"
-              />
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Συχνές Ερωτήσεις ── */}
-      <section className="section-spacing bg-[#F8F9FC]">
-        <div className="container max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-10">
-            Συχνές Ερωτήσεις
-          </h2>
-          <div className="flex flex-col gap-6">
-            {faqs.map((faq) => (
-              <div key={faq.q} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
-                <h3 className="font-bold text-[#111315] text-base mb-3">{faq.q}</h3>
-                <p className="text-[#5B6472] text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── INTERNAL LINKS ── */}
-      <section className="section-spacing">
+      {/* ── PRICING CTA ── */}
+      <section className="section-spacing bg-gradient-to-br from-[#F0F4FF] via-[#F6F6F4] to-[#F0EAFF]">
         <div className="container max-w-4xl mx-auto text-center">
-          <p className="text-[#5B6472] text-sm">
-            Also serving businesses in{" "}
-            <Link href="/el/web-design-thessaloniki" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
-              Thessaloniki
-            </Link>
-            {", "}
-            <Link href="/el/web-design-nicosia" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
-              Nicosia
-            </Link>
-            {", and "}
-            <Link href="/el/web-design-limassol" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
-              Limassol
-            </Link>
-            .{" "}
-            <Link href="/el/web-design-cyprus" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
-              See all Cyprus locations
-            </Link>
-            .
-          </p>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="section-spacing bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF]">
-        <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Ready to get your Crete business online?
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111315] mb-4 leading-tight">
+            Ξεκάθαρες τιμές, χωρίς εκπλήξεις
           </h2>
-          <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-            Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. You can also reach us directly on WhatsApp - we respond quickly.
+          <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-6 leading-relaxed">
+            Επιλέξτε το πακέτο που ταιριάζει στις ανάγκες και τον προϋπολογισμό σας. Όλες οι τιμές μας είναι εφάπαξ, χωρίς κρυφές χρεώσεις ή μηνιαίες συνδρομές. Αυτό που βλέπετε είναι αυτό που πληρώνετε.
           </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/el/contact">
-              <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-                Επικοινωνία us today
+            <Link href="/el/pricing">
+              <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
+                Δείτε τα Πακέτα & τις Τιμές
               </button>
             </Link>
-            <a
-              href="https://wa.me/35797472847?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Crete"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="px-10 py-4 rounded-xl bg-white/20 border border-white/40 text-white font-bold text-base hover:bg-white/30 transition-colors">
-                Συνομιλήστε στο WhatsApp
+            <a href="https://wa.me/35797472847?text=Hi%20D%26M%20Labs%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Crete." target="_blank" rel="noopener noreferrer">
+              <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors bg-white">
+                Στείλτε μας στο WhatsApp
               </button>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="section-spacing bg-white">
+        <div className="container max-w-3xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111315] mb-4 leading-tight">
+              Συχνές Ερωτήσεις
+            </h2>
+            <p className="text-lg text-[#5B6472] leading-relaxed">
+              Έχετε ερωτήσεις; Έχουμε τις απαντήσεις. Εδώ είναι μερικές από τις πιο συχνές ερωτήσεις που λαμβάνουμε από επιχειρήσεις στην Κρήτη.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <details key={i} className="bg-[#F6F6F4] p-4 rounded-xl cursor-pointer group">
+                <summary className="flex justify-between items-center font-semibold text-lg text-[#111315] group-open:mb-2">
+                  {faq.q}
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 shrink-0 ml-4 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                </summary>
+                <p className="text-[#5B6472] text-base leading-relaxed">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FINAL CTA ── */}
+      <section className="section-spacing">
+        <div className="container max-w-4xl mx-auto text-center bg-white p-8 sm:p-12 rounded-2xl shadow-sm border border-gray-200/80">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111315] mb-4 leading-tight">
+            Έτοιμοι να ξεκινήσετε την ιστοσελίδα σας στην Κρήτη;
+          </h2>
+          <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-6 leading-relaxed">
+            Ας συνεργαστούμε για να δημιουργήσουμε μια επαγγελματική, γρήγορη και αποτελεσματική ιστοσελίδα για την επιχείρησή σας. Επικοινωνήστε μαζί μας σήμερα για μια δωρεάν, χωρίς καμία υποχρέωση, συμβουλευτική. Θα συζητήσουμε τις ανάγκες σας και θα σας δώσουμε μια σαφή προσφορά.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/el/contact">
+              <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
+                Ζητήστε Δωρεάν Προσφορά
+              </button>
+            </Link>
+            <Link href="/el/portfolio">
+              <button className="px-8 py-3.5 rounded-xl border border-gray-300 text-[#111315] font-semibold text-base hover:bg-gray-50 transition-colors bg-white">
+                Δείτε τη Δουλειά μας
+              </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -482,3 +349,4 @@ export default function WebDesignCreteEl() {
     </main>
   );
 }
+

@@ -30,7 +30,7 @@ const EL_NAV_LINKS = [
   { label: "Αρχική", href: "/el" },
   { label: "Υπηρεσίες", href: "/el/services" },
   { label: "Διαδικασία", href: "/el/process" },
-  { label: "Παραδείγματα", href: "/templates" },
+  { label: "Παραδείγματα", href: "/el/examples" },
   { label: "Τιμές", href: "/el/pricing" },
   { label: "Άρθρα", href: "/el/blog" },
   { label: "FAQ", href: "/el/faq" },
@@ -288,7 +288,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Legal */}
             <div>
-              <h4 className="text-sm font-semibold text-white mb-5 tracking-wide uppercase">Legal</h4>
+              <h4 className="text-sm font-semibold text-white mb-5 tracking-wide uppercase">{isGreek ? "Νομικά" : "Legal"}</h4>
               <ul className="space-y-3">
                 {isGreek ? (
                   <>

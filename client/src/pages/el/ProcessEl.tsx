@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS - Διαδικασία Page
+   D&M LABS - Διαδικασία Page (Greek)
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    Σχεδιασμός: Airy vertical timeline - no step numbers, large icons,
            generous breathing room between each stage
@@ -18,34 +18,34 @@ const steps = [
     icon: MessageCircle,
     title: "Αρχική Κλήση",
     time: "~1 μέρα",
-    desc: "We start with a quick WhatsApp chat. Tell us about η επιχείρησή σας, what you need, and your goals. No technical jargon - just a friendly conversation.",
-    details: ["15-20 minute WhatsApp call", "We learn about η επιχείρησή σας", "You tell us what you need", "We recommend the best package"],
+    desc: "Ξεκινάμε με μια γρήγορη συνομιλία στο WhatsApp. Πείτε μας για την επιχείρησή σας, τι χρειάζεστε και τους στόχους σας. Χωρίς τεχνική ορολογία - απλά μια φιλική συζήτηση.",
+    details: ["Κλήση 15-20 λεπτών στο WhatsApp", "Μαθαίνουμε για την επιχείρησή σας", "Μας λέτε τι χρειάζεστε", "Προτείνουμε το καλύτερο πακέτο"],
     color: "#5B8CFF",
   },
   {
     step: "02",
     icon: CreditCard,
-    title: "Secure Your Spot",
+    title: "Κλείστε τη Θέση σας",
     time: "Ίδια μέρα",
-    desc: "Once we agree on the scope and price, you pay and we begin work immediately. Simple, transparent, no surprises.",
-    details: ["Clear pricing - χωρίς κρυφές χρεώσεις", "Pay once, own it forever", "Work begins immediately", "Secure payment options"],
+    desc: "Μόλις συμφωνήσουμε στο εύρος και την τιμή, πληρώνετε και ξεκινάμε αμέσως. Απλά, διαφανή, χωρίς εκπλήξεις.",
+    details: ["Σαφείς τιμές - χωρίς κρυφές χρεώσεις", "Πληρώνετε μία φορά, σας ανήκει για πάντα", "Η εργασία ξεκινά αμέσως", "Ασφαλείς επιλογές πληρωμής"],
     color: "#6FE3FF",
   },
   {
     step: "03",
     icon: Palette,
-    title: "Σχεδιασμός & Build",
-    time: "3-7 days",
-    desc: "Σχεδιάζουμε and develop η ιστοσελίδα σας. You'll see progress along the way and can provide feedback at key milestones.",
+    title: "Σχεδιασμός & Κατασκευή",
+    time: "3-7 μέρες",
+    desc: "Σχεδιάζουμε και αναπτύσσουμε την ιστοσελίδα σας. Θα βλέπετε την πρόοδο καθ' όλη τη διάρκεια και μπορείτε να δώσετε feedback σε βασικά σημεία.",
     details: ["Custom σχεδιασμός για το brand σας", "Ανάπτυξη με προτεραιότητα στο κινητό", "Τακτικές ενημερώσεις προόδου", "Η γνώμη σας διαμορφώνει το αποτέλεσμα"],
     color: "#8B5CFF",
   },
   {
     step: "04",
     icon: Code,
-    title: "Review & Αναθεωρήσεις",
+    title: "Αναθεωρήσεις",
     time: "1-2 μέρες",
-    desc: "You review the website and request changes. We refine everything until you're completely happy with the result.",
+    desc: "Ελέγχετε την ιστοσελίδα και ζητάτε αλλαγές. Βελτιώνουμε τα πάντα μέχρι να είστε απόλυτα ικανοποιημένοι με το αποτέλεσμα.",
     details: ["Πλήρης προεπισκόπηση ιστοσελίδας", "Starter: 2 γύροι αναθεωρήσεων, Business: 3, Premium: 5", "Προσαρμόζουμε μέχρι να είστε ικανοποιημένοι", "Χωρίς επιπλέον χρεώσεις για τις συμπεριλαμβανόμενες αναθεωρήσεις"],
     color: "#5B8CFF",
   },
@@ -54,16 +54,16 @@ const steps = [
     icon: Rocket,
     title: "Κυκλοφορία",
     time: "~1 μέρα",
-    desc: "Η ιστοσελίδα σας goes live. Αναλαμβάνουμε domain setup, hosting, and make sure everything works perfectly.",
-    details: ["Domain connection", "SSL certificate setup", "Speed optimisation", "Η ιστοσελίδα σας is live!"],
+    desc: "Η ιστοσελίδα σας δημοσιεύεται. Αναλαμβάνουμε τη σύνδεση domain, τη ρύθμιση hosting και βεβαιωνόμαστε ότι όλα λειτουργούν τέλεια.",
+    details: ["Σύνδεση domain", "Ρύθμιση πιστοποιητικού SSL", "Βελτιστοποίηση ταχύτητας", "Η ιστοσελίδα σας είναι live!"],
     color: "#6FE3FF",
   },
 ];
 
-export default function ΔιαδικασίαEl() {
+export default function ProcessElPage() {
   useSEO({
-    title: "Η Διαδικασία μας | How We Build Websites | D&M Labs",
-    description: "From discovery call to launch in 5-14 days. See exactly how D&M Labs designs and builds η ιστοσελίδα σας, step by step.",
+    title: "Η Διαδικασία μας | Πώς Κατασκευάζουμε Ιστοσελίδες | D&M Labs",
+    description: "Από την αρχική κλήση μέχρι την κυκλοφορία σε 5-14 μέρες. Δείτε ακριβώς πώς η D&M Labs σχεδιάζει και κατασκευάζει την ιστοσελίδα σας, βήμα προς βήμα.",
   });
   return (
     <>
@@ -76,10 +76,10 @@ export default function ΔιαδικασίαEl() {
           <AnimateIn>
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Πώς Λειτουργεί</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              From Idea to <span className="brand-gradient-text">Κυκλοφορία</span>
+              Από την Ιδέα στην <span className="brand-gradient-text">Κυκλοφορία</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              A simple, transparent process designed to get η ιστοσελίδα σας live as quickly as possible - without the stress.
+              Μια απλή, διαφανής διαδικασία σχεδιασμένη για να δημοσιεύσει την ιστοσελίδα σας όσο πιο γρήγορα γίνεται - χωρίς άγχος.
             </p>
           </AnimateIn>
         </div>
@@ -114,7 +114,7 @@ export default function ΔιαδικασίαEl() {
                     {/* Content */}
                     <div className="flex-1 pt-3">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-xs font-bold text-white px-2.5 py-1 rounded-full" style={{ background: step.color }}>Step {step.step}</span>
+                        <span className="text-xs font-bold text-white px-2.5 py-1 rounded-full" style={{ background: step.color }}>Βήμα {step.step}</span>
                         <span className="text-xs font-semibold text-[#5B6472] bg-[#F0F4FF] px-2.5 py-1 rounded-full">{step.time}</span>
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">{step.title}</h3>
@@ -140,15 +140,15 @@ export default function ΔιαδικασίαEl() {
       <section className="section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Typical Timeline</h2>
-            <p className="text-lg text-[#5B6472]">Most projects go from first message to live website in under two weeks.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Τυπικό Χρονοδιάγραμμα</h2>
+            <p className="text-lg text-[#5B6472]">Τα περισσότερα projects ολοκληρώνονται από το πρώτο μήνυμα μέχρι τη δημοσίευση σε λιγότερο από δύο εβδομάδες.</p>
           </AnimateIn>
           <AnimateIn delay={0.2}>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
-                { label: "Starter Website", time: "5-7 days", price: "από €299" },
-                { label: "Business Website", time: "7-10 days", price: "from €399" },
-                { label: "Premium Website", time: "10-14 days", price: "from €699" },
+                { label: "Starter Ιστοσελίδα", time: "5-7 μέρες", price: "από €299" },
+                { label: "Business Ιστοσελίδα", time: "7-10 μέρες", price: "από €399" },
+                { label: "Premium Ιστοσελίδα", time: "10-14 μέρες", price: "από €699" },
               ].map((item) => (
                 <div key={item.label} className="dm-card text-center !p-8">
                   <p className="text-3xl font-bold brand-gradient-text mb-2">{item.time}</p>
@@ -167,11 +167,11 @@ export default function ΔιαδικασίαEl() {
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Έτοιμοι να Ξεκινήσετε;</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">
-              The first step is a quick, no-pressure WhatsApp chat. Ας μιλήσουμε about η επιχείρησή σας.
+              Το πρώτο βήμα είναι μια γρήγορη, χωρίς δέσμευση συνομιλία στο WhatsApp. Ας μιλήσουμε για την επιχείρησή σας.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a href="/el/contact" className="btn-primary">
-                <MessageCircle size={18} /> Start the Conversation
+                <MessageCircle size={18} /> Ξεκινήστε τη Συζήτηση
               </a>
               <Link href="/el/pricing" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
                 Δείτε τις Τιμές <ArrowRight size={16} />

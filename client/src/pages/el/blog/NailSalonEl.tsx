@@ -42,7 +42,7 @@ export default function NailSalonEl() {
           <div className="rounded-2xl overflow-hidden my-8">
             <img
               src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80"
-              alt="Nail salon beauty studio ιστοσελίδα Κύπρος - επαγγελματική online παρουσία"
+              alt="Ιστοσελίδα nail salon και στούντιο ομορφιάς Κύπρος - επαγγελματική online παρουσία"
               className="w-full object-cover"
               style={{ maxHeight: "320px" }}
               loading="lazy"

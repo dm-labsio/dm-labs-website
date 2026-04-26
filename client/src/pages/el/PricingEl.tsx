@@ -20,15 +20,15 @@ const comparison = [
   { feature: "Φόρμα επικοινωνίας", starter: false, business: true, pro: true },
   { feature: "Φόρμα κρατήσεων", starter: false, business: true, pro: true },
   { feature: "Google Maps", starter: false, business: true, pro: true },
-  { feature: "Ενότητα testimonials", starter: false, business: true, pro: true },
+  { feature: "Ενότητα μαρτυριών", starter: false, business: true, pro: true },
   { feature: "Βασική SEO βελτιστοποίηση", starter: false, business: true, pro: true },
   { feature: "Google Reviews widget", starter: false, business: true, pro: true },
   { feature: "Βελτιστοποίηση ταχύτητας", starter: false, business: true, pro: true },
-  { feature: "Gallery", starter: false, business: false, pro: true },
-  { feature: "Custom animations", starter: false, business: false, pro: true },
+  { feature: "Gallery (συλλογή φωτογραφιών)", starter: false, business: false, pro: true },
+  { feature: "Προσαρμοσμένες κινούμενες εικόνες", starter: false, business: false, pro: true },
   { feature: "5 SEO blog άρθρα", starter: false, business: false, pro: true },
   { feature: "Πλήρης meta/SEO δομή", starter: false, business: false, pro: true },
-  { feature: "Pop-up included", starter: false, business: false, pro: true },
+  { feature: "Pop-up συμπεριλαμβάνεται", starter: false, business: false, pro: true },
   { feature: "Γύροι αναθεωρήσεων", starter: "2 γύροι", business: "3 γύροι", pro: "5 γύροι" },
   { feature: "Χρόνος παράδοσης", starter: "5-7 μέρες", business: "7-10 μέρες", pro: "10-14 μέρες" },
 ];
@@ -110,7 +110,7 @@ export default function PricingEl() {
                 <p className="text-sm text-[#5B6472] mb-6">Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική online παρουσία.</p>
                 <ul className="space-y-3 mb-8 flex-1">
                   {[
-                    "Branded Business Page",
+                    "Επώνυμη επαγγελματική σελίδα",
                     "Responsive για κινητά",
                     "Κουμπί WhatsApp",
                     "Σύνδεσμοι social media",
@@ -150,7 +150,7 @@ export default function PricingEl() {
                         "Κουμπί WhatsApp + σύνδεσμοι social media",
                         "Φόρμα επικοινωνίας + φόρμα κρατήσεων",
                         "Google Maps + Reviews widget",
-                        "Ενότητα testimonials",
+                        "Ενότητα μαρτυριών",
                         "Βασική SEO βελτιστοποίηση",
                         "Βελτιστοποίηση ταχύτητας",
                         "Widget προσβασιμότητας (δωρεάν)",
@@ -189,11 +189,11 @@ export default function PricingEl() {
                     "Κουμπί WhatsApp + σύνδεσμοι social media",
                     "Φόρμα επικοινωνίας + φόρμα κρατήσεων",
                     "Google Maps + Reviews widget",
-                    "Testimonials + gallery",
+                    "Μαρτυρίες + gallery",
                     "5 SEO blog άρθρα",
                     "Πλήρης meta/SEO δομή",
                     "Βελτιστοποίηση ταχύτητας",
-                    "Pop-up included",
+                    "Pop-up συμπεριλαμβάνεται",
                     "Widget προσβασιμότητας (δωρεάν)",
                     "5 γύροι αναθεωρήσεων",
                     "Παράδοση σε 10-14 μέρες",
@@ -221,7 +221,7 @@ export default function PricingEl() {
                 <div className="flex-shrink-0 lg:w-72">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Φτιαγμένο για Εσάς</span>
                   <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise</p>
-                  <p className="text-4xl font-bold text-white mb-1">Custom</p>
+                  <p className="text-4xl font-bold text-white mb-1">Προσαρμοσμένη</p>
                   <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Τιμολόγηση προσαρμοσμένη στο project σας</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
                     Για μεγαλύτερες επιχειρήσεις, εταιρείες με πολλαπλές τοποθεσίες και οργανισμούς που χρειάζονται πλήρως custom λύση σχεδιασμένη γύρω από τους στόχους τους.
@@ -248,7 +248,7 @@ export default function PricingEl() {
                     { icon: Users, label: "Αφοσιωμένος project manager" },
                     { icon: Headphones, label: "Προτεραιότητα υποστήριξης και παράδοσης" },
                     { icon: ArrowRight, label: "Επιλογή ongoing retainer" },
-                    { icon: CheckCircle2, label: "Custom SEO και στρατηγική περιεχομένου" },
+                    { icon: CheckCircle2, label: "Προσαρμοσμένη στρατηγική SEO & περιεχομένου" },
                   ].map(({ icon: Icon, label }) => (
                     <div key={label} className="flex items-start gap-2.5">
                       <Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />
@@ -304,7 +304,7 @@ export default function PricingEl() {
               <div>
                 <p className="text-sm font-semibold text-[#111315] mb-1">Προσβασιμότητα σε κάθε πλάνο</p>
                 <p className="text-xs text-[#5B6472] leading-relaxed">
-                  Κάθε ιστοσελίδα που φτιάχνουμε περιλαμβάνει βασικό <strong>accessibility widget</strong> χωρίς επιπλέον κόστος - με έλεγχο μεγέθους γραμματοσειράς, ρύθμιση αντίθεσης και πλοήγηση με πληκτρολόγιο. Για επιχειρήσεις που χρειάζονται πλήρη έλεγχο WCAG 2.1 AA και πιστοποιητικό συμμόρφωσης, το προσφέρουμε ως πρόσθετο €40.
+                  Κάθε ιστοσελίδα που φτιάχνουμε περιλαμβάνει βασικό <strong>εργαλείο προσβασιμότητας</strong> χωρίς επιπλέον κόστος - με έλεγχο μεγέθους γραμματοσειράς, ρύθμιση αντίθεσης και πλοήγηση με πληκτρολόγιο. Για επιχειρήσεις που χρειάζονται πλήρη έλεγχο WCAG 2.1 AA και πιστοποιητικό συμμόρφωσης, το προσφέρουμε ως πρόσθετο €40.
                 </p>
               </div>
             </div>

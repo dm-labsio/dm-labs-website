@@ -15,7 +15,7 @@ const SERVICES_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9
 const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
-export default function ΥπηρεσίεςEl() {
+export default function ServicesElPage() {
   useSEO({
     title: "Υπηρεσίες Web Σχεδιασμός Κύπρος | D&M Labs",
     description: "Επαγγελματικές υπηρεσίες web design στην Κύπρο. Custom ιστοσελίδες, mobile-first ανάπτυξη, SEO βελτιστοποίηση και συντήρηση. Από €299.",
@@ -81,7 +81,7 @@ export default function ΥπηρεσίεςEl() {
                   Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική online παρουσία.
                 </p>
                 <ul className="space-y-3 mb-6 flex-1">
-                  {["Branded Business Page", "Mobile responsive", "Κουμπί WhatsApp", "Σύνδεσμοι social media", "Accessibility widget (δωρεάν)", "2 γύροι αναθεωρήσεων", "Παράδοση σε 5-7 μέρες"].map((f) => (
+                  {["Επώνυμη επαγγελματική σελίδα", "Responsive για κινητά", "Κουμπί WhatsApp", "Σύνδεσμοι social media", "Widget προσβασιμότητας (δωρεάν)", "2 γύροι αναθεωρήσεων", "Παράδοση σε 5-7 μέρες"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}
@@ -111,7 +111,7 @@ export default function ΥπηρεσίεςEl() {
                     Για καθιερωμένες επιχειρήσεις που χρειάζονται ολοκληρωμένη ιστοσελίδα εστιασμένη στις μετατροπές.
                   </p>
                   <ul className="space-y-3 mb-6 flex-1">
-                    {["Έως 5 σελίδες", "Mobile responsive", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Ενότητα testimonials", "Βασική SEO βελτιστοποίηση", "Speed optimisation", "Accessibility widget (δωρεάν)", "3 γύροι αναθεωρήσεων", "Παράδοση σε 7-10 μέρες"].map((f) => (
+                    {["Έως 5 σελίδες", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Ενότητα μαρτυριών", "Βασική SEO βελτιστοποίηση", "Βελτιστοποίηση ταχύτητας", "Widget προσβασιμότητας (δωρεάν)", "3 γύροι αναθεωρήσεων", "Παράδοση σε 7-10 μέρες"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
@@ -140,7 +140,7 @@ export default function ΥπηρεσίεςEl() {
                   Για επιχειρήσεις που θέλουν πλήρως custom ιστοσελίδα με όλα τα χαρακτηριστικά.
                 </p>
                 <ul className="space-y-3 mb-6 flex-1">
-                  {["Έως 7 σελίδες", "Πλήρως custom σχεδιασμός + animations", "Mobile responsive", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Testimonials + gallery", "5 SEO blog άρθρα", "Πλήρης meta/SEO δομή", "Speed optimisation", "Pop-up included", "Accessibility widget (δωρεάν)", "5 γύροι αναθεωρήσεων", "Παράδοση σε 10-14 μέρες"].map((f) => (
+                  {["Έως 7 σελίδες", "Πλήρως custom σχεδιασμός + animations", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Μαρτυρίες + gallery", "5 SEO blog άρθρα", "Πλήρης meta/SEO δομή", "Βελτιστοποίηση ταχύτητας", "Pop-up συμπεριλαμβάνεται", "Widget προσβασιμότητας (δωρεάν)", "5 γύροι αναθεωρήσεων", "Παράδοση σε 10-14 μέρες"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
                       {f}
@@ -162,7 +162,7 @@ export default function ΥπηρεσίεςEl() {
                 <div className="flex-shrink-0 lg:w-72">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Φτιαγμένο για Εσάς</span>
                   <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise</p>
-                  <p className="text-4xl font-bold text-white mb-1">Custom</p>
+                  <p className="text-4xl font-bold text-white mb-1">Προσαρμοσμένη</p>
                   <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Τιμολόγηση προσαρμοσμένη στο project σας</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
                     Για μεγαλύτερες επιχειρήσεις και οργανισμούς που χρειάζονται πλήρως custom λύση.
@@ -189,7 +189,7 @@ export default function ΥπηρεσίεςEl() {
                     { icon: Users, label: "Αφοσιωμένος project manager" },
                     { icon: Headphones, label: "Προτεραιότητα υποστήριξης και παράδοσης" },
                     { icon: ArrowRight, label: "Επιλογή ongoing retainer" },
-                    { icon: CheckCircle2, label: "Custom SEO και στρατηγική περιεχομένου" },
+                    { icon: CheckCircle2, label: "Προσαρμοσμένη στρατηγική SEO & περιεχομένου" },
                   ].map(({ icon: Icon, label }) => (
                     <div key={label} className="flex items-start gap-2.5">
                       <Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />

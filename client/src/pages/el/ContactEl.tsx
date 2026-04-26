@@ -16,7 +16,7 @@ const WEB3FORMS_KEY = "bfd3c955-1bc9-4a43-b497-f4c6776db7d1";
 export default function ΕπικοινωνίαEl() {
   useSEO({
     title: "Επικοινωνία D&M Labs | Λάβετε Δωρεάν Προσφορά",
-    description: "Επικοινωνήστε μαζί μας with D&M Labs for a free website consultation. We reply within 24 hours. WhatsApp, email, or contact form.",
+    description: "Επικοινωνήστε μαζί μας για μια δωρεάν συμβουλευτική. Απαντάμε εντός 24 ωρών. WhatsApp, email ή φόρμα επικοινωνίας.",
   });
   const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
   const [sending, setSending] = useState(false);
@@ -58,10 +58,10 @@ export default function ΕπικοινωνίαEl() {
           <AnimateIn>
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Επικοινωνήστε μαζί μας</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              Let's Build <span className="brand-gradient-text">Something Great</span>
+              Ας Χτίσουμε <span className="brand-gradient-text">Κάτι Εξαιρετικό</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Έτοιμοι να ξεκινήσετε; Στείλτε μας μήνυμα on WhatsApp for the fastest response, or use the form below.
+              Έτοιμοι να ξεκινήσετε; Στείλτε μας μήνυμα στο WhatsApp για την πιο γρήγορη απάντηση, ή χρησιμοποιήστε την φόρμα παρακάτω.
             </p>
           </AnimateIn>
         </div>
@@ -81,11 +81,11 @@ export default function ΕπικοινωνίαEl() {
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-[#111315]">WhatsApp</h3>
-                      <p className="text-xs text-[#5B6472]">Fastest response</p>
+                      <p className="text-xs text-[#5B6472]">Πιο γρήγορη απάντηση</p>
                     </div>
                   </div>
                   <p className="text-sm text-[#5B6472]">+357 97 472 847</p>
-                  <p className="text-xs text-[#5B8CFF] mt-2 group-hover:underline">Send a message →</p>
+                  <p className="text-xs text-[#5B8CFF] mt-2 group-hover:underline">Στείλτε μήνυμα →</p>
                 </a>
               </AnimateIn>
 
@@ -97,7 +97,7 @@ export default function ΕπικοινωνίαEl() {
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-[#111315]">Email</h3>
-                      <p className="text-xs text-[#5B6472]">We reply within 24h</p>
+                      <p className="text-xs text-[#5B6472]">Απαντάμε εντός 24ω</p>
                     </div>
                   </div>
                   <a href="mailto:info@dm-labs.io" className="text-sm text-[#5B8CFF] hover:underline">info@dm-labs.io</a>
@@ -111,11 +111,11 @@ export default function ΕπικοινωνίαEl() {
                       <Clock size={22} className="text-[#5B8CFF]" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Working Hours</h3>
-                      <p className="text-xs text-[#5B6472]">Mon-Fri</p>
+                      <h3 className="text-base font-semibold text-[#111315]">Ώρες Λειτουργίας</h3>
+                      <p className="text-xs text-[#5B6472]">Δευτ-Παρ</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472]">9:00 AM - 6:00 PM (EET)</p>
+                  <p className="text-sm text-[#5B6472]">09:00 - 18:00 (EET)</p>
                 </div>
               </AnimateIn>
 
@@ -126,11 +126,11 @@ export default function ΕπικοινωνίαEl() {
                       <MapPin size={22} className="text-[#5B8CFF]" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Location</h3>
-                      <p className="text-xs text-[#5B6472]">Europe-based</p>
+                      <h3 className="text-base font-semibold text-[#111315]">Τοποθεσία</h3>
+                      <p className="text-xs text-[#5B6472]">Βασισμένοι στην Ευρώπη</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472]">Europe-based, serving clients worldwide</p>
+                  <p className="text-sm text-[#5B6472]">Βασισμένοι στην Ευρώπη, εξυπηρετούμε πελάτες παγκοσμίως</p>
                 </div>
               </AnimateIn>
 
@@ -150,7 +150,7 @@ export default function ΕπικοινωνίαEl() {
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-[#111315]">Instagram</h3>
-                      <p className="text-xs text-[#5B6472]">Follow our work</p>
+                      <p className="text-xs text-[#5B6472]">Ακολουθήστε την δουλειά μας</p>
                     </div>
                   </div>
                   <p className="text-sm text-[#5B8CFF] group-hover:underline">@dm_labs.io →</p>
@@ -161,30 +161,30 @@ export default function ΕπικοινωνίαEl() {
             {/* Right - Form */}
             <AnimateIn delay={0.2} className="md:col-span-3">
               <div className="dm-card !p-8">
-                <h2 className="text-xl font-semibold text-[#111315] mb-6">Send Us a Message</h2>
+                <h2 className="text-xl font-semibold text-[#111315] mb-6">Στείλτε μας Μήνυμα</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-medium text-[#111315] mb-1.5">Το Όνομά σας</label>
                       <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
-                        placeholder="John Smith" />
+                        placeholder="Γιάννης Παπαδόπουλος" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[#111315] mb-1.5">Email</label>
                       <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
-                        placeholder="john@business.com" />
+                        placeholder="info@επιχείρηση.gr" />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#111315] mb-1.5">Business Name</label>
+                    <label className="block text-sm font-medium text-[#111315] mb-1.5">Όνομα Επιχείρησης</label>
                     <input type="text" value={form.business} onChange={(e) => setForm({ ...form, business: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
-                      placeholder="Your Business Name" />
+                      placeholder="Όνομα επιχείρησης σας" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#111315] mb-1.5">Tell Us About Your Project</label>
+                    <label className="block text-sm font-medium text-[#111315] mb-1.5">Περιγράψτε το Προτζέκτ σας</label>
                     <textarea required rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all resize-none"
                       placeholder="Τι είδους ιστοσελίδα χρειάζεστε; Υπάρχουν συγκεκριμένα χαρακτηριστικά που θέλετε;" />
@@ -196,7 +196,7 @@ export default function ΕπικοινωνίαEl() {
                       <span className="flex items-center gap-2"><Send size={16} /> Αποστολή Μηνύματος</span>
                     )}
                   </button>
-                  <p className="text-xs text-[#5B6472] text-center">Or message us directly on <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline">WhatsApp</a> for faster response.</p>
+                  <p className="text-xs text-[#5B6472] text-center">πε μήνυμα απευθείας στο <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline">WhatsApp</a> για πιο γρήγορη απάντηση.</p>
                 </form>
               </div>
             </AnimateIn>
@@ -208,8 +208,8 @@ export default function ΕπικοινωνίαEl() {
       <section className="section-spacing dark-section text-center">
         <div className="container">
           <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Prefer a Αρχική Συνομιλία?</h2>
-            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Most of our clients start with a simple WhatsApp message. No pressure, no commitment.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Προτιμάτε μια Σύντομη Συνομιλία;</h2>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Οι περισσότεροι πελάτες μας ξεκινάνε με ένα απλό μήνυμα WhatsApp. Χωρίς πίεση, χωρίς δεσμεύσεις.</p>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
               <MessageCircle size={18} /> Συνομιλήστε στο WhatsApp
             </a>

@@ -25,14 +25,14 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 700, color: "#c8a96e", letterSpacing: "0.06em" }}>Nomad Co.</span>
         <div style={{ display: "flex", gap: "10px" }}>
-          {["Menu","Story","Beans"].map(l => <span key={l} style={{ fontSize: "7px", color: "rgba(200,169,110,0.7)" }}>{l}</span>)}
+          {["Μενού","Ιστορία","Κόκκοι"].map(l => <span key={l} style={{ fontSize: "7px", color: "rgba(200,169,110,0.7)" }}>{l}</span>)}
         </div>
       </div>
       <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "55%" }}>
-        <div style={{ fontSize: "7px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "4px" }}>Specialty Coffee</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "5px" }}>Coffee Worth<br/><em style={{ color: "#c8a96e" }}>Slow Down</em> For</div>
-        <div style={{ fontSize: "7px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "8px" }}>Single-origin beans, hand-roasted<br/>in small batches.</div>
-        <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "7px", padding: "4px 10px", fontWeight: 700, display: "inline-block" }}>View Our Menu</div>
+        <div style={{ fontSize: "7px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "4px" }}>Specialty Coffee - Λεμεσός</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "5px" }}>Καφές που Αξίζει<br/><em style={{ color: "#c8a96e" }}>να Χαλαρώσεις</em> Για</div>
+        <div style={{ fontSize: "7px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "8px" }}>Κόκκοι μονής προέλευσης,<br/>ψημένοι σε μικρές παρτίδες.</div>
+        <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "7px", padding: "4px 10px", fontWeight: 700, display: "inline-block" }}>Δείτε το Μενού μας</div>
       </div>
       <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
         <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
@@ -47,14 +47,14 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", background: "rgba(247,240,232,0.95)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 700, color: "#2a1a14", letterSpacing: "0.04em" }}>Bella.</span>
         <div style={{ display: "flex", gap: "10px" }}>
-          {["Υπηρεσίες","Gallery","Book"].map(l => <span key={l} style={{ fontSize: "7px", color: "#7a5a4a", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{l}</span>)}
+          {["Υπηρεσίες","Γκαλερί","Κράτηση"].map(l => <span key={l} style={{ fontSize: "7px", color: "#7a5a4a", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{l}</span>)}
         </div>
       </div>
       <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "48%" }}>
         <div style={{ fontSize: "7px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "5px" }}>Ομορφιά Studio</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "6px", fontStyle: "italic" as const }}>Where Ομορφιά<br/><em style={{ color: "#c4735a" }}>Meets</em> Artistry</div>
-        <div style={{ fontSize: "7px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "8px" }}>Expert hair, skin &amp; nail<br/>treatments in luxury.</div>
-        <div style={{ background: "#c4735a", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", letterSpacing: "0.1em" }}>Book a Treatment</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "6px", fontStyle: "italic" as const }}>Όπου η Ομορφιά<br/><em style={{ color: "#c4735a" }}>Συναντά</em> την Τέχνη</div>
+        <div style={{ fontSize: "7px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "8px" }}>Εξειδικευμένες περιποιήσεις<br/>σε πολυτελές περιβάλλον.</div>
+        <div style={{ background: "#c4735a", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", letterSpacing: "0.1em" }}>Κλείστε Ραντεβού</div>
       </div>
       <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
         <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
@@ -71,16 +71,16 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
           <div style={{ width: "14px", height: "14px", borderRadius: "3px", background: "#2196f3" }} />
           <span style={{ fontSize: "9px", fontWeight: 700, color: "#0a1628" }}>Dr. Elara Dental</span>
         </div>
-        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "3px 8px", borderRadius: "3px", fontWeight: 600 }}>Book Appointment</div>
+        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "3px 8px", borderRadius: "3px", fontWeight: 600 }}>Κλείστε Ραντεβού</div>
       </div>
       <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "50%" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "6px" }}>
           <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-          <span style={{ fontSize: "7px", color: "#2196f3", fontWeight: 600 }}>Accepting New Patients</span>
+          <span style={{ fontSize: "7px", color: "#2196f3", fontWeight: 600 }}>Δεχόμαστε Νέους Ασθενείς</span>
         </div>
-        <div style={{ fontSize: "17px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "5px" }}>Your Smile,<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>Perfected</span><br/>with Care</div>
-        <div style={{ fontSize: "7px", color: "#4a6080", lineHeight: 1.5, marginBottom: "8px" }}>Modern dentistry in a calm,<br/>comfortable environment.</div>
-        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", borderRadius: "3px", fontWeight: 600 }}>View Treatments</div>
+        <div style={{ fontSize: "17px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "5px" }}>Το Χαμόγελό σας,<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>Τέλειο</span><br/>με Φροντίδα</div>
+        <div style={{ fontSize: "7px", color: "#4a6080", lineHeight: 1.5, marginBottom: "8px" }}>Σύγχρονη οδοντιατρική σε ήρεμο,<br/>άνετο περιβάλλον.</div>
+        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", borderRadius: "3px", fontWeight: 600 }}>Δείτε Θεραπείες</div>
       </div>
       <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
         <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
@@ -90,12 +90,12 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
   ),
 };
 
-function ΑρχικήpageCardPreview({ tplId, category }: { tplId: string; category: string }) {
-  const Σχεδιασμός = HOMEPAGE_CARD_DESIGNS[tplId];
-  if (!Σχεδιασμός) return null;
+function HomeElCardPreview({ tplId, category }: { tplId: string; category: string }) {
+  const CardDesign = HOMEPAGE_CARD_DESIGNS[tplId];
+  if (!CardDesign) return null;
   return (
     <div className="relative w-full overflow-hidden">
-      <Σχεδιασμός />
+      <CardDesign />
       {/* Category badge */}
       <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#111315] z-10">
         {category}
@@ -116,7 +116,7 @@ const FEATURED_TEMPLATES = [
     id: "nomad-coffee",
     industry: "restaurant",
     name: "Nomad Coffee",
-    category: "Cafe & Coffee",
+    category: "Καφετέρια & Καφές",
     styleLabel: "Artisan Minimal",
     previewUrl: "/previews/nomad-coffee.html",
     palette: ["#1a1208", "#2c1f0e"],
@@ -126,7 +126,7 @@ const FEATURED_TEMPLATES = [
     industry: "beauty",
     name: "Bella Salon",
     category: "Ομορφιά & Wellness",
-    styleLabel: "Elegant & Feminine",
+    styleLabel: "Κομψό & Θηλυκό",
     previewUrl: "/previews/bella-salon.html",
     palette: ["#1a0a0f", "#6b2d3e"],
   },
@@ -135,7 +135,7 @@ const FEATURED_TEMPLATES = [
     industry: "clinic",
     name: "Dr. Elara Dental",
     category: "Κλινικές & Υγεία",
-    styleLabel: "Clean & Professional",
+    styleLabel: "Καθαρό & Επαγγελματικό",
     previewUrl: "/previews/dr-elara-dental.html",
     palette: ["#0a1628", "#0d2040"],
   },
@@ -165,10 +165,10 @@ const TESTIMONIALS = [
   },
 ];
 
-export default function ΑρχικήPage() {
+export default function HomeElPage() {
   useSEO({
-    title: "D&M Labs | Professional Website Σχεδιασμός από €299",
-    description: "D&M Labs builds custom, mobile-first websites for businesses. Fast delivery, SEO-ready, starting από €299.",
+    title: "D&M Labs | Επαγγελματικός Σχεδιασμός Ιστοσελίδων από €299",
+    description: "Η D&M Labs κατασκευάζει custom, mobile-first ιστοσελίδες για επιχειρήσεις. Γρήγορη παράδοση, έτοιμες για SEO, από €299.",
   });
   return (
     <>
@@ -283,7 +283,7 @@ export default function ΑρχικήPage() {
               Δείτε Τι Μπορούμε να Δημιουργήσουμε για Εσάς
             </h2>
             <p className="text-base text-[#5B6472] max-w-2xl mx-auto">
-              Κάθε ιστοσελίδα που φτιάχνουμε είναι <strong className="text-[#111315]">εντελώς custom</strong> - designed από μηδενική βάση around your brand, your content, and οι πελάτες σας. These examples show the range of styles and industries we work with. Think of them as inspiration, not off-the-shelf packages.
+              Κάθε ιστοσελίδα που φτιάχνουμε είναι <strong className="text-[#111315]">εντελώς custom</strong> - σχεδιασμένη από μηδενική βάση γύρω από το brand σας, το περιεχόμενό σας και τους πελάτες σας. Αυτά τα παραδείγματα δείχνουν το εύρος στυλ και κλάδων με τους οποίους δουλεύουμε. Σκεφτείτε τα ως έμπνευση, όχι ως έτοιμα πακέτα.
             </p>
           </AnimateIn>
 
@@ -293,7 +293,7 @@ export default function ΑρχικήPage() {
                 <Link href={`/templates?open=${tpl.id}`} className="flex w-full">
                   <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
                     {/* Hand-crafted card mockup */}
-                    <ΑρχικήpageCardPreview tplId={tpl.id} category={tpl.category} />
+                    <HomeElCardPreview tplId={tpl.id} category={tpl.category} />
 
                     {/* Card Details */}
                     <div className="p-5 flex flex-col flex-1">
@@ -380,17 +380,17 @@ export default function ΑρχικήPage() {
               Από την Ιδέα στο Κυκλοφορία σε 5 Απλά Βήματα
             </h2>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              We've streamlined the process so you can focus on running η επιχείρησή σας.
+              Έχουμε απλοποιήσει τη διαδικασία ώστε εσείς να εστιάζετε στη διαχείριση της επιχείρησής σας.
             </p>
           </AnimateIn>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {[
-              { icon: MessageCircle, step: "01", title: "Αρχική Κλήση", desc: "Quick WhatsApp chat to understand η επιχείρησή σας and goals.", time: "~1 μέρα", color: "#5B8CFF" },
+              { icon: MessageCircle, step: "01", title: "Αρχική Κλήση", desc: "Γρήγορη συνομιλία μέσω WhatsApp για να κατανοήσουμε την επιχείρησή σας και τους στόχους σας.", time: "~1 μέρα", color: "#5B8CFF" },
               { icon: Palette, step: "02", title: "Σχεδιασμός", desc: "Δημιουργούμε custom σχεδιασμό βάσει του brand και των προτιμήσεων σας.", time: "2-3 μέρες", color: "#6FE3FF" },
-              { icon: Code, step: "03", title: "Build", desc: "Η ιστοσελίδα σας is developed with clean code, optimised for speed and SEO.", time: "3-5 μέρες", color: "#8B5CFF" },
-              { icon: Headphones, step: "04", title: "Αναθεωρήσεις", desc: "We refine the design based on your feedback until you're happy.", time: "1-2 μέρες", color: "#5B8CFF" },
-              { icon: Rocket, step: "05", title: "Κυκλοφορία", desc: "We deploy your site, connect your domain, and make sure everything works.", time: "~1 μέρα", color: "#6FE3FF" },
+              { icon: Code, step: "03", title: "Κατασκευή", desc: "Η ιστοσελίδα σας αναπτύσσεται με καθαρό κώδικα, βελτιστοποιημένη για ταχύτητα και SEO.", time: "3-5 μέρες", color: "#8B5CFF" },
+              { icon: Headphones, step: "04", title: "Αναθεωρήσεις", desc: "Βελτιώνουμε τον σχεδιασμό βάσει των σχολίων σας μέχρι να είστε απόλυτα ικανοποιημένοι.", time: "1-2 μέρες", color: "#5B8CFF" },
+              { icon: Rocket, step: "05", title: "Κυκλοφορία", desc: "Δημοσιεύουμε την ιστοσελίδα σας, συνδέουμε το domain σας και βεβαιωνόμαστε ότι όλα λειτουργούν.", time: "~1 μέρα", color: "#6FE3FF" },
             ].map((item) => (
               <StaggerItem key={item.step}>
                 <div className="text-center">
@@ -505,7 +505,7 @@ export default function ΑρχικήPage() {
                 <p className="text-xs text-[#5B8CFF] font-medium mb-4">€249 με πακέτο συντήρησης</p>
                 <p className="text-sm text-[#5B6472] mb-6">Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική παρουσία στο διαδίκτυο.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Branded Business Page", "Mobile responsive", "Κουμπί WhatsApp", "Σύνδεσμοι social media", "Accessibility widget (δωρεάν)", "2 γύροι αναθεωρήσεων", "Παράδοση σε 5-7 μέρες"].map((f) => (
+                  {["Επώνυμη επαγγελματική σελίδα", "Responsive για κινητά", "Κουμπί WhatsApp", "Σύνδεσμοι social media", "Widget προσβασιμότητας (δωρεάν)", "2 γύροι αναθεωρήσεων", "Παράδοση σε 5-7 μέρες"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}
@@ -531,7 +531,7 @@ export default function ΑρχικήPage() {
                   <p className="text-xs text-[#8B5CFF] font-medium mb-4">€349 με πακέτο συντήρησης</p>
                   <p className="text-sm text-[#5B6472] mb-6">Για εδραιωμένες επιχειρήσεις που χρειάζονται μια ολοκληρωμένη ιστοσελίδα με έμφαση στις μετατροπές.</p>
                   <ul className="space-y-3 mb-8 flex-1">
-                    {["Έως 5 σελίδες", "Mobile responsive", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Ενότητα testimonials", "Βασική SEO βελτιστοποίηση", "Speed optimisation", "Accessibility widget (δωρεάν)", "3 γύροι αναθεωρήσεων", "Παράδοση σε 7-10 μέρες"].map((f) => (
+                    {["Έως 5 σελίδες", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Ενότητα μαρτυριών", "Βασική SEO βελτιστοποίηση", "Βελτιστοποίηση ταχύτητας", "Widget προσβασιμότητας (δωρεάν)", "3 γύροι αναθεωρήσεων", "Παράδοση σε 7-10 μέρες"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
@@ -556,7 +556,7 @@ export default function ΑρχικήPage() {
                 <p className="text-xs text-[#6FE3FF] font-medium mb-4">€649 με πακέτο συντήρησης</p>
                 <p className="text-sm text-[#5B6472] mb-6">Για επιχειρήσεις που θέλουν μια εντελώς custom, πλούσια σε λειτουργίες ιστοσελίδα με τα πάντα συμπεριλαμβανόμενα.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Έως 7 σελίδες", "Πλήρως custom σχεδιασμός + animations", "Mobile responsive", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Testimonials + gallery", "5 SEO blog άρθρα", "Πλήρης meta/SEO δομή", "Pop-up included", "Accessibility widget (δωρεάν)", "5 γύροι αναθεωρήσεων", "Παράδοση σε 10-14 μέρες"].map((f) => (
+                  {["Έως 7 σελίδες", "Πλήρως custom σχεδιασμός + animations", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Μαρτυρίες + gallery", "5 SEO blog άρθρα", "Πλήρης meta/SEO δομή", "Pop-up συμπεριλαμβάνεται", "Widget προσβασιμότητας (δωρεάν)", "5 γύροι αναθεωρήσεων", "Παράδοση σε 10-14 μέρες"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
                       {f}
@@ -692,7 +692,7 @@ export default function ΑρχικήPage() {
               { value: "5-14", label: "Μέρες έως Κυκλοφορία", sub: "από την πρώτη κλήση" },
               { value: "5★", label: "Ικανοποίηση Πελατών", sub: "το πρότυπό μας" },
               { value: "100%", label: "Mobile Βελτιστοποιημένο", sub: "κάθε project" },
-              { value: "∞", label: "Συνεχής Υποστήριξη", sub: "we’re always here" },
+              { value: "∞", label: "Συνεχής Υποστήριξη", sub: "είμαστε πάντα εδώ" },
             ].map((stat, i) => (
               <StaggerItem key={stat.label}>
                 <div className="text-center group">
@@ -763,12 +763,12 @@ export default function ΑρχικήPage() {
 
                 {/* DESKTOP: horizontal flex - photo left, content right */}
                 <div className="hidden md:flex flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px', maxHeight: '280px' }}>
+                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px', minHeight: '240px', maxHeight: '280px' }}>
                     <img
                       src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
                       alt="Anastacia B. - Creative Director and AI Specialist at D&M Labs"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={{ objectPosition: 'center top' }}
+                      style={{ objectPosition: 'top center' }}
                     />
                     <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
                   </div>

@@ -1,10 +1,5 @@
 // =============================================================================
-// /web-design-cyprus -- National Cyprus Pillar Page
-// Design: matches city pages (Λεμεσός / Λευκωσία / Thessaloniki)
-// SEO goal: rank for "web design Cyprus", "website design Cyprus",
-//           "web designer Cyprus", "website designer Cyprus",
-//           "web development Cyprus", "affordable web design Cyprus",
-//           "professional website Cyprus", "SEO Cyprus", "digital agency Cyprus"
+// /el/web-design-cyprus -- National Cyprus Pillar Page (Greek)
 // =============================================================================
 import { useEffect } from "react";
 import { Link } from "wouter";
@@ -16,7 +11,7 @@ const schemaMarkup = {
   "@type": "LocalBusiness",
   "name": "D&M Labs",
   "description": "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε όλη την Κύπρο - Λεμεσός, Λευκωσία, Λάρνακα, Πάφος, Αμμόχωστος και όλες τις επαρχίες.",
-  "url": "https://dm-labs.io/web-design-cyprus",
+  "url": "https://dm-labs.io/el/web-design-cyprus",
   "telephone": "+35797472847",
   "priceRange": "€€",
   "areaServed": [
@@ -31,26 +26,26 @@ const schemaMarkup = {
     "@type": "OfferCatalog",
     "name": "Κατασκευή Ιστοσελίδας Κύπρος Υπηρεσίες",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starter Ιστοσελίδα Κύπρος", "description": "Branded επαγγελματική σελίδα για επιχειρήσεις στην Κύπρο" }, "price": "299", "priceCurrency": "EUR" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Website Cyprus", "description": "Up to 5-page website with SEO and contact forms for Cyprus businesses" }, "price": "399", "priceCurrency": "EUR" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium Website Cyprus", "description": "Fully custom website with animations, blog articles, and full SEO structure" }, "price": "699", "priceCurrency": "EUR" }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starter Ιστοσελίδα Κύπρος", "description": "Επώνυμη επαγγελματική σελίδα για επιχειρήσεις στην Κύπρο" }, "price": "299", "priceCurrency": "EUR" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Ιστοσελίδα Κύπρος", "description": "Ιστοσελίδα έως 5 σελίδων με SEO και φόρμες επικοινωνίας για κυπριακές επιχειρήσεις" }, "price": "399", "priceCurrency": "EUR" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium Ιστοσελίδα Κύπρος", "description": "Πλήρως custom ιστοσελίδα με animations, blog άρθρα και πλήρη δομή SEO" }, "price": "699", "priceCurrency": "EUR" }
     ]
   }
 };
 
 const cities = [
-  { name: "Λεμεσός", slug: "/web-design-limassol", color: "#5B8CFF", bg: "#EEF3FF", desc: "Η επιχειρηματική και χρηματοοικονομική πρωτεύουσα της Κύπρου. Σπίτι χιλιάδων ΜΜΕ, διεθνών εταιρειών και μιας ανθούσας τεχνολογικής σκηνής." },
-  { name: "Λευκωσία", slug: "/web-design-nicosia", color: "#8B5CFF", bg: "#F3EEFF", desc: "Η πρωτεύουσα της Κύπρου και το κέντρο της κυβέρνησης, του νόμου και των οικονομικών. Υψηλή ζήτηση για επαγγελματικές ιστοσελίδες που χτίζουν αξιοπιστία." },
+  { name: "Λεμεσός", slug: "/el/web-design-limassol", color: "#5B8CFF", bg: "#EEF3FF", desc: "Η επιχειρηματική και χρηματοοικονομική πρωτεύουσα της Κύπρου. Σπίτι χιλιάδων ΜΜΕ, διεθνών εταιρειών και μιας ανθούσας τεχνολογικής σκηνής." },
+  { name: "Λευκωσία", slug: "/el/web-design-nicosia", color: "#8B5CFF", bg: "#F3EEFF", desc: "Η πρωτεύουσα της Κύπρου και το κέντρο της κυβέρνησης, του νόμου και των οικονομικών. Υψηλή ζήτηση για επαγγελματικές ιστοσελίδες που χτίζουν αξιοπιστία." },
   { name: "Λάρνακα", slug: null, color: "#0EA5E9", bg: "#E0F2FE", desc: "Ένας αναπτυσσόμενος εμπορικός κόμβος με πολυσύχναστο λιμάνι και διεθνές αεροδρόμιο. Τουρισμός, λιανικό εμπόριο και επιχειρήσεις logistics ανθίζουν εδώ." },
   { name: "Πάφος", slug: null, color: "#10B981", bg: "#D1FAE5", desc: "Ένας σημαντικός τουριστικός προορισμός και κοινότητα expat. Ξενοδοχεία, βίλες, εστιατόρια και κτηματομεσιτικά γραφεία χρειάζονται ισχυρή online παρουσία." },
   { name: "Αμμόχωστος", slug: null, color: "#F59E0B", bg: "#FEF3C7", desc: "Μια παράκτια πόλη με αναπτυσσόμενη οικονομία. Οι επιχειρήσεις εδώ ωφελούνται τεράστια από το να είναι εύρετες στο Google." },
-  { name: "Paralimni / Ayia Napa", slug: null, color: "#EF4444", bg: "#FEE2E2", desc: "Η τουριστική καρδιά της Κύπρου. Εστιατόρια, clubs, water parks και καταλύματα χρειάζονται ιστοσελίδες που μετατρέπουν τους επισκέπτες σε πελάτες." },
+  { name: "Παραλίμνι / Αγία Νάπα", slug: null, color: "#EF4444", bg: "#FEE2E2", desc: "Η τουριστική καρδιά της Κύπρου. Εστιατόρια, clubs, water parks και καταλύματα χρειάζονται ιστοσελίδες που μετατρέπουν τους επισκέπτες σε πελάτες." },
 ];
 
 const industries = [
   { icon: "🍽️", name: "Εστιατόρια & Καφέ", desc: "Η Κύπρος έχει πάνω από 3.200 επιχειρήσεις τροφίμων και ποτών. Μια γρήγορη, mobile-first ιστοσελίδα με το μενού σας, τις ώρες λειτουργίας και ενσωμάτωση Google Maps αυξάνει τις επισκέψεις και τις κρατήσεις." },
-  { icon: "🏨", name: "Hotels & Tourism", desc: "Tourism is Cyprus's largest industry. Hotels, villas, and tour operators need a website that ranks on Google and converts international visitors before they land." },
-  { icon: "⚖️", name: "Law Firms & Legal Υπηρεσίες", desc: "Cyprus is a major European legal and financial hub. Law firms and corporate service providers need a professional website that builds trust with high-value clients." },
+  { icon: "🏨", name: "Ξενοδοχεία & Τουρισμός", desc: "Ο τουρισμός είναι η μεγαλύτερη βιομηχανία της Κύπρου. Ξενοδοχεία, βίλες και tour operators χρειάζονται μια ιστοσελίδα που κατατάσσεται στο Google και μετατρέπει τους διεθνείς επισκέπτες σε πελάτες πριν ακόμα φτάσουν." },
+  { icon: "⚖️", name: "Δικηγορικά Γραφεία & Νομικές Υπηρεσίες", desc: "Η Κύπρος είναι σημαντικός ευρωπαϊκός νομικός και χρηματοοικονομικός κόμβος. Δικηγορικά γραφεία και πάροχοι εταιρικών υπηρεσιών χρειάζονται μια επαγγελματική ιστοσελίδα που χτίζει εμπιστοσύνη με πελάτες υψηλής αξίας." },
   { icon: "🏠", name: "Κτηματομεσιτικά & Ακίνητα", desc: "Οι αγοραστές ακινήτων αναζητούν πρώτα online. Μια καθαρή, γρήγορη ιστοσελίδα με listings, χάρτες και φόρμες επικοινωνίας μετατρέπει τους επισκέπτες σε σοβαρούς υποψήφιους αγοραστές." },
   { icon: "🏥", name: "Κλινικές & Υγεία", desc: "Ιδιωτικές κλινικές, οδοντίατροι, φυσιοθεραπευτές και ειδικοί σε όλη την Κύπρο χρειάζονται μια αξιόπιστη online παρουσία για να προσελκύσουν και να διατηρήσουν ασθενείς." },
   { icon: "🛍️", name: "Λιανική & Μπουτίκ", desc: "Είτε έχετε μπουτίκ στη Λεμεσό είτε εξειδικευμένο κατάστημα στη Λευκωσία, μια επαγγελματική ιστοσελίδα βοηθά τους πελάτες να σας βρουν και χτίζει αξιοπιστία πριν ακόμα μπουν στο κατάστημά σας." },
@@ -60,40 +55,40 @@ const industries = [
 
 const faqs = [
   {
-    q: "How much does web design cost στην Κύπρο?",
-    a: "Web design στην Κύπρο typically ranges από €299 to €2,500+ depending on the size and complexity of the project. At D&M Labs, our Starter package begins at €299 for a branded business page, our Business package is €399 for up to 5 pages with contact forms and SEO, and our Premium package is €699 for a fully custom website with animations, blog articles, and full SEO structure. All prices are transparent with χωρίς κρυφές χρεώσεις."
+    q: "Πόσο κοστίζει η κατασκευή ιστοσελίδας στην Κύπρο;",
+    a: "Η κατασκευή ιστοσελίδας στην Κύπρο κυμαίνεται συνήθως από €299 έως €2.500+ ανάλογα με το μέγεθος και την πολυπλοκότητα του project. Στη D&M Labs, το Starter πακέτο μας ξεκινά από €299 για μια επώνυμη επαγγελματική σελίδα, το Business πακέτο είναι €399 για έως 5 σελίδες με φόρμες επικοινωνίας και SEO, και το Premium πακέτο είναι €699 για μια πλήρως custom ιστοσελίδα με animations, blog άρθρα και πλήρη δομή SEO. Όλες οι τιμές είναι διαφανείς, χωρίς κρυφές χρεώσεις."
   },
   {
-    q: "What is the difference between web design and web development στην Κύπρο?",
-    a: "Web design refers to the visual and user experience side - layout, colours, typography, and how the site looks and feels. Web development refers to the technical build - the code and functionality that makes the site work. At D&M Labs we handle both: we design and develop η ιστοσελίδα σας from start to finish, so you work with one team rather than coordinating between a designer and a separate developer."
+    q: "Ποια είναι η διαφορά μεταξύ web design και web development στην Κύπρο;",
+    a: "Το web design αφορά τη visual πλευρά και την εμπειρία χρήστη - layout, χρώματα, τυπογραφία και πώς φαίνεται και αισθάνεται η ιστοσελίδα. Το web development αφορά την τεχνική κατασκευή - τον κώδικα και τη λειτουργικότητα που κάνει την ιστοσελίδα να δουλεύει. Στη D&M Labs αναλαμβάνουμε και τα δύο: σχεδιάζουμε και αναπτύσσουμε την ιστοσελίδα σας από την αρχή μέχρι το τέλος, ώστε να συνεργάζεστε με μία ομάδα αντί να συντονίζετε μεταξύ σχεδιαστή και developer."
   },
   {
-    q: "Do I need a website if I already have a Facebook or Instagram page?",
-    a: "Yes. Social media platforms are rented land - Facebook and Instagram can change their algorithm, restrict your reach, or suspend your account at any time. A website is your owned digital property. It also ranks on Google, which is where the majority of Cypriot consumers search for businesses. A website and social media work together, but the website is the foundation."
+    q: "Χρειάζομαι ιστοσελίδα αν έχω ήδη σελίδα στο Facebook ή Instagram;",
+    a: "Ναι. Τα social media είναι ενοικιαζόμενος χώρος - το Facebook και το Instagram μπορούν να αλλάξουν τον αλγόριθμό τους, να περιορίσουν την εμβέλειά σας ή να αναστείλουν τον λογαριασμό σας ανά πάσα στιγμή. Μια ιστοσελίδα είναι δική σας ψηφιακή ιδιοκτησία. Επίσης κατατάσσεται στο Google, που είναι εκεί όπου η πλειοψηφία των Κυπρίων καταναλωτών αναζητά επιχειρήσεις. Η ιστοσελίδα και τα social media λειτουργούν μαζί, αλλά η ιστοσελίδα είναι η βάση."
   },
   {
-    q: "How long does it take to build a website στην Κύπρο?",
-    a: "Our Starter websites launch within 5 to 7 business days from the moment we have your content and feedback. Business packages take 7 to 10 days, and Premium packages take 10 to 14 days. We keep you updated throughout the process and do not disappear between milestones. Rush delivery is available on request."
+    q: "Πόσο χρόνο χρειάζεται για να κατασκευαστεί μια ιστοσελίδα στην Κύπρο;",
+    a: "Οι Starter ιστοσελίδες μας δημοσιεύονται μέσα σε 5 έως 7 εργάσιμες μέρες από τη στιγμή που θα έχουμε το περιεχόμενο και τα σχόλιά σας. Τα Business πακέτα χρειάζονται 7 έως 10 μέρες και τα Premium πακέτα 10 έως 14 μέρες. Σας ενημερώνουμε καθ' όλη τη διαδικασία και δεν εξαφανιζόμαστε μεταξύ σημαντικών σημείων. Ταχεία παράδοση είναι διαθέσιμη κατόπιν αιτήματος."
   },
   {
-    q: "Can you build a bilingual website in Greek and English?",
-    a: "Yes. Φτιάχνουμε bilingual websites in both Greek and English for businesses that serve both local Cypriot and international audiences. A full Greek-language version is available on request. We are comfortable working with Greek content and advise on how to structure copy for both readability and search engine visibility."
+    q: "Μπορείτε να φτιάξετε δίγλωσση ιστοσελίδα στα ελληνικά και αγγλικά;",
+    a: "Ναι. Φτιάχνουμε δίγλωσσες ιστοσελίδες στα ελληνικά και αγγλικά για επιχειρήσεις που εξυπηρετούν τόσο τοπικό κυπριακό όσο και διεθνές κοινό. Μια πλήρης ελληνική έκδοση είναι διαθέσιμη κατόπιν αιτήματος. Εργαζόμαστε άνετα με ελληνικό περιεχόμενο και συμβουλεύουμε πώς να δομήσετε τα κείμενα τόσο για αναγνωσιμότητα όσο και για ορατότητα στις μηχανές αναζήτησης."
   },
   {
-    q: "Do you offer SEO with your web design packages?",
-    a: "All our websites are built with on-page SEO included as standard - correct heading structure, meta titles, meta descriptions, canonical tags, fast loading, and mobile-first design. Our Business and Premium packages include a more comprehensive SEO setup. For businesses that want ongoing SEO work (keyword targeting, content strategy, link building), we offer this as a separate service."
+    q: "Προσφέρετε SEO μαζί με τα πακέτα κατασκευής ιστοσελίδας;",
+    a: "Όλες οι ιστοσελίδες μας κατασκευάζονται με on-page SEO ως standard - σωστή δομή headings, meta titles, meta descriptions, canonical tags, γρήγορη φόρτωση και mobile-first σχεδιασμός. Τα Business και Premium πακέτα μας περιλαμβάνουν πιο ολοκληρωμένη ρύθμιση SEO. Για επιχειρήσεις που θέλουν συνεχή εργασία SEO (στόχευση λέξεων-κλειδιών, στρατηγική περιεχομένου, link building), το προσφέρουμε ως ξεχωριστή υπηρεσία."
   },
   {
-    q: "Do you work with businesses outside Λεμεσός and Λευκωσία?",
-    a: "Yes. D&M Labs works with businesses across all of Cyprus - Λάρνακα, Πάφος, Αμμόχωστος, Paralimni, Ayia Napa, and every district. We also work with businesses στην Ελλάδα (Athens, Thessaloniki), the UK, and Israel. All work is done remotely via WhatsApp, email, and video call. Distance is not a factor."
+    q: "Συνεργάζεστε με επιχειρήσεις εκτός Λεμεσού και Λευκωσίας;",
+    a: "Ναι. Η D&M Labs συνεργάζεται με επιχειρήσεις σε όλη την Κύπρο - Λάρνακα, Πάφος, Αμμόχωστος, Παραλίμνι, Αγία Νάπα και κάθε επαρχία. Επίσης συνεργαζόμαστε με επιχειρήσεις στην Ελλάδα (Αθήνα, Θεσσαλονίκη), το Ηνωμένο Βασίλειο και το Ισραήλ. Όλη η εργασία γίνεται εξ αποστάσεως μέσω WhatsApp, email και video call. Η απόσταση δεν αποτελεί παράγοντα."
   }
 ];
 
 const whyUs = [
   { icon: "⚡", title: "Γρήγορη Παράδοση", desc: "Οι Starter ιστοσελίδες είναι online σε 5-7 μέρες. Χωρίς αναμονή μηνών για μια βασική σελίδα." },
-  { icon: "📱", title: "Mobile-First Design", desc: "Over 70% of Cypriot web traffic is mobile. Every site we build is optimised for phones first." },
-  { icon: "🔍", title: "SEO Built In", desc: "On-page SEO, correct meta tags, fast loading, and structured data - included in every package." },
-  { icon: "💬", title: "WhatsApp Support", desc: "We communicate on WhatsApp, not ticketing systems. You always reach a real person quickly." },
+  { icon: "📱", title: "Mobile-First Σχεδιασμός", desc: "Πάνω από 70% της κυπριακής κίνησης στο web είναι από κινητά. Κάθε ιστοσελίδα που φτιάχνουμε είναι βελτιστοποιημένη πρώτα για τηλέφωνα." },
+  { icon: "🔍", title: "SEO Ενσωματωμένο", desc: "On-page SEO, σωστά meta tags, γρήγορη φόρτωση και structured data - περιλαμβάνονται σε κάθε πακέτο." },
+  { icon: "💬", title: "Υποστήριξη WhatsApp", desc: "Επικοινωνούμε μέσω WhatsApp, όχι μέσω ticketing systems. Πάντα μιλάτε με πραγματικό άτομο, γρήγορα." },
   { icon: "💶", title: "Διαφανείς Τιμές", desc: "Σταθερές τιμές από €299. Χωρίς χρέωση ανά ώρα, χωρίς κρυφές χρεώσεις, χωρίς εκπλήξεις στο τιμολόγιο." },
   { icon: "🌍", title: "Δίγλωσση Δυνατότητα", desc: "Ελληνικές και αγγλικές ιστοσελίδες για επιχειρήσεις που εξυπηρετούν τόσο τοπικό όσο και διεθνές κοινό." },
 ];
@@ -101,7 +96,7 @@ const whyUs = [
 export default function WebDesignCyprusEl() {
   useSEO({
     title: "Κατασκευή Ιστοσελίδας Κύπρος | Επαγγελματικές Ιστοσελίδες από €299 | D&M Labs",
-    description: "Professional web design for businesses σε όλη την Κύπρο - Λεμεσός, Λευκωσία, Λάρνακα, Πάφος, and beyond. Custom websites από €299. Mobile-first, SEO-optimised, delivered in 5-14 days. Δωρεάν συμβουλευτική.",
+    description: "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε όλη την Κύπρο - Λεμεσός, Λευκωσία, Λάρνακα, Πάφος και πέρα. Custom ιστοσελίδες από €299. Mobile-first, βελτιστοποιημένες για SEO, παράδοση σε 5-14 μέρες. Δωρεάν συμβουλευτική.",
     canonicalPath: "/el/web-design-cyprus"
   });
 
@@ -130,17 +125,14 @@ export default function WebDesignCyprusEl() {
               Κατασκευή Ιστοσελίδας Κύπρος
             </span>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">
-              Professional{" "}
+              Επαγγελματική{" "}
               <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
                 Κατασκευή Ιστοσελίδας στην Κύπρο
               </span>
               {" "}από €299
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-6 leading-relaxed">
-              D&M Labs is a web design and website development studio serving businesses σε όλη την Κύπρο - from Λεμεσός and Λευκωσία to Λάρνακα, Πάφος, and Αμμόχωστος. Φτιάχνουμε fast, mobile-first, SEO-optimised websites that help Cypriot businesses get found on Google and convert visitors into customers.
-            </p>
-            <p className="text-sm text-[#9CA3AF] mb-8">
-              Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version is available on request.)
+              Η D&M Labs είναι ένα studio σχεδιασμού και ανάπτυξης ιστοσελίδων που εξυπηρετεί επιχειρήσεις σε όλη την Κύπρο - από Λεμεσό και Λευκωσία μέχρι Λάρνακα, Πάφο και Αμμόχωστο. Φτιάχνουμε γρήγορες, mobile-first, βελτιστοποιημένες για SEO ιστοσελίδες που βοηθούν τις κυπριακές επιχειρήσεις να βρεθούν στο Google και να μετατρέψουν τους επισκέπτες σε πελάτες.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/el/contact">
@@ -149,12 +141,12 @@ export default function WebDesignCyprusEl() {
                 </button>
               </Link>
               <a
-                href="https://wa.me/35797472847?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20Cyprus%20business"
+                href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <button className="px-8 py-3.5 rounded-xl bg-white border border-[#E8EAF0] text-[#111315] font-semibold text-base hover:bg-[#F8F9FC] transition-colors shadow-sm">
-                  WhatsApp Us
+                  Στείλτε μας στο WhatsApp
                 </button>
               </a>
             </div>
@@ -162,50 +154,50 @@ export default function WebDesignCyprusEl() {
         </div>
       </section>
 
-      {/* -- WHY YOUR CYPRUS BUSINESS NEEDS A WEBSITE -- */}
+      {/* -- ΓΙΑΤΙ Η ΚΥΠΡΙΑΚΗ ΕΠΙΧΕΙΡΗΣΗ ΣΑΣ ΧΡΕΙΑΖΕΤΑΙ ΙΣΤΟΣΕΛΙΔΑ -- */}
       <section className="section-spacing bg-white">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
             <h2 className="text-3xl font-bold text-[#111315] mb-6">
-              Does Your Cyprus Business Need a Website?
+              Χρειάζεται η Κυπριακή Επιχείρησή σας Ιστοσελίδα;
             </h2>
             <div className="prose prose-lg max-w-none text-[#5B6472] leading-relaxed space-y-5">
               <p>
                 Η σύντομη απάντηση είναι ναι - και η μακρύτερη είναι ότι το κόστος του να <strong>μην έχετε ιστοσελίδα</strong> στην Κύπρο μεγαλώνει κάθε χρόνο. Πάνω από το 80% των Κυπρίων καταναλωτών αναζητά στο Google πριν κάνει μια αγορά ή κλείσει μια υπηρεσία. Αν η επιχείρησή σας δεν εμφανίζεται σε αυτά τα αποτελέσματα αναζήτησης, είστε αόρατοι στην πλειοψηφία των πιθανών πελατών σας.
               </p>
               <p>
-                <strong>Website design στην Κύπρο</strong> has evolved significantly in the last five years. A basic brochure site is no longer enough. Businesses σε όλη την Κύπρο - from restaurants in Λεμεσός to law firms in Λευκωσία, from hotels in Πάφος to clinics in Λάρνακα - need a website that loads fast on mobile, ranks on Google, and converts visitors into enquiries or bookings.
+                <strong>Η κατασκευή ιστοσελίδας στην Κύπρο</strong> έχει εξελιχθεί σημαντικά τα τελευταία πέντε χρόνια. Μια βασική brochure σελίδα δεν αρκεί πλέον. Επιχειρήσεις σε όλη την Κύπρο - από εστιατόρια στη Λεμεσό μέχρι δικηγορικά γραφεία στη Λευκωσία, από ξενοδοχεία στην Πάφο μέχρι κλινικές στη Λάρνακα - χρειάζονται μια ιστοσελίδα που φορτώνει γρήγορα στο κινητό, κατατάσσεται στο Google και μετατρέπει τους επισκέπτες σε ερωτήματα ή κρατήσεις.
               </p>
               <p>
-                At D&M Labs, we build <strong>professional websites for Cyprus businesses</strong> that do exactly that. Every website we deliver is mobile-first (because over 70% of web traffic στην Κύπρο comes from smartphones), SEO-optimised from day one, and designed to make η επιχείρησή σας look credible and trustworthy to potential clients.
+                Στη D&M Labs, κατασκευάζουμε <strong>επαγγελματικές ιστοσελίδες για κυπριακές επιχειρήσεις</strong> που κάνουν ακριβώς αυτό. Κάθε ιστοσελίδα που παραδίδουμε είναι mobile-first (γιατί πάνω από 70% της κίνησης στο web στην Κύπρο προέρχεται από smartphones), βελτιστοποιημένη για SEO από την πρώτη μέρα, και σχεδιασμένη ώστε η επιχείρησή σας να φαίνεται αξιόπιστη και επαγγελματική στους πιθανούς πελάτες.
               </p>
               <p>
-                Whether you are a small business owner in Λευκωσία looking for your first website, a restaurant in Λεμεσός that needs an online menu and booking form, or a service business wanting to attract more clients from Google - we have a package for you starting from <strong>€299</strong>.
+                Είτε είστε μικρός επιχειρηματίας στη Λευκωσία που ψάχνει την πρώτη σας ιστοσελίδα, εστιατόριο στη Λεμεσό που χρειάζεται online μενού και φόρμα κρατήσεων, ή επιχείρηση υπηρεσιών που θέλει να προσελκύσει περισσότερους πελάτες από το Google - έχουμε πακέτο για εσάς ξεκινώντας από <strong>€299</strong>.
               </p>
             </div>
           </AnimateIn>
         </div>
       </section>
 
-      {/* -- WHAT WE BUILD -- */}
+      {/* -- ΤΙ ΚΑΤΑΣΚΕΥΑΖΟΥΜΕ -- */}
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
             <h2 className="text-3xl font-bold text-[#111315] mb-4">
-              What We Build for Cyprus Businesses
+              Τι Κατασκευάζουμε για Κυπριακές Επιχειρήσεις
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              Είμαστε μια full-service <strong>web design and web development agency στην Κύπρο</strong>. Αναλαμβάνουμε everything from the initial design concept to the final launch - and beyond.
+              Είμαστε ένα full-service studio <strong>σχεδιασμού και ανάπτυξης ιστοσελίδων στην Κύπρο</strong>. Αναλαμβάνουμε τα πάντα, από την αρχική ιδέα σχεδιασμού μέχρι την τελική δημοσίευση - και μετά.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
-              { title: "Business Websites", desc: "Professional multi-page websites for service businesses, consultancies, and agencies σε όλη την Κύπρο. Clean design, fast loading, and built to rank on Google." },
-              { title: "Εστιατόριο & Cafe Websites", desc: "Mobile-first websites with digital menus, opening hours, Google Maps, and reservation forms. Designed to drive walk-ins and online enquiries." },
-              { title: "Hotel & Tourism Websites", desc: "Booking-focused websites for hotels, villas, apartments, and tour operators στην Κύπρο. Optimised for international visitors searching in English, Russian, and Greek." },
-              { title: "Portfolio & Creative Websites", desc: "Showcase ιστοσελίδες για αρχιτέκτονες, φωτογράφους, interior designers και δημιουργικούς επαγγελματίες σε όλη την Κύπρο." },
-              { title: "Ιστοσελίδες Επαγγελματικών Υπηρεσιών", desc: "Credibility-building websites for law firms, accountants, clinics, and consultancies. Designed to convert high-value enquiries." },
-              { title: "Landing Pages & SEO Pages", desc: "Targeted landing pages built to rank for specific keywords - 'web design Λεμεσός', 'dentist Λευκωσία', 'car rental Λάρνακα' - and convert visitors into leads." },
+              { title: "Επαγγελματικές Ιστοσελίδες", desc: "Επαγγελματικές πολυσέλιδες ιστοσελίδες για επιχειρήσεις υπηρεσιών, συμβουλευτικές εταιρείες και agencies σε όλη την Κύπρο. Καθαρός σχεδιασμός, γρήγορη φόρτωση και κατασκευασμένες για κατάταξη στο Google." },
+              { title: "Ιστοσελίδες Εστιατορίων & Καφέ", desc: "Mobile-first ιστοσελίδες με ψηφιακά μενού, ωράρια λειτουργίας, Google Maps και φόρμες κρατήσεων. Σχεδιασμένες για να αυξήσουν τις επισκέψεις και τα online ερωτήματα." },
+              { title: "Ιστοσελίδες Ξενοδοχείων & Τουρισμού", desc: "Ιστοσελίδες εστιασμένες στις κρατήσεις για ξενοδοχεία, βίλες, διαμερίσματα και tour operators στην Κύπρο. Βελτιστοποιημένες για διεθνείς επισκέπτες που αναζητούν στα αγγλικά, ρωσικά και ελληνικά." },
+              { title: "Portfolio & Δημιουργικές Ιστοσελίδες", desc: "Showcase ιστοσελίδες για αρχιτέκτονες, φωτογράφους, interior designers και δημιουργικούς επαγγελματίες σε όλη την Κύπρο." },
+              { title: "Ιστοσελίδες Επαγγελματικών Υπηρεσιών", desc: "Ιστοσελίδες που χτίζουν αξιοπιστία για δικηγορικά γραφεία, λογιστές, κλινικές και συμβουλευτικές εταιρείες. Σχεδιασμένες για μετατροπή ερωτημάτων υψηλής αξίας." },
+              { title: "Landing Pages & SEO Σελίδες", desc: "Στοχευμένες landing pages κατασκευασμένες για κατάταξη σε συγκεκριμένες λέξεις-κλειδιά - 'κατασκευή ιστοσελίδας Λεμεσός', 'οδοντίατρος Λευκωσία', 'ενοικίαση αυτοκινήτου Λάρνακα' - και μετατροπή επισκεπτών σε leads." },
             ].map((item) => (
               <AnimateIn key={item.title}>
                 <div className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm h-full">
@@ -218,15 +210,15 @@ export default function WebDesignCyprusEl() {
         </div>
       </section>
 
-      {/* -- INDUSTRIES -- */}
+      {/* -- ΚΛΑΔΟΙ -- */}
       <section className="section-spacing bg-white">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
             <h2 className="text-3xl font-bold text-[#111315] mb-4">
-              Κλάδοι που Εξυπηρετούμε Across Cyprus
+              Κλάδοι που Εξυπηρετούμε σε Όλη την Κύπρο
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              We have built websites for businesses in almost every sector of the Cypriot economy. Here are the industries we work with most frequently:
+              Έχουμε κατασκευάσει ιστοσελίδες για επιχειρήσεις σχεδόν σε κάθε τομέα της κυπριακής οικονομίας. Αυτοί είναι οι κλάδοι με τους οποίους συνεργαζόμαστε πιο συχνά:
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -245,15 +237,15 @@ export default function WebDesignCyprusEl() {
         </div>
       </section>
 
-      {/* -- PRICING -- */}
+      {/* -- ΤΙΜΕΣ -- */}
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
             <h2 className="text-3xl font-bold text-[#111315] mb-3">
-              Κατασκευή Ιστοσελίδας Prices στην Κύπρο
+              Τιμές Κατασκευής Ιστοσελίδας στην Κύπρο
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              We believe in transparent, fixed pricing. No hourly billing, no surprise invoices. Here is what a professional website costs with D&M Labs:
+              Πιστεύουμε στη διαφανή, σταθερή τιμολόγηση. Χωρίς χρέωση ανά ώρα, χωρίς εκπλήξεις στο τιμολόγιο. Αυτό κοστίζει μια επαγγελματική ιστοσελίδα με τη D&M Labs:
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -263,7 +255,7 @@ export default function WebDesignCyprusEl() {
                 price: "€299",
                 desc: "Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική παρουσία στο διαδίκτυο.",
                 features: [
-                  "Branded Business Page",
+                  "Επώνυμη επαγγελματική σελίδα",
                   "Responsive για κινητά",
                   "Κουμπί WhatsApp",
                   "Σύνδεσμοι social media",
@@ -282,7 +274,7 @@ export default function WebDesignCyprusEl() {
                   "Responsive για κινητά",
                   "Φόρμα επικοινωνίας + κρατήσεων",
                   "Google Maps + Reviews widget",
-                  "Ενότητα testimonials",
+                  "Ενότητα μαρτυριών",
                   "Βασική SEO βελτιστοποίηση",
                   "Βελτιστοποίηση ταχύτητας",
                   "3 γύροι αναθεωρήσεων",
@@ -293,16 +285,16 @@ export default function WebDesignCyprusEl() {
               {
                 name: "Premium",
                 price: "€699",
-                desc: "For businesses that want a fully custom, feature-rich website with everything included.",
+                desc: "Για επιχειρήσεις που θέλουν μια πλήρως custom, πλούσια σε χαρακτηριστικά ιστοσελίδα με τα πάντα συμπεριλαμβανόμενα.",
                 features: [
                   "Έως 7 σελίδες",
                   "Πλήρως custom σχεδιασμός + animations",
                   "Φόρμα επικοινωνίας + κρατήσεων",
                   "Google Maps + Reviews widget",
-                  "Testimonials + gallery",
+                  "Μαρτυρίες + gallery",
                   "5 SEO blog άρθρα",
                   "Πλήρης meta/SEO δομή",
-                  "Pop-up included",
+                  "Pop-up συμπεριλαμβάνεται",
                   "5 γύροι αναθεωρήσεων",
                   "Παράδοση σε 10-14 μέρες",
                 ],
@@ -334,8 +326,8 @@ export default function WebDesignCyprusEl() {
             ))}
           </div>
           <AnimateIn>
-            <p className="text-center text-sm text-[#5B6472] mt-6">
-              All prices are εφάπαξ fees. No monthly retainers unless you choose an optional maintenance plan.{" "}
+            <p className="text-center text-sm text-[#5B6472] mt-8">
+              Όλες οι τιμές είναι εφάπαξ. Χωρίς μηνιαίες χρεώσεις εκτός αν επιλέξετε προαιρετικό πλάνο συντήρησης.{" "}
               <Link href="/el/pricing">
                 <span className="text-[#5B8CFF] font-semibold hover:underline cursor-pointer">Δείτε πλήρεις τιμές</span>
               </Link>
@@ -344,15 +336,15 @@ export default function WebDesignCyprusEl() {
         </div>
       </section>
 
-      {/* -- WHY D&M LABS -- */}
+      {/* -- ΓΙΑΤΙ D&M LABS -- */}
       <section className="section-spacing bg-white">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
             <h2 className="text-3xl font-bold text-[#111315] mb-4">
-              Γιατί να Επιλέξετε τη D&M Labs for Κατασκευή Ιστοσελίδας στην Κύπρο?
+              Γιατί να Επιλέξετε τη D&M Labs για Κατασκευή Ιστοσελίδας στην Κύπρο
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              There are dozens of <strong>web designers στην Κύπρο</strong>. Here is what makes D&M Labs different:
+              Υπάρχουν δεκάδες <strong>web designers στην Κύπρο</strong>. Αυτό που κάνει τη D&M Labs διαφορετική:
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -369,15 +361,15 @@ export default function WebDesignCyprusEl() {
         </div>
       </section>
 
-      {/* -- CITIES -- */}
+      {/* -- ΠΟΛΕΙΣ -- */}
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
             <h2 className="text-3xl font-bold text-[#111315] mb-4">
-              Κατασκευή Ιστοσελίδας Across All of Cyprus
+              Κατασκευή Ιστοσελίδας σε Όλη την Κύπρο
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              We serve businesses in every city and district of Cyprus. Click on a city below to learn more about our services in your area.
+              Εξυπηρετούμε επιχειρήσεις σε κάθε πόλη και επαρχία της Κύπρου. Κάντε κλικ σε μια πόλη παρακάτω για να μάθετε περισσότερα για τις υπηρεσίες μας στην περιοχή σας.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -391,13 +383,13 @@ export default function WebDesignCyprusEl() {
                   {city.slug ? (
                     <Link href={city.slug}>
                       <span style={{ color: city.color }} className="text-sm font-semibold hover:underline cursor-pointer">
-                        View {city.name} page →
+                        Δείτε τη σελίδα {city.name} →
                       </span>
                     </Link>
                   ) : (
                     <Link href="/el/contact">
                       <span style={{ color: city.color }} className="text-sm font-semibold hover:underline cursor-pointer">
-                        Get a quote for {city.name} →
+                        Ζητήστε προσφορά για {city.name} →
                       </span>
                     </Link>
                   )}
@@ -408,23 +400,23 @@ export default function WebDesignCyprusEl() {
         </div>
       </section>
 
-      {/* -- HOW IT WORKS -- */}
+      {/* -- ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ -- */}
       <section className="section-spacing bg-white">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
             <h2 className="text-3xl font-bold text-[#111315] mb-4">
-              How to Get a Website for Your Cyprus Business
+              Πώς να Αποκτήσετε Ιστοσελίδα για την Κυπριακή Επιχείρησή σας
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              Getting a <strong>professional website στην Κύπρο</strong> with D&M Labs is a straightforward four-step process:
+              Η απόκτηση μιας <strong>επαγγελματικής ιστοσελίδας στην Κύπρο</strong> με τη D&M Labs είναι μια απλή διαδικασία τεσσάρων βημάτων:
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { step: "01", title: "Free Consultation", desc: "Tell us about η επιχείρησή σας, your goals, and your budget. Θα recommend the right package and answer any questions - no commitment required." },
-              { step: "02", title: "Σχεδιασμός και Κατασκευή", desc: "Σχεδιάζουμε η ιστοσελίδα σας and share a live preview for your feedback. You can request changes before anything goes live." },
-              { step: "03", title: "Review & Approve", desc: "You review the finished website, we make any final adjustments, and you approve the launch." },
-              { step: "04", title: "Κυκλοφορία & Support", desc: "Η ιστοσελίδα σας goes live. Αναλαμβάνουμε the technical setup - domain, hosting, SSL certificate - and provide post-launch support." },
+              { step: "01", title: "Δωρεάν Συμβουλευτική", desc: "Πείτε μας για την επιχείρησή σας, τους στόχους σας και τον προϋπολογισμό σας. Θα προτείνουμε το κατάλληλο πακέτο και θα απαντήσουμε σε κάθε ερώτηση - χωρίς δέσμευση." },
+              { step: "02", title: "Σχεδιασμός & Κατασκευή", desc: "Σχεδιάζουμε την ιστοσελίδα σας και μοιραζόμαστε μια ζωντανή προεπισκόπηση για τα σχόλιά σας. Μπορείτε να ζητήσετε αλλαγές πριν δημοσιευτεί οτιδήποτε." },
+              { step: "03", title: "Αναθεώρηση & Έγκριση", desc: "Ελέγχετε την ολοκληρωμένη ιστοσελίδα, κάνουμε τις τελικές προσαρμογές και εγκρίνετε τη δημοσίευση." },
+              { step: "04", title: "Κυκλοφορία & Υποστήριξη", desc: "Η ιστοσελίδα σας δημοσιεύεται. Αναλαμβάνουμε την τεχνική ρύθμιση - domain, hosting, πιστοποιητικό SSL - και παρέχουμε υποστήριξη μετά τη δημοσίευση." },
             ].map((s) => (
               <AnimateIn key={s.step}>
                 <div className="bg-[#F8F9FC] rounded-2xl p-5 border border-[#E8EAF0]">
@@ -438,7 +430,7 @@ export default function WebDesignCyprusEl() {
         </div>
       </section>
 
-      {/* -- MAP -- */}
+      {/* -- ΧΑΡΤΗΣ -- */}
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
@@ -446,12 +438,12 @@ export default function WebDesignCyprusEl() {
               Εξυπηρετούμε Επιχειρήσεις σε Όλη την Κύπρο
             </h2>
             <p className="text-[#5B6472] mb-8 leading-relaxed">
-              D&M Labs works with businesses throughout Cyprus - from Λεμεσός and Λευκωσία to Λάρνακα, Πάφος, Αμμόχωστος, Paralimni, and every district in between. We also serve businesses στην Ελλάδα (Athens, Thessaloniki) and internationally. Distance is never a factor.
+              Η D&M Labs συνεργάζεται με επιχειρήσεις σε όλη την Κύπρο - από Λεμεσό και Λευκωσία μέχρι Λάρνακα, Πάφο, Αμμόχωστο, Παραλίμνι και κάθε επαρχία ενδιάμεσα. Εξυπηρετούμε επίσης επιχειρήσεις στην Ελλάδα (Αθήνα, Θεσσαλονίκη) και διεθνώς. Η απόσταση δεν αποτελεί ποτέ παράγοντα.
             </p>
           </AnimateIn>
           <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
             <iframe
-              title="Cyprus"
+              title="Κύπρος"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -464,7 +456,7 @@ export default function WebDesignCyprusEl() {
         </div>
       </section>
 
-      {/* -- Συχνές Ερωτήσεις -- */}
+      {/* -- ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ -- */}
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl mx-auto">
           <AnimateIn>
@@ -490,19 +482,19 @@ export default function WebDesignCyprusEl() {
         <div className="container max-w-3xl mx-auto text-center">
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-              Ready to get your Cyprus business online?
+              Έτοιμοι να φέρετε την κυπριακή επιχείρησή σας online;
             </h2>
             <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-              Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. You can also reach us directly on WhatsApp - we are quick to respond.
+              Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. Μπορείτε επίσης να μας στείλετε απευθείας στο WhatsApp - απαντάμε γρήγορα.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/el/contact">
                 <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-                  Get a Free Consultation
+                  Δωρεάν Συμβουλευτική
                 </button>
               </Link>
               <a
-                href="https://wa.me/35797472847?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20Cyprus%20business"
+                href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1"
                 target="_blank"
                 rel="noopener noreferrer"
               >

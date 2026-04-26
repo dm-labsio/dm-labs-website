@@ -9,62 +9,62 @@ import { useSEO } from "@/hooks/useSEO";
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "D&M Labs",
-  "description": "Professional web design agency serving businesses in Λεμεσός, Cyprus. Custom websites από €299.",
-  "url": "https://dm-labs.io/web-design-limassol",
-  "telephone": "+357-96-000000",
-  "areaServed": {
+  name: "D&M Labs",
+  description: "Επαγγελματικό πρακτορείο σχεδιασμού ιστοσελίδων που εξυπηρετεί επιχειρήσεις στη Λεμεσό, Κύπρος. Προσαρμοσμένες ιστοσελίδες από €299.",
+  url: "https://dm-labs.io/el/web-design-limassol",
+  telephone: "+357-96-000000",
+  areaServed: {
     "@type": "City",
-    "name": "Λεμεσός, Cyprus"
+    name: "Λεμεσός, Cyprus",
   },
-  "address": {
+  address: {
     "@type": "PostalAddress",
-    "addressLocality": "Λεμεσός",
-    "addressCountry": "CY"
+    addressLocality: "Λεμεσός",
+    addressCountry: "CY",
   },
-  "priceRange": "€€",
-  "serviceType": "Κατασκευή Ιστοσελίδας",
-  "offers": [
+  priceRange: "€€",
+  serviceType: "Κατασκευή Ιστοσελίδας",
+  offers: [
     {
       "@type": "Offer",
-      "name": "Starter Website",
-      "price": "299",
-      "priceCurrency": "EUR"
+      name: "Πακέτο Starter",
+      price: "299",
+      priceCurrency: "EUR",
     },
     {
       "@type": "Offer",
-      "name": "Business Website",
-      "price": "399",
-      "priceCurrency": "EUR"
+      name: "Πακέτο Business",
+      price: "399",
+      priceCurrency: "EUR",
     },
     {
       "@type": "Offer",
-      "name": "Premium Website",
-      "price": "699",
-      "priceCurrency": "EUR"
-    }
-  ]
+      name: "Πακέτο Premium",
+      price: "699",
+      priceCurrency: "EUR",
+    },
+  ],
 };
 
 const faqs = [
   {
-    q: "How much does web design cost in Λεμεσός?",
-    a: "Our web design packages for Λεμεσός businesses start από €299 for a Starter site, €399 for a Business site, and €699 for a Premium site. All packages include mobile-responsive design, SEO setup, and a contact form. These are limited time introductory prices - check our Τιμές page for the full breakdown."
+    q: "Πόσο κοστίζει η κατασκευή ιστοσελίδας στη Λεμεσό;",
+    a: "Τα πακέτα κατασκευής ιστοσελίδων μας για επιχειρήσεις στη Λεμεσό ξεκινούν από €299 για το πακέτο Starter, €399 για το πακέτο Business και €699 για το πακέτο Premium. Όλα τα πακέτα περιλαμβάνουν mobile-responsive design, παραμετροποίηση SEO και φόρμα επικοινωνίας. Αυτές είναι εισαγωγικές τιμές για περιορισμένο χρονικό διάστημα - δείτε τη σελίδα Τιμές για την πλήρη ανάλυση.",
   },
   {
-    q: "How long does it take to build a website?",
-    a: "Most websites are delivered within 7 to 14 days from the moment we receive your content and feedback. Starter sites typically take 5 to 7 days. Business and Premium sites with more pages and custom functionality take 10 to 14 days. We keep you updated at every stage."
+    q: "Πόσος χρόνος χρειάζεται για την κατασκευή μιας ιστοσελίδας;",
+    a: "Οι περισσότερες ιστοσελίδες παραδίδονται εντός 7 έως 14 ημερών από τη στιγμή που λαμβάνουμε το περιεχόμενο και τα σχόλιά σας. Οι ιστοσελίδες Starter χρειάζονται συνήθως 5 έως 7 ημέρες. Οι ιστοσελίδες Business και Premium με περισσότερες σελίδες και προσαρμοσμένες λειτουργίες χρειάζονται 10 έως 14 ημέρες. Σας κρατάμε ενήμερους σε κάθε στάδιο.",
   },
   {
-    q: "Do you work with businesses in Λεμεσός remotely?",
-    a: "Yes, absolutely. Συνεργαζόμαστε με businesses σε όλη την Κύπρο and internationally entirely online. Our process is built around clear communication via WhatsApp, email, and video calls - so location is never a barrier. Many of our clients in Λεμεσός have never needed a face-to-face meeting."
-  }
+    q: "Συνεργάζεστε με επιχειρήσεις στη Λεμεσό εξ αποστάσεως;",
+    a: "Ναι, φυσικά. Συνεργαζόμαστε με επιχειρήσεις σε όλη την Κύπρο και διεθνώς, αποκλειστικά online. Η διαδικασία μας βασίζεται στη σαφή επικοινωνία μέσω WhatsApp, email και βιντεοκλήσεων - επομένως η τοποθεσία δεν αποτελεί ποτέ εμπόδιο. Πολλοί από τους πελάτες μας στη Λεμεσό δεν χρειάστηκαν ποτέ συνάντηση πρόσωπο με πρόσωπο.",
+  },
 ];
 
-export default function WebDesignΛεμεσόςEl() {
+export default function WebDesignLimassol() {
   useSEO({
-    title: "Κατασκευή Ιστοσελίδας Λεμεσός | Ιστοσελίδες από €299 | D&M Labs",
-    description: "D&M Labs builds professional websites for Λεμεσός businesses από €299. Mobile-first, SEO-ready, γρήγορη παράδοση. Get online today.",
+    title: "Web Design Λεμεσός | Κατασκευή Ιστοσελίδας από €299 | D&M Labs",
+    description: "Η D&M Labs κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λεμεσό από €299. Mobile-first, SEO-ready, γρήγορη παράδοση. Αποκτήστε online παρουσία σήμερα.",
     canonicalPath: "/el/web-design-limassol",
   });
   useEffect(() => {
@@ -86,16 +86,16 @@ export default function WebDesignΛεμεσόςEl() {
       <section className="section-spacing bg-gradient-to-br from-[#EEF3FF] via-white to-[#F0EAFF]">
         <div className="container max-w-4xl mx-auto text-center">
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5B8CFF] mb-4">
-            Serving Λεμεσός, Cyprus
+            Εξυπηρετώντας τη Λεμεσό, Κύπρος
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] leading-tight mb-6">
             Κατασκευή Ιστοσελίδας Λεμεσός<br />
             <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
-              Επαγγελματικές Ιστοσελίδες for Local Businesses
+              Επαγγελματικές Ιστοσελίδες για Τοπικές Επιχειρήσεις
             </span>
           </h1>
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-            D&M Labs is a dedicated web design agency helping Λεμεσός businesses build a strong online presence. Δημιουργούμε fast, mobile-first, and conversion-focused websites - starting από €299 - so η επιχείρησή σας stands out in one of Cyprus's most competitive markets.
+            Η D&M Labs είναι ένα εξειδικευμένο πρακτορείο web design που βοηθά τις επιχειρήσεις της Λεμεσού να αποκτήσουν μια ισχυρή online παρουσία. Δημιουργούμε γρήγορες, mobile-first και conversion-focused ιστοσελίδες - ξεκινώντας από €299 - ώστε η επιχείρησή σας να ξεχωρίζει σε μια από τις πιο ανταγωνιστικές αγορές της Κύπρου.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/el/contact">
@@ -116,16 +116,16 @@ export default function WebDesignΛεμεσόςEl() {
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-6">
-            Why Λεμεσός Businesses Need a Professional Website
+            Γιατί οι Επιχειρήσεις της Λεμεσού Χρειάζονται Επαγγελματική Ιστοσελίδα
           </h2>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            Λεμεσός is Cyprus's business and financial capital - home to international law firms, shipping companies, fintech startups, and a thriving hospitality sector. It also has one of the largest expat communities in the Eastern Mediterranean, with residents and visitors from Russia, Israel, the UK, and across Europe actively searching online for local services.
+            Η Λεμεσός είναι η επιχειρηματική και οικονομική πρωτεύουσα της Κύπρου - έδρα διεθνών δικηγορικών γραφείων, ναυτιλιακών εταιρειών, fintech startups και ενός ακμάζοντος τομέα φιλοξενίας. Διαθέτει επίσης μια από τις μεγαλύτερες κοινότητες ομογενών στην Ανατολική Μεσόγειο, με κατοίκους και επισκέπτες από τη Ρωσία, το Ισραήλ, το Ηνωμένο Βασίλειο και όλη την Ευρώπη να αναζητούν ενεργά online για τοπικές υπηρεσίες.
           </p>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            In this environment, a professional website is not optional - it is your first impression. When a potential client searches "accountant in Λεμεσός" or "restaurant near the seafront," η ιστοσελίδα σας is either working for you or handing that client to a competitor. A well-built site with proper SEO, fast load times, and a clear call to action converts visitors into enquiries around the clock.
+            Σε αυτό το περιβάλλον, μια επαγγελματική ιστοσελίδα δεν είναι προαιρετική - είναι η πρώτη σας εντύπωση. Όταν ένας πιθανός πελάτης αναζητά "λογιστής στη Λεμεσό" ή "εστιατόριο κοντά στην παραλία", η ιστοσελίδα σας είτε εργάζεται για εσάς είτε παραδίδει αυτόν τον πελάτη σε έναν ανταγωνιστή. Μια καλοφτιαγμένη ιστοσελίδα με σωστό SEO, γρήγορους χρόνους φόρτωσης και σαφή πρόσκληση για δράση (call to action) μετατρέπει τους επισκέπτες σε πελάτες όλο το εικοσιτετράωρο.
           </p>
           <p className="text-[#5B6472] leading-relaxed">
-            The Λεμεσός market is competitive and increasingly digital. Businesses that invest in a quality online presence now - before their competitors do - capture the most valuable search traffic and build lasting credibility with both local and international clients.
+            Η αγορά της Λεμεσού είναι ανταγωνιστική και ολοένα και πιο ψηφιακή. Οι επιχειρήσεις που επενδύουν σε μια ποιοτική online παρουσία τώρα - πριν από τους ανταγωνιστές τους - κατακτούν την πιο πολύτιμη επισκεψιμότητα από τις μηχανές αναζήτησης και χτίζουν διαρκή αξιοπιστία τόσο με τους τοπικούς όσο και με τους διεθνείς πελάτες.
           </p>
         </div>
       </section>
@@ -134,33 +134,33 @@ export default function WebDesignΛεμεσόςEl() {
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            What We Build for Λεμεσός Businesses
+            Τι Κατασκευάζουμε για τις Επιχειρήσεις της Λεμεσού
           </h2>
           <p className="text-[#5B6472] mb-10">
-            Every site we deliver is built to perform - not just to look good.{" "}
+            Κάθε ιστοσελίδα που παραδίδουμε είναι φτιαγμένη για να αποδίδει - όχι απλώς για να φαίνεται ωραία.{" "}
             <Link href="/el/services" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
-              See our full services
+              Δείτε όλες τις υπηρεσίες μας
             </Link>
             .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               {
-                title: "Custom Design",
-                desc: "Κανένα έτοιμο πρότυπο. Κάθε ιστοσελίδα σχεδιάζεται από μηδενική βάση για να ταιριάζει με τη μάρκα σας, το κοινό σας και τους στόχους σας."
+                title: "Προσαρμοσμένος Σχεδιασμός",
+                desc: "Κανένα έτοιμο πρότυπο. Κάθε ιστοσελίδα σχεδιάζεται από μηδενική βάση για να ταιριάζει με τη μάρκα σας, το κοινό σας και τους στόχους σας.",
               },
               {
                 title: "Mobile-First",
-                desc: "Over 70% of web traffic στην Κύπρο comes from mobile. Every site we build looks and works perfectly on any screen."
+                desc: "Πάνω από το 70% της επισκεψιμότητας στην Κύπρο προέρχεται από κινητά. Κάθε ιστοσελίδα που κατασκευάζουμε φαίνεται και λειτουργεί τέλεια σε οποιαδήποτε οθόνη.",
               },
               {
                 title: "SEO-Ready",
-                desc: "Clean code, fast load times, proper meta tags, and structured data - everything Google needs to rank your site."
+                desc: "Καθαρός κώδικας, γρήγοροι χρόνοι φόρτωσης, σωστά meta tags και δομημένα δεδομένα (structured data) - όλα όσα χρειάζεται η Google για να κατατάξει την ιστοσελίδα σας.",
               },
               {
                 title: "Γρήγορη Παράδοση",
-                desc: "Most sites are live within 7 to 14 days. We move quickly without cutting corners on quality."
-              }
+                desc: "Οι περισσότερες ιστοσελίδες παραδίδονται εντός 7 έως 14 ημερών. Κινούμαστε γρήγορα χωρίς εκπτώσεις στην ποιότητα.",
+              },
             ].map((s) => (
               <div key={s.title} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
                 <h3 className="font-bold text-[#111315] text-lg mb-2">{s.title}</h3>
@@ -175,12 +175,12 @@ export default function WebDesignΛεμεσόςEl() {
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Διαφανείς Τιμές for Λεμεσός Businesses
+            Διαφανείς Τιμές για τις Επιχειρήσεις της Λεμεσού
           </h2>
           <p className="text-[#5B6472] mb-10">
-            Χωρίς κρυφές χρεώσεις. No hourly billing. One fixed price, everything included.{" "}
+            Χωρίς κρυφές χρεώσεις. Χωρίς ωριαία χρέωση. Μία σταθερή τιμή, όλα περιλαμβάνονται.{" "}
             <Link href="/el/pricing" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
-              View full pricing breakdown
+              Δείτε την πλήρη ανάλυση τιμών
             </Link>
             .
           </p>
@@ -190,20 +190,20 @@ export default function WebDesignΛεμεσόςEl() {
                 name: "Starter",
                 price: "€299",
                 desc: "Ιδανικό για freelancers και μικρές επιχειρήσεις που χρειάζονται μια καθαρή, επαγγελματική online παρουσία.",
-                highlight: false
+                highlight: false,
               },
               {
                 name: "Business",
                 price: "€399",
                 desc: "Ιδανικό για καθιερωμένες επιχειρήσεις που θέλουν περισσότερες σελίδες, animations και προχωρημένο SEO.",
-                highlight: true
+                highlight: true,
               },
               {
                 name: "Premium",
                 price: "€699",
-                desc: "Full-featured site with custom functionality, booking forms, and priority support.",
-                highlight: false
-              }
+                desc: "Πλήρης ιστοσελίδα με προσαρμοσμένες λειτουργίες, φόρμες κρατήσεων και υποστήριξη κατά προτεραιότητα.",
+                highlight: false,
+              },
             ].map((p) => (
               <div
                 key={p.name}
@@ -225,7 +225,7 @@ export default function WebDesignΛεμεσόςEl() {
             ))}
           </div>
           <p className="text-xs text-[#9CA3AF] mt-4">
-            * These are limited time introductory prices.
+            * Αυτές είναι εισαγωγικές τιμές για περιορισμένο χρονικό διάστημα.
           </p>
         </div>
       </section>
@@ -234,14 +234,14 @@ export default function WebDesignΛεμεσόςEl() {
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Based στην Κύπρο, Serving Λεμεσός
+            Με έδρα την Κύπρο, Εξυπηρετούμε τη Λεμεσό
           </h2>
           <p className="text-[#5B6472] mb-8">
-            We serve businesses across Λεμεσός - from the old town and seafront to the business district and suburbs like Agios Athanasios, Polemidia, and Germasogeia.
+            Εξυπηρετούμε επιχειρήσεις σε όλη τη Λεμεσό - από την παλιά πόλη και την παραλία μέχρι την επιχειρηματική περιοχή και τα προάστια όπως ο Άγιος Αθανάσιος, τα Πολεμίδια και η Γερμασόγεια.
           </p>
           <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
             <iframe
-              title="Λεμεσός, Cyprus"
+              title="Λεμεσός, Κύπρος"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -275,14 +275,14 @@ export default function WebDesignΛεμεσόςEl() {
       <section className="section-spacing bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF]">
         <div className="container max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Ready to get your Λεμεσός business online?
+            Είστε έτοιμοι να αποκτήσετε online παρουσία για την επιχείρησή σας στη Λεμεσό;
           </h2>
           <p className="text-blue-100 text-lg mb-8 leading-relaxed">
             Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση.
           </p>
           <Link href="/el/contact">
             <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-              Επικοινωνία us today
+              Επικοινωνήστε μαζί μας σήμερα
             </button>
           </Link>
         </div>
@@ -290,3 +290,4 @@ export default function WebDesignΛεμεσόςEl() {
     </main>
   );
 }
+

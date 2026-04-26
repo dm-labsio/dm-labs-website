@@ -20,7 +20,7 @@ function formatDate(dateStr: string) {
 export default function ΆρθραEl() {
   useSEO({
     title: "Άρθρα | Web Σχεδιασμός Tips & Guides | D&M Labs",
-    description: "Practical guides, honest advice, and web design insights for businesses στην Κύπρο and beyond.",
+    description: "Πρακτικοί οδηγοί, ειλικρινείς συμβουλές και ιδέες web design για επιχειρήσεις στην Κύπρο και παγκοσμίως.",
   });
   return (
     <>
@@ -31,12 +31,12 @@ export default function ΆρθραEl() {
       >
         <div className="container relative z-10 text-center">
           <AnimateIn>
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Resources & Insights</p>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Άρθρα & Συμβουλές</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              The D&M Labs <span className="brand-gradient-text">Άρθρα</span>
+              Το Blog της <span className="brand-gradient-text">D&M Labs</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Practical guides, honest advice, and web design insights for businesses στην Κύπρο and beyond.
+              Πρακτικοί οδηγοί, ειλικρινείς συμβουλές και ιδέες web design για επιχειρήσεις στην Κύπρο και παγκοσμίως.
             </p>
           </AnimateIn>
         </div>
@@ -46,7 +46,7 @@ export default function ΆρθραEl() {
       <section className="section-spacing bg-white">
         <div className="container">
           {POSTS.length === 0 ? (
-            <div className="text-center py-20 text-[#5B6472]">No articles yet. Check back soon.</div>
+            <div className="text-center py-20 text-[#5B6472]">Δεν υπάρχουν άρθρα ακόμα. Επισκεφθείτε ξανά σύντομα.</div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {POSTS.map((post, i) => (
@@ -81,7 +81,7 @@ export default function ΆρθραEl() {
                         {post.excerpt}
                       </p>
                       <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#5B8CFF] group-hover:gap-2.5 transition-all">
-                        Read article <ArrowRight size={14} />
+                        Διαβάστε άρθρο <ArrowRight size={14} />
                       </span>
                     </div>
                   </Link>
@@ -96,12 +96,12 @@ export default function ΆρθραEl() {
       <section className="section-spacing dark-section text-center">
         <div className="container">
           <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Get Your Website Built?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Έτοιμοι να Αποκτήσετε την Ιστοσελίδα σας;</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">
-              Stop reading and start growing. Get a δωρεάν συμβουλευτική and a clear quote within 24 hours.
+              Σταματήστε να διαβάζετε και ξεκινήστε να αναπτύσσεστε. Λάβετε δωρεάν συμβουλευτική και μια σαφή προσφορά εντός 24 ωρών.
             </p>
             <Link href="/el/contact" className="btn-primary">
-              Get a Free Consultation <ArrowRight size={18} />
+              Δωρεάν Συμβουλευτική <ArrowRight size={18} />
             </Link>
           </AnimateIn>
         </div>
