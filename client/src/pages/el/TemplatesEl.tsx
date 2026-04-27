@@ -485,15 +485,15 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
 
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
-  { id: "all", label: "Όλα Industries", icon: "✦" },
-  { id: "restaurant", label: "Εστιατόρια & Cafés", icon: "☕" },
-  { id: "beauty", label: "Ομορφιά & Wellness", icon: "✂" },
+  { id: "all", label: "Όλοι οι Κλάδοι", icon: "✦" },
+  { id: "restaurant", label: "Εστιατόρια & Καφετέριες", icon: "☕" },
+  { id: "beauty", label: "Ομορφιά & Ευεξία", icon: "✂" },
   { id: "clinic", label: "Κλινικές & Υγεία", icon: "+" },
-  { id: "fitness", label: "Fitness & Γυμναστήρια", icon: "◈" },
+  { id: "fitness", label: "Γυμναστήρια & Fitness", icon: "◈" },
   { id: "realestate", label: "Κτηματομεσιτικά", icon: "◻" },
   { id: "childcare", label: "Παιδική Μέριμνα", icon: "◎" },
   { id: "architecture", label: "Αρχιτεκτονική", icon: "△" },
-  { id: "deli", label: "Deli & Κατάστημα Τροφίμων", icon: "◇" },
+  { id: "deli", label: "Ντελικατέσεν & Τρόφιμα", icon: "◇" },
   { id: "legal", label: "Νομικές Υπηρεσίες", icon: "▣" },
 ];
 

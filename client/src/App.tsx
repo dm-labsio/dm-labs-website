@@ -78,6 +78,7 @@ function MainRouter() {
         <Route path="/contact" component={Contact} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/cookies" component={CookiePolicy} />
+        <Route path="/cookie-policy" component={CookiePolicy} />
         <Route path="/terms" component={Terms} />
         <Route path="/templates" component={Templates} />
         <Route path="/examples" component={Templates} />

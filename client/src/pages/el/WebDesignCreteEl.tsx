@@ -337,7 +337,7 @@ export default function WebDesignCreteEl() {
                 Ζητήστε Δωρεάν Προσφορά
               </button>
             </Link>
-            <Link href="/el/portfolio">
+            <Link href="/el/examples">
               <button className="px-8 py-3.5 rounded-xl border border-gray-300 text-[#111315] font-semibold text-base hover:bg-gray-50 transition-colors bg-white">
                 Δείτε τη Δουλειά μας
               </button>
