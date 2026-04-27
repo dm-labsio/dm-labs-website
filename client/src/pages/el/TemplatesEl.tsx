@@ -514,9 +514,9 @@ const TEMPLATES = [
     livePreview: true,
     previewUrl: "/previews/bella-salon.html",
     features: [
-      "Κομψό hero με κουμπί κράτησης",
+      "Κομψό banner με κουμπί κράτησης",
       "Παρουσίαση υπηρεσιών με τιμές",
-      "Ενότητα gallery / portfolio",
+      "Ενότητα γκαλερί εργασιών",
       "Γνωρίστε τους stylists μας",
       "Επικοινωνία & φόρμα ράντεβου",
       "Τοποθεσία & ώρες λειτουργίας",
@@ -526,7 +526,7 @@ const TEMPLATES = [
     pages: [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
-    style: "Luxury feminine aesthetic with deep plum and rose tones, elegant serif typography, and a warm, inviting feel. Perfect for hair salons, beauty studios, and nail bars.",
+    style: "Πολυτελές θηλυκή αισθητική με βαθύ δαμάσκηνο και ροζ τόνους, κομψή serif τυπογραφία και ζεστή, φιλόξενη αίσθηση. Ιδανική για κομμωτήρια, beauty studios και nail bars.",
     waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Bella Salon.",
     price: "€350",
     images: { card: "" },
@@ -545,8 +545,8 @@ const TEMPLATES = [
     livePreview: true,
     previewUrl: "/previews/verde-restaurant.html",
     features: [
-      "Hero πλήρους πλάτους με κουμπί κράτησης",
-      "Παρουσίαση signature πιάτων",
+      "Μεγάλο banner πλήρους πλάτους με κουμπί κράτησης",
+      "Παρουσίαση χαρακτηριστικών πιάτων",
       "Σελίδα μενού με κατηγορίες",
       "Ενότητα Σχετικά / Η Ιστορία μας",
       "Επικοινωνία & φόρμα κράτησης",
@@ -557,7 +557,7 @@ const TEMPLATES = [
     pages: [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
-    style: "Fresh Mediterranean aesthetic with deep green tones, warm cream backgrounds, and elegant typography. Ideal for farm-to-table restaurants, Mediterranean cuisine, and healthy dining.",
+    style: "Αναπνευστική μεσογειακή αισθητική με βαθείς πράσινες αποχρώσεις, ζεστά κρεμ φόντα και κομψή τυπογραφία. Ιδανική για εστιατόρια με φρέσκα υλικά, μεσογειακή κουζίνα και υγιεινή διατροφή.",
     waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Verde Εστιατόριο.",
     price: "€350",
     images: { card: "" },
@@ -576,7 +576,7 @@ const TEMPLATES = [
     livePreview: true,
     previewUrl: "/previews/pulse-gym.html",
     features: [
-      "Τολμηρό σκούρο hero με κουμπί εγγραφής",
+      "Τολμηρό σκούρο banner με κουμπί εγγραφής",
       "Πρόγραμμα μαθημάτων & προγράμματα",
       "Προφίλ εκπαιδευτών",
       "Πλάνα συνδρομής",
@@ -588,7 +588,7 @@ const TEMPLATES = [
     pages: [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
-    style: "High-energy dark aesthetic with black and orange accents, bold typography, and dynamic layouts. Perfect for gyms, CrossFit boxes, and strength training studios.",
+    style: "Αισθητική υψηλής ενέργειας με μαύρο φόντο και πορτοκαλί ακσεσουάρ, έντονη τυπογραφία και δυναμικές διαταξεις. Ιδανική για γυμναστήρια, CrossFit και studios δύναμης.",
     waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας PulseGym.",
     price: "€350",
     images: { card: "" },
@@ -607,7 +607,7 @@ const TEMPLATES = [
     livePreview: true,
     previewUrl: "/previews/dr-elara-dental.html",
     features: [
-      "Επαγγελματικό hero με κουμπί κράτησης",
+      "Επαγγελματικό banner με κουμπί κράτησης",
       "Παρουσίαση οδοντιατρικών υπηρεσιών",
       "Ενότητα προφίλ ιατρών",
       "Μαρτυρίες ασθενών",
@@ -619,7 +619,7 @@ const TEMPLATES = [
     pages: [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
-    style: "Clean, professional aesthetic with navy and blue accents on white backgrounds. Perfect for dental clinics, medical offices, and healthcare providers.",
+    style: "Καθαρή, επαγγελματική αισθητική με ναυτικό και μπλε ακσεσουάρ σε λευκό φόντο. Ιδανική για οδοντιατρεία, ιατρεία και παροχής υγειονομικών υπηρεσιών.",
     waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Dr. Elara Dental.",
     price: "€350",
     images: { card: "" },
@@ -638,8 +638,8 @@ const TEMPLATES = [
     livePreview: true,
     previewUrl: "/previews/nomad-coffee.html",
     features: [
-      "Minimal hero με ημερήσιες προσφορές",
-      "Παρουσίαση signature καφέ",
+      "Απλό banner με ημερήσιες προσφορές",
+      "Παρουσίαση χαρακτηριστικών καφέδων",
       "Μενού με κατηγορίες",
       "Ενότητα Σχετικά / Η Ιστορία μας",
       "Σελίδα επικοινωνίας & τοποθεσίας",
@@ -650,7 +650,7 @@ const TEMPLATES = [
     pages: [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
-    style: "Artisan minimal aesthetic with espresso and gold tones, clean typography, and a warm, inviting feel. Great for specialty coffee shops, artisan roasters, and café bars.",
+    style: "Χειροτεχνική minimal αισθητική με τόνους εσπρέσο και χρυσού, καθαρή τυπογραφία και ζεστή, φιλόξενη αίσθηση. Ιδανική για specialty coffee shops, χειροτεχνίτες καφές και καφέ-μπαρ.",
     waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Nomad Coffee.",
     price: "€250",
     images: { card: "" },
@@ -669,7 +669,7 @@ const TEMPLATES = [
     livePreview: true,
     previewUrl: "/previews/serenity-yoga.html",
     features: [
-      "Ήρεμο hero με κουμπί κράτησης μαθήματος",
+      "Ήρεμο banner με κουμπί κράτησης μαθήματος",
       "Πρόγραμμα yoga μαθημάτων",
       "Προφίλ εκπαιδευτών",
       "Ενότητα wellness φιλοσοφίας",
@@ -681,7 +681,7 @@ const TEMPLATES = [
     pages: [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
-    style: "Calm, balanced aesthetic with deep teal and sage tones, natural textures, and clean typography. Ideal for yoga studios, pilates centres, and mindfulness spaces.",
+    style: "Ήρεμη, ισορροπημένη αισθητική με βαθείς τόνους φασκομιλιάς, φυσικές υφές και καθαρή τυπογραφία. Ιδανική για studios yoga, pilates και χώρους ευεξίας.",
     waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Serenity Yoga.",
     price: "€250",
     images: { card: "" },
@@ -699,7 +699,7 @@ const TEMPLATES = [
     palette: ["#0a0a08", "#111110", "#c9a96e", "#f5f0e8", "#888880"],
     paletteNames: ["Μαύρο", "Σκούρο", "Σαμπάνια", "Κρέμα", "Απαλό"],
     features: [
-      "Hero πλήρους οθόνης με αναζήτηση ακινήτων",
+      "Μεγάλο banner πλήρους οθόνης με αναζήτηση ακινήτων",
       "Grid επιλεγμένων ακινήτων",
       "Ενότητα υπηρεσιών Golden Visa",
       "Επικοινωνία & φόρμα ερωτήματος",
@@ -708,7 +708,7 @@ const TEMPLATES = [
     pages: [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
-    style: "Dark luxury editorial with Cormorant Garamond serif, champagne gold accents, and cinematic full-screen photography. Ideal for premium real estate agencies.",
+    style: "Σκούρα editorial πολυτέλεια με Cormorant Garamond serif, χρυσά ακσεσουάρ σαμπάνιας και κινηματογραφική φωτογραφία πλήρους οθόνης. Ιδανική για premium γραφεία ακινήτων.",
     waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Luxe Realty.",
     price: "€450",
     images: { card: "" },
@@ -735,7 +735,7 @@ const TEMPLATES = [
     pages: [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
-    style: "Warm, rounded Nunito typography with coral and sky accents on a cream base. Friendly design with organic shapes. Ideal for nurseries and childcare.",
+    style: "Ζεστή Nunito τυπογραφία με κοραλί και ουράνια ακσεσουάρ σε κρεμ βάση. Φιλικός σχεδιασμός με οργανικά σχήματα. Ιδανικός για παιδικούς σταθμούς και παιδική μέριμνα.",
     waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Little Stars Nursery.",
     price: "€299",
     images: { card: "" },
@@ -746,15 +746,15 @@ const TEMPLATES = [
     id: "arcos-architecture",
     industry: "architecture",
     name: "Arcos Architecture",
-    tagline: "Brutalist & Minimal",
+    tagline: "Βρουταλιστικό & Minimal",
     tier: "Premium",
     tierGradient: "linear-gradient(135deg, #c4613a, #8a3a1a)",
     domain: "arcosarchitecture.gr",
     palette: ["#1a1916", "#2d2b27", "#c4613a", "#f4f1ec", "#7a7568"],
     paletteNames: ["Ανθρακί", "Σκούρο", "Τερακότα", "Χαρτί", "Απαλό"],
     features: [
-      "Hero διπλής οθόνης με πλήρης εικόνα",
-      "Masonry grid portfolio έργων",
+      "Μεγάλο banner διπλής οθόνης με πλήρη εικόνα",
+      "Πλέγμα εργασιών",
       "Υπηρεσίες με αριθμημένη διάταξη",
       "Ιστορία στούντιο & στατιστικά",
       "Βελτιστοποιημένο SEO για αρχιτεκτονικά γραφεία Αθήνα",
@@ -762,7 +762,7 @@ const TEMPLATES = [
     pages: [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
-    style: "Brutalist minimal with Syne display font, off-white paper tones, and terracotta accents. Asymmetric split layouts. Ideal for architecture studios.",
+    style: "Βρουταλιστικό minimal με Syne display font, αποχρώσεις χαρτιού και τερακότα ακσεσουάρ. Ασύμμετρες διαιρετές διαταξεις. Ιδανικό για αρχιτεκτονικά γραφεία.",
     waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Arcos Architecture.",
     price: "€450",
     images: { card: "" },
@@ -789,7 +789,7 @@ const TEMPLATES = [
     pages: [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
-    style: "Warm Mediterranean with Playfair Display serif, deep olive and gold tones. Ideal for artisan delis, food shops, and specialty grocers.",
+    style: "Ζεστή Μεσόγειος με Playfair Display serif, βαθειά ελιά και χρυσά χρώματα. Ιδανική για χειροτεχνικά ντελικατέσεν, τρόφιμα καταστήματα και specialty παντοπωλεία.",
     waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Olio Deli.",
     price: "€299",
     images: { card: "" },
@@ -816,7 +816,7 @@ const TEMPLATES = [
     pages: [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
-    style: "Authoritative dark with EB Garamond serif, deep navy and warm gold. Ideal for law firms, legal consultancies, and professional services.",
+    style: "Αυθεντικό σκούρο με EB Garamond serif, βαθύ ναυτικό και ζεστό χρυσό. Ιδανικό για δικηγορικά γραφεία, νομικές συμβουλευτικές και επαγγελματικές υπηρεσίες.",
     waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Horizon Law.",
     price: "€450",
     images: { card: "" },
@@ -883,7 +883,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
           >
             <ExternalLink size={16} />
-            Open Full Preview
+            Άνοιγμα Πλήρους Προεπισκόπησης
           </a>
 
           {/* Style description */}
@@ -919,7 +919,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
               href="/el/contact"
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-sm border border-gray-200 text-gray-700 transition-all duration-300 hover:border-[#5B8CFF] hover:text-[#5B8CFF]"
             >
-              Get a Quote for This Design
+              Ζητήστε Προσφορά για αυτό το Σχέδιο
             </a>
           </div>
 

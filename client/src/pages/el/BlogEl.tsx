@@ -6,11 +6,11 @@
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
-import { POSTS } from "@/data/blogPosts";
+import { POSTS_EL } from "@/data/blogPostsEl";
 import { ArrowRight, Clock, Tag } from "lucide-react";
 
 function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-GB", {
+  return new Date(dateStr).toLocaleDateString("el-GR", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -45,13 +45,13 @@ export default function ΆρθραEl() {
       {/* Posts Grid */}
       <section className="section-spacing bg-white">
         <div className="container">
-          {POSTS.length === 0 ? (
+          {POSTS_EL.length === 0 ? (
             <div className="text-center py-20 text-[#5B6472]">Δεν υπάρχουν άρθρα ακόμα. Επισκεφθείτε ξανά σύντομα.</div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {POSTS.map((post, i) => (
-                <AnimateIn key={post.slug} delay={i * 0.08}>
-                  <Link href={`/blog/${post.slug}`} className="group block dm-card overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
+              {POSTS_EL.map((post, i) => (
+                <AnimateIn key={post.elSlug} delay={i * 0.08}>
+                  <Link href={`/el/blog/${post.elSlug}`} className="group block dm-card overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
                     {/* Cover image */}
                     <div className="relative overflow-hidden" style={{ height: "200px" }}>
                       <img

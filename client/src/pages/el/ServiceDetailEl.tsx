@@ -1,0 +1,476 @@
+/* ============================================================
+   D&M LABS - Service Detail Page (Greek)
+   Route: /el/services/:serviceId
+   ============================================================ */
+import { Link, useParams } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
+import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
+import {
+  Globe, Smartphone, Search, Zap, Shield, Clock,
+  CheckCircle2, ArrowRight, ChevronLeft, MessageCircle,
+} from "lucide-react";
+
+const GRADIENT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
+const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
+const DARK_CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/dark-cta-bg-LgZ8epcpi9XDGLof5Q9KgS.webp";
+
+const SERVICES: Record<string, {
+  id: string;
+  icon: React.ElementType;
+  accentColor: string;
+  title: string;
+  subtitle: string;
+  intro: string;
+  why: { heading: string; body: string }[];
+  whatWeDeliver: string[];
+  howItWorks: { step: string; title: string; desc: string }[];
+  faqs: { q: string; a: string }[];
+  relatedServices: string[];
+}> = {
+  "custom-design": {
+    id: "custom-design",
+    icon: Globe,
+    accentColor: "#5B8CFF",
+    title: "Εξατομικευμένος Σχεδιασμός",
+    subtitle: "Μια ιστοσελίδα που μοιάζει και αισθάνεται σαν το brand σας — όχι ένα γενικό σχέδιο.",
+    intro: "Κάθε επιχείρηση είναι διαφορετική. Η ιστοσελίδα σας πρέπει να το αντικατοπτρίζει. Σχεδιάζουμε κάθε ιστοσελίδα από μηδενική βάση, ξεκινώντας από την ταυτότητα του brand σας, το κοινό σας και τους στόχους σας. Χωρίς page builders, χωρίς ανακυκλωμένες διατάξεις — μόνο μια προσεκτικά κατασκευασμένη ψηφιακή παρουσία, φτιαγμένη αποκλειστικά για εσάς.",
+    why: [
+      { heading: "Η πρώτη εντύπωση μετράει", body: "Οι επισκέπτες σχηματίζουν γνώμη για την επιχείρησή σας μέσα σε 50 χιλιοστά του δευτερολέπτου από τη στιγμή που φτάνουν στην ιστοσελίδα σας. Ένα γενικό σχέδιο δείχνει ότι δεν δίνετε σημασία στις λεπτομέρειες. Ένα εξατομικευμένο σχέδιο μεταδίδει επαγγελματισμό, εμπιστοσύνη και προσοχή στην ποιότητα." },
+      { heading: "Το brand σας, όχι το δικό μας", body: "Μελετάμε το λογότυπό σας, τα χρώματά σας, τον τόνο επικοινωνίας σας και τους ανταγωνιστές σας πριν γράψουμε μια γραμμή κώδικα. Το αποτέλεσμα είναι μια ιστοσελίδα που αισθάνεται σαν επέκταση της επιχείρησής σας — όχι μια ιστοσελίδα που θα μπορούσε να ανήκει σε οποιονδήποτε." },
+      { heading: "Σχεδιασμένη για μετατροπές", body: "Το όμορφο design είναι μόνο η μισή δουλειά. Δομούμε κάθε σελίδα με γνώμονα τις μετατροπές — σαφείς παροτρύνσεις για δράση, λογική ιεραρχία πληροφοριών και ομαλές διαδρομές προς επικοινωνία ή αγορά." },
+    ],
+    whatWeDeliver: [
+      "Εξατομικευμένη οπτική ταυτότητα σε όλες τις σελίδες",
+      "Μοναδική διάταξη σχεδιασμένη γύρω από το περιεχόμενό σας",
+      "Παλέτα χρωμάτων, τυπογραφία και εικονογραφία εναρμονισμένα με το brand",
+      "Ενότητες hero, κάρτες υπηρεσιών, μαρτυρίες και CTAs",
+      "Ενσωμάτωση εξατομικευμένων εικονογραφήσεων ή φωτογραφιών",
+      "Συνεπής γλώσσα σχεδιασμού σε desktop και mobile",
+      "2 γύροι αναθεώρησης (Starter) / 3 γύροι (Business) / 5 γύροι (Premium)",
+    ],
+    howItWorks: [
+      { step: "01", title: "Ανακάλυψη", desc: "Ξεκινάμε με μια σύντομη συνομιλία για να κατανοήσουμε την επιχείρησή σας, το κοινό σας και τι θέλετε να κάνουν οι επισκέπτες στην ιστοσελίδα σας." },
+      { step: "02", title: "Moodboard & Κατεύθυνση", desc: "Παρουσιάζουμε μια οπτική κατεύθυνση — παλέτα χρωμάτων, τυπογραφία και στυλ διάταξης — για έγκρισή σας πριν γραφτεί κώδικας." },
+      { step: "03", title: "Σχεδιασμός & Κατασκευή", desc: "Σχεδιάζουμε και αναπτύσσουμε ταυτόχρονα, ώστε να βλέπετε μια πραγματική ιστοσελίδα σε λειτουργία, όχι ένα στατικό mockup." },
+      { step: "04", title: "Αναθεώρηση & Βελτίωση", desc: "Ελέγχετε την ιστοσελίδα και ζητάτε αλλαγές. Βελτιώνουμε μέχρι να είστε ικανοποιημένοι, και μετά λανσάρουμε." },
+    ],
+    faqs: [
+      { q: "Χρησιμοποιείτε page builders όπως Wix ή Squarespace;", a: "Όχι. Γράφουμε καθαρό, χειροποίητο κώδικα χρησιμοποιώντας React και σύγχρονες τεχνολογίες web. Αυτό σας δίνει καλύτερη απόδοση, περισσότερη ευελιξία και χωρίς εξάρτηση από πλατφόρμα." },
+      { q: "Μπορώ να παρέχω το δικό μου design ή branding;", a: "Απολύτως. Αν έχετε υπάρχον brand guide, λογότυπο ή προτιμήσεις σχεδιασμού, θα εργαστούμε εντός αυτών των κατευθυντήριων γραμμών. Αν δεν έχετε, θα σας βοηθήσουμε να αναπτύξετε μια οπτική ταυτότητα." },
+      { q: "Πόσες σελίδες περιλαμβάνονται;", a: "Το πλάνο Starter περιλαμβάνει μια Branded Business Page. Το Business περιλαμβάνει έως 5 σελίδες και το Premium έως 7 σελίδες. Επιπλέον σελίδες μπορούν να προστεθούν με μικρή επιπλέον χρέωση." },
+      { q: "Τι γίνεται αν θέλω αλλαγές μετά το λανσάρισμα;", a: "Μικρές ενημερώσεις περιλαμβάνονται στα πλάνα συντήρησής μας. Μεγαλύτερες ανασχεδιάσεις κοστολογούνται ξεχωριστά." },
+    ],
+    relatedServices: ["mobile-first", "seo", "performance"],
+  },
+  "mobile-first": {
+    id: "mobile-first",
+    icon: Smartphone,
+    accentColor: "#6FE3FF",
+    title: "Mobile-First Ανάπτυξη",
+    subtitle: "Πάνω από το 60% της κίνησης web είναι mobile. Η ιστοσελίδα σας πρέπει να είναι τέλεια σε κάθε οθόνη.",
+    intro: "Το mobile-first δεν είναι χαρακτηριστικό που προσθέτουμε στο τέλος — είναι ο τρόπος που χτίζουμε από την αρχή. Κάθε διάταξη, κάθε κουμπί, κάθε εικόνα σχεδιάζεται πρώτα για μικρή οθόνη και μετά βελτιώνεται για μεγαλύτερες. Το αποτέλεσμα είναι μια ιστοσελίδα που λειτουργεί άψογα είτε ο πελάτης σας είναι σε κινητό, tablet ή desktop.",
+    why: [
+      { heading: "Οι περισσότεροι επισκέπτες σας είναι σε mobile", body: "Στους περισσότερους κλάδους, το 60-70% των επισκεπτών φτάνουν από smartphone. Αν η ιστοσελίδα σας είναι αργή, δύσκολη στην πλοήγηση ή σπασμένη σε mobile, χάνετε την πλειοψηφία των πιθανών πελατών σας πριν διαβάσουν μια λέξη." },
+      { heading: "Η Google κατατάσσει υψηλότερα τις mobile-friendly ιστοσελίδες", body: "Η Google χρησιμοποιεί mobile-first indexing, δηλαδή αξιολογεί την mobile έκδοση της ιστοσελίδας σας όταν αποφασίζει πού να σας κατατάξει στα αποτελέσματα αναζήτησης. Μια κακή mobile εμπειρία επηρεάζει άμεσα το SEO σας." },
+      { heading: "Αλληλεπιδράσεις φιλικές προς αφή", body: "Οι χρήστες mobile αλληλεπιδρούν διαφορετικά από τους χρήστες desktop. Σχεδιάζουμε με γνώμονα την αφή — μεγαλύτερα σημεία αφής, galleries με swipe, sticky navigation και φόρμες που λειτουργούν με mobile πληκτρολόγια." },
+    ],
+    whatWeDeliver: [
+      "Αρχιτεκτονική διάταξης mobile-first",
+      "Responsive design σε όλα τα μεγέθη οθόνης (320px έως 2560px)",
+      "Πλοήγηση και κουμπιά βελτιστοποιημένα για αφή",
+      "Φόρμες και πεδία εισαγωγής φιλικά προς mobile",
+      "Βελτιστοποιημένες εικόνες για γρήγορη φόρτωση σε mobile",
+      "Δοκιμασμένο σε iOS Safari, Android Chrome και κύρια browsers",
+      "Χωρίς οριζόντια κύλιση ή σπάσιμο διάταξης σε οποιαδήποτε συσκευή",
+    ],
+    howItWorks: [
+      { step: "01", title: "Πρώτα η Mobile Διάταξη", desc: "Σχεδιάζουμε τη mobile διάταξη πριν από οτιδήποτε άλλο, διασφαλίζοντας ότι η βασική εμπειρία είναι τέλεια στις μικρότερες οθόνες." },
+      { step: "02", title: "Προοδευτική Βελτίωση", desc: "Στη συνέχεια βελτιώνουμε τη διάταξη για tablets και desktops, προσθέτοντας περισσότερη οπτική πολυπλοκότητα όπου ο χώρος της οθόνης το επιτρέπει." },
+      { step: "03", title: "Δοκιμή σε Πολλές Συσκευές", desc: "Δοκιμάζουμε σε πραγματικές συσκευές και emulators σε iOS και Android για να εντοπίσουμε τυχόν προβλήματα διάταξης πριν το λανσάρισμα." },
+      { step: "04", title: "Επαλήθευση Απόδοσης", desc: "Εκτελούμε δοκιμές Lighthouse και PageSpeed σε mobile για να διασφαλίσουμε γρήγορους χρόνους φόρτωσης σε συνδέσεις 4G και 5G." },
+    ],
+    faqs: [
+      { q: "Σημαίνει το mobile-first ότι φαίνεται χειρότερο σε desktop;", a: "Καθόλου. Το mobile-first είναι μεθοδολογία ανάπτυξης, όχι περιορισμός σχεδιασμού. Οι διατάξεις desktop είναι πλήρως σχεδιασμένες και συχνά οπτικά πλουσιότερες από τις mobile αντίστοιχές τους." },
+      { q: "Σε ποιες συσκευές κάνετε δοκιμές;", a: "Δοκιμάζουμε σε iPhone (Safari), Android (Chrome), iPad και σε μια σειρά desktop browsers συμπεριλαμβανομένων Chrome, Firefox και Edge." },
+      { q: "Τι γίνεται με πολύ παλιά κινητά;", a: "Στοχεύουμε συσκευές με iOS 14+ και Android 8+, που καλύπτουν πάνω από το 95% των ενεργών χρηστών mobile." },
+    ],
+    relatedServices: ["custom-design", "performance", "seo"],
+  },
+  "seo": {
+    id: "seo",
+    icon: Search,
+    accentColor: "#5B8CFF",
+    title: "Βελτιστοποίηση SEO",
+    subtitle: "Βρεθείτε στη Google. Προσελκύστε πελάτες που ήδη αναζητούν αυτό που προσφέρετε.",
+    intro: "Η Βελτιστοποίηση Μηχανών Αναζήτησης (SEO) είναι η πρακτική να κάνετε την ιστοσελίδα σας ορατή στα αποτελέσματα αναζήτησης της Google. Ενσωματώνουμε το SEO σε κάθε ιστοσελίδα από την πρώτη μέρα — όχι ως δευτερεύουσα σκέψη. Από την καθαρή δομή κώδικα έως το περιεχόμενο πλούσιο σε λέξεις-κλειδιά και τους γρήγορους χρόνους φόρτωσης, κάθε τεχνική απόφαση που παίρνουμε έχει το SEO κατά νου.",
+    why: [
+      { heading: "Η οργανική κίνηση είναι δωρεάν, για πάντα", body: "Σε αντίθεση με την πληρωμένη διαφήμιση, μια καλά βελτιστοποιημένη ιστοσελίδα συνεχίζει να προσελκύει επισκέπτες πολύ μετά το λανσάρισμά της. Η κατάταξη στην πρώτη σελίδα της Google για τις βασικές υπηρεσίες σας σημαίνει σταθερή ροή πιθανών πελατών χωρίς να ξοδεύετε ούτε ένα ευρώ σε διαφημίσεις." },
+      { heading: "Τοπικό SEO για τοπικές επιχειρήσεις", body: "Αν εξυπηρετείτε μια συγκεκριμένη πόλη ή περιοχή, το τοπικό SEO είναι απαραίτητο. Βελτιστοποιούμε την ιστοσελίδα σας για αναζητήσεις βάσει τοποθεσίας (π.χ. 'κομμωτήριο Λευκωσία' ή 'φυσιοθεραπευτής Θεσσαλονίκη') ώστε να εμφανίζεστε όταν κοντινοί πελάτες αναζητούν." },
+      { heading: "Τεχνικό SEO από τα θεμέλια", body: "Πολλές ιστοσελίδες κατασκευάζονται χωρίς καμία σκέψη για SEO. Εμείς κάνουμε το αντίθετο — κάθε σελίδα έχει σωστό τίτλο, meta description, ιεραρχία επικεφαλίδων, schema markup και καθαρή δομή URL από τη στιγμή που ανεβαίνει online." },
+    ],
+    whatWeDeliver: [
+      "SEO-friendly δομή URL και τίτλοι σελίδων",
+      "Meta descriptions για κάθε σελίδα",
+      "Σωστή ιεραρχία επικεφαλίδων (H1, H2, H3)",
+      "Schema markup (LocalBusiness, Service, FAQ)",
+      "Alt text εικόνων και ονοματολογία αρχείων",
+      "XML sitemap και robots.txt",
+      "Ρύθμιση Google Search Console",
+      "Βελτιστοποίηση Core Web Vitals",
+      "Τοπικό SEO για επιχειρήσεις βάσει τοποθεσίας",
+    ],
+    howItWorks: [
+      { step: "01", title: "Έρευνα Λέξεων-Κλειδιών", desc: "Εντοπίζουμε τους όρους αναζήτησης που χρησιμοποιούν οι στοχευόμενοι πελάτες σας και χτίζουμε τη στρατηγική περιεχομένου γύρω από αυτούς." },
+      { step: "02", title: "On-Page Βελτιστοποίηση", desc: "Κάθε σελίδα δομείται με βέλτιστες πρακτικές SEO — τίτλοι, επικεφαλίδες, περιεχόμενο και εσωτερική σύνδεση." },
+      { step: "03", title: "Τεχνικό SEO", desc: "Διασφαλίζουμε ότι η ιστοσελίδα σας είναι γρήγορη, ανιχνεύσιμη και σωστά ευρετηριασμένη από τη Google." },
+      { step: "04", title: "Ρύθμιση Search Console", desc: "Συνδέουμε την ιστοσελίδα σας με το Google Search Console ώστε να παρακολουθείτε την απόδοση και να διορθώνετε προβλήματα με την πάροδο του χρόνου." },
+    ],
+    faqs: [
+      { q: "Πόσο χρόνο χρειάζεται το SEO για να δείξει αποτελέσματα;", a: "Το SEO είναι μακροπρόθεσμη επένδυση. Οι περισσότερες ιστοσελίδες αρχίζουν να βλέπουν βελτιώσεις εντός 3-6 μηνών, με σημαντικά αποτελέσματα μετά από 6-12 μήνες. Εμείς στήνουμε τα θεμέλια — η συνεχής παραγωγή περιεχομένου και η απόκτηση συνδέσμων επιταχύνουν τα αποτελέσματα." },
+      { q: "Προσφέρετε συνεχείς υπηρεσίες SEO;", a: "Το Premium πλάνο συντήρησής μας περιλαμβάνει μηνιαία παρακολούθηση SEO και μικρές βελτιστοποιήσεις. Πλήρεις καμπάνιες content marketing και link building είναι διαθέσιμες ως ξεχωριστή υπηρεσία." },
+      { q: "Θα κατατάσσεται η ιστοσελίδα μου στη Google αμέσως μετά το λανσάρισμα;", a: "Η Google χρειάζεται χρόνο για να ανιχνεύσει και να ευρετηριάσει την ιστοσελίδα σας. Υποβάλλουμε το sitemap σας στο Google Search Console κατά το λανσάρισμα για να επιταχύνουμε τη διαδικασία, αλλά η κατάταξη απαιτεί χρόνο και εξαρτάται από τον ανταγωνισμό στον κλάδο σας." },
+    ],
+    relatedServices: ["performance", "custom-design", "mobile-first"],
+  },
+  "performance": {
+    id: "performance",
+    icon: Zap,
+    accentColor: "#8B5CFF",
+    title: "Γρήγορη Απόδοση",
+    subtitle: "Κάθε δευτερόλεπτο χρόνου φόρτωσης σας κοστίζει πελάτες. Κάνουμε την ιστοσελίδα σας αστραπιαία γρήγορη.",
+    intro: "Η ταχύτητα ιστοσελίδας δεν είναι απλώς τεχνική μέτρηση — επηρεάζει άμεσα πόσοι επισκέπτες μένουν στην ιστοσελίδα σας, πόσοι μετατρέπονται σε πελάτες και πόσο ψηλά κατατάσσεστε στη Google. Εμμένουμε στην απόδοση σε κάθε στάδιο ανάπτυξης, από τον τρόπο συμπίεσης εικόνων έως τον τρόπο φόρτωσης JavaScript.",
+    why: [
+      { heading: "Η ταχύτητα επηρεάζει τις μετατροπές", body: "Έρευνα της Google δείχνει ότι μια καθυστέρηση 1 δευτερολέπτου στον χρόνο φόρτωσης mobile μπορεί να μειώσει τις μετατροπές έως και 20%. Μια ιστοσελίδα που φορτώνει σε λιγότερο από 2 δευτερόλεπτα κρατά τους επισκέπτες ενεργούς. Μια ιστοσελίδα που χρειάζεται 5 δευτερόλεπτα χάνει τους περισσότερους πριν εμφανιστεί η σελίδα." },
+      { heading: "Core Web Vitals και κατάταξη Google", body: "Η Google χρησιμοποιεί τα Core Web Vitals — ένα σύνολο μετρήσεων ταχύτητας και εμπειρίας χρήστη — ως παράγοντα κατάταξης. Μια γρήγορη ιστοσελίδα κατατάσσεται υψηλότερα. Μια αργή ιστοσελίδα τιμωρείται, ανεξάρτητα από την ποιότητα του περιεχομένου." },
+      { heading: "Καλύτερη εμπειρία για όλους", body: "Οι γρήγορες ιστοσελίδες αισθάνονται επαγγελματικές. Οι αργές ιστοσελίδες αισθάνονται σπασμένες. Η απόδοση είναι μέρος της brand εμπειρίας και το αντιμετωπίζουμε έτσι." },
+    ],
+    whatWeDeliver: [
+      "Βελτιστοποιημένες και συμπιεσμένες εικόνες (μορφή WebP)",
+      "Lazy loading για εικόνες και βαριά components",
+      "Ελαχιστοποιημένα CSS και JavaScript bundles",
+      "Αποδοτικό code splitting και tree shaking",
+      "CDN παράδοση για στατικά assets",
+      "Βαθμολογία Google Lighthouse 90+ στην απόδοση",
+      "Επιτυχία Core Web Vitals (LCP, FID, CLS)",
+      "Γρήγορος Time to First Byte (TTFB)",
+    ],
+    howItWorks: [
+      { step: "01", title: "Βελτιστοποίηση Assets", desc: "Όλες οι εικόνες συμπιέζονται και μετατρέπονται σε σύγχρονες μορφές (WebP). Τα βίντεο μεταδίδονται σε streaming, δεν ενσωματώνονται." },
+      { step: "02", title: "Αποδοτικότητα Κώδικα", desc: "Γράφουμε λιτό, αποδοτικό κώδικα και αφαιρούμε τυχόν αχρησιμοποίητες βιβλιοθήκες ή εξαρτήσεις." },
+      { step: "03", title: "Caching & CDN", desc: "Τα στατικά assets παρέχονται από CDN με επιθετικό caching για ελαχιστοποίηση των χρόνων φόρτωσης παγκοσμίως." },
+      { step: "04", title: "Έλεγχος Απόδοσης", desc: "Πριν το λανσάρισμα, εκτελούμε πλήρη Lighthouse audit και διορθώνουμε τυχόν προβλήματα μέχρι οι βαθμολογίες να είναι στο πράσινο." },
+    ],
+    faqs: [
+      { q: "Ποιες βαθμολογίες Lighthouse στοχεύετε;", a: "Στοχεύουμε 90+ στην Απόδοση, Προσβασιμότητα, Βέλτιστες Πρακτικές και SEO. Οι περισσότερες ιστοσελίδες μας βαθμολογούνται πάνω από 95 σε desktop." },
+      { q: "Μειώνεται η απόδοση με την πάροδο του χρόνου;", a: "Μπορεί αν προστίθεται νέο περιεχόμενο απρόσεκτα. Τα πλάνα συντήρησής μας περιλαμβάνουν μηνιαίους ελέγχους απόδοσης για να διασφαλίζεται ότι η ιστοσελίδα σας παραμένει γρήγορη." },
+      { q: "Τι γίνεται με scripts τρίτων όπως chat widgets;", a: "Τα scripts τρίτων (chat, analytics, booking widgets) μπορούν να επιβραδύνουν μια ιστοσελίδα. Τα φορτώνουμε ασύγχρονα και αναβάλλουμε μη κρίσιμα scripts για να ελαχιστοποιήσουμε την επίδρασή τους." },
+    ],
+    relatedServices: ["seo", "mobile-first", "security"],
+  },
+  "security": {
+    id: "security",
+    icon: Shield,
+    accentColor: "#5B8CFF",
+    title: "Ασφάλεια & Αξιοπιστία",
+    subtitle: "SSL, ασφαλής φιλοξενία και τακτικά backups — η ιστοσελίδα σας προστατευμένη όλο το εικοσιτετράωρο.",
+    intro: "Μια ιστοσελίδα που πέφτει, χακάρεται ή εμφανίζει προειδοποίηση ασφαλείας στο browser είναι επιχειρηματική ευθύνη. Ενσωματώνουμε ασφάλεια και αξιοπιστία σε κάθε ιστοσελίδα που παραδίδουμε — από πιστοποιητικά SSL και ασφαλή φιλοξενία έως αυτοματοποιημένα backups και παρακολούθηση uptime.",
+    why: [
+      { heading: "Το SSL είναι αδιαπραγμάτευτο", body: "Κάθε ιστοσελίδα που χτίζουμε περιλαμβάνει πιστοποιητικό SSL, το οποίο κρυπτογραφεί τα δεδομένα μεταξύ των επισκεπτών σας και του server σας. Χωρίς SSL, τα browsers εμφανίζουν προειδοποίηση 'Μη Ασφαλές' που καταστρέφει άμεσα την εμπιστοσύνη. Με SSL, οι επισκέπτες βλέπουν λουκέτο στη γραμμή διευθύνσεων — σήμα ότι η ιστοσελίδα σας είναι ασφαλής." },
+      { heading: "Το downtime κοστίζει χρήματα", body: "Αν η ιστοσελίδα σας είναι εκτός λειτουργίας, οι πελάτες δεν μπορούν να σας βρουν, να επικοινωνήσουν μαζί σας ή να κλείσουν ραντεβού. Χρησιμοποιούμε αξιόπιστη υποδομή φιλοξενίας με εγγυήσεις uptime 99,9% και παρακολουθούμε την ιστοσελίδα σας σε συνεχή βάση." },
+      { heading: "Τα backups προστατεύουν την επένδυσή σας", body: "Μια αποτυχία server ή τυχαία διαγραφή μπορεί να σβήσει ολόκληρη την ιστοσελίδα σας. Διατηρούμε τακτικά αυτοματοποιημένα backups ώστε η ιστοσελίδα σας να μπορεί να αποκατασταθεί γρήγορα αν κάτι πάει στραβά." },
+    ],
+    whatWeDeliver: [
+      "Πιστοποιητικό SSL (HTTPS) σε όλα τα πλάνα",
+      "Ασφαλής, διαχειριζόμενη υποδομή φιλοξενίας",
+      "Αυτοματοποιημένα ημερήσια backups",
+      "Παρακολούθηση uptime με άμεσες ειδοποιήσεις",
+      "Security headers και ρύθμιση CORS",
+      "Προστασία από κοινές ευπάθειες web",
+      "Cookie consent και πολιτική απορρήτου συμβατά με GDPR",
+      "Τακτικές ενημερώσεις εξαρτήσεων και ασφαλείας (Πλάνα Συντήρησης)",
+    ],
+    howItWorks: [
+      { step: "01", title: "Ρύθμιση Ασφαλούς Φιλοξενίας", desc: "Αναπτύσσουμε την ιστοσελίδα σας σε φιλοξενία επιχειρηματικής κλάσης με SSL, firewall και προστασία DDoS." },
+      { step: "02", title: "Ρύθμιση Backup", desc: "Αυτοματοποιημένα ημερήσια backups ρυθμίζονται πριν το λανσάρισμα, αποθηκευμένα ασφαλώς εκτός τοποθεσίας." },
+      { step: "03", title: "Ενεργοποίηση Παρακολούθησης", desc: "Η παρακολούθηση uptime ενεργοποιείται ώστε να ειδοποιούμαστε άμεσα αν η ιστοσελίδα σας πάει εκτός λειτουργίας." },
+      { step: "04", title: "Συνεχής Συντήρηση", desc: "Patches ασφαλείας και ενημερώσεις εξαρτήσεων εφαρμόζονται τακτικά ως μέρος των πλάνων συντήρησής μας." },
+    ],
+    faqs: [
+      { q: "Περιλαμβάνεται το SSL σε όλα τα πλάνα;", a: "Ναι. Κάθε ιστοσελίδα που χτίζουμε περιλαμβάνει δωρεάν πιστοποιητικό SSL. Δεν υπάρχει επιπλέον χρέωση." },
+      { q: "Τι γίνεται αν η ιστοσελίδα μου χακαριστεί;", a: "Επαναφέρουμε από το πιο πρόσφατο καθαρό backup και διερευνούμε την αιτία. Τα πλάνα συντήρησής μας περιλαμβάνουν προτεραιότητα υποστήριξης για περιστατικά ασφαλείας." },
+      { q: "Χειρίζεστε τη συμμόρφωση με GDPR;", a: "Περιλαμβάνουμε banner cookie consent, πολιτική απορρήτου και πολιτική cookies σε κάθε ιστοσελίδα. Για επιχειρήσεις που χειρίζονται ευαίσθητα προσωπικά δεδομένα, συνιστούμε διαβούλευση με ειδικό GDPR για πλήρη συμμόρφωση." },
+    ],
+    relatedServices: ["performance", "turnaround", "custom-design"],
+  },
+  "turnaround": {
+    id: "turnaround",
+    icon: Clock,
+    accentColor: "#6FE3FF",
+    title: "Γρήγορη Παράδοση",
+    subtitle: "Από την πρώτη συνομιλία έως ζωντανή ιστοσελίδα σε 5-10 εργάσιμες ημέρες.",
+    intro: "Ξέρουμε ότι ο χρόνος είναι χρήμα. Η αναμονή εβδομάδων ή μηνών για μια ιστοσελίδα δεν είναι αποδεκτή όταν η επιχείρησή σας χρειάζεται online παρουσία τώρα. Η βελτιστοποιημένη διαδικασία μας είναι σχεδιασμένη να κινείται γρήγορα χωρίς να κόβει γωνίες — από το αρχικό brief έως μια ζωντανή, γυαλισμένη ιστοσελίδα σε λιγότερο από δύο εβδομάδες.",
+    why: [
+      { heading: "Η επιχείρησή σας δεν μπορεί να περιμένει", body: "Κάθε μέρα χωρίς επαγγελματική ιστοσελίδα είναι μια μέρα που χάνετε πελάτες σε ανταγωνιστές που έχουν. Έχουμε χτίσει ολόκληρη τη διαδικασία μας γύρω από την ταχύτητα — από τον τρόπο που συλλέγουμε απαιτήσεις έως τον τρόπο που αναπτύσσουμε και λανσάρουμε." },
+      { heading: "Ταχύτητα χωρίς θυσίες", body: "Γρήγορα δεν σημαίνει βιαστικά. Έχουμε βελτιώσει τη ροή εργασίας μας σε δεκάδες έργα για να εξαλείψουμε τον χαμένο χρόνο διατηρώντας τα πρότυπα ποιότητας που περιμένουν οι πελάτες μας. Παίρνετε γρήγορη παράδοση και όμορφο αποτέλεσμα." },
+      { heading: "Σαφή ορόσημα, χωρίς εκπλήξεις", body: "Σας δίνουμε σαφές χρονοδιάγραμμα στην αρχή κάθε έργου. Ξέρετε ακριβώς πότε να περιμένετε την πρώτη προεπισκόπηση, πότε να υποβάλετε σχόλια και πότε θα ανεβεί η ιστοσελίδα σας." },
+    ],
+    whatWeDeliver: [
+      "Εκκίνηση έργου εντός 24 ωρών από την πληρωμή",
+      "Πρώτη προεπισκόπηση παραδοτέα εντός 3-5 εργάσιμων ημερών",
+      "Αναθεωρήσεις ολοκληρωμένες εντός 1-2 εργάσιμων ημερών",
+      "Λανσάρισμα εντός 5-10 εργάσιμων ημερών συνολικά",
+      "Σύνδεση domain και ρύθμιση DNS περιλαμβάνεται",
+      "Υποστήριξη μετά το λανσάρισμα για 7 ημέρες",
+      "Σαφής επικοινωνία καθ' όλη τη διάρκεια μέσω WhatsApp",
+    ],
+    howItWorks: [
+      { step: "Ημέρα 1", title: "Εκκίνηση", desc: "Επιβεβαιώνουμε όλες τις απαιτήσεις, συλλέγουμε το περιεχόμενό σας (λογότυπο, κείμενο, εικόνες) και ξεκινάμε τον σχεδιασμό αμέσως." },
+      { step: "Ημέρες 2-4", title: "Σχεδιασμός & Κατασκευή", desc: "Σχεδιάζουμε και αναπτύσσουμε την ιστοσελίδα σας ταυτόχρονα. Λαμβάνετε ζωντανό σύνδεσμο προεπισκόπησης για έλεγχο." },
+      { step: "Ημέρες 5-7", title: "Αναθεωρήσεις", desc: "Ελέγχετε την ιστοσελίδα και ζητάτε αλλαγές. Υλοποιούμε όλες τις αναθεωρήσεις εντός 24-48 ωρών." },
+      { step: "Ημέρες 8-10", title: "Λανσάρισμα", desc: "Τελική έγκριση, σύνδεση domain, ενεργοποίηση SSL και go-live. Η ιστοσελίδα σας είναι ζωντανή." },
+    ],
+    faqs: [
+      { q: "Τι χρειάζεστε από εμένα για να ξεκινήσετε;", a: "Το λογότυπό σας (ή brand guidelines), το κείμενο περιεχομένου για κάθε σελίδα, τυχόν φωτογραφίες που θέλετε να χρησιμοποιήσετε και τα στοιχεία σύνδεσης του domain σας. Μπορούμε να βοηθήσουμε με το περιεχόμενο αν χρειαστεί." },
+      { q: "Τι γίνεται αν δεν είμαι έτοιμος με το περιεχόμενό μου;", a: "Μπορούμε να ξεκινήσουμε με placeholder περιεχόμενο και να αντικαταστήσουμε το πραγματικό περιεχόμενό σας πριν το λανσάρισμα. Αυτό δεν επηρεάζει σημαντικά το χρονοδιάγραμμα." },
+      { q: "Μπορείτε να παραδώσετε γρηγορότερα από 5 ημέρες;", a: "Για επείγοντα έργα, προσφέρουμε express υπηρεσία. Επικοινωνήστε μαζί μας για να συζητήσουμε την προθεσμία σας και θα κάνουμε ό,τι μπορούμε για να ανταποκριθούμε." },
+      { q: "Τι γίνεται μετά το λανσάρισμα;", a: "Παρέχουμε 7 ημέρες υποστήριξης μετά το λανσάρισμα για να διορθώσουμε τυχόν προβλήματα. Μετά από αυτό, τα πλάνα συντήρησής μας διατηρούν την ιστοσελίδα σας σε άριστη λειτουργία." },
+    ],
+    relatedServices: ["custom-design", "security", "mobile-first"],
+  },
+};
+
+const SERVICE_LABELS: Record<string, string> = {
+  "custom-design": "Εξατομικευμένος Σχεδιασμός",
+  "mobile-first": "Mobile-First Ανάπτυξη",
+  "seo": "Βελτιστοποίηση SEO",
+  "performance": "Γρήγορη Απόδοση",
+  "security": "Ασφάλεια & Αξιοπιστία",
+  "turnaround": "Γρήγορη Παράδοση",
+};
+
+export default function ServiceDetailElPage() {
+  const params = useParams<{ serviceId: string }>();
+  const serviceId = params.serviceId || "";
+  const service = SERVICES[serviceId];
+  useSEO({
+    title: service ? `${service.title} | D&M Labs` : "Υπηρεσία | D&M Labs",
+    description: service ? service.intro : "Επαγγελματικές υπηρεσίες web design στην Κύπρο. Εξατομικευμένες ιστοσελίδες γρήγορα και σωστά.",
+  });
+
+  if (!service) {
+    return (
+      <div className="container section-spacing text-center">
+        <h1 className="text-3xl font-bold text-[#111315] mb-4">Η υπηρεσία δεν βρέθηκε</h1>
+        <p className="text-[#5B6472] mb-8">Η υπηρεσία που αναζητάτε δεν υπάρχει.</p>
+        <Link href="/el/services" className="btn-primary">
+          Δείτε Όλες τις Υπηρεσίες
+          <ArrowRight size={16} />
+        </Link>
+      </div>
+    );
+  }
+
+  const Icon = service.icon;
+  const relatedServices = service.relatedServices
+    .map((id) => ({ id, label: SERVICE_LABELS[id] }))
+    .filter(Boolean);
+
+  return (
+    <>
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 7rem)", paddingBottom: "clamp(3rem, 6vh, 5rem)" }}>
+        <div className="absolute inset-0 z-0">
+          <img src={GRADIENT_BG} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" aria-hidden="true" />
+        </div>
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] opacity-[0.05] pointer-events-none z-0">
+          <img src={TRIANGLE_GEO} alt="" className="w-full h-full object-contain" aria-hidden="true" />
+        </div>
+        <div className="absolute top-1/3 left-1/4 w-80 h-80 rounded-full blur-[100px] opacity-[0.07] pointer-events-none z-0" style={{ backgroundColor: service.accentColor }} />
+
+        <div className="container relative z-10">
+          {/* Breadcrumb */}
+          <AnimateIn variant="fade-up" delay={0.05}>
+            <Link href="/el/services" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
+              <ChevronLeft size={16} />
+              Πίσω στις Υπηρεσίες
+            </Link>
+          </AnimateIn>
+
+          <div className="max-w-3xl">
+            <AnimateIn variant="fade-up" delay={0.1}>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6" style={{ background: `${service.accentColor}15` }}>
+                <Icon size={32} style={{ color: service.accentColor }} strokeWidth={1.75} />
+              </div>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={0.2}>
+              <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-4 leading-tight">
+                {service.title}
+              </h1>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={0.3}>
+              <p className="text-xl text-[#5B6472] mb-6 leading-relaxed">{service.subtitle}</p>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={0.4}>
+              <p className="text-base text-[#5B6472] leading-relaxed max-w-2xl">{service.intro}</p>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why It Matters ── */}
+      <section className="section-spacing bg-white">
+        <div className="container">
+          <AnimateIn className="mb-12">
+            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Γιατί Έχει Σημασία</p>
+            <h2 className="text-3xl font-bold text-[#111315]">Η αιτία για να το κάνετε σωστά</h2>
+          </AnimateIn>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {service.why.map((item, i) => (
+              <StaggerItem key={i}>
+                <div className="dm-card h-full">
+                  <div className="w-8 h-8 rounded-lg mb-4 flex items-center justify-center" style={{ background: `${service.accentColor}15` }}>
+                    <span className="text-sm font-bold" style={{ color: service.accentColor }}>{String(i + 1).padStart(2, "0")}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-[#111315] mb-3">{item.heading}</h3>
+                  <p className="text-sm text-[#5B6472] leading-relaxed">{item.body}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ── What We Deliver ── */}
+      <section className="section-spacing relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
+          <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+        </div>
+        <div className="container relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimateIn>
+              <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Τι Παραδίδουμε</p>
+              <h2 className="text-3xl font-bold text-[#111315] mb-6">Όλα συμπεριλαμβάνονται, χωρίς extras</h2>
+              <p className="text-base text-[#5B6472] leading-relaxed mb-8">
+                Κάθε στοιχείο παρακάτω περιλαμβάνεται στο έργο ιστοσελίδας σας. Χωρίς κρυφές χρεώσεις, χωρίς προαιρετικά πρόσθετα που θα έπρεπε να είναι τυπικά.
+              </p>
+              <Link href="/el/contact" className="btn-primary">
+                Ξεκινήστε το Έργο σας
+                <ArrowRight size={16} />
+              </Link>
+            </AnimateIn>
+            <AnimateIn delay={0.2}>
+              <ul className="space-y-3">
+                {service.whatWeDeliver.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="shrink-0 mt-0.5" style={{ color: service.accentColor }} />
+                    <span className="text-sm text-[#111315] leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ── How It Works ── */}
+      <section className="section-spacing bg-white">
+        <div className="container">
+          <AnimateIn className="text-center mb-12">
+            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Η Διαδικασία</p>
+            <h2 className="text-3xl font-bold text-[#111315] mb-4">Πώς παραδίδουμε αυτή την υπηρεσία</h2>
+          </AnimateIn>
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {service.howItWorks.map((item, i) => (
+              <StaggerItem key={i}>
+                <div className="text-center">
+                  <div className="relative inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-5" style={{ background: `${service.accentColor}12` }}>
+                    <span className="text-sm font-bold" style={{ color: service.accentColor }}>{item.step}</span>
+                  </div>
+                  <h3 className="text-base font-semibold text-[#111315] mb-2">{item.title}</h3>
+                  <p className="text-sm text-[#5B6472] leading-relaxed">{item.desc}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ── FAQs ── */}
+      <section className="section-spacing relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
+          <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+        </div>
+        <div className="container relative z-10 max-w-3xl mx-auto">
+          <AnimateIn className="text-center mb-12">
+            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Συνηθισμένες Ερωτήσεις</p>
+            <h2 className="text-3xl font-bold text-[#111315]">Συχνές Ερωτήσεις</h2>
+          </AnimateIn>
+          <StaggerContainer className="space-y-4">
+            {service.faqs.map((faq, i) => (
+              <StaggerItem key={i}>
+                <div className="dm-card">
+                  <h3 className="text-base font-semibold text-[#111315] mb-3">{faq.q}</h3>
+                  <p className="text-sm text-[#5B6472] leading-relaxed">{faq.a}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ── Related Services ── */}
+      {relatedServices.length > 0 && (
+        <section className="section-spacing bg-white">
+          <div className="container">
+            <AnimateIn className="text-center mb-10">
+              <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Επίσης Περιλαμβάνεται</p>
+              <h2 className="text-3xl font-bold text-[#111315]">Σχετικές Υπηρεσίες</h2>
+            </AnimateIn>
+            <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+              {relatedServices.map((rel) => (
+                <StaggerItem key={rel.id}>
+                  <Link href={`/el/services/${rel.id}`}>
+                    <div className="dm-card text-center cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
+                      <p className="text-sm font-semibold text-[#111315] mb-1">{rel.label}</p>
+                      <span className="text-xs text-[#5B8CFF] inline-flex items-center gap-1 justify-center">
+                        Μάθετε περισσότερα <ArrowRight size={12} />
+                      </span>
+                    </div>
+                  </Link>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+      )}
+
+      {/* ── CTA ── */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 z-0" style={{ background: "#0F172A" }}>
+          <img src={DARK_CTA_BG} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40" aria-hidden="true" />
+        </div>
+        <div className="container relative z-10 section-spacing text-center">
+          <AnimateIn>
+            <p className="text-sm font-medium text-[#6FE3FF] mb-4 tracking-wide uppercase">Έτοιμοι να Ξεκινήσετε;</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 max-w-2xl mx-auto leading-tight">
+              Ας χτίσουμε την ιστοσελίδα σας με {service.title} ενσωματωμένο από την πρώτη μέρα.
+            </h2>
+            <p className="text-base text-[#94A3B8] mb-10 max-w-lg mx-auto">
+              Χωρίς δέσμευση, χωρίς πίεση. Επικοινωνήστε μαζί μας και θα συζητήσουμε το έργο σας εντός ωρών.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/el/contact" className="btn-primary !h-14 !text-base !px-8">
+                <MessageCircle size={20} />
+                Επικοινωνήστε μαζί μας
+              </Link>
+              <Link href="/el/pricing" className="inline-flex items-center gap-2 px-8 h-14 rounded-xl border-2 border-white/20 text-white font-semibold hover:border-white/40 transition-all duration-300 text-base">
+                Δείτε Τιμές
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+    </>
+  );
+}

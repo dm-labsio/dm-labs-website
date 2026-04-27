@@ -226,7 +226,7 @@ export default function ServicesElPage() {
               { icon: Headphones, title: "Υποστήριξη Μετά την Κυκλοφορία", desc: "Δεν εξαφανιζόμαστε μετά την κυκλοφορία - συνεχής υποστήριξη όταν τη χρειάζεστε.", anchor: "turnaround" },
             ].map((item) => (
               <StaggerItem key={item.title}>
-                <Link href={`/services/${item.anchor}`}>
+                <Link href={`/el/services/${item.anchor}`}>
                   <div id={item.anchor} className="dm-card h-full !p-6 scroll-mt-24 cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
                     <div className="flex items-start gap-4">
                       <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">

@@ -56,6 +56,7 @@ import YogaEl from "./pages/el/blog/YogaEl";
 import GoogleVisibilityEl from "./pages/el/blog/GoogleVisibilityEl";
 import RestaurantEl from "./pages/el/blog/RestaurantEl";
 import TemplatesEl from "./pages/el/TemplatesEl";
+import ServiceDetailEl from "./pages/el/ServiceDetailEl";
 
 // Global SEO updater: fires on every route change to keep canonical + OG URL correct.
 function GlobalSEO() {
@@ -115,6 +116,8 @@ function MainRouter() {
         <Route path="/el/blog/pos-na-vretheite-google-kypros" component={GoogleVisibilityEl} />
         <Route path="/el/blog/istoselidha-estiatorio-kypros" component={RestaurantEl} />
         <Route path="/el/examples" component={TemplatesEl} />
+        <Route path="/el/templates">{() => { window.location.replace("/el/examples"); return null; }}</Route>
+        <Route path="/el/services/:serviceId" component={ServiceDetailEl} />
 
         {/* ── Fallback ── */}
         <Route path="/404" component={NotFound} />
