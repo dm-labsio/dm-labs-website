@@ -314,7 +314,7 @@ export default function HomeElPage() {
           </StaggerContainer>
 
           <AnimateIn className="text-center mb-16">
-            <Link href="/el/templates" className="btn-primary">
+            <Link href="/el/examples" className="btn-primary">
               Δείτε Όλα τα Παραδείγματα
               <ArrowRight size={16} />
             </Link>
