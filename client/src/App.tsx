@@ -101,6 +101,7 @@ function MainRouter() {
         <Route path="/el/contact" component={ContactEl} />
         <Route path="/el/privacy" component={PrivacyEl} />
         <Route path="/el/cookie-policy" component={CookiePolicyEl} />
+        <Route path="/el/cookies" component={CookiePolicyEl} />
         <Route path="/el/terms" component={TermsEl} />
         <Route path="/el/blog" component={BlogEl} />
         <Route path="/el/web-design-cyprus" component={WebDesignCyprusEl} />
