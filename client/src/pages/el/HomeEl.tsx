@@ -206,8 +206,8 @@ export default function HomeElPage() {
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.2}>
               <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1] mb-6">
-                Αναβαθμίστε την Επιχείρησή σας με{" "}
-                <span className="brand-gradient-text">Σύγχρονες Ιστοσελίδες</span>
+                Η επιχείρησή σας είναι σπουδαία.{" "}
+                <span className="brand-gradient-text">Η ιστοσελίδα σας πρέπει να το δείχνει.</span>
               </h1>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.3}>

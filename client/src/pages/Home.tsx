@@ -206,8 +206,8 @@ export default function HomePage() {
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.2}>
               <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1] mb-6">
-                Elevate Your Business with{" "}
-                <span className="brand-gradient-text">Modern Websites</span>
+                Your business is great.{" "}
+                <span className="brand-gradient-text">Your website should make that obvious.</span>
               </h1>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={0.3}>
