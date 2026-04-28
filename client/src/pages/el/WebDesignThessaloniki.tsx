@@ -22,7 +22,7 @@ const schemaMarkup = {
     postalCode: "8045",
     addressCountry: "CY",
   },
-  areaServed: ["Θεσσαλονίκη", "Central Macedonia", "Greece"],
+  areaServed: ["Θεσσαλονίκη", "Κεντρική Μακεδονία", "Ελλάδα"],
   serviceArea: {
     "@type": "GeoCircle",
     geoMidpoint: {
@@ -36,8 +36,8 @@ const schemaMarkup = {
     "Η D&M Labs είναι ένα απομακρυσμένο στούντιο web design που δημιουργεί επαγγελματικές, mobile-first, βελτιστοποιημένες για SEO ιστοσελίδες για επιχειρήσεις στη Θεσσαλονίκη και σε όλη την Ελλάδα. Ιστοσελίδες από €249, με παράδοση σε 5-14 ημέρες.",
   priceRange: "€€",
   currenciesAccepted: "EUR",
-  paymentAccepted: "Bank Transfer, PayPal",
-  openingHours: "Mo-Fr 09:00-18:00",
+  paymentAccepted: "Τραπεζική Μεταφορά, PayPal",
+  openingHours: "Δε-Πα 09:00-18:00",
   sameAs: ["https://www.instagram.com/dmlabs.io"],
 };
 
@@ -160,7 +160,7 @@ export default function WebDesignThessalonikiEl() {
                 desc: "Μια πλήρης, πολυσέλιδη ιστοσελίδα για την επιχείρησή σας - αρχική, σχετικα με εμάς, υπηρεσίες και επικοινωνία. Σχεδιασμένη για να χτίζει εμπιστοσύνη και να μετατρέπει τους επισκέπτες σε πελάτες από την πρώτη μέρα.",
               },
               {
-                title: "Landing Pages",
+                title: "Σελίδες Προορισμού",
                 desc: "Μια μεμονωμένη, εστιασμένη σελίδα που έχει χτιστεί γύρω από έναν στόχο - είτε πρόκειται για τη συλλογή leads, την προώθηση μιας υπηρεσίας ή την αύξηση των κρατήσεων. Γρήγορη κατασκευή, γρήγορη μετατροπή.",
               },
               {
@@ -330,7 +330,7 @@ export default function WebDesignThessalonikiEl() {
               </button>
             </Link>
             <a
-              href="https://wa.me/35797472847?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Θεσσαλονίκη"
+              href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%B7%CE%BD%20%CE%B5%CF%80%CE%B9%CF%87%CE%B5%CE%AF%CF%81%CE%B7%CF%83%CE%AE%20%CE%BC%CE%BF%CF%85%20%CF%83%CF%84%CE%B7%20%CE%98%CE%B5%CF%83%CF%83%CE%B1%CE%BB%CE%BF%CE%BD%CE%AF%CE%BA%CE%B7."
               target="_blank"
               rel="noopener noreferrer"
             >

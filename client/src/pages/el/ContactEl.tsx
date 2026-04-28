@@ -8,7 +8,7 @@ import AnimateIn from "@/components/AnimateIn";
 import { MessageCircle, Mail, Clock, MapPin, Send, Instagram } from "lucide-react";
 import { toast } from "sonner";
 
-const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%98%CE%B1%20%CE%AE%CE%B8%CE%B5%CE%BB%CE%B1%20%CE%BD%CE%B1%20%CF%83%CF%85%CE%B6%CE%B7%CF%84%CE%AE%CF%83%CE%BF%CF%85%CE%BC%CE%B5%20%CE%B3%CE%B9%CE%B1%20%CE%BC%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1.";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "bfd3c955-1bc9-4a43-b497-f4c6776db7d1";
@@ -30,7 +30,7 @@ export default function ΕπικοινωνίαEl() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `New enquiry from ${form.name}  -  D&M Labs`,
+          subject: `Νέο αίτημα από ${form.name}  -  D&M Labs`,
           name: form.name,
           email: form.email,
           business: form.business,
@@ -44,7 +44,7 @@ export default function ΕπικοινωνίαEl() {
         toast.error("Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε το WhatsApp.");
       }
     } catch {
-      toast.error("Network error. Please try WhatsApp instead.");
+      toast.error("Σφάλμα δικτύου. Παρακαλώ δοκιμάστε μέσω WhatsApp.");
     } finally {
       setSending(false);
     }

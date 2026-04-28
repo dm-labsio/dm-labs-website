@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import AnimateIn from "@/components/AnimateIn";
 import { ChevronDown, MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%20have%20a%20question.";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%88%CF%87%CF%89%20%CE%BC%CE%B9%CE%B1%20%CE%B5%CF%81ώτηση.";
 
 const faqs = [
   {

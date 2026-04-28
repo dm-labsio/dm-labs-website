@@ -13,7 +13,7 @@ import {
 
 const SERVICES_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/services-hero-bg-bfPgb525LqzgdU7JVYn89M.webp";
 const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
-const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%98%CE%B1%20%CE%AE%CE%B8%CE%B5%CE%BB%CE%B1%20%CE%BD%CE%B1%20%CF%83%CF%85%CE%B6%CE%B7%CF%84%CE%AE%CF%83%CE%BF%CF%85%CE%BC%CE%B5%20%CE%B3%CE%B9%CE%B1%20%CE%BC%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1.";
 
 export default function ServicesElPage() {
   useSEO({
@@ -215,7 +215,7 @@ export default function ServicesElPage() {
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {[
-              { icon: Smartphone, title: "Mobile Responsive", desc: "Τέλεια εμφάνιση σε κάθε συσκευή - κινητά, tablet και desktop.", anchor: "mobile-first" },
+              { icon: Smartphone, title: "Κατάλληλο για Κινητά", desc: "Τέλεια εμφάνιση σε κάθε συσκευή - κινητά, tablet και desktop.", anchor: "mobile-first" },
               { icon: Search, title: "SEO Βελτιστοποιημένο", desc: "Ενσωματωμένη βελτιστοποίηση μηχανών αναζήτησης ώστε οι πελάτες να σας βρίσκουν στο Google.", anchor: "seo" },
               { icon: Zap, title: "Γρήγορη Φόρτωση", desc: "Βελτιστοποιημένος κώδικας και assets για εξαιρετικά γρήγορες ταχύτητες σελίδας.", anchor: "performance" },
               { icon: Shield, title: "Ασφάλεια SSL", desc: "Δωρεάν πιστοποιητικό SSL για να παραμένει η ιστοσελίδα σας και οι επισκέπτες ασφαλείς.", anchor: "security" },

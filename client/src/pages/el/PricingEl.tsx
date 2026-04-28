@@ -9,7 +9,7 @@ import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn
 import { CheckCircle2, X, MessageCircle, ArrowRight, HelpCircle, Languages, CalendarCheck, Bell, Accessibility, Tag, Zap, Globe, Users, Headphones } from "lucide-react";
 
 const GRADIENT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
-const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%98%CE%B1%20%CE%AE%CE%B8%CE%B5%CE%BB%CE%B1%20%CE%BD%CE%B1%20%CF%83%CF%85%CE%B6%CE%B7%CF%84%CE%AE%CF%83%CE%BF%CF%85%CE%BC%CE%B5%20%CE%B3%CE%B9%CE%B1%20%CE%BC%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1.";
 
 const comparison = [
   { feature: "Σελίδες custom σχεδιασμού", starter: "1 σελίδα", business: "Έως 5", pro: "Έως 7" },

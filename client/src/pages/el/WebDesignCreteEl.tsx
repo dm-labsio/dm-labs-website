@@ -23,12 +23,12 @@ const schemaMarkup = {
     "addressCountry": "CY"
   },
   "areaServed": [
-    "Crete",
+    "Κρήτη",
     "Ηράκλειο",
     "Χανιά",
     "Ρέθυμνο",
     "Άγιος Νικόλαος",
-    "Greece"
+    "Ελλάδα"
   ],
   "serviceArea": {
     "@type": "GeoCircle",
@@ -42,8 +42,8 @@ const schemaMarkup = {
   "description": "Η D&M Labs είναι ένα απομακρυσμένο στούντιο web design που δημιουργεί επαγγελματικές, mobile-first, βελτιστοποιημένες για SEO ιστοσελίδες για μικρές επιχειρήσεις σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο και αλλού. Ιστοσελίδες από €299, με παράδοση σε 5-14 ημέρες.",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
-  "paymentAccepted": "Bank Transfer, PayPal",
-  "openingHours": "Mo-Fr 09:00-18:00",
+  "paymentAccepted": "Τραπεζική Μεταφορά, PayPal",
+  "openingHours": "Δε-Πα 09:00-18:00",
   "sameAs": [
     "https://www.instagram.com/dmlabs.io"
   ]
@@ -286,7 +286,7 @@ export default function WebDesignCreteEl() {
                 Δείτε τα Πακέτα & τις Τιμές
               </button>
             </Link>
-            <a href="https://wa.me/35797472847?text=Hi%20D%26M%20Labs%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Crete." target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%B7%CE%BD%20%CE%B5%CF%80%CE%B9%CF%87%CE%B5%CE%AF%CF%81%CE%B7%CF%83ή%20%CE%BC%CE%BF%CF%85%20%CF%83%CF%84%CE%B7ν%20%CE%9A%CF%81ή%CF%84%CE%B7." target="_blank" rel="noopener noreferrer">
               <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors bg-white">
                 Στείλτε μας στο WhatsApp
               </button>
