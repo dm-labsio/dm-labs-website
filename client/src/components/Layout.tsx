@@ -82,7 +82,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMobileOpen(false);
-    window.scrollTo(0, 0);
+    // Use requestAnimationFrame to scroll after the new page has painted,
+    // preventing the brief flash/jump to the footer on language switch.
+    const raf = requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    });
+    return () => cancelAnimationFrame(raf);
   }, [location]);
 
   useEffect(() => {
@@ -90,13 +95,28 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  // Slug mapping for pages where EN and EL paths differ (e.g. blog posts)
+  const SLUG_MAP_EN_TO_EL: Record<string, string> = {
+    "/blog/website-cost-cyprus-2026-guide": "/el/blog/posso-kostizei-istoselidha-kypros",
+    "/blog/web-design-nail-salon-beauty-studio-cyprus": "/el/blog/istoselidha-nail-salon-beauty-studio-kypros",
+    "/blog/yoga-pilates-studio-website-cyprus": "/el/blog/istoselidha-yoga-pilates-studio-kypros",
+    "/blog/how-to-get-found-on-google-cyprus": "/el/blog/pos-na-vretheite-google-kypros",
+    "/blog/restaurant-website-design-cyprus": "/el/blog/istoselidha-estiatorio-kypros",
+    "/blog/wix-vs-professional-web-designer-cyprus": "/el/blog/wix-vs-epaggelmatias-web-designer-kypros",
+  };
+  const SLUG_MAP_EL_TO_EN: Record<string, string> = Object.fromEntries(
+    Object.entries(SLUG_MAP_EN_TO_EL).map(([en, el]) => [el, en])
+  );
+
   // Language toggle: switch between EN and EL versions of the current page
   function handleLangToggle(targetLang: "en" | "el") {
     if (targetLang === "el" && !isGreek) {
-      const elPath = location === "/" ? "/el" : "/el" + location;
+      const mapped = SLUG_MAP_EN_TO_EL[location];
+      const elPath = mapped ?? (location === "/" ? "/el" : "/el" + location);
       navigate(elPath);
     } else if (targetLang === "en" && isGreek) {
-      const enPath = location.replace(/^\/el/, "") || "/";
+      const mapped = SLUG_MAP_EL_TO_EN[location];
+      const enPath = mapped ?? (location.replace(/^\/el/, "") || "/");
       navigate(enPath);
     }
   }
