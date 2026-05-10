@@ -36,7 +36,7 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
         <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -58,7 +58,7 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
         <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -84,7 +84,7 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
         <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -159,7 +159,7 @@ const TESTIMONIALS = [
   {
     name: "Sophia L.",
     role: "Ιδιοκτήτρια Σαλονιού Ομορφιάς",
-    text: "Ήμουν ανήσυχη για την κατασκευή ιστοσελίδας, αλλά η D&M Labs το έκανε εντελώς αγχωτικό. Ανέλαβαν τα πάντα και το αποτέλεσμα είναι εκπληκτικό. Άξιζε κάθε σεντ.",
+    text: "Ήμουν ανήσυχη για την κατασκευή ιστοσελίδας, αλλά η D&M Labs έκανε όλη τη διαδικασία εντελώς άνετη και χωρίς άγχος. Ανέλαβαν τα πάντα και το αποτέλεσμα είναι εκπληκτικό. Άξιζε κάθε σεντ.",
     rating: 5,
     initial: "S",
   },
@@ -218,12 +218,12 @@ export default function HomeElPage() {
 
             <AnimateIn variant="fade-up" delay={0.4}>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <Link href="/el/templates" className="btn-primary">
-                  Δείτε Παραδείγματα
+                <Link href="/el/contact" className="btn-primary">
+                  Δωρεάν Συμβουλευτική
                   <ArrowRight size={18} />
                 </Link>
-                <Link href="/el/services" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
-                  Δείτε Όλες τις Υπηρεσίες
+                <Link href="/el/templates" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
+                  Δείτε Παραδείγματα
                   <ArrowRight size={18} />
                 </Link>
               </div>
@@ -513,7 +513,7 @@ export default function HomeElPage() {
                   ))}
                 </ul>
                 <Link href="/el/contact" className="btn-secondary w-full justify-center">
-                  Ξεκινήστε
+                  Δωρεάν Συμβουλευτική
                 </Link>
               </div>
             </AnimateIn>
@@ -539,7 +539,7 @@ export default function HomeElPage() {
                     ))}
                   </ul>
                   <Link href="/el/contact" className="btn-primary w-full justify-center">
-                    Ξεκινήστε
+                    Δωρεάν Συμβουλευτική
                   </Link>
                 </div>
               </div>
@@ -564,7 +564,7 @@ export default function HomeElPage() {
                   ))}
                 </ul>
                 <Link href="/el/contact" className="btn-secondary w-full justify-center">
-                  Ξεκινήστε
+                  Δωρεάν Συμβουλευτική
                 </Link>
               </div>
             </AnimateIn>
@@ -580,7 +580,7 @@ export default function HomeElPage() {
                 <div className="flex-shrink-0 lg:w-64">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Φτιαγμένο για Εσάς</span>
                   <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise</p>
-                  <p className="text-4xl font-bold text-white mb-1">Custom</p>
+                  <p className="text-4xl font-bold text-white mb-1">Προσαρμοσμένη</p>
                   <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Τιμολόγηση προσαρμοσμένη στο project σας</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
                     Για μεγαλύτερες επιχειρήσεις και οργανισμούς που χρειάζονται μια πλήρως εξατομικευμένη λύση χτισμένη γύρω από τους στόχους τους.
@@ -878,7 +878,7 @@ export default function HomeElPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/el/contact" className="btn-primary !h-14 !text-base !px-8">
                 <MessageCircle size={20} />
-                Επικοινωνήστε μαζί μας
+                Δωρεάν Visual Concept
               </Link>
             </div>
           </AnimateIn>

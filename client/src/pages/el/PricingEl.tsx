@@ -125,7 +125,7 @@ export default function PricingEl() {
                   ))}
                 </ul>
                 <a href="/el/contact" className="btn-secondary w-full justify-center">
-                  <MessageCircle size={16} /> Ξεκινήστε
+                  <MessageCircle size={16} /> Δωρεάν Συμβουλευτική
                 </a>
               </div>
             </AnimateIn>
@@ -164,7 +164,7 @@ export default function PricingEl() {
                       ))}
                     </ul>
                     <a href="/el/contact" className="btn-primary w-full justify-center">
-                      <MessageCircle size={16} /> Ξεκινήστε
+                      <MessageCircle size={16} /> Δωρεάν Συμβουλευτική
                     </a>
                   </div>
                 </div>
@@ -205,7 +205,7 @@ export default function PricingEl() {
                   ))}
                 </ul>
                 <a href="/el/contact" className="btn-secondary w-full justify-center">
-                  <MessageCircle size={16} /> Ξεκινήστε
+                  <MessageCircle size={16} /> Δωρεάν Συμβουλευτική
                 </a>
               </div>
             </AnimateIn>

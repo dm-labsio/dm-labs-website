@@ -133,7 +133,7 @@ export const POSTS: BlogPost[] = [
 <p>A properly built nail salon website in Cyprus must be designed for mobile first. That means large text, tap-friendly buttons, fast loading times, and a WhatsApp or booking button that is always visible.</p>
 
 <h2>What a Good Beauty Salon Website Looks Like</h2>
-<p>At D&M Labs, we have built website examples specifically designed for beauty businesses. The <strong>Aura Hair Studio</strong> and <strong>L'Atelier des Ongles</strong> designs on our <a href="/templates" class="blog-link">Examples page</a> show exactly what a professional beauty salon website looks like in practice: clean layout, gallery section, service menu, booking CTA, and mobile-first design. These are not generic designs - they are built around how beauty clients actually browse and decide.</p>
+<p>At D&M Labs, we have built website examples specifically designed for beauty businesses. The <strong>Bella Salon</strong> interactive demo on our <a href="/templates" class="blog-link">Examples page</a> shows exactly what a professional beauty salon website looks like in practice: clean layout, gallery section, service menu, booking CTA, and mobile-first design. These are not generic designs - they are built around how beauty clients actually browse and decide.</p>
 
 <h2>How D&M Labs Builds Beauty Salon Websites</h2>
 <p>We build beauty salon and nail salon websites in Cyprus from €249, delivered in 5 to 7 days. Every site includes a mobile-first design, your service menu, a photo gallery, Google Maps integration, a WhatsApp contact button, and on-page SEO setup so Google can find you from day one.</p>

@@ -88,7 +88,7 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <a href="/contact" className="btn-secondary w-full justify-center">Get Started</a>
+                <a href="/contact" className="btn-secondary w-full justify-center">Get a Free Consultation</a>
               </div>
             </AnimateIn>
 
@@ -118,7 +118,7 @@ export default function Services() {
                       </li>
                     ))}
                   </ul>
-                  <a href="/contact" className="btn-primary w-full justify-center">Get Started</a>
+                  <a href="/contact" className="btn-primary w-full justify-center">Get a Free Consultation</a>
                 </div>
               </div>
             </AnimateIn>
@@ -147,7 +147,7 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <a href="/contact" className="btn-secondary w-full justify-center">Get Started</a>
+                <a href="/contact" className="btn-secondary w-full justify-center">Get a Free Consultation</a>
               </div>
             </AnimateIn>
 

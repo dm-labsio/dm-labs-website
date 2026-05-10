@@ -179,7 +179,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
         <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -205,7 +205,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
         <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -231,7 +231,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
         <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -261,7 +261,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
         <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -290,7 +290,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
         <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -318,7 +318,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
         <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -346,7 +346,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "46px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
         <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -373,7 +373,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
         <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -399,7 +399,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
         <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -428,7 +428,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
         <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -457,7 +457,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "46px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
         <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -477,7 +477,7 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
       </div>
       <div style={{ position: "absolute", top: "10px", right: "10px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
         <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   );
@@ -955,7 +955,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
             className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white text-gray-900 px-5 py-2.5 rounded-full font-semibold text-sm shadow-xl flex items-center gap-2"
             style={{ transform: "translateY(8px)" }}
           >
-            Preview Example <ArrowRight size={14} />
+            Διαδραστικό Demo <ArrowRight size={14} />
           </motion.div>
         </div>
       </div>
@@ -1245,7 +1245,7 @@ export default function TemplatesEl() {
               Περιηγηθείτε στα σχέδιά μας ανά κλάδο. Κάθε παράδειγμα προσαρμόζεται πλήρως για την επιχείρησή σας - το λογότυπό σας, τα χρώματά σας, το περιεχόμενό σας.
             </p>
             <p className="text-sm text-gray-400 max-w-xl mx-auto">
-              Αυτά είναι <strong className="text-gray-500">εμπνεύσεις σχεδιασμού</strong>, όχι σταθερά πακέτα. Κάθε ιστοσελίδα που φτιάχνουμε κατασκευάζεται από μηδενική βάση - η τιμή εξαρτάται από το πλάνο που θα επιλέξετε, όχι από το παράδειγμα.
+              Αυτά είναι <strong className="text-gray-500">διαδραστικά demo</strong>, όχι σταθερά πακέτα. Κάθε ιστοσελίδα κατασκευάζεται από μηδενική βάση για την επιχείρησή σας. Πραγματικές υλοποιήσεις πελατών διατίθενται κατόπιν αιτήματος.
             </p>
           </motion.div>
         </div>

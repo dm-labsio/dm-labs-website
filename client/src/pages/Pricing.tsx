@@ -126,7 +126,7 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <a href="/contact" className="btn-secondary w-full justify-center">
-                  <MessageCircle size={16} /> Get Started
+                  <MessageCircle size={16} /> Get a Free Consultation
                 </a>
               </div>
             </AnimateIn>
@@ -165,7 +165,7 @@ export default function Pricing() {
                       ))}
                     </ul>
                     <a href="/contact" className="btn-primary w-full justify-center">
-                      <MessageCircle size={16} /> Get Started
+                      <MessageCircle size={16} /> Get a Free Consultation
                     </a>
                   </div>
                 </div>
@@ -206,7 +206,7 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <a href="/contact" className="btn-secondary w-full justify-center">
-                  <MessageCircle size={16} /> Get Started
+                  <MessageCircle size={16} /> Get a Free Consultation
                 </a>
               </div>
             </AnimateIn>

@@ -36,7 +36,7 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
         <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -58,7 +58,7 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
         <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -84,7 +84,7 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
         <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>LIVE</span>
+        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
       </div>
     </div>
   ),
@@ -218,12 +218,12 @@ export default function HomePage() {
 
             <AnimateIn variant="fade-up" delay={0.4}>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <Link href="/templates" className="btn-primary">
-                  Browse Examples
+                <Link href="/contact" className="btn-primary">
+                  Get a Free Consultation
                   <ArrowRight size={18} />
                 </Link>
-                <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
-                  View All Services
+                <Link href="/templates" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
+                  Browse Examples
                   <ArrowRight size={18} />
                 </Link>
               </div>
@@ -513,7 +513,7 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <Link href="/contact" className="btn-secondary w-full justify-center">
-                  Get Started
+                  Get a Free Consultation
                 </Link>
               </div>
             </AnimateIn>
@@ -539,7 +539,7 @@ export default function HomePage() {
                     ))}
                   </ul>
                   <Link href="/contact" className="btn-primary w-full justify-center">
-                    Get Started
+                    Get a Free Consultation
                   </Link>
                 </div>
               </div>
@@ -564,7 +564,7 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <Link href="/contact" className="btn-secondary w-full justify-center">
-                  Get Started
+                  Get a Free Consultation
                 </Link>
               </div>
             </AnimateIn>
@@ -878,7 +878,7 @@ export default function HomePage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="btn-primary !h-14 !text-base !px-8">
                 <MessageCircle size={20} />
-                Contact Us
+                Get a Free Visual Concept
               </Link>
             </div>
           </AnimateIn>

@@ -88,7 +88,7 @@ export default function ServicesElPage() {
                     </li>
                   ))}
                 </ul>
-                <a href="/el/contact" className="btn-secondary w-full justify-center">Ξεκινήστε</a>
+                <a href="/el/contact" className="btn-secondary w-full justify-center">Δωρεάν Συμβουλευτική</a>
               </div>
             </AnimateIn>
 
@@ -118,7 +118,7 @@ export default function ServicesElPage() {
                       </li>
                     ))}
                   </ul>
-                  <a href="/el/contact" className="btn-primary w-full justify-center">Ξεκινήστε</a>
+                  <a href="/el/contact" className="btn-primary w-full justify-center">Δωρεάν Συμβουλευτική</a>
                 </div>
               </div>
             </AnimateIn>
@@ -147,7 +147,7 @@ export default function ServicesElPage() {
                     </li>
                   ))}
                 </ul>
-                <a href="/el/contact" className="btn-secondary w-full justify-center">Ξεκινήστε</a>
+                <a href="/el/contact" className="btn-secondary w-full justify-center">Δωρεάν Συμβουλευτική</a>
               </div>
             </AnimateIn>
 
