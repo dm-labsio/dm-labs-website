@@ -2,8 +2,14 @@
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 import { ChevronLeft } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function CookiePolicy() {
+  useSEO({
+    title: "Cookie Policy | D&M Labs",
+    description: "Learn how D&M Labs uses cookies on dm-labs.io and how you can manage your preferences.",
+    canonicalPath: "/cookie-policy",
+  });
   return (
     <>
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>

@@ -1157,7 +1157,7 @@ export default function Templates() {
   useSEO({
     title: "Website Examples | See Our Work | D&M Labs",
     description: "Browse real website examples built by D&M Labs for restaurants, salons, dental clinics, yoga studios, and more. Starting from \u20ac299.",
-    canonicalPath: "/examples",
+    canonicalPath: "/templates",
   });
   const [location] = useLocation();
   const [activeIndustry, setActiveIndustry] = useState("all");
@@ -1195,6 +1195,10 @@ export default function Templates() {
     urlParamHandled.current = true;
 
     const params = new URLSearchParams(window.location.search);
+    // Always clean query strings immediately — prevents Google indexing ?open= and ?industry= as separate pages
+    if (window.location.search) {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
     // Handle ?industry= filter
     const industry = params.get("industry");
     if (industry && INDUSTRIES.find(i => i.id === industry)) {
@@ -1205,8 +1209,6 @@ export default function Templates() {
     if (openId) {
       const tpl = TEMPLATES.find(t => t.id === openId);
       if (tpl) {
-        // Clean the URL first so closing the modal doesn't re-trigger open
-        window.history.replaceState(null, "", window.location.pathname);
         openModal(tpl);
       }
     }

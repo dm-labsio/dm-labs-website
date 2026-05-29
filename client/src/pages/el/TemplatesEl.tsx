@@ -1195,6 +1195,10 @@ export default function TemplatesEl() {
     urlParamHandled.current = true;
 
     const params = new URLSearchParams(window.location.search);
+    // Always clean query strings immediately — prevents Google indexing ?open= and ?industry= as separate pages
+    if (window.location.search) {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
     // Handle ?industry= filter
     const industry = params.get("industry");
     if (industry && INDUSTRIES.find(i => i.id === industry)) {
@@ -1205,8 +1209,6 @@ export default function TemplatesEl() {
     if (openId) {
       const tpl = TEMPLATES.find(t => t.id === openId);
       if (tpl) {
-        // Clean the URL first so closing the modal doesn't re-trigger open
-        window.history.replaceState(null, "", window.location.pathname);
         openModal(tpl);
       }
     }

@@ -81,7 +81,7 @@ function MainRouter() {
         <Route path="/cookie-policy" component={CookiePolicy} />
         <Route path="/terms" component={Terms} />
         <Route path="/templates" component={Templates} />
-        <Route path="/examples" component={Templates} />
+        <Route path="/examples">{() => { const [,nav] = useLocation(); nav("/templates", { replace: true }); return null; }}</Route>
         <Route path="/services/:serviceId" component={ServiceDetail} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog" component={Blog} />
@@ -109,6 +109,15 @@ function MainRouter() {
         <Route path="/el/web-design-limassol" component={WebDesignLimassol_El} />
         <Route path="/el/web-design-nicosia" component={WebDesignNicosia_El} />
         <Route path="/el/web-design-thessaloniki" component={WebDesignThessaloniki_El} />
+
+        {/* ── Legacy/Soft-404 Redirects ── */}
+        {/* Old slug that Google crawled without /el/ prefix */}
+        <Route path="/blog/istoselidha-yoga-pilates-studio-kypros">{() => { window.location.replace("/el/blog/istoselidha-yoga-pilates-studio-kypros"); return null; }}</Route>
+        <Route path="/blog/istoselidha-nail-salon-beauty-studio-kypros">{() => { window.location.replace("/el/blog/istoselidha-nail-salon-beauty-studio-kypros"); return null; }}</Route>
+        {/* Old blog slug renamed */}
+        <Route path="/blog/local-seo-google-cyprus">{() => { window.location.replace("/blog/how-to-get-found-on-google-cyprus"); return null; }}</Route>
+        {/* Stale numeric URL */}
+        <Route path="/5">{() => { window.location.replace("/"); return null; }}</Route>
 
         {/* ── Greek Blog Posts ── */}
         <Route path="/el/blog/wix-vs-epaggelmatias-web-designer-kypros" component={WixVsDesignerEl} />
