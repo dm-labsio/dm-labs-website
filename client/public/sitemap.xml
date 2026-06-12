@@ -193,6 +193,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/blog/restaurant-website-design-cyprus" />
     <lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://dm-labs.io/blog/web-design-greece-guide-2026</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/blog/web-design-greece-guide-2026" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/blog/web-design-ellada-odigos-2026" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/blog/web-design-greece-guide-2026" />
+    <lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/el/blog/web-design-ellada-odigos-2026</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/blog/web-design-greece-guide-2026" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/blog/web-design-ellada-odigos-2026" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/blog/web-design-greece-guide-2026" />
+    <lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
 
   <!-- Location Pages EN + EL -->
   <url>

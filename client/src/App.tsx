@@ -55,6 +55,7 @@ import NailSalonEl from "./pages/el/blog/NailSalonEl";
 import YogaEl from "./pages/el/blog/YogaEl";
 import GoogleVisibilityEl from "./pages/el/blog/GoogleVisibilityEl";
 import RestaurantEl from "./pages/el/blog/RestaurantEl";
+import WebDesignGreeceEl from "./pages/el/blog/WebDesignGreeceEl";
 import TemplatesEl from "./pages/el/TemplatesEl";
 import ServiceDetailEl from "./pages/el/ServiceDetailEl";
 
@@ -126,6 +127,7 @@ function MainRouter() {
         <Route path="/el/blog/istoselidha-yoga-pilates-studio-kypros" component={YogaEl} />
         <Route path="/el/blog/pos-na-vretheite-google-kypros" component={GoogleVisibilityEl} />
         <Route path="/el/blog/istoselidha-estiatorio-kypros" component={RestaurantEl} />
+        <Route path="/el/blog/web-design-ellada-odigos-2026" component={WebDesignGreeceEl} />
         <Route path="/el/examples" component={TemplatesEl} />
         <Route path="/el/templates">{() => { window.location.replace("/el/examples"); return null; }}</Route>
         <Route path="/el/services/:serviceId" component={ServiceDetailEl} />

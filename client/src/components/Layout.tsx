@@ -103,6 +103,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     "/blog/how-to-get-found-on-google-cyprus": "/el/blog/pos-na-vretheite-google-kypros",
     "/blog/restaurant-website-design-cyprus": "/el/blog/istoselidha-estiatorio-kypros",
     "/blog/wix-vs-professional-web-designer-cyprus": "/el/blog/wix-vs-epaggelmatias-web-designer-kypros",
+    "/blog/web-design-greece-guide-2026": "/el/blog/web-design-ellada-odigos-2026",
+    "/el/blog/web-design-ellada-odigos-2026": "/blog/web-design-greece-guide-2026",
   };
   const SLUG_MAP_EL_TO_EN: Record<string, string> = Object.fromEntries(
     Object.entries(SLUG_MAP_EN_TO_EL).map(([en, el]) => [el, en])
