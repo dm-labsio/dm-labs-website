@@ -9,6 +9,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, Phone, Mail, MapPin, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
+import NeonCursorTrail from "@/components/NeonCursorTrail";
 
 
 const LOGO_URL = "/dmlabs-logo.png";
@@ -366,6 +367,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Accessibility Widget - bottom-left, z-[9998] (defined in component) */}
       <AccessibilityWidget />
+      {/* Neon cursor trail - canvas overlay, pointer-events: none, desktop only */}
+      <NeonCursorTrail color="blue" />
     </div>
   );
 }
