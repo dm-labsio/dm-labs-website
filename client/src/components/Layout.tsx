@@ -368,7 +368,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Accessibility Widget - bottom-left, z-[9998] (defined in component) */}
       <AccessibilityWidget />
       {/* Neon cursor trail - canvas overlay, pointer-events: none, desktop only */}
-      <NeonCursorTrail color="blue" />
+      <NeonCursorTrail />
     </div>
   );
 }

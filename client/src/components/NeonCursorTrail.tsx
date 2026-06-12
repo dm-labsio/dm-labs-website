@@ -1,45 +1,69 @@
 /* ============================================================
    D&M LABS - Neon Cursor Trail
    Adapted from https://github.com/TommyB-QA/neon-cursor-trail
-   Brand palette: #5B8CFF (blue) → #6FE3FF (cyan) → #8B5CFF (purple)
+   Color cycle: blue (#5B8CFF) → cyan (#6FE3FF) → purple (#8B5CFF)
+   Smooth LERP between palette stops every ~3s per step.
    Canvas-based, pointer-events: none — zero layout impact.
    Only renders on non-touch devices (pointer: fine).
    ============================================================ */
 import { useEffect, useRef } from "react";
 
-const NEON_COLORS = {
-  blue:   { core: "91, 140, 255",  glow: "36,  100, 255" },
-  cyan:   { core: "111, 227, 255", glow: "36,  157, 255" },
-  purple: { core: "139, 92,  255", glow: "100, 50,  220" },
-};
+// D&M Labs brand palette stops: [core R,G,B] and [glow R,G,B]
+const PALETTE_STOPS = [
+  { core: [91,  140, 255], glow: [36,  100, 255] }, // blue
+  { core: [111, 227, 255], glow: [36,  157, 255] }, // cyan
+  { core: [139, 92,  255], glow: [100, 50,  220] }, // purple
+];
 
-type ColorKey = keyof typeof NEON_COLORS;
+// Full cycle: blue→cyan→purple→cyan→blue (smooth loop)
+const CYCLE = [0, 1, 2, 1]; // indices into PALETTE_STOPS
+const STEP_DURATION = 3000; // ms per step
 
-const MAX_PARTICLES    = 90;
-const PARTICLE_LIFE    = 620;
-const RIPPLE_LIFE      = 520;
-const MIN_SPAWN_DIST   = 7;
+function lerpChannel(a: number, b: number, t: number) {
+  return Math.round(a + (b - a) * t);
+}
+
+function lerpPalette(t: number): { core: string; glow: string } {
+  // t goes 0..CYCLE.length (wraps)
+  const totalSteps = CYCLE.length;
+  const raw = ((t % totalSteps) + totalSteps) % totalSteps;
+  const stepIdx = Math.floor(raw);
+  const frac = raw - stepIdx;
+  const fromStop = PALETTE_STOPS[CYCLE[stepIdx]];
+  const toStop   = PALETTE_STOPS[CYCLE[(stepIdx + 1) % totalSteps]];
+  const core = fromStop.core.map((c, i) => lerpChannel(c, toStop.core[i], frac));
+  const glow = fromStop.glow.map((c, i) => lerpChannel(c, toStop.glow[i], frac));
+  return {
+    core: `${core[0]}, ${core[1]}, ${core[2]}`,
+    glow: `${glow[0]}, ${glow[1]}, ${glow[2]}`,
+  };
+}
+
+const MAX_PARTICLES     = 90;
+const PARTICLE_LIFE     = 620;
+const RIPPLE_LIFE       = 520;
+const MIN_SPAWN_DIST    = 7;
 const MIN_SPAWN_INTERVAL = 12;
 
 interface Props {
   enabled?: boolean;
-  color?: ColorKey;
 }
 
-export default function NeonCursorTrail({ enabled = true, color = "blue" }: Props) {
+export default function NeonCursorTrail({ enabled = true }: Props) {
   const canvasRef    = useRef<HTMLCanvasElement>(null);
   const animRef      = useRef(0);
-  const particlesRef = useRef<{ x: number; y: number; vx: number; vy: number; radius: number; createdAt: number }[]>([]);
+  const particlesRef = useRef<{
+    x: number; y: number; vx: number; vy: number;
+    radius: number; createdAt: number;
+  }[]>([]);
   const ripplesRef   = useRef<{ x: number; y: number; createdAt: number }[]>([]);
-  const colorRef     = useRef(NEON_COLORS[color] ?? NEON_COLORS.blue);
+  const colorRef     = useRef(lerpPalette(0));
   const lastSpawnRef = useRef({ x: 0, y: 0, time: 0, ready: false });
+  // Tracks the current position along the cycle (in step units)
+  const cycleRef     = useRef(0);
+  const lastCycleRef = useRef(0); // performance.now() at last cycle update
 
   useEffect(() => {
-    colorRef.current = NEON_COLORS[color] ?? NEON_COLORS.blue;
-  }, [color]);
-
-  useEffect(() => {
-    // Skip on touch-only devices
     if (!window.matchMedia("(pointer: fine)").matches) return;
 
     const canvas  = canvasRef.current;
@@ -52,6 +76,7 @@ export default function NeonCursorTrail({ enabled = true, color = "blue" }: Prop
     }
 
     let width = 0, height = 0, dpr = 1;
+    lastCycleRef.current = performance.now();
 
     const resize = () => {
       dpr    = Math.min(window.devicePixelRatio || 1, 2);
@@ -66,6 +91,13 @@ export default function NeonCursorTrail({ enabled = true, color = "blue" }: Prop
 
     const draw = (now: number) => {
       animRef.current = 0;
+
+      // Advance color cycle
+      const elapsed = now - lastCycleRef.current;
+      lastCycleRef.current = now;
+      cycleRef.current += elapsed / STEP_DURATION;
+      colorRef.current = lerpPalette(cycleRef.current);
+
       context.clearRect(0, 0, width, height);
       context.globalCompositeOperation = "lighter";
 
@@ -100,7 +132,10 @@ export default function NeonCursorTrail({ enabled = true, color = "blue" }: Prop
         const alpha    = (1 - progress) ** 1.35;
         const radius   = 8 + progress * 58;
         const pal = colorRef.current;
-        const glow = context.createRadialGradient(r.x, r.y, Math.max(1, radius * 0.36), r.x, r.y, radius * 1.38);
+        const glow = context.createRadialGradient(
+          r.x, r.y, Math.max(1, radius * 0.36),
+          r.x, r.y, radius * 1.38,
+        );
         glow.addColorStop(0,    `rgba(${pal.core}, 0)`);
         glow.addColorStop(0.62, `rgba(${pal.glow}, ${alpha * 0.22})`);
         glow.addColorStop(1,    `rgba(${pal.glow}, 0)`);
@@ -157,7 +192,7 @@ export default function NeonCursorTrail({ enabled = true, color = "blue" }: Prop
     };
 
     resize();
-    window.addEventListener("resize",       resize,       { passive: true });
+    window.addEventListener("resize",       resize,        { passive: true });
     window.addEventListener("pointermove",  spawnParticle, { passive: true });
     window.addEventListener("pointerdown",  spawnRipple,   { passive: true });
 
@@ -190,5 +225,3 @@ export default function NeonCursorTrail({ enabled = true, color = "blue" }: Prop
     />
   );
 }
-
-export { NEON_COLORS };
