@@ -26,7 +26,8 @@ export default function TermsEl() {
         </p>
         <h2 className="text-xl font-bold text-[#111315] mt-8 mb-3">Επικοινωνία</h2>
         <p className="text-[#5B6472] leading-relaxed">
-          Για ερωτήσεις σχετικά με τους όρους χρήσης: info@dm-labs.io
+          Για ερωτήσεις σχετικά με τους όρους χρήσης:{" "}
+          <a href="mailto:info@dm-labs.io" className="text-[#5B8CFF] hover:underline">info@dm-labs.io</a>
         </p>
       </div>
     </main>

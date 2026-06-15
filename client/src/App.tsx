@@ -111,14 +111,11 @@ function MainRouter() {
         <Route path="/el/web-design-nicosia" component={WebDesignNicosia_El} />
         <Route path="/el/web-design-thessaloniki" component={WebDesignThessaloniki_El} />
 
-        {/* ── Legacy/Soft-404 Redirects ── */}
-        {/* Old slug that Google crawled without /el/ prefix */}
-        <Route path="/blog/istoselidha-yoga-pilates-studio-kypros">{() => { window.location.replace("/el/blog/istoselidha-yoga-pilates-studio-kypros"); return null; }}</Route>
-        <Route path="/blog/istoselidha-nail-salon-beauty-studio-kypros">{() => { window.location.replace("/el/blog/istoselidha-nail-salon-beauty-studio-kypros"); return null; }}</Route>
-        {/* Old blog slug renamed */}
-        <Route path="/blog/local-seo-google-cyprus">{() => { window.location.replace("/blog/how-to-get-found-on-google-cyprus"); return null; }}</Route>
-        {/* Stale numeric URL */}
-        <Route path="/5">{() => { window.location.replace("/"); return null; }}</Route>
+        {/* ── Legacy Redirects (wouter navigate = proper 200 SPA redirect, not Soft 404) ── */}
+        <Route path="/blog/istoselidha-yoga-pilates-studio-kypros">{() => { const [,nav] = useLocation(); nav("/el/blog/istoselidha-yoga-pilates-studio-kypros", { replace: true }); return null; }}</Route>
+        <Route path="/blog/istoselidha-nail-salon-beauty-studio-kypros">{() => { const [,nav] = useLocation(); nav("/el/blog/istoselidha-nail-salon-beauty-studio-kypros", { replace: true }); return null; }}</Route>
+        <Route path="/blog/local-seo-google-cyprus">{() => { const [,nav] = useLocation(); nav("/blog/how-to-get-found-on-google-cyprus", { replace: true }); return null; }}</Route>
+        <Route path="/5">{() => { const [,nav] = useLocation(); nav("/", { replace: true }); return null; }}</Route>
 
         {/* ── Greek Blog Posts ── */}
         <Route path="/el/blog/wix-vs-epaggelmatias-web-designer-kypros" component={WixVsDesignerEl} />

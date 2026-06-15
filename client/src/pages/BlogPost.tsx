@@ -4,7 +4,7 @@
    Clean long-form reading layout with SEO meta injection
    ============================================================ */
 import { useEffect } from "react";
-import { Link, useParams } from "wouter";
+import { Link, useParams, useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { getPostBySlug } from "@/data/blogPosts";
 import { ArrowLeft, Clock, Tag, Calendar } from "lucide-react";
@@ -81,13 +81,11 @@ export default function BlogPost() {
     };
   }, [post]);
 
+  const [, navigate] = useLocation();
   if (!post) {
-    return (
-      <div className="container py-32 text-center">
-        <h1 className="text-3xl font-bold text-[#111315] mb-4">Article not found</h1>
-        <Link href="/blog" className="text-[#5B8CFF] hover:underline font-medium">Back to Blog</Link>
-      </div>
-    );
+    // Redirect to proper 404 so Google doesn't treat this as a Soft 404
+    navigate("/404", { replace: true });
+    return null;
   }
 
   return (
