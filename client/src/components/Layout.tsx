@@ -206,7 +206,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               href={isGreek ? "/el/contact" : "/contact"}
               className="btn-primary !h-11 !text-sm !px-6"
             >
-              {isGreek ? "Ξεκινήστε" : "Get Started"}
+              {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
             </Link>
           </div>
 
@@ -253,7 +253,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               href={isGreek ? "/el/contact" : "/contact"}
               className="btn-primary w-full mt-6"
             >
-              {isGreek ? "Ξεκινήστε" : "Get Started"}
+              {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
             </Link>
           </motion.div>
         )}
