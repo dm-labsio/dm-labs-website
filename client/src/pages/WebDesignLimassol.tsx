@@ -12,7 +12,7 @@ const schemaMarkup = {
   "name": "D&M Labs",
   "description": "Professional web design agency serving businesses in Limassol, Cyprus. Custom websites from €299.",
   "url": "https://dm-labs.io/web-design-limassol",
-  "telephone": "+357-96-000000",
+  "telephone": "+35797472847",
   "areaServed": {
     "@type": "City",
     "name": "Limassol, Cyprus"

@@ -290,5 +290,33 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/web-design-thessaloniki" />
     <lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://dm-labs.io/web-design-paphos</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/web-design-paphos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/web-design-paphos" />
+    <lastmod>2026-06-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/web-design-restaurants-cyprus</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/web-design-restaurants-cyprus" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/web-design-restaurants-cyprus" />
+    <lastmod>2026-06-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <!-- GEO Blog Article EN + EL -->
+  <url>
+    <loc>https://dm-labs.io/blog/geo-get-found-by-chatgpt-cyprus</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/blog/geo-get-found-by-chatgpt-cyprus" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/blog/geo-vrethite-apo-chatgpt-kypros" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/blog/geo-get-found-by-chatgpt-cyprus" />
+    <lastmod>2026-06-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/el/blog/geo-vrethite-apo-chatgpt-kypros</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/blog/geo-get-found-by-chatgpt-cyprus" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/blog/geo-vrethite-apo-chatgpt-kypros" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/blog/geo-get-found-by-chatgpt-cyprus" />
+    <lastmod>2026-06-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
 
 </urlset>

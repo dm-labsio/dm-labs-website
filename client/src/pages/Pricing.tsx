@@ -7,7 +7,7 @@
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
-import { CheckCircle2, X, MessageCircle, ArrowRight, HelpCircle, Languages, CalendarCheck, Bell, Accessibility, Tag, Zap, Globe, Users, Headphones } from "lucide-react";
+import { CheckCircle2, X, MessageCircle, ArrowRight, HelpCircle, Languages, CalendarCheck, Bell, Accessibility, Tag, Zap, Globe, Users, Headphones, PenLine, Search } from "lucide-react";
 
 const GRADIENT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
@@ -35,6 +35,8 @@ const comparison = [
 ];
 
 const addons = [
+  { icon: PenLine, label: "CMS Self-Editing Interface — edit text, images & prices yourself, no coding needed", price: "€79", badge: "New" },
+  { icon: Search, label: "SEO + GEO Package — rank on Google & get found by AI assistants (ChatGPT, Perplexity)", price: "€49/mo", badge: "New" },
   { icon: Languages, label: "Multilingual - 2 languages", price: "€80" },
   { icon: Languages, label: "Multilingual - up to 4 languages", price: "€150" },
   { icon: CalendarCheck, label: "Booking / reservation redirect (Calendly, Wolt, etc.)", price: "€30" },
@@ -292,7 +294,12 @@ export default function Pricing() {
                     <div className="icon-container-gradient !w-10 !h-10 shrink-0">
                       <a.icon size={18} className="text-[#5B8CFF]" strokeWidth={1.75} />
                     </div>
-                    <p className="text-sm font-medium text-[#111315]">{a.label}</p>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <p className="text-sm font-medium text-[#111315]">{a.label}</p>
+                      {(a as any).badge && (
+                        <span className="inline-block text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full brand-gradient text-white">{(a as any).badge}</span>
+                      )}
+                    </div>
                   </div>
                   <span className="text-base font-bold text-[#5B8CFF] shrink-0">{a.price}</span>
                 </div>

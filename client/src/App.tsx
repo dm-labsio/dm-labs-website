@@ -29,6 +29,8 @@ import WebDesignThessaloniki from "./pages/WebDesignThessaloniki";
 import WebDesignNicosia from "./pages/WebDesignNicosia";
 import WebDesignCyprus from "./pages/WebDesignCyprus";
 import WebDesignCrete from "./pages/WebDesignCrete";
+import WebDesignPaphos from "./pages/WebDesignPaphos";
+import WebDesignRestaurantsCyprus from "./pages/WebDesignRestaurantsCyprus";
 import PreviewPage from "./pages/PreviewPage";
 
 // ── Greek Pages ──
@@ -56,6 +58,7 @@ import YogaEl from "./pages/el/blog/YogaEl";
 import GoogleVisibilityEl from "./pages/el/blog/GoogleVisibilityEl";
 import RestaurantEl from "./pages/el/blog/RestaurantEl";
 import WebDesignGreeceEl from "./pages/el/blog/WebDesignGreeceEl";
+import GeoEl from "./pages/el/blog/GeoEl";
 import TemplatesEl from "./pages/el/TemplatesEl";
 import ServiceDetailEl from "./pages/el/ServiceDetailEl";
 
@@ -91,6 +94,8 @@ function MainRouter() {
         <Route path="/web-design-nicosia" component={WebDesignNicosia} />
         <Route path="/web-design-cyprus" component={WebDesignCyprus} />
         <Route path="/web-design-crete" component={WebDesignCrete} />
+        <Route path="/web-design-paphos" component={WebDesignPaphos} />
+        <Route path="/web-design-restaurants-cyprus" component={WebDesignRestaurantsCyprus} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />
@@ -125,6 +130,7 @@ function MainRouter() {
         <Route path="/el/blog/pos-na-vretheite-google-kypros" component={GoogleVisibilityEl} />
         <Route path="/el/blog/istoselidha-estiatorio-kypros" component={RestaurantEl} />
         <Route path="/el/blog/web-design-ellada-odigos-2026" component={WebDesignGreeceEl} />
+        <Route path="/el/blog/geo-vrethite-apo-chatgpt-kypros" component={GeoEl} />
         <Route path="/el/examples" component={TemplatesEl} />
         <Route path="/el/templates">{() => { window.location.replace("/el/examples"); return null; }}</Route>
         <Route path="/el/services/:serviceId" component={ServiceDetailEl} />

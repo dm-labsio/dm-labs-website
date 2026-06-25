@@ -4,7 +4,7 @@
    Sections: Hero, Trust Strip, Template Showcase + Industries, Services, Process, Testimonials, Pricing, Stats, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
-import { } from "react";
+import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
@@ -170,6 +170,117 @@ export default function HomePage() {
     title: "D&M Labs | Professional Website Design from €299",
     description: "D&M Labs builds custom, mobile-first websites for businesses. Fast delivery, SEO-ready, starting from €299.",
   });
+
+  // LocalBusiness + WebSite JSON-LD schema for GEO & Map Pack signals
+  useEffect(() => {
+    const existingSchema = document.getElementById("home-localbusiness-schema");
+    if (existingSchema) return;
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://dm-labs.io/#localbusiness",
+          "name": "D&M Labs",
+          "alternateName": "DM Labs",
+          "description": "D&M Labs is a professional web design agency serving businesses in Cyprus and Greece. Custom websites from €299, delivered in 7–14 days.",
+          "url": "https://dm-labs.io",
+          "logo": "https://dm-labs.io/logo.png",
+          "image": "https://dm-labs.io/og-image.png",
+          "telephone": "+35797472847",
+          "email": "info@dm-labs.io",
+          "priceRange": "€€",
+          "currenciesAccepted": "EUR",
+          "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+          "areaServed": [
+            { "@type": "City", "name": "Limassol", "addressCountry": "CY" },
+            { "@type": "City", "name": "Nicosia", "addressCountry": "CY" },
+            { "@type": "City", "name": "Paphos", "addressCountry": "CY" },
+            { "@type": "City", "name": "Larnaca", "addressCountry": "CY" },
+            { "@type": "Country", "name": "Cyprus" },
+            { "@type": "Country", "name": "Greece" }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Limassol",
+            "addressCountry": "CY"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "34.6823",
+            "longitude": "33.0464"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/dmlabs.io",
+            "https://www.facebook.com/dmlabs.io"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Web Design Packages",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Starter Website",
+                "description": "5-page mobile-first website with SEO setup",
+                "price": "299",
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "Offer",
+                "name": "Business Website",
+                "description": "Up to 10 pages, blog, contact form, analytics",
+                "price": "399",
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "Offer",
+                "name": "Premium Website",
+                "description": "Custom design, e-commerce ready, priority support",
+                "price": "699",
+                "priceCurrency": "EUR"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://dm-labs.io/#website",
+          "url": "https://dm-labs.io",
+          "name": "D&M Labs",
+          "description": "Professional web design agency in Cyprus",
+          "publisher": { "@id": "https://dm-labs.io/#localbusiness" },
+          "inLanguage": ["en", "el"]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://dm-labs.io/#service",
+          "name": "Web Design Services Cyprus",
+          "provider": { "@id": "https://dm-labs.io/#localbusiness" },
+          "serviceType": "Web Design",
+          "areaServed": { "@type": "Country", "name": "Cyprus" },
+          "offers": [
+            { "@type": "Offer", "name": "Starter Website", "price": "299", "priceCurrency": "EUR" },
+            { "@type": "Offer", "name": "Business Website", "price": "399", "priceCurrency": "EUR" },
+            { "@type": "Offer", "name": "Premium Website", "price": "699", "priceCurrency": "EUR" }
+          ]
+        }
+      ]
+    };
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "home-localbusiness-schema";
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+    return () => { document.getElementById("home-localbusiness-schema")?.remove(); };
+  }, []);
   return (
     <>
       {/* ═══════════════════════════════════════════

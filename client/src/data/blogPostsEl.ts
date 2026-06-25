@@ -85,4 +85,14 @@ export const POSTS_EL: BlogPostEl[] = [
     excerpt: "Είτε βρίσκεστε στην Αθήνα, στη Θεσσαλονίκη ή οπουδήποτε αλλού στην Ελλάδα, η ιστοσελίδα σας είναι το σημαντικότερο εργαλείο της επιχείρησής σας το 2026. Δείτε τι χρειάζεστε να ξέρετε πριν χτίσετε ή ανακατασκευάσετε την ιστοσελίδα σας.",
     coverImage: "https://images.unsplash.com/photo-1555993539-1732b0258235?w=1200&q=80",
   },
+  {
+    slug: "geo-get-found-by-chatgpt-cyprus",
+    elSlug: "geo-vrethite-apo-chatgpt-kypros",
+    title: "GEO: Πώς να Εμφανίζεται η Κυπριακή Επιχείρησή σας στο ChatGPT και στην AI Αναζήτηση",
+    date: "2026-06-25",
+    readTime: "5 λεπτά",
+    category: "SEO & GEO",
+    excerpt: "Όταν κάποιος ρωτά το ChatGPT 'καλύτερη εταιρεία web design στην Κύπρο', η επιχείρησή σας πιθανώς δεν εμφανίζεται. Αυτό είναι πρόβλημα GEO — και έχει λύση.",
+    coverImage: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80",
+  },
 ];

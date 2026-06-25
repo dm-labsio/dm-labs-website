@@ -511,6 +511,82 @@ export const POSTS: BlogPost[] = [
 </div>
     `,
   },
+
+  // ─── GEO Article ──────────────────────────────────────────────────────────
+  {
+    slug: "geo-get-found-by-chatgpt-cyprus",
+    title: "GEO: How to Get Your Cyprus Business Found by ChatGPT and AI Search",
+    metaTitle: "GEO Cyprus 2026 | Get Found by ChatGPT & AI Search | D&M Labs",
+    metaDescription: "GEO (Generative Engine Optimization) is the new SEO. Learn why Cyprus businesses are invisible to ChatGPT and Perplexity — and what the first step to changing that looks like.",
+    date: "2026-06-25",
+    readTime: "5 min read",
+    category: "SEO & GEO",
+    excerpt: "When someone asks ChatGPT 'best web design agency in Cyprus', your business probably doesn't appear. That's a GEO problem — and it's fixable. Here's what you need to know.",
+    coverImage: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80",
+    content: `
+<p class="blog-lead">Someone in Limassol opens ChatGPT and types: <em>"Who does web design in Cyprus?"</em> Or they ask Perplexity: <em>"Best restaurant in Paphos?"</em> Or they use Google's AI Overview to find a plumber in Nicosia.</p>
+<p>In every one of those scenarios, the AI gives an answer. It names businesses. It makes recommendations. And if your business isn't in that answer — you don't exist for that person.</p>
+<p>This is the new reality of search in 2026. And most Cyprus businesses have no idea it's happening.</p>
+
+<h2>What Is GEO?</h2>
+<p>GEO stands for <strong>Generative Engine Optimization</strong>. It is the practice of making your business visible inside AI-generated answers — not just on traditional Google results pages.</p>
+<p>The AI engines that matter right now are:</p>
+<ul>
+  <li><strong>ChatGPT</strong> (OpenAI) — over 100 million daily users</li>
+  <li><strong>Google AI Overviews</strong> — now appearing on 30–40% of all Google searches</li>
+  <li><strong>Perplexity</strong> — the fastest-growing AI search engine</li>
+  <li><strong>Microsoft Copilot</strong> — built into Windows and Bing</li>
+  <li><strong>Claude</strong> (Anthropic) — increasingly used for research queries</li>
+</ul>
+<p>Each of these AI tools reads the web, synthesises information, and produces an answer. The businesses it mentions are the ones that have been optimised for this new type of search. The rest are invisible.</p>
+
+<h2>How Is GEO Different From SEO?</h2>
+<p>Traditional SEO gets you a ranked link on a results page. The user sees your link, decides to click, and visits your website. The goal is a high position in the list.</p>
+<p>GEO is different. There is no list. The AI gives a direct answer — and either your business is mentioned in that answer, or it isn't. There is no position 2 or position 7. There is mentioned, or not mentioned.</p>
+
+<div class="blog-callout">
+  <strong>The key difference:</strong> SEO gets you a ranked URL. GEO gets you a brand mention inside the answer itself. For local service businesses — web designers, restaurants, lawyers, clinics — a GEO mention is worth more than a page-2 SEO ranking.
+</div>
+
+<h2>Why Cyprus Businesses Are Particularly Exposed</h2>
+<p>The Cyprus market has a specific vulnerability to the GEO gap. Here is why:</p>
+<p><strong>Low domain authority across the board.</strong> Most Cyprus business websites are relatively new and have few external links pointing to them. AI models heavily weight authoritative third-party citations — directory listings, press mentions, industry publications. Without these, even a well-designed website is invisible to AI.</p>
+<p><strong>Thin online presence.</strong> Many Cyprus businesses have a website but almost no presence on the platforms AI models actually read: Clutch, DesignRush, TripAdvisor, Google Business Profile, local directories. AI doesn't invent businesses — it cites the ones it has seen mentioned across multiple trusted sources.</p>
+<p><strong>No structured data.</strong> AI models extract facts about businesses from structured data (JSON-LD schema markup). Most Cyprus websites have none. This means the AI can't reliably extract your name, location, services, phone number, or opening hours — so it doesn't mention you.</p>
+
+<h2>What Does a GEO Mention Actually Look Like?</h2>
+<p>When someone asks ChatGPT <em>"who does web design in Limassol?"</em>, a GEO-optimised business might appear like this in the answer:</p>
+<blockquote>
+  <em>"For web design in Limassol, D&amp;M Labs (dm-labs.io) is a local agency offering custom websites from €299, with specialisations in restaurant and hospitality websites. They are listed on Clutch with verified reviews and offer a free consultation."</em>
+</blockquote>
+<p>That mention — unprompted, in a direct AI answer — is worth more than most paid ads. The user asked a question. The AI recommended you. The user clicks through with high intent.</p>
+<p>This is what GEO looks like when it works.</p>
+
+<h2>The First Step: Visibility Foundations</h2>
+<p>GEO is not a single tactic. It is a system of signals that AI models use to decide who to trust and who to mention. The foundation has three layers:</p>
+<ol>
+  <li><strong>Structured data on your website</strong> — JSON-LD schema that tells AI exactly who you are, what you do, where you are, and what you charge.</li>
+  <li><strong>Third-party citations</strong> — Listings on directories and platforms that AI models actively read: Clutch, Google Business Profile, TripAdvisor, local business directories.</li>
+  <li><strong>Content that answers specific questions</strong> — AI models are trained on question-and-answer patterns. Content that directly answers "how much does X cost in Cyprus" or "best Y in Limassol" is far more likely to be cited than generic homepage copy.</li>
+</ol>
+<p>The businesses that are already appearing in AI answers for Cyprus-related queries have these three layers in place — usually without even realising it. They got there through good SEO habits that happen to also work for GEO.</p>
+<p>The businesses that are invisible have none of them.</p>
+
+<h2>How Long Does It Take?</h2>
+<p>GEO is faster than traditional SEO in one important way: AI models update their knowledge more frequently than Google's ranking algorithm. A new Clutch listing or a structured data update can influence AI answers within weeks, not months.</p>
+<p>The full GEO foundation — structured data, directory listings, and targeted content — typically takes 60–90 days to show measurable results in AI answer frequency. That is significantly faster than the 6–12 months that traditional SEO requires to move from page 3 to page 1.</p>
+
+<h2>What We Don't Cover Here</h2>
+<p>This article covers the fundamentals. The full GEO playbook — the specific directories that matter most for Cyprus businesses, the exact schema markup that AI models prioritise, the content formats that get cited most frequently, and the ongoing maintenance that keeps you visible as AI models update — is what we implement for clients as part of our <a href="/pricing" class="blog-link">SEO + GEO package</a>.</p>
+<p>If you want to understand where your business currently stands in AI search — what AI models say about you right now, what's missing, and what the specific gaps are — that's what our free consultation covers.</p>
+
+<div class="blog-cta">
+  <h3>Find out if your business appears in AI search</h3>
+  <p>We'll show you exactly what ChatGPT and Perplexity say about your business today — and what it would take to change it. Free, no commitment.</p>
+  <a href="/contact" class="blog-cta-btn">Get a Free GEO Audit</a>
+</div>
+    `,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
