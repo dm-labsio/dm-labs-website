@@ -35,7 +35,7 @@ const comparison = [
 
 const addons = [
   { icon: Languages, label: "Πολύγλωσση ιστοσελίδα - 2 γλώσσες", price: "€80" },
-  { icon: Languages, label: "Πολύγλωσση ιστοσελίδα - έως 4 γλώσσες", price: "€150" },
+  { icon: Languages, label: "Πολύγλωσση ιστοσελίδα - έως 4 γλώσσες", price: "€180" },
   { icon: CalendarCheck, label: "Ανακατεύθυνση κρατήσεων (Calendly, Wolt κ.ά.)", price: "€30" },
   { icon: Bell, label: "Pop-up (προσφορά, ανακοίνωση, cookie notice)", price: "€40" },
   { icon: Accessibility, label: "Πλήρης έλεγχος προσβασιμότητας WCAG 2.1 AA", price: "€40" },
@@ -366,7 +366,7 @@ export default function PricingEl() {
                   </div>
                   <ul className="space-y-3 flex-1">
                     {[
-                      "Απεριόριστες ενημερώσεις περιεχομένου",
+                      "Ενημερώσεις περιεχομένου",
                       "Προτεραιότητα απόκρισης WhatsApp",
                       "Μηνιαίος έλεγχος απόδοσης",
                       "Εποχιακά banners και προσφορές",

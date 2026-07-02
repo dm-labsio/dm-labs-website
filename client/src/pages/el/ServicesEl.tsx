@@ -272,7 +272,7 @@ export default function ServicesElPage() {
                 <div className="dm-card !p-5 border-[#8B5CFF]/30">
                   <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Premium - €59/μήνα</p>
                   <ul className="space-y-2">
-                    {["Απεριόριστες ενημερώσεις περιεχομένου", "Προτεραιότητα απόκρισης WhatsApp", "Μηνιαίος έλεγχος απόδοσης", "Εποχιακά banners & προσφορές", "Προσθήκη νέων ενοτήτων", "Παρακολούθηση hosting & διαθεσιμότητας", "Μηνιαίο backup"].map((f) => (
+                    {["Ενημερώσεις περιεχομένου", "Προτεραιότητα απόκρισης WhatsApp", "Μηνιαίος έλεγχος απόδοσης", "Εποχιακά banners & προσφορές", "Προσθήκη νέων ενοτήτων", "Παρακολούθηση hosting & διαθεσιμότητας", "Μηνιαίο backup"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}
                       </li>

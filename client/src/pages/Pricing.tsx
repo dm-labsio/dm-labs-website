@@ -35,10 +35,10 @@ const comparison = [
 ];
 
 const addons = [
-  { icon: PenLine, label: "CMS Self-Editing Interface — edit text, images & prices yourself, no coding needed", price: "€79", badge: "New" },
+  { icon: PenLine, label: "CMS Self-Editing Interface — edit text, images & prices yourself, no coding needed", price: "€150", badge: "New" },
   { icon: Search, label: "SEO + GEO Package — rank on Google & get found by AI assistants (ChatGPT, Perplexity)", price: "€49/mo", badge: "New" },
   { icon: Languages, label: "Multilingual - 2 languages", price: "€80" },
-  { icon: Languages, label: "Multilingual - up to 4 languages", price: "€150" },
+  { icon: Languages, label: "Multilingual - up to 4 languages", price: "€180" },
   { icon: CalendarCheck, label: "Booking / reservation redirect (Calendly, Wolt, etc.)", price: "€30" },
   { icon: Bell, label: "Pop-up (promo, announcement, cookie notice)", price: "€40" },
   { icon: Accessibility, label: "Full WCAG 2.1 AA accessibility audit", price: "€40" },
@@ -367,7 +367,7 @@ export default function Pricing() {
                     <span className="text-sm text-[#5B6472]">/month</span>
                   </div>
                   <ul className="space-y-3 flex-1">
-                    {["Unlimited content updates", "Priority WhatsApp response", "Monthly performance check", "Seasonal banners and promotions", "New section additions", "Hosting and uptime monitoring", "Monthly backup"].map((f) => (
+                    {["Content updates", "Priority WhatsApp response", "Monthly performance check", "Seasonal banners and promotions", "New section additions", "Hosting and uptime monitoring", "Monthly backup"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
