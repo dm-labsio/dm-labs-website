@@ -35,7 +35,7 @@ const comparison = [
 ];
 
 const addons = [
-  { icon: PenLine, label: "CMS Self-Editing Interface — edit text, images & prices yourself, no coding needed", price: "€150", badge: "New" },
+  { icon: PenLine, label: "CMS Self-Editing Interface — edit text, images & prices yourself, no coding needed", price: "from €150", badge: "New" },
   { icon: Search, label: "SEO + GEO Package — rank on Google & get found by AI assistants (ChatGPT, Perplexity)", price: "€49/mo", badge: "New" },
   { icon: Languages, label: "Multilingual - 2 languages", price: "€80" },
   { icon: Languages, label: "Multilingual - up to 4 languages", price: "€180" },
