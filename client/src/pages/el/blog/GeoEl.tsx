@@ -175,6 +175,39 @@ export default function GeoEl() {
           </div>
         </div>
       </article>
+
+      {/* Σχετικά Άρθρα */}
+      <section className="bg-[#F0F4FF] py-12">
+        <div className="container max-w-3xl mx-auto px-4">
+          <h2 className="text-lg font-bold text-[#111315] mb-6">Διαβάστε Επίσης</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link href="/el/blog/pos-na-vretheite-google-kypros"
+              className="group block bg-white rounded-2xl overflow-hidden border border-[#E8EAF0] hover:border-[#5B8CFF] transition-colors shadow-sm">
+              <div className="h-36 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=600&q=80" alt="Google SEO Κύπρος"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              </div>
+              <div className="p-4">
+                <span className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">SEO</span>
+                <h3 className="mt-1 text-sm font-bold text-[#111315] leading-snug group-hover:text-[#5B8CFF] transition-colors">Πώς να Βρεθείτε στη Google ως Τοπική Επιχείρηση στην Κύπρο</h3>
+                <p className="mt-1 text-xs text-[#5B6472]">5 λεπτά</p>
+              </div>
+            </Link>
+            <Link href="/el/blog/posso-kostizei-istoselidha-kypros"
+              className="group block bg-white rounded-2xl overflow-hidden border border-[#E8EAF0] hover:border-[#5B8CFF] transition-colors shadow-sm">
+              <div className="h-36 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Κόστος ιστοσελίδας Κύπρος"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              </div>
+              <div className="p-4">
+                <span className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Web Design</span>
+                <h3 className="mt-1 text-sm font-bold text-[#111315] leading-snug group-hover:text-[#5B8CFF] transition-colors">Πόσο Κοστίζει μια Ιστοσελίδα στην Κύπρο;</h3>
+                <p className="mt-1 text-xs text-[#5B6472]">6 λεπτά</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

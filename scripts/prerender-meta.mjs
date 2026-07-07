@@ -60,6 +60,18 @@ const BLOG_POSTS = [
     description: "Wix or a professional web designer? We give you an honest, no-jargon answer for small business owners in Cyprus - and explain why the right choice depends on where you are in your business journey.",
     elSlug: "wix-vs-epaggelmatias-web-designer-kypros",
   },
+  {
+    slug: "web-design-greece-guide-2026",
+    title: "Web Design Greece Guide 2026 | D&M Labs",
+    description: "Everything Greek businesses need to know about professional web design in 2026. Costs, timelines, what to look for, and how to get found on Google.",
+    elSlug: "web-design-ellada-odigos-2026",
+  },
+  {
+    slug: "geo-get-found-by-chatgpt-cyprus",
+    title: "GEO: How to Get Found by ChatGPT and AI Search | D&M Labs",
+    description: "SEO is no longer enough. Learn what Generative Engine Optimization (GEO) is and why Cyprus businesses need it to get found by ChatGPT, Perplexity, and Google AI.",
+    elSlug: "geo-vrethite-apo-chatgpt-kypros",
+  },
 ];
 
 // ─── English Static Routes ────────────────────────────────────────────────────
@@ -142,6 +154,16 @@ const EN_STATIC_ROUTES = [
     title: "Web Design Crete | Professional Websites from €299 | D&M Labs",
     description: "Professional web design for small businesses across Crete - Heraklion, Chania, Rethymno and beyond. Custom websites from €299, delivered in 5-14 days.",
     elPath: "/el/web-design-crete",
+  },
+  {
+    path: "/web-design-paphos",
+    title: "Web Design Paphos | Professional Websites from €299 | D&M Labs",
+    description: "Professional web design for businesses in Paphos, Cyprus. Custom websites built in 5-14 days from €299. Mobile-first, SEO-optimised, no hidden fees.",
+  },
+  {
+    path: "/web-design-restaurants-cyprus",
+    title: "Restaurant Website Design Cyprus | D&M Labs",
+    description: "Professional website design for restaurants in Cyprus. Online menus, reservations, Google visibility. Starting from €299.",
   },
   {
     path: "/privacy",
@@ -299,6 +321,18 @@ const EL_STATIC_ROUTES = [
     title: "Γιατί Κάθε Εστιατόριο στην Κύπρο Χρειάζεται Ιστοσελίδα | D&M Labs",
     description: "Το Facebook δεν αρκεί για εστιατόριο στην Κύπρο. Δείτε τι χάνετε χωρίς επαγγελματική ιστοσελίδα.",
     enPath: "/blog/restaurant-website-design-cyprus",
+  },
+  {
+    path: "/el/blog/web-design-ellada-odigos-2026",
+    title: "Οδηγός Web Design Ελλάδα 2026 | D&M Labs",
+    description: "Όλα όσα πρέπει να γνωρίζουν οι ελληνικές επιχειρήσεις για επαγγελματική κατασκευή ιστοσελίδας το 2026.",
+    enPath: "/blog/web-design-greece-guide-2026",
+  },
+  {
+    path: "/el/blog/geo-vrethite-apo-chatgpt-kypros",
+    title: "GEO: Πώς να Βρεθείτε από το ChatGPT | D&M Labs",
+    description: "Το SEO δεν αρκεί πλέον. Μάθετε τι είναι το GEO και γιατί οι επιχειρήσεις στην Κύπρο χρειάζονται να εμφανίζονται στο ChatGPT και στο Google AI.",
+    enPath: "/blog/geo-get-found-by-chatgpt-cyprus",
   },
   {
     path: "/el/examples",

@@ -81,9 +81,32 @@ export default function WebDesignThessaloniki() {
     script.type = "application/ld+json";
     script.textContent = JSON.stringify(schemaMarkup);
     document.head.appendChild(script);
+
+    // Inject FAQPage schema
+    const existingFaq = document.getElementById("schema-thessaloniki-faq");
+    if (existingFaq) existingFaq.remove();
+    const faqScript = document.createElement("script");
+    faqScript.id = "schema-thessaloniki-faq";
+    faqScript.type = "application/ld+json";
+    faqScript.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    });
+    document.head.appendChild(faqScript);
+
     return () => {
       const s = document.getElementById("schema-thessaloniki");
       if (s) s.remove();
+      const sf = document.getElementById("schema-thessaloniki-faq");
+      if (sf) sf.remove();
     };
   }, []);
 

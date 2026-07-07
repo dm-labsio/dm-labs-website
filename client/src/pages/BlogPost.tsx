@@ -6,7 +6,7 @@
 import { useEffect } from "react";
 import { Link, useParams, useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
-import { getPostBySlug } from "@/data/blogPosts";
+import { getPostBySlug, POSTS } from "@/data/blogPosts";
 import { ArrowLeft, Clock, Tag, Calendar } from "lucide-react";
 import AnimateIn from "@/components/AnimateIn";
 
@@ -140,6 +140,43 @@ export default function BlogPost() {
           </div>
         </div>
       </section>
+
+      {/* Related Articles */}
+      {(() => {
+        const related = POSTS.filter(
+          (p) => p.slug !== post.slug && p.category === post.category
+        ).slice(0, 2);
+        const fallback = related.length < 2
+          ? POSTS.filter((p) => p.slug !== post.slug && !related.includes(p)).slice(0, 2 - related.length)
+          : [];
+        const shown = [...related, ...fallback].slice(0, 2);
+        if (shown.length === 0) return null;
+        return (
+          <section className="bg-[#F6F6F4] py-12 sm:py-16">
+            <div className="container">
+              <div className="max-w-2xl mx-auto">
+                <h2 className="text-lg font-bold text-[#111315] mb-6">Further Reading</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {shown.map((rel) => (
+                    <Link key={rel.slug} href={`/blog/${rel.slug}`}
+                      className="group block bg-white rounded-2xl overflow-hidden border border-[#E8EAF0] hover:border-[#5B8CFF] transition-colors shadow-sm">
+                      <div className="h-36 overflow-hidden">
+                        <img src={rel.coverImage} alt={rel.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="p-4">
+                        <span className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">{rel.category}</span>
+                        <h3 className="mt-1 text-sm font-bold text-[#111315] leading-snug group-hover:text-[#5B8CFF] transition-colors line-clamp-2">{rel.title}</h3>
+                        <p className="mt-1 text-xs text-[#5B6472]">{rel.readTime}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
     </>
   );
 }
