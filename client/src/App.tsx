@@ -49,7 +49,6 @@ import WebDesignCreteEl from "./pages/el/WebDesignCreteEl";
 import WebDesignLimassol_El from "./pages/el/WebDesignLimassol";
 import WebDesignNicosia_El from "./pages/el/WebDesignNicosia";
 import WebDesignThessaloniki_El from "./pages/el/WebDesignThessaloniki";
-
 // ── Greek Blog Posts ──
 import WixVsDesignerEl from "./pages/el/blog/WixVsDesignerEl";
 import WebsiteCostEl from "./pages/el/blog/WebsiteCostEl";
@@ -69,6 +68,7 @@ function GlobalSEO() {
 }
 
 function MainRouter() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Layout>
       <GlobalSEO />
