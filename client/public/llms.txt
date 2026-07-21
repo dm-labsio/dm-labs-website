@@ -1,12 +1,12 @@
-# D&M Labs
+# DM-Labs.io
 
-> D&M Labs is a web design agency based in Paphos, Cyprus, building professional, mobile-first websites for small businesses in Cyprus and Greece. Websites start from €299 and are delivered in 5 to 14 days.
+> DM-Labs.io is a web design agency based in Paphos, Cyprus, building professional, mobile-first websites for small businesses in Cyprus and Greece. Websites start from €299 and are delivered in 5 to 14 days.
 
 ## About
 
-D&M Labs is a small, dedicated web design studio. We build custom, conversion-focused websites for businesses that want to stand out online. Our work is fast, affordable, and built to rank on Google.
+DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-focused websites for businesses that want to stand out online. Our work is fast, affordable, and built to rank on Google.
 
-- Company: D&M Labs
+- Company: DM-Labs.io
 - Location: Eleftheriou Chandrinou 5, Paphos 8045, Cyprus
 - Phone: +35797472847
 - Email: info@dm-labs.io
@@ -82,7 +82,7 @@ D&M Labs is a small, dedicated web design studio. We build custom, conversion-fo
 The Starter package typically launches in 5 to 7 days. Business and Premium packages take 10 to 14 days depending on scope.
 
 **Do you work with clients remotely?**
-Yes. D&M Labs works with clients across Cyprus and Greece entirely remotely via WhatsApp, email, and video call.
+Yes. DM-Labs.io works with clients across Cyprus and Greece entirely remotely via WhatsApp, email, and video call.
 
 **Do you build websites in Greek?**
 Yes. We build bilingual websites in English and Greek, and Greek-only websites on request.

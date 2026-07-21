@@ -6,8 +6,8 @@ import { useSEO } from "@/hooks/useSEO";
 
 export default function CookiePolicy() {
   useSEO({
-    title: "Cookie Policy | D&M Labs",
-    description: "Learn how D&M Labs uses cookies on dm-labs.io and how you can manage your preferences.",
+    title: "Cookie Policy | DM-Labs.io",
+    description: "Learn how DM-Labs.io uses cookies on dm-labs.io and how you can manage your preferences.",
     canonicalPath: "/cookie-policy",
   });
   return (
@@ -39,7 +39,7 @@ export default function CookiePolicy() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">2. How We Use Cookies</h2>
-                <p>D&M Labs uses cookies for the following purposes:</p>
+                <p>DM-Labs.io uses cookies for the following purposes:</p>
                 <ul className="list-disc pl-5 space-y-2 mt-3">
                   <li><strong className="text-[#111315]">Essential functionality:</strong> To ensure the website operates correctly, including remembering your cookie consent preferences.</li>
                   <li><strong className="text-[#111315]">Analytics:</strong> With your explicit consent, to understand how visitors interact with our website so we can improve our content and user experience.</li>

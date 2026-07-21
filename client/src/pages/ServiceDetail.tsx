@@ -358,7 +358,7 @@ export default function ServiceDetailPage() {
   const serviceId = params.serviceId || "";
   const service = SERVICES[serviceId];
   useSEO({
-    title: service ? `${service.title} | D&M Labs` : "Service | D&M Labs",
+    title: service ? `${service.title} | DM-Labs.io` : "Service | DM-Labs.io",
     description: service ? service.intro : "Professional web design services in Cyprus. Custom websites built fast, built right.",
   });
 

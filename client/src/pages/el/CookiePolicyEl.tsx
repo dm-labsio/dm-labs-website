@@ -7,8 +7,8 @@ import { useHreflang } from "@/hooks/useHreflang";
 
 export default function CookiePolicyEl() {
   useSEO({
-    title: "Πολιτική Cookies | D&M Labs",
-    description: "Πολιτική cookies της D&M Labs. Πώς χρησιμοποιούμε τα cookies σύμφωνα με τον GDPR.",
+    title: "Πολιτική Cookies | DM-Labs.io",
+    description: "Πολιτική cookies της DM-Labs.io. Πώς χρησιμοποιούμε τα cookies σύμφωνα με τον GDPR.",
     canonicalPath: "/el/cookie-policy"
   });
   useHreflang();
@@ -42,7 +42,7 @@ export default function CookiePolicyEl() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">2. Πώς Χρησιμοποιούμε τα Cookies</h2>
-                <p>Η D&amp;M Labs χρησιμοποιεί cookies για τους ακόλουθους σκοπούς:</p>
+                <p>Η DM-Labs.io χρησιμοποιεί cookies για τους ακόλουθους σκοπούς:</p>
                 <ul className="list-disc pl-5 space-y-2 mt-3">
                   <li><strong className="text-[#111315]">Βασική λειτουργικότητα:</strong> Για να διασφαλίζεται η σωστή λειτουργία της ιστοσελίδας, συμπεριλαμβανομένης της αποθήκευσης των προτιμήσεών σας σχετικά με τα cookies.</li>
                   <li><strong className="text-[#111315]">Ανάλυση:</strong> Με τη ρητή συγκατάθεσή σας, για να κατανοούμε πώς οι επισκέπτες αλληλεπιδρούν με την ιστοσελίδα μας, ώστε να βελτιώνουμε το περιεχόμενο και την εμπειρία χρήστη.</li>

@@ -7,8 +7,8 @@ import { useHreflang } from "@/hooks/useHreflang";
 
 export default function PrivacyEl() {
   useSEO({
-    title: "Πολιτική Απορρήτου | D&M Labs",
-    description: "Πολιτική απορρήτου της D&M Labs. Πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τα προσωπικά σας δεδομένα σύμφωνα με τον GDPR.",
+    title: "Πολιτική Απορρήτου | DM-Labs.io",
+    description: "Πολιτική απορρήτου της DM-Labs.io. Πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τα προσωπικά σας δεδομένα σύμφωνα με τον GDPR.",
     canonicalPath: "/el/privacy"
   });
   useHreflang();
@@ -37,7 +37,7 @@ export default function PrivacyEl() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">1. Υπεύθυνος Επεξεργασίας</h2>
-                <p>Η D&amp;M Labs ("εμείς", "μας") είναι ο υπεύθυνος επεξεργασίας των προσωπικών σας δεδομένων. Παρέχουμε υπηρεσίες σχεδιασμού και ανάπτυξης ιστοσελίδων για επιχειρήσεις. Μπορείτε να επικοινωνήσετε μαζί μας στο <a href="mailto:info@dm-labs.io" className="text-[#5B8CFF] hover:underline">info@dm-labs.io</a> ή μέσω WhatsApp στο +357 97472847.</p>
+                <p>Η DM-Labs.io ("εμείς", "μας") είναι ο υπεύθυνος επεξεργασίας των προσωπικών σας δεδομένων. Παρέχουμε υπηρεσίες σχεδιασμού και ανάπτυξης ιστοσελίδων για επιχειρήσεις. Μπορείτε να επικοινωνήσετε μαζί μας στο <a href="mailto:info@dm-labs.io" className="text-[#5B8CFF] hover:underline">info@dm-labs.io</a> ή μέσω WhatsApp στο +357 97472847.</p>
               </div>
 
               <div>

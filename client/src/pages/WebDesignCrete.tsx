@@ -6,18 +6,18 @@ import { useSEO } from "@/hooks/useSEO";
 // Primary keyword: "web design Crete"
 // Secondary: "website for small business Crete", "κατασκευή ιστοσελίδας Κρήτη"
 // Tertiary: "web design Heraklion", "web design Chania", "website Crete price"
-// Design: matches D&M Labs site style - light bg, brand gradient accents, clean typography
+// Design: matches DM-Labs.io site style - light bg, brand gradient accents, clean typography
 
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "D&M Labs",
+  "name": "DM-Labs.io",
   "url": "https://dm-labs.io",
   "telephone": "+35797472847",
   "email": "info@dm-labs.io",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Eleftheriou Chandrinou 5",
+    "streetAddress": "Eleftheriou Chandrinou",
     "addressLocality": "Paphos",
     "postalCode": "8045",
     "addressCountry": "CY"
@@ -39,7 +39,7 @@ const schemaMarkup = {
     },
     "geoRadius": "150000"
   },
-  "description": "D&M Labs is a remote web design studio building professional, mobile-first, SEO-optimised websites for small businesses across Crete - Heraklion, Chania, Rethymno, and beyond. Websites from €299, delivered in 5-14 days.",
+  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for small businesses across Crete - Heraklion, Chania, Rethymno, and beyond. Websites from €299, delivered in 5-14 days.",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Bank Transfer, PayPal",
@@ -52,11 +52,11 @@ const schemaMarkup = {
 const faqs = [
   {
     q: "How much does a website cost for a business in Crete?",
-    a: "Our packages start from €299 for a Starter site - a fully custom, mobile-responsive website with SEO setup, a contact form, WhatsApp button, and everything your business needs to go live. The Business package is €399 and includes up to 5 pages, booking forms, Google Maps integration, and stronger SEO. The Premium package is €699 and includes up to 7 pages, a full blog setup, pop-up, and 5 SEO articles. All prices are one-time fees with no monthly charges."
+    a: "Our packages start from €299 for a Launch Website — a fully custom, mobile-responsive website with SEO setup, a contact form, and everything your business needs to go live. The Growth Website is €749 and includes up to 4 pages, contact form, Google Maps, and basic SEO. The Pro Website is €1,499 and includes up to 7 pages, full SEO structure, and blog setup. All prices are one-time fees with no monthly charges."
   },
   {
     q: "Do you work with businesses in Crete remotely?",
-    a: "Yes, entirely. D&M Labs works with clients across Crete - Heraklion, Chania, Rethymno, Agios Nikolaos, and everywhere in between - without any need for in-person meetings. The full process is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits, and it means we can move quickly from brief to launch."
+    a: "Yes, entirely. DM-Labs.io works with clients across Crete - Heraklion, Chania, Rethymno, Agios Nikolaos, and everywhere in between - without any need for in-person meetings. The full process is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits, and it means we can move quickly from brief to launch."
   },
   {
     q: "Can you build a website in Greek for my Cretan business?",
@@ -64,7 +64,7 @@ const faqs = [
   },
   {
     q: "How long does it take to build a website for a business in Crete?",
-    a: "The Starter package typically launches within 5 to 7 days from the moment we have your content and feedback. The Business and Premium packages take 10 to 14 days depending on the number of pages and features. We keep you updated at every stage and do not disappear between milestones."
+    a: "The Launch Website typically goes live within 5 to 7 days from the moment we have your content and feedback. The Growth and Pro packages take 7 to 14 days depending on the number of pages and features. We keep you updated at every stage and do not disappear between milestones."
   },
   {
     q: "My business depends on tourism. Can you build a website that attracts international visitors?",
@@ -123,7 +123,7 @@ const industries = [
 
 export default function WebDesignCrete() {
   useSEO({
-    title: "Web Design Crete | Professional Websites from €299 | D&M Labs",
+    title: "Web Design Crete | Professional Websites from €299 | DM-Labs.io",
     description: "Professional web design for small businesses across Crete - Heraklion, Chania, Rethymno and beyond. Custom websites from €299, delivered in 5-14 days. Mobile-first, SEO-ready, no hidden fees.",
     canonicalPath: "/web-design-crete"
   });
@@ -158,7 +158,7 @@ export default function WebDesignCrete() {
             </span>
           </h1>
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-6 leading-relaxed">
-            D&M Labs builds professional, fast, and mobile-first websites for small businesses across Crete - from Heraklion and Chania to Rethymno, Agios Nikolaos, and every village in between. Starting from €299, delivered in 5 to 14 days.
+            DM-Labs.io builds professional, fast, and mobile-first websites for small businesses across Crete - from Heraklion and Chania to Rethymno, Agios Nikolaos, and every village in between. Starting from €299, delivered in 5 to 14 days.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -258,20 +258,20 @@ export default function WebDesignCrete() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               {
-                name: "Starter",
+                name: "Launch Website",
                 price: "€299",
                 desc: "A clean, professional branded page with mobile-responsive design, WhatsApp button, social links, accessibility widget, and 2 revisions. Live in 5-7 days.",
                 highlight: false
               },
               {
-                name: "Business",
-                price: "€399",
+                name: "Growth Website",
+                price: "€749",
                 desc: "Up to 5 pages with contact and booking forms, Google Maps, reviews widget, testimonials, SEO setup, and speed optimisation. Live in 7-10 days.",
                 highlight: true
               },
               {
-                name: "Premium",
-                price: "€699",
+                name: "Pro Website",
+                price: "€1,499",
                 desc: "Up to 7 pages with custom design and animations, gallery, 5 SEO blog articles, full meta and SEO structure, pop-up, and 5 revisions. Live in 10-14 days.",
                 highlight: false
               }
@@ -309,10 +309,10 @@ export default function WebDesignCrete() {
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-6">
-            Why Crete Businesses Choose D&M Labs
+            Why Crete Businesses Choose DM-Labs.io
           </h2>
           <p className="text-[#5B6472] leading-relaxed mb-8">
-            D&M Labs is a remote web design studio with deep roots in the Greek and Cypriot market. We work with businesses across Crete entirely online - no office visits, no delays. The full process, from the first conversation to your website going live, is managed by us so you can focus on running your business.
+            DM-Labs.io is a remote web design studio with deep roots in the Greek and Cypriot market. We work with businesses across Crete entirely online - no office visits, no delays. The full process, from the first conversation to your website going live, is managed by us so you can focus on running your business.
           </p>
 
           <figure className="rounded-2xl overflow-hidden shadow-sm mb-10 border border-[#E8EAF0]">

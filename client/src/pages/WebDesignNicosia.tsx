@@ -12,8 +12,8 @@ import AnimateIn from "@/components/AnimateIn";
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "D&M Labs",
-  "description": "D&M Labs designs and builds professional websites for businesses in Nicosia and across Cyprus. Mobile-first, SEO-optimised, delivered in 5-14 days.",
+  "name": "DM-Labs.io",
+  "description": "DM-Labs.io designs and builds professional websites for businesses in Nicosia and across Cyprus. Mobile-first, SEO-optimised, delivered in 5-14 days.",
   "url": "https://dm-labs.io/web-design-nicosia",
   "logo": "https://dm-labs.io/logo.png",
   "image": "https://dm-labs.io/og-image.png",
@@ -21,7 +21,9 @@ const schemaMarkup = {
   "email": "info@dm-labs.io",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Nicosia",
+    "streetAddress": "Eleftheriou Chandrinou",
+    "postalCode": "8045",
+    "addressLocality": "Paphos",
     "addressCountry": "CY"
   },
   "areaServed": [
@@ -44,11 +46,11 @@ const schemaMarkup = {
 const faqs = [
   {
     q: "How much does a website cost for a Nicosia business?",
-    a: "Our packages start from €249 for a Starter site — a fully custom, mobile-responsive website with SEO setup, a contact form, and everything needed to go live. The Business package starts from €399 and the Premium from €699. We always recommend a free consultation first so you get an accurate quote with no surprises."
+    a: "Our packages start from €299 for a Launch Website — a fully custom, mobile-responsive website with SEO setup and everything needed to go live. The Growth Website is €749 and the Pro Website €1,499. We always recommend a free consultation first so you get an accurate quote with no surprises."
   },
   {
     q: "Do you work with businesses in Nicosia remotely?",
-    a: "Yes, entirely. D&M Labs works with clients across Cyprus without any need for in-person meetings. The full process — initial brief, design, revisions, and launch — is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits."
+    a: "Yes, entirely. DM-Labs.io works with clients across Cyprus without any need for in-person meetings. The full process — initial brief, design, revisions, and launch — is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits."
   },
   {
     q: "Can you build a website in Greek and English?",
@@ -56,7 +58,7 @@ const faqs = [
   },
   {
     q: "How long does it take to build a website for a Nicosia business?",
-    a: "The Starter package typically launches within 5 to 7 days from the moment we have your content and feedback. The Business and Premium packages take 10 to 14 days depending on the number of pages and any custom features involved. We keep you updated throughout and do not disappear between milestones."
+    a: "The Launch Website typically goes live within 5 to 7 days from the moment we have your content and feedback. The Growth and Pro packages take 7 to 14 days depending on the number of pages and any custom features involved. We keep you updated throughout and do not disappear between milestones."
   }
 ];
 
@@ -71,8 +73,8 @@ const industries = [
 
 export default function WebDesignNicosia() {
   useSEO({
-    title: "Web Design Nicosia | Professional Websites from €249 | D&M Labs",
-    description: "Professional web design for businesses in Nicosia, Cyprus. Custom websites built in 5-14 days from €249. Mobile-first, SEO-optimised, no hidden fees. Free consultation.",
+    title: "Web Design Nicosia | Professional Websites from €299 | DM-Labs.io",
+    description: "Professional web design for businesses in Nicosia, Cyprus. Custom websites built in 5-14 days from €299. Mobile-first, SEO-optimised, no hidden fees. Free consultation.",
     canonicalPath: "/web-design-nicosia"
   });
 
@@ -107,7 +109,7 @@ export default function WebDesignNicosia() {
               </span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-              D&M Labs is a web design studio helping businesses in Nicosia build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites — starting from €249 — so your business stands out in Cyprus's capital city.
+              DM-Labs.io is a web design studio helping businesses in Nicosia build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites — starting from €299 — so your business stands out in Cyprus's capital city.
             </p>
             <p className="text-sm text-[#9CA3AF] mb-8">
               Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
@@ -142,7 +144,7 @@ export default function WebDesignNicosia() {
               A slow, outdated, or non-existent website is not just a missed opportunity — it actively loses you business. Studies consistently show that over 75% of users judge a company's credibility based on its website design. In a market as professional as Nicosia, first impressions are everything.
             </p>
             <p className="text-[#5B6472] leading-relaxed">
-              D&M Labs builds websites that are fast, mobile-first, and optimised for Google from day one. Whether you are a law firm on Makarios Avenue, a restaurant in the old city, or a clinic in Strovolos, we build the kind of website that converts visitors into clients.
+              DM-Labs.io builds websites that are fast, mobile-first, and optimised for Google from day one. Whether you are a law firm on Makarios Avenue, a restaurant in the old city, or a clinic in Strovolos, we build the kind of website that converts visitors into clients.
             </p>
           </AnimateIn>
         </div>
@@ -187,24 +189,24 @@ export default function WebDesignNicosia() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               {
-                name: "Starter",
-                price: "€249",
-                desc: "Perfect for sole traders, freelancers, and small businesses that need a clean, professional online presence.",
-                features: ["Up to 5 pages", "Mobile-first design", "Contact form", "Basic SEO setup", "Google Maps integration", "Delivered in 5-7 days"],
+                name: "Launch Website",
+                price: "€299",
+                desc: "A lean online presence for a new business that needs to launch clearly and professionally.",
+                features: ["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"],
                 highlight: false
               },
               {
-                name: "Business",
-                price: "€399",
-                desc: "Ideal for established businesses in Nicosia that need more content, more pages, and stronger SEO foundations.",
-                features: ["Up to 10 pages", "Advanced SEO setup", "Blog or news section", "WhatsApp chat button", "Analytics integration", "Delivered in 7-10 days"],
+                name: "Growth Website",
+                price: "€749",
+                desc: "A conversion-focused site for a business ready to be found, trusted, and contacted online.",
+                features: ["Up to 4 pages", "Contact form", "Google Maps and reviews", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"],
                 highlight: true
               },
               {
-                name: "Premium",
-                price: "€699",
-                desc: "For businesses that want a fully custom, feature-rich website with booking systems, multilingual content, or e-commerce.",
-                features: ["Unlimited pages", "Booking / enquiry system", "Bilingual (Greek + English)", "Custom animations", "Priority support", "Delivered in 10-14 days"],
+                name: "Pro Website",
+                price: "€1,499",
+                desc: "For a more complete digital presence with richer content, motion, and stronger search foundations.",
+                features: ["Up to 7 pages", "Gallery or portfolio", "Full SEO structure", "Blog setup or visual pack", "4 revision rounds"],
                 highlight: false
               }
             ].map((pkg) => (
@@ -241,10 +243,10 @@ export default function WebDesignNicosia() {
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
             <h2 className="text-3xl font-bold text-[#111315] mb-4">
-              Why Nicosia Businesses Choose D&M Labs
+              Why Nicosia Businesses Choose DM-Labs.io
             </h2>
             <p className="text-[#5B6472] leading-relaxed mb-8">
-              D&M Labs is a remote web design studio. We work with businesses across Cyprus — from Nicosia and Limassol to smaller towns — entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
+              DM-Labs.io is a remote web design studio. We work with businesses across Cyprus — from Nicosia and Limassol to smaller towns — entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -307,7 +309,7 @@ export default function WebDesignNicosia() {
               Also Serving Other Cities
             </h2>
             <p className="text-[#5B6472] mb-6 leading-relaxed">
-              D&M Labs works with businesses across Cyprus and beyond. We also have dedicated pages for other cities we serve:
+              DM-Labs.io works with businesses across Cyprus and beyond. We also have dedicated pages for other cities we serve:
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/web-design-limassol">

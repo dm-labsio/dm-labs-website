@@ -159,7 +159,7 @@ const TESTIMONIALS = [
   {
     name: "Sophia L.",
     role: "Ιδιοκτήτρια Σαλονιού Ομορφιάς",
-    text: "Ήμουν ανήσυχη για την κατασκευή ιστοσελίδας, αλλά η D&M Labs έκανε όλη τη διαδικασία εντελώς άνετη και χωρίς άγχος. Ανέλαβαν τα πάντα και το αποτέλεσμα είναι εκπληκτικό. Άξιζε κάθε σεντ.",
+    text: "Ήμουν ανήσυχη για την κατασκευή ιστοσελίδας, αλλά η DM-Labs.io έκανε όλη τη διαδικασία εντελώς άνετη και χωρίς άγχος. Ανέλαβαν τα πάντα και το αποτέλεσμα είναι εκπληκτικό. Άξιζε κάθε σεντ.",
     rating: 5,
     initial: "S",
   },
@@ -167,8 +167,8 @@ const TESTIMONIALS = [
 
 export default function HomeElPage() {
   useSEO({
-    title: "D&M Labs | Επαγγελματικός Σχεδιασμός Ιστοσελίδων από €299",
-    description: "Η D&M Labs κατασκευάζει custom, mobile-first ιστοσελίδες για επιχειρήσεις. Γρήγορη παράδοση, έτοιμες για SEO, από €299.",
+    title: "DM-Labs.io | Επαγγελματικός Σχεδιασμός Ιστοσελίδων από €299",
+    description: "Η DM-Labs.io κατασκευάζει custom, mobile-first ιστοσελίδες για επιχειρήσεις. Γρήγορη παράδοση, έτοιμες για SEO, από €299.",
   });
   return (
     <>
@@ -236,7 +236,7 @@ export default function HomeElPage() {
               <div className="animate-float-slow">
                 <img
                   src={HERO_DEVICES}
-                  alt="D&M Labs website preview on laptop and mobile"
+                  alt="DM-Labs.io website preview on laptop and mobile"
                   className="w-full max-w-[260px] sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl drop-shadow-2xl"
                 />
               </div>
@@ -741,7 +741,7 @@ export default function HomeElPage() {
                   <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
                     <img
                       src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                      alt="Anastacia B. - Creative Director and AI Specialist at D&M Labs"
+                      alt="Anastacia B. - Creative Director and AI Specialist at DM-Labs.io"
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{ objectPosition: 'center top' }}
                     />
@@ -766,7 +766,7 @@ export default function HomeElPage() {
                   <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px', minHeight: '240px', maxHeight: '280px' }}>
                     <img
                       src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                      alt="Anastacia B. - Creative Director and AI Specialist at D&M Labs"
+                      alt="Anastacia B. - Creative Director and AI Specialist at DM-Labs.io"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       style={{ objectPosition: 'top center' }}
                     />
@@ -798,7 +798,7 @@ export default function HomeElPage() {
                   <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
                     <img
                       src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                      alt="Tom B. - Technical Director and SEO Expert at D&M Labs"
+                      alt="Tom B. - Technical Director and SEO Expert at DM-Labs.io"
                       className="absolute inset-0 w-full h-full object-cover object-top"
                     />
                     <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
@@ -822,7 +822,7 @@ export default function HomeElPage() {
                   <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px', maxHeight: '280px' }}>
                     <img
                       src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                      alt="Tom B. - Technical Director & SEO Expert at D&M Labs"
+                      alt="Tom B. - Technical Director & SEO Expert at DM-Labs.io"
                       className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-[#F8FAFF]" />

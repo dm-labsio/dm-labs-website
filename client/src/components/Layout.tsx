@@ -361,7 +361,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Bottom Bar */}
           <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-[#64748B]">
-              &copy; {new Date().getFullYear()} D&amp;M Labs. {isGreek ? "Με επιφύλαξη παντός δικαιώματος." : "All rights reserved."}
+              &copy; {new Date().getFullYear()} DM-Labs.io. {isGreek ? "Με επιφύλαξη παντός δικαιώματος." : "All rights reserved."}
             </p>
             <p className="text-xs text-[#64748B]">
               {isGreek ? "Σχεδιασμένο στην Ευρώπη, παραδίδεται παγκοσμίως." : "Crafted in Europe, delivered worldwide."}

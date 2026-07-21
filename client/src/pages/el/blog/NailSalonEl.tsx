@@ -4,7 +4,7 @@ import { useHreflang } from "@/hooks/useHreflang";
 
 export default function NailSalonEl() {
   useSEO({
-    title: "Ιστοσελίδα για Nail Salon και Ομορφιά Studio στην Κύπρο | D&M Labs",
+    title: "Ιστοσελίδα για Nail Salon και Ομορφιά Studio στην Κύπρο | DM-Labs.io",
     description: "Τι χρειάζεται η ιστοσελίδα ενός nail salon ή beauty studio στην Κύπρο για να φέρνει νέους πελάτες. Πρακτικός οδηγός.",
     canonicalPath: "/el/blog/istoselidha-nail-salon-beauty-studio-kypros"
   });

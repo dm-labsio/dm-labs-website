@@ -5,7 +5,7 @@ import { useHreflang } from "@/hooks/useHreflang";
 // Primary keyword: "web design Ελλάδα", "κατασκευή ιστοσελίδας Ελλάδα"
 export default function WebDesignGreeceEl() {
   useSEO({
-    title: "Κατασκευή Ιστοσελίδας στην Ελλάδα: Πλήρης Οδηγός 2026 | D&M Labs",
+    title: "Κατασκευή Ιστοσελίδας στην Ελλάδα: Πλήρης Οδηγός 2026 | DM-Labs.io",
     description: "Όλα όσα χρειάζεται να ξέρει μια ελληνική επιχείρηση για την κατασκευή ιστοσελίδας το 2026 — κόστος, τι να ζητήσετε από έναν web designer, και πώς να βρεθείτε στη Google.",
     canonicalPath: "/el/blog/web-design-ellada-odigos-2026",
   });
@@ -86,7 +86,7 @@ export default function WebDesignGreeceEl() {
                   <tr><td className="px-4 py-3">DIY (Wix, Squarespace)</td><td className="px-4 py-3">€10–€30/μήνα</td><td className="px-4 py-3">Template, περιορισμένο SEO, branding πλατφόρμας</td></tr>
                   <tr><td className="px-4 py-3">Έλληνας freelancer</td><td className="px-4 py-3">€300–€2.000</td><td className="px-4 py-3">Μεγάλη διακύμανση ποιότητας, περιορισμένη υποστήριξη</td></tr>
                   <tr><td className="px-4 py-3">Τοπικό ελληνικό γραφείο</td><td className="px-4 py-3">€1.500–€8.000+</td><td className="px-4 py-3">Custom σχεδιασμός, ομάδα, υψηλό overhead</td></tr>
-                  <tr><td className="px-4 py-3 font-semibold text-[#5B8CFF]">D&M Labs</td><td className="px-4 py-3 font-semibold">€299–€699</td><td className="px-4 py-3">Ποιότητα agency, διαφανείς τιμές, γρήγορη παράδοση</td></tr>
+                  <tr><td className="px-4 py-3 font-semibold text-[#5B8CFF]">DM-Labs.io</td><td className="px-4 py-3 font-semibold">€299–€699</td><td className="px-4 py-3">Ποιότητα agency, διαφανείς τιμές, γρήγορη παράδοση</td></tr>
                 </tbody>
               </table>
             </div>
@@ -114,7 +114,7 @@ export default function WebDesignGreeceEl() {
               Για τις περισσότερες επιχειρήσεις στην Ελλάδα, η απάντηση είναι ναι — ειδικά αν εξυπηρετείτε τουρίστες, expats ή διεθνείς πελάτες. Μια δίγλωσση ιστοσελίδα (ελληνικά και αγγλικά) διπλασιάζει το δυνητικό κοινό σας και σηματοδοτεί επαγγελματισμό στους διεθνείς επισκέπτες.
             </p>
             <p className="leading-relaxed">
-              Το κλειδί είναι να το κάνετε σωστά. Μια δίγλωσση ιστοσελίδα δεν είναι απλώς μια μεταφρασμένη εκδοχή της ίδιας σελίδας. Χρειάζεται ξεχωριστά URLs για κάθε γλώσσα, σωστά <code>hreflang</code> tags ώστε η Google να ξέρει ποια εκδοχή να εμφανίσει σε ποιον χρήστη, και περιεχόμενο που διαβάζεται φυσικά και στις δύο γλώσσες. Στη D&M Labs, κάθε ιστοσελίδα που κατασκευάζουμε είναι πλήρως δίγλωσση από προεπιλογή.
+              Το κλειδί είναι να το κάνετε σωστά. Μια δίγλωσση ιστοσελίδα δεν είναι απλώς μια μεταφρασμένη εκδοχή της ίδιας σελίδας. Χρειάζεται ξεχωριστά URLs για κάθε γλώσσα, σωστά <code>hreflang</code> tags ώστε η Google να ξέρει ποια εκδοχή να εμφανίσει σε ποιον χρήστη, και περιεχόμενο που διαβάζεται φυσικά και στις δύο γλώσσες. Στη DM-Labs.io, κάθε ιστοσελίδα που κατασκευάζουμε είναι πλήρως δίγλωσση από προεπιλογή.
             </p>
           </section>
 
@@ -133,7 +133,7 @@ export default function WebDesignGreeceEl() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#111315] mb-3">Πώς η D&M Labs Συνεργάζεται με Ελληνικές Επιχειρήσεις</h2>
+            <h2 className="text-2xl font-bold text-[#111315] mb-3">Πώς η DM-Labs.io Συνεργάζεται με Ελληνικές Επιχειρήσεις</h2>
             <p className="leading-relaxed mb-4">
               Είμαστε ένα γραφείο web design που συνεργάζεται με επιχειρήσεις σε όλη την Ελλάδα και την Κύπρο. Κατασκευάζουμε επαγγελματικές, γρήγορες, δίγλωσσες ιστοσελίδες που σχεδιάζονται για να βρίσκονται στη Google και να μετατρέπουν επισκέπτες σε πελάτες.
             </p>

@@ -28,7 +28,7 @@ export default function Privacy() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">1. Data Controller</h2>
-                <p>D&M Labs ("we", "us", "our") is the data controller responsible for your personal data. We are a website design and development service for businesses. You can reach us at <a href="mailto:info@dm-labs.io" className="text-[#5B8CFF] hover:underline">info@dm-labs.io</a> or via WhatsApp at +357 97472847.</p>
+                <p>DM-Labs.io ("we", "us", "our") is the data controller responsible for your personal data. We are a website design and development service for businesses. You can reach us at <a href="mailto:info@dm-labs.io" className="text-[#5B8CFF] hover:underline">info@dm-labs.io</a> or via WhatsApp at +357 97472847.</p>
               </div>
 
               <div>

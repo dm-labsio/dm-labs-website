@@ -62,8 +62,8 @@ const steps = [
 
 export default function Process() {
   useSEO({
-    title: "Our Process | How We Build Websites | D&M Labs",
-    description: "From discovery call to launch in 5-14 days. See exactly how D&M Labs designs and builds your website, step by step.",
+    title: "Our Process | How We Build Websites | DM-Labs.io",
+    description: "From discovery call to launch in 5-14 days. See exactly how DM-Labs.io designs and builds your website, step by step.",
   });
   return (
     <>
@@ -146,9 +146,9 @@ export default function Process() {
           <AnimateIn delay={0.2}>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
-                { label: "Starter Website", time: "5-7 days", price: "from €299" },
-                { label: "Business Website", time: "7-10 days", price: "from €399" },
-                { label: "Premium Website", time: "10-14 days", price: "from €699" },
+                { label: "Launch Website", time: "5-7 days", price: "from €299" },
+                { label: "Business Website", time: "7-10 days", price: "from €749" },
+                { label: "Premium Website", time: "10-14 days", price: "from €1,499" },
               ].map((item) => (
                 <div key={item.label} className="dm-card text-center !p-8">
                   <p className="text-3xl font-bold brand-gradient-text mb-2">{item.time}</p>

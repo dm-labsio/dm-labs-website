@@ -62,8 +62,8 @@ const steps = [
 
 export default function ProcessElPage() {
   useSEO({
-    title: "Η Διαδικασία μας | Πώς Κατασκευάζουμε Ιστοσελίδες | D&M Labs",
-    description: "Από την αρχική κλήση μέχρι την κυκλοφορία σε 5-14 μέρες. Δείτε ακριβώς πώς η D&M Labs σχεδιάζει και κατασκευάζει την ιστοσελίδα σας, βήμα προς βήμα.",
+    title: "Η Διαδικασία μας | Πώς Κατασκευάζουμε Ιστοσελίδες | DM-Labs.io",
+    description: "Από την αρχική κλήση μέχρι την κυκλοφορία σε 5-14 μέρες. Δείτε ακριβώς πώς η DM-Labs.io σχεδιάζει και κατασκευάζει την ιστοσελίδα σας, βήμα προς βήμα.",
   });
   return (
     <>
@@ -146,9 +146,9 @@ export default function ProcessElPage() {
           <AnimateIn delay={0.2}>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
-                { label: "Starter Ιστοσελίδα", time: "5-7 μέρες", price: "από €299" },
-                { label: "Business Ιστοσελίδα", time: "7-10 μέρες", price: "από €399" },
-                { label: "Premium Ιστοσελίδα", time: "10-14 μέρες", price: "από €699" },
+                { label: "Launch Website", time: "5-7 μέρες", price: "από €299" },
+                { label: "Business Ιστοσελίδα", time: "7-10 μέρες", price: "από €749" },
+                { label: "Premium Ιστοσελίδα", time: "10-14 μέρες", price: "από €1,499" },
               ].map((item) => (
                 <div key={item.label} className="dm-card text-center !p-8">
                   <p className="text-3xl font-bold brand-gradient-text mb-2">{item.time}</p>

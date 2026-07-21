@@ -15,7 +15,7 @@ const WEB3FORMS_KEY = "bfd3c955-1bc9-4a43-b497-f4c6776db7d1";
 
 export default function ΕπικοινωνίαEl() {
   useSEO({
-    title: "Επικοινωνία D&M Labs | Λάβετε Δωρεάν Προσφορά",
+    title: "Επικοινωνία DM-Labs.io | Λάβετε Δωρεάν Προσφορά",
     description: "Επικοινωνήστε μαζί μας για μια δωρεάν συμβουλευτική. Απαντάμε εντός 24 ωρών. WhatsApp, email ή φόρμα επικοινωνίας.",
   });
   const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
@@ -30,7 +30,7 @@ export default function ΕπικοινωνίαEl() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `Νέο αίτημα από ${form.name}  -  D&M Labs`,
+          subject: `Νέο αίτημα από ${form.name}  -  DM-Labs.io`,
           name: form.name,
           email: form.email,
           business: form.business,

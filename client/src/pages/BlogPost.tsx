@@ -24,8 +24,8 @@ export default function BlogPost() {
 
   // useSEO must be called unconditionally (Rules of Hooks)
   useSEO({
-    title: post ? post.metaTitle : "Article | D&M Labs",
-    description: post ? post.metaDescription : "Read the latest web design insights from D&M Labs.",
+    title: post ? post.metaTitle : "Article | DM-Labs.io",
+    description: post ? post.metaDescription : "Read the latest web design insights from DM-Labs.io.",
     ogImage: post ? post.coverImage : undefined,
     ogType: "article",
     canonicalPath: post ? `/blog/${post.slug}` : undefined,
@@ -47,12 +47,12 @@ export default function BlogPost() {
         "dateModified": post.date,
         "author": {
           "@type": "Organization",
-          "name": "D&M Labs",
+          "name": "DM-Labs.io",
           "url": "https://dm-labs.io"
         },
         "publisher": {
           "@type": "Organization",
-          "name": "D&M Labs",
+          "name": "DM-Labs.io",
           "logo": {
             "@type": "ImageObject",
             "url": "https://dm-labs.io/dmlabs-logo.png"

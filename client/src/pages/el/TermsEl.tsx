@@ -3,8 +3,8 @@ import { useHreflang } from "@/hooks/useHreflang";
 
 export default function TermsEl() {
   useSEO({
-    title: "Όροι Χρήσης | D&M Labs",
-    description: "Όροι χρήσης της ιστοσελίδας D&M Labs.",
+    title: "Όροι Χρήσης | DM-Labs.io",
+    description: "Όροι χρήσης της ιστοσελίδας DM-Labs.io.",
     canonicalPath: "/el/terms"
   });
   useHreflang();
@@ -18,7 +18,7 @@ export default function TermsEl() {
         </p>
         <h2 className="text-xl font-bold text-[#111315] mt-8 mb-3">Υπηρεσίες</h2>
         <p className="text-[#5B6472] mb-4 leading-relaxed">
-          Η D&M Labs παρέχει υπηρεσίες κατασκευής ιστοσελίδων. Οι λεπτομέρειες κάθε έργου συμφωνούνται εγγράφως πριν την έναρξη. Οι τιμές που αναγράφονται στην ιστοσελίδα είναι ενδεικτικές και μπορεί να διαφέρουν ανάλογα με τις ανάγκες του πελάτη.
+          Η DM-Labs.io παρέχει υπηρεσίες κατασκευής ιστοσελίδων. Οι λεπτομέρειες κάθε έργου συμφωνούνται εγγράφως πριν την έναρξη. Οι τιμές που αναγράφονται στην ιστοσελίδα είναι ενδεικτικές και μπορεί να διαφέρουν ανάλογα με τις ανάγκες του πελάτη.
         </p>
         <h2 className="text-xl font-bold text-[#111315] mt-8 mb-3">Πνευματική Ιδιοκτησία</h2>
         <p className="text-[#5B6472] mb-4 leading-relaxed">

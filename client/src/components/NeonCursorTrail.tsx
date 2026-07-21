@@ -8,7 +8,7 @@
    ============================================================ */
 import { useEffect, useRef } from "react";
 
-// D&M Labs brand palette stops: [core R,G,B] and [glow R,G,B]
+// DM-Labs.io brand palette stops: [core R,G,B] and [glow R,G,B]
 const PALETTE_STOPS = [
   { core: [91,  140, 255], glow: [36,  100, 255] }, // blue
   { core: [111, 227, 255], glow: [36,  157, 255] }, // cyan

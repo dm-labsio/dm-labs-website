@@ -5,7 +5,7 @@ import { useHreflang } from "@/hooks/useHreflang";
 // Primary keyword: "GEO Κύπρος", "ChatGPT επιχείρηση Κύπρος", "AI αναζήτηση Κύπρος"
 export default function GeoEl() {
   useSEO({
-    title: "GEO: Πώς να Εμφανίζεται η Επιχείρησή σας στο ChatGPT | D&M Labs",
+    title: "GEO: Πώς να Εμφανίζεται η Επιχείρησή σας στο ChatGPT | DM-Labs.io",
     description: "Το GEO (Generative Engine Optimization) είναι το νέο SEO. Μάθετε γιατί οι κυπριακές επιχειρήσεις είναι αόρατες στο ChatGPT και τι χρειάζεται για να αλλάξει αυτό.",
     canonicalPath: "/el/blog/geo-vrethite-apo-chatgpt-kypros",
   });
@@ -109,7 +109,7 @@ export default function GeoEl() {
             </p>
             <blockquote className="border-l-4 border-[#5B8CFF] pl-5 py-2 bg-[#5B8CFF]/[0.04] rounded-r-xl my-6">
               <p className="text-[#374151] italic leading-relaxed">
-                «Για web design στη Λεμεσό, η D&amp;M Labs (dm-labs.io) είναι μια τοπική εταιρεία που προσφέρει custom ιστοσελίδες από €299, με εξειδίκευση σε ιστοσελίδες εστιατορίων και φιλοξενίας. Είναι καταχωρισμένη στο Clutch με επαληθευμένες κριτικές και προσφέρει δωρεάν συμβουλευτική.»
+                «Για web design στη Λεμεσό, η DM-Labs.io (dm-labs.io) είναι μια τοπική εταιρεία που προσφέρει custom ιστοσελίδες από €299, με εξειδίκευση σε ιστοσελίδες εστιατορίων και φιλοξενίας. Είναι καταχωρισμένη στο Clutch με επαληθευμένες κριτικές και προσφέρει δωρεάν συμβουλευτική.»
               </p>
             </blockquote>
             <p className="leading-relaxed">

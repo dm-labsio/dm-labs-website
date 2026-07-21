@@ -4,12 +4,12 @@ import { useSEO } from "@/hooks/useSEO";
 
 // SEO landing page: /web-design-limassol
 // Target keywords: "web design Λεμεσός", "website design Λεμεσός"
-// Design: matches D&M Labs site style - light bg, brand gradient accents, clean typography
+// Design: matches DM-Labs.io site style - light bg, brand gradient accents, clean typography
 
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "D&M Labs",
+  name: "DM-Labs.io",
   description: "Επαγγελματικό πρακτορείο σχεδιασμού ιστοσελίδων που εξυπηρετεί επιχειρήσεις στη Λεμεσό, Κύπρος. Προσαρμοσμένες ιστοσελίδες από €299.",
   url: "https://dm-labs.io/el/web-design-limassol",
   telephone: "+357-96-000000",
@@ -63,8 +63,8 @@ const faqs = [
 
 export default function WebDesignLimassol() {
   useSEO({
-    title: "Web Design Λεμεσός | Κατασκευή Ιστοσελίδας από €299 | D&M Labs",
-    description: "Η D&M Labs κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λεμεσό από €299. Mobile-first, SEO-ready, γρήγορη παράδοση. Αποκτήστε online παρουσία σήμερα.",
+    title: "Web Design Λεμεσός | Κατασκευή Ιστοσελίδας από €299 | DM-Labs.io",
+    description: "Η DM-Labs.io κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λεμεσό από €299. Mobile-first, SEO-ready, γρήγορη παράδοση. Αποκτήστε online παρουσία σήμερα.",
     canonicalPath: "/el/web-design-limassol",
   });
   useEffect(() => {
@@ -95,7 +95,7 @@ export default function WebDesignLimassol() {
             </span>
           </h1>
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-            Η D&M Labs είναι ένα εξειδικευμένο πρακτορείο web design που βοηθά τις επιχειρήσεις της Λεμεσού να αποκτήσουν μια ισχυρή online παρουσία. Δημιουργούμε γρήγορες, mobile-first και conversion-focused ιστοσελίδες - ξεκινώντας από €299 - ώστε η επιχείρησή σας να ξεχωρίζει σε μια από τις πιο ανταγωνιστικές αγορές της Κύπρου.
+            Η DM-Labs.io είναι ένα εξειδικευμένο πρακτορείο web design που βοηθά τις επιχειρήσεις της Λεμεσού να αποκτήσουν μια ισχυρή online παρουσία. Δημιουργούμε γρήγορες, mobile-first και conversion-focused ιστοσελίδες - ξεκινώντας από €299 - ώστε η επιχείρησή σας να ξεχωρίζει σε μια από τις πιο ανταγωνιστικές αγορές της Κύπρου.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/el/contact">
@@ -187,20 +187,20 @@ export default function WebDesignLimassol() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               {
-                name: "Starter",
+                name: "Launch Website",
                 price: "€299",
                 desc: "Ιδανικό για freelancers και μικρές επιχειρήσεις που χρειάζονται μια καθαρή, επαγγελματική online παρουσία.",
                 highlight: false,
               },
               {
-                name: "Business",
-                price: "€399",
+                name: "Growth Website",
+                price: "€749",
                 desc: "Ιδανικό για καθιερωμένες επιχειρήσεις που θέλουν περισσότερες σελίδες, animations και προχωρημένο SEO.",
                 highlight: true,
               },
               {
-                name: "Premium",
-                price: "€699",
+                name: "Pro Website",
+                price: "€1,499",
                 desc: "Πλήρης ιστοσελίδα με προσαρμοσμένες λειτουργίες, φόρμες κρατήσεων και υποστήριξη κατά προτεραιότητα.",
                 highlight: false,
               },

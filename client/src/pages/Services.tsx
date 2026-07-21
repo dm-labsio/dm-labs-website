@@ -206,16 +206,16 @@ export default function Services() {
             <AnimateIn>
               <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Optional Add-On</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-5">
-                Monthly Maintenance - <span className="brand-gradient-text">from €39/mo</span>
+                Website Care Plans - <span className="brand-gradient-text">from €49/mo</span>
               </h2>
               <p className="text-lg text-[#5B6472] mb-6 leading-relaxed">
-                Keep your website fresh, secure, and performing at its best. Choose the plan that fits your needs.
+                Keep your website fresh, secure, and performing. Choose the plan that fits your needs.
               </p>
               <div className="space-y-5 mb-8">
                 <div className="dm-card !p-5">
-                  <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Essential - €39/month</p>
+                  <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Basic Care — €49/month</p>
                   <ul className="space-y-2">
-                    {["Up to 3 content updates/month", "Text, images, prices & hours", "Hosting & uptime monitoring", "WhatsApp support (48h response)", "Monthly backup"].map((f) => (
+                    {["Hosting monitoring", "Backups and bug fixing", "WhatsApp support", "Up to 5 small content updates per month", "Cancel anytime, no contract"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#5B8CFF] shrink-0 mt-0.5" />{f}
                       </li>
@@ -223,9 +223,9 @@ export default function Services() {
                   </ul>
                 </div>
                 <div className="dm-card !p-5 border-[#8B5CFF]/30">
-                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Premium - €59/month</p>
+                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Complete Care — ongoing content updates</p>
                   <ul className="space-y-2">
-                    {["Content updates", "Priority WhatsApp response", "Monthly performance check", "Seasonal banners & promotions", "New section additions", "Hosting & uptime monitoring", "Monthly backup"].map((f) => (
+                    {["Everything in Basic Care", "Ongoing content updates", "Priority WhatsApp support", "Monthly performance check", "One simple banner or section update each month", "Cancel anytime, no contract"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}
                       </li>
@@ -242,9 +242,9 @@ export default function Services() {
               <div className="dm-card !bg-[#F6F6F4]">
                 <div className="text-center py-8">
                   <div className="flex items-baseline justify-center gap-3 mb-2">
-                    <span className="text-5xl font-bold brand-gradient-text">€39</span>
+                    <span className="text-5xl font-bold brand-gradient-text">€49</span>
                     <span className="text-2xl text-[#5B6472]">or</span>
-                    <span className="text-5xl font-bold brand-gradient-text">€59</span>
+                    <span className="text-5xl font-bold brand-gradient-text">€129</span>
                   </div>
                   <p className="text-lg text-[#5B6472] mb-6">per month</p>
                   <div className="w-16 h-0.5 brand-gradient mx-auto rounded-full mb-6" />

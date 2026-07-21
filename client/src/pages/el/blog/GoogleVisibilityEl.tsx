@@ -4,7 +4,7 @@ import { useHreflang } from "@/hooks/useHreflang";
 
 export default function GoogleVisibilityEl() {
   useSEO({
-    title: "Πώς να Βρεθεί η Επιχείρησή σας στη Google στην Κύπρο | D&M Labs",
+    title: "Πώς να Βρεθεί η Επιχείρησή σας στη Google στην Κύπρο | DM-Labs.io",
     description: "Απλός οδηγός για να εμφανίζεται η επιχείρησή σας στη Google στην Κύπρο. Χωρίς τεχνικές ορολογίες.",
     canonicalPath: "/el/blog/pos-na-vretheite-google-kypros"
   });

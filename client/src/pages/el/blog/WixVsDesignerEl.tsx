@@ -7,7 +7,7 @@ import { useHreflang } from "@/hooks/useHreflang";
 
 export default function WixVsDesignerEl() {
   useSEO({
-    title: "Wix ή Επαγγελματίας Κατασκευή Ιστοσελίδας; Τι Συμφέρει στην Κύπρο | D&M Labs",
+    title: "Wix ή Επαγγελματίας Κατασκευή Ιστοσελίδας; Τι Συμφέρει στην Κύπρο | DM-Labs.io",
     description: "Μια ειλικρινής σύγκριση Wix, WordPress και επαγγελματικής κατασκευής ιστοσελίδας για επιχειρήσεις στην Κύπρο. Πότε συμφέρει το καθένα.",
     canonicalPath: "/el/blog/wix-vs-epaggelmatias-web-designer-kypros"
   });

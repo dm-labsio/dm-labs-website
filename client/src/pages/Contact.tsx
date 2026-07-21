@@ -15,8 +15,8 @@ const WEB3FORMS_KEY = "bfd3c955-1bc9-4a43-b497-f4c6776db7d1";
 
 export default function Contact() {
   useSEO({
-    title: "Contact D&M Labs | Get a Free Website Quote",
-    description: "Get in touch with D&M Labs for a free website consultation. We reply within 24 hours. WhatsApp, email, or contact form.",
+    title: "Contact DM-Labs.io | Get a Free Website Quote",
+    description: "Get in touch with DM-Labs.io for a free website consultation. We reply within 24 hours. WhatsApp, email, or contact form.",
   });
   const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
   const [sending, setSending] = useState(false);
@@ -30,7 +30,7 @@ export default function Contact() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `New enquiry from ${form.name}  -  D&M Labs`,
+          subject: `New enquiry from ${form.name}  -  DM-Labs.io`,
           name: form.name,
           email: form.email,
           business: form.business,

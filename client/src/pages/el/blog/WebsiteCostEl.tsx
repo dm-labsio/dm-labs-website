@@ -7,7 +7,7 @@ import { useHreflang } from "@/hooks/useHreflang";
 
 export default function WebsiteCostEl() {
   useSEO({
-    title: "Πόσο Κοστίζει μια Ιστοσελίδα στην Κύπρο; (Ειλικρινής Οδηγός 2026) | D&M Labs",
+    title: "Πόσο Κοστίζει μια Ιστοσελίδα στην Κύπρο; (Ειλικρινής Οδηγός 2026) | DM-Labs.io",
     description: "Η αλήθεια για τις τιμές κατασκευής ιστοσελίδας στην Κύπρο το 2026. Τι περιλαμβάνεται, τι δεν περιλαμβάνεται και πώς να επιλέξετε σωστά.",
     canonicalPath: "/el/blog/posso-kostizei-istoselidha-kypros"
   });
@@ -78,7 +78,7 @@ export default function WebsiteCostEl() {
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι Περιλαμβάνεται στις Τιμές μας</h2>
             <p className="leading-relaxed mb-4">
-              Στη D&M Labs, οι τιμές μας ξεκινούν από €299 και περιλαμβάνουν:
+              Στη DM-Labs.io, οι τιμές μας ξεκινούν από €299 και περιλαμβάνουν:
             </p>
             <ul className="space-y-2 pl-4">
               <li className="leading-relaxed">Custom σχεδιασμό βάσει της επιχείρησής σας - όχι template</li>

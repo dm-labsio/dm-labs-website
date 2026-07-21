@@ -6,18 +6,18 @@ import { useSEO } from "@/hooks/useSEO";
 // Primary keyword: "web design Thessaloniki"
 // Secondary (GR): "κατασκευή ιστοσελίδας Θεσσαλονίκη"
 // Tertiary (GR, price-intent): "κατασκευή ιστοσελίδας Θεσσαλονίκη τιμές"
-// Design: matches D&M Labs site style - light bg, brand gradient accents, clean typography
+// Design: matches DM-Labs.io site style - light bg, brand gradient accents, clean typography
 
 const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "D&M Labs",
+  "name": "DM-Labs.io",
   "url": "https://dm-labs.io",
   "telephone": "+35797472847",
   "email": "info@dm-labs.io",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Eleftheriou Chandrinou 5",
+    "streetAddress": "Eleftheriou Chandrinou",
     "addressLocality": "Paphos",
     "postalCode": "8045",
     "addressCountry": "CY"
@@ -36,7 +36,7 @@ const schemaMarkup = {
     },
     "geoRadius": "50000"
   },
-  "description": "D&M Labs is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Thessaloniki and across Greece. Websites from €249, delivered in 5-14 days.",
+  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Thessaloniki and across Greece. Websites from €299, delivered in 5-14 days.",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Bank Transfer, PayPal",
@@ -49,11 +49,11 @@ const schemaMarkup = {
 const faqs = [
   {
     q: "How much does web design cost in Thessaloniki?",
-    a: "Our packages for businesses in Thessaloniki start from €249 for a Starter site. That includes a fully custom design, mobile-responsive layout, SEO setup, a contact form, and everything you need to go live. The Business package starts from €399 and the Premium from €699. Pricing depends on the scope of the project, so we always recommend a free consultation first - that way you get an accurate quote with no surprises."
+    a: "Our packages for businesses in Thessaloniki start from €299 for a Launch Website. That includes a fully custom design, mobile-responsive layout, SEO setup, a contact form, and everything you need to go live. The Growth Website is €749 and the Pro Website €1,499. Pricing depends on the scope of the project, so we always recommend a free consultation first - that way you get an accurate quote with no surprises."
   },
   {
     q: "Do you work with businesses in Thessaloniki remotely?",
-    a: "Yes, entirely. D&M Labs works with clients across Greece without any need for in-person meetings. The full process - initial brief, design, revisions, and launch - is handled via WhatsApp, email, and video call. Most of our clients find it more convenient than scheduling office visits, and it means we can move faster. Being remote has never been a barrier to delivering a great result."
+    a: "Yes, entirely. DM-Labs.io works with clients across Greece without any need for in-person meetings. The full process - initial brief, design, revisions, and launch - is handled via WhatsApp, email, and video call. Most of our clients find it more convenient than scheduling office visits, and it means we can move faster. Being remote has never been a barrier to delivering a great result."
   },
   {
     q: "Can you build a website in Greek?",
@@ -61,14 +61,14 @@ const faqs = [
   },
   {
     q: "How long does it take to build a website for a Thessaloniki business?",
-    a: "The Starter package typically launches within 5 to 7 days from the moment we have your content and feedback. The Business and Premium packages take 10 to 14 days depending on the number of pages and any custom features involved. We keep you updated throughout and do not disappear between milestones."
+    a: "The Launch Website typically goes live within 5 to 7 days from the moment we have your content and feedback. The Growth and Pro packages take 7 to 14 days depending on the number of pages and any custom features involved. We keep you updated throughout and do not disappear between milestones."
   }
 ];
 
 export default function WebDesignThessaloniki() {
   useSEO({
-    title: "Web Design Thessaloniki | Professional Websites from €249 | D&M Labs",
-    description: "Professional web design for businesses in Thessaloniki. Custom websites built in 5-14 days from €249. Mobile-first, SEO-optimised, no hidden fees. Get a free consultation.",
+    title: "Web Design Thessaloniki | Professional Websites from €299 | DM-Labs.io",
+    description: "Professional web design for businesses in Thessaloniki. Custom websites built in 5-14 days from €299. Mobile-first, SEO-optimised, no hidden fees. Get a free consultation.",
     canonicalPath: "/web-design-thessaloniki"
   });
 
@@ -125,7 +125,7 @@ export default function WebDesignThessaloniki() {
             </span>
           </h1>
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-            D&M Labs is a remote web design studio helping businesses in Thessaloniki build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites - starting from €249 - so your business stands out in Greece's second-largest city.
+            DM-Labs.io is a remote web design studio helping businesses in Thessaloniki build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites - starting from €299 - so your business stands out in Greece's second-largest city.
           </p>
           <p className="text-sm text-[#9CA3AF] mb-8">
             Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
@@ -223,20 +223,20 @@ export default function WebDesignThessaloniki() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               {
-                name: "Starter",
-                price: "from €249",
+                name: "Launch Website",
+                price: "€299",
                 desc: "Ideal for new businesses that need a clean, professional online presence fast. Everything you need to go live with confidence.",
                 highlight: false
               },
               {
-                name: "Business",
-                price: "from €399",
+                name: "Growth Website",
+                price: "€749",
                 desc: "For established businesses that need a full, conversion-focused website with more pages, stronger SEO, and a polished design.",
                 highlight: true
               },
               {
-                name: "Premium",
-                price: "from €699",
+                name: "Pro Website",
+                price: "€1,499",
                 desc: "For businesses that want a fully custom, feature-rich website with everything included - from custom functionality to priority support.",
                 highlight: false
               }
@@ -270,10 +270,10 @@ export default function WebDesignThessaloniki() {
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-6">
-            Why Thessaloniki Businesses Choose D&M Labs
+            Why Thessaloniki Businesses Choose DM-Labs.io
           </h2>
           <p className="text-[#5B6472] leading-relaxed mb-8">
-            D&M Labs is a remote web design studio. We work with businesses across Greece - from Thessaloniki and Athens to smaller cities and islands - entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
+            DM-Labs.io is a remote web design studio. We work with businesses across Greece - from Thessaloniki and Athens to smaller cities and islands - entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
