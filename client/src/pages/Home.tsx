@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS - Homepage
+   DM-Labs.io - Homepage
    Hero with gradient atmosphere + floating devices
    Sections: Hero, Trust Strip, Template Showcase + Industries, Services, Process, Testimonials, Pricing, Stats, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
@@ -159,7 +159,7 @@ const TESTIMONIALS = [
   {
     name: "Sophia L.",
     role: "Beauty Salon Owner",
-    text: "I was nervous about getting a website built but D&M Labs made it completely stress-free. They handled everything and the result looks incredible. Worth every cent.",
+    text: "I was nervous about getting a website built but DM-Labs.io made it completely stress-free. They handled everything and the result looks incredible. Worth every cent.",
     rating: 5,
     initial: "S",
   },
@@ -167,110 +167,68 @@ const TESTIMONIALS = [
 
 export default function HomePage() {
   useSEO({
-    title: "D&M Labs | Professional Website Design from €299",
-    description: "D&M Labs builds custom, mobile-first websites for businesses. Fast delivery, SEO-ready, starting from €299.",
+    title: "DM-Labs.io | Web Design in Paphos & Cyprus from €299",
+    description: "DM-Labs.io builds custom, mobile-first websites for businesses in Paphos and across Cyprus. Clear scope, SEO foundations, and packages from €299.",
   });
 
-  // LocalBusiness + WebSite JSON-LD schema for GEO & Map Pack signals
+  // Mirrors the static HTML schema and keeps the homepage data accurate after client rendering.
   useEffect(() => {
     const existingSchema = document.getElementById("home-localbusiness-schema");
     if (existingSchema) return;
+    const offers = [
+      { "@type": "Offer", "name": "Launch Website", "description": "1-page landing site, mobile responsive, WhatsApp button, basic SEO, 2 revision rounds.", "price": "299", "priceCurrency": "EUR" },
+      { "@type": "Offer", "name": "Growth Website", "description": "Up to 4 pages, contact form, map, testimonials, basic SEO, Search Console and Analytics setup, 3 revision rounds.", "price": "749", "priceCurrency": "EUR" },
+      { "@type": "Offer", "name": "Pro Website", "description": "Up to 7 pages, gallery, pop-up, scroll animations, full SEO structure, blog setup or a website visual pack, 4 revision rounds.", "price": "1499", "priceCurrency": "EUR" },
+      { "@type": "Offer", "name": "Enterprise / Custom", "description": "Custom scope for integrations, multilingual websites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume.", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "1499", "priceCurrency": "EUR" } }
+    ];
     const schema = {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "LocalBusiness",
-          "@id": "https://dm-labs.io/#localbusiness",
-          "name": "D&M Labs",
-          "alternateName": "DM Labs",
-          "description": "D&M Labs is a professional web design agency serving businesses in Cyprus and Greece. Custom websites from €299, delivered in 7–14 days.",
-          "url": "https://dm-labs.io",
+          "@type": "ProfessionalService",
+          "@id": "https://dm-labs.io/#professionalservice",
+          "name": "DM-Labs.io",
+          "alternateName": "DM-Labs",
+          "description": "DM-Labs.io designs and builds professional, custom websites for businesses in Paphos, across Cyprus, and in Greece. Mobile-first, SEO-ready websites with clear packages from €299.",
+          "url": "https://dm-labs.io/",
           "logo": "https://dm-labs.io/logo.png",
           "image": "https://dm-labs.io/og-image.png",
           "telephone": "+35797472847",
           "email": "info@dm-labs.io",
-          "priceRange": "€€",
+          "priceRange": "€299-€1,499",
           "currenciesAccepted": "EUR",
-          "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+          "paymentAccepted": "Bank Transfer, Credit Card",
+          "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
           "areaServed": [
+            { "@type": "City", "name": "Paphos", "addressCountry": "CY" },
             { "@type": "City", "name": "Limassol", "addressCountry": "CY" },
             { "@type": "City", "name": "Nicosia", "addressCountry": "CY" },
-            { "@type": "City", "name": "Paphos", "addressCountry": "CY" },
             { "@type": "City", "name": "Larnaca", "addressCountry": "CY" },
+            { "@type": "City", "name": "Famagusta", "addressCountry": "CY" },
             { "@type": "Country", "name": "Cyprus" },
             { "@type": "Country", "name": "Greece" }
           ],
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Limassol",
-            "addressCountry": "CY"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "34.6823",
-            "longitude": "33.0464"
-          },
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-              "opens": "09:00",
-              "closes": "18:00"
-            }
-          ],
-          "sameAs": [
-            "https://www.instagram.com/dmlabs.io",
-            "https://www.facebook.com/dmlabs.io"
-          ],
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Web Design Packages",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "name": "Starter Website",
-                "description": "5-page mobile-first website with SEO setup",
-                "price": "299",
-                "priceCurrency": "EUR"
-              },
-              {
-                "@type": "Offer",
-                "name": "Business Website",
-                "description": "Up to 10 pages, blog, contact form, analytics",
-                "price": "399",
-                "priceCurrency": "EUR"
-              },
-              {
-                "@type": "Offer",
-                "name": "Premium Website",
-                "description": "Custom design, e-commerce ready, priority support",
-                "price": "699",
-                "priceCurrency": "EUR"
-              }
-            ]
-          }
+          "serviceType": ["Website Design", "Web Development", "SEO Optimisation", "Website Maintenance"],
+          "sameAs": ["https://www.instagram.com/dm_labs.io/"],
+          "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Website Packages", "itemListElement": offers }
         },
         {
           "@type": "WebSite",
           "@id": "https://dm-labs.io/#website",
-          "url": "https://dm-labs.io",
-          "name": "D&M Labs",
-          "description": "Professional web design agency in Cyprus",
-          "publisher": { "@id": "https://dm-labs.io/#localbusiness" },
+          "url": "https://dm-labs.io/",
+          "name": "DM-Labs.io",
+          "description": "Professional web design services in Paphos and across Cyprus",
+          "publisher": { "@id": "https://dm-labs.io/#professionalservice" },
           "inLanguage": ["en", "el"]
         },
         {
           "@type": "ProfessionalService",
-          "@id": "https://dm-labs.io/#service",
-          "name": "Web Design Services Cyprus",
-          "provider": { "@id": "https://dm-labs.io/#localbusiness" },
+          "@id": "https://dm-labs.io/#web-design-service",
+          "name": "Web Design Services Paphos & Cyprus",
+          "provider": { "@id": "https://dm-labs.io/#professionalservice" },
           "serviceType": "Web Design",
           "areaServed": { "@type": "Country", "name": "Cyprus" },
-          "offers": [
-            { "@type": "Offer", "name": "Starter Website", "price": "299", "priceCurrency": "EUR" },
-            { "@type": "Offer", "name": "Business Website", "price": "399", "priceCurrency": "EUR" },
-            { "@type": "Offer", "name": "Premium Website", "price": "699", "priceCurrency": "EUR" }
-          ]
+          "offers": offers
         }
       ]
     };
@@ -592,91 +550,80 @@ export default function HomePage() {
             </p>
            </AnimateIn>
 
-          {/* Launching Prices Full-Width Banner */}
           <div
             className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl text-center sm:text-left"
             style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
           >
-            <span className="inline-block w-2.5 h-2.5 rounded-full bg-white animate-pulse opacity-80" />
-            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Launching Prices</span>
+            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Packages from €299</span>
             <span className="hidden sm:block w-px h-5 bg-white/40" />
-            <span className="text-sm sm:text-base text-white/90 font-medium">Introductory rates available now. <span className="font-bold text-white">Claim yours today.</span></span>
+            <span className="text-sm sm:text-base text-white/90 font-medium">Clear scope, transparent pricing, and a free consultation before you commit.</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
 
-            {/* Starter */}
+            {/* Launch Website */}
             <AnimateIn delay={0.1}>
               <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Starter</p>
-                <div className="flex items-baseline gap-1 mb-1">
+                <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Launch Website</p>
+                <div className="flex items-baseline gap-1 mb-4">
                   <span className="text-4xl font-bold text-[#111315]">€299</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
-                <p className="text-xs text-[#5B8CFF] font-medium mb-4">€249 with maintenance bundle</p>
-                <p className="text-sm text-[#5B6472] mb-6">Perfect for new businesses that need a clean, professional online presence fast.</p>
+                <p className="text-sm text-[#5B6472] mb-6">A lean online presence for a new business that needs to launch clearly and professionally.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Branded Business Page", "Mobile responsive", "WhatsApp button", "Social media links", "Accessibility widget (free)", "2 revision rounds", "5-7 day delivery"].map((f) => (
+                  {["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
                       {f}
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" className="btn-secondary w-full justify-center">
-                  Get a Free Consultation
-                </Link>
+                <Link href="/contact" className="btn-secondary w-full justify-center">Get a Free Consultation</Link>
               </div>
             </AnimateIn>
 
-            {/* Business - Recommended */}
+            {/* Growth Website - Recommended */}
             <AnimateIn delay={0.2}>
               <div className="brand-gradient-border h-full">
                 <div className="dm-card h-full flex flex-col !shadow-none relative">
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
-                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Business</p>
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-4xl font-bold text-[#111315]">€399</span>
+                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Growth Website</p>
+                  <div className="flex items-baseline gap-1 mb-4">
+                    <span className="text-4xl font-bold text-[#111315]">€749</span>
                     <span className="text-sm text-[#5B6472]">one-time</span>
                   </div>
-                  <p className="text-xs text-[#8B5CFF] font-medium mb-4">€349 with maintenance bundle</p>
-                  <p className="text-sm text-[#5B6472] mb-6">For established businesses that need a complete, conversion-focused website.</p>
+                  <p className="text-sm text-[#5B6472] mb-6">A conversion-focused site for a business ready to be found, trusted, and contacted online.</p>
                   <ul className="space-y-3 mb-8 flex-1">
-                    {["Up to 5 pages", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials section", "Basic SEO optimisation", "Speed optimisation", "Accessibility widget (free)", "3 revision rounds", "7-10 day delivery"].map((f) => (
+                    {["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact" className="btn-primary w-full justify-center">
-                    Get a Free Consultation
-                  </Link>
+                  <Link href="/contact" className="btn-primary w-full justify-center">Get a Free Consultation</Link>
                 </div>
               </div>
             </AnimateIn>
 
-            {/* Premium */}
+            {/* Pro Website */}
             <AnimateIn delay={0.3}>
               <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Premium</p>
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold text-[#111315]">€699</span>
+                <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Pro Website</p>
+                <div className="flex items-baseline gap-1 mb-4">
+                  <span className="text-4xl font-bold text-[#111315]">€1,499</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
-                <p className="text-xs text-[#6FE3FF] font-medium mb-4">€649 with maintenance bundle</p>
-                <p className="text-sm text-[#5B6472] mb-6">For businesses that want a fully custom, feature-rich website with everything included.</p>
+                <p className="text-sm text-[#5B6472] mb-6">For a more complete digital presence with richer content, motion, and stronger search foundations.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Up to 7 pages", "Fully custom design + animations", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials + gallery", "5 SEO blog articles", "Full meta/SEO structure", "Pop-up included", "Accessibility widget (free)", "5 revision rounds", "10-14 day delivery"].map((f) => (
+                  {["Up to 7 pages", "Gallery or portfolio", "Pop-up and scroll-driven animations", "Full SEO structure", "Blog setup or website visual pack", "4 revision rounds"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
                       {f}
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" className="btn-secondary w-full justify-center">
-                  Get a Free Consultation
-                </Link>
+                <Link href="/contact" className="btn-secondary w-full justify-center">Get a Free Consultation</Link>
               </div>
             </AnimateIn>
 
@@ -690,11 +637,11 @@ export default function HomePage() {
                 {/* Left: label + price + description */}
                 <div className="flex-shrink-0 lg:w-64">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
-                  <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise</p>
-                  <p className="text-4xl font-bold text-white mb-1">Custom</p>
-                  <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Pricing tailored to your project</p>
+                  <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise / Custom</p>
+                  <p className="text-4xl font-bold text-white mb-1">From €1,499</p>
+                  <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Quote based on scope</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-                    For larger businesses and organisations that need a fully bespoke solution built around their goals.
+                    For integrations, multilingual builds, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, or unusual content volume.
                   </p>
                   <Link
                     href="/contact"
@@ -712,7 +659,7 @@ export default function HomePage() {
                 <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
                   {[
                     { icon: Globe, label: "Fully custom design from scratch" },
-                    { icon: Zap, label: "Unlimited pages" },
+                    { icon: Zap, label: "Scope designed around your project" },
                     { icon: CalendarCheck, label: "CRM and booking integrations" },
                     { icon: Languages, label: "Multi-language support" },
                     { icon: Users, label: "Dedicated project manager" },

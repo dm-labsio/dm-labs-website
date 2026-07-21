@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS - FAQ Page
+   DM-Labs.io - FAQ Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
@@ -7,45 +7,45 @@ import { useState, useEffect } from "react";
 import AnimateIn from "@/components/AnimateIn";
 import { ChevronDown, MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%20have%20a%20question.";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%20have%20a%20question.";
 
 const faqs = [
   {
     category: "Getting Started",
     items: [
-      { q: "How do I get started?", a: "Just send us a message on WhatsApp. We'll have a quick chat about your business, recommend the best package, and get started right away. No forms, no waiting." },
-      { q: "What information do I need to provide?", a: "At minimum, your business name and a brief description of what you do. If you have a logo, photos, or specific text you'd like to use - great. If not, we can work with what you have." },
-      { q: "How long does it take to build my website?", a: "Starter websites take 5-7 working days. Business websites take 7-10 working days. The timeline starts once we receive your content and confirm the project scope." },
-      { q: "Do I need any technical knowledge?", a: "Absolutely not. We handle everything technical. You just need to tell us about your business and what you want - we take care of the rest." },
-      { q: "Do you work with clients outside your country?", a: "Yes. We work with clients worldwide. All communication happens over WhatsApp and email, so location is never a barrier. Our pricing is in euros and we serve businesses across Europe and beyond." },
-      { q: "Can I see a preview before paying?", a: "Yes. Before any development begins, we share a design direction for your approval - colours, layout, and overall look and feel. You won't pay anything until you're happy with the direction. During development, we share progress checkpoints so you can follow along and give feedback at each stage. Nothing is finalised without your sign-off." },
-      { q: "Can I upgrade my plan later?", a: "Absolutely. If you start with the Starter plan and later decide you need more pages or features, we can upgrade your site at any time. You only pay the difference between the plans." },
+      { q: "How do I get started?", a: "Send us a message on WhatsApp or use the contact form. We will ask about your business, audience, content, and goals, then recommend the right website scope." },
+      { q: "What information do I need to provide?", a: "Your business name, a brief description of what you do, and any existing logo, photos, text, or examples you want us to consider. We confirm the practical content requirements before work begins." },
+      { q: "Do I need technical knowledge?", a: "No. We guide the website process and explain the decisions in straightforward terms. You focus on your business and approve the direction and content." },
+      { q: "Do you work with clients outside Paphos?", a: "Yes. DM-Labs.io works with businesses across Cyprus and can also work remotely with clients in Greece and elsewhere, subject to agreed project scope." },
+      { q: "Can I see a design direction before development?", a: "Yes. We share a design direction for your approval before development proceeds, then keep you informed as the project moves through the agreed stages." },
+      { q: "Can I add more pages or features later?", a: "Yes. New pages, new functionality, or additional content are quoted according to the work required. We will explain the scope before making changes." },
     ],
   },
   {
-    category: "Pricing & Payment",
+    category: "Website Packages & Payment",
     items: [
-      { q: "Are there any hidden fees?", a: "No. The price you see is the price you pay. Your first-year domain is included - we register it for you and set everything up. After the first year, you'll receive a reminder to renew your domain licence (typically €10-15/year). Hosting is a separate ongoing cost (typically €10-15/month) and we explain everything clearly before you commit." },
-      { q: "How does payment work?", a: "We take a deposit to secure your project and begin work. The remaining balance is due on delivery, once you've reviewed and approved the final website. Simple, transparent, and no surprises." },
-      { q: "What payment methods do you accept?", a: "We accept bank transfers and major payment methods. We'll provide payment details when you're ready to proceed." },
-      { q: "Do I own my website after it's built?", a: "Yes, 100%. Once paid in full, the website and all its content belong to you completely." },
+      { q: "How much does a website cost?", a: "Launch Website packages start at €299, Growth Website packages start at €749, and Pro Website packages start at €1,499. Enterprise / Custom projects start at €1,499 and are quoted based on scope." },
+      { q: "Are there hidden fees?", a: "No. We agree the project scope and price before work begins. Domain, hosting, and third-party service costs, where relevant, are explained separately." },
+      { q: "How does payment work?", a: "We agree the payment stages before work begins. The final balance is due on delivery once you have reviewed the agreed result." },
+      { q: "What payment methods do you accept?", a: "We accept bank transfer and major payment methods. We provide payment details when you are ready to proceed." },
+      { q: "Do I own my website after it is built?", a: "Once paid in full, the website and its content belong to you, subject to any third-party licences or services used in the project." },
     ],
   },
   {
-    category: "Design & Features",
+    category: "Website Features & SEO",
     items: [
-      { q: "Can I see examples of your work?", a: "Yes! Contact us on WhatsApp and we'll share recent examples relevant to your industry." },
-      { q: "Will my website work on mobile phones?", a: "Absolutely. Every website we build is mobile-first - meaning it's designed to look and work perfectly on phones, tablets, and desktops." },
-      { q: "Can I make changes after the website is live?", a: "Yes. Small text changes are free for the first month after launch. After that, our maintenance plans (from €39/month) cover ongoing updates, or you can request individual changes." },
-      { q: "Do you provide hosting?", a: "Yes. We handle the full technical setup - hosting, domain registration, SSL certificate, and everything in between. Your first-year domain is included in the build price. Hosting is a separate ongoing cost (typically €10-15/month) which we explain clearly before you commit. You will receive a reminder when your domain is due for renewal after the first year." },
+      { q: "Will my website work on mobile phones?", a: "Yes. Every website package is built to work responsively across phones, tablets, and desktops." },
+      { q: "Is SEO included?", a: "Every package includes basic SEO foundations. The Pro Website package includes a fuller SEO structure. Advanced SEO work, additional copywriting, and wider content programmes are scoped separately." },
+      { q: "Can you add a booking system, CRM, chatbot, or multiple languages?", a: "Yes. These are usually part of an Enterprise / Custom project because the scope depends on the platform, content, integrations, and requirements." },
+      { q: "Can you provide hosting?", a: "We can help with the technical setup and explain any relevant third-party hosting, domain, SSL, or service costs before they are incurred." },
     ],
   },
   {
-    category: "After Launch",
+    category: "After Launch & Website Care",
     items: [
-      { q: "What happens after my website launches?", a: "We make sure everything is working perfectly. For the first month, we're available for small adjustments at no extra cost. After that, you can opt into our maintenance plan or manage things independently." },
-      { q: "What does the maintenance plan include?", a: "We offer two tiers: Essential (€39/month) covers up to 3 content updates, hosting monitoring, backups, and WhatsApp support. Premium (€59/month) adds unlimited updates, priority response, monthly performance checks, seasonal banners, and new section additions. No contracts - cancel any time." },
-      { q: "Can I cancel the maintenance plan?", a: "Yes, anytime. There are no contracts or commitments. You can cancel whenever you want." },
+      { q: "What care plans do you offer?", a: "Basic Care is €49 per month and includes hosting monitoring, backups and bug fixing, WhatsApp support, and up to five small content updates each month. Complete Care is €129 per month and adds ongoing content updates, priority WhatsApp support, a monthly performance check, and one simple banner or section update each month." },
+      { q: "What is not included in website care?", a: "New pages, copywriting, extra revision rounds beyond your package allowance, new integrations, redesigns, advanced or full SEO structure, and complex content migration are not included in either care plan and are quoted separately." },
+      { q: "Can I cancel a care plan?", a: "Yes. Both Basic Care and Complete Care have no contract and can be cancelled anytime." },
     ],
   },
 ];
@@ -76,8 +76,8 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function FAQ() {
   useSEO({
-    title: "FAQ | D&M Labs Web Design",
-    description: "Answers to the most common questions about working with D&M Labs. Pricing, timelines, process, and more.",
+    title: "Website Design FAQ | DM-Labs.io",
+    description: "Answers to common questions about DM-Labs.io website packages, pricing, SEO foundations, website care, and project scope.",
   });
 
   // Inject FAQPage JSON-LD schema for Google rich results (FAQ snippets in search)
@@ -121,7 +121,7 @@ export default function FAQ() {
               Frequently Asked <span className="brand-gradient-text">Questions</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Everything you need to know about working with D&M Labs. Can't find your answer? Just message us.
+              Everything you need to know about working with DM-Labs.io. Can't find your answer? Just message us.
             </p>
           </AnimateIn>
         </div>

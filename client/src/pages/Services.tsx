@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS - Services Page
+   DM-Labs.io - Services Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #F6F6F4 base
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
@@ -13,12 +13,12 @@ import {
 
 const SERVICES_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/services-hero-bg-bfPgb525LqzgdU7JVYn89M.webp";
 const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
-const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
 export default function Services() {
   useSEO({
-    title: "Web Design Services Cyprus | D&M Labs",
-    description: "Professional web design services in Cyprus. Custom websites, mobile-first development, SEO optimisation, and ongoing maintenance. From €299.",
+    title: "Web Design Services Paphos & Cyprus | DM-Labs.io",
+    description: "Custom website design in Paphos and across Cyprus. Launch, Growth and Pro website packages from €299, plus ongoing care.",
   });
   return (
     <>
@@ -51,101 +51,54 @@ export default function Services() {
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Website Packages</h2>
           </AnimateIn>
 
-          {/* Launching Prices Full-Width Banner */}
           <div
             className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl"
             style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
           >
-            <span className="inline-block w-2.5 h-2.5 rounded-full bg-white animate-pulse opacity-80" />
-            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Launching Prices</span>
+            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Packages from €299</span>
             <span className="hidden sm:block w-px h-5 bg-white/40" />
-            <span className="text-sm sm:text-base text-white/90 font-medium">Introductory rates available now. <span className="font-bold text-white">Claim yours today.</span></span>
+            <span className="text-sm sm:text-base text-white/90 font-medium">Clear scope, transparent pricing, and a free consultation before you commit.</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
-            {/* Starter */}
+            {/* Launch Website */}
             <AnimateIn delay={0.1}>
               <div className="dm-card h-full flex flex-col">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="icon-container-gradient">
-                    <Globe size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Starter</p>
-                      <p className="text-2xl font-bold text-[#111315]">€299 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
-                      <p className="text-xs text-[#5B8CFF] font-medium">€249 with maintenance bundle</p>
-                  </div>
+                  <div className="icon-container-gradient"><Globe size={24} className="text-[#5B8CFF]" strokeWidth={1.75} /></div>
+                  <div><p className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Launch Website</p><p className="text-2xl font-bold text-[#111315]">€299 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p></div>
                 </div>
-                <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
-                  Perfect for new businesses that need a clean, professional online presence fast.
-                </p>
+                <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">A lean online presence for a new business that needs to launch clearly and professionally.</p>
                 <ul className="space-y-3 mb-6 flex-1">
-                  {["Branded Business Page", "Mobile responsive", "WhatsApp button", "Social media links", "Accessibility widget (free)", "2 revision rounds", "5-7 day delivery"].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                      <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
-                      {f}
-                    </li>
-                  ))}
+                  {["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"].map((f) => <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />{f}</li>)}
                 </ul>
                 <a href="/contact" className="btn-secondary w-full justify-center">Get a Free Consultation</a>
               </div>
             </AnimateIn>
 
-            {/* Business - Recommended */}
+            {/* Growth Website - Recommended */}
             <AnimateIn delay={0.2}>
               <div className="brand-gradient-border h-full">
                 <div className="dm-card h-full !shadow-none relative flex flex-col">
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="icon-container-gradient">
-                      <Rocket size={24} className="text-[#8B5CFF]" strokeWidth={1.75} />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-[#8B5CFF] uppercase tracking-wide">Business</p>
-                      <p className="text-2xl font-bold text-[#111315]">€399 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
-                      <p className="text-xs text-[#8B5CFF] font-medium">€349 with maintenance bundle</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
-                    For established businesses that need a complete, conversion-focused website.
-                  </p>
+                  <div className="flex items-center gap-4 mb-4"><div className="icon-container-gradient"><Rocket size={24} className="text-[#8B5CFF]" strokeWidth={1.75} /></div><div><p className="text-xs font-semibold text-[#8B5CFF] uppercase tracking-wide">Growth Website</p><p className="text-2xl font-bold text-[#111315]">€749 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p></div></div>
+                  <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">A conversion-focused site for a business ready to be found, trusted, and contacted online.</p>
                   <ul className="space-y-3 mb-6 flex-1">
-                    {["Up to 5 pages", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials section", "Basic SEO optimisation", "Speed optimisation", "Accessibility widget (free)", "3 revision rounds", "7-10 day delivery"].map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                        <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
-                        {f}
-                      </li>
-                    ))}
+                    {["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"].map((f) => <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}</li>)}
                   </ul>
                   <a href="/contact" className="btn-primary w-full justify-center">Get a Free Consultation</a>
                 </div>
               </div>
             </AnimateIn>
 
-            {/* Premium */}
+            {/* Pro Website */}
             <AnimateIn delay={0.3}>
               <div className="dm-card h-full flex flex-col">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="icon-container-gradient">
-                    <Globe size={24} className="text-[#6FE3FF]" strokeWidth={1.75} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-[#6FE3FF] uppercase tracking-wide">Premium</p>
-                      <p className="text-2xl font-bold text-[#111315]">€699 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p>
-                      <p className="text-xs text-[#6FE3FF] font-medium">€649 with maintenance bundle</p>
-                  </div>
-                </div>
-                <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
-                  For businesses that want a fully custom, feature-rich website with everything included.
-                </p>
+                <div className="flex items-center gap-4 mb-4"><div className="icon-container-gradient"><Globe size={24} className="text-[#6FE3FF]" strokeWidth={1.75} /></div><div><p className="text-xs font-semibold text-[#6FE3FF] uppercase tracking-wide">Pro Website</p><p className="text-2xl font-bold text-[#111315]">€1,499 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p></div></div>
+                <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">For a more complete digital presence with richer content, motion, and stronger search foundations.</p>
                 <ul className="space-y-3 mb-6 flex-1">
-                  {["Up to 7 pages", "Fully custom design + animations", "Mobile responsive", "WhatsApp button + social media links", "Contact form + booking form", "Google Maps + Reviews widget", "Testimonials + gallery", "5 SEO blog articles", "Full meta/SEO structure", "Speed optimisation", "Pop-up included", "Accessibility widget (free)", "5 revision rounds", "10-14 day delivery"].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                      <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
-                      {f}
-                    </li>
-                  ))}
+                  {["Up to 7 pages", "Gallery or portfolio", "Pop-up and scroll-driven animations", "Full SEO structure", "Blog setup or a website visual pack", "4 revision rounds"].map((f) => <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />{f}</li>)}
                 </ul>
                 <a href="/contact" className="btn-secondary w-full justify-center">Get a Free Consultation</a>
               </div>
@@ -161,11 +114,11 @@ export default function Services() {
                 {/* Left: label + price + description */}
                 <div className="flex-shrink-0 lg:w-72">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
-                  <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise</p>
-                  <p className="text-4xl font-bold text-white mb-1">Custom</p>
-                  <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Pricing tailored to your project</p>
+                  <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise / Custom</p>
+                  <p className="text-4xl font-bold text-white mb-1">From €1,499</p>
+                  <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Quote based on scope</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-                    For larger businesses, multi-location companies, and organisations that need a fully bespoke solution built around their goals.
+                    For integrations, multilingual builds, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, or unusual content volume.
                   </p>
                   <a
                     href="/contact"
@@ -183,7 +136,7 @@ export default function Services() {
                 <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
                   {[
                     { icon: Globe, label: "Fully custom design from scratch" },
-                    { icon: Zap, label: "Unlimited pages" },
+                    { icon: Zap, label: "Scope designed around your project" },
                     { icon: CalendarCheck, label: "CRM and booking integrations" },
                     { icon: Languages, label: "Multi-language support" },
                     { icon: Users, label: "Dedicated project manager" },
