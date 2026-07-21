@@ -50,7 +50,7 @@ const BLOG_POSTS = [
   },
   {
     slug: "restaurant-website-design-cyprus",
-    title: "Restaurant Website Design Cyprus | Why You Need More Than Facebook",
+    title: "Why Cyprus Restaurants Need More Than Facebook | DM-Labs.io",
     description: "Running a restaurant in Cyprus? Here is why a Facebook page is not enough and what your website needs to attract diners, drive reservations, and beat the competition.",
     elSlug: "istoselidha-estiatorio-kypros",
   },
