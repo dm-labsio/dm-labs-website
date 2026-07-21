@@ -1,6 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch, useLocation } from "wouter";
+import { Route, Switch, Redirect, useLocation } from "wouter";
 import { useSEO } from "./hooks/useSEO";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -85,7 +85,7 @@ function MainRouter() {
         <Route path="/cookie-policy" component={CookiePolicy} />
         <Route path="/terms" component={Terms} />
         <Route path="/templates" component={Templates} />
-        <Route path="/examples">{() => { const [,nav] = useLocation(); nav("/templates", { replace: true }); return null; }}</Route>
+        <Route path="/examples" component={Templates} />
         <Route path="/services/:serviceId" component={ServiceDetail} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog" component={Blog} />
@@ -117,10 +117,10 @@ function MainRouter() {
         <Route path="/el/web-design-thessaloniki" component={WebDesignThessaloniki_El} />
 
         {/* ── Legacy Redirects (wouter navigate = proper 200 SPA redirect, not Soft 404) ── */}
-        <Route path="/blog/istoselidha-yoga-pilates-studio-kypros">{() => { const [,nav] = useLocation(); nav("/el/blog/istoselidha-yoga-pilates-studio-kypros", { replace: true }); return null; }}</Route>
-        <Route path="/blog/istoselidha-nail-salon-beauty-studio-kypros">{() => { const [,nav] = useLocation(); nav("/el/blog/istoselidha-nail-salon-beauty-studio-kypros", { replace: true }); return null; }}</Route>
-        <Route path="/blog/local-seo-google-cyprus">{() => { const [,nav] = useLocation(); nav("/blog/how-to-get-found-on-google-cyprus", { replace: true }); return null; }}</Route>
-        <Route path="/5">{() => { const [,nav] = useLocation(); nav("/", { replace: true }); return null; }}</Route>
+        <Route path="/blog/istoselidha-yoga-pilates-studio-kypros"><Redirect to="/el/blog/istoselidha-yoga-pilates-studio-kypros" /></Route>
+        <Route path="/blog/istoselidha-nail-salon-beauty-studio-kypros"><Redirect to="/el/blog/istoselidha-nail-salon-beauty-studio-kypros" /></Route>
+        <Route path="/blog/local-seo-google-cyprus"><Redirect to="/blog/how-to-get-found-on-google-cyprus" /></Route>
+        <Route path="/5"><Redirect to="/" /></Route>
 
         {/* ── Greek Blog Posts ── */}
         <Route path="/el/blog/wix-vs-epaggelmatias-web-designer-kypros" component={WixVsDesignerEl} />
@@ -132,7 +132,7 @@ function MainRouter() {
         <Route path="/el/blog/web-design-ellada-odigos-2026" component={WebDesignGreeceEl} />
         <Route path="/el/blog/geo-vrethite-apo-chatgpt-kypros" component={GeoEl} />
         <Route path="/el/examples" component={TemplatesEl} />
-        <Route path="/el/templates">{() => { window.location.replace("/el/examples"); return null; }}</Route>
+        <Route path="/el/templates" component={TemplatesEl} />
         <Route path="/el/services/:serviceId" component={ServiceDetailEl} />
 
         {/* ── Fallback ── */}
