@@ -119,3 +119,21 @@
 - [ ] No em/en dashes
 - [ ] No emojis
 - [ ] TypeScript 0 errors
+
+---
+
+## Blog SEO Fixes (Jul 2026)
+- [x] Restaurant blog metaTitle: changed from "Restaurant Website Design Cyprus | ..." to "Why Cyprus Restaurants Need More Than Facebook | DM-Labs.io" (no longer competing with /web-design-restaurants-cyprus)
+- [x] Restaurant blog pricing: updated €249/€399/€699 (Starter/Business/Premium) to €299/€749/€1,499 (Launch/Growth/Pro)
+- [x] Restaurant blog CTA: changed from /contact to /web-design-restaurants-cyprus with "See Our Restaurant Packages" label
+- [x] Added inbound link to /web-design-paphos from restaurant blog (mentions Paphos in Google search context)
+- [x] Added inbound link to /web-design-cyprus from wix-vs-designer blog ("small business in Cyprus" sentence)
+- [x] Added inbound link to /web-design-crete from Greece guide blog (Greek islands mention)
+- [x] Added inbound link to /web-design-restaurants-cyprus from restaurant blog body text and CTA
+- [x] Fixed old pricing in website-cost blog (EN): table row €299-€699 → €299-€1,499; package names updated
+- [x] Fixed old pricing in nail salon blog (EN): metaDescription and body text €249 → €299
+- [x] Fixed old pricing in yoga blog (EN): body text €249 → €299
+- [x] Fixed old pricing in Greece guide blog (EN): table row and DM-Labs.io paragraph €299-€699 → €299-€1,499
+- [x] Fixed old pricing in Greek website cost blog (WebsiteCostEl.tsx): section header €299-€699 → €299-€1.499; CTA text Starter/Business/Premium → Launch/Growth/Pro
+- [x] Fixed old pricing in Greek nail salon blog (NailSalonEl.tsx): €299 Starter/€399 Business → €299 Launch/€749 Growth
+- [x] Fixed old pricing in Greek Greece guide blog (WebDesignGreeceEl.tsx): table row €299-€699 → €299-€1.499; paragraph updated to Launch/Pro package names

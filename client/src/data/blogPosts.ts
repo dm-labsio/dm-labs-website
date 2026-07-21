@@ -58,7 +58,7 @@ export const POSTS: BlogPost[] = [
   <tbody>
     <tr><td>€0 - €150/yr</td><td>DIY builder layout, limited SEO, platform branding</td><td>Absolute beginners, zero budget</td></tr>
     <tr><td>€300 - €800</td><td>Freelancer-built, basic design, varies in quality</td><td>Small budgets, simple needs</td></tr>
-    <tr><td>€299 - €699</td><td>Agency-built, custom design, SEO-ready, mobile-first</td><td>Businesses serious about growth</td></tr>
+    <tr><td>€299 - €1,499</td><td>Agency-built, custom design, SEO-ready, mobile-first</td><td>Businesses serious about growth</td></tr>
     <tr><td>€1,500 - €5,000+</td><td>Complex functionality, e-commerce, custom integrations</td><td>Larger businesses, online stores</td></tr>
     <tr><td>€5,000 - €10,000+</td><td>Enterprise-level, bespoke systems, large teams</td><td>Corporates, complex platforms</td></tr>
   </tbody>
@@ -77,7 +77,7 @@ export const POSTS: BlogPost[] = [
 
 <h2>What DM-Labs.io Offers and Why the Pricing Makes Sense</h2>
 <p>We are a dedicated web design agency based in Cyprus, and we built our pricing specifically for small and medium businesses that want a professional result without a corporate budget. Our packages sit in the sweet spot of the market - agency quality at a price that makes sense for a local business.</p>
-<p>Our <a href="/services" class="blog-link">website packages</a> start at €299 for a Starter site (1 page, mobile-responsive, fast delivery), €499 for a Business site (up to 5 pages, contact form, Google Maps, SEO-optimised), and €699 for a Premium site (up to 7 pages, fully custom design, animations, and 5 SEO articles included).</p>
+<p>Our <a href="/services" class="blog-link">website packages</a> start at €299 for the Launch package (1-page site, mobile-responsive, fast delivery), €749 for the Growth package (up to 4 pages, contact form, Google Maps, SEO-optimised), and €1,499 for the Pro package (up to 7 pages, fully custom design, animations, and blog setup).</p>
 <p>You can see the full breakdown on our <a href="/pricing" class="blog-link">pricing page</a>. Every package includes a free consultation, SSL certificate, mobile-first development, and on-page SEO setup. No hidden fees.</p>
 <p>We keep our prices competitive because we are a small, focused team with low overheads - and because we believe a good website should be accessible to every business in Cyprus, not just the ones with large marketing budgets.</p>
 
@@ -98,7 +98,7 @@ export const POSTS: BlogPost[] = [
     slug: "web-design-nail-salon-beauty-studio-cyprus",
     title: "Web Design for Nail Salons and Beauty Studios in Cyprus: What You Actually Need",
     metaTitle: "Web Design Nail Salon Cyprus | Beauty Studio Websites",
-    metaDescription: "Nail salon or beauty studio in Cyprus? Here is exactly what your website needs to attract clients and show up on Google - from €249.",
+    metaDescription: "Nail salon or beauty studio in Cyprus? Here is exactly what your website needs to attract clients and show up on Google - from €299.",
     date: "2026-03-21",
     readTime: "5 min read",
     category: "Beauty & Wellness",
@@ -136,7 +136,7 @@ export const POSTS: BlogPost[] = [
 <p>At DM-Labs.io, we have built website examples specifically designed for beauty businesses. The <strong>Bella Salon</strong> interactive demo on our <a href="/templates" class="blog-link">Examples page</a> shows exactly what a professional beauty salon website looks like in practice: clean layout, gallery section, service menu, booking CTA, and mobile-first design. These are not generic designs - they are built around how beauty clients actually browse and decide.</p>
 
 <h2>How DM-Labs.io Builds Beauty Salon Websites</h2>
-<p>We build beauty salon and nail salon websites in Cyprus from €249, delivered in 5 to 7 days. Every site includes a mobile-first design, your service menu, a photo gallery, Google Maps integration, a WhatsApp contact button, and on-page SEO setup so Google can find you from day one.</p>
+<p>We build beauty salon and nail salon websites in Cyprus from €299, delivered in 5 to 7 days. Every site includes a mobile-first design, your service menu, a photo gallery, Google Maps integration, a WhatsApp contact button, and on-page SEO setup so Google can find you from day one.</p>
 <p>You do not need to know anything about technology. You send us your photos, your services and prices, and your business details. We handle everything else and deliver a website you are proud to share.</p>
 
 <div class="blog-cta">
@@ -193,7 +193,7 @@ export const POSTS: BlogPost[] = [
 <p>Your clients are searching on their phones, often between other things - on a lunch break, after a run, while waiting for coffee. A wellness business website in Cyprus must load in under three seconds, display beautifully on a small screen, and have a clear call to action that is easy to tap. A slow or cluttered mobile experience loses potential students before they even read your class schedule.</p>
 
 <h2>How DM-Labs.io Builds Wellness Studio Websites</h2>
-<p>We build yoga and Pilates studio websites in Cyprus from €249, delivered in under a week. Every site is mobile-first, SEO-ready from day one, and designed to convert visitors into students. You provide the content - your schedule, photos, bio, and pricing - and we handle the rest.</p>
+<p>We build yoga and Pilates studio websites in Cyprus from €299, delivered in under a week. Every site is mobile-first, SEO-ready from day one, and designed to convert visitors into students. You provide the content - your schedule, photos, bio, and pricing - and we handle the rest.</p>
 <p>Our <a href="/services" class="blog-link">website packages</a> are built specifically for small wellness businesses that want a professional result without a complicated process or a large budget.</p>
 
 <div class="blog-cta">
@@ -261,7 +261,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: "restaurant-website-design-cyprus",
     title: "Why Every Restaurant in Cyprus Needs a Website (Not Just a Facebook Page)",
-    metaTitle: "Restaurant Website Design Cyprus | Why You Need More Than Facebook",
+    metaTitle: "Why Cyprus Restaurants Need More Than Facebook | DM-Labs.io",
     metaDescription: "Running a restaurant in Cyprus? Here is why a Facebook page is not enough and what your website needs to attract diners, drive reservations, and beat the competition.",
     date: "2026-04-06",
     readTime: "6 min read",
@@ -287,6 +287,8 @@ export const POSTS: BlogPost[] = [
 
 <p>When someone searches \u201crestaurant Nicosia,\u201d \u201cseafood Limassol,\u201d or \u201cbreakfast caf\u00e9 Paphos,\u201d Google shows two types of results: the local pack (the map with three listings) and organic results (the blue links below). Both are driven by your website and your Google Business Profile working together.</p>
 
+<p>If your business is based in <a href="/web-design-paphos" class="blog-link">Paphos</a>, the local competition is still relatively thin compared to Nicosia or Limassol. That means a well-structured website can rank faster and more affordably than in larger cities.</p>
+
 <p>A restaurant with a fast, well-structured website that clearly states its cuisine, location, and opening hours will consistently outrank one that only has a Facebook page  -  even if the Facebook page has more followers. Google cannot read your Facebook posts the way it reads your website.</p>
 
 <h2>What a Restaurant Website in Cyprus Actually Needs</h2>
@@ -311,16 +313,16 @@ export const POSTS: BlogPost[] = [
 
 <h2>How Much Does a Restaurant Website Cost in Cyprus?</h2>
 
-<p>A professional restaurant website in Cyprus does not need to cost thousands of euros. At DM-Labs.io, our restaurant websites start from <strong>\u20ac249</strong> for a Starter package  -  a fully custom, mobile-first site with your menu, photos, contact form, Google Maps integration, and SEO setup. Most restaurant sites are live within 5 to 7 days.</p>
+<p>A professional restaurant website in Cyprus does not need to cost thousands of euros. At DM-Labs.io, our <a href="/web-design-restaurants-cyprus" class="blog-link">restaurant website packages</a> start from <strong>\u20ac299</strong> for the Launch package  -  a fully custom, mobile-first site with your menu, photos, contact form, Google Maps integration, and SEO setup. Most restaurant sites are live within 5 to 7 days.</p>
 
-<p>The Business package at \u20ac399 adds a blog or news section (useful for posting specials and events), a WhatsApp reservation button, and more advanced SEO. For restaurants that want online ordering or a full booking system, the Premium package at \u20ac699 covers everything.</p>
+<p>The Growth package at \u20ac749 adds a blog or news section (useful for posting specials and events), a WhatsApp reservation button, and more advanced SEO. For restaurants that want online ordering or a full booking system, the Pro package at \u20ac1,499 covers everything.</p>
 
 <p>Every website we build is designed to work on mobile, load fast, and be found on Google. We handle the technical side completely  -  you provide your menu, photos, and opening hours, and we do the rest.</p>
 
 <div class="blog-cta">
   <h3>Ready to get your restaurant online?</h3>
   <p>Get in touch for a free consultation. We will review your current online presence and tell you exactly what your restaurant website needs - no jargon, no obligation.</p>
-  <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
+  <a href="/web-design-restaurants-cyprus" class="blog-cta-btn">See Our Restaurant Packages</a>
 </div>
     `,
   },
@@ -419,7 +421,7 @@ export const POSTS: BlogPost[] = [
 <p>That is the difference. Not just a better website - a better experience of having a website.</p>
 
 <h2>The Honest Summary</h2>
-<p>Wix is a capable tool that works well for specific situations. For a small business in Cyprus that wants to be found on Google, look professional, and not spend hours managing a platform, a professional web designer is the better investment. Not because DIY tools are bad, but because your time and your business deserve something built specifically for you.</p>
+<p>Wix is a capable tool that works well for specific situations. For a small business in <a href="/web-design-cyprus" class="blog-link">Cyprus</a> that wants to be found on Google, look professional, and not spend hours managing a platform, a professional web designer is the better investment. Not because DIY tools are bad, but because your time and your business deserve something built specifically for you.</p>
 <p>You do not need to understand websites. You just need to understand your business. That is your job. Building the website is ours.</p>
 
 <div class="blog-cta">
@@ -465,7 +467,7 @@ export const POSTS: BlogPost[] = [
     <tr><td>DIY builders (Wix, Squarespace)</td><td>€10–€30/month</td><td>Template layout, limited SEO, platform branding</td></tr>
     <tr><td>Greek freelancer</td><td>€300–€2,000</td><td>Varies widely in quality; limited ongoing support</td></tr>
     <tr><td>Local Greek agency</td><td>€1,500–€8,000+</td><td>Custom design, full team, higher overhead costs</td></tr>
-    <tr><td>DM-Labs.io</td><td>€299–€699</td><td>Agency quality, transparent pricing, fast delivery</td></tr>
+    <tr><td>DM-Labs.io</td><td>€299–€1,499</td><td>Agency quality, transparent pricing, fast delivery</td></tr>
   </tbody>
 </table>
 
@@ -497,8 +499,8 @@ export const POSTS: BlogPost[] = [
 
 <h2>How DM-Labs.io Works With Greek Businesses</h2>
 <p>We are a web design agency that works with businesses across Greece and Cyprus. Our team builds professional, fast, bilingual websites that are designed to be found on Google and to convert visitors into customers.</p>
-<p>Our <a href="/services" class="blog-link">web design packages</a> start at €299 for a single-page site and go up to €699 for a full multi-page website with custom design, animations, and 5 SEO articles included. Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate. No hidden fees, no surprises.</p>
-<p>We have worked with businesses in <a href="/web-design-thessaloniki" class="blog-link">Thessaloniki</a>, Athens, and across the Greek islands, as well as in <a href="/web-design-limassol" class="blog-link">Limassol</a> and <a href="/web-design-nicosia" class="blog-link">Nicosia</a> in Cyprus. If you are looking for a web design partner who understands the Greek market and delivers on time, we would love to hear from you.</p>
+<p>Our <a href="/services" class="blog-link">web design packages</a> start at €299 for the Launch package (single-page site) and go up to €1,499 for the Pro package (up to 7 pages, custom design, animations, and blog setup). Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate. No hidden fees, no surprises.</p>
+<p>We have worked with businesses in <a href="/web-design-thessaloniki" class="blog-link">Thessaloniki</a>, Athens, and across the Greek islands including <a href="/web-design-crete" class="blog-link">Crete</a>, as well as in <a href="/web-design-limassol" class="blog-link">Limassol</a> and <a href="/web-design-nicosia" class="blog-link">Nicosia</a> in Cyprus. If you are looking for a web design partner who understands the Greek market and delivers on time, we would love to hear from you.</p>
 
 <h2>The Bottom Line</h2>
 <p>Web design in Greece in 2026 is not just about having a website. It is about having a website that loads fast, looks professional on every device, can be found on Google for the right search terms, and makes it easy for customers to take action. That combination — design, performance, and SEO — is what separates a website that works from one that just exists.</p>

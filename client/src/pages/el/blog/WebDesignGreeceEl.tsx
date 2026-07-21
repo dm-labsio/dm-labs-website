@@ -86,7 +86,7 @@ export default function WebDesignGreeceEl() {
                   <tr><td className="px-4 py-3">DIY (Wix, Squarespace)</td><td className="px-4 py-3">€10–€30/μήνα</td><td className="px-4 py-3">Template, περιορισμένο SEO, branding πλατφόρμας</td></tr>
                   <tr><td className="px-4 py-3">Έλληνας freelancer</td><td className="px-4 py-3">€300–€2.000</td><td className="px-4 py-3">Μεγάλη διακύμανση ποιότητας, περιορισμένη υποστήριξη</td></tr>
                   <tr><td className="px-4 py-3">Τοπικό ελληνικό γραφείο</td><td className="px-4 py-3">€1.500–€8.000+</td><td className="px-4 py-3">Custom σχεδιασμός, ομάδα, υψηλό overhead</td></tr>
-                  <tr><td className="px-4 py-3 font-semibold text-[#5B8CFF]">DM-Labs.io</td><td className="px-4 py-3 font-semibold">€299–€699</td><td className="px-4 py-3">Ποιότητα agency, διαφανείς τιμές, γρήγορη παράδοση</td></tr>
+                  <tr><td className="px-4 py-3 font-semibold text-[#5B8CFF]">DM-Labs.io</td><td className="px-4 py-3 font-semibold">€299–€1.499</td><td className="px-4 py-3">Ποιότητα agency, διαφανείς τιμές, γρήγορη παράδοση</td></tr>
                 </tbody>
               </table>
             </div>
@@ -138,7 +138,7 @@ export default function WebDesignGreeceEl() {
               Είμαστε ένα γραφείο web design που συνεργάζεται με επιχειρήσεις σε όλη την Ελλάδα και την Κύπρο. Κατασκευάζουμε επαγγελματικές, γρήγορες, δίγλωσσες ιστοσελίδες που σχεδιάζονται για να βρίσκονται στη Google και να μετατρέπουν επισκέπτες σε πελάτες.
             </p>
             <p className="leading-relaxed mb-4">
-              Τα <Link href="/el/services" className="text-[#5B8CFF] hover:underline">πακέτα web design</Link> μας ξεκινούν από €299 για μονοσέλιδη ιστοσελίδα και φτάνουν στα €699 για πλήρη πολυσέλιδη ιστοσελίδα με custom σχεδιασμό, animations και 5 SEO άρθρα. Κάθε πακέτο περιλαμβάνει δωρεάν συμβουλευτική, mobile-first ανάπτυξη, on-page SEO και SSL. Χωρίς κρυφές χρεώσεις.
+              Τα <Link href="/el/services" className="text-[#5B8CFF] hover:underline">πακέτα web design</Link> μας ξεκινούν από €299 για το Launch πακέτο (μονοσέλιδη ιστοσελίδα) και φτάνουν στα €1.499 για το Pro πακέτο (έως 7 σελίδες, custom σχεδιασμός, animations). Κάθε πακέτο περιλαμβάνει δωρεάν συμβουλευτική, mobile-first ανάπτυξη, on-page SEO και SSL. Χωρίς κρυφές χρεώσεις.
             </p>
             <p className="leading-relaxed">
               Έχουμε συνεργαστεί με επιχειρήσεις στη <Link href="/el/web-design-thessaloniki" className="text-[#5B8CFF] hover:underline">Θεσσαλονίκη</Link>, στην Αθήνα και σε όλα τα ελληνικά νησιά, καθώς και στη <Link href="/el/web-design-limassol" className="text-[#5B8CFF] hover:underline">Λεμεσό</Link> και στη <Link href="/el/web-design-nicosia" className="text-[#5B8CFF] hover:underline">Λευκωσία</Link> στην Κύπρο.

@@ -65,7 +65,7 @@ export default function WebsiteCostEl() {
                 <p className="text-[#5B6472] text-sm leading-relaxed">Συνήθως template χωρίς προσαρμογή, χωρίς SEO, χωρίς υποστήριξη. Μπορεί να φαίνεται καλό στην αρχή, αλλά δεν θα σας βρει η Google και δεν θα αντέξει στον χρόνο.</p>
               </div>
               <div className="bg-white rounded-2xl p-5 border border-[#E8EAF0]">
-                <h3 className="font-bold text-[#111315] mb-2">€299 - €699: Το γλυκό σημείο για μικρές επιχειρήσεις</h3>
+                <h3 className="font-bold text-[#111315] mb-2">€299 - €1.499: Το γλυκό σημείο για μικρές επιχειρήσεις</h3>
                 <p className="text-[#5B6472] text-sm leading-relaxed">Επαγγελματική ιστοσελίδα με custom σχεδιασμό, σωστή SEO δομή, mobile-first ανάπτυξη και υποστήριξη. Αυτή είναι η κατηγορία που εξυπηρετούμε εμείς.</p>
               </div>
               <div className="bg-white rounded-2xl p-5 border border-[#E8EAF0]">
@@ -116,7 +116,7 @@ export default function WebsiteCostEl() {
           <div className="bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] rounded-2xl p-8 border border-[#D0DEFF] mt-10">
             <h3 className="text-xl font-bold text-[#111315] mb-3">Δείτε τις Αναλυτικές Τιμές μας</h3>
             <p className="text-[#5B6472] mb-6 leading-relaxed">
-              Starter από €299, Business €399, Premium €699. Εφάπαξ τιμές, χωρίς μηνιαίες χρεώσεις.
+              Launch από €299, Growth €749, Pro €1.499. Εφάπαξ τιμές, χωρίς μηνιαίες χρεώσεις.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/el/pricing">

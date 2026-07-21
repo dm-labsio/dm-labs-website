@@ -68,7 +68,7 @@ export default function NailSalonEl() {
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Πόσο Κοστίζει;</h2>
             <p className="leading-relaxed">
-              Μια επαγγελματική ιστοσελίδα για nail salon ή beauty studio στην Κύπρο κοστίζει από €299 (Starter - 1 σελίδα) μέχρι €399 (Business - έως 5 σελίδες με γκαλερί, κρατήσεις και reviews). Παράδοση σε 5-10 ημέρες.
+              Μια επαγγελματική ιστοσελίδα για nail salon ή beauty studio στην Κύπρο κοστίζει από €299 (Launch - 1 σελίδα) μέχρι €749 (Growth - έως 4 σελίδες με γκαλερί, κρατήσεις και reviews). Παράδοση σε 5-10 ημέρες.
             </p>
           </section>
           <div className="bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] rounded-2xl p-8 border border-[#D0DEFF] mt-10">
