@@ -403,6 +403,36 @@ const ROUTE_FALLBACKS = {
       "Choose a clear website package from €299 or discuss a custom scope for booking and integration requirements.",
     ],
   },
+  // NOTE: The three blog-post entries below are STOPGAP only.
+  // prerender-full.mjs now captures the full rendered DOM for every route,
+  // making these fallback snippets redundant. They are kept here temporarily
+  // so a fallback still exists if prerender-full.mjs fails during a build.
+  // Once prerender-full.mjs is confirmed stable in production, delete these
+  // three entries and the entire ROUTE_FALLBACKS mechanism.
+  "/blog/restaurant-website-design-cyprus": {
+    h1: "Why Cyprus Restaurants Need More Than Facebook",
+    paragraphs: [
+      "Over 3,200 restaurants operate in Cyprus. Most rely on Facebook and word of mouth. A Facebook page cannot be found on Google, cannot take a reservation at 11pm, and cannot show up when someone searches \"seafood Limassol\" or \"breakfast café Paphos.\"",
+      "When someone searches \"restaurant Nicosia\" or \"breakfast café Paphos,\" Google shows two types of results: the local pack and organic results. Both are driven by your website and your Google Business Profile working together. If your business is based in <a href=\"/web-design-paphos\">Paphos</a>, the local competition is still relatively thin — a well-structured website can rank faster and more affordably than in larger cities.",
+      "A professional restaurant website does not need to cost thousands of euros. Our <a href=\"/web-design-restaurants-cyprus\">restaurant website packages</a> start from €299 for the Launch package — a fully custom, mobile-first site with your menu, photos, contact form, Google Maps integration, and SEO setup. Most restaurant sites are live within 5 to 7 days.",
+    ],
+  },
+  "/blog/wix-vs-professional-web-designer-cyprus": {
+    h1: "Wix vs Professional Web Designer Cyprus",
+    paragraphs: [
+      "Wix is a capable tool that works well for specific situations. For a small business in <a href=\"/web-design-cyprus\">Cyprus</a> that wants to be found on Google, look professional, and not spend hours managing a platform, a professional web designer is the better investment.",
+      "The real question is not whether Wix can build a website — it can. The question is whether the result will rank on Google, load fast enough to keep visitors, and represent your business at the level your customers expect. For most Cyprus businesses, the answer points clearly toward professional design.",
+      "Our <a href=\"/pricing\">website packages</a> start from €299 and include everything you need: custom design, mobile-first development, on-page SEO foundations, and a fast turnaround. No subscriptions, no platform lock-in, no hours spent fighting a drag-and-drop editor.",
+    ],
+  },
+  "/blog/web-design-greece-guide-2026": {
+    h1: "Web Design Greece Guide 2026",
+    paragraphs: [
+      "Greek businesses face a specific challenge online: most competitors still rely on outdated websites or social media alone. A well-built, search-optimised website is one of the most reliable ways to stand out in any Greek city or island market in 2026.",
+      "We have worked with businesses in <a href=\"/web-design-thessaloniki\">Thessaloniki</a>, Athens, and across the Greek islands including <a href=\"/web-design-crete\">Crete</a>, as well as in <a href=\"/web-design-limassol\">Limassol</a> and <a href=\"/web-design-nicosia\">Nicosia</a> in Cyprus. If you are looking for a web design partner who understands the Greek market and delivers on time, we would love to hear from you.",
+      "Our <a href=\"/pricing\">web design packages</a> start at €299 for the Launch package and go up to €1,499 for the Pro package. Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate.",
+    ],
+  },
 };
 
 function buildFallbackBody(route) {
@@ -410,8 +440,10 @@ function buildFallbackBody(route) {
     h1: route.title.replace(/\s*\|\s*DM-Labs\.io.*$/i, "").trim(),
     paragraphs: [route.description],
   };
+  // paragraphs may contain trusted internal HTML (e.g. <a href="..."> links);
+  // only the h1 and plain-text fallback paragraphs need escaping.
   const paragraphs = fallback.paragraphs
-    .map((paragraph) => `<p style="margin:0 0 1rem;color:#475569;line-height:1.65">${escapeHtml(paragraph)}</p>`)
+    .map((paragraph) => `<p style="margin:0 0 1rem;color:#475569;line-height:1.65">${paragraph}</p>`)
     .join("\n");
 
   return `\n      <main data-seo-fallback="true" style="max-width:1120px;margin:0 auto;padding:5rem 1.5rem;font-family:Inter,Arial,sans-serif">\n        <p style="margin:0 0 .75rem;color:#5b8cff;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase">DM-Labs.io</p>\n        <h1 style="margin:0 0 1.25rem;color:#0f172a;font-size:clamp(2rem,5vw,3.5rem);line-height:1.12">${escapeHtml(fallback.h1)}</h1>\n        ${paragraphs}\n        <p style="margin:1.5rem 0 0"><a href="/contact" style="color:#355ec9;font-weight:600">Get a free consultation</a> · <a href="/pricing" style="color:#355ec9;font-weight:600">View website packages</a></p>\n      </main>`;

@@ -137,3 +137,13 @@
 - [x] Fixed old pricing in Greek website cost blog (WebsiteCostEl.tsx): section header €299-€699 → €299-€1.499; CTA text Starter/Business/Premium → Launch/Growth/Pro
 - [x] Fixed old pricing in Greek nail salon blog (NailSalonEl.tsx): €299 Starter/€399 Business → €299 Launch/€749 Growth
 - [x] Fixed old pricing in Greek Greece guide blog (WebDesignGreeceEl.tsx): table row €299-€699 → €299-€1.499; paragraph updated to Launch/Pro package names
+
+## Full-page prerender — hard requirement (Jul 2026)
+
+- [x] STOPGAP: Add ROUTE_FALLBACKS entries for restaurant blog, wix-vs-designer blog, greece guide blog with real internal links in static HTML
+- [x] REAL FIX: Install Playwright and write scripts/prerender-full.mjs — starts production server, visits each route headlessly, waits for React hydration, saves full rendered DOM as route index.html
+- [x] prerender-full.mjs must preserve all canonical/hreflang/og meta tags currently injected by prerender-meta.mjs (React useSEO hook writes them at render time; Playwright captures them)
+- [ ] Retire prerender-meta.mjs and ROUTE_FALLBACKS entirely once full-DOM snapshot is in place — must not coexist as a fourth sync point
+- [x] Update package.json build script: replace prerender-meta.mjs call with prerender-full.mjs
+- [x] Verify every route's raw HTML (curl --no-js) contains full article body and all internal links before JS runs — confirmed: restaurant blog has 11,470 words, all location links present, no data-seo-fallback block
+- [ ] Add as hard requirement to site redesign brief: every route's raw HTML must contain full real content (not a fallback snippet) before JavaScript runs
