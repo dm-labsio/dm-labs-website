@@ -193,7 +193,12 @@ async function main() {
     await waitForPortSync(port, 30_000);
     console.log(`Server ready on port ${port}`);
 
-    const browser = await chromium.launch({ args: ["--no-sandbox", "--disable-setuid-sandbox"] });
+    // In the Docker build environment, PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH points
+    // to the system Chromium installed via apt. Playwright respects this env var
+    // automatically, but we also pass --disable-dev-shm-usage for container safety.
+    const browser = await chromium.launch({
+      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+    });
     const context = await browser.newContext({
       // Disable JS-triggered navigation away from the page
       javaScriptEnabled: true,
@@ -223,7 +228,7 @@ async function main() {
         );
 
         // Small extra wait for any deferred content (images, lazy components)
-        await page.waitForTimeout(500);
+        await page.waitForTimeout(200);
 
         // Get the full serialised DOM
         let html = await page.content();
