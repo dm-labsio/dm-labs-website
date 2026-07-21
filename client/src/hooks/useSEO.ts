@@ -1,10 +1,10 @@
 /* ============================================================
-   D&M LABS - useSEO Hook
+   DM-Labs.io - useSEO Hook
    Dynamically updates <title>, meta description, canonical URL,
    og:url, og:title, og:description on every route change.
    
    Usage (basic — auto-derives canonical from current path):
-     useSEO({ title: "Pricing | D&M Labs", description: "..." })
+     useSEO({ title: "Pricing | DM-Labs.io", description: "..." })
    
    Usage (blog post with custom OG image):
      useSEO({ title: post.metaTitle, description: post.metaDescription, ogImage: post.coverImage, ogType: "article" })
@@ -14,9 +14,9 @@ import { useEffect } from "react";
 import { useLocation } from "wouter";
 
 const BASE_URL = "https://dm-labs.io";
-const DEFAULT_TITLE = "D&M Labs | Professional Website Design from €299";
+const DEFAULT_TITLE = "DM-Labs.io | Web Design in Paphos & Cyprus from €299";
 const DEFAULT_DESCRIPTION =
-  "D&M Labs builds custom, mobile-first websites for businesses. Fast delivery, SEO-ready, starting from €299.";
+  "DM-Labs.io builds custom, mobile-first websites for businesses in Paphos and across Cyprus. Clear scope, SEO foundations, and packages from €299.";
 const DEFAULT_OG_IMAGE = "https://dm-labs.io/og-image.png";
 
 interface SEOOptions {

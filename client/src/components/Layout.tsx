@@ -1,5 +1,5 @@
 /* ============================================================
-   D&M LABS - Layout Component
+   DM-Labs.io - Layout Component
    Glassmorphism nav, mobile hamburger, dark footer
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
    Language toggle: flag-based EN/EL, visible on mobile as floating pill
@@ -12,9 +12,16 @@ import AccessibilityWidget from "@/components/AccessibilityWidget";
 import NeonCursorTrail from "@/components/NeonCursorTrail";
 
 
-const LOGO_URL = "/dmlabs-logo.png";
+const BrandMark = ({ dark = false }: { dark?: boolean }) => (
+  <span
+    className={`text-xl sm:text-2xl font-bold tracking-tight whitespace-nowrap ${dark ? "text-white" : "text-[#111315]"}`}
+    aria-label="DM-Labs.io"
+  >
+    <span className="brand-gradient-text">DM</span><span>-Labs.io</span>
+  </span>
+);
 
-const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
 const EN_NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -179,7 +186,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container flex items-center justify-between" style={{ height: "72px" }}>
           {/* Logo */}
           <Link href={isGreek ? "/el" : "/"} className="flex items-center gap-2 shrink-0">
-            <img src={LOGO_URL} alt="D&M Labs" style={{ width: '140px', height: 'auto' }} />
+            <BrandMark />
           </Link>
 
           {/* Desktop Nav */}
@@ -269,7 +276,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             {/* Brand */}
             <div className="lg:col-span-1">
-              <img src={LOGO_URL} alt="D&M Labs" style={{ width: '140px', height: 'auto', marginBottom: '20px' }} />
+              <div style={{ marginBottom: "20px" }}><BrandMark dark /></div>
                 <p className="text-sm text-[#94A3B8] leading-relaxed max-w-xs">
                   {isGreek
                     ? "Μια μικρή, αφοσιωμένη εταιρεία web design. Κατασκευάζουμε επαγγελματικές ιστοσελίδες για επιχειρήσεις που θέλουν να ξεχωρίζουν online."
@@ -282,7 +289,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   href="https://www.instagram.com/dm_labs.io/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Follow D&M Labs on Instagram"
+                  aria-label="Follow DM-Labs.io on Instagram"
                   className="group flex items-center justify-center w-9 h-9 rounded-xl transition-all duration-300"
                   style={{ background: "linear-gradient(135deg, #5B8CFF22 0%, #A855F722 100%)", border: "1px solid rgba(91,140,255,0.2)" }}
                   onMouseEnter={e => (e.currentTarget.style.background = "linear-gradient(135deg, #5B8CFF44 0%, #A855F744 100%)")}

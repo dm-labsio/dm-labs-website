@@ -1,5 +1,5 @@
 /**
- * D&M Labs - Post-Build Meta Injection Script
+ * DM-Labs.io - Post-Build Meta Injection Script
  * ============================================
  * Runs AFTER `vite build` to inject per-route <title>, <meta description>,
  * <link rel="canonical">, hreflang alternates, og:title, og:description,
@@ -62,13 +62,13 @@ const BLOG_POSTS = [
   },
   {
     slug: "web-design-greece-guide-2026",
-    title: "Web Design Greece Guide 2026 | D&M Labs",
+    title: "Web Design Greece Guide 2026 | DM-Labs.io",
     description: "Everything Greek businesses need to know about professional web design in 2026. Costs, timelines, what to look for, and how to get found on Google.",
     elSlug: "web-design-ellada-odigos-2026",
   },
   {
     slug: "geo-get-found-by-chatgpt-cyprus",
-    title: "GEO: How to Get Found by ChatGPT and AI Search | D&M Labs",
+    title: "GEO: How to Get Found by ChatGPT and AI Search | DM-Labs.io",
     description: "SEO is no longer enough. Learn what Generative Engine Optimization (GEO) is and why Cyprus businesses need it to get found by ChatGPT, Perplexity, and Google AI.",
     elSlug: "geo-vrethite-apo-chatgpt-kypros",
   },
@@ -79,108 +79,108 @@ const BLOG_POSTS = [
 const EN_STATIC_ROUTES = [
   {
     path: "/",
-    title: "D&M Labs | Professional Website Design from €299",
-    description: "D&M Labs builds custom, mobile-first websites for businesses. Fast delivery, SEO-ready, starting from €299.",
+    title: "DM-Labs.io | Web Design in Paphos & Cyprus from €299",
+    description: "DM-Labs.io builds custom, mobile-first websites for businesses in Paphos and across Cyprus. Clear scope, SEO foundations, and packages from €299.",
     elPath: "/el",
   },
   {
     path: "/services",
-    title: "Web Design Services Cyprus | D&M Labs",
-    description: "Professional web design services in Cyprus. Custom websites, mobile-first development, SEO optimisation, and ongoing maintenance. From €299.",
+    title: "Web Design Services Paphos & Cyprus | DM-Labs.io",
+    description: "Custom website design in Paphos and across Cyprus. Launch, Growth and Pro website packages from €299, plus ongoing care.",
     elPath: "/el/services",
   },
   {
     path: "/process",
-    title: "Our Process | How We Build Websites | D&M Labs",
-    description: "From discovery call to launch in 5-14 days. See exactly how D&M Labs designs and builds your website, step by step.",
+    title: "Our Process | How We Build Websites | DM-Labs.io",
+    description: "See how DM-Labs.io moves from discovery and scope through design, build, review, and launch for your website project.",
     elPath: "/el/process",
   },
   {
     path: "/pricing",
-    title: "Website Pricing Cyprus | D&M Labs",
-    description: "Transparent website pricing for businesses in Cyprus. Starter from €299, Business €399, Premium €699. No hidden fees.",
+    title: "Website Pricing Cyprus | DM-Labs.io",
+    description: "Website packages for Cyprus businesses: Launch from €299, Growth €749, Pro €1,499, and custom scope from €1,499. Clear scope, no hidden fees.",
     elPath: "/el/pricing",
   },
   {
     path: "/faq",
-    title: "FAQ | D&M Labs Web Design",
-    description: "Answers to the most common questions about working with D&M Labs. Pricing, timelines, process, and more.",
+    title: "Website Design FAQ | DM-Labs.io",
+    description: "Answers to common questions about DM-Labs.io website packages, pricing, SEO foundations, website care, and project scope.",
     elPath: "/el/faq",
   },
   {
     path: "/contact",
-    title: "Contact D&M Labs | Get a Free Website Quote",
-    description: "Get in touch with D&M Labs for a free website consultation. We reply within 24 hours. WhatsApp, email, or contact form.",
+    title: "Contact DM-Labs.io | Get a Free Website Quote",
+    description: "Contact DM-Labs.io for a free website consultation. Tell us about your business, content, and website goals by WhatsApp, email, or contact form.",
     elPath: "/el/contact",
   },
   {
     path: "/examples",
-    title: "Website Examples | See Our Work | D&M Labs",
-    description: "Browse real website examples built by D&M Labs for restaurants, salons, dental clinics, yoga studios, and more. Starting from €299.",
+    title: "Website Examples | See Our Work | DM-Labs.io",
+    description: "Browse real website examples built by DM-Labs.io for restaurants, salons, dental clinics, yoga studios, and more. Starting from €299.",
     elPath: "/el/examples",
   },
   {
     path: "/blog",
-    title: "Blog | Web Design Tips & Guides | D&M Labs",
+    title: "Blog | Web Design Tips & Guides | DM-Labs.io",
     description: "Practical guides, honest advice, and web design insights for businesses in Cyprus and beyond.",
     elPath: "/el/blog",
   },
   {
     path: "/web-design-limassol",
-    title: "Web Design Limassol | Websites from €299 | D&M Labs",
-    description: "D&M Labs builds professional websites for Limassol businesses from €299. Mobile-first, SEO-ready, fast delivery. Get online today.",
+    title: "Web Design Limassol | Website Packages from €299 | DM-Labs.io",
+    description: "DM-Labs.io builds professional, mobile-first websites for Limassol businesses. Clear packages from €299 and custom scope for wider requirements.",
     elPath: "/el/web-design-limassol",
   },
   {
     path: "/web-design-thessaloniki",
-    title: "Web Design Thessaloniki | Professional Websites from €299 | D&M Labs",
-    description: "Professional web design for businesses in Thessaloniki. Custom websites built in 5-14 days from €299. Mobile-first, SEO-optimised, no hidden fees.",
+    title: "Web Design Thessaloniki | Website Packages from €299 | DM-Labs.io",
+    description: "DM-Labs.io builds professional, mobile-first websites for Thessaloniki businesses. Clear packages from €299 and custom scope for wider requirements.",
     elPath: "/el/web-design-thessaloniki",
   },
   {
     path: "/web-design-nicosia",
-    title: "Web Design Nicosia | Professional Websites from €299 | D&M Labs",
-    description: "Professional web design for businesses in Nicosia, Cyprus. Custom websites built in 5-14 days from €299. Mobile-first, SEO-optimised, no hidden fees.",
+    title: "Web Design Nicosia | Website Packages from €299 | DM-Labs.io",
+    description: "DM-Labs.io builds professional, mobile-first websites for Nicosia businesses. Clear packages from €299 and custom scope for wider requirements.",
     elPath: "/el/web-design-nicosia",
   },
   {
     path: "/web-design-cyprus",
-    title: "Web Design Cyprus | Professional Websites from €299 | D&M Labs",
-    description: "Professional web design for businesses across Cyprus. Custom websites from €299. Mobile-first, SEO-optimised, delivered in 5-14 days.",
+    title: "Web Design Cyprus | Website Packages from €299 | DM-Labs.io",
+    description: "Professional web design for businesses across Cyprus. Launch websites from €299, Growth from €749, Pro from €1,499, and custom website projects.",
     elPath: "/el/web-design-cyprus",
   },
   {
     path: "/web-design-crete",
-    title: "Web Design Crete | Professional Websites from €299 | D&M Labs",
-    description: "Professional web design for small businesses across Crete - Heraklion, Chania, Rethymno and beyond. Custom websites from €299, delivered in 5-14 days.",
+    title: "Web Design Crete | Website Packages from €299 | DM-Labs.io",
+    description: "Professional web design for small businesses across Crete. Clear website packages from €299 and custom scope for wider requirements.",
     elPath: "/el/web-design-crete",
   },
   {
     path: "/web-design-paphos",
-    title: "Web Design Paphos | Professional Websites from €299 | D&M Labs",
-    description: "Professional web design for businesses in Paphos, Cyprus. Custom websites built in 5-14 days from €299. Mobile-first, SEO-optimised, no hidden fees.",
+    title: "Web Design Paphos | Website Packages from €299 | DM-Labs.io",
+    description: "Professional website design in Paphos, Cyprus. Launch websites from €299, Growth from €749, Pro from €1,499, plus custom website projects.",
   },
   {
     path: "/web-design-restaurants-cyprus",
-    title: "Restaurant Website Design Cyprus | D&M Labs",
+    title: "Restaurant Website Design Cyprus | DM-Labs.io",
     description: "Professional website design for restaurants in Cyprus. Online menus, reservations, Google visibility. Starting from €299.",
   },
   {
     path: "/privacy",
-    title: "Privacy Policy | D&M Labs",
-    description: "Privacy policy for D&M Labs web design services.",
+    title: "Privacy Policy | DM-Labs.io",
+    description: "Privacy policy for DM-Labs.io web design services.",
     elPath: "/el/privacy",
   },
   {
     path: "/cookies",
-    title: "Cookie Policy | D&M Labs",
-    description: "Cookie policy for D&M Labs web design services.",
+    title: "Cookie Policy | DM-Labs.io",
+    description: "Cookie policy for DM-Labs.io web design services.",
     elPath: "/el/cookie-policy",
   },
   {
     path: "/terms",
-    title: "Terms of Service | D&M Labs",
-    description: "Terms of service for D&M Labs web design services.",
+    title: "Terms of Service | DM-Labs.io",
+    description: "Terms of service for DM-Labs.io web design services.",
     elPath: "/el/terms",
   },
   // English blog posts
@@ -197,150 +197,225 @@ const EN_STATIC_ROUTES = [
 const EL_STATIC_ROUTES = [
   {
     path: "/el",
-    title: "D&M Labs | Κατασκευή Ιστοσελίδων από €299",
-    description: "Η D&M Labs κατασκευάζει custom, mobile-first ιστοσελίδες για επιχειρήσεις. Γρήγορη παράδοση, SEO-ready, από €299.",
+    title: "DM-Labs.io | Κατασκευή Ιστοσελίδων από €299",
+    description: "Η DM-Labs.io κατασκευάζει custom, mobile-first ιστοσελίδες για επιχειρήσεις. Γρήγορη παράδοση, SEO-ready, από €299.",
     enPath: "/",
   },
   {
     path: "/el/services",
-    title: "Υπηρεσίες Web Design | D&M Labs",
+    title: "Υπηρεσίες Web Design | DM-Labs.io",
     description: "Επαγγελματικές υπηρεσίες κατασκευής ιστοσελίδων. Custom ιστοσελίδες, mobile-first ανάπτυξη, SEO βελτιστοποίηση. Από €299.",
     enPath: "/services",
   },
   {
     path: "/el/process",
-    title: "Η Διαδικασία μας | Πώς Κατασκευάζουμε Ιστοσελίδες | D&M Labs",
-    description: "Από την πρώτη επικοινωνία μέχρι το launch σε 5-14 ημέρες. Δείτε ακριβώς πώς η D&M Labs σχεδιάζει και κατασκευάζει την ιστοσελίδα σας.",
+    title: "Η Διαδικασία μας | Πώς Κατασκευάζουμε Ιστοσελίδες | DM-Labs.io",
+    description: "Δείτε πώς η DM-Labs.io μετατρέπει την πρώτη συζήτηση και το συμφωνημένο scope σε design, build, review και launch.",
     enPath: "/process",
   },
   {
     path: "/el/pricing",
-    title: "Τιμές Κατασκευής Ιστοσελίδας | D&M Labs",
-    description: "Διαφανείς τιμές κατασκευής ιστοσελίδας. Starter από €299, Business €399, Premium €699. Χωρίς κρυφές χρεώσεις.",
+    title: "Τιμές Κατασκευής Ιστοσελίδας | DM-Labs.io",
+    description: "Διαφανείς τιμές κατασκευής ιστοσελίδας: Launch από €299, Growth από €749, Pro από €1.499 και custom scope από DM-Labs.io.",
     enPath: "/pricing",
   },
   {
     path: "/el/faq",
-    title: "Συχνές Ερωτήσεις | D&M Labs",
-    description: "Απαντήσεις στις πιο συχνές ερωτήσεις για τη συνεργασία με τη D&M Labs. Τιμές, χρόνοι παράδοσης, διαδικασία και άλλα.",
+    title: "Συχνές Ερωτήσεις Ιστοσελίδων | DM-Labs.io",
+    description: "Απαντήσεις για πακέτα κατασκευής ιστοσελίδας, pricing, SEO βάσεις, website care και project scope από τη DM-Labs.io.",
     enPath: "/faq",
   },
   {
     path: "/el/contact",
-    title: "Επικοινωνία | Δωρεάν Πρόταση | D&M Labs",
-    description: "Επικοινωνήστε με τη D&M Labs για δωρεάν συμβουλευτική. Απαντάμε μέσα σε 24 ώρες. WhatsApp, email ή φόρμα επικοινωνίας.",
+    title: "Επικοινωνία | Δωρεάν Πρόταση | DM-Labs.io",
+    description: "Επικοινωνήστε με τη DM-Labs.io για δωρεάν συμβουλευτική μέσω WhatsApp, email ή φόρμας επικοινωνίας.",
     enPath: "/contact",
   },
   {
     path: "/el/blog",
-    title: "Blog | Συμβουλές Κατασκευής Ιστοσελίδας | D&M Labs",
+    title: "Blog | Συμβουλές Κατασκευής Ιστοσελίδας | DM-Labs.io",
     description: "Άρθρα και συμβουλές για κατασκευή ιστοσελίδας, SEO και online παρουσία για επιχειρήσεις στην Κύπρο και την Ελλάδα.",
     enPath: "/blog",
   },
   {
     path: "/el/web-design-limassol",
-    title: "Κατασκευή Ιστοσελίδας Λεμεσός | Από €299 | D&M Labs",
-    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Λεμεσό. Custom σχεδιασμός, SEO, mobile-first. Starter €299, Business €399, Premium €699.",
+    title: "Κατασκευή Ιστοσελίδας Λεμεσός | Από €299 | DM-Labs.io",
+    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Λεμεσό. Custom σχεδιασμός, SEO και mobile-first ανάπτυξη. Launch από €299, Growth από €749 και Pro από €1.499.",
     enPath: "/web-design-limassol",
   },
   {
     path: "/el/web-design-thessaloniki",
-    title: "Κατασκευή Ιστοσελίδας Θεσσαλονίκη | Από €299 | D&M Labs",
+    title: "Κατασκευή Ιστοσελίδας Θεσσαλονίκη | Από €299 | DM-Labs.io",
     description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Θεσσαλονίκη. Custom σχεδιασμός, SEO, mobile-first. Από €299.",
     enPath: "/web-design-thessaloniki",
   },
   {
     path: "/el/web-design-nicosia",
-    title: "Κατασκευή Ιστοσελίδας Λευκωσία | Από €299 | D&M Labs",
+    title: "Κατασκευή Ιστοσελίδας Λευκωσία | Από €299 | DM-Labs.io",
     description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Λευκωσία. Custom σχεδιασμός, SEO, mobile-first. Από €299.",
     enPath: "/web-design-nicosia",
   },
   {
     path: "/el/web-design-cyprus",
-    title: "Κατασκευή Ιστοσελίδας Κύπρος | Επαγγελματικές Ιστοσελίδες από €299 | D&M Labs",
-    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις σε όλη την Κύπρο. Custom ιστοσελίδες από €299. Mobile-first, SEO-optimised, παράδοση σε 5-14 ημέρες.",
+    title: "Κατασκευή Ιστοσελίδας Κύπρος | Επαγγελματικές Ιστοσελίδες από €299 | DM-Labs.io",
+    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις σε όλη την Κύπρο. Launch από €299, Growth από €749, Pro από €1.499 και custom scope.",
     enPath: "/web-design-cyprus",
   },
   {
     path: "/el/web-design-crete",
-    title: "Κατασκευή Ιστοσελίδας Κρήτη | Από €299 | D&M Labs",
+    title: "Κατασκευή Ιστοσελίδας Κρήτη | Από €299 | DM-Labs.io",
     description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στην Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο. Custom ιστοσελίδες από €299.",
     enPath: "/web-design-crete",
   },
   {
     path: "/el/privacy",
-    title: "Πολιτική Απορρήτου | D&M Labs",
-    description: "Πολιτική απορρήτου της D&M Labs.",
+    title: "Πολιτική Απορρήτου | DM-Labs.io",
+    description: "Πολιτική απορρήτου της DM-Labs.io.",
     enPath: "/privacy",
   },
   {
     path: "/el/cookie-policy",
-    title: "Πολιτική Cookies | D&M Labs",
-    description: "Πολιτική cookies της ιστοσελίδας D&M Labs.",
+    title: "Πολιτική Cookies | DM-Labs.io",
+    description: "Πολιτική cookies της ιστοσελίδας DM-Labs.io.",
     enPath: "/cookies",
   },
   {
     path: "/el/terms",
-    title: "Όροι Χρήσης | D&M Labs",
-    description: "Όροι χρήσης της ιστοσελίδας D&M Labs.",
+    title: "Όροι Χρήσης | DM-Labs.io",
+    description: "Όροι χρήσης της ιστοσελίδας DM-Labs.io.",
     enPath: "/terms",
   },
   // Greek blog posts
   {
     path: "/el/blog/wix-vs-epaggelmatias-web-designer-kypros",
-    title: "Wix ή Επαγγελματίας Web Designer; Τι Συμφέρει στην Κύπρο | D&M Labs",
+    title: "Wix ή Επαγγελματίας Web Designer; Τι Συμφέρει στην Κύπρο | DM-Labs.io",
     description: "Μια ειλικρινής σύγκριση Wix, WordPress και επαγγελματικής κατασκευής ιστοσελίδας για επιχειρήσεις στην Κύπρο.",
     enPath: "/blog/wix-vs-professional-web-designer-cyprus",
   },
   {
     path: "/el/blog/posso-kostizei-istoselidha-kypros",
-    title: "Πόσο Κοστίζει μια Ιστοσελίδα στην Κύπρο; (Ειλικρινής Οδηγός 2026) | D&M Labs",
+    title: "Πόσο Κοστίζει μια Ιστοσελίδα στην Κύπρο; (Ειλικρινής Οδηγός 2026) | DM-Labs.io",
     description: "Η αλήθεια για τις τιμές κατασκευής ιστοσελίδας στην Κύπρο το 2026. Τι περιλαμβάνεται και πώς να επιλέξετε σωστά.",
     enPath: "/blog/website-cost-cyprus-2026-guide",
   },
   {
     path: "/el/blog/istoselidha-nail-salon-beauty-studio-kypros",
-    title: "Ιστοσελίδα για Nail Salon και Beauty Studio στην Κύπρο | D&M Labs",
+    title: "Ιστοσελίδα για Nail Salon και Beauty Studio στην Κύπρο | DM-Labs.io",
     description: "Τι χρειάζεται η ιστοσελίδα ενός nail salon ή beauty studio στην Κύπρο για να φέρνει νέους πελάτες.",
     enPath: "/blog/web-design-nail-salon-beauty-studio-cyprus",
   },
   {
     path: "/el/blog/istoselidha-yoga-pilates-studio-kypros",
-    title: "Ιστοσελίδα για Yoga και Pilates Studio στην Κύπρο | D&M Labs",
+    title: "Ιστοσελίδα για Yoga και Pilates Studio στην Κύπρο | DM-Labs.io",
     description: "Γιατί το yoga ή pilates studio σας στην Κύπρο χρειάζεται ιστοσελίδα και όχι μόνο Instagram.",
     enPath: "/blog/yoga-pilates-studio-website-cyprus",
   },
   {
     path: "/el/blog/pos-na-vretheite-google-kypros",
-    title: "Πώς να Βρεθεί η Επιχείρησή σας στη Google στην Κύπρο | D&M Labs",
+    title: "Πώς να Βρεθεί η Επιχείρησή σας στη Google στην Κύπρο | DM-Labs.io",
     description: "Απλός οδηγός για να εμφανίζεται η επιχείρησή σας στη Google στην Κύπρο. Χωρίς τεχνικές ορολογίες.",
     enPath: "/blog/how-to-get-found-on-google-cyprus",
   },
   {
     path: "/el/blog/istoselidha-estiatorio-kypros",
-    title: "Γιατί Κάθε Εστιατόριο στην Κύπρο Χρειάζεται Ιστοσελίδα | D&M Labs",
+    title: "Γιατί Κάθε Εστιατόριο στην Κύπρο Χρειάζεται Ιστοσελίδα | DM-Labs.io",
     description: "Το Facebook δεν αρκεί για εστιατόριο στην Κύπρο. Δείτε τι χάνετε χωρίς επαγγελματική ιστοσελίδα.",
     enPath: "/blog/restaurant-website-design-cyprus",
   },
   {
     path: "/el/blog/web-design-ellada-odigos-2026",
-    title: "Οδηγός Web Design Ελλάδα 2026 | D&M Labs",
+    title: "Οδηγός Web Design Ελλάδα 2026 | DM-Labs.io",
     description: "Όλα όσα πρέπει να γνωρίζουν οι ελληνικές επιχειρήσεις για επαγγελματική κατασκευή ιστοσελίδας το 2026.",
     enPath: "/blog/web-design-greece-guide-2026",
   },
   {
     path: "/el/blog/geo-vrethite-apo-chatgpt-kypros",
-    title: "GEO: Πώς να Βρεθείτε από το ChatGPT | D&M Labs",
+    title: "GEO: Πώς να Βρεθείτε από το ChatGPT | DM-Labs.io",
     description: "Το SEO δεν αρκεί πλέον. Μάθετε τι είναι το GEO και γιατί οι επιχειρήσεις στην Κύπρο χρειάζονται να εμφανίζονται στο ChatGPT και στο Google AI.",
     enPath: "/blog/geo-get-found-by-chatgpt-cyprus",
   },
   {
     path: "/el/examples",
-    title: "Παραδείγματα Ιστοσελίδων | D&M Labs",
+    title: "Παραδείγματα Ιστοσελίδων | DM-Labs.io",
     description: "Δείτε το portfolio μας με custom ιστοσελίδες για επιχειρήσεις στην Κύπρο και την Ελλάδα. Κάθε site χτίζεται από μηδέν.",
     enPath: "/examples",
   },
 ];
+
+// ─── Crawlable route content ───────────────────────────────────────────────────
+// The React app replaces this content after JavaScript loads. It is deliberately
+// relevant, visible fallback content so visitors and crawlers receive a real,
+// route-specific page before the client application starts.
+const ROUTE_FALLBACKS = {
+  "/": {
+    h1: "Professional Web Design in Paphos & Cyprus",
+    paragraphs: [
+      "DM-Labs.io designs and builds custom, mobile-first websites for businesses in Paphos and across Cyprus.",
+      "Choose a clear website package from €299 or discuss a custom scope for integrations, multilingual content, booking, CRM, and other complex requirements.",
+    ],
+  },
+  "/services": {
+    h1: "Web Design Services for Businesses in Paphos & Cyprus",
+    paragraphs: [
+      "DM-Labs.io provides website design, web development, search-friendly foundations, and optional ongoing website care.",
+      "Every project is scoped around your business, content, and the actions you want visitors to take.",
+    ],
+  },
+  "/pricing": {
+    h1: "Website Pricing for Cyprus Businesses",
+    paragraphs: [
+      "Launch Website packages start at €299, Growth Website packages start at €749, and Pro Website packages start at €1,499.",
+      "Enterprise / Custom projects begin from €1,499 and are quoted by scope. Basic Care is €49 per month with up to five small content updates, while Complete Care is €129 per month with ongoing content updates.",
+    ],
+  },
+  "/faq": {
+    h1: "DM-Labs.io Website Design FAQ",
+    paragraphs: [
+      "Find clear answers about website packages, project scope, search-friendly foundations, and ongoing website care.",
+      "For a project-specific recommendation, contact DM-Labs.io for a free consultation.",
+    ],
+  },
+  "/web-design-paphos": {
+    h1: "Web Design in Paphos",
+    paragraphs: [
+      "DM-Labs.io is based in Paphos and builds professional, mobile-first websites for local businesses and organisations across Cyprus.",
+      "Launch Website packages start at €299, with Growth, Pro, and Enterprise / Custom options for wider requirements.",
+    ],
+  },
+  "/web-design-cyprus": {
+    h1: "Professional Web Design in Cyprus",
+    paragraphs: [
+      "DM-Labs.io designs and builds responsive, search-friendly websites for businesses across Cyprus.",
+      "Choose a clear website package from €299 or discuss a custom scope for advanced features and integrations.",
+    ],
+  },
+  "/web-design-limassol": {
+    h1: "Web Design for Limassol Businesses",
+    paragraphs: [
+      "DM-Labs.io builds professional, responsive websites for businesses in Limassol and across Cyprus.",
+      "Clear website packages start from €299, with custom scope available for more complex projects.",
+    ],
+  },
+  "/web-design-restaurants-cyprus": {
+    h1: "Restaurant Website Design in Cyprus",
+    paragraphs: [
+      "DM-Labs.io builds practical restaurant websites with clear menus, contact information, booking paths, and mobile-friendly implementation.",
+      "Choose a clear website package from €299 or discuss a custom scope for booking and integration requirements.",
+    ],
+  },
+};
+
+function buildFallbackBody(route) {
+  const fallback = ROUTE_FALLBACKS[route.path] ?? {
+    h1: route.title.replace(/\s*\|\s*DM-Labs\.io.*$/i, "").trim(),
+    paragraphs: [route.description],
+  };
+  const paragraphs = fallback.paragraphs
+    .map((paragraph) => `<p style="margin:0 0 1rem;color:#475569;line-height:1.65">${escapeHtml(paragraph)}</p>`)
+    .join("\n");
+
+  return `\n      <main data-seo-fallback="true" style="max-width:1120px;margin:0 auto;padding:5rem 1.5rem;font-family:Inter,Arial,sans-serif">\n        <p style="margin:0 0 .75rem;color:#5b8cff;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase">DM-Labs.io</p>\n        <h1 style="margin:0 0 1.25rem;color:#0f172a;font-size:clamp(2rem,5vw,3.5rem);line-height:1.12">${escapeHtml(fallback.h1)}</h1>\n        ${paragraphs}\n        <p style="margin:1.5rem 0 0"><a href="/contact" style="color:#355ec9;font-weight:600">Get a free consultation</a> · <a href="/pricing" style="color:#355ec9;font-weight:600">View website packages</a></p>\n      </main>`;
+}
 
 // ─── HTML injection helper ────────────────────────────────────────────────────
 
@@ -429,6 +504,11 @@ function injectMetaTags(html, route) {
 
   // Inject the new meta block right after <head>
   result = result.replace(/<head>/, `<head>${metaBlock}`);
+
+  // Preserve meaningful route content in the initial HTML. React replaces this
+  // fallback on load, so the page remains a single consistent experience.
+  const fallbackBody = buildFallbackBody(route);
+  result = result.replace(/<div id="root"><\/div>/, `<div id="root">${fallbackBody}\n    </div>`);
 
   return result;
 }
