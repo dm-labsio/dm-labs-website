@@ -245,11 +245,11 @@ const SERVICES: Record<string, {
     icon: MapPin,
     accentColor: "#5B8CFF",
     title: "Google Maps & Location",
-    subtitle: "Help customers find you instantly - embedded maps and location info on every page.",
-    intro: "For businesses with a physical presence, Google Maps integration isn’t just useful - it’s essential. We embed interactive maps, turn-by-turn directions, and location details so customers can find you with a single tap.",
+    subtitle: "Help customers find you instantly — embedded maps and location info on every page.",
+    intro: "For businesses with a physical presence, Google Maps integration isn’t just useful — it’s essential. We embed interactive maps, turn-by-turn directions, and location details so customers can find you with a single tap.",
     why: [
-      { heading: "Remove friction from finding you", body: "If a customer has to copy your address into another app, you’ve already lost them. An embedded map allows one-click navigation - especially important for mobile users on the go." },
-      { heading: "Boost your local SEO", body: "Correct Google Maps integration, combined with Google Business Profile, strengthens your presence in local search results. Appear in Google’s ‘Local Pack’ - the three businesses shown first in local searches." },
+      { heading: "Remove friction from finding you", body: "If a customer has to copy your address into another app, you’ve already lost them. An embedded map allows one-click navigation — especially important for mobile users on the go." },
+      { heading: "Boost your local SEO", body: "Correct Google Maps integration, combined with Google Business Profile, strengthens your presence in local search results. Appear in Google’s ‘Local Pack’ — the three businesses shown first in local searches." },
       { heading: "Trust and professionalism", body: "A site with clear location info and an embedded map shows your business is real, established, and easy to reach. This builds trust before the customer even visits." },
     ],
     whatWeDeliver: [
@@ -258,7 +258,7 @@ const SERVICES: Record<string, {
       "Address, opening hours, and phone number display",
       "Google Business Profile connection",
       "LocalBusiness schema markup for SEO",
-      "Mobile-optimised - one-tap navigation",
+      "Mobile-optimised — one-tap navigation",
     ],
     howItWorks: [
       { step: "01", title: "Location Setup", desc: "We confirm your address, opening hours, and contact details for accurate display." },
@@ -267,7 +267,7 @@ const SERVICES: Record<string, {
       { step: "04", title: "Mobile Testing", desc: "We verify the map loads fast and navigation works seamlessly on iOS and Android." },
     ],
     faqs: [
-      { q: "Do I need a Google Business account?", a: "We strongly recommend having one - it’s free and significantly boosts your local visibility on Google. We can guide you through setting it up." },
+      { q: "Do I need a Google Business account?", a: "We strongly recommend having one — it’s free and significantly boosts your local visibility on Google. We can guide you through setting it up." },
       { q: "Does the map work on mobile?", a: "Yes. The embedded map automatically opens the Google Maps app on mobile for instant navigation." },
       { q: "Can I show multiple locations?", a: "Yes. If you have multiple branches or locations, we can display all of them on a single map." },
     ],
@@ -278,11 +278,11 @@ const SERVICES: Record<string, {
     icon: FileText,
     accentColor: "#6FE3FF",
     title: "Contact Forms",
-    subtitle: "Professional forms that turn visitors into enquiries - delivered straight to your inbox.",
-    intro: "A well-designed contact form is one of the most important conversion tools on your website. We build forms that are easy to complete, secure, and send enquiries directly to your email - so you never miss a potential client.",
+    subtitle: "Professional forms that turn visitors into enquiries — delivered straight to your inbox.",
+    intro: "A well-designed contact form is one of the most important conversion tools on your website. We build forms that are easy to complete, secure, and send enquiries directly to your email — so you never miss a potential client.",
     why: [
-      { heading: "Convert visitors into leads", body: "A contact form is the bridge between an interested visitor and a new client. We design forms that are simple, clear, and encourage completion - without unnecessary fields that put users off." },
-      { heading: "Receive enquiries instantly", body: "Every form submission sends an automatic email to your inbox with all the client’s details. No dashboard to check - enquiries come straight to you." },
+      { heading: "Convert visitors into leads", body: "A contact form is the bridge between an interested visitor and a new client. We design forms that are simple, clear, and encourage completion — without unnecessary fields that put users off." },
+      { heading: "Receive enquiries instantly", body: "Every form submission sends an automatic email to your inbox with all the client’s details. No dashboard to check — enquiries come straight to you." },
       { heading: "Professional image", body: "A contact form on your website shows you’re organised and professional. Unlike a plain email link, a form collects the right information from the start." },
     ],
     whatWeDeliver: [
@@ -294,10 +294,10 @@ const SERVICES: Record<string, {
       "Optional: booking or appointment form",
     ],
     howItWorks: [
-      { step: "01", title: "Form Design", desc: "We agree on which fields you need - name, email, phone, message, or anything else." },
+      { step: "01", title: "Form Design", desc: "We agree on which fields you need — name, email, phone, message, or anything else." },
       { step: "02", title: "Integration", desc: "We build the form into your site with proper validation and error messages." },
       { step: "03", title: "Email Setup", desc: "We connect the form to your email so every submission arrives instantly in your inbox." },
-      { step: "04", title: "Testing", desc: "We test the form fully before launch - including mobile testing." },
+      { step: "04", title: "Testing", desc: "We test the form fully before launch — including mobile testing." },
     ],
     faqs: [
       { q: "Which email do submissions go to?", a: "Whichever email you provide. You can also set multiple recipients if you want enquiries going to different people." },
@@ -311,8 +311,8 @@ const SERVICES: Record<string, {
     icon: Share2,
     accentColor: "#8B5CFF",
     title: "Social Media Integration",
-    subtitle: "Connect your website to your social media - and turn visitors into followers and clients.",
-    intro: "Social media is where your clients are. Your website should lead them there - and vice versa. We integrate your social media into every website, from footer icons to live Instagram feeds and share buttons, creating a cohesive digital presence.",
+    subtitle: "Connect your website to your social media — and turn visitors into followers and clients.",
+    intro: "Social media is where your clients are. Your website should lead them there — and vice versa. We integrate your social media into every website, from footer icons to live Instagram feeds and share buttons, creating a cohesive digital presence.",
     why: [
       { heading: "Amplify your reach", body: "Every website visitor is a potential follower. With clear, visible social media icons and CTAs, you turn a one-time visit into a long-term relationship with your audience." },
       { heading: "Social proof", body: "Showing your follower count or live Instagram posts signals that your business is active and trustworthy. Social proof is one of the most powerful trust factors online." },
@@ -328,7 +328,7 @@ const SERVICES: Record<string, {
     ],
     howItWorks: [
       { step: "01", title: "Profile Gathering", desc: "You provide links to all the social media profiles you want displayed." },
-      { step: "02", title: "Integration", desc: "We place icons and links in the right spots - header, footer, contact page." },
+      { step: "02", title: "Integration", desc: "We place icons and links in the right spots — header, footer, contact page." },
       { step: "03", title: "WhatsApp & Direct Contact", desc: "We set up a WhatsApp click-to-chat button so clients can reach you with one click." },
       { step: "04", title: "Link Testing", desc: "We verify all links open correctly on desktop and mobile before launch." },
     ],

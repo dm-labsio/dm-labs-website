@@ -996,56 +996,66 @@ function CustomBuildCard() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -4 }}
-      className="group overflow-hidden transition-all duration-300 flex flex-col"
-      style={{ background: "var(--ink)", border: "1px solid rgba(255,255,255,.08)", borderRadius: 0 }}
+      whileHover={{ y: -6 }}
+      className="group bg-white rounded-2xl overflow-hidden transition-all duration-400 flex flex-col"
+      style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid rgba(226,229,234,0.8)" }}
     >
-      {/* Dark banner */}
-      <div style={{
-        position: "relative", display: "flex", flexDirection: "column" as const,
-        alignItems: "center", justifyContent: "center",
-        padding: "48px 32px", height: "280px", textAlign: "center" as const,
-        background: "linear-gradient(135deg, #0d1117 0%, #161b22 100%)",
-      }}>
-        <div style={{ width: "48px", height: "48px", marginBottom: "16px", background: "var(--grad)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+      {/* Gradient banner */}
+      <div
+        className="relative flex flex-col items-center justify-center px-8 py-12 text-center"
+        style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)", height: "280px" }}
+      >
+        {/* Subtle animated gradient orbs */}
+        <div className="absolute top-4 left-6 w-24 h-24 rounded-full blur-2xl" style={{ background: "rgba(91,140,255,0.25)" }} />
+        <div className="absolute bottom-4 right-6 w-20 h-20 rounded-full blur-2xl" style={{ background: "rgba(139,92,255,0.25)" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full blur-3xl" style={{ background: "rgba(111,227,255,0.12)" }} />
+
+        {/* Icon */}
+        <div className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)", boxShadow: "0 8px 24px rgba(91,140,255,0.4)" }}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
             <path d="M12 2L2 7l10 5 10-5-10-5z" />
             <path d="M2 17l10 5 10-5" />
             <path d="M2 12l10 5 10-5" />
           </svg>
         </div>
-        <h3 style={{ fontFamily: "'Satoshi', sans-serif", fontWeight: 900, fontSize: "1.25rem", color: "#fff", marginBottom: "6px" }}>Custom Build</h3>
-        <p style={{ fontFamily: "'Space Mono', monospace", fontSize: "9px", letterSpacing: ".15em", color: "rgba(238,241,248,.45)" }}>FULLY BESPOKE DESIGN</p>
+
+        <h3 className="relative z-10 text-white font-bold text-xl leading-tight mb-1">Custom Build</h3>
+        <p className="relative z-10 text-blue-200/80 text-sm">Fully Bespoke Design</p>
       </div>
+
       {/* Card body */}
-      <div style={{ padding: "20px", display: "flex", flexDirection: "column" as const, flex: 1, background: "rgba(255,255,255,.03)" }}>
-        <p style={{ fontFamily: "'Satoshi', sans-serif", fontSize: ".875rem", color: "rgba(238,241,248,.7)", lineHeight: 1.65, marginBottom: "16px" }}>
-          None of these fit your vision? We design your website entirely from scratch.
+      <div className="p-5 flex flex-col flex-1">
+        <p className="text-gray-600 text-sm leading-relaxed mb-4">
+          None of these fit your vision? We design your website entirely from scratch - unique layout, custom graphics, and a brand identity built just for you.
         </p>
-        <ul style={{ listStyle: "none", margin: "0 0 20px", padding: 0, display: "flex", flexDirection: "column" as const, gap: "8px", flex: 1 }}>
+
+        {/* Feature list */}
+        <ul className="space-y-2 mb-5 flex-1">
           {[
-            "100% unique layout",
-            "Custom brand graphics",
-            "Tailored colour palette",
-            "Built around your goals",
+            "100% unique layout - fully bespoke",
+            "Custom illustrations & brand graphics",
+            "Tailored colour palette & typography",
+            "Built around your specific business goals",
+            "Collaborative design process",
           ].map(f => (
-            <li key={f} style={{ display: "flex", alignItems: "center", gap: "8px", fontFamily: "'Satoshi', sans-serif", fontSize: ".8125rem", color: "rgba(238,241,248,.6)" }}>
-              <span style={{ width: "4px", height: "4px", background: "var(--cyan)", flexShrink: 0 }} />
+            <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
+              <Check size={14} className="text-[#5B8CFF] shrink-0 mt-0.5" />
               {f}
             </li>
           ))}
         </ul>
-        <a
-          href="/contact"
-          style={{
-            display: "inline-flex", alignItems: "center", gap: "6px",
-            fontFamily: "'Space Mono', monospace", fontSize: "9px", letterSpacing: ".18em",
-            textTransform: "uppercase" as const, color: "var(--cyan)", textDecoration: "none",
-          }}
-          onClick={e => e.stopPropagation()}
-        >
-          Get a Quote <ChevronRight size={10} />
-        </a>
+
+        <div className="flex items-center justify-between">
+          <span className="text-xs text-gray-400 italic">Pricing from €299 - quote on request</span>
+          <a
+            href="/contact"
+            className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
+            style={{ color: "#5B8CFF" }}
+            onClick={e => e.stopPropagation()}
+          >
+            Get a Quote <ChevronRight size={14} />
+          </a>
+        </div>
       </div>
     </motion.div>
   );
@@ -1161,7 +1171,7 @@ export default function Templates() {
     window.history.pushState({ modal: true }, "");
   };
 
-  // Close modal: always close immediately - no async history.back() calls.
+  // Close modal: always close immediately — no async history.back() calls.
   // The popstate listener handles the browser-back case separately.
   const closeModal = () => {
     setSelectedTemplate(null);
@@ -1179,13 +1189,13 @@ export default function Templates() {
     return () => window.removeEventListener("popstate", onPopState);
   }, [selectedTemplate]);
 
-  // Handle URL params - run only once on mount to avoid re-open loops
+  // Handle URL params — run only once on mount to avoid re-open loops
   useEffect(() => {
     if (urlParamHandled.current) return;
     urlParamHandled.current = true;
 
     const params = new URLSearchParams(window.location.search);
-    // Always clean query strings immediately - prevents Google indexing ?open= and ?industry= as separate pages
+    // Always clean query strings immediately — prevents Google indexing ?open= and ?industry= as separate pages
     if (window.location.search) {
       window.history.replaceState(null, "", window.location.pathname);
     }
@@ -1218,40 +1228,33 @@ export default function Templates() {
   })();
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--mist)" }}>
+    <div className="min-h-screen" style={{ background: "#F6F6F4" }}>
       {/* Hero */}
-      <section style={{ background: "var(--ink)", padding: "100px 0 80px", position: "relative", overflow: "hidden" }}>
-        <div aria-hidden="true" style={{
-          position: "absolute", inset: 0,
-          backgroundImage: "linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px)",
-          backgroundSize: "60px 60px", pointerEvents: "none",
-        }} />
-        <div className="container relative text-center">
-          <p className="mono" style={{ color: "var(--cyan)", marginBottom: "16px" }}>WEBSITE EXAMPLES</p>
-          <h1 style={{
-            fontFamily: "'Satoshi', sans-serif", fontWeight: 900,
-            fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-.03em", lineHeight: .96,
-            color: "#fff", marginBottom: "20px",
-          }}>
-            Find your{" "}
-            <span style={{ background: "var(--grad)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              website style.
-            </span>
-          </h1>
-          <p style={{
-            fontFamily: "'Satoshi', sans-serif", fontSize: "1rem", fontWeight: 500,
-            color: "rgba(238,241,248,.6)", lineHeight: 1.65, maxWidth: "52ch", margin: "0 auto 12px",
-          }}>
-            Browse our curated designs by industry. Each example is fully customised for your business.
-          </p>
-          <p style={{ fontFamily: "'Space Mono', monospace", fontSize: "9px", letterSpacing: ".15em", color: "rgba(238,241,248,.35)" }}>
-            Interactive demo concepts. Every website is built from scratch for your business.
-          </p>
+      <section className="relative py-12 sm:py-16 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(91,140,255,0.06) 0%, transparent 50%, rgba(139,92,255,0.06) 100%)" }} />
+        <div className="absolute top-16 left-1/4 w-80 h-80 rounded-full blur-3xl" style={{ background: "rgba(91,140,255,0.08)" }} />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(139,92,255,0.07)" }} />
+        <div className="relative container text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>Website Examples</p>
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              Find Your Perfect
+              <span className="block" style={{ background: "linear-gradient(135deg, #5B8CFF, #6FE3FF, #8B5CFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                Website Style
+              </span>
+            </h1>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
+              Browse our curated designs by industry. Each example is fully customised for your business - your logo, your colours, your content.
+            </p>
+            <p className="text-sm text-gray-400 max-w-xl mx-auto">
+              These are <strong className="text-gray-500">interactive demo concepts</strong>, not fixed packages. Every website we build is tailored from scratch for your business. Real client work is available on request.
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* Sticky Industry Filter */}
-      <section className="sticky top-[72px] z-30 py-4" style={{ background: "rgba(15,17,24,0.96)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,.06)" }}>
+      <section className="sticky top-[72px] z-30 py-4" style={{ background: "rgba(246,246,244,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(226,229,234,0.6)" }}>
         <IndustryTabs activeIndustry={activeIndustry} setActiveIndustry={setActiveIndustry} />
       </section>
 
@@ -1259,7 +1262,7 @@ export default function Templates() {
       <section className="py-16">
         <div className="container">
           {filtered.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6" style={{ background: "var(--mist)" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
               {/* Custom Build card - always shown first */}
               <CustomBuildCard />
               {filtered.map(template => (
@@ -1295,31 +1298,21 @@ export default function Templates() {
       </section>
 
       {/* Bottom CTA */}
-      <section style={{ background: "var(--ink)", padding: "100px 0", textAlign: "center" }}>
-        <div className="container">
-          <p className="mono" style={{ color: "var(--cyan)", marginBottom: "16px" }}>READY TO START?</p>
-          <h2 style={{
-            fontFamily: "'Satoshi', sans-serif", fontWeight: 900,
-            fontSize: "clamp(1.9rem, 4.4vw, 3.4rem)", letterSpacing: "-.028em", lineHeight: 1.02,
-            color: "#fff", marginBottom: "20px",
-          }}>Don't see what you're looking for?</h2>
-          <p style={{
-            fontFamily: "'Satoshi', sans-serif", fontSize: "1rem", color: "rgba(238,241,248,.6)",
-            lineHeight: 1.65, maxWidth: "44ch", margin: "0 auto 36px",
-          }}>
-            Every website we build is fully custom. Tell us about your business and we'll design something unique.
-          </p>
-          <a
-            href="/contact"
-            style={{
-              display: "inline-flex", alignItems: "center", gap: "8px",
-              padding: "16px 40px", fontFamily: "'Space Mono', monospace", fontSize: "10px",
-              letterSpacing: ".2em", textTransform: "uppercase" as const,
-              background: "var(--grad)", color: "#fff", textDecoration: "none",
-            }}
-          >
-            Start a Conversation <ArrowRight size={13} />
-          </a>
+      <section className="py-20" style={{ borderTop: "1px solid rgba(226,229,234,0.8)" }}>
+        <div className="container text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Don't see what you're looking for?</h2>
+            <p className="text-gray-500 mb-8 max-w-lg mx-auto">
+              Every website we build is fully custom. Tell us about your business and we'll design something unique - just for you.
+            </p>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
+            >
+              Start a Conversation <ArrowRight size={18} />
+            </a>
+          </motion.div>
         </div>
       </section>
 

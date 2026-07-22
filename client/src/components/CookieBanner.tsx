@@ -1,4 +1,4 @@
-/* D&M LABS - GDPR Cookie Consent Banner - bilingual EN/EL */
+/* D&M LABS - GDPR Cookie Consent Banner — bilingual EN/EL */
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 

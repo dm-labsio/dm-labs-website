@@ -437,23 +437,23 @@ export const POSTS: BlogPost[] = [
     slug: "web-design-greece-guide-2026",
     title: "Web Design in Greece: What Every Business Needs to Know in 2026",
     metaTitle: "Web Design Greece 2026 | Complete Business Guide",
-    metaDescription: "Everything Greek businesses need to know about web design in 2026 - costs, what to look for in an agency, and how to get found on Google in Greece.",
+    metaDescription: "Everything Greek businesses need to know about web design in 2026 — costs, what to look for in an agency, and how to get found on Google in Greece.",
     date: "2026-06-12",
     readTime: "7 min read",
     category: "Web Design",
     excerpt: "Whether you are in Athens, Thessaloniki, or anywhere across Greece, your website is your most important business asset in 2026. Here is what you need to know before you build or rebuild yours.",
     coverImage: "https://images.unsplash.com/photo-1555993539-1732b0258235?w=1200&q=80",
     content: `
-<p class="blog-lead">Greece has one of the most competitive small business landscapes in Europe. From the restaurants of Thessaloniki to the boutique hotels of the Aegean islands, every business is fighting for the same thing: visibility. In 2026, that fight happens online first - and your website is the foundation of everything.</p>
+<p class="blog-lead">Greece has one of the most competitive small business landscapes in Europe. From the restaurants of Thessaloniki to the boutique hotels of the Aegean islands, every business is fighting for the same thing: visibility. In 2026, that fight happens online first — and your website is the foundation of everything.</p>
 
 <p>This guide is for Greek business owners who want to understand what web design in Greece actually involves, what it costs, what separates a good website from a great one, and how to make sure yours gets found on Google.</p>
 
 <h2>Why Web Design in Greece Has Changed</h2>
-<p>Five years ago, having any website was enough to stand out. Today, your competitors have websites too - and many of them are good. The bar has risen significantly, and Greek consumers have become more discerning. A slow, outdated, or mobile-unfriendly website does not just fail to impress; it actively drives customers away.</p>
+<p>Five years ago, having any website was enough to stand out. Today, your competitors have websites too — and many of them are good. The bar has risen significantly, and Greek consumers have become more discerning. A slow, outdated, or mobile-unfriendly website does not just fail to impress; it actively drives customers away.</p>
 <p>According to Google, 53% of mobile users abandon a site that takes more than 3 seconds to load. In Greece, where mobile internet usage is among the highest in the EU, this is not a statistic to ignore. Your website needs to be fast, clean, and built for the phone first.</p>
 
 <h2>What Greek Businesses Actually Need From a Website</h2>
-<p>The needs vary by industry, but across the Greek market, the businesses that get the best results from their websites share a few common characteristics. Their sites load in under 2 seconds. They are fully optimised for mobile. They appear on the first page of Google for their local search terms. And they make it easy for a visitor to take the next step - whether that is calling, booking, or sending a message.</p>
+<p>The needs vary by industry, but across the Greek market, the businesses that get the best results from their websites share a few common characteristics. Their sites load in under 2 seconds. They are fully optimised for mobile. They appear on the first page of Google for their local search terms. And they make it easy for a visitor to take the next step — whether that is calling, booking, or sending a message.</p>
 <p>A website for a restaurant in Athens needs to show the menu, allow reservations, and rank for "restaurant [neighbourhood] Athens". A website for a law firm in Thessaloniki needs to convey authority, list services clearly, and rank for "lawyer Thessaloniki [practice area]". The structure is different, but the principles are the same: clarity, speed, and local SEO.</p>
 
 <h2>Web Design Greece: What Does It Cost?</h2>
@@ -471,26 +471,26 @@ export const POSTS: BlogPost[] = [
   </tbody>
 </table>
 
-<p>The wide range in freelancer and agency pricing reflects the enormous variation in quality, experience, and what is actually included. A €300 freelancer website and a €1,500 agency website can look similar in a screenshot - but the difference in SEO foundations, page speed, and code quality is often significant.</p>
+<p>The wide range in freelancer and agency pricing reflects the enormous variation in quality, experience, and what is actually included. A €300 freelancer website and a €1,500 agency website can look similar in a screenshot — but the difference in SEO foundations, page speed, and code quality is often significant.</p>
 
 <h2>The SEO Problem Most Greek Websites Have</h2>
-<p>The most common issue we see with Greek business websites is not the design - it is the SEO. A beautiful website that cannot be found on Google is a beautiful billboard in the middle of a desert. It looks great and does nothing.</p>
+<p>The most common issue we see with Greek business websites is not the design — it is the SEO. A beautiful website that cannot be found on Google is a beautiful billboard in the middle of a desert. It looks great and does nothing.</p>
 <p>Proper SEO for a Greek business website involves several layers. First, on-page SEO: every page needs a unique meta title, a meta description, proper heading structure, and image alt tags in Greek. Second, local SEO: your Google Business Profile needs to be verified, complete, and consistent with the name, address, and phone number on your website. Third, content: Google ranks pages that answer questions people are actually searching for. A blog or resources section that addresses your customers' real questions is one of the most powerful long-term investments you can make.</p>
 <p>Most affordable web design packages in Greece skip all of this. You get a website, but not a website that works.</p>
 
 <h2>Greek vs English: Should Your Website Be Bilingual?</h2>
-<p>For most businesses in Greece, the answer is yes - especially if you serve tourists, expats, or international clients. A bilingual website (Greek and English) doubles your potential audience and signals professionalism to international visitors.</p>
+<p>For most businesses in Greece, the answer is yes — especially if you serve tourists, expats, or international clients. A bilingual website (Greek and English) doubles your potential audience and signals professionalism to international visitors.</p>
 <p>The key is doing it properly. A bilingual website is not just a translated version of the same page. It needs separate URLs for each language (e.g., <code>/el/</code> for Greek and <code>/en/</code> for English), correct <code>hreflang</code> tags so Google knows which version to show to which user, and content that reads naturally in both languages rather than machine-translated.</p>
-<p>At DM-Labs.io, every website we build is fully bilingual by default - Greek and English - with proper SEO setup for both languages. This is included in every package, not an add-on.</p>
+<p>At DM-Labs.io, every website we build is fully bilingual by default — Greek and English — with proper SEO setup for both languages. This is included in every package, not an add-on.</p>
 
 <h2>What to Look for When Choosing a Web Design Agency in Greece</h2>
 <p>The Greek market has hundreds of web design providers, from one-person freelancers to large agencies. Here is what actually matters when choosing one:</p>
 <ul>
-  <li><strong>Transparent pricing</strong> - If an agency will not give you a price range upfront, that is a red flag. You should know what you are paying before you start a conversation.</li>
-  <li><strong>A real portfolio</strong> - Ask to see live websites they have built, not just screenshots. Visit those sites on your phone and check how fast they load.</li>
-  <li><strong>SEO included as standard</strong> - Not as an optional extra. On-page SEO should be part of every professional web build.</li>
-  <li><strong>Clear timeline</strong> - A professional agency will give you a delivery date and stick to it. Vague timelines lead to projects that drag on for months.</li>
-  <li><strong>Ongoing support</strong> - What happens after launch? Who do you call when something breaks or you need to update your menu?</li>
+  <li><strong>Transparent pricing</strong> — If an agency will not give you a price range upfront, that is a red flag. You should know what you are paying before you start a conversation.</li>
+  <li><strong>A real portfolio</strong> — Ask to see live websites they have built, not just screenshots. Visit those sites on your phone and check how fast they load.</li>
+  <li><strong>SEO included as standard</strong> — Not as an optional extra. On-page SEO should be part of every professional web build.</li>
+  <li><strong>Clear timeline</strong> — A professional agency will give you a delivery date and stick to it. Vague timelines lead to projects that drag on for months.</li>
+  <li><strong>Ongoing support</strong> — What happens after launch? Who do you call when something breaks or you need to update your menu?</li>
 </ul>
 
 <h2>Web Design for Specific Industries in Greece</h2>
@@ -503,12 +503,12 @@ export const POSTS: BlogPost[] = [
 <p>We have worked with businesses in <a href="/web-design-thessaloniki" class="blog-link">Thessaloniki</a>, Athens, and across the Greek islands including <a href="/web-design-crete" class="blog-link">Crete</a>, as well as in <a href="/web-design-limassol" class="blog-link">Limassol</a> and <a href="/web-design-nicosia" class="blog-link">Nicosia</a> in Cyprus. If you are looking for a web design partner who understands the Greek market and delivers on time, we would love to hear from you.</p>
 
 <h2>The Bottom Line</h2>
-<p>Web design in Greece in 2026 is not just about having a website. It is about having a website that loads fast, looks professional on every device, can be found on Google for the right search terms, and makes it easy for customers to take action. That combination - design, performance, and SEO - is what separates a website that works from one that just exists.</p>
+<p>Web design in Greece in 2026 is not just about having a website. It is about having a website that loads fast, looks professional on every device, can be found on Google for the right search terms, and makes it easy for customers to take action. That combination — design, performance, and SEO — is what separates a website that works from one that just exists.</p>
 <p>If your current website is not delivering results, or if you are starting from scratch, the investment in getting it right is one of the best decisions you can make for your business.</p>
 
 <div class="blog-cta">
   <h3>Ready to build a website that works for your Greek business?</h3>
-  <p>Get a free, no-obligation consultation. We will look at your current situation, tell you exactly what we would recommend, and give you a clear price - no sales pressure.</p>
+  <p>Get a free, no-obligation consultation. We will look at your current situation, tell you exactly what we would recommend, and give you a clear price — no sales pressure.</p>
   <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
 </div>
     `,
@@ -519,72 +519,72 @@ export const POSTS: BlogPost[] = [
     slug: "geo-get-found-by-chatgpt-cyprus",
     title: "GEO: How to Get Your Cyprus Business Found by ChatGPT and AI Search",
     metaTitle: "GEO Cyprus 2026 | Get Found by ChatGPT & AI Search | DM-Labs.io",
-    metaDescription: "GEO (Generative Engine Optimization) is the new SEO. Learn why Cyprus businesses are invisible to ChatGPT and Perplexity - and what the first step to changing that looks like.",
+    metaDescription: "GEO (Generative Engine Optimization) is the new SEO. Learn why Cyprus businesses are invisible to ChatGPT and Perplexity — and what the first step to changing that looks like.",
     date: "2026-06-25",
     readTime: "5 min read",
     category: "SEO & GEO",
-    excerpt: "When someone asks ChatGPT 'best web design agency in Cyprus', your business probably doesn't appear. That's a GEO problem - and it's fixable. Here's what you need to know.",
+    excerpt: "When someone asks ChatGPT 'best web design agency in Cyprus', your business probably doesn't appear. That's a GEO problem — and it's fixable. Here's what you need to know.",
     coverImage: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80",
     content: `
 <p class="blog-lead">Someone in Limassol opens ChatGPT and types: <em>"Who does web design in Cyprus?"</em> Or they ask Perplexity: <em>"Best restaurant in Paphos?"</em> Or they use Google's AI Overview to find a plumber in Nicosia.</p>
-<p>In every one of those scenarios, the AI gives an answer. It names businesses. It makes recommendations. And if your business isn't in that answer - you don't exist for that person.</p>
+<p>In every one of those scenarios, the AI gives an answer. It names businesses. It makes recommendations. And if your business isn't in that answer — you don't exist for that person.</p>
 <p>This is the new reality of search in 2026. And most Cyprus businesses have no idea it's happening.</p>
 
 <h2>What Is GEO?</h2>
-<p>GEO stands for <strong>Generative Engine Optimization</strong>. It is the practice of making your business visible inside AI-generated answers - not just on traditional Google results pages.</p>
+<p>GEO stands for <strong>Generative Engine Optimization</strong>. It is the practice of making your business visible inside AI-generated answers — not just on traditional Google results pages.</p>
 <p>The AI engines that matter right now are:</p>
 <ul>
-  <li><strong>ChatGPT</strong> (OpenAI) - over 100 million daily users</li>
-  <li><strong>Google AI Overviews</strong> - now appearing on 30–40% of all Google searches</li>
-  <li><strong>Perplexity</strong> - the fastest-growing AI search engine</li>
-  <li><strong>Microsoft Copilot</strong> - built into Windows and Bing</li>
-  <li><strong>Claude</strong> (Anthropic) - increasingly used for research queries</li>
+  <li><strong>ChatGPT</strong> (OpenAI) — over 100 million daily users</li>
+  <li><strong>Google AI Overviews</strong> — now appearing on 30–40% of all Google searches</li>
+  <li><strong>Perplexity</strong> — the fastest-growing AI search engine</li>
+  <li><strong>Microsoft Copilot</strong> — built into Windows and Bing</li>
+  <li><strong>Claude</strong> (Anthropic) — increasingly used for research queries</li>
 </ul>
 <p>Each of these AI tools reads the web, synthesises information, and produces an answer. The businesses it mentions are the ones that have been optimised for this new type of search. The rest are invisible.</p>
 
 <h2>How Is GEO Different From SEO?</h2>
 <p>Traditional SEO gets you a ranked link on a results page. The user sees your link, decides to click, and visits your website. The goal is a high position in the list.</p>
-<p>GEO is different. There is no list. The AI gives a direct answer - and either your business is mentioned in that answer, or it isn't. There is no position 2 or position 7. There is mentioned, or not mentioned.</p>
+<p>GEO is different. There is no list. The AI gives a direct answer — and either your business is mentioned in that answer, or it isn't. There is no position 2 or position 7. There is mentioned, or not mentioned.</p>
 
 <div class="blog-callout">
-  <strong>The key difference:</strong> SEO gets you a ranked URL. GEO gets you a brand mention inside the answer itself. For local service businesses - web designers, restaurants, lawyers, clinics - a GEO mention is worth more than a page-2 SEO ranking.
+  <strong>The key difference:</strong> SEO gets you a ranked URL. GEO gets you a brand mention inside the answer itself. For local service businesses — web designers, restaurants, lawyers, clinics — a GEO mention is worth more than a page-2 SEO ranking.
 </div>
 
 <h2>Why Cyprus Businesses Are Particularly Exposed</h2>
 <p>The Cyprus market has a specific vulnerability to the GEO gap. Here is why:</p>
-<p><strong>Low domain authority across the board.</strong> Most Cyprus business websites are relatively new and have few external links pointing to them. AI models heavily weight authoritative third-party citations - directory listings, press mentions, industry publications. Without these, even a well-designed website is invisible to AI.</p>
-<p><strong>Thin online presence.</strong> Many Cyprus businesses have a website but almost no presence on the platforms AI models actually read: Clutch, DesignRush, TripAdvisor, Google Business Profile, local directories. AI doesn't invent businesses - it cites the ones it has seen mentioned across multiple trusted sources.</p>
-<p><strong>No structured data.</strong> AI models extract facts about businesses from structured data (JSON-LD schema markup). Most Cyprus websites have none. This means the AI can't reliably extract your name, location, services, phone number, or opening hours - so it doesn't mention you.</p>
+<p><strong>Low domain authority across the board.</strong> Most Cyprus business websites are relatively new and have few external links pointing to them. AI models heavily weight authoritative third-party citations — directory listings, press mentions, industry publications. Without these, even a well-designed website is invisible to AI.</p>
+<p><strong>Thin online presence.</strong> Many Cyprus businesses have a website but almost no presence on the platforms AI models actually read: Clutch, DesignRush, TripAdvisor, Google Business Profile, local directories. AI doesn't invent businesses — it cites the ones it has seen mentioned across multiple trusted sources.</p>
+<p><strong>No structured data.</strong> AI models extract facts about businesses from structured data (JSON-LD schema markup). Most Cyprus websites have none. This means the AI can't reliably extract your name, location, services, phone number, or opening hours — so it doesn't mention you.</p>
 
 <h2>What Does a GEO Mention Actually Look Like?</h2>
 <p>When someone asks ChatGPT <em>"who does web design in Limassol?"</em>, a GEO-optimised business might appear like this in the answer:</p>
 <blockquote>
   <em>"For web design in Limassol, DM-Labs.io (dm-labs.io) is a local agency offering custom websites from €299, with specialisations in restaurant and hospitality websites. They are listed on Clutch with verified reviews and offer a free consultation."</em>
 </blockquote>
-<p>That mention - unprompted, in a direct AI answer - is worth more than most paid ads. The user asked a question. The AI recommended you. The user clicks through with high intent.</p>
+<p>That mention — unprompted, in a direct AI answer — is worth more than most paid ads. The user asked a question. The AI recommended you. The user clicks through with high intent.</p>
 <p>This is what GEO looks like when it works.</p>
 
 <h2>The First Step: Visibility Foundations</h2>
 <p>GEO is not a single tactic. It is a system of signals that AI models use to decide who to trust and who to mention. The foundation has three layers:</p>
 <ol>
-  <li><strong>Structured data on your website</strong> - JSON-LD schema that tells AI exactly who you are, what you do, where you are, and what you charge.</li>
-  <li><strong>Third-party citations</strong> - Listings on directories and platforms that AI models actively read: Clutch, Google Business Profile, TripAdvisor, local business directories.</li>
-  <li><strong>Content that answers specific questions</strong> - AI models are trained on question-and-answer patterns. Content that directly answers "how much does X cost in Cyprus" or "best Y in Limassol" is far more likely to be cited than generic homepage copy.</li>
+  <li><strong>Structured data on your website</strong> — JSON-LD schema that tells AI exactly who you are, what you do, where you are, and what you charge.</li>
+  <li><strong>Third-party citations</strong> — Listings on directories and platforms that AI models actively read: Clutch, Google Business Profile, TripAdvisor, local business directories.</li>
+  <li><strong>Content that answers specific questions</strong> — AI models are trained on question-and-answer patterns. Content that directly answers "how much does X cost in Cyprus" or "best Y in Limassol" is far more likely to be cited than generic homepage copy.</li>
 </ol>
-<p>The businesses that are already appearing in AI answers for Cyprus-related queries have these three layers in place - usually without even realising it. They got there through good SEO habits that happen to also work for GEO.</p>
+<p>The businesses that are already appearing in AI answers for Cyprus-related queries have these three layers in place — usually without even realising it. They got there through good SEO habits that happen to also work for GEO.</p>
 <p>The businesses that are invisible have none of them.</p>
 
 <h2>How Long Does It Take?</h2>
 <p>GEO is faster than traditional SEO in one important way: AI models update their knowledge more frequently than Google's ranking algorithm. A new Clutch listing or a structured data update can influence AI answers within weeks, not months.</p>
-<p>The full GEO foundation - structured data, directory listings, and targeted content - typically takes 60–90 days to show measurable results in AI answer frequency. That is significantly faster than the 6–12 months that traditional SEO requires to move from page 3 to page 1.</p>
+<p>The full GEO foundation — structured data, directory listings, and targeted content — typically takes 60–90 days to show measurable results in AI answer frequency. That is significantly faster than the 6–12 months that traditional SEO requires to move from page 3 to page 1.</p>
 
 <h2>What We Don't Cover Here</h2>
-<p>This article covers the fundamentals. The full GEO playbook - the specific directories that matter most for Cyprus businesses, the exact schema markup that AI models prioritise, the content formats that get cited most frequently, and the ongoing maintenance that keeps you visible as AI models update - is what we implement for clients as part of our <a href="/pricing" class="blog-link">SEO + GEO package</a>.</p>
-<p>If you want to understand where your business currently stands in AI search - what AI models say about you right now, what's missing, and what the specific gaps are - that's what our free consultation covers.</p>
+<p>This article covers the fundamentals. The full GEO playbook — the specific directories that matter most for Cyprus businesses, the exact schema markup that AI models prioritise, the content formats that get cited most frequently, and the ongoing maintenance that keeps you visible as AI models update — is what we implement for clients as part of our <a href="/pricing" class="blog-link">SEO + GEO package</a>.</p>
+<p>If you want to understand where your business currently stands in AI search — what AI models say about you right now, what's missing, and what the specific gaps are — that's what our free consultation covers.</p>
 
 <div class="blog-cta">
   <h3>Find out if your business appears in AI search</h3>
-  <p>We'll show you exactly what ChatGPT and Perplexity say about your business today - and what it would take to change it. Free, no commitment.</p>
+  <p>We'll show you exactly what ChatGPT and Perplexity say about your business today — and what it would take to change it. Free, no commitment.</p>
   <a href="/contact" class="blog-cta-btn">Get a Free GEO Audit</a>
 </div>
     `,

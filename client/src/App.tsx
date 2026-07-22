@@ -87,7 +87,6 @@ function MainRouter() {
         <Route path="/templates" component={Templates} />
         <Route path="/examples" component={Templates} />
         <Route path="/services/:serviceId" component={ServiceDetail} />
-        <Route path="/blog/all" component={Blog} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog" component={Blog} />
         <Route path="/web-design-limassol" component={WebDesignLimassol} />

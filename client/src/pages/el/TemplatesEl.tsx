@@ -1026,7 +1026,7 @@ function CustomBuildCard() {
       {/* Card body */}
       <div className="p-5 flex flex-col flex-1">
         <p className="text-gray-600 text-sm leading-relaxed mb-4">
-          Κανένα από αυτά δεν ταιριάζει στο όραμά σας; Σχεδιάζουμε την ιστοσελίδα σας εξ ολοκλήρου από μηδενική βάση - μοναδική διάταξη, προσαρμοσμένα γραφικά και ταυτότητα brand φτιαγμένη αποκλειστικά για εσάς.
+          Κανένα από αυτά δεν ταιριάζει στο όραμά σας; Σχεδιάζουμε την ιστοσελίδα σας εξ ολοκλήρου από μηδενική βάση — μοναδική διάταξη, προσαρμοσμένα γραφικά και ταυτότητα brand φτιαγμένη αποκλειστικά για εσάς.
         </p>
 
         {/* Feature list */}
@@ -1171,7 +1171,7 @@ export default function TemplatesEl() {
     window.history.pushState({ modal: true }, "");
   };
 
-  // Close modal: always close immediately - no async history.back() calls.
+  // Close modal: always close immediately — no async history.back() calls.
   // The popstate listener handles the browser-back case separately.
   const closeModal = () => {
     setSelectedTemplate(null);
@@ -1189,13 +1189,13 @@ export default function TemplatesEl() {
     return () => window.removeEventListener("popstate", onPopState);
   }, [selectedTemplate]);
 
-  // Handle URL params - run only once on mount to avoid re-open loops
+  // Handle URL params — run only once on mount to avoid re-open loops
   useEffect(() => {
     if (urlParamHandled.current) return;
     urlParamHandled.current = true;
 
     const params = new URLSearchParams(window.location.search);
-    // Always clean query strings immediately - prevents Google indexing ?open= and ?industry= as separate pages
+    // Always clean query strings immediately — prevents Google indexing ?open= and ?industry= as separate pages
     if (window.location.search) {
       window.history.replaceState(null, "", window.location.pathname);
     }

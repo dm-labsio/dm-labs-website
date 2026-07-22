@@ -1,12 +1,13 @@
 /* ============================================================
-   DM-Labs.io v2.0 - FAQ Page
+   DM-Labs.io - FAQ Page
+   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
-import { useState } from "react";
-import { ChevronDown, MessageCircle, ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import AnimateIn from "@/components/AnimateIn";
+import { ChevronDown, MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL =
-  "https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%20have%20a%20question.";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%20have%20a%20question.";
 
 const faqs = [
   {
@@ -21,7 +22,7 @@ const faqs = [
     ],
   },
   {
-    category: "Website Packages and Payment",
+    category: "Website Packages & Payment",
     items: [
       { q: "How much does a website cost?", a: "Launch Website packages start at €299, Growth Website packages start at €749, and Pro Website packages start at €1,499. Enterprise / Custom projects start at €1,499 and are quoted based on scope." },
       { q: "Are there hidden fees?", a: "No. We agree the project scope and price before work begins. Domain, hosting, and third-party service costs, where relevant, are explained separately." },
@@ -31,7 +32,7 @@ const faqs = [
     ],
   },
   {
-    category: "Website Features and SEO",
+    category: "Website Features & SEO",
     items: [
       { q: "Will my website work on mobile phones?", a: "Yes. Every website package is built to work responsively across phones, tablets, and desktops." },
       { q: "Is SEO included?", a: "Every package includes basic SEO foundations. The Pro Website package includes a fuller SEO structure. Advanced SEO work, additional copywriting, and wider content programmes are scoped separately." },
@@ -40,7 +41,7 @@ const faqs = [
     ],
   },
   {
-    category: "After Launch and Website Care",
+    category: "After Launch & Website Care",
     items: [
       { q: "What care plans do you offer?", a: "Basic Care is €49 per month and includes hosting monitoring, backups and bug fixing, WhatsApp support, and up to five small content updates each month. Complete Care is €129 per month and adds ongoing content updates, priority WhatsApp support, a monthly performance check, and one simple banner or section update each month." },
       { q: "What is not included in website care?", a: "New pages, copywriting, extra revision rounds beyond your package allowance, new integrations, redesigns, advanced or full SEO structure, and complex content migration are not included in either care plan and are quoted separately." },
@@ -52,133 +53,111 @@ const faqs = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ borderBottom: "1px solid var(--hairline)" }}>
+    <div className="border-b border-[#E2E5EA] last:border-0">
       <button
         onClick={() => setOpen(!open)}
-        style={{
-          width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
-          padding: "20px 0", textAlign: "left", background: "none", border: "none", cursor: "pointer",
-          gap: "16px",
-        }}
+        className="w-full flex items-center justify-between py-5 text-left group"
       >
-        <span style={{
-          fontFamily: "'Satoshi', sans-serif", fontWeight: 600, fontSize: "1rem",
-          letterSpacing: "-.01em", color: "var(--ink)", lineHeight: 1.4,
-        }}>{q}</span>
+        <span className="text-base font-medium text-[#111315] pr-4 group-hover:text-[#5B8CFF] transition-colors">{q}</span>
         <ChevronDown
-          size={18}
-          style={{
-            color: "var(--slate)", flexShrink: 0,
-            transform: open ? "rotate(180deg)" : "rotate(0)",
-            transition: "transform 280ms var(--ease-out)",
-          }}
+          size={20}
+          className={`text-[#5B6472] shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-[#5B8CFF]" : ""}`}
         />
       </button>
-      {open && (
-        <div style={{
-          fontFamily: "'Satoshi', sans-serif", fontSize: ".9rem", color: "var(--slate)",
-          lineHeight: 1.72, paddingBottom: "20px",
-        }}>{a}</div>
-      )}
+      <div
+        className="overflow-hidden transition-all duration-300"
+        style={{ maxHeight: open ? "600px" : "0", opacity: open ? 1 : 0 }}
+      >
+        <p className="text-sm text-[#5B6472] leading-relaxed pb-5">{a}</p>
+      </div>
     </div>
   );
 }
 
 export default function FAQ() {
   useSEO({
-    title: "FAQ | DM-Labs.io Web Design Cyprus",
-    description:
-      "Answers to common questions about web design packages, pricing, process, and website care from DM-Labs.io in Cyprus.",
+    title: "Website Design FAQ | DM-Labs.io",
+    description: "Answers to common questions about DM-Labs.io website packages, pricing, SEO foundations, website care, and project scope.",
   });
+
+  // Inject FAQPage JSON-LD schema for Google rich results (FAQ snippets in search)
+  useEffect(() => {
+    const SCHEMA_ID = "faq-jsonld-schema";
+    const allItems = faqs.flatMap(section => section.items);
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": allItems.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    };
+    let el = document.getElementById(SCHEMA_ID) as HTMLScriptElement | null;
+    if (!el) {
+      el = document.createElement("script");
+      el.id = SCHEMA_ID;
+      el.type = "application/ld+json";
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(schema);
+    return () => {
+      const s = document.getElementById(SCHEMA_ID);
+      if (s) s.remove();
+    };
+  }, []);
 
   return (
     <>
-      {/* ── Hero ──────────────────────────────────────────── */}
-      <section style={{ background: "var(--ink)", padding: "100px 0 80px", position: "relative", overflow: "hidden" }}>
-        <div aria-hidden="true" style={{
-          position: "absolute", inset: 0,
-          backgroundImage: "linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px)",
-          backgroundSize: "60px 60px", pointerEvents: "none",
-        }} />
-        <div className="container relative">
-          <p className="mono" style={{ color: "var(--cyan)", marginBottom: "16px" }}>FREQUENTLY ASKED</p>
-          <h1 style={{
-            fontFamily: "'Satoshi', sans-serif", fontWeight: 900,
-            fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-.03em", lineHeight: .96,
-            color: "#fff", marginBottom: "20px", maxWidth: "18ch",
-          }}>
-            Questions we{" "}
-            <span style={{ background: "var(--grad)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              get asked most.
-            </span>
-          </h1>
-          <p style={{
-            fontFamily: "'Satoshi', sans-serif", fontSize: "1rem", fontWeight: 500,
-            color: "rgba(238,241,248,.6)", lineHeight: 1.65, maxWidth: "48ch",
-          }}>
-            Straight answers about how we work, what's included, and what things cost.
-          </p>
+      {/* Hero */}
+      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <div className="container relative z-10 text-center">
+          <AnimateIn>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">FAQ</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
+              Frequently Asked <span className="brand-gradient-text">Questions</span>
+            </h1>
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+              Everything you need to know about working with DM-Labs.io. Can't find your answer? Just message us.
+            </p>
+          </AnimateIn>
         </div>
       </section>
 
-      {/* ── FAQ sections ──────────────────────────────────── */}
-      <section style={{ background: "var(--mist)", padding: "100px 0" }}>
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div style={{ gridColumn: "span 8" }}>
-              {faqs.map((section) => (
-                <div key={section.category} style={{ marginBottom: "64px" }}>
-                  <p className="mono" style={{ color: "var(--slate)", marginBottom: "24px", fontSize: "9px" }}>
-                    {section.category.toUpperCase()}
-                  </p>
+      {/* FAQ Sections */}
+      <section className="section-spacing bg-white">
+        <div className="container max-w-3xl">
+          {faqs.map((section, si) => (
+            <AnimateIn key={section.category} delay={si * 0.1} className="mb-12 last:mb-0">
+              <h2 className="text-xl font-semibold text-[#111315] mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-6 brand-gradient rounded-full" />
+                {section.category}
+              </h2>
+              <div className="dm-card !p-0 overflow-hidden">
+                <div className="px-6">
                   {section.items.map((item) => (
                     <FAQItem key={item.q} q={item.q} a={item.a} />
                   ))}
                 </div>
-              ))}
-            </div>
-
-            {/* Sidebar */}
-            <div style={{ gridColumn: "span 4" }}>
-              <div style={{ position: "sticky", top: "100px" }}>
-                <div style={{ background: "var(--ink)", padding: "36px 32px" }}>
-                  <p className="mono" style={{ color: "var(--cyan)", marginBottom: "16px", fontSize: "9px" }}>STILL HAVE QUESTIONS?</p>
-                  <h3 style={{
-                    fontFamily: "'Satoshi', sans-serif", fontWeight: 700, fontSize: "1.2rem",
-                    letterSpacing: "-.02em", color: "#fff", marginBottom: "12px", lineHeight: 1.3,
-                  }}>
-                    Ask us directly.
-                  </h3>
-                  <p style={{ fontFamily: "'Satoshi', sans-serif", fontSize: ".875rem", color: "rgba(238,241,248,.55)", lineHeight: 1.65, marginBottom: "24px" }}>
-                    Send us a WhatsApp message and we'll reply within 24 hours.
-                  </p>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={{
-                    display: "flex", alignItems: "center", justifyContent: "center", gap: "6px",
-                    padding: "13px 24px", fontFamily: "'Space Mono', monospace", fontSize: "9px",
-                    letterSpacing: ".15em", textTransform: "uppercase" as const,
-                    background: "var(--grad)", color: "#fff", textDecoration: "none", width: "100%",
-                  }}>
-                    <MessageCircle size={13} /> WhatsApp Us
-                  </a>
-                </div>
-
-                <div style={{ background: "var(--cloud)", padding: "36px 32px", marginTop: "2px" }}>
-                  <p className="mono" style={{ color: "var(--slate)", marginBottom: "16px", fontSize: "9px" }}>READY TO START?</p>
-                  <p style={{ fontFamily: "'Satoshi', sans-serif", fontSize: ".875rem", color: "var(--slate)", lineHeight: 1.65, marginBottom: "20px" }}>
-                    Free consultation. No commitment. We'll recommend the right scope before you decide anything.
-                  </p>
-                  <a href="/contact" style={{
-                    display: "flex", alignItems: "center", gap: "6px",
-                    fontFamily: "'Space Mono', monospace", fontSize: "9px",
-                    letterSpacing: ".15em", textTransform: "uppercase" as const,
-                    color: "var(--blue)", textDecoration: "none",
-                  }}>
-                    Get a Free Consultation <ArrowRight size={11} />
-                  </a>
-                </div>
               </div>
-            </div>
-          </div>
+            </AnimateIn>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section-spacing dark-section text-center">
+        <div className="container">
+          <AnimateIn>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Still Have Questions?</h2>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">We're always happy to help. Send us a message and we'll get back to you quickly.</p>
+            <a href="/contact" className="btn-primary">
+              <MessageCircle size={18} /> Contact Us
+            </a>
+          </AnimateIn>
         </div>
       </section>
     </>

@@ -1,12 +1,16 @@
 /* ============================================================
-   DM-Labs.io v2.0 - Process Page
+   D&M LABS - Process Page
+   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
+   Design: Airy vertical timeline - no step numbers, large icons,
+           generous breathing room between each stage
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
+import AnimateIn from "@/components/AnimateIn";
 import { MessageCircle, Palette, Code, Rocket, ArrowRight, CheckCircle2, CreditCard } from "lucide-react";
 
-const WHATSAPP_URL =
-  "https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
+const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
+const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
 const steps = [
   {
@@ -14,9 +18,9 @@ const steps = [
     icon: MessageCircle,
     title: "Discovery Call",
     time: "~1 day",
-    desc: "We start with a quick WhatsApp chat. Tell us about your business, what you need, and your goals. No technical jargon, just a friendly conversation.",
+    desc: "We start with a quick WhatsApp chat. Tell us about your business, what you need, and your goals. No technical jargon - just a friendly conversation.",
     details: ["15-20 minute WhatsApp call", "We learn about your business", "You tell us what you need", "We recommend the best package"],
-    accent: "var(--cyan)",
+    color: "#5B8CFF",
   },
   {
     step: "02",
@@ -24,218 +28,156 @@ const steps = [
     title: "Secure Your Spot",
     time: "Same day",
     desc: "Once we agree on the scope and price, you pay and we begin work immediately. Simple, transparent, no surprises.",
-    details: ["Clear pricing, no hidden fees", "Pay once, own it forever", "Work begins immediately", "Secure payment options"],
-    accent: "var(--blue)",
+    details: ["Clear pricing - no hidden fees", "Pay once, own it forever", "Work begins immediately", "Secure payment options"],
+    color: "#6FE3FF",
   },
   {
     step: "03",
     icon: Palette,
-    title: "Design and Build",
+    title: "Design & Build",
     time: "3-7 days",
     desc: "We design and develop your website. You'll see progress along the way and can provide feedback at key milestones.",
     details: ["Custom design for your brand", "Mobile-first development", "Regular progress updates", "Your feedback shapes the result"],
-    accent: "var(--violet)",
+    color: "#8B5CFF",
   },
   {
     step: "04",
     icon: Code,
-    title: "Review and Revisions",
+    title: "Review & Revisions",
     time: "1-2 days",
     desc: "You review the website and request changes. We refine everything until you're completely happy with the result.",
-    details: ["Full website preview", "Launch: 2 revision rounds, Growth: 3, Pro: 4", "We adjust until you're satisfied", "No extra charges for included revisions"],
-    accent: "var(--cyan)",
+    details: ["Full website preview", "Starter: 2 revision rounds, Business: 3, Premium: 5", "We adjust until you're satisfied", "No extra charges for included revisions"],
+    color: "#5B8CFF",
   },
   {
     step: "05",
     icon: Rocket,
     title: "Launch",
     time: "~1 day",
-    desc: "Your website goes live. We handle domain setup, hosting, and make sure everything works correctly.",
-    details: ["Domain connection", "SSL certificate setup", "Speed optimisation", "Your website is live"],
-    accent: "var(--blue)",
+    desc: "Your website goes live. We handle domain setup, hosting, and make sure everything works perfectly.",
+    details: ["Domain connection", "SSL certificate setup", "Speed optimisation", "Your website is live!"],
+    color: "#6FE3FF",
   },
 ];
 
 export default function Process() {
   useSEO({
     title: "Our Process | How We Build Websites | DM-Labs.io",
-    description:
-      "From discovery call to launch in 5-14 days. See exactly how DM-Labs.io designs and builds your website, step by step.",
+    description: "From discovery call to launch in 5-14 days. See exactly how DM-Labs.io designs and builds your website, step by step.",
   });
-
   return (
     <>
-      {/* ── Hero ──────────────────────────────────────────── */}
-      <section style={{ background: "var(--ink)", padding: "100px 0 80px", position: "relative", overflow: "hidden" }}>
-        <div aria-hidden="true" style={{
-          position: "absolute", inset: 0,
-          backgroundImage: "linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px)",
-          backgroundSize: "60px 60px", pointerEvents: "none",
-        }} />
-        <div className="container relative">
-          <p className="mono" style={{ color: "var(--cyan)", marginBottom: "16px" }}>HOW IT WORKS</p>
-          <h1 style={{
-            fontFamily: "'Satoshi', sans-serif", fontWeight: 900,
-            fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-.03em", lineHeight: .96,
-            color: "#fff", marginBottom: "20px", maxWidth: "18ch",
-          }}>
-            From idea to{" "}
-            <span style={{ background: "var(--grad)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              launch.
-            </span>
-          </h1>
-          <p style={{
-            fontFamily: "'Satoshi', sans-serif", fontSize: "1rem", fontWeight: 500,
-            color: "rgba(238,241,248,.6)", lineHeight: 1.65, maxWidth: "48ch",
-          }}>
-            Most websites are live within 5-14 days. Here is exactly what happens at each stage.
-          </p>
+      {/* Hero */}
+      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <div className="absolute top-10 left-10 w-[300px] h-[300px] opacity-[0.04] animate-float-slower pointer-events-none">
+          <img src={TRIANGLE_GEO} alt="" className="w-full h-full object-contain" aria-hidden="true" />
+        </div>
+        <div className="container relative z-10 text-center">
+          <AnimateIn>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">How It Works</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
+              From Idea to <span className="brand-gradient-text">Launch</span>
+            </h1>
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+              A simple, transparent process designed to get your website live as quickly as possible - without the stress.
+            </p>
+          </AnimateIn>
         </div>
       </section>
 
-      {/* ── Steps ─────────────────────────────────────────── */}
-      <section style={{ background: "var(--mist)", padding: "100px 0" }}>
-        <div className="container">
-          <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-            {steps.map((step, i) => {
-              const Icon = step.icon;
-              const isEven = i % 2 === 0;
-              return (
-                <div key={step.step} style={{
-                  background: isEven ? "var(--cloud)" : "var(--ink)",
-                  padding: "48px 40px",
-                }}>
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    {/* Step number */}
-                    <div style={{ gridColumn: "span 1" }}>
-                      <span style={{
-                        fontFamily: "'Space Mono', monospace", fontSize: "9px",
-                        letterSpacing: ".2em", color: step.accent,
-                      }}>{step.step}</span>
-                    </div>
+      {/* Steps */}
+      <section className="section-spacing bg-white">
+        <div className="container max-w-3xl">
+          <div className="relative">
+{/* Vertical connector line - sits between icons, hidden behind each icon box */}
+            <div
+              className="absolute left-[35px] sm:left-[39px] top-[96px] sm:top-[104px] bottom-[96px] sm:bottom-[104px] w-[2px] pointer-events-none"
+              style={{ background: "linear-gradient(to bottom, #5B8CFF, #6FE3FF, #8B5CFF, #5B8CFF, #6FE3FF)", zIndex: 1 }}
+            />
 
-                    {/* Icon + title */}
-                    <div style={{ gridColumn: "span 3" }}>
-                      <div style={{
-                        width: "48px", height: "48px",
-                        background: `${step.accent}14`,
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        marginBottom: "16px",
-                      }}>
-                        <Icon size={22} style={{ color: step.accent }} />
+            <div className="space-y-0">
+              {steps.map((step, i) => (
+                <AnimateIn key={step.title} delay={i * 0.12}>
+                  <div className="relative flex gap-8 sm:gap-10" style={{ paddingBottom: i < steps.length - 1 ? "clamp(3rem, 6vh, 5rem)" : 0 }}>
+                    {/* Icon circle - z-10 so it sits above the connector line */}
+                    <div className="shrink-0 flex flex-col items-center" style={{ position: "relative", zIndex: 10 }}>
+                      <div
+                        className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-2xl flex items-center justify-center shadow-sm"
+                        style={{ background: `white`, border: `1.5px solid ${step.color}30`, boxShadow: `0 0 0 4px white` }}
+                      >
+                        <div className="w-full h-full rounded-2xl flex items-center justify-center" style={{ background: `${step.color}18` }}>
+                          <step.icon size={34} style={{ color: step.color }} strokeWidth={1.5} />
+                        </div>
                       </div>
-                      <h2 style={{
-                        fontFamily: "'Satoshi', sans-serif", fontWeight: 900,
-                        fontSize: "1.5rem", letterSpacing: "-.025em", lineHeight: 1.1,
-                        color: isEven ? "var(--ink)" : "#fff", marginBottom: "6px",
-                      }}>{step.title}</h2>
-                      <p className="mono" style={{ color: step.accent, fontSize: "9px" }}>{step.time.toUpperCase()}</p>
                     </div>
 
-                    {/* Description */}
-                    <div style={{ gridColumn: "span 4" }}>
-                      <p style={{
-                        fontFamily: "'Satoshi', sans-serif", fontSize: "1rem",
-                        color: isEven ? "var(--slate)" : "rgba(238,241,248,.65)",
-                        lineHeight: 1.72,
-                      }}>{step.desc}</p>
-                    </div>
-
-                    {/* Details */}
-                    <div style={{ gridColumn: "span 4" }}>
-                      <ul>
+                    {/* Content */}
+                    <div className="flex-1 pt-3">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-xs font-bold text-white px-2.5 py-1 rounded-full" style={{ background: step.color }}>Step {step.step}</span>
+                        <span className="text-xs font-semibold text-[#5B6472] bg-[#F0F4FF] px-2.5 py-1 rounded-full">{step.time}</span>
+                      </div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">{step.title}</h3>
+                      <p className="text-base text-[#5B6472] leading-relaxed mb-5 max-w-xl">{step.desc}</p>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {step.details.map((d) => (
-                          <li key={d} style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "8px" }}>
-                            <CheckCircle2 size={14} style={{ color: step.accent, flexShrink: 0, marginTop: "2px" }} />
-                            <span style={{
-                              fontFamily: "'Satoshi', sans-serif", fontSize: ".875rem",
-                              color: isEven ? "var(--ink)" : "rgba(238,241,248,.75)", lineHeight: 1.5,
-                            }}>{d}</span>
+                          <li key={d} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                            <CheckCircle2 size={16} style={{ color: step.color }} className="shrink-0 mt-0.5" />
+                            {d}
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
+                </AnimateIn>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="section-spacing">
+        <div className="container">
+          <AnimateIn className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Typical Timeline</h2>
+            <p className="text-lg text-[#5B6472]">Most projects go from first message to live website in under two weeks.</p>
+          </AnimateIn>
+          <AnimateIn delay={0.2}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+              {[
+                { label: "Launch Website", time: "5-7 days", price: "from €299" },
+                { label: "Business Website", time: "7-10 days", price: "from €749" },
+                { label: "Premium Website", time: "10-14 days", price: "from €1,499" },
+              ].map((item) => (
+                <div key={item.label} className="dm-card text-center !p-8">
+                  <p className="text-3xl font-bold brand-gradient-text mb-2">{item.time}</p>
+                  <p className="text-sm font-semibold text-[#111315] mb-1">{item.label}</p>
+                  <p className="text-xs text-[#5B6472]">{item.price}</p>
                 </div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          </AnimateIn>
         </div>
       </section>
 
-      {/* ── Timeline summary ──────────────────────────────── */}
-      <section style={{ background: "var(--cloud)", padding: "100px 0" }}>
+      {/* CTA */}
+      <section className="section-spacing dark-section text-center">
         <div className="container">
-          <div style={{ marginBottom: "48px" }}>
-            <p className="mono" style={{ color: "var(--slate)", marginBottom: "12px" }}>TYPICAL TIMELINE</p>
-            <h2 style={{
-              fontFamily: "'Satoshi', sans-serif", fontWeight: 900,
-              fontSize: "clamp(1.9rem, 4.4vw, 3.4rem)", letterSpacing: "-.028em", lineHeight: 1.02,
-              color: "var(--ink)", maxWidth: "22ch",
-            }}>
-              Most websites live in 5-14 days.
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px" style={{ background: "var(--hairline)" }}>
-            {[
-              { label: "Launch Website", time: "5-7 days", accent: "var(--cyan)" },
-              { label: "Growth Website", time: "7-10 days", accent: "var(--blue)" },
-              { label: "Pro Website", time: "10-14 days", accent: "var(--violet)" },
-            ].map((item) => (
-              <div key={item.label} style={{ background: "var(--cloud)", padding: "32px 28px" }}>
-                <p className="mono" style={{ color: item.accent, marginBottom: "12px", fontSize: "9px" }}>{item.label.toUpperCase()}</p>
-                <p style={{
-                  fontFamily: "'Satoshi', sans-serif", fontWeight: 900, fontSize: "2rem",
-                  letterSpacing: "-.025em", color: "var(--ink)", lineHeight: 1,
-                }}>{item.time}</p>
-              </div>
-            ))}
-          </div>
-          <p style={{
-            fontFamily: "'Satoshi', sans-serif", fontSize: ".875rem", color: "var(--slate)",
-            lineHeight: 1.65, marginTop: "24px",
-          }}>
-            Timeline starts once we receive all required content from you. Complex or custom projects are scoped individually.
-          </p>
-        </div>
-      </section>
-
-      {/* ── CTA ───────────────────────────────────────────── */}
-      <section style={{ background: "var(--ink)", padding: "100px 0", textAlign: "center" }}>
-        <div className="container">
-          <p className="mono" style={{ color: "var(--cyan)", marginBottom: "16px" }}>READY TO START?</p>
-          <h2 style={{
-            fontFamily: "'Satoshi', sans-serif", fontWeight: 900,
-            fontSize: "clamp(1.9rem, 4.4vw, 3.4rem)", letterSpacing: "-.028em", lineHeight: 1.02,
-            color: "#fff", marginBottom: "20px",
-          }}>
-            Step one is a free conversation.
-          </h2>
-          <p style={{
-            fontFamily: "'Satoshi', sans-serif", fontSize: "1rem", color: "rgba(238,241,248,.6)",
-            lineHeight: 1.65, maxWidth: "44ch", margin: "0 auto 36px",
-          }}>
-            Tell us about your business and what you need. We'll recommend the right scope and price before you decide anything.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={{
-              display: "inline-flex", alignItems: "center", gap: "8px",
-              padding: "16px 40px", fontFamily: "'Space Mono', monospace", fontSize: "10px",
-              letterSpacing: ".2em", textTransform: "uppercase" as const,
-              background: "var(--grad)", color: "#fff", textDecoration: "none",
-            }}>
-              <MessageCircle size={13} /> WhatsApp Us
-            </a>
-            <Link href="/contact" style={{
-              display: "inline-flex", alignItems: "center", gap: "8px",
-              padding: "16px 40px", fontFamily: "'Space Mono', monospace", fontSize: "10px",
-              letterSpacing: ".2em", textTransform: "uppercase" as const,
-              background: "transparent", color: "#fff",
-              border: "1px solid rgba(255,255,255,.2)", textDecoration: "none",
-            }}>
-              Contact Form <ArrowRight size={13} />
-            </Link>
-          </div>
+          <AnimateIn>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Start the Process?</h2>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">
+              The first step is a quick, no-pressure WhatsApp chat. Let's talk about your business.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="/contact" className="btn-primary">
+                <MessageCircle size={18} /> Start the Conversation
+              </a>
+              <Link href="/pricing" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
+                View Pricing <ArrowRight size={16} />
+              </Link>
+            </div>
+          </AnimateIn>
         </div>
       </section>
     </>
