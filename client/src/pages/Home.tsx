@@ -1,185 +1,1153 @@
 /* ============================================================
-   DM-Labs.io - Homepage
-   Hero with gradient atmosphere + floating devices
-   Sections: Hero, Trust Strip, Template Showcase + Industries, Services, Process, Testimonials, Pricing, Stats, CTA
-   Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
+   DM-Labs.io v2.0 — Homepage
+   Sections: Hero (video scroll), ProofBar, Capabilities,
+             Work Grid, Process, Team, Pricing, CTA
+   Design system: sharp geometry · Satoshi + Space Mono
    ============================================================ */
-import { useEffect } from "react";
-import { useSEO } from "@/hooks/useSEO";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
-import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
+import { useSEO } from "@/hooks/useSEO";
 import {
-  Globe, Smartphone, Search, Zap, Shield, Clock,
-  CheckCircle2, ArrowRight, MessageCircle,
-  Utensils, Scissors, Stethoscope, Dumbbell,
-  Palette, Code, Rocket, Headphones, Quote, HelpCircle,
-  Users, CalendarCheck, Languages
+  ArrowRight, CheckCircle2, MessageCircle,
+  Globe, Zap, CalendarCheck, Languages,
+  Users, Headphones, Search, Smartphone,
 } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// ─── Hand-crafted card mockups for homepage template showcase ────
-const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
-  "nomad-coffee": () => (
-    <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a1208" }}>
-      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80" alt="Nomad Coffee cafe interior with warm lighting" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,18,8,0.88) 40%, rgba(26,18,8,0.3) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 700, color: "#c8a96e", letterSpacing: "0.06em" }}>Nomad Co.</span>
-        <div style={{ display: "flex", gap: "10px" }}>
-          {["Menu","Story","Beans"].map(l => <span key={l} style={{ fontSize: "7px", color: "rgba(200,169,110,0.7)" }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "55%" }}>
-        <div style={{ fontSize: "7px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "4px" }}>Specialty Coffee</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "5px" }}>Coffee Worth<br/><em style={{ color: "#c8a96e" }}>Slow Down</em> For</div>
-        <div style={{ fontSize: "7px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "8px" }}>Single-origin beans, hand-roasted<br/>in small batches.</div>
-        <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "7px", padding: "4px 10px", fontWeight: 700, display: "inline-block" }}>View Our Menu</div>
-      </div>
-      <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
-        <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-  "bella-salon": () => (
-    <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f7f0e8" }}>
-      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="Bella Salon beauty studio interior" style={{ position: "absolute", right: 0, top: 0, width: "55%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f7f0e8 45%, transparent 75%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", background: "rgba(247,240,232,0.95)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 700, color: "#2a1a14", letterSpacing: "0.04em" }}>Bella.</span>
-        <div style={{ display: "flex", gap: "10px" }}>
-          {["Services","Gallery","Book"].map(l => <span key={l} style={{ fontSize: "7px", color: "#7a5a4a", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "48%" }}>
-        <div style={{ fontSize: "7px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "5px" }}>Beauty Studio</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "6px", fontStyle: "italic" as const }}>Where Beauty<br/><em style={{ color: "#c4735a" }}>Meets</em> Artistry</div>
-        <div style={{ fontSize: "7px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "8px" }}>Expert hair, skin &amp; nail<br/>treatments in luxury.</div>
-        <div style={{ background: "#c4735a", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", letterSpacing: "0.1em" }}>Book a Treatment</div>
-      </div>
-      <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
-        <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-  "dr-elara-dental": () => (
-    <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f5f9ff" }}>
-      <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80" alt="Dr. Elara Dental modern dental clinic" style={{ position: "absolute", right: 0, top: 0, width: "50%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f5f9ff 48%, transparent 72%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", background: "rgba(245,249,255,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(33,150,243,0.12)" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-          <div style={{ width: "14px", height: "14px", borderRadius: "3px", background: "#2196f3" }} />
-          <span style={{ fontSize: "9px", fontWeight: 700, color: "#0a1628" }}>Dr. Elara Dental</span>
-        </div>
-        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "3px 8px", borderRadius: "3px", fontWeight: 600 }}>Book Appointment</div>
-      </div>
-      <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "50%" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "6px" }}>
-          <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-          <span style={{ fontSize: "7px", color: "#2196f3", fontWeight: 600 }}>Accepting New Patients</span>
-        </div>
-        <div style={{ fontSize: "17px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "5px" }}>Your Smile,<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>Perfected</span><br/>with Care</div>
-        <div style={{ fontSize: "7px", color: "#4a6080", lineHeight: 1.5, marginBottom: "8px" }}>Modern dentistry in a calm,<br/>comfortable environment.</div>
-        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", borderRadius: "3px", fontWeight: 600 }}>View Treatments</div>
-      </div>
-      <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
-        <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-};
+gsap.registerPlugin(ScrollTrigger);
 
-function HomepageCardPreview({ tplId, category }: { tplId: string; category: string }) {
-  const Design = HOMEPAGE_CARD_DESIGNS[tplId];
-  if (!Design) return null;
-  return (
-    <div className="relative w-full overflow-hidden">
-      <Design />
-      {/* Category badge */}
-      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#111315] z-10">
-        {category}
-      </div>
-    </div>
-  );
-}
+/* ── CDN Asset URLs ──────────────────────────────────────── */
+const HERO_VIDEO =
+  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/sOOvLJCogFIiUcQs.mp4?Expires=1816249782&Signature=VBTOZ5aU2e0ZZGH7u51YMWxgISLenvDJz0f0Q4rmrsjyqGsnTB9OZDam73PfJDFqy~N7Udb~lZwnHYitrUHzgHg6meHeK4rd670RX-Y2Mn-Xv4S34XwWB~GPQtKBJmA4O45OUCRXVkz6Ost7kAElggCWk4j719fE7LbJ9aGHjZajfsDZSbcxusSctlwTSQXKx8Lpxy4gJ09LSkMgQy0tW66Ido7PIgMV2Vgx3EW7DHq-5C5Kru7W9GZe6ZOcRPobCKZO9BclWsVr~76uPOvzguQUHTlcpo1TwpEutNrjrMLNEoayJ7VOWPcLLxhGZsceRjjJTWkTYrD560wZCKFUkA__&Key-Pair-Id=K2HSFNDJXOU9YS";
 
-const HERO_DEVICES = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/hero-devices-v2-8JXhBrX7f82um3hxnU6TmE.webp";
-const GRADIENT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
-const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
-const DARK_CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/dark-cta-bg-LgZ8epcpi9XDGLof5Q9KgS.webp";
+const HERO_BG =
+  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/FXscTZWkjllcwtGD.png?Expires=1816249782&Signature=ZBK4f6r4tJvCE4ls4nZb-Zl6~HKFn15I8FbqXDMQAZdg2m5Wl5QRXYrli-EwFyW~0w9HlEEtpNgxeVqzGi98gPJXYDFrXqK8eittFgYUc63Jf-Z7XHe~SqaFtq9QtsQybyQX5dZTw2x-~volNGRVQJ6Som4Y~IydEkfjr7UxJpIIAwWH-EZFu4drUNyQRF2J8QXCS8vULmmpwVbegwocJyfTllYLK~xp1T-0E0F7tsgjQ2ddWbG5lFkUU6xiOAbBhM6-dSucDsVG6Yca9mYxIgaonb7jWa~bTSuxoz7rkKROsWiKSmAoM~iwD~c0LT-5XHh46Rx3VwHsYSmX6S9QvQ__&Key-Pair-Id=K2HSFNDJXOU9YS";
 
-// Featured live-preview mini-sites for the homepage showcase
-// Using the same mini-site HTML files as the Templates page
-const FEATURED_TEMPLATES = [
+const ORB_1 =
+  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/kkADuAVjsNfAldbH.png?Expires=1816249782&Signature=FwbvrSoHs3oATUoaOpAzOgAll~Nt610QIQgRAfzB0ze-7VR5~2lWNZ4ZIhryFIwZYofgH2ZHG-mBIxlISJuDbr1dDa1UilkOHjkS1pSfYa2ridna6PVDx1AyhLvETTa9-Ccb6DuRPuwu1R6rmCTTvrThG-2sYWCMAIGjs8HbnxH5VvbN28W9zb30fl3~GtdG3wwJwJNKHTPOwG5ZFEcA1TziD7NPYLdcDfqSRsoSeZH5xPMdbPt6F3Ph7qvSn~xNqKw1yHNn9RGcQ8uv6XoNzTfxzZW46dFBSvBWb0R9mrygE7Z9Fo9wd0sAPTtVgPFCLsTKDyH3aR4xPrPN130SgA__&Key-Pair-Id=K2HSFNDJXOU9YS";
+
+const ORB_2 =
+  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/eBSFjTpZfLpDADEn.png?Expires=1816249782&Signature=LLdi6Lo6s42Ym2ayAV9TQBoAFM0~IcOIoJmhLkvBufYm1QhfuBf2NPibXezF3DRTLk2MyAdsqc7fgiiaUdKTUbeP42yeX6IF4cUFH0hUXhJK9WXvkXD4XUkLG-y2IiXiOhgJrjzpi~eSj3q~Y~THSd5F1~uXcWjRS4ufaPl70U1bkcL~Lz~cju1AdPhhyCyZuIQSoL153nt1-u2zqjXWRdWlRTZOGMqIftqTtda2UFNKmvHtVp-hMvC5MDDARHUG2-eI663MFIyU~wCXOG5PAHimvOw7Et~VV1GIAY-8U1VMxr3j94yAAwsVCrs5ZSDzLyJ5dXrgB51w0rejiMN0AA__&Key-Pair-Id=K2HSFNDJXOU9YS";
+
+const ORB_3 =
+  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/aCGYkmLqWToQVlSd.png?Expires=1816249782&Signature=lYOtsWJ-ofRtCtjEPdxb3X~yxLLIyfp84amkSaJL-pb13fAAVgudJwKHuUEsyw1q3Xpx~zg8az1Cy6PbxwK3kyVs1A~Xsig3riiz-hKfoM4KwThLGT8QFB7O7PIVbjhRg4fCW~R8NGsZ1VoDv9YCeQQ8zpTHZNWAS-HNAvokHtcLDnBHPdw4aNhP6MihBnPS9mPld6rl6XwBqkGsFroElgODTKO89R7r696-wJfTE~DTLLEY-ro6UZ9Vr2qOHc-tBq8Pnq9WgxGAz-0t7xXh16dtYaQ~FDLjydFRXXl6Yo~A2c7tvVz~yeFbUDkEl9pb1y38XXSTvGvxF56~zmJ2pA__&Key-Pair-Id=K2HSFNDJXOU9YS";
+
+const WORK_IMGS = [
+  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DaEqtwePpcFvhwTD.png?Expires=1816249782&Signature=EL6dkGgLjthCT9J0nbYo9WOqbU59~PAUn57gW92FeMSBxtM33UMgKEC52YwMoWgm1a8dCE~FmQuxP77fyUs5tp9uamL-CwBo-i-bvs35bn5hFLYNFZ5mKTJgSYQIVhAT~sUmd2VpPZOeezExfZflahexkjwBqOGLabWztnusa1-Jjz0mh3zfuYK7g-UXHf0yMbYQ85xQzgs4R9834IadDfx8iU49deClEizR46-a0haHXblW-9ufzBhkql9G9kl8tFwsf0tuH7xPCNSNlJEBsuGZfcsfnmIdOs6~IkG~aHUwOgCTQI2tlc8oy5txBzrpGd-EK68JH-ACRqdbcXhCew__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/XySyMrPjneOVKeoc.png?Expires=1816249782&Signature=mkWwoU5zua1fU1VRp87AK9BXA8-L9QvnXjU8YZrx~KCY-nvH1jGjKPM8fMS1Y1ozYJidixaZ96FN3W68n92MW7qah-FTepqjF0NrnrCKt9wieMQ9U~O2wsQcfmG1V933jmhnNrXtDAaDCrbgZNdQtm~1EuKv65cW5L3oTuN7GByKaxOjtqbcIyWNn681Qlwsjn3QkyUWCKk4erSdOIJNifuH3iEaRFM6ZMUoVfyrBcgGrZAqno7RID2nUzkWk593PiDLbf09Nrr96tUU-kQ92yuCR9zsfvMoCUVF6lK7JfTm6BRtdSTAZF58HZQNSTtljebgstblBq9Fe~ZCrmAOfQ__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/OGOCWojooJGAMiMu.png?Expires=1816249782&Signature=hfz6GVIeiPbl-Ri2FcQlb7jAnIdjIq9Y2ZIzNqmjVIN4a4KQg31QgwsFwUOGk8Mu342HDxMHBf8pXqVVqry7V7mA72~VW0p6vJAr5ahdW0OFC~PbbUXKo8obXQgtQJPPPKFSoObpk-GkaDEPNP6XUNXIyYDhXOJSxBQGEDyzahFoPmoOwYRpyRtsoX6MJrE5dJGZeYy76Pw0tWIjkyE3uFB3qWhC-49CJxKULyAY9~eT7WkELwv3nB4-4R8l4cQ~uorz-4hFfzupfNwBafY5g04BXUjjnC-ZF3ZJX-XjEVsK45OCuwTM9IYNQkrY-v6Gc~kQ5lMGatzFyS1kcFlOJw__&Key-Pair-Id=K2HSFNDJXOU9YS",
+  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/kkADuAVjsNfAldbH.png?Expires=1816249782&Signature=FwbvrSoHs3oATUoaOpAzOgAll~Nt610QIQgRAfzB0ze-7VR5~2lWNZ4ZIhryFIwZYofgH2ZHG-mBIxlISJuDbr1dDa1UilkOHjkS1pSfYa2ridna6PVDx1AyhLvETTa9-Ccb6DuRPuwu1R6rmCTTvrThG-2sYWCMAIGjs8HbnxH5VvbN28W9zb30fl3~GtdG3wwJwJNKHTPOwG5ZFEcA1TziD7NPYLdcDfqSRsoSeZH5xPMdbPt6F3Ph7qvSn~xNqKw1yHNn9RGcQ8uv6XoNzTfxzZW46dFBSvBWb0R9mrygE7Z9Fo9wd0sAPTtVgPFCLsTKDyH3aR4xPrPN130SgA__&Key-Pair-Id=K2HSFNDJXOU9YS",
+];
+
+const BANNER_W1 =
+  "https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/zGZezrdTUYlviKUK.webp?Expires=1816250574&Signature=uS1pX8RHo1-2epxq2ikKUQ0VyvyJHMJzionykSOraNjeRi-496wH~sXfThPjuag8YrWTo0YKeZeglW3hYy0Lu9VA-FaupgGBx6Q6VNsItuilJXlkillJjFy4GOrJyFUXGqK3jYTH2tWfGcYk-pxsA0OVRshBnWcUNLJI5gYM7OdEoZ5ZpC~uaqmdMGLiCvDAMcARvCMYMx7WkRVJyvXyI96vN0edlgreZCJE~gTd343qKHt7nt5epN3HN65aS0lYpsoBgFFKqepbXuJ6zLjRktBfJSSwUIWjtdcQH6fdCIEK~QEVlxom6x7uS1oKgrlOXR9ZP-BWNJFAeOJk6xrnaw__&Key-Pair-Id=K2HSFNDJXOU9YS";
+
+/* ── Proof bar ticker items ───────────────────────────────── */
+const TICKER_ITEMS = [
+  "Currently accepting new projects",
+  "14-day delivery on Growth sites",
+  "Mobile-first, every time",
+  "SEO foundations on every build",
+  "Paphos · Cyprus · Europe",
+  "From €299 one-time",
+  "Free consultation, no pressure",
+  "WhatsApp support included",
+];
+
+/* ── Capabilities data ───────────────────────────────────── */
+const CAPS = [
   {
-    id: "nomad-coffee",
-    industry: "restaurant",
-    name: "Nomad Coffee",
-    category: "Cafe & Coffee",
-    styleLabel: "Artisan Minimal",
-    previewUrl: "/previews/nomad-coffee.html",
-    palette: ["#1a1208", "#2c1f0e"],
+    label: "01 / DESIGN",
+    title: "Custom design, not templates",
+    body: "Every site is built from scratch around your brand, your customers, and your content. No page builders, no off-the-shelf themes.",
+    icon: Smartphone,
+    accent: "var(--cyan)",
   },
   {
-    id: "bella-salon",
-    industry: "beauty",
-    name: "Bella Salon",
-    category: "Beauty & Wellness",
-    styleLabel: "Elegant & Feminine",
-    previewUrl: "/previews/bella-salon.html",
-    palette: ["#1a0a0f", "#6b2d3e"],
+    label: "02 / SEO",
+    title: "Found on Google from day one",
+    body: "Semantic HTML, fast load times, Search Console setup, and structured data built into every project — not bolted on after.",
+    icon: Search,
+    accent: "var(--blue)",
   },
   {
-    id: "dr-elara-dental",
-    industry: "clinic",
-    name: "Dr. Elara Dental",
-    category: "Clinics & Health",
-    styleLabel: "Clean & Professional",
-    previewUrl: "/previews/dr-elara-dental.html",
-    palette: ["#0a1628", "#0d2040"],
+    label: "03 / SPEED",
+    title: "Fast enough to keep visitors",
+    body: "Optimised images, minimal JavaScript, and clean code. Your site loads in under two seconds on a mobile connection.",
+    icon: Zap,
+    accent: "var(--violet)",
+  },
+  {
+    label: "04 / SCOPE",
+    title: "Clear scope, no surprises",
+    body: "Fixed-price packages with defined deliverables. You know exactly what you're getting before we start.",
+    icon: Globe,
+    accent: "var(--cyan)",
   },
 ];
 
+/* ── Process steps ───────────────────────────────────────── */
+const PROCESS_STEPS = [
+  { day: "DAY 01", title: "Discovery call", desc: "We learn about your business, goals, and audience. Free, no commitment." },
+  { day: "DAY 02", title: "Proposal", desc: "A clear scope document with deliverables, timeline, and fixed price." },
+  { day: "DAY 03-04", title: "Design", desc: "Wireframes and visual direction. You approve before we build a single page." },
+  { day: "DAY 05-12", title: "Build", desc: "Full development: responsive, SEO-ready, connected to your tools." },
+  { day: "DAY 13-14", title: "Launch", desc: "Domain connected, live checks done, Search Console and Analytics set up." },
+];
+
+/* ── Pricing data (DO NOT CHANGE PRICES) ─────────────────── */
+const PLANS = [
+  {
+    name: "Launch",
+    price: "€299",
+    note: "one-time",
+    desc: "A lean online presence for a new business that needs to launch clearly and professionally.",
+    features: [
+      "Small one-page or light two-page site",
+      "Responsive build",
+      "Basic SEO foundations",
+      "WhatsApp and social links",
+      "2 revision rounds",
+    ],
+    accent: "var(--cyan)",
+    recommended: false,
+  },
+  {
+    name: "Growth",
+    price: "€749",
+    note: "one-time",
+    desc: "A conversion-focused site for a business ready to be found, trusted, and contacted online.",
+    features: [
+      "Up to 4 pages",
+      "Contact form",
+      "Google Maps and reviews/testimonials",
+      "Basic SEO",
+      "Search Console and Analytics setup",
+      "3 revision rounds",
+    ],
+    accent: "var(--blue)",
+    recommended: true,
+  },
+  {
+    name: "Pro",
+    price: "€1,499",
+    note: "one-time",
+    desc: "For a more complete digital presence with richer content, motion, and stronger search foundations.",
+    features: [
+      "Up to 7 pages",
+      "Gallery or portfolio",
+      "Pop-up and scroll-driven animations",
+      "Full SEO structure",
+      "Blog setup or website visual pack",
+      "4 revision rounds",
+    ],
+    accent: "var(--violet)",
+    recommended: false,
+  },
+];
+
+/* ── Testimonials ─────────────────────────────────────────── */
 const TESTIMONIALS = [
   {
     name: "Maria K.",
     role: "Restaurant Owner",
-    text: "Our new website brought in three new bookings within the first week. The team understood exactly what we needed and delivered faster than I expected. Highly recommend.",
-    rating: 5,
+    text: "Our new website brought in three new bookings within the first week. The team understood exactly what we needed and delivered faster than I expected.",
     initial: "M",
   },
   {
     name: "Andreas P.",
     role: "Physiotherapy Clinic",
-    text: "Professional, responsive, and genuinely invested in making our clinic look its best online. The mobile version is perfect - most of our patients book from their phones.",
-    rating: 5,
+    text: "Professional, responsive, and genuinely invested in making our clinic look its best online. The mobile version is perfect.",
     initial: "A",
   },
   {
     name: "Sophia L.",
     role: "Beauty Salon Owner",
-    text: "I was nervous about getting a website built but DM-Labs.io made it completely stress-free. They handled everything and the result looks incredible. Worth every cent.",
-    rating: 5,
+    text: "I was nervous about getting a website built but DM-Labs.io made it completely stress-free. The result looks incredible. Worth every cent.",
     initial: "S",
   },
 ];
 
+/* ── Reveal hook ──────────────────────────────────────────── */
+function useReveal(ref: React.RefObject<HTMLElement | null>, threshold = 0.15) {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) { el.style.opacity = "1"; el.style.transform = "none"; return; }
+    el.style.opacity = "0";
+    el.style.transform = "translateY(28px)";
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.transition = "opacity 700ms var(--ease-out), transform 700ms var(--ease-out)";
+          el.style.opacity = "1";
+          el.style.transform = "none";
+          obs.disconnect();
+        }
+      },
+      { threshold }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+}
+
+function RevealDiv({ children, className = "", style = {}, delay = 0 }: { children: React.ReactNode; className?: string; style?: React.CSSProperties; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) { el.style.opacity = "1"; el.style.transform = "none"; return; }
+    el.style.opacity = "0";
+    el.style.transform = "translateY(28px)";
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            if (!el) return;
+            el.style.transition = "opacity 700ms var(--ease-out), transform 700ms var(--ease-out)";
+            el.style.opacity = "1";
+            el.style.transform = "none";
+          }, delay);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.12 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [delay]);
+  return <div ref={ref} className={className} style={style}>{children}</div>;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   [00] VIDEO SCROLL HERO
+   ═══════════════════════════════════════════════════════════ */
+function VideoScrollHero() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const headlineRef = useRef<HTMLDivElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const video = videoRef.current;
+    const section = sectionRef.current;
+    const headline = headlineRef.current;
+    if (!video || !section || !headline) return;
+
+    // Preload video metadata
+    video.load();
+
+    const initGSAP = () => {
+      if (!video.duration) return;
+
+      const ctx = gsap.context(() => {
+        // Pin the section and scrub video
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top top",
+          end: "+=300%",
+          pin: true,
+          scrub: 0.8,
+          onUpdate: (self) => {
+            if (prefersReduced) return;
+            const t = self.progress * video.duration;
+            if (isFinite(t)) video.currentTime = t;
+          },
+        });
+
+        // Headline reveal at 78% scroll progress
+        gsap.fromTo(
+          headline,
+          { opacity: 0, y: 40, filter: "blur(8px)" },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top top",
+              end: "+=300%",
+              scrub: false,
+              onUpdate: (self) => {
+                if (self.progress >= 0.78 && headline.style.opacity !== "1") {
+                  gsap.to(headline, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, ease: "power3.out" });
+                }
+              },
+            },
+          }
+        );
+      }, section);
+
+      return () => ctx.revert();
+    };
+
+    if (video.readyState >= 1) {
+      initGSAP();
+    } else {
+      video.addEventListener("loadedmetadata", initGSAP, { once: true });
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden"
+      style={{ height: "100vh", background: "var(--ink)" }}
+      aria-label="Hero"
+    >
+      {/* Atmospheric background field */}
+      <img
+        src={HERO_BG}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ opacity: 0.12, mixBlendMode: "screen" }}
+      />
+
+      {/* Decorative orbs */}
+      <img src={ORB_1} alt="" aria-hidden="true" className="absolute pointer-events-none select-none"
+        style={{ width: "55vw", maxWidth: "700px", top: "-10%", right: "-8%", opacity: 0.18, transform: "rotate(-15deg)", animation: "orbFloat 18s ease-in-out infinite" }} />
+      <img src={ORB_2} alt="" aria-hidden="true" className="absolute pointer-events-none select-none"
+        style={{ width: "40vw", maxWidth: "500px", bottom: "-5%", left: "-5%", opacity: 0.12, animation: "orbFloat 22s ease-in-out infinite reverse" }} />
+
+      {/* Video */}
+      <video
+        ref={videoRef}
+        src={HERO_VIDEO}
+        muted
+        playsInline
+        preload="metadata"
+        onLoadedData={() => setVideoReady(true)}
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ opacity: videoReady ? 0.65 : 0, transition: "opacity 800ms ease" }}
+        aria-hidden="true"
+      />
+
+      {/* Gradient vignette */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: "linear-gradient(to bottom, rgba(11,27,54,.35) 0%, transparent 40%, transparent 60%, rgba(11,27,54,.8) 100%)"
+      }} />
+
+      {/* Headline — revealed at 78% scroll */}
+      <div
+        ref={headlineRef}
+        className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+        style={{ opacity: 0 }}
+      >
+        <div className="headline-inner" style={{ maxWidth: "900px" }}>
+          <p className="mono mb-5" style={{ color: "var(--cyan)", letterSpacing: ".22em" }}>
+            WEB DESIGN · PAPHOS · CYPRUS
+          </p>
+          <h1 style={{
+            fontFamily: "'Satoshi', sans-serif",
+            fontWeight: 900,
+            fontSize: "clamp(2.4rem, 6.6vw, 5.6rem)",
+            letterSpacing: "-.03em",
+            lineHeight: .94,
+            color: "#fff",
+            marginBottom: "1.5rem",
+          }}>
+            Your business is great.{" "}
+            <span style={{ background: "var(--grad)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              Your website should make that obvious.
+            </span>
+          </h1>
+          <p style={{
+            fontFamily: "'Satoshi', sans-serif",
+            fontWeight: 500,
+            fontSize: "clamp(1rem, 2vw, 1.2rem)",
+            color: "rgba(238,241,248,.7)",
+            lineHeight: 1.65,
+            maxWidth: "52ch",
+            margin: "0 auto 2.5rem",
+          }}>
+            A dedicated web design agency. Professional, fast, conversion-focused websites for businesses like yours. From €299.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/contact" className="btn btn-primary" style={{ padding: "14px 32px", fontSize: "11px" }}>
+              Get a Free Consultation
+              <ArrowRight size={14} style={{ marginLeft: "6px" }} />
+            </Link>
+            <Link href="/templates" className="btn btn-ghost" style={{ padding: "14px 28px", fontSize: "11px", color: "#fff", borderColor: "rgba(255,255,255,.25)" }}>
+              See Our Work
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style={{ opacity: 0.45 }}>
+        <span className="mono" style={{ fontSize: "9px", letterSpacing: ".2em", color: "#fff" }}>SCROLL</span>
+        <div style={{ width: "1px", height: "40px", background: "linear-gradient(to bottom, rgba(255,255,255,.6), transparent)" }} />
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   [01] PROOF BAR — mono ticker
+   ═══════════════════════════════════════════════════════════ */
+function ProofBar() {
+  const doubled = [...TICKER_ITEMS, ...TICKER_ITEMS];
+  return (
+    <div
+      className="overflow-hidden"
+      style={{
+        background: "var(--ink)",
+        borderTop: "1px solid rgba(255,255,255,.06)",
+        borderBottom: "1px solid rgba(255,255,255,.06)",
+        padding: "14px 0",
+      }}
+      aria-hidden="true"
+    >
+      <div
+        className="flex gap-12 whitespace-nowrap"
+        style={{
+          animation: "ticker 28s linear infinite",
+          width: "max-content",
+        }}
+      >
+        {doubled.map((item, i) => (
+          <span key={i} className="flex items-center gap-3">
+            <span
+              style={{
+                fontFamily: "'Space Mono', monospace",
+                fontSize: "10px",
+                letterSpacing: ".18em",
+                textTransform: "uppercase",
+                color: "rgba(238,241,248,.45)",
+              }}
+            >
+              {item}
+            </span>
+            <span style={{ color: "var(--cyan)", opacity: 0.5, fontSize: "8px" }}>+</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   [02] CAPABILITIES — glass panels
+   ═══════════════════════════════════════════════════════════ */
+function Capabilities() {
+  return (
+    <section style={{ background: "var(--cloud)", padding: "100px 0" }}>
+      <div className="container">
+        <RevealDiv style={{ marginBottom: "56px" }}>
+          <p className="mono" style={{ color: "var(--slate)", marginBottom: "12px" }}>
+            WHAT WE BUILD
+          </p>
+          <h2 style={{
+            fontFamily: "'Satoshi', sans-serif",
+            fontWeight: 900,
+            fontSize: "clamp(1.9rem, 4.4vw, 3.4rem)",
+            letterSpacing: "-.028em",
+            lineHeight: 1.02,
+            color: "var(--ink)",
+            maxWidth: "18ch",
+          }}>
+            Websites that{" "}
+            <span style={{ background: "var(--grad)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              work.
+            </span>
+          </h2>
+        </RevealDiv>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: "var(--hairline)" }}>
+          {CAPS.map((cap, i) => {
+            const Icon = cap.icon;
+            return (
+              <RevealDiv
+                key={cap.label}
+                delay={i * 80}
+                style={{
+                  background: "var(--glass-deep)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                  padding: "40px 32px",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+              >
+                {/* Chamfer accent on first card only */}
+                {i === 0 && (
+                  <div style={{
+                    position: "absolute",
+                    top: 0,
+                    right: 0,
+                    width: "14px",
+                    height: "14px",
+                    background: "var(--cloud)",
+                    clipPath: "polygon(100% 0, 0 0, 100% 100%)",
+                  }} />
+                )}
+                <div
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    background: cap.accent,
+                    opacity: 0.12,
+                    marginBottom: "20px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Icon size={20} style={{ color: cap.accent, opacity: 8 }} />
+                </div>
+                <Icon size={20} style={{ color: cap.accent, marginBottom: "16px", marginTop: "-52px" }} />
+                <p className="mono" style={{ color: "var(--slate)", marginBottom: "10px", fontSize: "9px" }}>
+                  {cap.label}
+                </p>
+                <h3 style={{
+                  fontFamily: "'Satoshi', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "1.1rem",
+                  letterSpacing: "-.018em",
+                  color: "var(--ink)",
+                  marginBottom: "12px",
+                  lineHeight: 1.2,
+                }}>
+                  {cap.title}
+                </h3>
+                <p style={{
+                  fontFamily: "'Satoshi', sans-serif",
+                  fontSize: ".9rem",
+                  color: "var(--slate)",
+                  lineHeight: 1.62,
+                }}>
+                  {cap.body}
+                </p>
+              </RevealDiv>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   [03] WORK GRID — four-up 2x2, 16:10, gap 2px, sharp
+   ═══════════════════════════════════════════════════════════ */
+const WORK_ITEMS = [
+  { label: "Cafe & Coffee", industry: "Hospitality", href: "/templates" },
+  { label: "Beauty & Wellness", industry: "Retail & Services", href: "/templates" },
+  { label: "Clinics & Health", industry: "Healthcare", href: "/templates" },
+  { label: "Restaurants", industry: "Food & Beverage", href: "/web-design-restaurants-cyprus" },
+];
+
+function WorkGrid() {
+  return (
+    <section style={{ background: "var(--ink)", padding: "100px 0" }}>
+      <div className="container">
+        <RevealDiv style={{ marginBottom: "56px" }}>
+          <p className="mono" style={{ color: "var(--slate-soft)", marginBottom: "12px" }}>
+            OUR WORK
+          </p>
+          <h2 style={{
+            fontFamily: "'Satoshi', sans-serif",
+            fontWeight: 900,
+            fontSize: "clamp(1.9rem, 4.4vw, 3.4rem)",
+            letterSpacing: "-.028em",
+            lineHeight: 1.02,
+            color: "#fff",
+            maxWidth: "22ch",
+          }}>
+            Every website is built from scratch. These are examples of the range.
+          </h2>
+        </RevealDiv>
+
+        <div
+          className="grid grid-cols-2"
+          style={{ gap: "2px", background: "rgba(255,255,255,.04)" }}
+        >
+          {WORK_ITEMS.map((item, i) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              style={{ display: "block", textDecoration: "none", position: "relative", overflow: "hidden", aspectRatio: "16/10" }}
+            >
+              <img
+                src={WORK_IMGS[i]}
+                alt={item.label}
+                loading="lazy"
+                style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 600ms var(--ease-out)" }}
+                onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.04)")}
+                onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
+              />
+              <div style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(to top, rgba(11,27,54,.85) 0%, transparent 60%)",
+                transition: "opacity 300ms",
+              }} />
+              <div style={{ position: "absolute", bottom: "20px", left: "20px" }}>
+                <p className="mono" style={{ color: "var(--cyan)", marginBottom: "4px", fontSize: "9px" }}>
+                  {item.industry}
+                </p>
+                <p style={{
+                  fontFamily: "'Satoshi', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "1rem",
+                  color: "#fff",
+                  letterSpacing: "-.01em",
+                }}>
+                  {item.label}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <RevealDiv style={{ marginTop: "40px", textAlign: "center" }}>
+          <Link href="/templates" className="btn btn-ghost" style={{ color: "#fff", borderColor: "rgba(255,255,255,.2)", padding: "13px 28px", fontSize: "10px" }}>
+            See All Examples
+            <ArrowRight size={13} style={{ marginLeft: "6px" }} />
+          </Link>
+        </RevealDiv>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   [04] PROCESS — horizontal 5-step track
+   ═══════════════════════════════════════════════════════════ */
+function ProcessTrack() {
+  return (
+    <section style={{ background: "var(--mist)", padding: "100px 0", overflow: "hidden" }}>
+      <div className="container">
+        <RevealDiv style={{ marginBottom: "60px" }}>
+          <p className="mono" style={{ color: "var(--slate)", marginBottom: "12px" }}>
+            HOW IT WORKS
+          </p>
+          <h2 style={{
+            fontFamily: "'Satoshi', sans-serif",
+            fontWeight: 900,
+            fontSize: "clamp(1.9rem, 4.4vw, 3.4rem)",
+            letterSpacing: "-.028em",
+            lineHeight: 1.02,
+            color: "var(--ink)",
+          }}>
+            From idea to launch in 14 days.
+          </h2>
+        </RevealDiv>
+
+        {/* Horizontal scrollable on mobile, grid on desktop */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-5 gap-px"
+          style={{ background: "var(--hairline)" }}
+        >
+          {PROCESS_STEPS.map((step, i) => (
+            <RevealDiv
+              key={step.day}
+              delay={i * 100}
+              style={{
+                background: "var(--cloud)",
+                padding: "32px 24px",
+                position: "relative",
+              }}
+            >
+              <p className="mono" style={{ color: "var(--cyan)", marginBottom: "16px", fontSize: "9px" }}>
+                {step.day}
+              </p>
+              <div
+                style={{
+                  fontFamily: "'Space Mono', monospace",
+                  fontSize: "28px",
+                  fontWeight: 700,
+                  color: "var(--hairline)",
+                  lineHeight: 1,
+                  marginBottom: "16px",
+                  userSelect: "none",
+                }}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <h3 style={{
+                fontFamily: "'Satoshi', sans-serif",
+                fontWeight: 700,
+                fontSize: "1rem",
+                letterSpacing: "-.015em",
+                color: "var(--ink)",
+                marginBottom: "10px",
+              }}>
+                {step.title}
+              </h3>
+              <p style={{
+                fontFamily: "'Satoshi', sans-serif",
+                fontSize: ".875rem",
+                color: "var(--slate)",
+                lineHeight: 1.62,
+              }}>
+                {step.desc}
+              </p>
+            </RevealDiv>
+          ))}
+        </div>
+
+        <RevealDiv style={{ marginTop: "40px" }}>
+          <Link href="/process" className="btn btn-ghost" style={{ padding: "13px 28px", fontSize: "10px" }}>
+            See Full Process
+            <ArrowRight size={13} style={{ marginLeft: "6px" }} />
+          </Link>
+        </RevealDiv>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   [05] TEAM — AI-leverage story
+   ═══════════════════════════════════════════════════════════ */
+function TeamSection() {
+  return (
+    <section style={{ background: "var(--cloud)", padding: "100px 0" }}>
+      <div className="container">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <RevealDiv>
+            <p className="mono" style={{ color: "var(--slate)", marginBottom: "12px" }}>
+              WHO WE ARE
+            </p>
+            <h2 style={{
+              fontFamily: "'Satoshi', sans-serif",
+              fontWeight: 900,
+              fontSize: "clamp(1.9rem, 4.4vw, 3.4rem)",
+              letterSpacing: "-.028em",
+              lineHeight: 1.02,
+              color: "var(--ink)",
+              marginBottom: "24px",
+            }}>
+              Small team. Serious output.
+            </h2>
+            <p style={{
+              fontFamily: "'Satoshi', sans-serif",
+              fontSize: "1.0625rem",
+              fontWeight: 500,
+              color: "var(--slate)",
+              lineHeight: 1.65,
+              marginBottom: "20px",
+              maxWidth: "52ch",
+            }}>
+              DM-Labs.io is a dedicated web design agency based in Paphos, Cyprus. We work with small and medium businesses across Cyprus, Greece, and Europe.
+            </p>
+            <p style={{
+              fontFamily: "'Satoshi', sans-serif",
+              fontSize: ".95rem",
+              color: "var(--slate)",
+              lineHeight: 1.62,
+              maxWidth: "52ch",
+              marginBottom: "32px",
+            }}>
+              We combine professional design craft with AI-assisted workflows to deliver faster, without cutting corners on quality. You get a dedicated point of contact, clear communication, and a site that performs.
+            </p>
+            <Link href="/contact" className="btn btn-primary" style={{ padding: "13px 28px", fontSize: "10px" }}>
+              Start a Conversation
+              <ArrowRight size={13} style={{ marginLeft: "6px" }} />
+            </Link>
+          </RevealDiv>
+
+          {/* Testimonials */}
+          <div className="flex flex-col gap-4">
+            {TESTIMONIALS.map((t, i) => (
+              <RevealDiv
+                key={t.name}
+                delay={i * 120}
+                style={{
+                  background: "var(--glass)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  border: "1px solid var(--hairline)",
+                  padding: "24px",
+                }}
+              >
+                <p style={{
+                  fontFamily: "'Satoshi', sans-serif",
+                  fontSize: ".9rem",
+                  color: "var(--ink)",
+                  lineHeight: 1.65,
+                  marginBottom: "16px",
+                }}>
+                  "{t.text}"
+                </p>
+                <div className="flex items-center gap-3">
+                  <div style={{
+                    width: "32px",
+                    height: "32px",
+                    background: "var(--grad)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontFamily: "'Satoshi', sans-serif",
+                    fontWeight: 900,
+                    fontSize: ".875rem",
+                    color: "#fff",
+                    flexShrink: 0,
+                  }}>
+                    {t.initial}
+                  </div>
+                  <div>
+                    <p style={{ fontFamily: "'Satoshi', sans-serif", fontWeight: 700, fontSize: ".875rem", color: "var(--ink)" }}>{t.name}</p>
+                    <p className="mono" style={{ color: "var(--slate)", fontSize: "9px" }}>{t.role}</p>
+                  </div>
+                </div>
+              </RevealDiv>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   [06] PRICING — deliberately still
+   ═══════════════════════════════════════════════════════════ */
+function PricingSection() {
+  return (
+    <section style={{ background: "var(--mist)", padding: "100px 0" }}>
+      <div className="container">
+        <div style={{ textAlign: "center", marginBottom: "56px" }}>
+          <p className="mono" style={{ color: "var(--slate)", marginBottom: "12px" }}>
+            PRICING
+          </p>
+          <h2 style={{
+            fontFamily: "'Satoshi', sans-serif",
+            fontWeight: 900,
+            fontSize: "clamp(1.9rem, 4.4vw, 3.4rem)",
+            letterSpacing: "-.028em",
+            lineHeight: 1.02,
+            color: "var(--ink)",
+            marginBottom: "16px",
+          }}>
+            Packages from €299
+          </h2>
+          <p style={{
+            fontFamily: "'Satoshi', sans-serif",
+            fontSize: "1rem",
+            color: "var(--slate)",
+            maxWidth: "44ch",
+            margin: "0 auto",
+            lineHeight: 1.62,
+          }}>
+            Fixed prices. Clear deliverables. No hidden fees.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px" style={{ background: "var(--hairline)" }}>
+          {PLANS.map((plan) => (
+            <div
+              key={plan.name}
+              style={{
+                background: plan.recommended ? "var(--ink)" : "var(--cloud)",
+                padding: "40px 32px",
+                position: "relative",
+              }}
+            >
+              {plan.recommended && (
+                <div style={{
+                  position: "absolute",
+                  top: "16px",
+                  right: "16px",
+                  background: "var(--grad)",
+                  padding: "4px 10px",
+                  fontFamily: "'Space Mono', monospace",
+                  fontSize: "8px",
+                  letterSpacing: ".15em",
+                  textTransform: "uppercase",
+                  color: "#fff",
+                }}>
+                  RECOMMENDED
+                </div>
+              )}
+              <p className="mono" style={{ color: plan.accent, marginBottom: "12px", fontSize: "9px" }}>
+                {plan.name.toUpperCase()} WEBSITE
+              </p>
+              <div style={{ marginBottom: "8px" }}>
+                <span style={{
+                  fontFamily: "'Satoshi', sans-serif",
+                  fontWeight: 900,
+                  fontSize: "2.8rem",
+                  letterSpacing: "-.03em",
+                  color: plan.recommended ? "#fff" : "var(--ink)",
+                  lineHeight: 1,
+                }}>
+                  {plan.price}
+                </span>
+                <span style={{
+                  fontFamily: "'Satoshi', sans-serif",
+                  fontSize: ".875rem",
+                  color: plan.recommended ? "rgba(238,241,248,.5)" : "var(--slate)",
+                  marginLeft: "6px",
+                }}>
+                  {plan.note}
+                </span>
+              </div>
+              <p style={{
+                fontFamily: "'Satoshi', sans-serif",
+                fontSize: ".875rem",
+                color: plan.recommended ? "rgba(238,241,248,.65)" : "var(--slate)",
+                lineHeight: 1.62,
+                marginBottom: "28px",
+                minHeight: "3.5em",
+              }}>
+                {plan.desc}
+              </p>
+              <ul style={{ marginBottom: "32px" }}>
+                {plan.features.map((f) => (
+                  <li key={f} style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "10px" }}>
+                    <CheckCircle2 size={15} style={{ color: plan.accent, flexShrink: 0, marginTop: "2px" }} />
+                    <span style={{
+                      fontFamily: "'Satoshi', sans-serif",
+                      fontSize: ".875rem",
+                      color: plan.recommended ? "rgba(238,241,248,.8)" : "var(--ink)",
+                      lineHeight: 1.5,
+                    }}>
+                      {f}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/contact"
+                className="btn"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "6px",
+                  padding: "13px 24px",
+                  fontSize: "10px",
+                  background: plan.recommended ? "var(--grad)" : "transparent",
+                  color: plan.recommended ? "#fff" : "var(--ink)",
+                  border: plan.recommended ? "none" : "1px solid var(--hairline)",
+                  width: "100%",
+                  textDecoration: "none",
+                }}
+              >
+                Get a Free Consultation
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        {/* Enterprise wide banner */}
+        <div style={{
+          marginTop: "2px",
+          background: "var(--ink)",
+          padding: "40px 32px",
+          display: "flex",
+          flexDirection: "column" as const,
+          gap: "24px",
+        }}>
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
+            <div style={{ flexShrink: 0 }}>
+              <p className="mono" style={{ color: "var(--violet)", marginBottom: "8px", fontSize: "9px" }}>
+                ENTERPRISE / CUSTOM
+              </p>
+              <div style={{ marginBottom: "4px" }}>
+                <span style={{
+                  fontFamily: "'Satoshi', sans-serif",
+                  fontWeight: 900,
+                  fontSize: "2.2rem",
+                  letterSpacing: "-.03em",
+                  color: "#fff",
+                  lineHeight: 1,
+                }}>
+                  From €1,499
+                </span>
+              </div>
+              <p className="mono" style={{ color: "var(--slate-soft)", marginBottom: "16px", fontSize: "9px" }}>
+                QUOTE BASED ON SCOPE
+              </p>
+              <p style={{
+                fontFamily: "'Satoshi', sans-serif",
+                fontSize: ".875rem",
+                color: "rgba(238,241,248,.55)",
+                lineHeight: 1.62,
+                maxWidth: "32ch",
+                marginBottom: "20px",
+              }}>
+                For integrations, multilingual builds, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, or unusual content volume.
+              </p>
+              <Link href="/contact" className="btn" style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                padding: "12px 24px",
+                fontSize: "10px",
+                background: "var(--grad)",
+                color: "#fff",
+                border: "none",
+                textDecoration: "none",
+              }}>
+                <MessageCircle size={13} />
+                Contact Us
+              </Link>
+            </div>
+            <div style={{ width: "1px", alignSelf: "stretch", background: "rgba(255,255,255,.06)" }} className="hidden lg:block" />
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-4 flex-1">
+              {[
+                { icon: Globe, label: "Fully custom design from scratch" },
+                { icon: Zap, label: "Scope designed around your project" },
+                { icon: CalendarCheck, label: "CRM and booking integrations" },
+                { icon: Languages, label: "Multi-language support" },
+                { icon: Users, label: "Dedicated project manager" },
+                { icon: Headphones, label: "Priority support and delivery" },
+                { icon: ArrowRight, label: "Ongoing retainer option" },
+                { icon: CheckCircle2, label: "Custom SEO and content strategy" },
+              ].map(({ icon: Icon, label }) => (
+                <div key={label} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                  <Icon size={13} style={{ color: "var(--cyan)", flexShrink: 0, marginTop: "2px" }} />
+                  <span style={{
+                    fontFamily: "'Satoshi', sans-serif",
+                    fontSize: ".8rem",
+                    color: "rgba(238,241,248,.65)",
+                    lineHeight: 1.5,
+                  }}>
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div style={{ textAlign: "center", marginTop: "32px" }}>
+          <p style={{
+            fontFamily: "'Satoshi', sans-serif",
+            fontSize: ".875rem",
+            color: "var(--slate)",
+            marginBottom: "8px",
+          }}>
+            All plans include a <strong style={{ color: "var(--ink)" }}>free consultation</strong> — no commitment, no pressure.
+          </p>
+          <Link href="/pricing" style={{
+            fontFamily: "'Satoshi', sans-serif",
+            fontSize: ".875rem",
+            fontWeight: 500,
+            color: "var(--blue)",
+            textDecoration: "none",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "4px",
+          }}>
+            See full pricing and add-ons
+            <ArrowRight size={13} />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   [07] CTA — full-bleed, single action
+   ═══════════════════════════════════════════════════════════ */
+function CTASection() {
+  return (
+    <section
+      style={{
+        background: "var(--ink)",
+        padding: "120px 0",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Atmospheric banner behind CTA */}
+      <img
+        src={BANNER_W1}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        style={{ opacity: 0.08, mixBlendMode: "screen" }}
+      />
+      <img
+        src={ORB_3}
+        alt=""
+        aria-hidden="true"
+        className="absolute pointer-events-none select-none"
+        style={{ width: "60vw", maxWidth: "800px", top: "-20%", right: "-10%", opacity: 0.1 }}
+      />
+
+      <div className="container relative" style={{ textAlign: "center" }}>
+        <RevealDiv>
+          <p className="mono" style={{ color: "var(--cyan)", marginBottom: "16px" }}>
+            READY TO START?
+          </p>
+          <h2 style={{
+            fontFamily: "'Satoshi', sans-serif",
+            fontWeight: 900,
+            fontSize: "clamp(2.2rem, 5.5vw, 4.8rem)",
+            letterSpacing: "-.03em",
+            lineHeight: .96,
+            color: "#fff",
+            marginBottom: "24px",
+            maxWidth: "16ch",
+            margin: "0 auto 24px",
+          }}>
+            Let's build something{" "}
+            <span style={{ background: "var(--grad)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              worth visiting.
+            </span>
+          </h2>
+          <p style={{
+            fontFamily: "'Satoshi', sans-serif",
+            fontSize: "1.0625rem",
+            fontWeight: 500,
+            color: "rgba(238,241,248,.6)",
+            lineHeight: 1.65,
+            maxWidth: "44ch",
+            margin: "0 auto 40px",
+          }}>
+            Free consultation. No commitment. We'll tell you exactly what we'd build and what it would cost before you decide anything.
+          </p>
+          <Link
+            href="/contact"
+            className="btn btn-primary"
+            style={{ padding: "18px 44px", fontSize: "11px", letterSpacing: ".2em" }}
+          >
+            Get a Free Consultation
+            <ArrowRight size={14} style={{ marginLeft: "8px" }} />
+          </Link>
+        </RevealDiv>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE EXPORT
+   ═══════════════════════════════════════════════════════════ */
 export default function HomePage() {
   useSEO({
-    title: "DM-Labs.io | Web Design in Paphos & Cyprus from €299",
-    description: "DM-Labs.io builds custom, mobile-first websites for businesses in Paphos and across Cyprus. Clear scope, SEO foundations, and packages from €299.",
+    title: "DM-Labs.io | Web Design in Paphos and Cyprus from €299",
+    description:
+      "DM-Labs.io builds custom, mobile-first websites for businesses in Paphos and across Cyprus. Clear scope, SEO foundations, and packages from €299.",
   });
 
-  // Mirrors the static HTML schema and keeps the homepage data accurate after client rendering.
   useEffect(() => {
     const existingSchema = document.getElementById("home-localbusiness-schema");
     if (existingSchema) return;
     const offers = [
-      { "@type": "Offer", "name": "Launch Website", "description": "1-page landing site, mobile responsive, WhatsApp button, basic SEO, 2 revision rounds.", "price": "299", "priceCurrency": "EUR" },
-      { "@type": "Offer", "name": "Growth Website", "description": "Up to 4 pages, contact form, map, testimonials, basic SEO, Search Console and Analytics setup, 3 revision rounds.", "price": "749", "priceCurrency": "EUR" },
-      { "@type": "Offer", "name": "Pro Website", "description": "Up to 7 pages, gallery, pop-up, scroll animations, full SEO structure, blog setup or a website visual pack, 4 revision rounds.", "price": "1499", "priceCurrency": "EUR" },
-      { "@type": "Offer", "name": "Enterprise / Custom", "description": "Custom scope for integrations, multilingual websites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume.", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "1499", "priceCurrency": "EUR" } }
+      { "@type": "Offer", name: "Launch Website", description: "1-page landing site, mobile responsive, WhatsApp button, basic SEO, 2 revision rounds.", price: "299", priceCurrency: "EUR" },
+      { "@type": "Offer", name: "Growth Website", description: "Up to 4 pages, contact form, map, testimonials, basic SEO, Search Console and Analytics setup, 3 revision rounds.", price: "749", priceCurrency: "EUR" },
+      { "@type": "Offer", name: "Pro Website", description: "Up to 7 pages, gallery, pop-up, scroll animations, full SEO structure, blog setup or a website visual pack, 4 revision rounds.", price: "1499", priceCurrency: "EUR" },
+      { "@type": "Offer", name: "Enterprise / Custom", description: "Custom scope for integrations, multilingual websites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume.", priceSpecification: { "@type": "PriceSpecification", minPrice: "1499", priceCurrency: "EUR" } },
     ];
     const schema = {
       "@context": "https://schema.org",
@@ -187,50 +1155,30 @@ export default function HomePage() {
         {
           "@type": "ProfessionalService",
           "@id": "https://dm-labs.io/#professionalservice",
-          "name": "DM-Labs.io",
-          "alternateName": "DM-Labs",
-          "description": "DM-Labs.io designs and builds professional, custom websites for businesses in Paphos, across Cyprus, and in Greece. Mobile-first, SEO-ready websites with clear packages from €299.",
-          "url": "https://dm-labs.io/",
-          "logo": "https://dm-labs.io/logo.png",
-          "image": "https://dm-labs.io/og-image.png",
-          "telephone": "+35797472847",
-          "email": "info@dm-labs.io",
-          "priceRange": "€299-€1,499",
-          "currenciesAccepted": "EUR",
-          "paymentAccepted": "Bank Transfer, Credit Card",
-          "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
-          "areaServed": [
-            { "@type": "City", "name": "Paphos", "addressCountry": "CY" },
-            { "@type": "City", "name": "Limassol", "addressCountry": "CY" },
-            { "@type": "City", "name": "Nicosia", "addressCountry": "CY" },
-            { "@type": "City", "name": "Larnaca", "addressCountry": "CY" },
-            { "@type": "City", "name": "Famagusta", "addressCountry": "CY" },
-            { "@type": "Country", "name": "Cyprus" },
-            { "@type": "Country", "name": "Greece" }
+          name: "DM-Labs.io",
+          description: "DM-Labs.io designs and builds professional, custom websites for businesses in Paphos, across Cyprus, and in Greece. Mobile-first, SEO-ready websites with clear packages from €299.",
+          url: "https://dm-labs.io/",
+          logo: "https://dm-labs.io/logo.png",
+          image: "https://dm-labs.io/og-image.png",
+          telephone: "+35797472847",
+          email: "info@dm-labs.io",
+          priceRange: "€299-€1,499",
+          currenciesAccepted: "EUR",
+          paymentAccepted: "Bank Transfer, Credit Card",
+          address: { "@type": "PostalAddress", streetAddress: "Eleftheriou Chandrinou", postalCode: "8045", addressLocality: "Paphos", addressCountry: "CY" },
+          areaServed: [
+            { "@type": "City", name: "Paphos", addressCountry: "CY" },
+            { "@type": "City", name: "Limassol", addressCountry: "CY" },
+            { "@type": "City", name: "Nicosia", addressCountry: "CY" },
+            { "@type": "City", name: "Larnaca", addressCountry: "CY" },
+            { "@type": "Country", name: "Cyprus" },
+            { "@type": "Country", name: "Greece" },
           ],
-          "serviceType": ["Website Design", "Web Development", "SEO Optimisation", "Website Maintenance"],
-          "sameAs": ["https://www.instagram.com/dm_labs.io/"],
-          "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Website Packages", "itemListElement": offers }
+          serviceType: ["Website Design", "Web Development", "SEO Optimisation", "Website Maintenance"],
+          sameAs: ["https://www.instagram.com/dm_labs.io/"],
+          hasOfferCatalog: { "@type": "OfferCatalog", name: "Website Packages", itemListElement: offers },
         },
-        {
-          "@type": "WebSite",
-          "@id": "https://dm-labs.io/#website",
-          "url": "https://dm-labs.io/",
-          "name": "DM-Labs.io",
-          "description": "Professional web design services in Paphos and across Cyprus",
-          "publisher": { "@id": "https://dm-labs.io/#professionalservice" },
-          "inLanguage": ["en", "el"]
-        },
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://dm-labs.io/#web-design-service",
-          "name": "Web Design Services Paphos & Cyprus",
-          "provider": { "@id": "https://dm-labs.io/#professionalservice" },
-          "serviceType": "Web Design",
-          "areaServed": { "@type": "Country", "name": "Cyprus" },
-          "offers": offers
-        }
-      ]
+      ],
     };
     const script = document.createElement("script");
     script.type = "application/ld+json";
@@ -239,709 +1187,17 @@ export default function HomePage() {
     document.head.appendChild(script);
     return () => { document.getElementById("home-localbusiness-schema")?.remove(); };
   }, []);
+
   return (
     <>
-      {/* ═══════════════════════════════════════════
-          HERO SECTION
-          ═══════════════════════════════════════════ */}
-      <section className="relative overflow-hidden" style={{ minHeight: "90vh" }}>
-        {/* Background Atmosphere Layers */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={GRADIENT_BG}
-            alt=""
-            role="presentation"
-            className="absolute inset-0 w-full h-full object-cover opacity-15"
-            aria-hidden="true"
-          />
-        </div>
-        <div className="absolute top-10 right-0 w-[500px] h-[500px] opacity-[0.06] animate-float-slower pointer-events-none z-0">
-          <img src={TRIANGLE_GEO} alt="" role="presentation" className="w-full h-full object-contain" aria-hidden="true" />
-        </div>
-        <div className="absolute bottom-0 left-10 w-[300px] h-[300px] opacity-[0.04] animate-float-slow pointer-events-none z-0" style={{ animationDelay: "-8s" }}>
-          <img src={TRIANGLE_GEO} alt="" role="presentation" className="w-full h-full object-contain rotate-180" aria-hidden="true" />
-        </div>
-        {/* Ambient glow */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#5B8CFF] rounded-full blur-[120px] opacity-[0.08] animate-pulse-glow pointer-events-none z-0" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#8B5CFF] rounded-full blur-[100px] opacity-[0.06] animate-pulse-glow pointer-events-none z-0" style={{ animationDelay: "-4s" }} />
-
-        <div className="container relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-8" style={{ paddingTop: "clamp(3rem, 8vh, 8rem)", paddingBottom: "clamp(2rem, 5vh, 6rem)" }}>
-          {/* Left: Text */}
-          <div className="flex-1 max-w-xl text-center md:text-left">
-            <AnimateIn variant="fade-up" delay={0.1}>
-              <p className="text-sm font-medium text-[#5B6472] mb-4 tracking-wide uppercase">
-                Complete Website Solutions
-              </p>
-            </AnimateIn>
-            <AnimateIn variant="fade-up" delay={0.2}>
-              <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1] mb-6">
-                Your business is great.{" "}
-                <span className="brand-gradient-text">Your website should make that obvious.</span>
-              </h1>
-            </AnimateIn>
-            <AnimateIn variant="fade-up" delay={0.3}>
-              <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-md">
-                We are a dedicated web design agency. We build professional, fast, and conversion-focused websites for businesses like yours - from €299.
-              </p>
-            </AnimateIn>
-
-            <AnimateIn variant="fade-up" delay={0.4}>
-              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <Link href="/contact" className="btn-primary">
-                  Get a Free Consultation
-                  <ArrowRight size={18} />
-                </Link>
-                <Link href="/templates" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
-                  Browse Examples
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
-            </AnimateIn>
-          </div>
-
-          {/* Right: Device Mockup */}
-          <div className="flex-1 flex justify-center md:justify-end">
-            <AnimateIn variant="fade-up" delay={0.5} className="relative">
-              <div className="animate-float-slow">
-                <img
-                  src={HERO_DEVICES}
-                  alt="DM-Labs.io website preview on laptop and mobile"
-                  className="w-full max-w-[260px] sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl drop-shadow-2xl"
-                />
-              </div>
-            </AnimateIn>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          TRUST STRIP
-          ═══════════════════════════════════════════ */}
-      <section className="bg-white border-y border-[#E2E5EA]">
-        <div className="container py-6">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-            {[
-              "No Hidden Fees",
-              "Delivered in Days",
-              "Mobile Responsive",
-              "SEO Optimised",
-              "European-Based Team",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
-                <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0" />
-                <span className="font-medium">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          TEMPLATE SHOWCASE + INDUSTRY GRID
-          (moved directly after trust strip)
-          ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
-        <div className="container relative z-10">
-          {/* -- Template Showcase Grid -- */}
-          <AnimateIn className="text-center mb-10">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Design Inspiration</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">
-              See What We Can Create for You
-            </h2>
-            <p className="text-base text-[#5B6472] max-w-2xl mx-auto">
-              Every website we build is <strong className="text-[#111315]">fully custom</strong> - designed from scratch around your brand, your content, and your customers. These examples show the range of styles and industries we work with. Think of them as inspiration, not off-the-shelf packages.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 items-stretch">
-            {FEATURED_TEMPLATES.map((tpl) => (
-              <StaggerItem key={tpl.id} className="flex">
-                <Link href={`/templates?open=${tpl.id}`} className="flex w-full">
-                  <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
-                    {/* Hand-crafted card mockup */}
-                    <HomepageCardPreview tplId={tpl.id} category={tpl.category} />
-
-                    {/* Card Details */}
-                    <div className="p-5 flex flex-col flex-1">
-                      <div className="mb-2">
-                        <h4 className="font-semibold text-[#111315] text-base leading-tight">{tpl.name}</h4>
-                        <p className="text-xs text-[#5B6472] mt-0.5">{tpl.styleLabel}</p>
-                      </div>
-
-                      {/* Learn More - pinned to bottom */}
-                      <div className="mt-auto flex items-center gap-1 text-sm font-semibold text-[#5B8CFF] group-hover:gap-2 transition-all">
-                        See example <ArrowRight size={14} />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <AnimateIn className="text-center mb-16">
-            <Link href="/templates" className="btn-primary">
-              View All Examples
-              <ArrowRight size={16} />
-            </Link>
-          </AnimateIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SERVICES OVERVIEW
-          ═══════════════════════════════════════════ */}
-      <section className="section-spacing">
-        <div className="container">
-          <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Our Services</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Expert Solutions for Your Online Presence
-            </h2>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Everything you need to establish a professional web presence, from design to launch and beyond.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No off-the-shelf designs - every site is built from scratch.", anchor: "custom-design" },
-              { icon: Smartphone, title: "Mobile-First Development", desc: "Every website is designed mobile-first, ensuring a flawless experience on phones, tablets, and desktops.", anchor: "mobile-first" },
-              { icon: Search, title: "SEO Optimisation", desc: "Built-in search engine optimisation so your customers can find you on Google from day one.", anchor: "seo" },
-              { icon: Zap, title: "Fast Performance", desc: "Lightning-fast load times with optimised code and assets. Speed matters for conversions and rankings.", anchor: "performance" },
-              { icon: Shield, title: "Secure & Reliable", desc: "SSL certificates, secure hosting, and regular backups to keep your website safe and always online.", anchor: "security" },
-              { icon: Clock, title: "Quick Turnaround", desc: "From concept to launch in 5-14 business days. We move fast without compromising quality.", anchor: "turnaround" },
-            ].map((service) => (
-              <StaggerItem key={service.title}>
-                <Link href={`/services/${service.anchor}`}>
-                  <div className="dm-card h-full cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
-                    <div className="icon-container-gradient mb-5">
-                      <service.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="text-lg font-semibold text-[#111315] mb-2">{service.title}</h3>
-                    <p className="text-sm text-[#5B6472] leading-relaxed mb-4">{service.desc}</p>
-                    <span className="text-sm font-medium text-[#5B8CFF] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Read more <ArrowRight size={14} />
-                    </span>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          PROCESS OVERVIEW
-          ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 100%)" }}>
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
-
-        <div className="container relative z-10">
-          <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">How It Works</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              From Idea to Launch in 5 Simple Steps
-            </h2>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              We've streamlined the process so you can focus on running your business.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-            {[
-              { icon: MessageCircle, step: "01", title: "Discovery Call", desc: "Quick WhatsApp chat to understand your business and goals.", time: "~1 day", color: "#5B8CFF" },
-              { icon: Palette, step: "02", title: "Design", desc: "We create a custom design based on your brand and preferences.", time: "2-3 days", color: "#6FE3FF" },
-              { icon: Code, step: "03", title: "Build", desc: "Your website is developed with clean code, optimised for speed and SEO.", time: "3-5 days", color: "#8B5CFF" },
-              { icon: Headphones, step: "04", title: "Revisions", desc: "We refine the design based on your feedback until you're happy.", time: "1-2 days", color: "#5B8CFF" },
-              { icon: Rocket, step: "05", title: "Launch", desc: "We deploy your site, connect your domain, and make sure everything works.", time: "~1 day", color: "#6FE3FF" },
-            ].map((item) => (
-              <StaggerItem key={item.step}>
-                <div className="text-center">
-                  <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" style={{ background: `${item.color}12` }}>
-                    <item.icon size={28} style={{ color: item.color }} strokeWidth={1.75} />
-                    <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full brand-gradient text-white text-xs font-bold flex items-center justify-center">
-                      {item.step}
-                    </span>
-                  </div>
-                  <h3 className="text-base font-semibold text-[#111315] mb-1">{item.title}</h3>
-                  <p className="text-xs text-[#8B5CFF] font-medium mb-2">{item.time}</p>
-                  <p className="text-sm text-[#5B6472] leading-relaxed">{item.desc}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <AnimateIn className="text-center mt-12">
-            <Link href="/process" className="btn-secondary">
-              See Full Process
-              <ArrowRight size={16} />
-            </Link>
-          </AnimateIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          TESTIMONIALS
-          ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
-        <div className="container">
-          <AnimateIn className="text-center mb-14">
-              <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Client Stories</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              What Our Clients Say
-            </h2>
-            <p className="text-lg text-[#5B6472] max-w-xl mx-auto">
-              Early feedback from the businesses we've worked with.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {TESTIMONIALS.map((t) => (
-              <StaggerItem key={t.name}>
-                <div className="dm-card h-full flex flex-col relative">
-                  {/* Quote icon */}
-                  <div className="absolute top-5 right-5 opacity-10">
-                    <Quote size={40} className="text-[#5B8CFF]" />
-                  </div>
-                
-                  {/* Quote text */}
-                  <p className="text-sm text-[#3D4550] leading-relaxed mb-6 flex-1 italic">
-                    "{t.text}"
-                  </p>
-                  {/* Author */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-[#E2E5EA]">
-                    <div className="w-10 h-10 rounded-full brand-gradient flex items-center justify-center text-white text-sm font-bold shrink-0">
-                      {t.initial}
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-[#111315]">{t.name}</p>
-                      <p className="text-xs text-[#5B6472]">{t.role}</p>
-                    </div>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          PRICING PREVIEW
-          ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 100%)" }}>
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
-
-        <div className="container relative z-10">
-          <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Transparent Pricing</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Simple, Honest Pricing
-            </h2>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-5">
-              No hidden fees. No surprises. Transparent pricing for every project.
-            </p>
-           </AnimateIn>
-
-          <div
-            className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl text-center sm:text-left"
-            style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
-          >
-            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Packages from €299</span>
-            <span className="hidden sm:block w-px h-5 bg-white/40" />
-            <span className="text-sm sm:text-base text-white/90 font-medium">Clear scope, transparent pricing, and a free consultation before you commit.</span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
-
-            {/* Launch Website */}
-            <AnimateIn delay={0.1}>
-              <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Launch Website</p>
-                <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-4xl font-bold text-[#111315]">€299</span>
-                  <span className="text-sm text-[#5B6472]">one-time</span>
-                </div>
-                <p className="text-sm text-[#5B6472] mb-6">A lean online presence for a new business that needs to launch clearly and professionally.</p>
-                <ul className="space-y-3 mb-8 flex-1">
-                  {["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                      <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/contact" className="btn-secondary w-full justify-center">Get a Free Consultation</Link>
-              </div>
-            </AnimateIn>
-
-            {/* Growth Website - Recommended */}
-            <AnimateIn delay={0.2}>
-              <div className="brand-gradient-border h-full">
-                <div className="dm-card h-full flex flex-col !shadow-none relative">
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
-                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Growth Website</p>
-                  <div className="flex items-baseline gap-1 mb-4">
-                    <span className="text-4xl font-bold text-[#111315]">€749</span>
-                    <span className="text-sm text-[#5B6472]">one-time</span>
-                  </div>
-                  <p className="text-sm text-[#5B6472] mb-6">A conversion-focused site for a business ready to be found, trusted, and contacted online.</p>
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"].map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                        <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/contact" className="btn-primary w-full justify-center">Get a Free Consultation</Link>
-                </div>
-              </div>
-            </AnimateIn>
-
-            {/* Pro Website */}
-            <AnimateIn delay={0.3}>
-              <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Pro Website</p>
-                <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-4xl font-bold text-[#111315]">€1,499</span>
-                  <span className="text-sm text-[#5B6472]">one-time</span>
-                </div>
-                <p className="text-sm text-[#5B6472] mb-6">For a more complete digital presence with richer content, motion, and stronger search foundations.</p>
-                <ul className="space-y-3 mb-8 flex-1">
-                  {["Up to 7 pages", "Gallery or portfolio", "Pop-up and scroll-driven animations", "Full SEO structure", "Blog setup or website visual pack", "4 revision rounds"].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                      <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/contact" className="btn-secondary w-full justify-center">Get a Free Consultation</Link>
-              </div>
-            </AnimateIn>
-
-          </div>
-
-          {/* Enterprise Wide Banner */}
-          <AnimateIn delay={0.4} className="mt-8 max-w-5xl mx-auto">
-            <div className="rounded-2xl overflow-hidden" style={{ background: "linear-gradient(135deg, #0d1117 0%, #161b2e 50%, #0d1117 100%)", border: "1px solid rgba(91,140,255,0.2)" }}>
-              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 p-8">
-
-                {/* Left: label + price + description */}
-                <div className="flex-shrink-0 lg:w-64">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
-                  <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise / Custom</p>
-                  <p className="text-4xl font-bold text-white mb-1">From €1,499</p>
-                  <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Quote based on scope</p>
-                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-                    For integrations, multilingual builds, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, or unusual content volume.
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"
-                    style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}
-                  >
-                    <MessageCircle size={16} /> Contact Us
-                  </Link>
-                </div>
-
-                {/* Divider */}
-                <div className="hidden lg:block w-px self-stretch" style={{ background: "rgba(91,140,255,0.2)" }} />
-
-                {/* Right: feature grid */}
-                <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
-                  {[
-                    { icon: Globe, label: "Fully custom design from scratch" },
-                    { icon: Zap, label: "Scope designed around your project" },
-                    { icon: CalendarCheck, label: "CRM and booking integrations" },
-                    { icon: Languages, label: "Multi-language support" },
-                    { icon: Users, label: "Dedicated project manager" },
-                    { icon: Headphones, label: "Priority support and delivery" },
-                    { icon: ArrowRight, label: "Ongoing retainer option" },
-                    { icon: CheckCircle2, label: "Custom SEO and content strategy" },
-                  ].map(({ icon: Icon, label }) => (
-                    <div key={label} className="flex items-start gap-2.5">
-                      <Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />
-                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>{label}</span>
-                    </div>
-                  ))}
-                </div>
-
-              </div>
-            </div>
-          </AnimateIn>
-
-          <AnimateIn className="text-center mt-10">
-            <p className="text-sm text-[#5B6472] mb-3">
-              All plans include a <span className="font-semibold text-[#111315]">free consultation</span> - no commitment, no pressure.
-            </p>
-            <Link href="/pricing" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
-              See full pricing &amp; add-ons <ArrowRight size={14} />
-            </Link>
-          </AnimateIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          INDUSTRIES WE SERVE
-          ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
-        <div className="container">
-          <AnimateIn className="text-center mb-8">
-            <p className="text-base text-[#5B6472]">Industries we work with:</p>
-          </AnimateIn>
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { icon: Utensils, label: "Restaurants", industry: "restaurant" },
-              { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
-              { icon: Stethoscope, label: "Clinics", industry: "clinic" },
-              { icon: Dumbbell, label: "Fitness", industry: "fitness" },
-
-            ].map((biz) => (
-              <StaggerItem key={biz.label}>
-                <Link href={`/templates?industry=${biz.industry}`}>
-                  <div className="dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 hover:border-[#5B8CFF]/40 transition-all duration-300">
-                    <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
-                      <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
-                    </div>
-                    <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
-                    <p className="text-xs mt-1 text-[#5B8CFF]">View examples →</p>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-          {/* Can't find your industry CTA */}
-          <AnimateIn className="text-center mt-10">
-            <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-[#F8FAFF] border border-[#5B8CFF]/20">
-              <HelpCircle size={18} className="text-[#5B8CFF] shrink-0" />
-              <p className="text-sm text-[#5B6472]">
-                <strong className="text-[#111315]">Don't see your industry?</strong>{" "}
-                We work with all types of businesses.{" "}
-                <Link href="/contact" className="text-[#5B8CFF] font-medium hover:underline">
-                  Get in touch →
-                </Link>
-              </p>
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          STATS BANNER - vivid gradient, animated on scroll
-          ═══════════════════════════════════════════ */}
-      <section className="relative overflow-hidden py-16 sm:py-20"
-        style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E2A4A 50%, #0F172A 100%)" }}
-      >
-        {/* Ambient glows */}
-        <div className="absolute top-0 left-1/4 w-72 h-72 bg-[#5B8CFF] rounded-full blur-[100px] opacity-20 pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-[#8B5CFF] rounded-full blur-[100px] opacity-15 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-32 bg-[#6FE3FF] rounded-full blur-[80px] opacity-10 pointer-events-none" />
-        <div className="container relative z-10">
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {[
-              { value: "5-14", label: "Days to Launch", sub: "from first call" },
-              { value: "5★", label: "Client Satisfaction", sub: "our standard" },
-              { value: "100%", label: "Mobile Optimised", sub: "every project" },
-              { value: "∞", label: "Ongoing Support", sub: "we’re always here" },
-            ].map((stat, i) => (
-              <StaggerItem key={stat.label}>
-                <div className="text-center group">
-                  {/* Divider line on desktop */}
-                  <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 w-px h-12 bg-white/10" />
-                  <p
-                    className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 transition-transform duration-300 group-hover:scale-110"
-                    style={{
-                      background: i % 2 === 0
-                        ? "linear-gradient(135deg, #6FE3FF 0%, #5B8CFF 100%)"
-                        : "linear-gradient(135deg, #A78BFF 0%, #6FE3FF 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
-                    {stat.value}
-                  </p>
-                  <p className="text-base font-semibold text-white mb-1">{stat.label}</p>
-                  <p className="text-xs text-[#94A3B8]">{stat.sub}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          WHO WE ARE - Team Section
-          ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
-        <div className="container">
-          <AnimateIn className="text-center mb-14">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#5B8CFF] mb-3">The people behind the work</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">Who We Are</h2>
-          </AnimateIn>
-
-          {/* Two stacked cards - horizontal on desktop, photo-top on mobile */}
-          <div className="flex flex-col gap-8 max-w-3xl mx-auto">
-
-            {/* Anastacia Card */}
-            <AnimateIn delay={0.1}>
-              <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 overflow-hidden">
-                {/* MOBILE: compact horizontal - square photo left, text right */}
-                <div className="flex md:hidden flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
-                    <img
-                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                      alt="Anastacia B. - Creative Director and AI Specialist at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover"
-                      style={{ objectPosition: 'center top' }}
-                    />
-                    <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
-                    <div>
-                      <h3 className="text-base font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
-                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Creative Director &amp; AI Specialist</p>
-                      <p className="text-xs text-[#5B6472] leading-relaxed">
-                        I worked with global tech companies on digital products and AI implementation. I know how to use the best AI tools available today - not to replace craft, but to deliver sharper results, faster, for every client.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-3 pt-2">
-                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;Your website should work as hard as you do.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* DESKTOP: horizontal flex - photo left, content right */}
-                <div className="hidden md:flex flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px', minHeight: '240px', maxHeight: '280px' }}>
-                    <img
-                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                      alt="Anastacia B. - Creative Director and AI Specialist at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={{ objectPosition: 'center top' }}
-                    />
-                    <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-7 flex-1">
-                    <div>
-                      <h3 className="text-xl font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
-                      <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Creative Director &amp; AI Specialist</p>
-                      <p className="text-sm text-[#5B6472] leading-relaxed">
-                        I worked with global tech companies on digital products and AI implementation. I understand how to use the best AI tools available today - not to replace craft or human judgment, but to deliver sharper, more effective results for every client we work with.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-5 pt-4">
-                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;Your website should work as hard as you do.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </AnimateIn>
-
-            {/* Tom Card */}
-            <AnimateIn delay={0.2}>
-              <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 overflow-hidden">
-                {/* MOBILE: compact horizontal - square photo left, text right */}
-                <div className="flex md:hidden flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
-                    <img
-                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                      alt="Tom B. - Technical Director and SEO Expert at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover object-top"
-                    />
-                    <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
-                    <div>
-                      <h3 className="text-base font-bold text-[#111315] mb-0.5">Tom B.</h3>
-                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Technical Director &amp; SEO Expert</p>
-                      <p className="text-xs text-[#5B6472] leading-relaxed">
-                        My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side so you never have to think about it.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-3 pt-2">
-                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;First, solve the problem. Then, write the code.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* DESKTOP: horizontal flex */}
-                <div className="hidden md:flex flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px' }}>
-                    <img
-                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
-                      alt="Tom B. - Technical Director & SEO Expert at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-7 flex-1">
-                    <div>
-                      <h3 className="text-xl font-bold text-[#111315] mb-0.5">Tom B.</h3>
-                      <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Technical Director &amp; SEO Expert</p>
-                      <p className="text-sm text-[#5B6472] leading-relaxed">
-                        My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side of things so you never have to think about it - what you get is a site that is solid, fast, and built to last.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-5 pt-4">
-                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;First, solve the problem. Then, write the code.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </AnimateIn>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          FINAL CTA
-          ═══════════════════════════════════════════ */}
-      <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 z-0"
-          style={{ background: "#0F172A" }}
-        >
-          <img
-            src={DARK_CTA_BG}
-            alt=""
-            role="presentation"
-            className="absolute inset-0 w-full h-full object-cover opacity-40"
-            aria-hidden="true"
-          />
-        </div>
-
-        <div className="container relative z-10 section-spacing text-center">
-          <AnimateIn>
-            <p className="text-sm font-medium text-[#6FE3FF] mb-4 tracking-wide uppercase">Ready to Start?</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-3xl mx-auto leading-tight">
-              Let's Build Your Website Together
-            </h2>
-            <p className="text-lg text-[#94A3B8] mb-10 max-w-xl mx-auto">
-              Get in touch and we'll get back to you within hours. No commitment, no pressure - just a friendly conversation about your business.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="btn-primary !h-14 !text-base !px-8">
-                <MessageCircle size={20} />
-                Get a Free Visual Concept
-              </Link>
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
+      <VideoScrollHero />
+      <ProofBar />
+      <Capabilities />
+      <WorkGrid />
+      <ProcessTrack />
+      <TeamSection />
+      <PricingSection />
+      <CTASection />
     </>
   );
 }

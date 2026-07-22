@@ -1,23 +1,35 @@
 /* ============================================================
-   D&M LABS - Contact Page
-   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
+   DM-Labs.io v2.0 — Contact Page
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
 import { useState } from "react";
-import AnimateIn from "@/components/AnimateIn";
-import { MessageCircle, Mail, Clock, MapPin, Send, Instagram } from "lucide-react";
+import { MessageCircle, Mail, Clock, MapPin, Send, Instagram, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 
-const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
-
+const WHATSAPP_URL =
+  "https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "bfd3c955-1bc9-4a43-b497-f4c6776db7d1";
+
+const INPUT_STYLE: React.CSSProperties = {
+  width: "100%",
+  padding: "14px 16px",
+  fontFamily: "'Satoshi', sans-serif",
+  fontSize: ".9rem",
+  color: "var(--ink)",
+  background: "var(--cloud)",
+  border: "1px solid var(--hairline)",
+  outline: "none",
+  transition: "border-color 200ms",
+};
 
 export default function Contact() {
   useSEO({
     title: "Contact DM-Labs.io | Get a Free Website Quote",
-    description: "Get in touch with DM-Labs.io for a free website consultation. We reply within 24 hours. WhatsApp, email, or contact form.",
+    description:
+      "Get in touch with DM-Labs.io for a free website consultation. We reply within 24 hours. WhatsApp, email, or contact form.",
   });
+
   const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
   const [sending, setSending] = useState(false);
 
@@ -30,7 +42,7 @@ export default function Contact() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `New enquiry from ${form.name}  -  DM-Labs.io`,
+          subject: `New enquiry from ${form.name} — DM-Labs.io`,
           name: form.name,
           email: form.email,
           business: form.business,
@@ -52,168 +64,193 @@ export default function Contact() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
-        <div className="container relative z-10 text-center">
-          <AnimateIn>
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Get In Touch</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              Let's Build <span className="brand-gradient-text">Something Great</span>
-            </h1>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Ready to get started? Send us a message on WhatsApp for the fastest response, or use the form below.
-            </p>
-          </AnimateIn>
+      {/* ── Hero ──────────────────────────────────────────── */}
+      <section style={{ background: "var(--ink)", padding: "100px 0 80px", position: "relative", overflow: "hidden" }}>
+        <div aria-hidden="true" style={{
+          position: "absolute", inset: 0,
+          backgroundImage: "linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px)",
+          backgroundSize: "60px 60px", pointerEvents: "none",
+        }} />
+        <div className="container relative">
+          <p className="mono" style={{ color: "var(--cyan)", marginBottom: "16px" }}>GET IN TOUCH</p>
+          <h1 style={{
+            fontFamily: "'Satoshi', sans-serif", fontWeight: 900,
+            fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-.03em", lineHeight: .96,
+            color: "#fff", marginBottom: "20px", maxWidth: "18ch",
+          }}>
+            Let's talk about{" "}
+            <span style={{ background: "var(--grad)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              your website.
+            </span>
+          </h1>
+          <p style={{
+            fontFamily: "'Satoshi', sans-serif", fontSize: "1rem", fontWeight: 500,
+            color: "rgba(238,241,248,.6)", lineHeight: 1.65, maxWidth: "48ch",
+          }}>
+            Free consultation. No commitment. We'll tell you exactly what we'd build and what it would cost before you decide anything.
+          </p>
         </div>
       </section>
 
-      {/* Contact Methods + Form */}
-      <section className="section-spacing bg-white">
+      {/* ── Contact grid ──────────────────────────────────── */}
+      <section style={{ background: "var(--mist)", padding: "100px 0" }}>
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 max-w-5xl mx-auto">
-            {/* Left - Contact Methods */}
-            <div className="md:col-span-2 space-y-6">
-              <AnimateIn>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block dm-card !p-6 group hover:shadow-lg transition-shadow">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center icon-container-gradient !w-12 !h-12 !rounded-xl">
-                      <MessageCircle size={22} className="text-[#5B8CFF]" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-[#111315]">WhatsApp</h3>
-                      <p className="text-xs text-[#5B6472]">Fastest response</p>
-                    </div>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-px" style={{ background: "var(--hairline)" }}>
+
+            {/* Left: info */}
+            <div style={{ background: "var(--cloud)", padding: "48px 40px", gridColumn: "span 2" }}>
+              <p className="mono" style={{ color: "var(--slate)", marginBottom: "24px", fontSize: "9px" }}>CONTACT INFO</p>
+
+              {[
+                {
+                  icon: MessageCircle,
+                  label: "WhatsApp",
+                  value: "+357 97 472 847",
+                  href: WHATSAPP_URL,
+                  accent: "var(--cyan)",
+                },
+                {
+                  icon: Mail,
+                  label: "Email",
+                  value: "info@dm-labs.io",
+                  href: "mailto:info@dm-labs.io",
+                  accent: "var(--blue)",
+                },
+                {
+                  icon: Instagram,
+                  label: "Instagram",
+                  value: "@dm_labs.io",
+                  href: "https://instagram.com/dm_labs.io",
+                  accent: "var(--violet)",
+                },
+                {
+                  icon: MapPin,
+                  label: "Location",
+                  value: "Paphos, Cyprus",
+                  href: null,
+                  accent: "var(--cyan)",
+                },
+                {
+                  icon: Clock,
+                  label: "Response time",
+                  value: "Within 24 hours",
+                  href: null,
+                  accent: "var(--slate-soft)",
+                },
+              ].map(({ icon: Icon, label, value, href, accent }) => (
+                <div key={label} style={{ display: "flex", gap: "16px", marginBottom: "28px", alignItems: "flex-start" }}>
+                  <div style={{
+                    width: "36px", height: "36px", background: `${accent}14`,
+                    display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                  }}>
+                    <Icon size={16} style={{ color: accent }} />
                   </div>
-                  <p className="text-sm text-[#5B6472]">+357 97 472 847</p>
-                  <p className="text-xs text-[#5B8CFF] mt-2 group-hover:underline">Send a message →</p>
+                  <div>
+                    <p style={{ fontFamily: "'Space Mono', monospace", fontSize: "8px", letterSpacing: ".15em", color: "var(--slate-soft)", marginBottom: "4px" }}>{label.toUpperCase()}</p>
+                    {href ? (
+                      <a href={href} target="_blank" rel="noopener noreferrer" style={{
+                        fontFamily: "'Satoshi', sans-serif", fontSize: ".9rem", fontWeight: 600,
+                        color: "var(--ink)", textDecoration: "none",
+                      }}>{value}</a>
+                    ) : (
+                      <p style={{ fontFamily: "'Satoshi', sans-serif", fontSize: ".9rem", fontWeight: 600, color: "var(--ink)" }}>{value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+
+              <div style={{ marginTop: "40px", paddingTop: "32px", borderTop: "1px solid var(--hairline)" }}>
+                <p style={{ fontFamily: "'Satoshi', sans-serif", fontSize: ".875rem", color: "var(--slate)", lineHeight: 1.7 }}>
+                  Prefer to talk? Send us a WhatsApp message and we'll set up a quick call at a time that works for you.
+                </p>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={{
+                  display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "16px",
+                  padding: "12px 24px", fontFamily: "'Space Mono', monospace", fontSize: "9px",
+                  letterSpacing: ".15em", textTransform: "uppercase" as const,
+                  background: "var(--grad)", color: "#fff", textDecoration: "none",
+                }}>
+                  <MessageCircle size={13} /> WhatsApp Us
                 </a>
-              </AnimateIn>
-
-              <AnimateIn delay={0.1}>
-                <div className="dm-card !p-6">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
-                      <Mail size={22} className="text-[#5B8CFF]" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Email</h3>
-                      <p className="text-xs text-[#5B6472]">We reply within 24h</p>
-                    </div>
-                  </div>
-                  <a href="mailto:info@dm-labs.io" className="text-sm text-[#5B8CFF] hover:underline">info@dm-labs.io</a>
-                </div>
-              </AnimateIn>
-
-              <AnimateIn delay={0.2}>
-                <div className="dm-card !p-6">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
-                      <Clock size={22} className="text-[#5B8CFF]" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Working Hours</h3>
-                      <p className="text-xs text-[#5B6472]">Mon-Fri</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-[#5B6472]">9:00 AM - 6:00 PM (EET)</p>
-                </div>
-              </AnimateIn>
-
-              <AnimateIn delay={0.3}>
-                <div className="dm-card !p-6">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
-                      <MapPin size={22} className="text-[#5B8CFF]" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Location</h3>
-                      <p className="text-xs text-[#5B6472]">Europe-based</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-[#5B6472]">Europe-based, serving clients worldwide</p>
-                </div>
-              </AnimateIn>
-
-              <AnimateIn delay={0.4}>
-                <a
-                  href="https://www.instagram.com/dm_labs.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block dm-card !p-6 group hover:shadow-lg transition-shadow"
-                >
-                  <div className="flex items-center gap-4 mb-3">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center"
-                      style={{ background: "linear-gradient(135deg, #5B8CFF20 0%, #A855F720 100%)", border: "1px solid rgba(91,140,255,0.15)" }}
-                    >
-                      <Instagram size={22} className="text-[#5B8CFF]" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Instagram</h3>
-                      <p className="text-xs text-[#5B6472]">Follow our work</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-[#5B8CFF] group-hover:underline">@dm_labs.io →</p>
-                </a>
-              </AnimateIn>
+              </div>
             </div>
 
-            {/* Right - Form */}
-            <AnimateIn delay={0.2} className="md:col-span-3">
-              <div className="dm-card !p-8">
-                <h2 className="text-xl font-semibold text-[#111315] mb-6">Send Us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-medium text-[#111315] mb-1.5">Your Name</label>
-                      <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
-                        placeholder="John Smith" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-[#111315] mb-1.5">Email</label>
-                      <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
-                        placeholder="john@business.com" />
-                    </div>
+            {/* Right: form */}
+            <div style={{ background: "var(--cloud)", padding: "48px 40px", gridColumn: "span 3" }}>
+              <p className="mono" style={{ color: "var(--slate)", marginBottom: "24px", fontSize: "9px" }}>SEND A MESSAGE</p>
+              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label style={{ fontFamily: "'Space Mono', monospace", fontSize: "8px", letterSpacing: ".15em", color: "var(--slate)", display: "block", marginBottom: "6px" }}>YOUR NAME *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Maria Kostadinova"
+                      value={form.name}
+                      onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                      style={INPUT_STYLE}
+                      onFocus={e => (e.target.style.borderColor = "var(--blue)")}
+                      onBlur={e => (e.target.style.borderColor = "var(--hairline)")}
+                    />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#111315] mb-1.5">Business Name</label>
-                    <input type="text" value={form.business} onChange={(e) => setForm({ ...form, business: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
-                      placeholder="Your Business Name" />
+                    <label style={{ fontFamily: "'Space Mono', monospace", fontSize: "8px", letterSpacing: ".15em", color: "var(--slate)", display: "block", marginBottom: "6px" }}>EMAIL ADDRESS *</label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="maria@yourbusiness.com"
+                      value={form.email}
+                      onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                      style={INPUT_STYLE}
+                      onFocus={e => (e.target.style.borderColor = "var(--blue)")}
+                      onBlur={e => (e.target.style.borderColor = "var(--hairline)")}
+                    />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[#111315] mb-1.5">Tell Us About Your Project</label>
-                    <textarea required rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all resize-none"
-                      placeholder="What kind of website do you need? Any specific features?" />
-                  </div>
-                  <button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60">
-                    {sending ? (
-                      <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending...</span>
-                    ) : (
-                      <span className="flex items-center gap-2"><Send size={16} /> Send Message</span>
-                    )}
-                  </button>
-                  <p className="text-xs text-[#5B6472] text-center">Or message us directly on <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline">WhatsApp</a> for faster response.</p>
-                </form>
-              </div>
-            </AnimateIn>
+                </div>
+                <div>
+                  <label style={{ fontFamily: "'Space Mono', monospace", fontSize: "8px", letterSpacing: ".15em", color: "var(--slate)", display: "block", marginBottom: "6px" }}>BUSINESS NAME</label>
+                  <input
+                    type="text"
+                    placeholder="Your Business Name"
+                    value={form.business}
+                    onChange={e => setForm(f => ({ ...f, business: e.target.value }))}
+                    style={INPUT_STYLE}
+                    onFocus={e => (e.target.style.borderColor = "var(--blue)")}
+                    onBlur={e => (e.target.style.borderColor = "var(--hairline)")}
+                  />
+                </div>
+                <div>
+                  <label style={{ fontFamily: "'Space Mono', monospace", fontSize: "8px", letterSpacing: ".15em", color: "var(--slate)", display: "block", marginBottom: "6px" }}>MESSAGE *</label>
+                  <textarea
+                    required
+                    rows={5}
+                    placeholder="Tell us about your business and what you need..."
+                    value={form.message}
+                    onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                    style={{ ...INPUT_STYLE, resize: "vertical" }}
+                    onFocus={e => (e.target.style.borderColor = "var(--blue)")}
+                    onBlur={e => (e.target.style.borderColor = "var(--hairline)")}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={sending}
+                  style={{
+                    display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
+                    padding: "16px 32px", fontFamily: "'Space Mono', monospace", fontSize: "9px",
+                    letterSpacing: ".2em", textTransform: "uppercase" as const,
+                    background: sending ? "var(--slate)" : "var(--grad)",
+                    color: "#fff", border: "none", cursor: sending ? "not-allowed" : "pointer",
+                    width: "100%",
+                  }}
+                >
+                  {sending ? "Sending..." : <><Send size={13} /> Send Message</>}
+                </button>
+                <p style={{ fontFamily: "'Satoshi', sans-serif", fontSize: ".8rem", color: "var(--slate-soft)", textAlign: "center" }}>
+                  We reply within 24 hours. Your information is never shared.
+                </p>
+              </form>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section-spacing dark-section text-center">
-        <div className="container">
-          <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Prefer a Quick Chat?</h2>
-            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Most of our clients start with a simple WhatsApp message. No pressure, no commitment.</p>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              <MessageCircle size={18} /> Chat on WhatsApp
-            </a>
-          </AnimateIn>
         </div>
       </section>
     </>
