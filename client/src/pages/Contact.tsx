@@ -1,5 +1,5 @@
 /* ============================================================
-   DM-Labs.io v2.0 — Contact Page
+   DM-Labs.io v2.0 - Contact Page
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
 import { useState } from "react";
@@ -42,7 +42,7 @@ export default function Contact() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `New enquiry from ${form.name} — DM-Labs.io`,
+          subject: `New enquiry from ${form.name} - DM-Labs.io`,
           name: form.name,
           email: form.email,
           business: form.business,

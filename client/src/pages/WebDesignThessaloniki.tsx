@@ -1,372 +1,49 @@
-import { useEffect } from "react";
-import { Link } from "wouter";
-import { useSEO } from "@/hooks/useSEO";
+import LocationPage from "@/components/LocationPage";
 
-// SEO landing page: /web-design-thessaloniki
-// Primary keyword: "web design Thessaloniki"
-// Secondary (GR): "κατασκευή ιστοσελίδας Θεσσαλονίκη"
-// Tertiary (GR, price-intent): "κατασκευή ιστοσελίδας Θεσσαλονίκη τιμές"
-// Design: matches DM-Labs.io site style - light bg, brand gradient accents, clean typography
-
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "DM-Labs.io",
-  "url": "https://dm-labs.io",
-  "telephone": "+35797472847",
-  "email": "info@dm-labs.io",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Eleftheriou Chandrinou",
-    "addressLocality": "Paphos",
-    "postalCode": "8045",
-    "addressCountry": "CY"
-  },
-  "areaServed": [
-    "Thessaloniki",
-    "Central Macedonia",
-    "Greece"
-  ],
-  "serviceArea": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 40.6401,
-      "longitude": 22.9444
-    },
-    "geoRadius": "50000"
-  },
-  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Thessaloniki and across Greece. Websites from €299, delivered in 5-14 days.",
-  "priceRange": "€€",
-  "currenciesAccepted": "EUR",
-  "paymentAccepted": "Bank Transfer, PayPal",
-  "openingHours": "Mo-Fr 09:00-18:00",
-  "sameAs": [
-    "https://www.instagram.com/dmlabs.io"
-  ]
-};
-
-const faqs = [
-  {
-    q: "How much does web design cost in Thessaloniki?",
-    a: "Our packages for businesses in Thessaloniki start from €299 for a Launch Website. That includes a fully custom design, mobile-responsive layout, SEO setup, a contact form, and everything you need to go live. The Growth Website is €749 and the Pro Website €1,499. Pricing depends on the scope of the project, so we always recommend a free consultation first - that way you get an accurate quote with no surprises."
-  },
-  {
-    q: "Do you work with businesses in Thessaloniki remotely?",
-    a: "Yes, entirely. DM-Labs.io works with clients across Greece without any need for in-person meetings. The full process - initial brief, design, revisions, and launch - is handled via WhatsApp, email, and video call. Most of our clients find it more convenient than scheduling office visits, and it means we can move faster. Being remote has never been a barrier to delivering a great result."
-  },
-  {
-    q: "Can you build a website in Greek?",
-    a: "Absolutely. We build bilingual websites in both Greek and English, and a full Greek-language version of any site is available on request. If your audience is primarily Greek-speaking, we can also build a Greek-only site. We are comfortable working with Greek content and can advise on how to structure the copy for both readability and search visibility."
-  },
-  {
-    q: "How long does it take to build a website for a Thessaloniki business?",
-    a: "The Launch Website typically goes live within 5 to 7 days from the moment we have your content and feedback. The Growth and Pro packages take 7 to 14 days depending on the number of pages and any custom features involved. We keep you updated throughout and do not disappear between milestones."
-  }
+const packages = [
+  { name: "Launch Website", price: "€299", features: ["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"] },
+  { name: "Growth Website", price: "€749", features: ["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"] },
+  { name: "Pro Website", price: "€1,499", features: ["Up to 7 pages", "Gallery or portfolio", "Pop-up and scroll-driven animations", "Full SEO structure", "Blog setup or a website visual pack", "4 revision rounds"] },
 ];
+const faqItems = [
+  { question: "How much does web design cost in Thessaloniki?", answer: "dm-labs.io website packages start at €299 for a Launch Website. Growth Website packages start at €749 and Pro Website packages start at €1,499. Projects beyond the standard scope are quoted separately after a free consultation." },
+  { question: "Do you work with Thessaloniki businesses remotely?", answer: "Yes. We work with businesses across Greece, including Thessaloniki, fully remotely. All communication, reviews, and approvals happen online, so location is not a barrier." },
+  { question: "Can my Thessaloniki business website have multiple languages?", answer: "Yes. Multilingual functionality can be included in an Enterprise / Custom scope, depending on the languages, content volume, and editing requirements." },
+  { question: "Does every website include SEO?", answer: "Every package includes search-friendly foundations. The Pro package includes a fuller SEO structure, while advanced SEO work is quoted based on scope." },
+  { question: "What makes a project Enterprise / Custom?", answer: "Enterprise / Custom applies to work beyond the standard package scope, such as integrations, multilingual websites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume." },
+];
+const schema = { "@context": "https://schema.org", "@graph": [{ "@type": "ProfessionalService", "@id": "https://dm-labs.io/web-design-thessaloniki#professionalservice", "name": "dm-labs.io", "description": "dm-labs.io designs and builds professional, mobile-first websites for businesses in Thessaloniki and across Greece.", "url": "https://dm-labs.io/web-design-thessaloniki", "telephone": "+35797472847", "email": "info@dm-labs.io", "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" }, "areaServed": [{ "@type": "City", "name": "Thessaloniki", "addressCountry": "GR" }, { "@type": "Country", "name": "Greece" }], "priceRange": "€299-€1,499" }, { "@type": "FAQPage", "mainEntity": faqItems.map(i => ({ "@type": "Question", "name": i.question, "acceptedAnswer": { "@type": "Answer", "text": i.answer } })) }] };
 
 export default function WebDesignThessaloniki() {
-  useSEO({
-    title: "Web Design Thessaloniki | Professional Websites from €299 | DM-Labs.io",
-    description: "Professional web design for businesses in Thessaloniki. Custom websites built in 5-14 days from €299. Mobile-first, SEO-optimised, no hidden fees. Get a free consultation.",
-    canonicalPath: "/web-design-thessaloniki"
-  });
-
-  useEffect(() => {
-    // Inject LocalBusiness schema
-    const existing = document.getElementById("schema-thessaloniki");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.id = "schema-thessaloniki";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-
-    // Inject FAQPage schema
-    const existingFaq = document.getElementById("schema-thessaloniki-faq");
-    if (existingFaq) existingFaq.remove();
-    const faqScript = document.createElement("script");
-    faqScript.id = "schema-thessaloniki-faq";
-    faqScript.type = "application/ld+json";
-    faqScript.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    });
-    document.head.appendChild(faqScript);
-
-    return () => {
-      const s = document.getElementById("schema-thessaloniki");
-      if (s) s.remove();
-      const sf = document.getElementById("schema-thessaloniki-faq");
-      if (sf) sf.remove();
-    };
-  }, []);
-
   return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
-      {/* ── HERO ── */}
-      <section className="section-spacing bg-gradient-to-br from-[#F0F4FF] via-[#F6F6F4] to-[#F0EAFF]">
-        <div className="container max-w-4xl mx-auto text-center">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">
-            Web Design Thessaloniki
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">
-            Professional Websites for{" "}
-            <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
-              Thessaloniki Businesses
-            </span>
-          </h1>
-          <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-            DM-Labs.io is a remote web design studio helping businesses in Thessaloniki build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites - starting from €299 - so your business stands out in Greece's second-largest city.
-          </p>
-          <p className="text-sm text-[#9CA3AF] mb-8">
-            Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
-                Get a Free Consultation
-              </button>
-            </Link>
-            <Link href="/pricing">
-              <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors bg-white">
-                View Pricing
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY THESSALONIKI NEEDS A WEBSITE ── */}
-      <section className="section-spacing">
-        <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-6">
-            Why Businesses in Thessaloniki Need a Professional Website
-          </h2>
-          <p className="text-[#5B6472] leading-relaxed mb-5">
-            Thessaloniki is Greece's second-largest city and one of its most commercially active. The business districts along Tsimiski Street and the historic neighbourhood of Ladadika are home to hundreds of restaurants, boutiques, law firms, and professional services all competing for the same local customers. Aristotle University brings over 100,000 students and academics into the city, and the Thessaloniki International Fair - one of the largest trade fairs in Southeast Europe - draws business visitors from across the continent every year.
-          </p>
-          <p className="text-[#5B6472] leading-relaxed mb-5">
-            That level of economic activity also means a highly competitive digital landscape. According to Google's own data, over 60% of Greek consumers research a business online before making contact. If your website is slow, outdated, or simply does not exist, you are not just missing out on visibility - you are actively sending potential clients to competitors who do have a professional online presence.
-          </p>
-          <p className="text-[#5B6472] leading-relaxed mb-5">
-            A well-built website does more than look good. It ranks on Google for the searches your customers are already making, loads quickly on mobile, and turns visitors into enquiries without requiring any ongoing effort from you. For a business in Thessaloniki - where the market is dense and digital expectations are rising - that kind of presence is no longer a nice-to-have.
-          </p>
-          <p className="text-[#5B6472] leading-relaxed">
-            The businesses that invest in a quality website now, before their sector becomes fully saturated online, are the ones that capture the most valuable search traffic and build lasting credibility with both local and international clients.
-          </p>
-        </div>
-      </section>
-
-      {/* ── SERVICES OVERVIEW ── */}
-      <section className="section-spacing bg-[#F8F9FC]">
-        <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            What We Build for Thessaloniki Businesses
-          </h2>
-          <p className="text-[#5B6472] mb-10">
-            Every site we deliver is built to perform - not just to look good.{" "}
-            <Link href="/services" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
-              See our full services
-            </Link>
-            .
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Business Websites",
-                desc: "A complete, multi-page website for your business - home, about, services, and contact. Designed to build trust and turn visitors into enquiries from day one."
-              },
-              {
-                title: "Landing Pages",
-                desc: "A single, focused page built around one goal - whether that is capturing leads, promoting a service, or driving bookings. Fast to build, fast to convert."
-              },
-              {
-                title: "Service Pages",
-                desc: "Dedicated pages for each of your core services, optimised for the specific searches your customers are making in Thessaloniki and across Greece."
-              },
-              {
-                title: "Blog and SEO Setup",
-                desc: "A blog structure and initial SEO configuration that gives your site the foundation to rank on Google over time - without you needing to understand the technical side."
-              }
-            ].map((s) => (
-              <div key={s.title} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
-                <h3 className="font-bold text-[#111315] text-lg mb-2">{s.title}</h3>
-                <p className="text-[#5B6472] text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── PRICING SUMMARY ── */}
-      <section className="section-spacing">
-        <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Transparent Pricing for Thessaloniki Businesses
-          </h2>
-          <p className="text-[#5B6472] mb-10">
-            No hidden fees. No hourly billing. One fixed price, everything included.{" "}
-            <Link href="/pricing" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
-              View full pricing breakdown
-            </Link>
-            .
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Launch Website",
-                price: "€299",
-                desc: "Ideal for new businesses that need a clean, professional online presence fast. Everything you need to go live with confidence.",
-                highlight: false
-              },
-              {
-                name: "Growth Website",
-                price: "€749",
-                desc: "For established businesses that need a full, conversion-focused website with more pages, stronger SEO, and a polished design.",
-                highlight: true
-              },
-              {
-                name: "Pro Website",
-                price: "€1,499",
-                desc: "For businesses that want a fully custom, feature-rich website with everything included - from custom functionality to priority support.",
-                highlight: false
-              }
-            ].map((p) => (
-              <div
-                key={p.name}
-                className={`rounded-2xl p-6 border ${
-                  p.highlight
-                    ? "border-[#5B8CFF] bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] shadow-md"
-                    : "border-[#E8EAF0] bg-white shadow-sm"
-                }`}
-              >
-                {p.highlight && (
-                  <span className="inline-block text-xs font-semibold text-[#5B8CFF] uppercase tracking-wider mb-2">
-                    Most Popular
-                  </span>
-                )}
-                <div className="text-2xl font-extrabold text-[#111315] mb-1">{p.price}</div>
-                <div className="font-semibold text-[#111315] mb-3">{p.name}</div>
-                <p className="text-[#5B6472] text-sm leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-xs text-[#9CA3AF] mt-4">
-            All prices are one-time fees. No monthly charges, no hidden costs.
-          </p>
-        </div>
-      </section>
-
-      {/* ── WHY CHOOSE D&M LABS ── */}
-      <section className="section-spacing bg-[#F8F9FC]">
-        <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-6">
-            Why Thessaloniki Businesses Choose DM-Labs.io
-          </h2>
-          <p className="text-[#5B6472] leading-relaxed mb-8">
-            DM-Labs.io is a remote web design studio. We work with businesses across Greece - from Thessaloniki and Athens to smaller cities and islands - entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Fast delivery",
-                desc: "Most websites are live within 5 to 14 days. We work quickly, communicate clearly, and do not leave you waiting."
-              },
-              {
-                title: "No technical knowledge needed",
-                desc: "You do not need to understand code, hosting, or SEO. We handle everything and explain what matters in plain language."
-              },
-              {
-                title: "Built to convert",
-                desc: "Every page is designed with one goal in mind - turning visitors into enquiries. Good design is only useful if it drives results."
-              }
-            ].map((w) => (
-              <div key={w.title} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
-                <h3 className="font-bold text-[#111315] text-lg mb-2">{w.title}</h3>
-                <p className="text-[#5B6472] text-sm leading-relaxed">{w.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── MAP ── */}
-      <section className="section-spacing">
-        <div className="container max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Serving Businesses Across Thessaloniki
-          </h2>
-          <p className="text-[#5B6472] mb-8">
-            We work with businesses throughout Thessaloniki - from the centre and the waterfront to Kalamaria, Stavroupoli, Pylaia, and the wider Central Macedonia region. Distance is not a factor.
-          </p>
-          <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
-            <iframe
-              title="Thessaloniki, Greece"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47480.85!2d22.9444!3d40.6401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a838f41428e0ed%3A0x9bae715b8d574a9!2sThessaloniki%2C%20Greece!5e0!3m2!1sen!2sgr!4v1700000000000!5m2!1sen!2sgr"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── FAQ ── */}
-      <section className="section-spacing bg-[#F8F9FC]">
-        <div className="container max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#111315] mb-10">
-            Frequently Asked Questions
-          </h2>
-          <div className="flex flex-col gap-6">
-            {faqs.map((faq) => (
-              <div key={faq.q} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
-                <h3 className="font-bold text-[#111315] text-base mb-3">{faq.q}</h3>
-                <p className="text-[#5B6472] text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="section-spacing bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF]">
-        <div className="container max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Ready to get your Thessaloniki business online?
-          </h2>
-          <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-            Tell us about your business and we will send you a free proposal within 24 hours. No commitment, no pressure. You can also reach us directly on WhatsApp - we are quick to respond.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-                Contact us today
-              </button>
-            </Link>
-            <a
-              href="https://wa.me/35797472847?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Thessaloniki"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="px-10 py-4 rounded-xl bg-white/20 border border-white/40 text-white font-bold text-base hover:bg-white/30 transition-colors">
-                Chat on WhatsApp
-              </button>
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
+    <LocationPage
+      seo={{ title: "Web Design Thessaloniki | Website Packages from €299 | dm-labs.io", description: "Professional website design for businesses in Thessaloniki and across Greece. Launch websites from €299, Growth from €749, Pro from €1,499, plus custom website projects.", canonicalPath: "/web-design-thessaloniki" }}
+      schemaId="schema-thessaloniki" schema={schema}
+      eyebrow="Web Design · Thessaloniki, Greece"
+      headline="Web Design in" headlineAccent="Thessaloniki"
+      subheadline="Professional websites for businesses in Thessaloniki and across Greece."
+      intro="dm-labs.io works with businesses across Greece, including Thessaloniki. We build websites with clear structure, professional visual identity, and search-friendly foundations tailored to each business."
+      whoWeWorkWith={[
+        ["Hospitality and Tourism", "Hotels, restaurants, and tourism businesses in Thessaloniki."],
+        ["Retail and E-commerce", "Local shops and online stores looking to reach more customers in Thessaloniki and beyond."],
+        ["Professional Services", "Accountants, lawyers, consultants, and clinics based in Thessaloniki."],
+        ["Technology and Startups", "Tech companies and startups in Thessaloniki looking for a modern website."],
+        ["Education and Training", "Schools, universities, and training providers that need an informative website."],
+        ["Healthcare and Clinics", "Medical practices and wellness centres that need a professional website."],
+      ]}
+      whatWeCanInclude={[
+        ["Mobile-first Responsive Design", "Your website works perfectly on every device, from phone to desktop."],
+        ["Search Engine Foundations", "Clean structure, fast loading, and the technical basics Google needs to index your site."],
+        ["Contact Forms and WhatsApp", "Make it easy for customers to reach you through the channels they prefer."],
+        ["Google Maps Integration", "Help customers find your location and build local search visibility."],
+        ["Gallery and Portfolio", "Showcase your work, your space, or your products with a clean visual layout."],
+        ["Multilingual Support", "Reach English, Greek, and other language audiences with a properly structured multilingual site."],
+      ]}
+      packages={packages} faqItems={faqItems}
+      faqTitle="Thessaloniki Web Design FAQs"
+      ctaHeadline="Ready to build a better website?"
+      ctaBody="Tell us about your Thessaloniki business and we will recommend the right starting scope."
+      ctaWaText="Hi dm-labs.io! I'd like a free consultation for my Thessaloniki business."
+    />
   );
 }

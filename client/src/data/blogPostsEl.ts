@@ -52,7 +52,7 @@ export const POSTS_EL: BlogPostEl[] = [
     date: "2026-03-10",
     readTime: "7 λεπτά",
     category: "SEO",
-    excerpt: "Ο πρακτικός οδηγός για τοπικό SEO στην Κύπρο. Από το Google Business Profile έως τις τοπικές λέξεις-κλειδιά — όλα όσα χρειάζεστε για να εμφανίζεστε στις αναζητήσεις.",
+    excerpt: "Ο πρακτικός οδηγός για τοπικό SEO στην Κύπρο. Από το Google Business Profile έως τις τοπικές λέξεις-κλειδιά - όλα όσα χρειάζεστε για να εμφανίζεστε στις αναζητήσεις.",
     coverImage: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1200&q=80",
   },
   {
@@ -92,7 +92,7 @@ export const POSTS_EL: BlogPostEl[] = [
     date: "2026-06-25",
     readTime: "5 λεπτά",
     category: "SEO & GEO",
-    excerpt: "Όταν κάποιος ρωτά το ChatGPT 'καλύτερη εταιρεία web design στην Κύπρο', η επιχείρησή σας πιθανώς δεν εμφανίζεται. Αυτό είναι πρόβλημα GEO — και έχει λύση.",
+    excerpt: "Όταν κάποιος ρωτά το ChatGPT 'καλύτερη εταιρεία web design στην Κύπρο', η επιχείρησή σας πιθανώς δεν εμφανίζεται. Αυτό είναι πρόβλημα GEO - και έχει λύση.",
     coverImage: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80",
   },
 ];

@@ -1,5 +1,5 @@
 /* ============================================================
-   DM-Labs.io v2.0 — Process Page
+   DM-Labs.io v2.0 - Process Page
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";

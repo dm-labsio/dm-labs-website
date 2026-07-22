@@ -1,5 +1,5 @@
 /* ============================================================
-   DM-Labs.io v2.0 — Services Page
+   DM-Labs.io v2.0 - Services Page
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
@@ -53,15 +53,15 @@ const PLANS = [
 ];
 
 const INCLUDED = [
-  { icon: Smartphone, title: "Mobile Responsive", desc: "Looks perfect on every device — phones, tablets, and desktops.", anchor: "mobile-first" },
+  { icon: Smartphone, title: "Mobile Responsive", desc: "Looks perfect on every device - phones, tablets, and desktops.", anchor: "mobile-first" },
   { icon: Search, title: "SEO Optimised", desc: "Built-in search engine optimisation so customers find you on Google.", anchor: "seo" },
   { icon: Zap, title: "Fast Loading", desc: "Optimised code and assets for fast page speeds.", anchor: "performance" },
   { icon: Shield, title: "SSL Security", desc: "Free SSL certificate to keep your site and visitors secure.", anchor: "security" },
-  { icon: Image, title: "Custom Design", desc: "No off-the-shelf designs — every website is tailored to your brand.", anchor: "custom-design" },
+  { icon: Image, title: "Custom Design", desc: "No off-the-shelf designs - every website is tailored to your brand.", anchor: "custom-design" },
   { icon: MapPin, title: "Google Maps", desc: "Embedded maps so customers can find your physical location easily.", anchor: "maps" },
   { icon: FileText, title: "Contact Forms", desc: "Professional forms that send inquiries directly to your email.", anchor: "forms" },
   { icon: Share2, title: "Social Integration", desc: "Links to all your social media profiles in one place.", anchor: "social" },
-  { icon: Headphones, title: "Post-Launch Support", desc: "We don't disappear after launch — ongoing support when you need it.", anchor: "turnaround" },
+  { icon: Headphones, title: "Post-Launch Support", desc: "We don't disappear after launch - ongoing support when you need it.", anchor: "turnaround" },
 ];
 
 export default function Services() {

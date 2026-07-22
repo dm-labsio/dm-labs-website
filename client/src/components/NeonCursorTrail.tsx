@@ -3,7 +3,7 @@
    Adapted from https://github.com/TommyB-QA/neon-cursor-trail
    Color cycle: blue (#5B8CFF) → cyan (#6FE3FF) → purple (#8B5CFF)
    Smooth LERP between palette stops every ~3s per step.
-   Canvas-based, pointer-events: none — zero layout impact.
+   Canvas-based, pointer-events: none - zero layout impact.
    Only renders on non-touch devices (pointer: fine).
    ============================================================ */
 import { useEffect, useRef } from "react";

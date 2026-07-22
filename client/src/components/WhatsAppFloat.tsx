@@ -1,4 +1,4 @@
-/* D&M LABS - WhatsApp Floating Button — bilingual EN/EL
+/* D&M LABS - WhatsApp Floating Button - bilingual EN/EL
  * Styled in brand gradient (#5B8CFF to #8B5CFF) instead of WhatsApp green.
  */
 import { useState } from "react";

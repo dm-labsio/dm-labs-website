@@ -7,12 +7,12 @@
  * each hash entry one-by-one instead of closing the preview.
  *
  * PROVEN FIX (tested and verified):
- * 1. srcdoc instead of src — loads HTML content directly, no URL-based history.
+ * 1. srcdoc instead of src - loads HTML content directly, no URL-based history.
  * 2. After iframe loads, attach a CAPTURING click listener to the iframe's
  *    contentDocument. This fires BEFORE the browser processes the hash link,
  *    allowing us to call preventDefault() and use scrollIntoView() instead.
  *    This completely stops history entries from being pushed.
- * 3. goBack() always calls navigate("/templates") — never history.back().
+ * 3. goBack() always calls navigate("/templates") - never history.back().
  * 4. popstate listener intercepts browser back button → navigate("/templates").
  */
 import { useParams, useLocation } from "wouter";
@@ -43,7 +43,7 @@ export default function PreviewPage() {
 
   const entry = PREVIEW_MAP[params.id ?? ""];
 
-  // Always navigate directly to /templates — never use history.back()
+  // Always navigate directly to /templates - never use history.back()
   const goBack = useCallback(() => {
     navigate("/templates");
   }, [navigate]);
@@ -95,7 +95,7 @@ export default function PreviewPage() {
 
   // After iframe loads: attach capturing click listener to intercept hash links
   // This fires BEFORE the browser processes the anchor navigation, so we can
-  // call preventDefault() and use scrollIntoView() instead — no history push.
+  // call preventDefault() and use scrollIntoView() instead - no history push.
   const handleIframeLoad = useCallback(() => {
     const iframe = iframeRef.current;
     if (!iframe) return;
@@ -115,7 +115,7 @@ export default function PreviewPage() {
         e.preventDefault();
         e.stopImmediatePropagation();
         const id = href.slice(1);
-        if (!id) return; // href="#" — just prevent, no scroll needed
+        if (!id) return; // href="#" - just prevent, no scroll needed
         const dest = doc.getElementById(id) || doc.querySelector(`[name="${id}"]`);
         if (!dest) return;
         // Scroll to the target section instead
@@ -125,7 +125,7 @@ export default function PreviewPage() {
       // Use capture: true so we intercept before the browser's default handler
       doc.addEventListener("click", clickHandler, true);
     } catch {
-      // Cross-origin or not accessible — ignore
+      // Cross-origin or not accessible - ignore
     }
   }, []);
 
@@ -170,7 +170,7 @@ export default function PreviewPage() {
             <span className="hidden sm:inline">New tab</span>
           </a>
 
-          {/* X close — always navigates directly to /templates in one click */}
+          {/* X close - always navigates directly to /templates in one click */}
           <button
             onClick={goBack}
             className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-all"
@@ -207,7 +207,7 @@ export default function PreviewPage() {
         </div>
       )}
 
-      {/* srcdoc iframe — capturing click listener prevents hash history pollution */}
+      {/* srcdoc iframe - capturing click listener prevents hash history pollution */}
       {srcdoc && !loading && (
         <iframe
           ref={iframeRef}

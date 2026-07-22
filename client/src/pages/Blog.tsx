@@ -1,5 +1,5 @@
 /* ============================================================
-   DM-Labs.io v2.0 — Blog Index
+   DM-Labs.io v2.0 - Blog Index
    Desktop-metaphor icon grid: hover reveals window chrome,
    click opens post reading window
    ============================================================ */
@@ -69,7 +69,7 @@ function PostCard({ post, index }: { post: (typeof POSTS)[0]; index: number }) {
           position: "relative",
         }}
       >
-        {/* Window chrome — visible on hover */}
+        {/* Window chrome - visible on hover */}
         <div
           style={{
             height: "28px",

@@ -1,5 +1,5 @@
 /* ============================================================
-   DM-Labs.io v2.0 — FAQ Page
+   DM-Labs.io v2.0 - FAQ Page
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
 import { useState } from "react";

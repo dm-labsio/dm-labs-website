@@ -1,221 +1,113 @@
 /* ============================================================
-   D&M LABS - Επικοινωνία Page
-   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
+   dm-labs.io - Greek Contact Page (v2.0)
    ============================================================ */
-import { useSEO } from "@/hooks/useSEO";
 import { useState } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
-import { MessageCircle, Mail, Clock, MapPin, Send, Instagram } from "lucide-react";
-import { toast } from "sonner";
+import { MessageCircle, Mail, MapPin, ArrowRight } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%98%CE%B1%20%CE%AE%CE%B8%CE%B5%CE%BB%CE%B1%20%CE%BD%CE%B1%20%CF%83%CF%85%CE%B6%CE%B7%CF%84%CE%AE%CF%83%CE%BF%CF%85%CE%BC%CE%B5%20%CE%B3%CE%B9%CE%B1%20%CE%BC%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1.";
-
-const WEB3FORMS_URL = "https://api.web3forms.com/submit";
-const WEB3FORMS_KEY = "bfd3c955-1bc9-4a43-b497-f4c6776db7d1";
-
-export default function ΕπικοινωνίαEl() {
+export default function ContactElPage() {
   useSEO({
-    title: "Επικοινωνία DM-Labs.io | Λάβετε Δωρεάν Προσφορά",
-    description: "Επικοινωνήστε μαζί μας για μια δωρεάν συμβουλευτική. Απαντάμε εντός 24 ωρών. WhatsApp, email ή φόρμα επικοινωνίας.",
+    title: "Επικοινωνία | dm-labs.io - Web Design Κύπρος",
+    description: "Επικοινωνήστε με την dm-labs.io για την ιστοσελίδα σας. WhatsApp, email ή φόρμα επικοινωνίας. Απαντάμε εντός 24 ωρών.",
   });
+
   const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
-  const [sending, setSending] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSending(true);
-    try {
-      const res = await fetch(WEB3FORMS_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          subject: `Νέο αίτημα από ${form.name}  -  DM-Labs.io`,
-          name: form.name,
-          email: form.email,
-          business: form.business,
-          message: form.message,
-        }),
-      });
-      if (res.ok) {
-        toast.success("Το μήνυμά σας στάλθηκε! Θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.");
-        setForm({ name: "", email: "", business: "", message: "" });
-      } else {
-        toast.error("Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε το WhatsApp.");
-      }
-    } catch {
-      toast.error("Σφάλμα δικτύου. Παρακαλώ δοκιμάστε μέσω WhatsApp.");
-    } finally {
-      setSending(false);
-    }
+    setSubmitted(true);
   };
 
   return (
-    <>
-      {/* Hero */}
-      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
-        <div className="container relative z-10 text-center">
-          <AnimateIn>
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Επικοινωνήστε μαζί μας</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              Ας Χτίσουμε <span className="brand-gradient-text">Κάτι Εξαιρετικό</span>
+    <main style={{ background: "var(--ink)", color: "var(--mist)" }}>
+      <section style={{ paddingTop: "140px", paddingBottom: "120px" }}>
+        <div className="container" style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "start" }}>
+          {/* Left */}
+          <AnimateIn variant="fade-up">
+            <p className="mono" style={{ color: "var(--cyan)", marginBottom: "16px" }}>Επικοινωνία</p>
+            <h1 style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 900, fontSize: "clamp(2.2rem, 4.5vw, 3.6rem)", letterSpacing: "-0.035em", lineHeight: 1.0, color: "var(--mist)", marginBottom: "24px" }}>
+              Ας μιλήσουμε για{" "}
+              <span style={{ background: "var(--grad)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                την ιστοσελίδα σας
+              </span>
             </h1>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Έτοιμοι να ξεκινήσετε; Στείλτε μας μήνυμα στο WhatsApp για την πιο γρήγορη απάντηση, ή χρησιμοποιήστε την φόρμα παρακάτω.
+            <p style={{ fontSize: "1.1rem", color: "rgba(238,241,248,0.65)", lineHeight: 1.7, marginBottom: "48px" }}>
+              Πείτε μας για την επιχείρησή σας και θα σας στείλουμε μια σαφή πρόταση εντός 24 ωρών. Χωρίς δεσμεύσεις.
             </p>
-          </AnimateIn>
-        </div>
-      </section>
-
-      {/* Επικοινωνία Methods + Form */}
-      <section className="section-spacing bg-white">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 max-w-5xl mx-auto">
-            {/* Left - Επικοινωνία Methods */}
-            <div className="md:col-span-2 space-y-6">
-              <AnimateIn>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block dm-card !p-6 group hover:shadow-lg transition-shadow">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center icon-container-gradient !w-12 !h-12 !rounded-xl">
-                      <MessageCircle size={22} className="text-[#5B8CFF]" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-[#111315]">WhatsApp</h3>
-                      <p className="text-xs text-[#5B6472]">Πιο γρήγορη απάντηση</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-[#5B6472]">+357 97 472 847</p>
-                  <p className="text-xs text-[#5B8CFF] mt-2 group-hover:underline">Στείλτε μήνυμα →</p>
-                </a>
-              </AnimateIn>
-
-              <AnimateIn delay={0.1}>
-                <div className="dm-card !p-6">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
-                      <Mail size={22} className="text-[#5B8CFF]" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Email</h3>
-                      <p className="text-xs text-[#5B6472]">Απαντάμε εντός 24ω</p>
-                    </div>
-                  </div>
-                  <a href="mailto:info@dm-labs.io" className="text-sm text-[#5B8CFF] hover:underline">info@dm-labs.io</a>
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <a href="https://wa.me/35797472847" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "14px", padding: "20px 24px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", textDecoration: "none", color: "var(--mist)" }}>
+                <MessageCircle size={20} style={{ color: "var(--cyan)", flexShrink: 0 }} />
+                <div>
+                  <p style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 700, fontSize: "0.9375rem", marginBottom: "2px" }}>WhatsApp</p>
+                  <p className="mono" style={{ fontSize: "0.8125rem", color: "rgba(238,241,248,0.5)" }}>+357 97 472 847</p>
                 </div>
-              </AnimateIn>
-
-              <AnimateIn delay={0.2}>
-                <div className="dm-card !p-6">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
-                      <Clock size={22} className="text-[#5B8CFF]" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Ώρες Λειτουργίας</h3>
-                      <p className="text-xs text-[#5B6472]">Δευτ-Παρ</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-[#5B6472]">09:00 - 18:00 (EET)</p>
+                <ArrowRight size={16} style={{ marginLeft: "auto", color: "var(--slate-soft)" }} />
+              </a>
+              <a href="mailto:info@dm-labs.io" style={{ display: "flex", alignItems: "center", gap: "14px", padding: "20px 24px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", textDecoration: "none", color: "var(--mist)" }}>
+                <Mail size={20} style={{ color: "var(--cyan)", flexShrink: 0 }} />
+                <div>
+                  <p style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 700, fontSize: "0.9375rem", marginBottom: "2px" }}>Email</p>
+                  <p className="mono" style={{ fontSize: "0.8125rem", color: "rgba(238,241,248,0.5)" }}>info@dm-labs.io</p>
                 </div>
-              </AnimateIn>
-
-              <AnimateIn delay={0.3}>
-                <div className="dm-card !p-6">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
-                      <MapPin size={22} className="text-[#5B8CFF]" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Τοποθεσία</h3>
-                      <p className="text-xs text-[#5B6472]">Βασισμένοι στην Ευρώπη</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-[#5B6472]">Βασισμένοι στην Ευρώπη, εξυπηρετούμε πελάτες παγκοσμίως</p>
+                <ArrowRight size={16} style={{ marginLeft: "auto", color: "var(--slate-soft)" }} />
+              </a>
+              <div style={{ display: "flex", alignItems: "center", gap: "14px", padding: "20px 24px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <MapPin size={20} style={{ color: "var(--cyan)", flexShrink: 0 }} />
+                <div>
+                  <p style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 700, fontSize: "0.9375rem", marginBottom: "2px" }}>Τοποθεσία</p>
+                  <p className="mono" style={{ fontSize: "0.8125rem", color: "rgba(238,241,248,0.5)" }}>Πάφος, Κύπρος · 34.7754N 32.4242E</p>
                 </div>
-              </AnimateIn>
-
-              <AnimateIn delay={0.4}>
-                <a
-                  href="https://www.instagram.com/dm_labs.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block dm-card !p-6 group hover:shadow-lg transition-shadow"
-                >
-                  <div className="flex items-center gap-4 mb-3">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center"
-                      style={{ background: "linear-gradient(135deg, #5B8CFF20 0%, #A855F720 100%)", border: "1px solid rgba(91,140,255,0.15)" }}
-                    >
-                      <Instagram size={22} className="text-[#5B8CFF]" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Instagram</h3>
-                      <p className="text-xs text-[#5B6472]">Ακολουθήστε την δουλειά μας</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-[#5B8CFF] group-hover:underline">@dm_labs.io →</p>
-                </a>
-              </AnimateIn>
-            </div>
-
-            {/* Right - Form */}
-            <AnimateIn delay={0.2} className="md:col-span-3">
-              <div className="dm-card !p-8">
-                <h2 className="text-xl font-semibold text-[#111315] mb-6">Στείλτε μας Μήνυμα</h2>
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-medium text-[#111315] mb-1.5">Το Όνομά σας</label>
-                      <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
-                        placeholder="Γιάννης Παπαδόπουλος" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-[#111315] mb-1.5">Email</label>
-                      <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
-                        placeholder="info@επιχείρηση.gr" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[#111315] mb-1.5">Όνομα Επιχείρησης</label>
-                    <input type="text" value={form.business} onChange={(e) => setForm({ ...form, business: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
-                      placeholder="Όνομα επιχείρησης σας" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[#111315] mb-1.5">Περιγράψτε το Προτζέκτ σας</label>
-                    <textarea required rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all resize-none"
-                      placeholder="Τι είδους ιστοσελίδα χρειάζεστε; Υπάρχουν συγκεκριμένα χαρακτηριστικά που θέλετε;" />
-                  </div>
-                  <button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60">
-                    {sending ? (
-                      <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Αποστολή...</span>
-                    ) : (
-                      <span className="flex items-center gap-2"><Send size={16} /> Αποστολή Μηνύματος</span>
-                    )}
-                  </button>
-                  <p className="text-xs text-[#5B6472] text-center">πε μήνυμα απευθείας στο <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline">WhatsApp</a> για πιο γρήγορη απάντηση.</p>
-                </form>
               </div>
-            </AnimateIn>
-          </div>
-        </div>
-      </section>
+            </div>
+          </AnimateIn>
 
-      {/* CTA */}
-      <section className="section-spacing dark-section text-center">
-        <div className="container">
-          <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Προτιμάτε μια Σύντομη Συνομιλία;</h2>
-            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Οι περισσότεροι πελάτες μας ξεκινάνε με ένα απλό μήνυμα WhatsApp. Χωρίς πίεση, χωρίς δεσμεύσεις.</p>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              <MessageCircle size={18} /> Συνομιλήστε στο WhatsApp
-            </a>
+          {/* Right: Form */}
+          <AnimateIn variant="fade-up" delay={0.15}>
+            {submitted ? (
+              <div className="glass-panel" style={{ padding: "60px 40px", textAlign: "center" }}>
+                <p style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 900, fontSize: "1.5rem", color: "var(--mist)", marginBottom: "16px" }}>Ευχαριστούμε!</p>
+                <p style={{ color: "rgba(238,241,248,0.65)", lineHeight: 1.65 }}>Λάβαμε το μήνυμά σας και θα επικοινωνήσουμε εντός 24 ωρών.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="glass-panel" style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "20px" }}>
+                {[
+                  { id: "name", label: "Ονοματεπώνυμο", type: "text", placeholder: "Το όνομά σας" },
+                  { id: "email", label: "Email", type: "email", placeholder: "email@example.com" },
+                  { id: "business", label: "Επιχείρηση", type: "text", placeholder: "Τι κάνει η επιχείρησή σας;" },
+                ].map(({ id, label, type, placeholder }) => (
+                  <div key={id}>
+                    <label className="mono" style={{ display: "block", fontSize: "0.75rem", color: "var(--slate-soft)", marginBottom: "8px" }}>{label}</label>
+                    <input
+                      type={type}
+                      value={form[id as keyof typeof form]}
+                      onChange={e => setForm(prev => ({ ...prev, [id]: e.target.value }))}
+                      placeholder={placeholder}
+                      required
+                      style={{ width: "100%", padding: "12px 16px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--mist)", fontFamily: "Satoshi, sans-serif", fontSize: "0.9375rem", outline: "none" }}
+                    />
+                  </div>
+                ))}
+                <div>
+                  <label className="mono" style={{ display: "block", fontSize: "0.75rem", color: "var(--slate-soft)", marginBottom: "8px" }}>Μήνυμα</label>
+                  <textarea
+                    value={form.message}
+                    onChange={e => setForm(prev => ({ ...prev, message: e.target.value }))}
+                    placeholder="Πείτε μας για το project σας..."
+                    rows={5}
+                    required
+                    style={{ width: "100%", padding: "12px 16px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--mist)", fontFamily: "Satoshi, sans-serif", fontSize: "0.9375rem", outline: "none", resize: "vertical" }}
+                  />
+                </div>
+                <button type="submit" className="btn-primary" style={{ width: "100%", justifyContent: "center" }}>
+                  Αποστολή Μηνύματος <ArrowRight size={16} />
+                </button>
+              </form>
+            )}
           </AnimateIn>
         </div>
       </section>
-    </>
+    </main>
   );
 }

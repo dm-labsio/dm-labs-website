@@ -1,13 +1,11 @@
 /* ============================================================
-   D&M LABS - Άρθρα Index Page
-   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
-   Clean editorial layout, card grid, category filters
+   dm-labs.io - Greek Blog Index Page (v2.0)
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 import { POSTS_EL } from "@/data/blogPostsEl";
-import { ArrowRight, Clock, Tag } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("el-GR", {
@@ -17,95 +15,65 @@ function formatDate(dateStr: string) {
   });
 }
 
-export default function ΆρθραEl() {
+export default function BlogElPage() {
   useSEO({
-    title: "Άρθρα | Web Σχεδιασμός Tips & Guides | DM-Labs.io",
+    title: "Άρθρα | Web Σχεδιασμός Tips & Guides | dm-labs.io",
     description: "Πρακτικοί οδηγοί, ειλικρινείς συμβουλές και ιδέες web design για επιχειρήσεις στην Κύπρο και παγκοσμίως.",
   });
+
   return (
-    <>
-      {/* Hero */}
-      <section
-        className="relative overflow-hidden"
-        style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(3rem, 6vh, 5rem)" }}
-      >
-        <div className="container relative z-10 text-center">
-          <AnimateIn>
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Άρθρα & Συμβουλές</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              Το Blog της <span className="brand-gradient-text">DM-Labs.io</span>
+    <main style={{ background: "var(--ink)", color: "var(--mist)" }}>
+      {/* HERO */}
+      <section style={{ paddingTop: "140px", paddingBottom: "80px" }}>
+        <div className="container" style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <AnimateIn variant="fade-up" delay={0.1}>
+            <p className="mono" style={{ color: "var(--cyan)", marginBottom: "16px" }}>Άρθρα</p>
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={0.2}>
+            <h1 style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 900, fontSize: "clamp(2.4rem, 5vw, 4rem)", letterSpacing: "-0.035em", lineHeight: 1.0, color: "var(--mist)", marginBottom: "24px" }}>
+              Οδηγοί & Συμβουλές{" "}
+              <span style={{ background: "var(--grad)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                Web Design
+              </span>
             </h1>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Πρακτικοί οδηγοί, ειλικρινείς συμβουλές και ιδέες web design για επιχειρήσεις στην Κύπρο και παγκοσμίως.
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={0.3}>
+            <p style={{ fontSize: "1.15rem", color: "rgba(238,241,248,0.65)", lineHeight: 1.65 }}>
+              Πρακτικοί οδηγοί για επιχειρήσεις που θέλουν να καταλάβουν τι χρειάζεται η ιστοσελίδα τους.
             </p>
           </AnimateIn>
         </div>
       </section>
 
-      {/* Posts Grid */}
-      <section className="section-spacing bg-white">
-        <div className="container">
-          {POSTS_EL.length === 0 ? (
-            <div className="text-center py-20 text-[#5B6472]">Δεν υπάρχουν άρθρα ακόμα. Επισκεφθείτε ξανά σύντομα.</div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {POSTS_EL.map((post, i) => (
-                <AnimateIn key={post.elSlug} delay={i * 0.08}>
-                  <Link href={`/el/blog/${post.elSlug}`} className="group block dm-card overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
-                    {/* Cover image */}
-                    <div className="relative overflow-hidden" style={{ height: "200px" }}>
-                      <img
-                        src={post.coverImage}
-                        alt={post.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                      <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-white"
-                        style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}>
-                        <Tag size={10} />
+      {/* POSTS GRID */}
+      <section style={{ padding: "0 0 120px" }}>
+        <div className="container" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "2px" }}>
+            {POSTS_EL.map((post, i) => (
+              <AnimateIn key={post.slug} variant="fade-up" delay={i * 0.06}>
+                <Link href={`/el/blog/${post.slug}`} style={{ display: "block", textDecoration: "none", height: "100%" }}>
+                  <article className="glass-panel" style={{ padding: "36px", height: "100%", display: "flex", flexDirection: "column", cursor: "pointer" }}>
+                    <div style={{ display: "flex", gap: "12px", alignItems: "center", marginBottom: "20px" }}>
+                      <span className="mono" style={{ fontSize: "0.7rem", color: "var(--cyan)", padding: "3px 8px", border: "1px solid rgba(34,211,238,0.3)" }}>
                         {post.category}
                       </span>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6 flex flex-col flex-1">
-                      <div className="flex items-center gap-3 text-xs text-[#9BA3AF] mb-3">
-                        <span>{formatDate(post.date)}</span>
-                        <span>·</span>
-                        <span className="flex items-center gap-1"><Clock size={11} />{post.readTime}</span>
-                      </div>
-                      <h2 className="text-base font-bold text-[#111315] mb-3 leading-snug group-hover:text-[#5B8CFF] transition-colors">
-                        {post.title}
-                      </h2>
-                      <p className="text-sm text-[#5B6472] leading-relaxed flex-1 mb-4">
-                        {post.excerpt}
-                      </p>
-                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#5B8CFF] group-hover:gap-2.5 transition-all">
-                        Διαβάστε άρθρο <ArrowRight size={14} />
+                      <span className="mono" style={{ fontSize: "0.7rem", color: "var(--slate-soft)", display: "flex", alignItems: "center", gap: "4px" }}>
+                        <Clock size={10} /> {post.readTime}
                       </span>
                     </div>
-                  </Link>
-                </AnimateIn>
-              ))}
-            </div>
-          )}
+                    <h2 style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "var(--mist)", lineHeight: 1.35, marginBottom: "14px", flex: 1 }}>{post.title}</h2>
+                    <p style={{ fontSize: "0.875rem", color: "rgba(238,241,248,0.6)", lineHeight: 1.65, marginBottom: "24px" }}>{post.excerpt}</p>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <span className="mono" style={{ fontSize: "0.7rem", color: "var(--slate-soft)" }}>{formatDate(post.publishedAt)}</span>
+                      <ArrowRight size={16} style={{ color: "var(--cyan)" }} />
+                    </div>
+                  </article>
+                </Link>
+              </AnimateIn>
+            ))}
+          </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="section-spacing dark-section text-center">
-        <div className="container">
-          <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Έτοιμοι να Αποκτήσετε την Ιστοσελίδα σας;</h2>
-            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">
-              Σταματήστε να διαβάζετε και ξεκινήστε να αναπτύσσεστε. Λάβετε δωρεάν συμβουλευτική και μια σαφή προσφορά εντός 24 ωρών.
-            </p>
-            <Link href="/el/contact" className="btn-primary">
-              Δωρεάν Συμβουλευτική <ArrowRight size={18} />
-            </Link>
-          </AnimateIn>
-        </div>
-      </section>
-    </>
+    </main>
   );
 }

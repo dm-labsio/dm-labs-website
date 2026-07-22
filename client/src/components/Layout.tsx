@@ -1,5 +1,5 @@
 /* ============================================================
-   DM-Labs.io v2.0 — Layout
+   DM-Labs.io v2.0 - Layout
    Sharp geometry · Space Mono nav labels · Glass on scroll
    Footer: coordinates, WhatsApp, mono annotation
    ============================================================ */

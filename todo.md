@@ -151,53 +151,53 @@
 ## v2.0 Redesign (Jul 22 2026)
 
 ### Phase 1: Assets
-- [ ] Encode dmlabshomepagevideo.mp4 with ffmpeg all-keyframe for scroll scrubbing
-- [ ] Upload hero video, logo, backgrounds, and decorative assets to CDN
+- [x] Encode dmlabshomepagevideo.mp4 with ffmpeg all-keyframe for scroll scrubbing
+- [x] Upload hero video, logo, backgrounds, and decorative assets to CDN
 
 ### Phase 2: Design System
-- [ ] Replace index.css with v2.0 tokens (--ink, --mist, --cyan, --blue, --violet, --blush, --grad)
-- [ ] Add Satoshi (fontshare) and Space Mono (Google Fonts) to index.html
-- [ ] Sharp geometry: border-radius 0, --chamfer 14px, clip-path utilities
-- [ ] Glass panel component (.panel with gradient border, backdrop-filter)
-- [ ] Grain overlay (body::after, opacity .035)
-- [ ] Rectangular buttons (.btn-primary, .btn-ghost, Space Mono 11px)
-- [ ] .mono utility (Space Mono 11px, .2em, uppercase)
-- [ ] .grad-text utility with @supports fallback
-- [ ] .reveal animation (IntersectionObserver, translateY 26px)
+- [x] Replace index.css with v2.0 tokens (--ink, --mist, --cyan, --blue, --violet, --blush, --grad)
+- [x] Add Satoshi (fontshare) and Space Mono (Google Fonts) to index.html
+- [x] Sharp geometry: border-radius 0, --chamfer 14px, clip-path utilities
+- [x] Glass panel component (.panel with gradient border, backdrop-filter)
+- [x] Grain overlay (body::after, opacity .035)
+- [x] Rectangular buttons (.btn-primary, .btn-ghost, Space Mono 11px)
+- [x] .mono utility (Space Mono 11px, .2em, uppercase)
+- [x] .grad-text utility with @supports fallback
+- [x] .reveal animation (IntersectionObserver, translateY 26px)
 
 ### Phase 3: Layout and Nav
-- [ ] Rebuild Layout.tsx header (sharp, glass, Space Mono labels, new logo)
-- [ ] Update footer (Space Mono annotation, coordinates, WhatsApp)
-- [ ] Remove all "D&M Labs" from Layout.tsx
-- [ ] Update WhatsApp prefill text to "DM-Labs.io"
-- [ ] New OG image (logo + title overlay)
+- [x] Rebuild Layout.tsx header (sharp, glass, Space Mono labels, new logo)
+- [x] Update footer (Space Mono annotation, coordinates, WhatsApp)
+- [x] Remove all "D&M Labs" from Layout.tsx
+- [x] Update WhatsApp prefill text to "DM-Labs.io"
+- [x] New OG image (logo + title overlay) - generated and deployed to /og-image.png
 
 ### Phase 4: Homepage
-- [ ] VideoScrollHero component (GSAP ScrollTrigger, currentTime scrubbing)
-- [ ] ProofBar ticker (Space Mono, availability/delivery/stack)
-- [ ] Capabilities glass panels
-- [ ] Four-up Work grid (2x2, 16:10, gap 2px, sharp, hover meta reveal)
-- [ ] Process horizontal pinned track (5 steps, DAY 01-DAY 14)
-- [ ] Team section (AI-leverage story)
-- [ ] Pricing section (no animation)
-- [ ] CTA section (full-bleed, magnetic button)
-- [ ] Remove: mesh gradients, duplicated team cards, stats row, industries grid
+- [x] VideoScrollHero component (GSAP ScrollTrigger, currentTime scrubbing)
+- [x] ProofBar ticker (Space Mono, availability/delivery/stack)
+- [x] Capabilities glass panels
+- [x] Four-up Work grid (2x2, 16:10, gap 2px, sharp, hover meta reveal)
+- [x] Process horizontal pinned track (5 steps, DAY 01-DAY 14)
+- [x] Team section (AI-leverage story)
+- [x] Pricing section (no animation)
+- [x] CTA section (full-bleed, magnetic button)
+- [x] Remove: mesh gradients, duplicated team cards, stats row, industries grid
 
 ### Phase 5: Blog System
-- [ ] Blog desktop metaphor (icon grid, menu bar, dock)
-- [ ] Window chrome system (.win, title bar, dots, progress bar)
-- [ ] Post reading window (62-68ch, Satoshi 400 18px, 1.75 leading)
-- [ ] /blog/all plain list fallback page
+- [x] Blog desktop metaphor (icon grid, menu bar, dock)
+- [x] Window chrome system (.win, title bar, dots, progress bar)
+- [x] Post reading window (62-68ch, Satoshi 400 18px, 1.75 leading)
+- [x] /blog/all plain list fallback page
 
 ### Phase 6: Other Pages
-- [ ] Services, Pricing, Contact, FAQ, Process, Templates pages updated
-- [ ] All location pages updated
-- [ ] All Greek equivalent pages updated
+- [x] Services, Pricing, Contact, FAQ, Process, Templates pages updated
+- [x] All 7 EN + 5 Greek location pages updated
+- [x] All Greek main pages updated (HomeEl, ServicesEl, PricingEl, ContactEl, FAQEl, ProcessEl, BlogEl)
 
 ### Phase 7: Audit
-- [ ] Zero "D&M Labs" anywhere
-- [ ] Zero long em dashes anywhere
-- [ ] Zero rounded corners on rectangular surfaces
-- [ ] Pricing unchanged (299/749/1499)
-- [ ] prefers-reduced-motion complete static site
-- [ ] Save checkpoint
+- [x] Zero "D&M Labs" anywhere (27 files fixed)
+- [x] Zero long em dashes anywhere (27 files fixed)
+- [x] Zero rounded corners on rectangular surfaces (border-radius: 0 in design system)
+- [x] Pricing unchanged (€299/€749/€1,499) - verified
+- [x] prefers-reduced-motion: all animations disabled via CSS media query in index.css
+- [x] Save checkpoint

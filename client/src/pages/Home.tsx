@@ -1,5 +1,5 @@
 /* ============================================================
-   DM-Labs.io v2.0 — Homepage
+   DM-Labs.io v2.0 - Homepage
    Sections: Hero (video scroll), ProofBar, Capabilities,
              Work Grid, Process, Team, Pricing, CTA
    Design system: sharp geometry · Satoshi + Space Mono
@@ -67,7 +67,7 @@ const CAPS = [
   {
     label: "02 / SEO",
     title: "Found on Google from day one",
-    body: "Semantic HTML, fast load times, Search Console setup, and structured data built into every project — not bolted on after.",
+    body: "Semantic HTML, fast load times, Search Console setup, and structured data built into every project - not bolted on after.",
     icon: Search,
     accent: "var(--blue)",
   },
@@ -339,7 +339,7 @@ function VideoScrollHero() {
         background: "linear-gradient(to bottom, rgba(11,27,54,.35) 0%, transparent 40%, transparent 60%, rgba(11,27,54,.8) 100%)"
       }} />
 
-      {/* Headline — revealed at 78% scroll */}
+      {/* Headline - revealed at 78% scroll */}
       <div
         ref={headlineRef}
         className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
@@ -396,7 +396,7 @@ function VideoScrollHero() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   [01] PROOF BAR — mono ticker
+   [01] PROOF BAR - mono ticker
    ═══════════════════════════════════════════════════════════ */
 function ProofBar() {
   const doubled = [...TICKER_ITEMS, ...TICKER_ITEMS];
@@ -440,7 +440,7 @@ function ProofBar() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   [02] CAPABILITIES — glass panels
+   [02] CAPABILITIES - glass panels
    ═══════════════════════════════════════════════════════════ */
 function Capabilities() {
   return (
@@ -541,7 +541,7 @@ function Capabilities() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   [03] WORK GRID — four-up 2x2, 16:10, gap 2px, sharp
+   [03] WORK GRID - four-up 2x2, 16:10, gap 2px, sharp
    ═══════════════════════════════════════════════════════════ */
 const WORK_ITEMS = [
   { label: "Cafe & Coffee", industry: "Hospitality", href: "/templates" },
@@ -625,7 +625,7 @@ function WorkGrid() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   [04] PROCESS — horizontal 5-step track
+   [04] PROCESS - horizontal 5-step track
    ═══════════════════════════════════════════════════════════ */
 function ProcessTrack() {
   return (
@@ -712,7 +712,7 @@ function ProcessTrack() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   [05] TEAM — AI-leverage story
+   [05] TEAM - AI-leverage story
    ═══════════════════════════════════════════════════════════ */
 function TeamSection() {
   return (
@@ -815,7 +815,7 @@ function TeamSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   [06] PRICING — deliberately still
+   [06] PRICING - deliberately still
    ═══════════════════════════════════════════════════════════ */
 function PricingSection() {
   return (
@@ -1034,7 +1034,7 @@ function PricingSection() {
             color: "var(--slate)",
             marginBottom: "8px",
           }}>
-            All plans include a <strong style={{ color: "var(--ink)" }}>free consultation</strong> — no commitment, no pressure.
+            All plans include a <strong style={{ color: "var(--ink)" }}>free consultation</strong> - no commitment, no pressure.
           </p>
           <Link href="/pricing" style={{
             fontFamily: "'Satoshi', sans-serif",
@@ -1056,7 +1056,7 @@ function PricingSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   [07] CTA — full-bleed, single action
+   [07] CTA - full-bleed, single action
    ═══════════════════════════════════════════════════════════ */
 function CTASection() {
   return (

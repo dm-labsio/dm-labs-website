@@ -3,7 +3,7 @@
    Dynamically updates <title>, meta description, canonical URL,
    og:url, og:title, og:description on every route change.
    
-   Usage (basic — auto-derives canonical from current path):
+   Usage (basic - auto-derives canonical from current path):
      useSEO({ title: "Pricing | DM-Labs.io", description: "..." })
    
    Usage (blog post with custom OG image):
