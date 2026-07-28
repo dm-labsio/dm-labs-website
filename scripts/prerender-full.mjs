@@ -77,7 +77,8 @@ const ROUTES = [
   "/pricing",
   "/faq",
   "/contact",
-  "/examples",
+  "/templates",
+  "/404",
   "/blog",
   "/web-design-limassol",
   "/web-design-thessaloniki",
@@ -109,7 +110,7 @@ const ROUTES = [
   "/el/terms",
   // EL blog posts
   ...EL_BLOG_SLUGS.map((s) => `/el/blog/${s}`),
-  "/el/examples",
+  "/el/templates",
 ];
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

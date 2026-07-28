@@ -1,10 +1,26 @@
 /* D&M LABS - 404 Page (bilingual: detects /el/ prefix) */
+import { useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   const [location] = useLocation();
   const isGreek = location.startsWith("/el");
+
+  // Inject noindex so search engines do not index 404 pages (Task 1)
+  useEffect(() => {
+    let tag = document.querySelector('meta[name="robots"][data-404]') as HTMLMetaElement | null;
+    if (!tag) {
+      tag = document.createElement("meta");
+      tag.setAttribute("name", "robots");
+      tag.setAttribute("data-404", "true");
+      document.head.appendChild(tag);
+    }
+    tag.setAttribute("content", "noindex, nofollow");
+    return () => {
+      tag?.remove();
+    };
+  }, []);
 
   if (isGreek) {
     return (
