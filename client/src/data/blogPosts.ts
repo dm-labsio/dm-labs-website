@@ -603,7 +603,7 @@ export const POSTS: BlogPost[] = [
     category: "SEO",
     author: "DM-Labs.io",
     excerpt: "Most website owners are sitting on a goldmine of search data and barely touching it. These seven AI prompts turn your Search Console data into a clear, actionable SEO plan.",
-    coverImage: "/manus-storage/google-search-console-ai-seo-prompts-banner_0e2fd16e.jpg",
+    coverImage: "/google-search-console-ai-seo-prompts-banner.ea3da3a3.jpg",
     imageAlt: "Google Search Console data flowing through AI into prioritized SEO actions and a rising performance chart",
     content: `
 <p class="blog-lead">Most website owners are sitting on a goldmine of search data and barely touching it.</p>

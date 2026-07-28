@@ -203,3 +203,7 @@
 - [x] Add to sitemap.xml (EN-only entry, no el hreflang)
 - [x] Fix SLUG_MAP in useSEO: add null entry for EN-only post, update geo slug, handle self-referencing hreflang
 - [x] Fix stale SLUG_MAP entry: /blog/geo-ai-search-visibility-cyprus → /blog/geo-get-found-by-chatgpt-cyprus
+
+## Blog Banner Image Fix (Jul 28 2026)
+
+- [x] Fix broken blog banner image: moved from /manus-storage/ proxy URL to /google-search-console-ai-seo-prompts-banner.ea3da3a3.jpg in client/public/ (Vite static asset, works in both dev and production without storage proxy)
