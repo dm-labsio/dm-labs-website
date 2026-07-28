@@ -130,7 +130,13 @@ export function useSEO(options: SEOOptions = {}) {
     }
     // Strip query strings and hashes from canonical (canonical should be the clean URL)
     const cleanPath = path.split("?")[0].split("#")[0];
-    const canonicalUrl = `${BASE_URL}${cleanPath}`;
+    // The Manus/Cloudflare platform adds a trailing slash to all paths except root.
+    // Canonicals must match the final URL the platform serves to avoid "Page with redirect" in GSC.
+    const finalPath = cleanPath === "/" ? "/" : (cleanPath.endsWith("/") ? cleanPath : cleanPath + "/");
+    const canonicalUrl = `${BASE_URL}${finalPath}`;
+
+    // Ensure robots meta is always reset to indexable on real pages
+    setMetaTag("robots", "index, follow");
 
     // Update <title>
     document.title = title;

@@ -78,7 +78,6 @@ const ROUTES = [
   "/faq",
   "/contact",
   "/templates",
-  "/404",
   "/blog",
   "/web-design-limassol",
   "/web-design-thessaloniki",

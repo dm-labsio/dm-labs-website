@@ -174,3 +174,12 @@
 - [x] Fix: Remove ?open= and ?industry= query-string links in Home.tsx and HomeEl.tsx (replaced with clean /templates links)
 - [x] Fix: Add aria-hidden="true" to mobile LangToggle container (prevents duplicate crawlable links)
 - [x] Fix: NotFound.tsx — correct title to "Page Not Found | DM-Labs.io", add noindex, remove canonical
+
+## GSC SEO Fixes - Round 3 (Jul 28 2026)
+
+- [x] Fix critical noindex bug: /404 removed from prerender routes (was contaminating all subsequent pages via shared browser context)
+- [x] Fix useSEO: always reset robots meta to "index, follow" on every call (prevents noindex leaking from NotFound)
+- [x] Fix canonical URLs: useSEO now generates trailing-slash canonicals (matching Manus/Cloudflare platform behavior)
+- [x] Fix prerender-meta.mjs: canonical and hreflang URLs now use trailing slashes
+- [x] Fix sitemap.xml: all 68 <loc> and 202 hreflang href entries now use trailing slashes
+- [x] Fix TemplatesEl.tsx: canonicalPath changed from /el/examples to /el/templates

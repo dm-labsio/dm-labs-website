@@ -461,22 +461,25 @@ function escapeHtml(str) {
 
 function injectMetaTags(html, route) {
   const { path: routePath, title, description } = route;
-  const canonicalUrl = `${BASE_URL}${routePath}`;
+  // Platform adds trailing slash to all paths except root — match it in canonicals
+  const trailingSlash = routePath === "/" ? "" : "/";
+  const canonicalUrl = `${BASE_URL}${routePath}${trailingSlash}`;
   const safeTitle = escapeHtml(title);
   const safeDesc = escapeHtml(description);
   const safeCanonical = escapeHtml(canonicalUrl);
   const safeOgImage = escapeHtml(DEFAULT_OG_IMAGE);
 
-  // Determine hreflang alternates
+  // Determine hreflang alternates (add trailing slash to match platform behavior)
+  const addSlash = (p) => p === "/" ? p : (p.endsWith("/") ? p : p + "/");
   const isGreek = routePath.startsWith("/el");
   let enUrl, elUrl;
 
   if (isGreek) {
-    elUrl = `${BASE_URL}${routePath}`;
-    enUrl = route.enPath ? `${BASE_URL}${route.enPath}` : null;
+    elUrl = `${BASE_URL}${addSlash(routePath)}`;
+    enUrl = route.enPath ? `${BASE_URL}${addSlash(route.enPath)}` : null;
   } else {
-    enUrl = `${BASE_URL}${routePath}`;
-    elUrl = route.elPath ? `${BASE_URL}${route.elPath}` : null;
+    enUrl = `${BASE_URL}${addSlash(routePath)}`;
+    elUrl = route.elPath ? `${BASE_URL}${addSlash(route.elPath)}` : null;
   }
 
   // Build hreflang tags
