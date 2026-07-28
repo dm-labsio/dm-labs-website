@@ -223,7 +223,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           {/* Mobile: lang toggle pill + hamburger */}
-          <div className="lg:hidden flex items-center gap-2">
+          {/* aria-hidden: desktop LangToggle is the canonical crawlable version; mobile is a visual duplicate */}
+          <div className="lg:hidden flex items-center gap-2" aria-hidden="true">
             <LangToggle size="sm" />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}

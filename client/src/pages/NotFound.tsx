@@ -7,20 +7,31 @@ export default function NotFound() {
   const [location] = useLocation();
   const isGreek = location.startsWith("/el");
 
-  // Inject noindex so search engines do not index 404 pages (Task 1)
+  // SEO: set correct title, noindex, and remove canonical for 404 pages
   useEffect(() => {
-    let tag = document.querySelector('meta[name="robots"][data-404]') as HTMLMetaElement | null;
-    if (!tag) {
-      tag = document.createElement("meta");
-      tag.setAttribute("name", "robots");
-      tag.setAttribute("data-404", "true");
-      document.head.appendChild(tag);
+    // Title
+    document.title = isGreek
+      ? "Σελίδα Δεν Βρέθηκε | DM-Labs.io"
+      : "Page Not Found | DM-Labs.io";
+
+    // Noindex — override any existing robots meta
+    let robotsMeta = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    if (!robotsMeta) {
+      robotsMeta = document.createElement("meta");
+      robotsMeta.setAttribute("name", "robots");
+      document.head.appendChild(robotsMeta);
     }
-    tag.setAttribute("content", "noindex, nofollow");
+    robotsMeta.setAttribute("content", "noindex, nofollow");
+
+    // Remove canonical — 404 pages must not self-canonicalise
+    document.querySelectorAll('link[rel="canonical"]').forEach((el) => el.remove());
+
     return () => {
-      tag?.remove();
+      // Restore robots to indexable on unmount (navigating away from 404)
+      const tag = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+      if (tag) tag.setAttribute("content", "index, follow");
     };
-  }, []);
+  }, [isGreek]);
 
   if (isGreek) {
     return (

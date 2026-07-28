@@ -90,6 +90,16 @@ const ROUTES = [
   "/privacy",
   "/cookies",
   "/terms",
+  // EN services sub-pages
+  "/services/custom-design",
+  "/services/mobile-first",
+  "/services/seo",
+  "/services/performance",
+  "/services/security",
+  "/services/turnaround",
+  "/services/maps",
+  "/services/forms",
+  "/services/social",
   // EN blog posts
   ...EN_BLOG_SLUGS.map((s) => `/blog/${s}`),
   // EL static
@@ -108,6 +118,16 @@ const ROUTES = [
   "/el/privacy",
   "/el/cookie-policy",
   "/el/terms",
+  // EL services sub-pages
+  "/el/services/custom-design",
+  "/el/services/mobile-first",
+  "/el/services/seo",
+  "/el/services/performance",
+  "/el/services/security",
+  "/el/services/turnaround",
+  "/el/services/maps",
+  "/el/services/forms",
+  "/el/services/social",
   // EL blog posts
   ...EL_BLOG_SLUGS.map((s) => `/el/blog/${s}`),
   "/el/templates",

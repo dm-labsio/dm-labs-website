@@ -165,3 +165,12 @@
 - [x] Task 6: Remove /el/blog/istoselidha-nail-salon-beauty-studio-kypros from sitemap if it redirects
 - [x] Task 7: Remove Disallow: /previews/ from robots.txt
 - [x] Task 7: Add <meta name="robots" content="noindex, nofollow"> to all /previews/*.html files
+
+## GSC SEO Fixes - Round 2 (Jul 28 2026)
+- [x] Critical: Remove trailing-slash redirect middleware (was causing ERR_TOO_MANY_REDIRECTS on all pages)
+- [x] Fix: Add /services/* and /el/services/* to STATIC_ROUTES in vite.ts (were returning HTTP 404)
+- [x] Fix: Add /el/services/* as <loc> entries in sitemap.xml (9 pages missing from sitemap)
+- [x] Fix: Add /services/* and /el/services/* to prerender-full.mjs routes
+- [x] Fix: Remove ?open= and ?industry= query-string links in Home.tsx and HomeEl.tsx (replaced with clean /templates links)
+- [x] Fix: Add aria-hidden="true" to mobile LangToggle container (prevents duplicate crawlable links)
+- [x] Fix: NotFound.tsx — correct title to "Page Not Found | DM-Labs.io", add noindex, remove canonical

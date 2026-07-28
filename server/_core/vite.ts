@@ -31,6 +31,16 @@ const STATIC_ROUTES = new Set([
   "/web-design-paphos",
   "/web-design-restaurants-cyprus",
   "/404",
+  // Services sub-pages
+  "/services/custom-design",
+  "/services/mobile-first",
+  "/services/seo",
+  "/services/performance",
+  "/services/security",
+  "/services/turnaround",
+  "/services/maps",
+  "/services/forms",
+  "/services/social",
   // Greek
   "/el",
   "/el/",
@@ -51,6 +61,16 @@ const STATIC_ROUTES = new Set([
   "/el/web-design-limassol",
   "/el/web-design-nicosia",
   "/el/web-design-thessaloniki",
+  // Greek services sub-pages
+  "/el/services/custom-design",
+  "/el/services/mobile-first",
+  "/el/services/seo",
+  "/el/services/performance",
+  "/el/services/security",
+  "/el/services/turnaround",
+  "/el/services/maps",
+  "/el/services/forms",
+  "/el/services/social",
   // Greek blog posts
   "/el/blog/wix-vs-epaggelmatias-web-designer-kypros",
   "/el/blog/posso-kostizei-istoselidha-kypros",
@@ -149,17 +169,10 @@ export function serveStatic(app: Express) {
     );
   }
 
-  // ── 1. Trailing-slash 301 (Task 4) ─────────────────────────────────────────
-  // Redirect /path/ → /path for every path except the root /.
-  app.use((req, res, next) => {
-    const rawPath = (req.path || "/");
-    if (rawPath !== "/" && rawPath.endsWith("/")) {
-      const clean = rawPath.slice(0, -1);
-      const qs = req.originalUrl.includes("?") ? req.originalUrl.slice(req.originalUrl.indexOf("?")) : "";
-      return res.redirect(301, clean + qs);
-    }
-    next();
-  });
+  // NOTE: Trailing-slash normalisation is handled by the Manus hosting platform
+  // at the CDN/proxy layer. Adding a redirect here as well causes an infinite
+  // redirect loop (/path → /path/ → /path → …). Do NOT add trailing-slash
+  // redirect middleware in this file.
 
   // ── 2. Permanent 301 redirects (Task 2) ────────────────────────────────────
   app.use((req, res, next) => {

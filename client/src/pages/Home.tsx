@@ -359,7 +359,7 @@ export default function HomePage() {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 items-stretch">
             {FEATURED_TEMPLATES.map((tpl) => (
               <StaggerItem key={tpl.id} className="flex">
-                <Link href={`/templates?open=${tpl.id}`} className="flex w-full">
+                <Link href="/templates" className="flex w-full">
                   <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
                     {/* Hand-crafted card mockup */}
                     <HomepageCardPreview tplId={tpl.id} category={tpl.category} />
@@ -706,7 +706,7 @@ export default function HomePage() {
 
             ].map((biz) => (
               <StaggerItem key={biz.label}>
-                <Link href={`/templates?industry=${biz.industry}`}>
+                <Link href="/templates">
                   <div className="dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 hover:border-[#5B8CFF]/40 transition-all duration-300">
                     <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
                       <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
