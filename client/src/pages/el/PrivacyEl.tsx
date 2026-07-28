@@ -112,7 +112,7 @@ export default function PrivacyEl() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">8. Cookies</h2>
-                <p>Χρησιμοποιούμε απαραίτητα cookies για τη λειτουργία της ιστοσελίδας και cookies ανάλυσης (με τη συγκατάθεσή σας) για να κατανοήσουμε πώς οι επισκέπτες χρησιμοποιούν την ιστοσελίδα μας. Για πλήρεις λεπτομέρειες, δείτε την <Link href="/el/cookie-policy" className="text-[#5B8CFF] hover:underline">Πολιτική Cookies</Link>.</p>
+                <p>Χρησιμοποιούμε απαραίτητα cookies για τη λειτουργία της ιστοσελίδας και cookies ανάλυσης (με τη συγκατάθεσή σας) για να κατανοήσουμε πώς οι επισκέπτες χρησιμοποιούν την ιστοσελίδα μας. Για πλήρεις λεπτομέρειες, δείτε την <Link href="/el/cookies" className="text-[#5B8CFF] hover:underline">Πολιτική Cookies</Link>.</p>
               </div>
 
               <div>
@@ -137,7 +137,7 @@ export default function PrivacyEl() {
 
             </div>
             <div className="mt-10 pt-8 border-t border-[#E2E5EA] flex gap-4">
-              <Link href="/el/cookie-policy" className="text-sm text-[#5B8CFF] hover:underline">Πολιτική Cookies</Link>
+              <Link href="/el/cookies" className="text-sm text-[#5B8CFF] hover:underline">Πολιτική Cookies</Link>
               <Link href="/el/terms" className="text-sm text-[#5B8CFF] hover:underline">Όροι Χρήσης</Link>
             </div>
           </AnimateIn>

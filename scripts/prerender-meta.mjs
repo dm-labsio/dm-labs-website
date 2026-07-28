@@ -175,7 +175,7 @@ const EN_STATIC_ROUTES = [
     path: "/cookies",
     title: "Cookie Policy | DM-Labs.io",
     description: "Cookie policy for DM-Labs.io web design services.",
-    elPath: "/el/cookie-policy",
+    elPath: "/el/cookies",
   },
   {
     path: "/terms",
@@ -274,13 +274,7 @@ const EL_STATIC_ROUTES = [
     enPath: "/privacy",
   },
   {
-    path: "/el/cookie-policy",
-    title: "Πολιτική Cookies | DM-Labs.io",
-    description: "Πολιτική cookies της ιστοσελίδας DM-Labs.io.",
-    enPath: "/cookies",
-  },
-  {
-    // /el/cookies is the canonical slug used in the sitemap; /el/cookie-policy is the alias
+    // /el/cookies is the canonical slug; /el/cookie-policy 301s to /el/cookies at server level
     path: "/el/cookies",
     title: "Πολιτική Cookies | DM-Labs.io",
     description: "Πολιτική cookies της ιστοσελίδας DM-Labs.io.",

@@ -20,7 +20,7 @@ const STRINGS = {
     helpUs: "Help us improve",
     savePrefs: "Save Preferences",
     back: "← Back",
-    cookieHref: "/cookie-policy",
+    cookieHref: "/cookies",
     privacyHref: "/privacy",
   },
   el: {
@@ -38,7 +38,7 @@ const STRINGS = {
     helpUs: "Μας βοηθούν να βελτιωθούμε",
     savePrefs: "Αποθήκευση Προτιμήσεων",
     back: "← Πίσω",
-    cookieHref: "/el/cookie-policy",
+    cookieHref: "/el/cookies",
     privacyHref: "/el/privacy",
   },
 };

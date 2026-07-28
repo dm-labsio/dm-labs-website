@@ -18,7 +18,7 @@ const STATIC_ROUTES = new Set([
   "/contact",
   "/privacy",
   "/cookies",
-  "/cookie-policy",
+  // /cookie-policy is removed — 301 redirects to /cookies (see REDIRECTS below)
   "/terms",
   "/templates",
   "/examples",
@@ -51,7 +51,7 @@ const STATIC_ROUTES = new Set([
   "/el/contact",
   "/el/privacy",
   "/el/cookies",
-  "/el/cookie-policy",
+  // /el/cookie-policy is removed — 301 redirects to /el/cookies (see REDIRECTS below)
   "/el/terms",
   "/el/blog",
   "/el/templates",
@@ -105,6 +105,9 @@ const REDIRECTS: Record<string, string> = {
   // Legacy paths
   "/examples": "/templates",
   "/el/examples": "/el/templates",
+  // Cookie policy consolidation: /cookie-policy → /cookies
+  "/cookie-policy": "/cookies",
+  "/el/cookie-policy": "/el/cookies",
   // Literal $ artefact
   "/$": "/",
 };

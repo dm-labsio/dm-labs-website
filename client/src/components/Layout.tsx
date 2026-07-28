@@ -329,7 +329,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {isGreek ? (
                   <>
                     <li><Link href="/el/privacy" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική Απορρήτου</Link></li>
-                    <li><Link href="/el/cookie-policy" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική Cookies</Link></li>
+                    <li><Link href="/el/cookies" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική Cookies</Link></li>
                     <li><Link href="/el/terms" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Όροι Χρήσης</Link></li>
                   </>
                 ) : (

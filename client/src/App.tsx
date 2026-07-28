@@ -82,7 +82,8 @@ function MainRouter() {
         <Route path="/contact" component={Contact} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/cookies" component={CookiePolicy} />
-        <Route path="/cookie-policy" component={CookiePolicy} />
+        {/* /cookie-policy → /cookies: client-side redirect (server-level 301 handles hard navigation) */}
+        <Route path="/cookie-policy"><Redirect to="/cookies" /></Route>
         <Route path="/terms" component={Terms} />
         <Route path="/templates" component={Templates} />
         <Route path="/examples" component={Templates} />
@@ -106,7 +107,8 @@ function MainRouter() {
         <Route path="/el/faq" component={FAQEl} />
         <Route path="/el/contact" component={ContactEl} />
         <Route path="/el/privacy" component={PrivacyEl} />
-        <Route path="/el/cookie-policy" component={CookiePolicyEl} />
+        {/* /el/cookie-policy → /el/cookies: client-side redirect (server-level 301 handles hard navigation) */}
+        <Route path="/el/cookie-policy"><Redirect to="/el/cookies" /></Route>
         <Route path="/el/cookies" component={CookiePolicyEl} />
         <Route path="/el/terms" component={TermsEl} />
         <Route path="/el/blog" component={BlogEl} />

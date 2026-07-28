@@ -5,10 +5,12 @@ import { ChevronLeft } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
 
 export default function CookiePolicy() {
+  // No canonicalPath override — useSEO derives canonical from the current route.
+  // /cookies/ self-canonicalises to https://dm-labs.io/cookies/
+  // /cookie-policy/ 301s to /cookies/ at the server level (not rendered here)
   useSEO({
     title: "Cookie Policy | DM-Labs.io",
     description: "Learn how DM-Labs.io uses cookies on dm-labs.io and how you can manage your preferences.",
-    canonicalPath: "/cookie-policy",
   });
   return (
     <>

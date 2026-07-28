@@ -3,15 +3,15 @@ import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 import { ChevronLeft } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
 
 export default function CookiePolicyEl() {
+  // No canonicalPath override — useSEO derives canonical from the current route.
+  // /el/cookies/ self-canonicalises to https://dm-labs.io/el/cookies/
+  // /el/cookie-policy/ 301s to /el/cookies/ at the server level
   useSEO({
     title: "Πολιτική Cookies | DM-Labs.io",
     description: "Πολιτική cookies της DM-Labs.io. Πώς χρησιμοποιούμε τα cookies σύμφωνα με τον GDPR.",
-    canonicalPath: "/el/cookie-policy"
   });
-  useHreflang();
 
   return (
     <>

@@ -115,7 +115,7 @@ const ROUTES = [
   "/el/web-design-cyprus",
   "/el/web-design-crete",
   "/el/privacy",
-  "/el/cookie-policy",
+  // /el/cookie-policy removed — 301 redirects to /el/cookies at server level
   "/el/cookies",
   "/el/terms",
   // EL services sub-pages
