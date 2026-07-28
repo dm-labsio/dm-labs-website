@@ -160,9 +160,11 @@ export function useSEO(options: SEOOptions = {}) {
     setOgTag("twitter:image", ogImage);
 
     // Inject hreflang link tags (Task 3)
+    // Apply same trailing-slash rule as canonical: all paths except root get a trailing slash.
+    const addTrailingSlash = (p: string) => p === "/" ? p : (p.endsWith("/") ? p : p + "/");
     const pair = deriveHreflangPair(cleanPath);
     if (pair) {
-      setHreflangTags(pair.en, pair.el);
+      setHreflangTags(addTrailingSlash(pair.en), addTrailingSlash(pair.el));
     }
   }, [location, options.title, options.description, options.ogImage, options.ogType, options.canonicalPath]);
 }

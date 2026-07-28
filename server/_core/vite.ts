@@ -201,12 +201,35 @@ export function serveStatic(app: Express) {
       return res.sendFile(path.resolve(distPath, "index.html"));
     }
 
-    // Unknown path: return HTTP 404 with the 404 page (or root fallback)
-    const notFoundFile = path.resolve(distPath, "404", "index.html");
-    if (fs.existsSync(notFoundFile)) {
-      return res.status(404).sendFile(notFoundFile);
+    // Unknown path: return HTTP 404 with correct metadata injected server-side.
+    // We patch the root index.html to replace the homepage title/canonical/robots
+    // so that Googlebot sees the correct values even before JavaScript runs.
+    const rootHtmlPath = path.resolve(distPath, "index.html");
+    try {
+      let html = fs.readFileSync(rootHtmlPath, "utf-8");
+      // Replace title
+      html = html.replace(
+        /<title>[^<]*<\/title>/,
+        "<title>Page Not Found | DM-Labs.io</title>"
+      );
+      // Replace or inject robots meta
+      if (html.includes('name="robots"')) {
+        html = html.replace(
+          /<meta name="robots"[^>]*>/,
+          '<meta name="robots" content="noindex, nofollow" />'
+        );
+      } else {
+        html = html.replace(
+          "</head>",
+          '  <meta name="robots" content="noindex, nofollow" />\n</head>'
+        );
+      }
+      // Remove canonical link tag (404 pages should not have a canonical)
+      html = html.replace(/<link rel="canonical"[^>]*>\n?/g, "");
+      return res.status(404).set({ "Content-Type": "text/html" }).end(html);
+    } catch {
+      // If we can't read the file, send a minimal 404 response
+      return res.status(404).send("<html><head><title>Page Not Found | DM-Labs.io</title><meta name=\"robots\" content=\"noindex, nofollow\"></head><body><h1>404 Not Found</h1></body></html>");
     }
-    // Absolute fallback: root index.html with 404 status
-    res.status(404).sendFile(path.resolve(distPath, "index.html"));
   });
 }

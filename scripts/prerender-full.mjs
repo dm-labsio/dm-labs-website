@@ -116,6 +116,7 @@ const ROUTES = [
   "/el/web-design-crete",
   "/el/privacy",
   "/el/cookie-policy",
+  "/el/cookies",
   "/el/terms",
   // EL services sub-pages
   "/el/services/custom-design",

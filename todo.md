@@ -183,3 +183,9 @@
 - [x] Fix prerender-meta.mjs: canonical and hreflang URLs now use trailing slashes
 - [x] Fix sitemap.xml: all 68 <loc> and 202 hreflang href entries now use trailing slashes
 - [x] Fix TemplatesEl.tsx: canonicalPath changed from /el/examples to /el/templates
+
+## GSC SEO Fixes - Round 4 (Jul 28 2026)
+
+- [x] Fix /el/cookies/ returning 404: added to prerender-full.mjs and prerender-meta.mjs routes
+- [x] Fix hreflang trailing slashes: useSEO now applies addTrailingSlash() to both en and el paths before injecting hreflang tags
+- [x] Fix 404 raw HTML metadata: serveStatic now patches root index.html inline for unknown paths — injects noindex,nofollow, sets "Page Not Found | DM-Labs.io" title, removes canonical tag

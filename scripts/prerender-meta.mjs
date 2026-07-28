@@ -280,6 +280,13 @@ const EL_STATIC_ROUTES = [
     enPath: "/cookies",
   },
   {
+    // /el/cookies is the canonical slug used in the sitemap; /el/cookie-policy is the alias
+    path: "/el/cookies",
+    title: "Πολιτική Cookies | DM-Labs.io",
+    description: "Πολιτική cookies της ιστοσελίδας DM-Labs.io.",
+    enPath: "/cookies",
+  },
+  {
     path: "/el/terms",
     title: "Όροι Χρήσης | DM-Labs.io",
     description: "Όροι χρήσης της ιστοσελίδας DM-Labs.io.",
