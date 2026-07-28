@@ -24,6 +24,7 @@ interface SEOOptions {
   title?: string;
   description?: string;
   ogImage?: string;
+  ogImageAlt?: string; // Sets og:image:alt for accessibility and SEO
   ogType?: string;
   /** Override the canonical path if needed (e.g. for paginated pages). Defaults to current route. */
   canonicalPath?: string;
@@ -126,6 +127,7 @@ export function useSEO(options: SEOOptions = {}) {
       title = DEFAULT_TITLE,
       description = DEFAULT_DESCRIPTION,
       ogImage = DEFAULT_OG_IMAGE,
+      ogImageAlt,
       ogType = "website",
       canonicalPath,
     } = options;
@@ -160,6 +162,7 @@ export function useSEO(options: SEOOptions = {}) {
     setOgTag("og:description", description);
     setOgTag("og:url", canonicalUrl);
     setOgTag("og:image", ogImage);
+    if (ogImageAlt) setOgTag("og:image:alt", ogImageAlt);
     setOgTag("og:type", ogType);
     setOgTag("og:site_name", "DM-Labs.io");
 

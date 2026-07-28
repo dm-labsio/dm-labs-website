@@ -14,6 +14,7 @@ export interface BlogPost {
   category: string;
   excerpt: string;
   coverImage: string;
+  imageAlt?: string; // Optional custom alt text for cover image (defaults to post title)
   content: string; // HTML string
   author?: string; // Optional visible byline, e.g. "DM-Labs.io"
 }
@@ -602,7 +603,8 @@ export const POSTS: BlogPost[] = [
     category: "SEO",
     author: "DM-Labs.io",
     excerpt: "Most website owners are sitting on a goldmine of search data and barely touching it. These seven AI prompts turn your Search Console data into a clear, actionable SEO plan.",
-    coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
+    coverImage: "/manus-storage/google-search-console-ai-seo-prompts-banner_ea3da3a3.png",
+    imageAlt: "Google Search Console data flowing through AI into prioritized SEO actions and a rising performance chart",
     content: `
 <p class="blog-lead">Most website owners are sitting on a goldmine of search data and barely touching it.</p>
 <p>Google Search Console can tell you which searches make your website appear, which pages Google chooses, your average position, how many impressions you receive, and how often people click.</p>

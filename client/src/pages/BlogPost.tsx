@@ -27,6 +27,7 @@ export default function BlogPost() {
     title: post ? post.metaTitle : "Article | DM-Labs.io",
     description: post ? post.metaDescription : "Read the latest web design insights from DM-Labs.io.",
     ogImage: post ? post.coverImage : undefined,
+    ogImageAlt: post?.imageAlt,
     ogType: "article",
     canonicalPath: post ? `/blog/${post.slug}` : undefined,
   });
@@ -93,7 +94,15 @@ export default function BlogPost() {
       {/* Hero / Cover */}
       <section className="relative overflow-hidden" style={{ paddingTop: "72px" }}>
         <div className="relative" style={{ height: "clamp(260px, 40vh, 420px)" }}>
-          <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover" />
+          <img
+            src={post.coverImage}
+            alt={post.imageAlt ?? post.title}
+            width={1672}
+            height={941}
+            loading="eager"
+            fetchPriority="high"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.7) 100%)" }} />
           <div className="absolute inset-0 flex flex-col justify-end">
             <div className="container pb-10">
@@ -133,6 +142,31 @@ export default function BlogPost() {
             {/* Article content */}
             <div
               className="blog-content"
+              ref={(el) => {
+                if (!el) return;
+                // Inject copy buttons into all .blog-code pre blocks
+                el.querySelectorAll<HTMLElement>("pre.blog-code").forEach((pre) => {
+                  if (pre.querySelector(".copy-prompt-btn")) return; // already injected
+                  const code = pre.querySelector("code");
+                  if (!code) return;
+                  // Wrap in relative container if not already
+                  pre.style.position = "relative";
+                  const btn = document.createElement("button");
+                  btn.className = "copy-prompt-btn";
+                  btn.setAttribute("aria-label", "Copy prompt");
+                  btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span>Copy</span>`;
+                  btn.addEventListener("click", () => {
+                    navigator.clipboard.writeText(code.innerText).then(() => {
+                      const span = btn.querySelector("span");
+                      if (span) { span.textContent = "Copied!"; btn.classList.add("copied"); }
+                      setTimeout(() => {
+                        if (span) { span.textContent = "Copy"; btn.classList.remove("copied"); }
+                      }, 2000);
+                    });
+                  });
+                  pre.appendChild(btn);
+                });
+              }}
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
