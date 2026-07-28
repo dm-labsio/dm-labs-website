@@ -91,14 +91,14 @@
   <url>
     <loc>https://dm-labs.io/templates</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/templates" />
-    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/examples" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/templates" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/templates" />
     <lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dm-labs.io/el/examples</loc>
+    <loc>https://dm-labs.io/el/templates</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/templates" />
-    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/examples" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/templates" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/templates" />
     <lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
@@ -301,6 +301,115 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/web-design-restaurants-cyprus" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/web-design-restaurants-cyprus" />
     <lastmod>2026-06-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <!-- Legal Pages (low priority, noindex not needed, just complete coverage) -->
+  <url>
+    <loc>https://dm-labs.io/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/privacy" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/privacy" />
+    <lastmod>2026-05-29</lastmod><changefreq>yearly</changefreq><priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/el/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/privacy" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/privacy" />
+    <lastmod>2026-05-29</lastmod><changefreq>yearly</changefreq><priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/terms" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/terms" />
+    <lastmod>2026-05-29</lastmod><changefreq>yearly</changefreq><priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/el/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/terms" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/terms" />
+    <lastmod>2026-05-29</lastmod><changefreq>yearly</changefreq><priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/cookies" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/cookies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/cookies" />
+    <lastmod>2026-05-29</lastmod><changefreq>yearly</changefreq><priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/el/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/cookies" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/cookies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/cookies" />
+    <lastmod>2026-05-29</lastmod><changefreq>yearly</changefreq><priority>0.3</priority>
+  </url>
+
+  <!-- Service Detail Pages -->
+  <url>
+    <loc>https://dm-labs.io/services/custom-design</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/services/custom-design" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/services/custom-design" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/services/custom-design" />
+    <lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/services/mobile-first</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/services/mobile-first" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/services/mobile-first" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/services/mobile-first" />
+    <lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/services/seo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/services/seo" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/services/seo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/services/seo" />
+    <lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/services/performance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/services/performance" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/services/performance" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/services/performance" />
+    <lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/services/security</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/services/security" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/services/security" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/services/security" />
+    <lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/services/turnaround</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/services/turnaround" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/services/turnaround" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/services/turnaround" />
+    <lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/services/maps</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/services/maps" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/services/maps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/services/maps" />
+    <lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/services/forms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/services/forms" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/services/forms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/services/forms" />
+    <lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/services/social</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/services/social" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/services/social" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/services/social" />
+    <lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   </url>
 
   <!-- GEO Blog Article EN + EL -->

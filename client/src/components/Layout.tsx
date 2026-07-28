@@ -38,7 +38,7 @@ const EL_NAV_LINKS = [
   { label: "Αρχική", href: "/el" },
   { label: "Υπηρεσίες", href: "/el/services" },
   { label: "Διαδικασία", href: "/el/process" },
-  { label: "Παραδείγματα", href: "/el/examples" },
+  { label: "Παραδείγματα", href: "/el/templates" },
   { label: "Τιμές", href: "/el/pricing" },
   { label: "Άρθρα", href: "/el/blog" },
   { label: "FAQ", href: "/el/faq" },
@@ -118,31 +118,33 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     Object.entries(SLUG_MAP_EN_TO_EL).map(([en, el]) => [el, en])
   );
 
-  // Language toggle: switch between EN and EL versions of the current page
-  function handleLangToggle(targetLang: "en" | "el") {
+  // Derive the alternate-language URL for the current page
+  function getAltLangHref(targetLang: "en" | "el"): string {
     if (targetLang === "el" && !isGreek) {
       const mapped = SLUG_MAP_EN_TO_EL[location];
-      const elPath = mapped ?? (location === "/" ? "/el" : "/el" + location);
-      navigate(elPath);
+      return mapped ?? (location === "/" ? "/el" : "/el" + location);
     } else if (targetLang === "en" && isGreek) {
       const mapped = SLUG_MAP_EL_TO_EN[location];
-      const enPath = mapped ?? (location.replace(/^\/el/, "") || "/");
-      navigate(enPath);
+      return mapped ?? (location.replace(/^\/el/, "") || "/");
     }
+    return location;
   }
 
-  // Flag-based language toggle
+  // Flag-based language toggle — uses real <a href> for crawlability (Task 3)
   const LangToggle = ({ className = "", size = "md" }: { className?: string; size?: "sm" | "md" }) => {
     const isSmall = size === "sm";
+    const enHref = isGreek ? getAltLangHref("en") : location;
+    const elHref = isGreek ? location : getAltLangHref("el");
     return (
       <div
         className={`flex items-center rounded-full border border-[#E2E5EA] bg-white shadow-sm overflow-hidden ${className}`}
         style={{ padding: "2px" }}
       >
-        <button
-          onClick={() => handleLangToggle("en")}
+        <a
+          href={enHref}
           aria-label="Switch to English"
           title="English"
+          aria-current={!isGreek ? "true" : undefined}
           className={`flex items-center gap-1.5 rounded-full transition-all duration-200 font-semibold ${
             isSmall ? "px-2 py-1 text-xs" : "px-3 py-1.5 text-xs"
           } ${
@@ -150,14 +152,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               ? "bg-[#5B8CFF] text-white shadow-sm"
               : "text-[#5B6472] hover:bg-[#F0F4FF] hover:text-[#5B8CFF]"
           }`}
+          onClick={(e) => { e.preventDefault(); navigate(enHref); }}
         >
           <FlagUK />
           <span>EN</span>
-        </button>
-        <button
-          onClick={() => handleLangToggle("el")}
+        </a>
+        <a
+          href={elHref}
           aria-label="Εναλλαγή σε Ελληνικά"
           title="Ελληνικά"
+          aria-current={isGreek ? "true" : undefined}
           className={`flex items-center gap-1.5 rounded-full transition-all duration-200 font-semibold ${
             isSmall ? "px-2 py-1 text-xs" : "px-3 py-1.5 text-xs"
           } ${
@@ -165,10 +169,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               ? "bg-[#5B8CFF] text-white shadow-sm"
               : "text-[#5B6472] hover:bg-[#F0F4FF] hover:text-[#5B8CFF]"
           }`}
+          onClick={(e) => { e.preventDefault(); navigate(elHref); }}
         >
           <FlagGR />
           <span>EL</span>
-        </button>
+        </a>
       </div>
     );
   };
@@ -366,6 +371,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <p className="text-xs text-[#64748B]">
               {isGreek ? "Σχεδιασμένο στην Ευρώπη, παραδίδεται παγκοσμίως." : "Crafted in Europe, delivered worldwide."}
             </p>
+            {/* Crawlable language link in footer (Task 3) */}
+            <a
+              href={isGreek ? getAltLangHref("en") : getAltLangHref("el")}
+              onClick={(e) => { e.preventDefault(); navigate(isGreek ? getAltLangHref("en") : getAltLangHref("el")); }}
+              className="text-xs text-[#64748B] hover:text-white transition-colors underline underline-offset-2"
+              lang={isGreek ? "en" : "el"}
+            >
+              {isGreek ? "View in English" : "Δείτε στα Ελληνικά"}
+            </a>
           </div>
         </div>
       </footer>

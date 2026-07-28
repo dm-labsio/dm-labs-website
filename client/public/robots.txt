@@ -1,6 +1,8 @@
 User-agent: *
 Disallow: /cdn-cgi/
-Disallow: /previews/
 Allow: /
+
+# Preview pages are excluded from indexing via noindex meta tags on each file.
+# Keeping /previews/ crawlable so Googlebot can confirm the noindex tags.
 
 Sitemap: https://dm-labs.io/sitemap.xml

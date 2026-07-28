@@ -1,7 +1,8 @@
 /* ============================================================
    DM-Labs.io - useSEO Hook
    Dynamically updates <title>, meta description, canonical URL,
-   og:url, og:title, og:description on every route change.
+   og:url, og:title, og:description, and hreflang link tags on
+   every route change.
    
    Usage (basic — auto-derives canonical from current path):
      useSEO({ title: "Pricing | DM-Labs.io", description: "..." })
@@ -58,6 +59,57 @@ function setCanonical(href: string) {
   el.href = href;
 }
 
+// ── Hreflang helpers ──────────────────────────────────────────────────────────
+// Maps every EN path to its EL counterpart. Paths not in this map use the
+// simple /el prefix convention (e.g. /pricing → /el/pricing).
+const SLUG_MAP_EN_TO_EL: Record<string, string> = {
+  "/": "/el",
+  "/blog/website-cost-cyprus-2026-guide": "/el/blog/posso-kostizei-istoselidha-kypros",
+  "/blog/web-design-nail-salon-beauty-studio-cyprus": "/el/blog/istoselidha-nail-salon-beauty-studio-kypros",
+  "/blog/yoga-pilates-studio-website-cyprus": "/el/blog/istoselidha-yoga-pilates-studio-kypros",
+  "/blog/how-to-get-found-on-google-cyprus": "/el/blog/pos-na-vretheite-google-kypros",
+  "/blog/restaurant-website-design-cyprus": "/el/blog/istoselidha-estiatorio-kypros",
+  "/blog/wix-vs-professional-web-designer-cyprus": "/el/blog/wix-vs-epaggelmatias-web-designer-kypros",
+  "/blog/web-design-greece-guide-2026": "/el/blog/web-design-ellada-odigos-2026",
+  "/blog/geo-ai-search-visibility-cyprus": "/el/blog/geo-vrethite-apo-chatgpt-kypros",
+};
+const SLUG_MAP_EL_TO_EN: Record<string, string> = Object.fromEntries(
+  Object.entries(SLUG_MAP_EN_TO_EL).map(([en, el]) => [el, en])
+);
+
+function deriveHreflangPair(path: string): { en: string; el: string } | null {
+  const isEl = path.startsWith("/el");
+
+  if (isEl) {
+    // EL → EN
+    const enPath = SLUG_MAP_EL_TO_EN[path] ?? (path === "/el" ? "/" : path.replace(/^\/el/, ""));
+    return { en: enPath, el: path };
+  } else {
+    // EN → EL
+    const elPath = SLUG_MAP_EN_TO_EL[path] ?? (path === "/" ? "/el" : "/el" + path);
+    return { en: path, el: elPath };
+  }
+}
+
+function setHreflangTags(enPath: string, elPath: string) {
+  // Remove any existing hreflang tags first
+  document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
+
+  const tags = [
+    { hreflang: "en", href: `${BASE_URL}${enPath}` },
+    { hreflang: "el", href: `${BASE_URL}${elPath}` },
+    { hreflang: "x-default", href: `${BASE_URL}${enPath}` },
+  ];
+
+  tags.forEach(({ hreflang, href }) => {
+    const el = document.createElement("link");
+    el.setAttribute("rel", "alternate");
+    el.setAttribute("hreflang", hreflang);
+    el.setAttribute("href", href);
+    document.head.appendChild(el);
+  });
+}
+
 export function useSEO(options: SEOOptions = {}) {
   const [location] = useLocation();
 
@@ -100,6 +152,12 @@ export function useSEO(options: SEOOptions = {}) {
     setOgTag("twitter:title", title);
     setOgTag("twitter:description", description);
     setOgTag("twitter:image", ogImage);
+
+    // Inject hreflang link tags (Task 3)
+    const pair = deriveHreflangPair(cleanPath);
+    if (pair) {
+      setHreflangTags(pair.en, pair.el);
+    }
   }, [location, options.title, options.description, options.ogImage, options.ogType, options.canonicalPath]);
 }
 

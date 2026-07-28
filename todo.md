@@ -147,3 +147,21 @@
 - [x] Update package.json build script: replace prerender-meta.mjs call with prerender-full.mjs
 - [x] Verify every route's raw HTML (curl --no-js) contains full article body and all internal links before JS runs — confirmed: restaurant blog has 11,470 words, all location links present, no data-seo-fallback block
 - [ ] Add as hard requirement to site redesign brief: every route's raw HTML must contain full real content (not a fallback snippet) before JavaScript runs
+
+## Technical SEO Fixes — GSC Issues (Jul 28 2026)
+
+- [ ] Task 1: Fix catch-all to return HTTP 404 for unknown paths (not 200 with homepage)
+- [ ] Task 1: Add noindex meta tag to NotFound page
+- [ ] Task 2: Add 301 redirects for 6 Greek slugs on English paths
+- [ ] Task 2: Add 301 for /blog/website-yoga-pilates-studio-cyprus → /blog/yoga-pilates-studio-website-cyprus
+- [ ] Task 2: Add 301 for /$ → /
+- [ ] Task 3: Replace language switcher buttons with real <a href> elements
+- [ ] Task 3: Deduplicate language switcher (CSS hide one, not two interactive controls)
+- [ ] Task 3: Add hreflang link tags to useSEO hook (injected into <head> on every page)
+- [ ] Task 3: Add visible language link in footer (EN pages show Greek link, EL pages show English link)
+- [ ] Task 4: Add server-level 301 trailing-slash redirect (/path/ → /path)
+- [ ] Task 5: Add canonical tag to Templates page for query-string variants
+- [ ] Task 6: Add missing pages to sitemap (/services/*, /privacy, /terms, /cookies + EL equivalents)
+- [ ] Task 6: Remove /el/blog/istoselidha-nail-salon-beauty-studio-kypros from sitemap if it redirects
+- [ ] Task 7: Remove Disallow: /previews/ from robots.txt
+- [ ] Task 7: Add <meta name="robots" content="noindex, nofollow"> to all /previews/*.html files
