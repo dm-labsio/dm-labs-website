@@ -56,6 +56,7 @@ const EN_BLOG_SLUGS = [
   "wix-vs-professional-web-designer-cyprus",
   "web-design-greece-guide-2026",
   "geo-get-found-by-chatgpt-cyprus",
+  "google-search-console-ai-seo-prompts",
 ];
 
 const EL_BLOG_SLUGS = [

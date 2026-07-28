@@ -183,13 +183,20 @@ const EN_STATIC_ROUTES = [
     description: "Terms of service for DM-Labs.io web design services.",
     elPath: "/el/terms",
   },
-  // English blog posts
+  // English blog posts (bilingual — have a Greek counterpart)
   ...BLOG_POSTS.map((post) => ({
     path: `/blog/${post.slug}`,
     title: post.title,
     description: post.description,
     elPath: `/el/blog/${post.elSlug}`,
   })),
+  // English-only blog posts (no Greek counterpart — self-referencing hreflang)
+  {
+    path: "/blog/google-search-console-ai-seo-prompts",
+    title: "7 AI Prompts for Google Search Console SEO",
+    description: "Turn Google Search Console data into SEO actions with seven copy-ready AI prompts for quick wins, content gaps, CTR, decay and planning.",
+    // No elPath — this post is English-only; hreflang will self-reference
+  },
 ];
 
 // ─── Greek Static Routes ──────────────────────────────────────────────────────

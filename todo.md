@@ -189,3 +189,17 @@
 - [x] Fix /el/cookies/ returning 404: added to prerender-full.mjs and prerender-meta.mjs routes
 - [x] Fix hreflang trailing slashes: useSEO now applies addTrailingSlash() to both en and el paths before injecting hreflang tags
 - [x] Fix 404 raw HTML metadata: serveStatic now patches root index.html inline for unknown paths — injects noindex,nofollow, sets "Page Not Found | DM-Labs.io" title, removes canonical tag
+
+## New Blog Post - GSC AI Prompts (Jul 28 2026)
+
+- [x] Add blog post "7 AI Prompts for Google Search Console SEO" (slug: google-search-console-ai-seo-prompts)
+- [x] Add two editorial insertions (DM-Labs.io origin note after "Below are seven prompts…"; About DM-Labs.io at end)
+- [x] Add visible byline "By DM-Labs.io" to BlogPost.tsx hero
+- [x] Add og:site_name "DM-Labs.io" to useSEO hook (applies to all pages)
+- [x] Article structured data already in BlogPost.tsx (publisher: DM-Labs.io)
+- [x] Canonical derived from route (no hardcoded canonicalPath) — self-references /blog/google-search-console-ai-seo-prompts/
+- [x] Add to prerender-full.mjs EN_BLOG_SLUGS
+- [x] Add to prerender-meta.mjs EN_STATIC_ROUTES (EN-only, no elPath)
+- [x] Add to sitemap.xml (EN-only entry, no el hreflang)
+- [x] Fix SLUG_MAP in useSEO: add null entry for EN-only post, update geo slug, handle self-referencing hreflang
+- [x] Fix stale SLUG_MAP entry: /blog/geo-ai-search-visibility-cyprus → /blog/geo-get-found-by-chatgpt-cyprus

@@ -15,6 +15,7 @@ export interface BlogPost {
   excerpt: string;
   coverImage: string;
   content: string; // HTML string
+  author?: string; // Optional visible byline, e.g. "DM-Labs.io"
 }
 
 export const POSTS: BlogPost[] = [
@@ -586,6 +587,517 @@ export const POSTS: BlogPost[] = [
   <h3>Find out if your business appears in AI search</h3>
   <p>We'll show you exactly what ChatGPT and Perplexity say about your business today — and what it would take to change it. Free, no commitment.</p>
   <a href="/contact" class="blog-cta-btn">Get a Free GEO Audit</a>
+</div>
+    `,
+  },
+
+  // ─── Article 9 ────────────────────────────────────────────────────────────
+  {
+    slug: "google-search-console-ai-seo-prompts",
+    title: "7 AI Prompts to Improve SEO with Google Search Console",
+    metaTitle: "7 AI Prompts for Google Search Console SEO",
+    metaDescription: "Turn Google Search Console data into SEO actions with seven copy-ready AI prompts for quick wins, content gaps, CTR, decay and planning.",
+    date: "2026-07-28",
+    readTime: "12 min read",
+    category: "SEO",
+    author: "DM-Labs.io",
+    excerpt: "Most website owners are sitting on a goldmine of search data and barely touching it. These seven AI prompts turn your Search Console data into a clear, actionable SEO plan.",
+    coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
+    content: `
+<p class="blog-lead">Most website owners are sitting on a goldmine of search data and barely touching it.</p>
+<p>Google Search Console can tell you which searches make your website appear, which pages Google chooses, your average position, how many impressions you receive, and how often people click.</p>
+<p>The problem is that this information arrives in large tables that are easy to look at and difficult to turn into a clear plan.</p>
+<p>If your usual Search Console routine is to open the Performance report, look at the graph, nod thoughtfully and close the tab, this guide is for you.</p>
+<p>Instead of manually working through hundreds or thousands of rows, you can give the data to an AI assistant and ask it to identify the opportunities, explain what they mean, and turn them into specific tasks.</p>
+<p>Below are seven prompts that cover much of the recurring analysis an SEO specialist performs, plus one essential connection test you should run before trusting any results.</p>
+
+<p class="blog-dm-note">I originally developed this workflow while analysing Search Console data for <a href="https://dm-labs.io/" class="blog-link">DM-Labs.io</a>, then refined it into the seven reusable prompts below so other website owners could apply the same process.</p>
+
+<h2>Who Is This Guide For?</h2>
+<p>This workflow is useful for:</p>
+<ul>
+  <li>Business owners managing their own websites</li>
+  <li>Freelancers and marketing teams</li>
+  <li>Content creators</li>
+  <li>Small agencies</li>
+  <li>Website owners already receiving impressions from Google but unsure what to do next</li>
+</ul>
+<p>You do not need to be an SEO expert. You do, however, need real Search Console data and an AI tool capable of analysing it.</p>
+
+<h2>What Does “Connecting Search Console to AI” Actually Mean?</h2>
+<p>There are three practical ways to give an AI assistant access to Search Console data.</p>
+
+<h3>Option 1: Export the Data Manually</h3>
+<p>This is the easiest and safest way to start.</p>
+<p>Open the Performance report in Google Search Console, choose your date range and filters, click <strong>Export</strong>, and download the data as a CSV, Excel file or Google Sheet. You can then upload that file to your AI assistant.</p>
+<p>This works well for one-off analysis and smaller websites. However, Google’s normal report export is limited to up to 1,000 representative table rows. The totals can include additional data that does not appear in the exported rows. <a href="https://support.google.com/webmasters/answer/12919797?hl=en" class="blog-link" rel="noopener noreferrer" target="_blank">Google explains the export limits here</a>.</p>
+<p>For a basic audit, export at least:</p>
+<ul>
+  <li>The Queries report</li>
+  <li>The Pages report</li>
+  <li>The date comparison summary</li>
+  <li>Query-and-page combinations, if your tool or setup supports them</li>
+</ul>
+<p>A Queries export by itself cannot always tell the AI which URL ranks for each query. For that, you need query-page data from the API or additional filtered exports.</p>
+
+<h3>Option 2: Use the Search Console API</h3>
+<p>The Search Console API can retrieve data grouped by multiple dimensions, including query and page. This makes deeper analysis—such as identifying the exact page ranking for each keyword—much easier.</p>
+<p>The API can return up to 25,000 rows per request and supports pagination. However, Google still warns that the API returns top rows rather than guaranteeing every possible data row. <a href="https://developers.google.com/webmaster-tools/v1/searchanalytics/query" class="blog-link" rel="noopener noreferrer" target="_blank">See the official Search Analytics API documentation</a>.</p>
+<p>If you use an API integration, grant read-only access whenever possible.</p>
+
+<h3>Option 3: Use a Specialist Connector or SEO Tool</h3>
+<p>Some SEO platforms and custom MCP integrations can retrieve Search Console data and make it available to an AI assistant.</p>
+<p>Do not assume that connecting your general Google account automatically gives the AI access to Search Console. For example, OpenAI’s documentation discusses connected Google apps such as Gmail, Calendar and Drive; Search Console access still requires an integration that specifically supports it. <a href="https://help.openai.com/en/articles/10408842-google-connector-for-chatgpt-data-controls-faq" class="blog-link" rel="noopener noreferrer" target="_blank">Read OpenAI’s Google app data controls</a>.</p>
+<p>Whatever method you choose, begin with the connection test below.</p>
+
+<h2>Prompt 0: Verify the Data Connection</h2>
+<p>Never begin an SEO analysis by simply telling an AI, “You are connected to my Search Console.”</p>
+<p>If no real connection exists, some models may still attempt to complete the task using invented numbers.</p>
+<p>Run this prompt first:</p>
+<pre class="blog-code"><code>You should have access to my Google Search Console data.
+
+Before performing any analysis, verify that the connection or uploaded dataset
+is working by showing me:
+
+1. The exact Search Console property or domain represented in the data.
+2. The exact start and end dates available.
+3. The selected search type, country and device filters, if any.
+4. Total clicks and impressions for the last 28 complete days.
+5. The single top query and single top page by clicks.
+6. The number of query rows and page rows available to you.
+
+Show the raw values before interpreting them.
+
+If you cannot retrieve these values from a real connected source or uploaded
+file, state clearly that you do not have access. Do not estimate, simulate or
+invent any numbers.</code></pre>
+<p>Compare the result with Search Console itself. If the domain, dates or totals do not match, stop and fix the connection before continuing.</p>
+<p>Remember that some differences can be caused by date settings, search type, country, device, anonymized queries or row limits. Search Console omits certain rare queries for privacy and does not expose every query row. <a href="https://support.google.com/webmasters/answer/96568?hl=en" class="blog-link" rel="noopener noreferrer" target="_blank">Google documents these limitations here</a>.</p>
+
+<h2>Prompt 1: Find Striking-Distance Keywords</h2>
+<p>“Striking-distance” queries are searches for which you are already ranking near the first few results—often near the bottom of page one or the top of page two.</p>
+<p>These can be attractive opportunities because Google already associates your page with the topic. Improving the existing result may require less effort than ranking a completely new page.</p>
+<p>Average position is not a promise that every user saw you in exactly that spot. It can vary by country, device, date and the appearance of the results page. Treat it as a signal, not a precise rank tracker.</p>
+<pre class="blog-code"><code>Act as an expert SEO strategist using my real Google Search Console data.
+
+1. DATA
+Retrieve search performance for the last 90 complete days, using Web search
+unless the dataset specifies otherwise.
+
+Group the data by BOTH query and page so that every row contains:
+- Query
+- Ranking URL
+- Clicks
+- Impressions
+- CTR
+- Average position
+
+If you cannot access query-page pairs, stop and tell me exactly what additional
+export or data access is required. Do not guess which page ranks.
+
+2. STRIKING-DISTANCE FILTER
+Find query-page pairs with:
+- Average position between 7.0 and 11.9
+- At least 50 impressions
+
+If fewer than three useful results remain, lower the threshold to 20 impressions
+and clearly label the results as low-sample opportunities.
+
+3. PRIORITIZATION
+Select the 3-5 opportunities with the strongest realistic upside.
+
+Prioritize:
+- Higher impressions
+- Clear commercial or high-value informational intent
+- A strong match between the query and the existing page
+- Pages that can be improved without creating a completely new asset
+
+4. ACTION PLAN
+For each opportunity provide:
+- Exact query
+- Exact ranking URL
+- Clicks, impressions, CTR and average position
+- Search intent
+- Why the opportunity is valuable
+- Recommended title tag
+- Recommended meta description
+- Recommended H1 or H2 changes
+- Missing sections, examples, proof, media or FAQs
+- Existing internal pages that should link to it
+- Exact suggested anchor text
+
+Only compare the page with current competitors if you have live web access.
+If you cannot inspect the present search results, say so instead of inventing
+competitor content.
+
+Present the recommendations in a table, ordered by the easiest high-impact win.</code></pre>
+<p>This prompt combines ranking proximity with impression volume and intent. It also prevents the AI from inventing a ranking URL or pretending to have inspected competitors when it has not.</p>
+
+<h2>Prompt 2: Get a 60-Second SEO Health Report</h2>
+<p>A single 28-day total does not tell you whether your SEO is improving. Comparing it with the previous 28 days gives you direction.</p>
+<pre class="blog-code"><code>Act as an SEO analyst using my real Google Search Console data.
+
+Compare the last 28 complete days with the previous 28 complete days. Use the
+same property, search type, country and device settings for both periods.
+
+Give me a brief, non-technical executive summary containing:
+
+1. HEALTH METRICS
+Show current period, previous period and percentage change for:
+- Total clicks
+- Total impressions
+- Average CTR
+- Average position
+
+If a previous value is zero, label the result as "new" instead of calculating a
+misleading percentage.
+
+2. WHAT IS WORKING
+Show:
+- Top 3 pages by clicks
+- Top 3 non-branded queries by clicks
+- The main topics, formats or search intents they appear to share
+
+Label any explanation about why they perform well as a hypothesis unless the
+data directly proves it.
+
+3. WHAT NEEDS ATTENTION
+Find pages with meaningful impressions and unusually low CTR.
+
+Compare their CTR with other pages in a similar average-position range. Do not
+compare a position-30 page directly with a position-3 page.
+
+For each page, show:
+- URL
+- Clicks
+- Impressions
+- CTR
+- Average position
+- One likely reason it is underperforming
+- One recommended next check or change
+
+4. ONE-SENTENCE SUMMARY
+Finish with one sentence explaining whether performance is trending up, flat or
+down, followed by the single most important action for the next 30 days.
+
+Keep the entire report concise and understandable in under two minutes.</code></pre>
+<p>Low CTR can indicate a weak title, an unhelpful snippet, poor intent alignment, a low position or a results page dominated by ads and special features. It is a clue, not an automatic diagnosis.</p>
+<p>Google may also generate snippets from the visible page content rather than always using your meta description. <a href="https://developers.google.com/search/docs/appearance/snippet" class="blog-link" rel="noopener noreferrer" target="_blank">Google explains how search snippets are created here</a>.</p>
+
+<h2>Prompt 3: Find Questions and Content Gaps</h2>
+<p>Search Console can reveal the questions people already associate with your website.</p>
+<p>Some are explicit questions such as “how much does a website cost?” Others are implicit questions such as “website price Cyprus,” “Wix vs WordPress,” or “best website builder for restaurants.”</p>
+<pre class="blog-code"><code>Act as an SEO content strategist using my real Google Search Console query data
+for the last 90 complete days.
+
+1. FIND QUESTIONS
+Identify explicit question queries containing terms such as:
+- how, what, why, when, where, who and which
+- can, should, does, do, is and are
+- price, cost, comparison, versus, best and near me
+
+Also include relevant question terms in any other languages present in the data.
+
+Identify implicit questions such as:
+- "price of X"
+- "X vs Y"
+- "best X for Y"
+- "X near me"
+- "X requirements"
+- "X benefits"
+
+Avoid matching short words inside unrelated words.
+
+2. GROUP BY TOPIC
+Group similar questions into clear topic clusters. Combine minor wording
+variations rather than treating every variation as a separate idea.
+
+3. PRIORITIZE
+Select the 5-7 questions with the greatest realistic value based on:
+- Impressions
+- Current position
+- Business relevance
+- Search intent
+- Whether a suitable page already exists
+
+4. RECOMMEND CONTENT
+For each question provide:
+- Original Search Console query
+- Impressions, clicks, CTR and average position
+- A natural question suitable for an H2 or H3 heading
+- A direct 40-60 word answer draft
+- The exact existing URL that should contain the answer, or "NEW ARTICLE"
+- A proposed URL if a new article is needed
+- The next action: add FAQ, expand section, update article or create page
+
+5. FLAG GAPS
+Clearly flag queries that already generate impressions but have no genuinely
+relevant page. These are the highest-priority content gaps.
+
+Do not invent search volume outside the supplied Search Console data.</code></pre>
+<p>Concise question-and-answer sections are still useful for visitors and topical coverage. However, do not add FAQs because you expect an FAQ rich result: Google dramatically restricted FAQ rich results in 2023, and its current Search appearance documentation no longer lists FAQ as a generally supported feature. <a href="https://developers.google.com/search/blog/2023/08/howto-faq-changes" class="blog-link" rel="noopener noreferrer" target="_blank">Google’s FAQ and How-to update</a>.</p>
+<p>Write FAQs because they answer real customer questions—not because a plugin promises a special Google result.</p>
+
+<h2>Prompt 4: Create a Weekly SEO Progress Report</h2>
+<p>A weekly report keeps SEO from becoming something you check once every few months.</p>
+<p>For smaller websites, seven-day periods can be noisy. Compare the same days of the week and avoid making major decisions from one small fluctuation.</p>
+<pre class="blog-code"><code>Act as my ongoing SEO monitor using my real Google Search Console data.
+
+Compare the last 7 complete days with the previous 7 complete days using the same
+property, search type, country and device settings.
+
+Produce a concise report containing:
+
+WINS
+- Queries and pages with the largest meaningful gains in clicks, impressions or
+  average position
+- Show before -&gt; after values
+- Ignore changes based on negligible impression volume
+
+LOSSES
+- Queries and pages with the largest meaningful declines
+- Show before -&gt; after values
+- Classify the possible cause as a HYPOTHESIS: seasonality, demand change, ranking
+  change, technical problem, content change or normal noise
+- Give a confidence level of Low, Medium or High
+- Do not claim a Google algorithm update without supporting evidence
+
+NEW OPPORTUNITIES
+- Queries appearing in the current disclosed dataset but not the previous one
+- Show their impressions and ranking pages
+- Describe them as "newly visible in this dataset," not necessarily brand-new
+  searches, because Search Console may omit low-volume queries
+
+QUICK ACTIONS
+Give me exactly two concrete SEO tasks I can complete today.
+
+For each task specify:
+- Exact page
+- Exact change
+- Why it matters
+- What metric I should monitor afterward
+
+Keep the report under 250 words and mark genuinely urgent issues with ⚠️.</code></pre>
+<p>For low-traffic websites, consider running the same prompt with 28-day periods. The report will be slower to react but much less vulnerable to random fluctuations.</p>
+
+<h2>Prompt 5: Detect Potential Keyword Cannibalization</h2>
+<p>Keyword cannibalization is often described as two pages “competing” for the same term.</p>
+<p>But two pages receiving impressions for the same query is not automatically a problem. A blog post and a service page can both rank for related terms without hurting each other. The issue arises when Google cannot decide which page to show and keeps switching between them, or when both pages are weak because neither is the clear authority.</p>
+<pre class="blog-code"><code>Act as an SEO analyst using my real Google Search Console data.
+
+Analyse query-page data for the last 90 complete days.
+
+If query-page data is not available, explain what additional export or API
+access is needed. Do not proceed with query-only data.
+
+1. IDENTIFY POTENTIAL CANNIBALIZATION
+Find queries where two or more different pages receive impressions.
+
+For each case show:
+- Query
+- All ranking pages with their clicks, impressions, CTR and average position
+- Which page appears to be the primary ranking URL (most clicks or best position)
+- Whether the secondary pages are significantly weaker or roughly equal
+
+2. CLASSIFY SEVERITY
+For each case, classify as:
+- HIGH: Google is clearly alternating between pages; both are weak; one page is
+  cannibalizing a stronger page
+- MEDIUM: Two pages rank for the same query but one is clearly dominant; the
+  secondary page has low impressions
+- LOW: Different pages rank for related but clearly distinct query variations;
+  no evidence of conflict
+
+3. RECOMMEND ACTIONS
+For HIGH and MEDIUM cases, recommend one of:
+- Consolidate: Merge the weaker page into the stronger one
+- Differentiate: Clearly separate the topics so each page serves a distinct intent
+- Redirect: 301 the weaker page to the stronger one if it adds no unique value
+- Add canonical: Point the secondary page to the primary if both must exist
+- Monitor: Watch for 30 days before acting if the situation is unclear
+
+For LOW cases, note them but do not recommend immediate action.
+
+Do not recommend consolidating pages that serve genuinely different intents.</code></pre>
+
+<h2>Prompt 6: Find Decaying Content</h2>
+<p>Pages that once performed well and are now declining deserve attention before they disappear from the first page entirely.</p>
+<p>Content decay is normal. It happens because competitors publish better content, because search intent shifts, because the information becomes outdated, or because Google’s understanding of the topic evolves.</p>
+<pre class="blog-code"><code>Act as an SEO content auditor using my real Google Search Console data.
+
+Compare the last 90 days with the previous 90 days.
+
+1. FIND DECAYING PAGES
+Identify pages with:
+- A meaningful decline in impressions or clicks
+- At least 100 impressions in the earlier period (to exclude noise)
+
+For each page show:
+- URL
+- Earlier period: clicks, impressions, CTR, average position
+- Recent period: clicks, impressions, CTR, average position
+- Percentage change for each metric
+
+2. CLASSIFY DECAY TYPE
+For each page, classify the most likely cause as:
+- RANKING DROP: Average position declined significantly
+- CTR DROP: Position is similar but CTR fell
+- DEMAND DROP: Impressions fell without a major position change
+- COMBINED: Multiple metrics declined together
+
+Label these as HYPOTHESES unless the data directly proves the cause.
+
+3. RECOMMEND ACTIONS
+For each decaying page, recommend one of:
+- REFRESH: Update the content, add new sections, improve the title and meta
+- CONSOLIDATE: Merge with a stronger related page
+- REDIRECT: If the page no longer serves a useful purpose
+- MONITOR: If the decline is small or recent and may be temporary
+- INVESTIGATE: If the cause is unclear and needs technical review
+
+For REFRESH recommendations, specify:
+- What sections are likely outdated or missing
+- Whether the title and meta description should be updated
+- Whether internal links to this page should be strengthened
+
+Do not recommend deleting pages without strong evidence they are genuinely
+harmful.</code></pre>
+
+<h2>Prompt 7: Build a 90-Day SEO Roadmap</h2>
+<p>The previous six prompts each focus on one type of analysis. This final prompt combines them into a prioritised action plan.</p>
+<p>Run it after you have completed at least two or three of the earlier prompts so the AI has context about your specific situation.</p>
+<pre class="blog-code"><code>Act as my SEO strategist using my real Google Search Console data and the
+analysis we have completed in this session.
+
+Build a prioritised 90-day SEO roadmap.
+
+1. REVIEW FINDINGS
+Summarise the key findings from our earlier analysis:
+- Top striking-distance opportunities
+- Most important content gaps
+- Pages with low CTR that could be improved
+- Decaying pages that need attention
+- Potential cannibalization issues
+- Any technical signals visible in the data
+
+2. PRIORITIZE ACTIONS
+For each recommended action, specify:
+- Page or query
+- Action type
+- Expected impact: High / Medium / Low
+- Effort required: High / Medium / Low
+- Recommended timing: Week 1-2, Week 3-6, Week 7-12
+
+Action types include:
+- Create a supporting article
+- Update an existing page
+- Improve title and snippet
+- Add a missing section
+- Consolidate overlapping pages
+- Improve internal links
+- Investigate indexing
+- Monitor without changing
+
+Group close keyword variations into one topic rather than recommending duplicate
+pages.
+
+Include 10-15 actions, ordered by expected impact relative to effort.
+
+Finish with:
+1. The three items I should begin this week
+2. Why each one takes priority
+3. The exact metric I should review after implementation
+4. Any recommendation that requires human judgment before execution
+
+Use only real numbers from the connected data. Do not invent traffic forecasts.</code></pre>
+
+<h2>How to Get Better Results From These Prompts</h2>
+
+<h3>Verify Every Important Number</h3>
+<p>AI can misunderstand columns, mix date ranges or work from incomplete exports.</p>
+<p>Before changing a page, confirm the query, URL, impressions and position in Search Console itself.</p>
+
+<h3>Give the AI Business Context</h3>
+<p>Add a short description before each prompt:</p>
+<pre class="blog-code"><code>Business context: I run a web design agency serving small businesses in Cyprus.
+My main services are website design, development and SEO foundations. Leads and
+consultation requests matter more than informational traffic with no buying
+intent.</code></pre>
+<p>Without this context, an AI may prioritize the largest number rather than the most valuable opportunity.</p>
+
+<h3>Keep the Filters Consistent</h3>
+<p>Make sure both comparison periods use the same:</p>
+<ul>
+  <li>Search Console property</li>
+  <li>Search type</li>
+  <li>Country</li>
+  <li>Device</li>
+  <li>Date completeness</li>
+  <li>Brand filters</li>
+</ul>
+<p>A comparison is unreliable when one period includes Image traffic and the other only includes Web search.</p>
+
+<h3>Compare CTR Within Similar Position Ranges</h3>
+<p>A page in position 3 should normally receive a different CTR from a page in position 30.</p>
+<p>Do not identify CTR problems by comparing every page with one site-wide average. Compare pages and queries in similar position bands.</p>
+
+<h3>Do Not Change Everything at Once</h3>
+<p>If you rewrite the title, replace half the content, change the URL and add several internal links on the same day, you will not know which change helped.</p>
+<p>Make focused changes, note the date, and review the result after Google has had time to recrawl and collect enough new data.</p>
+
+<h3>Treat AI Explanations as Hypotheses</h3>
+<p>Search Console shows what changed. It does not always explain why.</p>
+<p>If an AI claims the decline was caused by seasonality, a competitor or a Google update, ask what evidence supports that conclusion.</p>
+
+<h3>Use Read-Only Access</h3>
+<p>If you use an API, connector or third-party SEO service, prefer read-only Search Console permissions. Review the provider, understand what it stores, and remove access when you no longer need it.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How do I connect Google Search Console to an AI assistant?</h3>
+<p>The simplest method is to export the Performance reports as CSV or Excel files and upload them. For repeat analysis, use a reputable tool or custom integration built with the Search Console API. A general Google account connection does not necessarily include Search Console, so always verify the exact source and permissions.</p>
+
+<h3>Can I use these prompts without a connector?</h3>
+<p>Yes. Uploading CSV files works well, especially for small websites and occasional audits. The main limitation is that a standard export contains no more than 1,000 representative table rows. You may also need separate Queries, Pages and comparison exports. More advanced prompts require query-page combinations that may be easier to retrieve through the API.</p>
+
+<h3>Which Search Console reports should I export?</h3>
+<p>Start with: Queries for the last 90 days, Pages for the last 90 days, Queries for the previous comparison period, Pages for the previous comparison period, and a query-page dataset if your integration supports it. Make sure clicks, impressions, CTR and average position are included.</p>
+
+<h3>How do I know whether the AI sees real data?</h3>
+<p>Run Prompt 0. Ask for the exact property, date range, total clicks, total impressions, top query and top page. Compare those values with Search Console. If the assistant cannot show the source values or the numbers do not match, do not trust the analysis.</p>
+
+<h3>Why do the AI totals sometimes differ from Search Console?</h3>
+<p>Common causes include different date ranges, incomplete current-day data, different search types, country or device filters, property-level versus page-level aggregation, export row limits, anonymized queries, and data truncation. A mismatch does not automatically mean the AI invented the data, but it does need to be explained before you proceed.</p>
+
+<h3>How much data do I need?</h3>
+<p>For a new or low-traffic website, use at least 90 days for opportunity analysis. Seven-day comparisons may contain too much noise. For a more established website, 28-day comparisons work well for monthly monitoring, while 90-day comparisons are better for content decay and planning.</p>
+
+<h3>How often should I run these prompts?</h3>
+<p>A practical schedule: weekly monitor weekly for active sites (monthly for low-volume sites), executive summary monthly, striking distance monthly, questions and content gaps monthly or quarterly, cannibalization review quarterly, content decay quarterly, 90-day roadmap once per quarter. Consistency matters more than running every prompt frequently.</p>
+
+<h3>Are question sections still useful if Google no longer shows normal FAQ rich results?</h3>
+<p>Yes. Questions can improve clarity, answer objections, cover related subtopics and make a page more useful. What you should not do is add large generic FAQ sections purely to manipulate rankings or because an SEO plugin shows a green checkmark.</p>
+
+<h3>Can I automate the weekly report?</h3>
+<p>Yes, but automation requires a system that can retrieve Search Console data on a schedule, store or compare previous results, and deliver the report. Test the process manually first. Automating a flawed prompt only produces flawed reports more efficiently.</p>
+
+<h3>Is it safe to give an AI access to Search Console?</h3>
+<p>It can be, provided you use a reputable service, grant only the required read permissions, understand how the provider stores data, and have authorization to share the property’s information. For client websites, do not upload or connect data without the client’s permission.</p>
+
+<h3>Should I implement every AI recommendation?</h3>
+<p>No. The AI is useful for finding patterns, organizing work and drafting changes. A person should still verify search intent, brand voice, business relevance, technical feasibility and whether the recommendation could damage an already successful page.</p>
+
+<h3>Does this replace a human SEO analyst?</h3>
+<p>It can automate a large portion of routine data triage, but it does not replace strategic judgment. AI is particularly useful for finding opportunities, comparing periods, grouping queries, creating first-draft recommendations, and producing recurring reports. It is less reliable for diagnosing complex technical problems, understanding an entire business strategy, evaluating brand positioning, acquiring quality backlinks, or deciding which trade-offs are worth making. Think of it as an analyst’s assistant: excellent at sorting the evidence, but not the final decision-maker.</p>
+
+<h2>Final Thought</h2>
+<p>Google Search Console does not suffer from a lack of data. Most website owners suffer from a lack of a repeatable process for using it.</p>
+<p>These prompts give you that process.</p>
+<p>Start with the connection test. Find one genuine opportunity. Make one focused improvement. Record the date. Then return to the data and see what changed.</p>
+<p>That is how Search Console stops being a graph you occasionally check and becomes a practical system for growing your website.</p>
+
+<div class="blog-dm-note">
+  <strong>About DM-Labs.io:</strong> This guide was created by <a href="https://dm-labs.io/" class="blog-link">DM-Labs.io</a>, a web design agency helping businesses turn better websites, practical SEO and real search data into measurable growth.
 </div>
     `,
   },

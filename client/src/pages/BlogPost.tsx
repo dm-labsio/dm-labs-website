@@ -109,6 +109,11 @@ export default function BlogPost() {
                 <div className="flex flex-wrap items-center gap-4 text-sm text-white/80">
                   <span className="flex items-center gap-1.5"><Calendar size={13} />{formatDate(post.date)}</span>
                   <span className="flex items-center gap-1.5"><Clock size={13} />{post.readTime}</span>
+                  {post.author && (
+                    <span className="flex items-center gap-1.5 font-medium text-white/90">
+                      By {post.author}
+                    </span>
+                  )}
                 </div>
               </AnimateIn>
             </div>

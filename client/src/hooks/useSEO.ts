@@ -62,7 +62,7 @@ function setCanonical(href: string) {
 // ── Hreflang helpers ──────────────────────────────────────────────────────────
 // Maps every EN path to its EL counterpart. Paths not in this map use the
 // simple /el prefix convention (e.g. /pricing → /el/pricing).
-const SLUG_MAP_EN_TO_EL: Record<string, string> = {
+const SLUG_MAP_EN_TO_EL: Record<string, string | null> = {
   "/": "/el",
   "/blog/website-cost-cyprus-2026-guide": "/el/blog/posso-kostizei-istoselidha-kypros",
   "/blog/web-design-nail-salon-beauty-studio-cyprus": "/el/blog/istoselidha-nail-salon-beauty-studio-kypros",
@@ -71,10 +71,14 @@ const SLUG_MAP_EN_TO_EL: Record<string, string> = {
   "/blog/restaurant-website-design-cyprus": "/el/blog/istoselidha-estiatorio-kypros",
   "/blog/wix-vs-professional-web-designer-cyprus": "/el/blog/wix-vs-epaggelmatias-web-designer-kypros",
   "/blog/web-design-greece-guide-2026": "/el/blog/web-design-ellada-odigos-2026",
-  "/blog/geo-ai-search-visibility-cyprus": "/el/blog/geo-vrethite-apo-chatgpt-kypros",
+  "/blog/geo-get-found-by-chatgpt-cyprus": "/el/blog/geo-vrethite-apo-chatgpt-kypros",
+  // English-only posts (null = no EL counterpart, hreflang will self-reference)
+  "/blog/google-search-console-ai-seo-prompts": null,
 };
 const SLUG_MAP_EL_TO_EN: Record<string, string> = Object.fromEntries(
-  Object.entries(SLUG_MAP_EN_TO_EL).map(([en, el]) => [el, en])
+  Object.entries(SLUG_MAP_EN_TO_EL)
+    .filter(([, el]) => el !== null)
+    .map(([en, el]) => [el as string, en])
 );
 
 function deriveHreflangPair(path: string): { en: string; el: string } | null {
@@ -85,9 +89,13 @@ function deriveHreflangPair(path: string): { en: string; el: string } | null {
     const enPath = SLUG_MAP_EL_TO_EN[path] ?? (path === "/el" ? "/" : path.replace(/^\/el/, ""));
     return { en: enPath, el: path };
   } else {
-    // EN → EL
+    // EN → EL: check if this is an EN-only post (null in map)
+    if (path in SLUG_MAP_EN_TO_EL && SLUG_MAP_EN_TO_EL[path] === null) {
+      // EN-only: emit only hreflang="en" and hreflang="x-default" (self-referencing)
+      return null;
+    }
     const elPath = SLUG_MAP_EN_TO_EL[path] ?? (path === "/" ? "/el" : "/el" + path);
-    return { en: path, el: elPath };
+    return { en: path, el: elPath as string };
   }
 }
 
@@ -153,18 +161,30 @@ export function useSEO(options: SEOOptions = {}) {
     setOgTag("og:url", canonicalUrl);
     setOgTag("og:image", ogImage);
     setOgTag("og:type", ogType);
+    setOgTag("og:site_name", "DM-Labs.io");
 
     // Update Twitter tags
     setOgTag("twitter:title", title);
     setOgTag("twitter:description", description);
     setOgTag("twitter:image", ogImage);
 
-    // Inject hreflang link tags (Task 3)
+    // Inject hreflang link tags
     // Apply same trailing-slash rule as canonical: all paths except root get a trailing slash.
     const addTrailingSlash = (p: string) => p === "/" ? p : (p.endsWith("/") ? p : p + "/");
     const pair = deriveHreflangPair(cleanPath);
     if (pair) {
       setHreflangTags(addTrailingSlash(pair.en), addTrailingSlash(pair.el));
+    } else if (cleanPath in SLUG_MAP_EN_TO_EL && SLUG_MAP_EN_TO_EL[cleanPath] === null) {
+      // EN-only post: emit self-referencing hreflang (en + x-default only, no el)
+      const selfUrl = `${BASE_URL}${addTrailingSlash(cleanPath)}`;
+      document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
+      ["en", "x-default"].forEach(lang => {
+        const el = document.createElement("link");
+        el.setAttribute("rel", "alternate");
+        el.setAttribute("hreflang", lang);
+        el.setAttribute("href", selfUrl);
+        document.head.appendChild(el);
+      });
     }
   }, [location, options.title, options.description, options.ogImage, options.ogType, options.canonicalPath]);
 }
