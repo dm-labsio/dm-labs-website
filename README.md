@@ -1,8 +1,8 @@
-# D&M Labs — Agency Website
+# DM-Labs.io — Agency Website
 
 > **Live site:** [dm-labs.io](https://dm-labs.io)
 
-The production codebase for the D&M Labs agency website. D&M Labs designs and builds professional, fast, and conversion-focused websites for businesses across Cyprus, Greece, Israel, and the UK — starting from €299.
+The production codebase for the DM-Labs.io agency website. D&M Labs designs and builds professional, fast, and conversion-focused websites for businesses across Cyprus, Greece, Israel, and the UK — starting from €299.
 
 This repository serves as a public showcase of the quality and technical approach we bring to every client project.
 
@@ -67,12 +67,12 @@ Requires Node.js 18+ and pnpm.
 
 ---
 
-## About D&M Labs
+## About DM-Labs.io
 
-D&M Labs is a web design studio founded by Anastacia and Tom. We build websites that look great, load fast, and convert visitors into customers. Every project is delivered in 5–14 business days with full mobile optimisation and SEO foundations built in from day one.
+DM-Labs.io is a web design studio founded by Anastacia and Tom. We build websites that look great, load fast, and convert visitors into customers. Every project is delivered in 5–14 business days with full mobile optimisation and SEO foundations built in from day one.
 
 [Get in touch](https://dm-labs.io/contact) · [See our work](https://dm-labs.io/examples) · [View pricing](https://dm-labs.io/pricing)
 
 ---
 
-<sub>© D&M Labs · dm-labs.io</sub>
+<sub>© DM-Labs.io · dm-labs.io</sub>
