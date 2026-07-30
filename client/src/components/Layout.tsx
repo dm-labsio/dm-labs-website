@@ -10,6 +10,7 @@ import { Menu, X, Phone, Mail, MapPin, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 import NeonCursorTrail from "@/components/NeonCursorTrail";
+import dmLabsLogo from "@/assets/dmLabsLogo";
 
 
 const BrandMark = ({ dark = false }: { dark?: boolean }) => (
@@ -19,6 +20,14 @@ const BrandMark = ({ dark = false }: { dark?: boolean }) => (
   >
     <span className="brand-gradient-text">DM</span><span>-Labs.io</span>
   </span>
+);
+
+const HeaderBrandMark = () => (
+  <img
+    src={dmLabsLogo}
+    alt="DM-Labs.io"
+    className="block h-7 w-auto max-w-[7.75rem] object-contain sm:h-8 sm:max-w-[9rem]"
+  />
 );
 
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
@@ -191,7 +200,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container flex items-center justify-between" style={{ height: "72px" }}>
           {/* Logo */}
           <Link href={isGreek ? "/el" : "/"} className="flex items-center gap-2 shrink-0">
-            <BrandMark />
+            <HeaderBrandMark />
           </Link>
 
           {/* Desktop Nav */}
