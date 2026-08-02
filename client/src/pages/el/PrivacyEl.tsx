@@ -3,7 +3,6 @@ import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 import { ChevronLeft } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
 
 export default function PrivacyEl() {
   useSEO({
@@ -11,13 +10,12 @@ export default function PrivacyEl() {
     description: "Πολιτική απορρήτου της DM-Labs.io. Πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τα προσωπικά σας δεδομένα σύμφωνα με τον GDPR.",
     canonicalPath: "/el/privacy"
   });
-  useHreflang();
 
   return (
     <>
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
-          <Link href="/el" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
+          <Link href="/el/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
             <ChevronLeft size={16} />
             Επιστροφή στην Αρχική
           </Link>
@@ -112,7 +110,7 @@ export default function PrivacyEl() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">8. Cookies</h2>
-                <p>Χρησιμοποιούμε απαραίτητα cookies για τη λειτουργία της ιστοσελίδας και cookies ανάλυσης (με τη συγκατάθεσή σας) για να κατανοήσουμε πώς οι επισκέπτες χρησιμοποιούν την ιστοσελίδα μας. Για πλήρεις λεπτομέρειες, δείτε την <Link href="/el/cookies" className="text-[#5B8CFF] hover:underline">Πολιτική Cookies</Link>.</p>
+                <p>Χρησιμοποιούμε απαραίτητα cookies για τη λειτουργία της ιστοσελίδας και cookies ανάλυσης (με τη συγκατάθεσή σας) για να κατανοήσουμε πώς οι επισκέπτες χρησιμοποιούν την ιστοσελίδα μας. Για πλήρεις λεπτομέρειες, δείτε την <Link href="/el/cookies/" className="text-[#5B8CFF] hover:underline">Πολιτική Cookies</Link>.</p>
               </div>
 
               <div>
@@ -137,8 +135,8 @@ export default function PrivacyEl() {
 
             </div>
             <div className="mt-10 pt-8 border-t border-[#E2E5EA] flex gap-4">
-              <Link href="/el/cookies" className="text-sm text-[#5B8CFF] hover:underline">Πολιτική Cookies</Link>
-              <Link href="/el/terms" className="text-sm text-[#5B8CFF] hover:underline">Όροι Χρήσης</Link>
+              <Link href="/el/cookies/" className="text-sm text-[#5B8CFF] hover:underline">Πολιτική Cookies</Link>
+              <Link href="/el/terms/" className="text-sm text-[#5B8CFF] hover:underline">Όροι Χρήσης</Link>
             </div>
           </AnimateIn>
         </div>

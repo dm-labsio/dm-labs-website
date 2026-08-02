@@ -105,12 +105,12 @@ export default function WebDesignThessalonikiEl() {
             (Αυτή η σελίδα είναι επίσης διαθέσιμη στα αγγλικά κατόπιν αιτήματος.)
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/el/contact">
+            <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Λάβετε Δωρεάν Προσφορά
               </button>
             </Link>
-            <Link href="/el/pricing">
+            <Link href="/el/pricing/">
               <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors bg-white">
                 Δείτε τις Τιμές
               </button>
@@ -148,7 +148,7 @@ export default function WebDesignThessalonikiEl() {
           </h2>
           <p className="text-[#5B6472] mb-10">
             Κάθε ιστοσελίδα που παραδίδουμε είναι φτιαγμένη για να αποδίδει - όχι απλώς για να φαίνεται ωραία.{" "}
-            <Link href="/el/services" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+            <Link href="/el/services/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               Δείτε όλες τις υπηρεσίες μας
             </Link>
             .
@@ -189,7 +189,7 @@ export default function WebDesignThessalonikiEl() {
           </h2>
           <p className="text-[#5B6472] mb-10">
             Χωρίς κρυφές χρεώσεις. Χωρίς ωριαία χρέωση. Μία σταθερή τιμή, με όλα να περιλαμβάνονται.{" "}
-            <Link href="/el/pricing" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+            <Link href="/el/pricing/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               Δείτε την πλήρη ανάλυση τιμών
             </Link>
             .
@@ -324,7 +324,7 @@ export default function WebDesignThessalonikiEl() {
             Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. Μπορείτε επίσης να επικοινωνήσετε μαζί μας απευθείας στο WhatsApp - απαντάμε γρήγορα.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/el/contact">
+            <Link href="/el/contact/">
               <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
                 Επικοινωνήστε μαζί μας
               </button>

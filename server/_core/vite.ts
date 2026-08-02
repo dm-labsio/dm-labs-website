@@ -93,21 +93,21 @@ const DYNAMIC_PATTERNS = [
 // ─── Permanent 301 redirects ──────────────────────────────────────────────────
 const REDIRECTS: Record<string, string> = {
   // Greek slugs incorrectly served on English paths
-  "/blog/geo-vrethite-apo-chatgpt-kypros": "/el/blog/geo-vrethite-apo-chatgpt-kypros",
-  "/blog/pos-na-vretheite-google-kypros": "/el/blog/pos-na-vretheite-google-kypros",
-  "/blog/istoselidha-nail-salon-beauty-studio-kypros": "/el/blog/istoselidha-nail-salon-beauty-studio-kypros",
-  "/blog/posso-kostizei-istoselidha-kypros": "/el/blog/posso-kostizei-istoselidha-kypros",
-  "/blog/web-design-ellada-odigos-2026": "/el/blog/web-design-ellada-odigos-2026",
-  "/blog/istoselidha-yoga-pilates-studio-kypros": "/el/blog/istoselidha-yoga-pilates-studio-kypros",
+  "/blog/geo-vrethite-apo-chatgpt-kypros": "/el/blog/geo-vrethite-apo-chatgpt-kypros/",
+  "/blog/pos-na-vretheite-google-kypros": "/el/blog/pos-na-vretheite-google-kypros/",
+  "/blog/istoselidha-nail-salon-beauty-studio-kypros": "/el/blog/istoselidha-nail-salon-beauty-studio-kypros/",
+  "/blog/posso-kostizei-istoselidha-kypros": "/el/blog/posso-kostizei-istoselidha-kypros/",
+  "/blog/web-design-ellada-odigos-2026": "/el/blog/web-design-ellada-odigos-2026/",
+  "/blog/istoselidha-yoga-pilates-studio-kypros": "/el/blog/istoselidha-yoga-pilates-studio-kypros/",
   // Slug drift
-  "/blog/local-seo-google-cyprus": "/blog/how-to-get-found-on-google-cyprus",
-  "/blog/website-yoga-pilates-studio-cyprus": "/blog/yoga-pilates-studio-website-cyprus",
+  "/blog/local-seo-google-cyprus": "/blog/how-to-get-found-on-google-cyprus/",
+  "/blog/website-yoga-pilates-studio-cyprus": "/blog/yoga-pilates-studio-website-cyprus/",
   // Legacy paths
-  "/examples": "/templates",
-  "/el/examples": "/el/templates",
+  "/examples": "/templates/",
+  "/el/examples": "/el/templates/",
   // Cookie policy consolidation: /cookie-policy → /cookies
-  "/cookie-policy": "/cookies",
-  "/el/cookie-policy": "/el/cookies",
+  "/cookie-policy": "/cookies/",
+  "/el/cookie-policy": "/el/cookies/",
   // Literal $ artefact
   "/$": "/",
 };

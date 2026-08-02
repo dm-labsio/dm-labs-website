@@ -1,6 +1,5 @@
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
 
 // Greek blog: website cost Cyprus — /el/blog/posso-kostizei-istoselidha-kypros
 // Primary keyword: "πόσο κοστίζει ιστοσελίδα Κύπρος"
@@ -11,14 +10,13 @@ export default function WebsiteCostEl() {
     description: "Η αλήθεια για τις τιμές κατασκευής ιστοσελίδας στην Κύπρο το 2026. Τι περιλαμβάνεται, τι δεν περιλαμβάνεται και πώς να επιλέξετε σωστά.",
     canonicalPath: "/el/blog/posso-kostizei-istoselidha-kypros"
   });
-  useHreflang();
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
 
         <div className="mb-8">
-          <Link href="/el/blog" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Άρθρα</Link>
+          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Άρθρα</Link>
         </div>
 
         <header className="mb-10">
@@ -119,12 +117,12 @@ export default function WebsiteCostEl() {
               Launch από €299, Growth €749, Pro €1.499. Εφάπαξ τιμές, χωρίς μηνιαίες χρεώσεις.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/el/pricing">
+              <Link href="/el/pricing/">
                 <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                   Δείτε τον Τιμοκατάλογο
                 </button>
               </Link>
-              <Link href="/el/contact">
+              <Link href="/el/contact/">
                 <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors">
                   Ζητήστε Πρόταση
                 </button>

@@ -98,12 +98,12 @@ export default function WebDesignLimassol() {
             Η DM-Labs.io είναι ένα εξειδικευμένο πρακτορείο web design που βοηθά τις επιχειρήσεις της Λεμεσού να αποκτήσουν μια ισχυρή online παρουσία. Δημιουργούμε γρήγορες, mobile-first και conversion-focused ιστοσελίδες - ξεκινώντας από €299 - ώστε η επιχείρησή σας να ξεχωρίζει σε μια από τις πιο ανταγωνιστικές αγορές της Κύπρου.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/el/contact">
+            <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Λάβετε Δωρεάν Προσφορά
               </button>
             </Link>
-            <Link href="/el/pricing">
+            <Link href="/el/pricing/">
               <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors">
                 Δείτε τις Τιμές
               </button>
@@ -138,7 +138,7 @@ export default function WebDesignLimassol() {
           </h2>
           <p className="text-[#5B6472] mb-10">
             Κάθε ιστοσελίδα που παραδίδουμε είναι φτιαγμένη για να αποδίδει - όχι απλώς για να φαίνεται ωραία.{" "}
-            <Link href="/el/services" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+            <Link href="/el/services/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               Δείτε όλες τις υπηρεσίες μας
             </Link>
             .
@@ -179,7 +179,7 @@ export default function WebDesignLimassol() {
           </h2>
           <p className="text-[#5B6472] mb-10">
             Χωρίς κρυφές χρεώσεις. Χωρίς ωριαία χρέωση. Μία σταθερή τιμή, όλα περιλαμβάνονται.{" "}
-            <Link href="/el/pricing" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+            <Link href="/el/pricing/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               Δείτε την πλήρη ανάλυση τιμών
             </Link>
             .
@@ -280,7 +280,7 @@ export default function WebDesignLimassol() {
           <p className="text-blue-100 text-lg mb-8 leading-relaxed">
             Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση.
           </p>
-          <Link href="/el/contact">
+          <Link href="/el/contact/">
             <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
               Επικοινωνήστε μαζί μας σήμερα
             </button>

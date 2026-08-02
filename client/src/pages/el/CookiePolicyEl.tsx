@@ -17,7 +17,7 @@ export default function CookiePolicyEl() {
     <>
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
-          <Link href="/el" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
+          <Link href="/el/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
             <ChevronLeft size={16} />
             Επιστροφή στην Αρχική
           </Link>
@@ -124,7 +124,7 @@ export default function CookiePolicyEl() {
                   <li>Αποσύρετε τη συγκατάθεσή σας ανά πάσα στιγμή</li>
                   <li>Ζητάτε τη διαγραφή δεδομένων που συλλέχθηκαν μέσω cookies</li>
                 </ul>
-                <p className="mt-3">Για περισσότερες πληροφορίες σχετικά με τα δικαιώματά σας για την προστασία δεδομένων, δείτε την <Link href="/el/privacy" className="text-[#5B8CFF] hover:underline">Πολιτική Απορρήτου</Link>.</p>
+                <p className="mt-3">Για περισσότερες πληροφορίες σχετικά με τα δικαιώματά σας για την προστασία δεδομένων, δείτε την <Link href="/el/privacy/" className="text-[#5B8CFF] hover:underline">Πολιτική Απορρήτου</Link>.</p>
               </div>
 
               <div>
@@ -139,8 +139,8 @@ export default function CookiePolicyEl() {
 
             </div>
             <div className="mt-10 pt-8 border-t border-[#E2E5EA] flex gap-4">
-              <Link href="/el/privacy" className="text-sm text-[#5B8CFF] hover:underline">Πολιτική Απορρήτου</Link>
-              <Link href="/el/terms" className="text-sm text-[#5B8CFF] hover:underline">Όροι Χρήσης</Link>
+              <Link href="/el/privacy/" className="text-sm text-[#5B8CFF] hover:underline">Πολιτική Απορρήτου</Link>
+              <Link href="/el/terms/" className="text-sm text-[#5B8CFF] hover:underline">Όροι Χρήσης</Link>
             </div>
           </AnimateIn>
         </div>

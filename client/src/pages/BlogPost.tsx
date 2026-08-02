@@ -29,7 +29,7 @@ export default function BlogPost() {
     ogImage: post ? post.coverImage : undefined,
     ogImageAlt: post?.imageAlt,
     ogType: "article",
-    canonicalPath: post ? `/blog/${post.slug}` : undefined,
+    canonicalPath: post ? `/blog/${post.slug}/` : undefined,
   });
 
   // Inject Article JSON-LD schema for Google rich results
@@ -61,7 +61,7 @@ export default function BlogPost() {
         },
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": `https://dm-labs.io/blog/${post.slug}`
+          "@id": `https://dm-labs.io/blog/${post.slug}/`
         }
       };
 
@@ -135,7 +135,7 @@ export default function BlogPost() {
         <div className="container">
           <div className="max-w-2xl mx-auto">
             {/* Back link */}
-            <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-10 font-medium">
+            <Link href="/blog/" className="inline-flex items-center gap-2 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-10 font-medium">
               <ArrowLeft size={15} /> Back to Blog
             </Link>
 
@@ -172,7 +172,7 @@ export default function BlogPost() {
 
             {/* Bottom back link */}
             <div className="mt-14 pt-8 border-t border-[#E2E5EA]">
-              <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors font-medium">
+              <Link href="/blog/" className="inline-flex items-center gap-2 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors font-medium">
                 <ArrowLeft size={15} /> More articles
               </Link>
             </div>
@@ -197,7 +197,7 @@ export default function BlogPost() {
                 <h2 className="text-lg font-bold text-[#111315] mb-6">Further Reading</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {shown.map((rel) => (
-                    <Link key={rel.slug} href={`/blog/${rel.slug}`}
+                    <Link key={rel.slug} href={`/blog/${rel.slug}/`}
                       className="group block bg-white rounded-2xl overflow-hidden border border-[#E8EAF0] hover:border-[#5B8CFF] transition-colors shadow-sm">
                       <div className="h-36 overflow-hidden">
                         <img src={rel.coverImage} alt={rel.title}

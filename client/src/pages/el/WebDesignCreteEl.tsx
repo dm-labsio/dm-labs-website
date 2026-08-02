@@ -162,12 +162,12 @@ export default function WebDesignCreteEl() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/el/contact">
+            <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Δωρεάν Συμβουλευτική
               </button>
             </Link>
-            <Link href="/el/pricing">
+            <Link href="/el/pricing/">
               <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors bg-white">
                 Δείτε τις Τιμές
               </button>
@@ -281,7 +281,7 @@ export default function WebDesignCreteEl() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/el/pricing">
+            <Link href="/el/pricing/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Δείτε τα Πακέτα & τις Τιμές
               </button>
@@ -332,12 +332,12 @@ export default function WebDesignCreteEl() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/el/contact">
+            <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Ζητήστε Δωρεάν Προσφορά
               </button>
             </Link>
-            <Link href="/el/examples">
+            <Link href="/el/templates/">
               <button className="px-8 py-3.5 rounded-xl border border-gray-300 text-[#111315] font-semibold text-base hover:bg-gray-50 transition-colors bg-white">
                 Δείτε τη Δουλειά μας
               </button>

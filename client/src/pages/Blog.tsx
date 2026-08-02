@@ -51,7 +51,7 @@ export default function Blog() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {POSTS.map((post, i) => (
                 <AnimateIn key={post.slug} delay={i * 0.08}>
-                  <Link href={`/blog/${post.slug}`} className="group block dm-card overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
+                  <Link href={`/blog/${post.slug}/`} className="group block dm-card overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
                     {/* Cover image */}
                     <div className="relative overflow-hidden" style={{ height: "200px" }}>
                       <img
@@ -100,7 +100,7 @@ export default function Blog() {
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">
               Stop reading and start growing. Get a free consultation and a clear quote within 24 hours.
             </p>
-            <Link href="/contact" className="btn-primary">
+            <Link href="/contact/" className="btn-primary">
               Get a Free Consultation <ArrowRight size={18} />
             </Link>
           </AnimateIn>

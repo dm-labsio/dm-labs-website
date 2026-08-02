@@ -1,6 +1,5 @@
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
 // Greek blog: Web design in Greece — /el/blog/web-design-ellada-odigos-2026
 // Primary keyword: "web design Ελλάδα", "κατασκευή ιστοσελίδας Ελλάδα"
 export default function WebDesignGreeceEl() {
@@ -9,12 +8,11 @@ export default function WebDesignGreeceEl() {
     description: "Όλα όσα χρειάζεται να ξέρει μια ελληνική επιχείρηση για την κατασκευή ιστοσελίδας το 2026 — κόστος, τι να ζητήσετε από έναν web designer, και πώς να βρεθείτε στη Google.",
     canonicalPath: "/el/blog/web-design-ellada-odigos-2026",
   });
-  useHreflang();
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
         <div className="mb-8">
-          <Link href="/el/blog" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στα Άρθρα</Link>
+          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στα Άρθρα</Link>
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
@@ -138,10 +136,10 @@ export default function WebDesignGreeceEl() {
               Είμαστε ένα γραφείο web design που συνεργάζεται με επιχειρήσεις σε όλη την Ελλάδα και την Κύπρο. Κατασκευάζουμε επαγγελματικές, γρήγορες, δίγλωσσες ιστοσελίδες που σχεδιάζονται για να βρίσκονται στη Google και να μετατρέπουν επισκέπτες σε πελάτες.
             </p>
             <p className="leading-relaxed mb-4">
-              Τα <Link href="/el/services" className="text-[#5B8CFF] hover:underline">πακέτα web design</Link> μας ξεκινούν από €299 για το Launch πακέτο (μονοσέλιδη ιστοσελίδα) και φτάνουν στα €1.499 για το Pro πακέτο (έως 7 σελίδες, custom σχεδιασμός, animations). Κάθε πακέτο περιλαμβάνει δωρεάν συμβουλευτική, mobile-first ανάπτυξη, on-page SEO και SSL. Χωρίς κρυφές χρεώσεις.
+              Τα <Link href="/el/services/" className="text-[#5B8CFF] hover:underline">πακέτα web design</Link> μας ξεκινούν από €299 για το Launch πακέτο (μονοσέλιδη ιστοσελίδα) και φτάνουν στα €1.499 για το Pro πακέτο (έως 7 σελίδες, custom σχεδιασμός, animations). Κάθε πακέτο περιλαμβάνει δωρεάν συμβουλευτική, mobile-first ανάπτυξη, on-page SEO και SSL. Χωρίς κρυφές χρεώσεις.
             </p>
             <p className="leading-relaxed">
-              Έχουμε συνεργαστεί με επιχειρήσεις στη <Link href="/el/web-design-thessaloniki" className="text-[#5B8CFF] hover:underline">Θεσσαλονίκη</Link>, στην Αθήνα και σε όλα τα ελληνικά νησιά, καθώς και στη <Link href="/el/web-design-limassol" className="text-[#5B8CFF] hover:underline">Λεμεσό</Link> και στη <Link href="/el/web-design-nicosia" className="text-[#5B8CFF] hover:underline">Λευκωσία</Link> στην Κύπρο.
+              Έχουμε συνεργαστεί με επιχειρήσεις στη <Link href="/el/web-design-thessaloniki/" className="text-[#5B8CFF] hover:underline">Θεσσαλονίκη</Link>, στην Αθήνα και σε όλα τα ελληνικά νησιά, καθώς και στη <Link href="/el/web-design-limassol/" className="text-[#5B8CFF] hover:underline">Λεμεσό</Link> και στη <Link href="/el/web-design-nicosia/" className="text-[#5B8CFF] hover:underline">Λευκωσία</Link> στην Κύπρο.
             </p>
           </section>
 
@@ -158,7 +156,7 @@ export default function WebDesignGreeceEl() {
           <div className="rounded-2xl bg-gradient-to-r from-[#5B8CFF]/10 to-[#8B5CFF]/10 border border-[#5B8CFF]/20 p-8 my-8">
             <h3 className="text-xl font-bold text-[#111315] mb-2">Έτοιμοι να χτίσετε μια ιστοσελίδα που δουλεύει για την ελληνική σας επιχείρηση;</h3>
             <p className="text-[#5B6472] mb-4">Κλείστε μια δωρεάν, χωρίς δέσμευση συμβουλευτική. Θα εξετάσουμε την τρέχουσα κατάστασή σας, θα σας πούμε ακριβώς τι συστήνουμε και θα σας δώσουμε σαφή τιμή — χωρίς πίεση.</p>
-            <Link href="/el/contact" className="inline-block bg-[#5B8CFF] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#4a7be8] transition-colors">
+            <Link href="/el/contact/" className="inline-block bg-[#5B8CFF] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#4a7be8] transition-colors">
               Δωρεάν Συμβουλευτική
             </Link>
           </div>
@@ -171,7 +169,7 @@ export default function WebDesignGreeceEl() {
         <div className="container max-w-3xl mx-auto px-4">
           <h2 className="text-lg font-bold text-[#111315] mb-6">Διαβάστε Επίσης</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Link href="/el/blog/posso-kostizei-istoselidha-kypros"
+            <Link href="/el/blog/posso-kostizei-istoselidha-kypros/"
               className="group block bg-white rounded-2xl overflow-hidden border border-[#E8EAF0] hover:border-[#5B8CFF] transition-colors shadow-sm">
               <div className="h-36 overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Κόστος ιστοσελίδας"
@@ -183,7 +181,7 @@ export default function WebDesignGreeceEl() {
                 <p className="mt-1 text-xs text-[#5B6472]">6 λεπτά</p>
               </div>
             </Link>
-            <Link href="/el/blog/geo-vrethite-apo-chatgpt-kypros"
+            <Link href="/el/blog/geo-vrethite-apo-chatgpt-kypros/"
               className="group block bg-white rounded-2xl overflow-hidden border border-[#E8EAF0] hover:border-[#5B8CFF] transition-colors shadow-sm">
               <div className="h-36 overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80" alt="GEO ChatGPT AI Αναζήτηση"

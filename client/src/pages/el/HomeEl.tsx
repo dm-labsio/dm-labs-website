@@ -218,11 +218,11 @@ export default function HomeElPage() {
 
             <AnimateIn variant="fade-up" delay={0.4}>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <Link href="/el/contact" className="btn-primary">
+                <Link href="/el/contact/" className="btn-primary">
                   Δωρεάν Συμβουλευτική
                   <ArrowRight size={18} />
                 </Link>
-                <Link href="/el/templates" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
+                <Link href="/el/templates/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
                   Δείτε Παραδείγματα
                   <ArrowRight size={18} />
                 </Link>
@@ -290,7 +290,7 @@ export default function HomeElPage() {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 items-stretch">
             {FEATURED_TEMPLATES.map((tpl) => (
               <StaggerItem key={tpl.id} className="flex">
-                <Link href="/el/templates" className="flex w-full">
+                <Link href="/el/templates/" className="flex w-full">
                   <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
                     {/* Hand-crafted card mockup */}
                     <HomeElCardPreview tplId={tpl.id} category={tpl.category} />
@@ -314,7 +314,7 @@ export default function HomeElPage() {
           </StaggerContainer>
 
           <AnimateIn className="text-center mb-16">
-            <Link href="/el/examples" className="btn-primary">
+            <Link href="/el/templates/" className="btn-primary">
               Δείτε Όλα τα Παραδείγματα
               <ArrowRight size={16} />
             </Link>
@@ -347,7 +347,7 @@ export default function HomeElPage() {
               { icon: Clock, title: "Γρήγορη Παράδοση", desc: "Από την ιδέα στην κυκλοφορία σε 5-14 εργάσιμες μέρες. Κινούμαστε γρήγορα χωρίς να θυσιάζουμε την ποιότητα.", anchor: "turnaround" },
             ].map((service) => (
               <StaggerItem key={service.title}>
-                <Link href={`/el/services/${service.anchor}`}>
+                <Link href={`/el/services/${service.anchor}/`}>
                   <div className="dm-card h-full cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
                     <div className="icon-container-gradient mb-5">
                       <service.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
@@ -409,7 +409,7 @@ export default function HomeElPage() {
           </StaggerContainer>
 
           <AnimateIn className="text-center mt-12">
-            <Link href="/el/process" className="btn-secondary">
+            <Link href="/el/process/" className="btn-secondary">
               Δείτε Ολόκληρη τη Διαδικασία
               <ArrowRight size={16} />
             </Link>
@@ -512,7 +512,7 @@ export default function HomeElPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/el/contact" className="btn-secondary w-full justify-center">
+                <Link href="/el/contact/" className="btn-secondary w-full justify-center">
                   Δωρεάν Συμβουλευτική
                 </Link>
               </div>
@@ -538,7 +538,7 @@ export default function HomeElPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/el/contact" className="btn-primary w-full justify-center">
+                  <Link href="/el/contact/" className="btn-primary w-full justify-center">
                     Δωρεάν Συμβουλευτική
                   </Link>
                 </div>
@@ -563,7 +563,7 @@ export default function HomeElPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/el/contact" className="btn-secondary w-full justify-center">
+                <Link href="/el/contact/" className="btn-secondary w-full justify-center">
                   Δωρεάν Συμβουλευτική
                 </Link>
               </div>
@@ -586,7 +586,7 @@ export default function HomeElPage() {
                     Για μεγαλύτερες επιχειρήσεις και οργανισμούς που χρειάζονται μια πλήρως εξατομικευμένη λύση χτισμένη γύρω από τους στόχους τους.
                   </p>
                   <Link
-                    href="/el/contact"
+                    href="/el/contact/"
                     className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"
                     style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}
                   >
@@ -624,7 +624,7 @@ export default function HomeElPage() {
             <p className="text-sm text-[#5B6472] mb-3">
               Όλα τα πλάνα περιλαμβάνουν <span className="font-semibold text-[#111315]">δωρεάν συμβουλευτική</span> - χωρίς δέσμευση, χωρίς πίεση.
             </p>
-            <Link href="/el/pricing" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
+            <Link href="/el/pricing/" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
               Δείτε πλήρεις τιμές και πρόσθετα <ArrowRight size={14} />
             </Link>
           </AnimateIn>
@@ -648,7 +648,7 @@ export default function HomeElPage() {
 
             ].map((biz) => (
               <StaggerItem key={biz.label}>
-                <Link href="/el/templates">
+                <Link href="/el/templates/">
                   <div className="dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 hover:border-[#5B8CFF]/40 transition-all duration-300">
                     <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
                       <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
@@ -667,7 +667,7 @@ export default function HomeElPage() {
               <p className="text-sm text-[#5B6472]">
                 <strong className="text-[#111315]">Δεν βλέπετε τον κλάδο σας;</strong>{" "}
                 Συνεργαζόμαστε με όλους τους τύπους επιχειρήσεων.{" "}
-                <Link href="/el/contact" className="text-[#5B8CFF] font-medium hover:underline">
+                <Link href="/el/contact/" className="text-[#5B8CFF] font-medium hover:underline">
                   Επικοινωνήστε μαζί μας →
                 </Link>
               </p>
@@ -876,7 +876,7 @@ export default function HomeElPage() {
               Επικοινωνήστε μαζί μας και θα σας απαντήσουμε μέσα σε ώρες. Χωρίς δέσμευση, χωρίς πίεση - απλά μια φιλική συνομιλία για την επιχείρησή σας.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/el/contact" className="btn-primary !h-14 !text-base !px-8">
+              <Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">
                 <MessageCircle size={20} />
                 Δωρεάν Visual Concept
               </Link>

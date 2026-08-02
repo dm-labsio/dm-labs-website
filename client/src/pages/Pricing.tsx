@@ -158,7 +158,7 @@ export default function Pricing() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact" className={plan.recommended ? "btn-primary w-full justify-center" : "btn-secondary w-full justify-center"}><MessageCircle size={16} /> Get a Free Consultation</Link>
+                  <Link href="/contact/" className={plan.recommended ? "btn-primary w-full justify-center" : "btn-secondary w-full justify-center"}><MessageCircle size={16} /> Get a Free Consultation</Link>
                 </div>
               );
               return <AnimateIn delay={0.1 + index * 0.1} key={plan.name}>{plan.recommended ? <div className="brand-gradient-border h-full">{card}</div> : card}</AnimateIn>;
@@ -174,7 +174,7 @@ export default function Pricing() {
                   <p className="text-4xl font-bold text-white mb-1">From €1,499</p>
                   <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Quote based on scope</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>For projects beyond the standard packages, including integrations, multilingual sites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume.</p>
-                  <Link href="/contact" className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}><MessageCircle size={16} /> Request a Quote</Link>
+                  <Link href="/contact/" className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}><MessageCircle size={16} /> Request a Quote</Link>
                 </div>
                 <div className="hidden lg:block w-px self-stretch" style={{ background: "rgba(91,140,255,0.2)" }} />
                 <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
@@ -210,7 +210,7 @@ export default function Pricing() {
                   <ul className="space-y-3 flex-1">
                     {plan.features.map((feature) => <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={15} className="shrink-0 mt-0.5" style={{ color: plan.colour }} />{feature}</li>)}
                   </ul>
-                  <Link href="/contact" className={plan.recommended ? "btn-primary w-full justify-center mt-6" : "btn-secondary w-full justify-center mt-6"}>Ask About {plan.name}</Link>
+                  <Link href="/contact/" className={plan.recommended ? "btn-primary w-full justify-center mt-6" : "btn-secondary w-full justify-center mt-6"}>Ask About {plan.name}</Link>
                 </div>
               );
               return <AnimateIn delay={0.1 + index * 0.1} key={plan.name}>{plan.recommended ? <div className="brand-gradient-border h-full">{card}</div> : card}</AnimateIn>;
@@ -260,7 +260,7 @@ export default function Pricing() {
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-5">Not sure which package fits?</h2>
             <p className="text-lg text-[#5B6472] mb-8">Tell us what your business needs and we will recommend the right starting scope.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center"><Link href="/contact" className="btn-primary"><MessageCircle size={18} /> Book Free Consultation</Link><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Us <ArrowRight size={16} /></a></div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center"><Link href="/contact/" className="btn-primary"><MessageCircle size={18} /> Book Free Consultation</Link><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Us <ArrowRight size={16} /></a></div>
           </AnimateIn>
         </div>
       </section>

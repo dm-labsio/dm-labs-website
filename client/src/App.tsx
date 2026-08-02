@@ -83,7 +83,7 @@ function MainRouter() {
         <Route path="/privacy" component={Privacy} />
         <Route path="/cookies" component={CookiePolicy} />
         {/* /cookie-policy → /cookies: client-side redirect (server-level 301 handles hard navigation) */}
-        <Route path="/cookie-policy"><Redirect to="/cookies" /></Route>
+        <Route path="/cookie-policy"><Redirect to="/cookies/" /></Route>
         <Route path="/terms" component={Terms} />
         <Route path="/templates" component={Templates} />
         <Route path="/examples" component={Templates} />
@@ -108,7 +108,7 @@ function MainRouter() {
         <Route path="/el/contact" component={ContactEl} />
         <Route path="/el/privacy" component={PrivacyEl} />
         {/* /el/cookie-policy → /el/cookies: client-side redirect (server-level 301 handles hard navigation) */}
-        <Route path="/el/cookie-policy"><Redirect to="/el/cookies" /></Route>
+        <Route path="/el/cookie-policy"><Redirect to="/el/cookies/" /></Route>
         <Route path="/el/cookies" component={CookiePolicyEl} />
         <Route path="/el/terms" component={TermsEl} />
         <Route path="/el/blog" component={BlogEl} />
@@ -119,9 +119,9 @@ function MainRouter() {
         <Route path="/el/web-design-thessaloniki" component={WebDesignThessaloniki_El} />
 
         {/* ── Legacy Redirects (wouter navigate = proper 200 SPA redirect, not Soft 404) ── */}
-        <Route path="/blog/istoselidha-yoga-pilates-studio-kypros"><Redirect to="/el/blog/istoselidha-yoga-pilates-studio-kypros" /></Route>
-        <Route path="/blog/istoselidha-nail-salon-beauty-studio-kypros"><Redirect to="/el/blog/istoselidha-nail-salon-beauty-studio-kypros" /></Route>
-        <Route path="/blog/local-seo-google-cyprus"><Redirect to="/blog/how-to-get-found-on-google-cyprus" /></Route>
+        <Route path="/blog/istoselidha-yoga-pilates-studio-kypros"><Redirect to="/el/blog/istoselidha-yoga-pilates-studio-kypros/" /></Route>
+        <Route path="/blog/istoselidha-nail-salon-beauty-studio-kypros"><Redirect to="/el/blog/istoselidha-nail-salon-beauty-studio-kypros/" /></Route>
+        <Route path="/blog/local-seo-google-cyprus"><Redirect to="/blog/how-to-get-found-on-google-cyprus/" /></Route>
         <Route path="/5"><Redirect to="/" /></Route>
 
         {/* ── Greek Blog Posts ── */}

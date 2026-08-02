@@ -73,7 +73,7 @@ export default function Services() {
                 <ul className="space-y-3 mb-6 flex-1">
                   {["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"].map((f) => <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />{f}</li>)}
                 </ul>
-                <a href="/contact" className="btn-secondary w-full justify-center">Get a Free Consultation</a>
+                <a href="/contact/" className="btn-secondary w-full justify-center">Get a Free Consultation</a>
               </div>
             </AnimateIn>
 
@@ -87,7 +87,7 @@ export default function Services() {
                   <ul className="space-y-3 mb-6 flex-1">
                     {["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"].map((f) => <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}</li>)}
                   </ul>
-                  <a href="/contact" className="btn-primary w-full justify-center">Get a Free Consultation</a>
+                  <a href="/contact/" className="btn-primary w-full justify-center">Get a Free Consultation</a>
                 </div>
               </div>
             </AnimateIn>
@@ -100,7 +100,7 @@ export default function Services() {
                 <ul className="space-y-3 mb-6 flex-1">
                   {["Up to 7 pages", "Gallery or portfolio", "Pop-up and scroll-driven animations", "Full SEO structure", "Blog setup or a website visual pack", "4 revision rounds"].map((f) => <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />{f}</li>)}
                 </ul>
-                <a href="/contact" className="btn-secondary w-full justify-center">Get a Free Consultation</a>
+                <a href="/contact/" className="btn-secondary w-full justify-center">Get a Free Consultation</a>
               </div>
             </AnimateIn>
 
@@ -121,7 +121,7 @@ export default function Services() {
                     For integrations, multilingual builds, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, or unusual content volume.
                   </p>
                   <a
-                    href="/contact"
+                    href="/contact/"
                     className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"
                     style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}
                   >
@@ -179,7 +179,7 @@ export default function Services() {
               { icon: Headphones, title: "Post-Launch Support", desc: "We don't disappear after launch - ongoing support when you need it.", anchor: "turnaround" },
             ].map((item) => (
               <StaggerItem key={item.title}>
-                <Link href={`/services/${item.anchor}`}>
+                <Link href={`/services/${item.anchor}/`}>
                   <div id={item.anchor} className="dm-card h-full !p-6 scroll-mt-24 cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
                     <div className="flex items-start gap-4">
                       <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
@@ -233,7 +233,7 @@ export default function Services() {
                   </ul>
                 </div>
               </div>
-              <a href="/contact" className="btn-primary">
+              <a href="/contact/" className="btn-primary">
                 <MessageCircle size={18} />
                 Ask About Maintenance
               </a>
@@ -263,11 +263,11 @@ export default function Services() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Get Started?</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Send us a message and we'll discuss which package is right for your business.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="btn-primary">
+              <a href="/contact/" className="btn-primary">
                 <MessageCircle size={18} />
                 Chat on WhatsApp
               </a>
-              <Link href="/pricing" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
+              <Link href="/pricing/" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
                 Compare Pricing <ArrowRight size={16} />
               </Link>
             </div>

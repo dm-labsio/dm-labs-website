@@ -162,12 +162,12 @@ export default function WebDesignCrete() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
+            <Link href="/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Get a Free Consultation
               </button>
             </Link>
-            <Link href="/pricing">
+            <Link href="/pricing/">
               <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors bg-white">
                 View Pricing
               </button>
@@ -250,7 +250,7 @@ export default function WebDesignCrete() {
           </h2>
           <p className="text-[#5B6472] mb-10">
             No hidden fees. No hourly billing. One fixed price, everything included.{" "}
-            <Link href="/pricing" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+            <Link href="/pricing/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               View full pricing breakdown
             </Link>
             .
@@ -297,7 +297,7 @@ export default function WebDesignCrete() {
           </div>
           <p className="text-xs text-[#9CA3AF] mt-4">
             All prices are one-time fees. No monthly charges, no hidden costs.{" "}
-            <Link href="/pricing" className="text-[#5B8CFF] underline underline-offset-2">
+            <Link href="/pricing/" className="text-[#5B8CFF] underline underline-offset-2">
               View full pricing details
             </Link>
             .
@@ -390,7 +390,7 @@ export default function WebDesignCrete() {
               <p className="text-[#5B6472] leading-relaxed mb-4">
                 We build websites that work for both local customers and international visitors - fast-loading on mobile, available in Greek and English, and optimised for the searches that bring tourists to your door.
               </p>
-              <Link href="/contact">
+              <Link href="/contact/">
                 <button className="mt-2 px-7 py-3 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-sm hover:opacity-90 transition-opacity">
                   Talk to us about your business
                 </button>
@@ -431,19 +431,19 @@ export default function WebDesignCrete() {
         <div className="container max-w-4xl mx-auto text-center">
           <p className="text-[#5B6472] text-sm">
             Also serving businesses in{" "}
-            <Link href="/web-design-thessaloniki" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+            <Link href="/web-design-thessaloniki/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               Thessaloniki
             </Link>
             {", "}
-            <Link href="/web-design-nicosia" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+            <Link href="/web-design-nicosia/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               Nicosia
             </Link>
             {", and "}
-            <Link href="/web-design-limassol" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+            <Link href="/web-design-limassol/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               Limassol
             </Link>
             .{" "}
-            <Link href="/web-design-cyprus" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+            <Link href="/web-design-cyprus/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               See all Cyprus locations
             </Link>
             .
@@ -461,7 +461,7 @@ export default function WebDesignCrete() {
             Tell us about your business and we will send you a free proposal within 24 hours. No commitment, no pressure. You can also reach us directly on WhatsApp - we respond quickly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
+            <Link href="/contact/">
               <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
                 Contact us today
               </button>

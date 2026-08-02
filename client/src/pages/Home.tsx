@@ -171,9 +171,9 @@ export default function HomePage() {
     description: "DM-Labs.io builds custom, mobile-first websites for businesses in Paphos and across Cyprus. Clear scope, SEO foundations, and packages from €299.",
   });
 
-  // Mirrors the static HTML schema and keeps the homepage data accurate after client rendering.
+  // This graph is serialized into the prerendered homepage and is the single source of homepage structured data.
   useEffect(() => {
-    const existingSchema = document.getElementById("home-localbusiness-schema");
+    const existingSchema = document.getElementById("home-jsonld-schema");
     if (existingSchema) return;
     const offers = [
       { "@type": "Offer", "name": "Launch Website", "description": "1-page landing site, mobile responsive, WhatsApp button, basic SEO, 2 revision rounds.", "price": "299", "priceCurrency": "EUR" },
@@ -196,8 +196,6 @@ export default function HomePage() {
           "telephone": "+35797472847",
           "email": "info@dm-labs.io",
           "priceRange": "€299-€1,499",
-          "currenciesAccepted": "EUR",
-          "paymentAccepted": "Bank Transfer, Credit Card",
           "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
           "areaServed": [
             { "@type": "City", "name": "Paphos", "addressCountry": "CY" },
@@ -208,7 +206,6 @@ export default function HomePage() {
             { "@type": "Country", "name": "Cyprus" },
             { "@type": "Country", "name": "Greece" }
           ],
-          "serviceType": ["Website Design", "Web Development", "SEO Optimisation", "Website Maintenance"],
           "sameAs": ["https://www.instagram.com/dm_labs.io/"],
           "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Website Packages", "itemListElement": offers }
         },
@@ -220,24 +217,15 @@ export default function HomePage() {
           "description": "Professional web design services in Paphos and across Cyprus",
           "publisher": { "@id": "https://dm-labs.io/#professionalservice" },
           "inLanguage": ["en", "el"]
-        },
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://dm-labs.io/#web-design-service",
-          "name": "Web Design Services Paphos & Cyprus",
-          "provider": { "@id": "https://dm-labs.io/#professionalservice" },
-          "serviceType": "Web Design",
-          "areaServed": { "@type": "Country", "name": "Cyprus" },
-          "offers": offers
         }
       ]
     };
     const script = document.createElement("script");
     script.type = "application/ld+json";
-    script.id = "home-localbusiness-schema";
+    script.id = "home-jsonld-schema";
     script.text = JSON.stringify(schema);
     document.head.appendChild(script);
-    return () => { document.getElementById("home-localbusiness-schema")?.remove(); };
+    return () => { document.getElementById("home-jsonld-schema")?.remove(); };
   }, []);
   return (
     <>
@@ -287,11 +275,11 @@ export default function HomePage() {
 
             <AnimateIn variant="fade-up" delay={0.4}>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <Link href="/contact" className="btn-primary">
+                <Link href="/contact/" className="btn-primary">
                   Get a Free Consultation
                   <ArrowRight size={18} />
                 </Link>
-                <Link href="/templates" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
+                <Link href="/templates/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
                   Browse Examples
                   <ArrowRight size={18} />
                 </Link>
@@ -359,7 +347,7 @@ export default function HomePage() {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 items-stretch">
             {FEATURED_TEMPLATES.map((tpl) => (
               <StaggerItem key={tpl.id} className="flex">
-                <Link href="/templates" className="flex w-full">
+                <Link href="/templates/" className="flex w-full">
                   <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
                     {/* Hand-crafted card mockup */}
                     <HomepageCardPreview tplId={tpl.id} category={tpl.category} />
@@ -383,7 +371,7 @@ export default function HomePage() {
           </StaggerContainer>
 
           <AnimateIn className="text-center mb-16">
-            <Link href="/templates" className="btn-primary">
+            <Link href="/templates/" className="btn-primary">
               View All Examples
               <ArrowRight size={16} />
             </Link>
@@ -416,7 +404,7 @@ export default function HomePage() {
               { icon: Clock, title: "Quick Turnaround", desc: "From concept to launch in 5-14 business days. We move fast without compromising quality.", anchor: "turnaround" },
             ].map((service) => (
               <StaggerItem key={service.title}>
-                <Link href={`/services/${service.anchor}`}>
+                <Link href={`/services/${service.anchor}/`}>
                   <div className="dm-card h-full cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
                     <div className="icon-container-gradient mb-5">
                       <service.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
@@ -478,7 +466,7 @@ export default function HomePage() {
           </StaggerContainer>
 
           <AnimateIn className="text-center mt-12">
-            <Link href="/process" className="btn-secondary">
+            <Link href="/process/" className="btn-secondary">
               See Full Process
               <ArrowRight size={16} />
             </Link>
@@ -578,7 +566,7 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" className="btn-secondary w-full justify-center">Get a Free Consultation</Link>
+                <Link href="/contact/" className="btn-secondary w-full justify-center">Get a Free Consultation</Link>
               </div>
             </AnimateIn>
 
@@ -601,7 +589,7 @@ export default function HomePage() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact" className="btn-primary w-full justify-center">Get a Free Consultation</Link>
+                  <Link href="/contact/" className="btn-primary w-full justify-center">Get a Free Consultation</Link>
                 </div>
               </div>
             </AnimateIn>
@@ -623,7 +611,7 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" className="btn-secondary w-full justify-center">Get a Free Consultation</Link>
+                <Link href="/contact/" className="btn-secondary w-full justify-center">Get a Free Consultation</Link>
               </div>
             </AnimateIn>
 
@@ -644,7 +632,7 @@ export default function HomePage() {
                     For integrations, multilingual builds, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, or unusual content volume.
                   </p>
                   <Link
-                    href="/contact"
+                    href="/contact/"
                     className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"
                     style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}
                   >
@@ -682,7 +670,7 @@ export default function HomePage() {
             <p className="text-sm text-[#5B6472] mb-3">
               All plans include a <span className="font-semibold text-[#111315]">free consultation</span> - no commitment, no pressure.
             </p>
-            <Link href="/pricing" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
+            <Link href="/pricing/" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
               See full pricing &amp; add-ons <ArrowRight size={14} />
             </Link>
           </AnimateIn>
@@ -706,7 +694,7 @@ export default function HomePage() {
 
             ].map((biz) => (
               <StaggerItem key={biz.label}>
-                <Link href="/templates">
+                <Link href="/templates/">
                   <div className="dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 hover:border-[#5B8CFF]/40 transition-all duration-300">
                     <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
                       <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
@@ -725,7 +713,7 @@ export default function HomePage() {
               <p className="text-sm text-[#5B6472]">
                 <strong className="text-[#111315]">Don't see your industry?</strong>{" "}
                 We work with all types of businesses.{" "}
-                <Link href="/contact" className="text-[#5B8CFF] font-medium hover:underline">
+                <Link href="/contact/" className="text-[#5B8CFF] font-medium hover:underline">
                   Get in touch →
                 </Link>
               </p>
@@ -934,7 +922,7 @@ export default function HomePage() {
               Get in touch and we'll get back to you within hours. No commitment, no pressure - just a friendly conversation about your business.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="btn-primary !h-14 !text-base !px-8">
+              <Link href="/contact/" className="btn-primary !h-14 !text-base !px-8">
                 <MessageCircle size={20} />
                 Get a Free Visual Concept
               </Link>

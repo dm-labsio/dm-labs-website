@@ -1,6 +1,5 @@
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
 
 export default function NailSalonEl() {
   useSEO({
@@ -8,13 +7,12 @@ export default function NailSalonEl() {
     description: "Τι χρειάζεται η ιστοσελίδα ενός nail salon ή beauty studio στην Κύπρο για να φέρνει νέους πελάτες. Πρακτικός οδηγός.",
     canonicalPath: "/el/blog/istoselidha-nail-salon-beauty-studio-kypros"
   });
-  useHreflang();
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
         <div className="mb-8">
-          <Link href="/el/blog" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Άρθρα</Link>
+          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Άρθρα</Link>
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
@@ -74,7 +72,7 @@ export default function NailSalonEl() {
           <div className="bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] rounded-2xl p-8 border border-[#D0DEFF] mt-10">
             <h3 className="text-xl font-bold text-[#111315] mb-3">Ζητήστε Δωρεάν Πρόταση</h3>
             <p className="text-[#5B6472] mb-6">Πείτε μας για το studio σας και θα σας στείλουμε πρόταση μέσα σε 24 ώρες.</p>
-            <Link href="/el/contact">
+            <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Επικοινωνήστε μαζί μας
               </button>

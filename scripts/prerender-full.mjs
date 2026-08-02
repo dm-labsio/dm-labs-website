@@ -132,7 +132,7 @@ const ROUTES = [
   // EL blog posts
   ...EL_BLOG_SLUGS.map((s) => `/el/blog/${s}`),
   "/el/templates",
-];
+].map((route) => route === "/" ? route : `${route.replace(/\/+$/, "")}/`);
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 

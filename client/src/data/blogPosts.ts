@@ -79,8 +79,8 @@ export const POSTS: BlogPost[] = [
 
 <h2>What DM-Labs.io Offers and Why the Pricing Makes Sense</h2>
 <p>We are a dedicated web design agency based in Cyprus, and we built our pricing specifically for small and medium businesses that want a professional result without a corporate budget. Our packages sit in the sweet spot of the market - agency quality at a price that makes sense for a local business.</p>
-<p>Our <a href="/services" class="blog-link">website packages</a> start at €299 for the Launch package (1-page site, mobile-responsive, fast delivery), €749 for the Growth package (up to 4 pages, contact form, Google Maps, SEO-optimised), and €1,499 for the Pro package (up to 7 pages, fully custom design, animations, and blog setup).</p>
-<p>You can see the full breakdown on our <a href="/pricing" class="blog-link">pricing page</a>. Every package includes a free consultation, SSL certificate, mobile-first development, and on-page SEO setup. No hidden fees.</p>
+<p>Our <a href="/services/" class="blog-link">website packages</a> start at €299 for the Launch package (1-page site, mobile-responsive, fast delivery), €749 for the Growth package (up to 4 pages, contact form, Google Maps, SEO-optimised), and €1,499 for the Pro package (up to 7 pages, fully custom design, animations, and blog setup).</p>
+<p>You can see the full breakdown on our <a href="/pricing/" class="blog-link">pricing page</a>. Every package includes a free consultation, SSL certificate, mobile-first development, and on-page SEO setup. No hidden fees.</p>
 <p>We keep our prices competitive because we are a small, focused team with low overheads - and because we believe a good website should be accessible to every business in Cyprus, not just the ones with large marketing budgets.</p>
 
 <h2>The Bottom Line on Web Design Cyprus Pricing</h2>
@@ -90,7 +90,7 @@ export const POSTS: BlogPost[] = [
 <div class="blog-cta">
   <h3>Not sure which package is right for your business?</h3>
   <p>We offer a free, no-obligation consultation. Tell us about your business and what you need, and we will give you an honest recommendation - no sales pressure.</p>
-  <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
+  <a href="/contact/" class="blog-cta-btn">Get a Free Consultation</a>
 </div>
     `,
   },
@@ -135,7 +135,7 @@ export const POSTS: BlogPost[] = [
 <p>A properly built nail salon website in Cyprus must be designed for mobile first. That means large text, tap-friendly buttons, fast loading times, and a WhatsApp or booking button that is always visible.</p>
 
 <h2>What a Good Beauty Salon Website Looks Like</h2>
-<p>At DM-Labs.io, we have built website examples specifically designed for beauty businesses. The <strong>Bella Salon</strong> interactive demo on our <a href="/templates" class="blog-link">Examples page</a> shows exactly what a professional beauty salon website looks like in practice: clean layout, gallery section, service menu, booking CTA, and mobile-first design. These are not generic designs - they are built around how beauty clients actually browse and decide.</p>
+<p>At DM-Labs.io, we have built website examples specifically designed for beauty businesses. The <strong>Bella Salon</strong> interactive demo on our <a href="/templates/" class="blog-link">Examples page</a> shows exactly what a professional beauty salon website looks like in practice: clean layout, gallery section, service menu, booking CTA, and mobile-first design. These are not generic designs - they are built around how beauty clients actually browse and decide.</p>
 
 <h2>How DM-Labs.io Builds Beauty Salon Websites</h2>
 <p>We build beauty salon and nail salon websites in Cyprus from €299, delivered in 5 to 7 days. Every site includes a mobile-first design, your service menu, a photo gallery, Google Maps integration, a WhatsApp contact button, and on-page SEO setup so Google can find you from day one.</p>
@@ -144,7 +144,7 @@ export const POSTS: BlogPost[] = [
 <div class="blog-cta">
   <h3>Ready to get your beauty studio online?</h3>
   <p>View our beauty salon design examples and get in touch for a free consultation. We will tell you exactly what your website needs and give you a clear quote within 24 hours.</p>
-  <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
+  <a href="/contact/" class="blog-cta-btn">Get a Free Consultation</a>
 </div>
     `,
   },
@@ -196,12 +196,12 @@ export const POSTS: BlogPost[] = [
 
 <h2>How DM-Labs.io Builds Wellness Studio Websites</h2>
 <p>We build yoga and Pilates studio websites in Cyprus from €299, delivered in under a week. Every site is mobile-first, SEO-ready from day one, and designed to convert visitors into students. You provide the content - your schedule, photos, bio, and pricing - and we handle the rest.</p>
-<p>Our <a href="/services" class="blog-link">website packages</a> are built specifically for small wellness businesses that want a professional result without a complicated process or a large budget.</p>
+<p>Our <a href="/services/" class="blog-link">website packages</a> are built specifically for small wellness businesses that want a professional result without a complicated process or a large budget.</p>
 
 <div class="blog-cta">
   <h3>Ready to fill your classes through Google?</h3>
   <p>Get in touch for a free consultation. We will walk you through exactly what your studio website needs and give you a clear quote - no jargon, no pressure.</p>
-  <a href="/contact" class="blog-cta-btn">Book a Free Consultation</a>
+  <a href="/contact/" class="blog-cta-btn">Book a Free Consultation</a>
 </div>
     `,
   },
@@ -249,12 +249,12 @@ export const POSTS: BlogPost[] = [
 
 <h2>How DM-Labs.io Builds Websites That Are Already Optimised for Google</h2>
 <p>Every website we build at DM-Labs.io is SEO-ready from day one. That means proper heading structure, fast loading times, mobile-first design, your location and services clearly stated in the right places, and meta titles and descriptions set up for every page. We also include Google Maps integration and guidance on setting up your Google Business Profile as part of every project.</p>
-<p>You do not need to understand any of this technically. Our job is to make sure your website does the right things so Google can find you and send you customers. Our <a href="/services" class="blog-link">website packages</a> start from €299 and include everything you need to get found online in Cyprus.</p>
+<p>You do not need to understand any of this technically. Our job is to make sure your website does the right things so Google can find you and send you customers. Our <a href="/services/" class="blog-link">website packages</a> start from €299 and include everything you need to get found online in Cyprus.</p>
 
 <div class="blog-cta">
   <h3>Want to get your business found on Google?</h3>
   <p>Get in touch for a free consultation. We will review your current online presence and tell you exactly what needs to change - no jargon, no obligation.</p>
-  <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
+  <a href="/contact/" class="blog-cta-btn">Get a Free Consultation</a>
 </div>
     `,
   },
@@ -289,7 +289,7 @@ export const POSTS: BlogPost[] = [
 
 <p>When someone searches \u201crestaurant Nicosia,\u201d \u201cseafood Limassol,\u201d or \u201cbreakfast caf\u00e9 Paphos,\u201d Google shows two types of results: the local pack (the map with three listings) and organic results (the blue links below). Both are driven by your website and your Google Business Profile working together.</p>
 
-<p>If your business is based in <a href="/web-design-paphos" class="blog-link">Paphos</a>, the local competition is still relatively thin compared to Nicosia or Limassol. That means a well-structured website can rank faster and more affordably than in larger cities.</p>
+<p>If your business is based in <a href="/web-design-paphos/" class="blog-link">Paphos</a>, the local competition is still relatively thin compared to Nicosia or Limassol. That means a well-structured website can rank faster and more affordably than in larger cities.</p>
 
 <p>A restaurant with a fast, well-structured website that clearly states its cuisine, location, and opening hours will consistently outrank one that only has a Facebook page  -  even if the Facebook page has more followers. Google cannot read your Facebook posts the way it reads your website.</p>
 
@@ -315,7 +315,7 @@ export const POSTS: BlogPost[] = [
 
 <h2>How Much Does a Restaurant Website Cost in Cyprus?</h2>
 
-<p>A professional restaurant website in Cyprus does not need to cost thousands of euros. At DM-Labs.io, our <a href="/web-design-restaurants-cyprus" class="blog-link">restaurant website packages</a> start from <strong>\u20ac299</strong> for the Launch package  -  a fully custom, mobile-first site with your menu, photos, contact form, Google Maps integration, and SEO setup. Most restaurant sites are live within 5 to 7 days.</p>
+<p>A professional restaurant website in Cyprus does not need to cost thousands of euros. At DM-Labs.io, our <a href="/web-design-restaurants-cyprus/" class="blog-link">restaurant website packages</a> start from <strong>\u20ac299</strong> for the Launch package  -  a fully custom, mobile-first site with your menu, photos, contact form, Google Maps integration, and SEO setup. Most restaurant sites are live within 5 to 7 days.</p>
 
 <p>The Growth package at \u20ac749 adds a blog or news section (useful for posting specials and events), a WhatsApp reservation button, and more advanced SEO. For restaurants that want online ordering or a full booking system, the Pro package at \u20ac1,499 covers everything.</p>
 
@@ -324,7 +324,7 @@ export const POSTS: BlogPost[] = [
 <div class="blog-cta">
   <h3>Ready to get your restaurant online?</h3>
   <p>Get in touch for a free consultation. We will review your current online presence and tell you exactly what your restaurant website needs - no jargon, no obligation.</p>
-  <a href="/web-design-restaurants-cyprus" class="blog-cta-btn">See Our Restaurant Packages</a>
+  <a href="/web-design-restaurants-cyprus/" class="blog-cta-btn">See Our Restaurant Packages</a>
 </div>
     `,
   },
@@ -423,13 +423,13 @@ export const POSTS: BlogPost[] = [
 <p>That is the difference. Not just a better website - a better experience of having a website.</p>
 
 <h2>The Honest Summary</h2>
-<p>Wix is a capable tool that works well for specific situations. For a small business in <a href="/web-design-cyprus" class="blog-link">Cyprus</a> that wants to be found on Google, look professional, and not spend hours managing a platform, a professional web designer is the better investment. Not because DIY tools are bad, but because your time and your business deserve something built specifically for you.</p>
+<p>Wix is a capable tool that works well for specific situations. For a small business in <a href="/web-design-cyprus/" class="blog-link">Cyprus</a> that wants to be found on Google, look professional, and not spend hours managing a platform, a professional web designer is the better investment. Not because DIY tools are bad, but because your time and your business deserve something built specifically for you.</p>
 <p>You do not need to understand websites. You just need to understand your business. That is your job. Building the website is ours.</p>
 
 <div class="blog-cta">
   <h3>Ready to talk about your website?</h3>
   <p>Get in touch for a free, no-obligation consultation. We will listen to what you need, give you an honest recommendation, and tell you exactly what your website will cost - no surprises.</p>
-  <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
+  <a href="/contact/" class="blog-cta-btn">Get a Free Consultation</a>
 </div>
     `,
   },
@@ -501,8 +501,8 @@ export const POSTS: BlogPost[] = [
 
 <h2>How DM-Labs.io Works With Greek Businesses</h2>
 <p>We are a web design agency that works with businesses across Greece and Cyprus. Our team builds professional, fast, bilingual websites that are designed to be found on Google and to convert visitors into customers.</p>
-<p>Our <a href="/services" class="blog-link">web design packages</a> start at €299 for the Launch package (single-page site) and go up to €1,499 for the Pro package (up to 7 pages, custom design, animations, and blog setup). Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate. No hidden fees, no surprises.</p>
-<p>We have worked with businesses in <a href="/web-design-thessaloniki" class="blog-link">Thessaloniki</a>, Athens, and across the Greek islands including <a href="/web-design-crete" class="blog-link">Crete</a>, as well as in <a href="/web-design-limassol" class="blog-link">Limassol</a> and <a href="/web-design-nicosia" class="blog-link">Nicosia</a> in Cyprus. If you are looking for a web design partner who understands the Greek market and delivers on time, we would love to hear from you.</p>
+<p>Our <a href="/services/" class="blog-link">web design packages</a> start at €299 for the Launch package (single-page site) and go up to €1,499 for the Pro package (up to 7 pages, custom design, animations, and blog setup). Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate. No hidden fees, no surprises.</p>
+<p>We have worked with businesses in <a href="/web-design-thessaloniki/" class="blog-link">Thessaloniki</a>, Athens, and across the Greek islands including <a href="/web-design-crete/" class="blog-link">Crete</a>, as well as in <a href="/web-design-limassol/" class="blog-link">Limassol</a> and <a href="/web-design-nicosia/" class="blog-link">Nicosia</a> in Cyprus. If you are looking for a web design partner who understands the Greek market and delivers on time, we would love to hear from you.</p>
 
 <h2>The Bottom Line</h2>
 <p>Web design in Greece in 2026 is not just about having a website. It is about having a website that loads fast, looks professional on every device, can be found on Google for the right search terms, and makes it easy for customers to take action. That combination — design, performance, and SEO — is what separates a website that works from one that just exists.</p>
@@ -511,7 +511,7 @@ export const POSTS: BlogPost[] = [
 <div class="blog-cta">
   <h3>Ready to build a website that works for your Greek business?</h3>
   <p>Get a free, no-obligation consultation. We will look at your current situation, tell you exactly what we would recommend, and give you a clear price — no sales pressure.</p>
-  <a href="/contact" class="blog-cta-btn">Get a Free Consultation</a>
+  <a href="/contact/" class="blog-cta-btn">Get a Free Consultation</a>
 </div>
     `,
   },
@@ -581,13 +581,13 @@ export const POSTS: BlogPost[] = [
 <p>The full GEO foundation — structured data, directory listings, and targeted content — typically takes 60–90 days to show measurable results in AI answer frequency. That is significantly faster than the 6–12 months that traditional SEO requires to move from page 3 to page 1.</p>
 
 <h2>What We Don't Cover Here</h2>
-<p>This article covers the fundamentals. The full GEO playbook — the specific directories that matter most for Cyprus businesses, the exact schema markup that AI models prioritise, the content formats that get cited most frequently, and the ongoing maintenance that keeps you visible as AI models update — is what we implement for clients as part of our <a href="/pricing" class="blog-link">SEO + GEO package</a>.</p>
+<p>This article covers the fundamentals. The full GEO playbook — the specific directories that matter most for Cyprus businesses, the exact schema markup that AI models prioritise, the content formats that get cited most frequently, and the ongoing maintenance that keeps you visible as AI models update — is what we implement for clients as part of our <a href="/pricing/" class="blog-link">SEO + GEO package</a>.</p>
 <p>If you want to understand where your business currently stands in AI search — what AI models say about you right now, what's missing, and what the specific gaps are — that's what our free consultation covers.</p>
 
 <div class="blog-cta">
   <h3>Find out if your business appears in AI search</h3>
   <p>We'll show you exactly what ChatGPT and Perplexity say about your business today — and what it would take to change it. Free, no commitment.</p>
-  <a href="/contact" class="blog-cta-btn">Get a Free GEO Audit</a>
+  <a href="/contact/" class="blog-cta-btn">Get a Free GEO Audit</a>
 </div>
     `,
   },

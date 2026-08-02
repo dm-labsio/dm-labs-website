@@ -1,6 +1,5 @@
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
 
 // Greek blog: Wix vs professional web designer — /el/blog/wix-vs-epaggelmatias-web-designer-kypros
 // Primary keyword: "Wix ή επαγγελματίας web designer Κύπρος"
@@ -11,14 +10,13 @@ export default function WixVsDesignerEl() {
     description: "Μια ειλικρινής σύγκριση Wix, WordPress και επαγγελματικής κατασκευής ιστοσελίδας για επιχειρήσεις στην Κύπρο. Πότε συμφέρει το καθένα.",
     canonicalPath: "/el/blog/wix-vs-epaggelmatias-web-designer-kypros"
   });
-  useHreflang();
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
 
         <div className="mb-8">
-          <Link href="/el/blog" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Άρθρα</Link>
+          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Άρθρα</Link>
         </div>
 
         <header className="mb-10">
@@ -155,7 +153,7 @@ export default function WixVsDesignerEl() {
             <p className="text-[#5B6472] mb-6 leading-relaxed">
               Επικοινωνήστε μαζί μας για μια δωρεάν συμβουλευτική. Θα σας πούμε ειλικρινά αν χρειάζεστε επαγγελματία ή αν το Wix αρκεί για τις ανάγκες σας.
             </p>
-            <Link href="/el/contact">
+            <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Ζητήστε Δωρεάν Πρόταση
               </button>

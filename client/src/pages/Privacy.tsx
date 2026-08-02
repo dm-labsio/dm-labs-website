@@ -2,8 +2,15 @@
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 import { ChevronLeft } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Privacy() {
+  useSEO({
+    title: "Privacy Policy | DM-Labs.io",
+    description: "Read the DM-Labs.io Privacy Policy to understand how we collect, use, and protect personal data.",
+    canonicalPath: "/privacy/",
+  });
+
   return (
     <>
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
@@ -103,7 +110,7 @@ export default function Privacy() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">8. Cookies</h2>
-                <p>We use essential cookies for site functionality and analytics cookies (with your consent) to understand how visitors use our website. For full details, see our <Link href="/cookies" className="text-[#5B8CFF] hover:underline">Cookie Policy</Link>.</p>
+                <p>We use essential cookies for site functionality and analytics cookies (with your consent) to understand how visitors use our website. For full details, see our <Link href="/cookies/" className="text-[#5B8CFF] hover:underline">Cookie Policy</Link>.</p>
               </div>
 
               <div>
@@ -128,8 +135,8 @@ export default function Privacy() {
 
             </div>
             <div className="mt-10 pt-8 border-t border-[#E2E5EA] flex gap-4">
-              <Link href="/cookies" className="text-sm text-[#5B8CFF] hover:underline">Cookie Policy</Link>
-              <Link href="/terms" className="text-sm text-[#5B8CFF] hover:underline">Terms of Service</Link>
+              <Link href="/cookies/" className="text-sm text-[#5B8CFF] hover:underline">Cookie Policy</Link>
+              <Link href="/terms/" className="text-sm text-[#5B8CFF] hover:underline">Terms of Service</Link>
             </div>
           </AnimateIn>
         </div>

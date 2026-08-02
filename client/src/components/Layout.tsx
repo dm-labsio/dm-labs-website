@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 import NeonCursorTrail from "@/components/NeonCursorTrail";
 import dmLabsLogo from "@/assets/dmLabsLogo";
+import { getHreflangPair, normalizeRoutePath, withTrailingSlash } from "@/lib/seoRoutes";
 
 
 const BrandMark = ({ dark = false }: { dark?: boolean }) => (
@@ -34,24 +35,24 @@ const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27d%20
 
 const EN_NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "Process", href: "/process" },
-  { label: "Examples", href: "/templates" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "Services", href: "/services/" },
+  { label: "Process", href: "/process/" },
+  { label: "Examples", href: "/templates/" },
+  { label: "Pricing", href: "/pricing/" },
+  { label: "Blog", href: "/blog/" },
+  { label: "FAQ", href: "/faq/" },
+  { label: "Contact", href: "/contact/" },
 ];
 
 const EL_NAV_LINKS = [
-  { label: "Αρχική", href: "/el" },
-  { label: "Υπηρεσίες", href: "/el/services" },
-  { label: "Διαδικασία", href: "/el/process" },
-  { label: "Παραδείγματα", href: "/el/templates" },
-  { label: "Τιμές", href: "/el/pricing" },
-  { label: "Άρθρα", href: "/el/blog" },
-  { label: "FAQ", href: "/el/faq" },
-  { label: "Επικοινωνία", href: "/el/contact" },
+  { label: "Αρχική", href: "/el/" },
+  { label: "Υπηρεσίες", href: "/el/services/" },
+  { label: "Διαδικασία", href: "/el/process/" },
+  { label: "Παραδείγματα", href: "/el/templates/" },
+  { label: "Τιμές", href: "/el/pricing/" },
+  { label: "Άρθρα", href: "/el/blog/" },
+  { label: "FAQ", href: "/el/faq/" },
+  { label: "Επικοινωνία", href: "/el/contact/" },
 ];
 
 /* ── Flag SVGs (inline, no external deps) ── */
@@ -88,7 +89,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const isGreek = location.startsWith("/el");
+  const normalizedLocation = normalizeRoutePath(location);
+  const isGreek = normalizedLocation === "/el" || normalizedLocation.startsWith("/el/");
   const NAV_LINKS = isGreek ? EL_NAV_LINKS : EN_NAV_LINKS;
 
   useEffect(() => {
@@ -112,38 +114,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  // Slug mapping for pages where EN and EL paths differ (e.g. blog posts)
-  const SLUG_MAP_EN_TO_EL: Record<string, string> = {
-    "/blog/website-cost-cyprus-2026-guide": "/el/blog/posso-kostizei-istoselidha-kypros",
-    "/blog/web-design-nail-salon-beauty-studio-cyprus": "/el/blog/istoselidha-nail-salon-beauty-studio-kypros",
-    "/blog/yoga-pilates-studio-website-cyprus": "/el/blog/istoselidha-yoga-pilates-studio-kypros",
-    "/blog/how-to-get-found-on-google-cyprus": "/el/blog/pos-na-vretheite-google-kypros",
-    "/blog/restaurant-website-design-cyprus": "/el/blog/istoselidha-estiatorio-kypros",
-    "/blog/wix-vs-professional-web-designer-cyprus": "/el/blog/wix-vs-epaggelmatias-web-designer-kypros",
-    "/blog/web-design-greece-guide-2026": "/el/blog/web-design-ellada-odigos-2026",
-    "/el/blog/web-design-ellada-odigos-2026": "/blog/web-design-greece-guide-2026",
-  };
-  const SLUG_MAP_EL_TO_EN: Record<string, string> = Object.fromEntries(
-    Object.entries(SLUG_MAP_EN_TO_EL).map(([en, el]) => [el, en])
-  );
-
   // Derive the alternate-language URL for the current page
   function getAltLangHref(targetLang: "en" | "el"): string {
-    if (targetLang === "el" && !isGreek) {
-      const mapped = SLUG_MAP_EN_TO_EL[location];
-      return mapped ?? (location === "/" ? "/el" : "/el" + location);
-    } else if (targetLang === "en" && isGreek) {
-      const mapped = SLUG_MAP_EL_TO_EN[location];
-      return mapped ?? (location.replace(/^\/el/, "") || "/");
-    }
-    return location;
+    const pair = getHreflangPair(normalizedLocation);
+    return targetLang === "en"
+      ? withTrailingSlash(pair.en)
+      : withTrailingSlash(pair.el ?? pair.en);
   }
 
   // Flag-based language toggle — uses real <a href> for crawlability (Task 3)
   const LangToggle = ({ className = "", size = "md" }: { className?: string; size?: "sm" | "md" }) => {
     const isSmall = size === "sm";
-    const enHref = isGreek ? getAltLangHref("en") : location;
-    const elHref = isGreek ? location : getAltLangHref("el");
+    const enHref = isGreek ? getAltLangHref("en") : withTrailingSlash(normalizedLocation);
+    const elHref = isGreek ? withTrailingSlash(normalizedLocation) : getAltLangHref("el");
     return (
       <div
         className={`flex items-center rounded-full border border-[#E2E5EA] bg-white shadow-sm overflow-hidden ${className}`}
@@ -199,7 +182,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       >
         <div className="container flex items-center justify-between" style={{ height: "72px" }}>
           {/* Logo */}
-          <Link href={isGreek ? "/el" : "/"} className="flex items-center gap-2 shrink-0">
+          <Link href={isGreek ? "/el/" : "/"} className="flex items-center gap-2 shrink-0">
             <HeaderBrandMark />
           </Link>
 
@@ -224,7 +207,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="hidden lg:flex items-center gap-3">
             <LangToggle />
             <Link
-              href={isGreek ? "/el/contact" : "/contact"}
+              href={isGreek ? "/el/contact/" : "/contact/"}
               className="btn-primary !h-11 !text-sm !px-6"
             >
               {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
@@ -272,7 +255,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               ))}
             </nav>
             <Link
-              href={isGreek ? "/el/contact" : "/contact"}
+              href={isGreek ? "/el/contact/" : "/contact/"}
               className="btn-primary w-full mt-6"
             >
               {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
@@ -337,15 +320,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3">
                 {isGreek ? (
                   <>
-                    <li><Link href="/el/privacy" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική Απορρήτου</Link></li>
-                    <li><Link href="/el/cookies" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική Cookies</Link></li>
-                    <li><Link href="/el/terms" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Όροι Χρήσης</Link></li>
+                    <li><Link href="/el/privacy/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική Απορρήτου</Link></li>
+                    <li><Link href="/el/cookies/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική Cookies</Link></li>
+                    <li><Link href="/el/terms/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Όροι Χρήσης</Link></li>
                   </>
                 ) : (
                   <>
-                    <li><Link href="/privacy" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Privacy Policy</Link></li>
-                    <li><Link href="/cookies" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Cookie Policy</Link></li>
-                    <li><Link href="/terms" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Terms of Service</Link></li>
+                    <li><Link href="/privacy/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Privacy Policy</Link></li>
+                    <li><Link href="/cookies/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Cookie Policy</Link></li>
+                    <li><Link href="/terms/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Terms of Service</Link></li>
                   </>
                 )}
               </ul>

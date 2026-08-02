@@ -1,6 +1,5 @@
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
 // Greek blog: GEO — /el/blog/geo-vrethite-apo-chatgpt-kypros
 // Primary keyword: "GEO Κύπρος", "ChatGPT επιχείρηση Κύπρος", "AI αναζήτηση Κύπρος"
 export default function GeoEl() {
@@ -9,12 +8,11 @@ export default function GeoEl() {
     description: "Το GEO (Generative Engine Optimization) είναι το νέο SEO. Μάθετε γιατί οι κυπριακές επιχειρήσεις είναι αόρατες στο ChatGPT και τι χρειάζεται για να αλλάξει αυτό.",
     canonicalPath: "/el/blog/geo-vrethite-apo-chatgpt-kypros",
   });
-  useHreflang();
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
         <div className="mb-8">
-          <Link href="/el/blog" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στα Άρθρα</Link>
+          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στα Άρθρα</Link>
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
@@ -154,7 +152,7 @@ export default function GeoEl() {
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι Δεν Καλύπτουμε Εδώ</h2>
             <p className="leading-relaxed mb-4">
-              Αυτό το άρθρο καλύπτει τα βασικά. Το πλήρες playbook GEO — τα συγκεκριμένα directories που έχουν σημασία για κυπριακές επιχειρήσεις, το ακριβές schema markup που δίνουν προτεραιότητα τα AI μοντέλα, οι μορφές περιεχομένου που αναφέρονται πιο συχνά, και η συνεχής συντήρηση που σας κρατά ορατούς καθώς τα AI μοντέλα ενημερώνονται — είναι αυτό που υλοποιούμε για τους πελάτες μας ως μέρος του <Link href="/el/pricing" className="text-[#5B8CFF] hover:underline">πακέτου SEO + GEO</Link>.
+              Αυτό το άρθρο καλύπτει τα βασικά. Το πλήρες playbook GEO — τα συγκεκριμένα directories που έχουν σημασία για κυπριακές επιχειρήσεις, το ακριβές schema markup που δίνουν προτεραιότητα τα AI μοντέλα, οι μορφές περιεχομένου που αναφέρονται πιο συχνά, και η συνεχής συντήρηση που σας κρατά ορατούς καθώς τα AI μοντέλα ενημερώνονται — είναι αυτό που υλοποιούμε για τους πελάτες μας ως μέρος του <Link href="/el/pricing/" className="text-[#5B8CFF] hover:underline">πακέτου SEO + GEO</Link>.
             </p>
             <p className="leading-relaxed">
               Αν θέλετε να καταλάβετε πού βρίσκεται η επιχείρησή σας αυτή τη στιγμή στην AI αναζήτηση — τι λένε το ChatGPT και το Perplexity για εσάς σήμερα, τι λείπει, και ποια είναι τα συγκεκριμένα κενά — αυτό καλύπτει η δωρεάν συμβουλευτική μας.
@@ -167,7 +165,7 @@ export default function GeoEl() {
               Θα σας δείξουμε ακριβώς τι λένε το ChatGPT και το Perplexity για την επιχείρησή σας σήμερα — και τι χρειάζεται για να το αλλάξετε. Δωρεάν, χωρίς δέσμευση.
             </p>
             <Link
-              href="/el/contact"
+              href="/el/contact/"
               className="inline-block bg-white text-[#5B8CFF] font-bold px-6 py-3 rounded-xl hover:bg-white/90 transition-colors"
             >
               Δωρεάν GEO Audit →
@@ -181,7 +179,7 @@ export default function GeoEl() {
         <div className="container max-w-3xl mx-auto px-4">
           <h2 className="text-lg font-bold text-[#111315] mb-6">Διαβάστε Επίσης</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Link href="/el/blog/pos-na-vretheite-google-kypros"
+            <Link href="/el/blog/pos-na-vretheite-google-kypros/"
               className="group block bg-white rounded-2xl overflow-hidden border border-[#E8EAF0] hover:border-[#5B8CFF] transition-colors shadow-sm">
               <div className="h-36 overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=600&q=80" alt="Google SEO Κύπρος"
@@ -193,7 +191,7 @@ export default function GeoEl() {
                 <p className="mt-1 text-xs text-[#5B6472]">5 λεπτά</p>
               </div>
             </Link>
-            <Link href="/el/blog/posso-kostizei-istoselidha-kypros"
+            <Link href="/el/blog/posso-kostizei-istoselidha-kypros/"
               className="group block bg-white rounded-2xl overflow-hidden border border-[#E8EAF0] hover:border-[#5B8CFF] transition-colors shadow-sm">
               <div className="h-36 overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Κόστος ιστοσελίδας Κύπρος"

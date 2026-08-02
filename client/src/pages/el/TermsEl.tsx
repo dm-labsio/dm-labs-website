@@ -1,5 +1,4 @@
 import { useSEO } from "@/hooks/useSEO";
-import { useHreflang } from "@/hooks/useHreflang";
 
 export default function TermsEl() {
   useSEO({
@@ -7,7 +6,6 @@ export default function TermsEl() {
     description: "Όροι χρήσης της ιστοσελίδας DM-Labs.io.",
     canonicalPath: "/el/terms"
   });
-  useHreflang();
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">

@@ -115,12 +115,12 @@ export default function WebDesignNicosia() {
               Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
+              <Link href="/contact/">
                 <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                   Get a Free Consultation
                 </button>
               </Link>
-              <Link href="/pricing">
+              <Link href="/pricing/">
                 <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors bg-white">
                   View Pricing
                 </button>
@@ -226,7 +226,7 @@ export default function WebDesignNicosia() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact">
+                  <Link href="/contact/">
                     <button className={`w-full py-3 rounded-xl font-semibold text-sm transition-colors ${pkg.highlight ? "bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white hover:opacity-90" : "border border-[#5B8CFF] text-[#5B8CFF] hover:bg-[#EEF3FF]"}`}>
                       Get started
                     </button>
@@ -312,12 +312,12 @@ export default function WebDesignNicosia() {
               DM-Labs.io works with businesses across Cyprus and beyond. We also have dedicated pages for other cities we serve:
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/web-design-limassol">
+              <Link href="/web-design-limassol/">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-sm hover:bg-[#EEF3FF] transition-colors cursor-pointer">
                   Web Design Limassol →
                 </span>
               </Link>
-              <Link href="/web-design-thessaloniki">
+              <Link href="/web-design-thessaloniki/">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#8B5CFF] text-[#8B5CFF] font-semibold text-sm hover:bg-[#F3EEFF] transition-colors cursor-pointer">
                   Web Design Thessaloniki →
                 </span>
@@ -359,7 +359,7 @@ export default function WebDesignNicosia() {
               Tell us about your business and we will send you a free proposal within 24 hours. No commitment, no pressure. You can also reach us directly on WhatsApp — we are quick to respond.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
+              <Link href="/contact/">
                 <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
                   Contact us today
                 </button>

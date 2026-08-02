@@ -34,8 +34,8 @@ const schemaMarkup = {
 };
 
 const cities = [
-  { name: "Λεμεσός", slug: "/el/web-design-limassol", color: "#5B8CFF", bg: "#EEF3FF", desc: "Η επιχειρηματική και χρηματοοικονομική πρωτεύουσα της Κύπρου. Σπίτι χιλιάδων ΜΜΕ, διεθνών εταιρειών και μιας ανθούσας τεχνολογικής σκηνής." },
-  { name: "Λευκωσία", slug: "/el/web-design-nicosia", color: "#8B5CFF", bg: "#F3EEFF", desc: "Η πρωτεύουσα της Κύπρου και το κέντρο της κυβέρνησης, του νόμου και των οικονομικών. Υψηλή ζήτηση για επαγγελματικές ιστοσελίδες που χτίζουν αξιοπιστία." },
+  { name: "Λεμεσός", slug: "/el/web-design-limassol/", color: "#5B8CFF", bg: "#EEF3FF", desc: "Η επιχειρηματική και χρηματοοικονομική πρωτεύουσα της Κύπρου. Σπίτι χιλιάδων ΜΜΕ, διεθνών εταιρειών και μιας ανθούσας τεχνολογικής σκηνής." },
+  { name: "Λευκωσία", slug: "/el/web-design-nicosia/", color: "#8B5CFF", bg: "#F3EEFF", desc: "Η πρωτεύουσα της Κύπρου και το κέντρο της κυβέρνησης, του νόμου και των οικονομικών. Υψηλή ζήτηση για επαγγελματικές ιστοσελίδες που χτίζουν αξιοπιστία." },
   { name: "Λάρνακα", slug: null, color: "#0EA5E9", bg: "#E0F2FE", desc: "Ένας αναπτυσσόμενος εμπορικός κόμβος με πολυσύχναστο λιμάνι και διεθνές αεροδρόμιο. Τουρισμός, λιανικό εμπόριο και επιχειρήσεις logistics ανθίζουν εδώ." },
   { name: "Πάφος", slug: null, color: "#10B981", bg: "#D1FAE5", desc: "Ένας σημαντικός τουριστικός προορισμός και κοινότητα expat. Ξενοδοχεία, βίλες, εστιατόρια και κτηματομεσιτικά γραφεία χρειάζονται ισχυρή online παρουσία." },
   { name: "Αμμόχωστος", slug: null, color: "#F59E0B", bg: "#FEF3C7", desc: "Μια παράκτια πόλη με αναπτυσσόμενη οικονομία. Οι επιχειρήσεις εδώ ωφελούνται τεράστια από το να είναι εύρετες στο Google." },
@@ -135,7 +135,7 @@ export default function WebDesignCyprusEl() {
               Η DM-Labs.io είναι ένα studio σχεδιασμού και ανάπτυξης ιστοσελίδων που εξυπηρετεί επιχειρήσεις σε όλη την Κύπρο - από Λεμεσό και Λευκωσία μέχρι Λάρνακα, Πάφο και Αμμόχωστο. Φτιάχνουμε γρήγορες, mobile-first, βελτιστοποιημένες για SEO ιστοσελίδες που βοηθούν τις κυπριακές επιχειρήσεις να βρεθούν στο Google και να μετατρέψουν τους επισκέπτες σε πελάτες.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/el/contact">
+              <Link href="/el/contact/">
                 <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                   Λάβετε Δωρεάν Προσφορά
                 </button>
@@ -316,7 +316,7 @@ export default function WebDesignCyprusEl() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/el/contact">
+                  <Link href="/el/contact/">
                     <button className={`w-full py-3 rounded-xl font-semibold text-sm transition-colors ${pkg.highlight ? "bg-white text-[#5B8CFF] hover:bg-blue-50" : "bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white hover:opacity-90"}`}>
                       Λάβετε Δωρεάν Προσφορά
                     </button>
@@ -328,7 +328,7 @@ export default function WebDesignCyprusEl() {
           <AnimateIn>
             <p className="text-center text-sm text-[#5B6472] mt-8">
               Όλες οι τιμές είναι εφάπαξ. Χωρίς μηνιαίες χρεώσεις εκτός αν επιλέξετε προαιρετικό πλάνο συντήρησης.{" "}
-              <Link href="/el/pricing">
+              <Link href="/el/pricing/">
                 <span className="text-[#5B8CFF] font-semibold hover:underline cursor-pointer">Δείτε πλήρεις τιμές</span>
               </Link>
             </p>
@@ -387,7 +387,7 @@ export default function WebDesignCyprusEl() {
                       </span>
                     </Link>
                   ) : (
-                    <Link href="/el/contact">
+                    <Link href="/el/contact/">
                       <span style={{ color: city.color }} className="text-sm font-semibold hover:underline cursor-pointer">
                         Ζητήστε προσφορά για {city.name} →
                       </span>
@@ -488,7 +488,7 @@ export default function WebDesignCyprusEl() {
               Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. Μπορείτε επίσης να μας στείλετε απευθείας στο WhatsApp - απαντάμε γρήγορα.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/el/contact">
+              <Link href="/el/contact/">
                 <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
                   Δωρεάν Συμβουλευτική
                 </button>

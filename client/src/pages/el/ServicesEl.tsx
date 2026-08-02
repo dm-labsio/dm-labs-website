@@ -88,7 +88,7 @@ export default function ServicesElPage() {
                     </li>
                   ))}
                 </ul>
-                <a href="/el/contact" className="btn-secondary w-full justify-center">Δωρεάν Συμβουλευτική</a>
+                <a href="/el/contact/" className="btn-secondary w-full justify-center">Δωρεάν Συμβουλευτική</a>
               </div>
             </AnimateIn>
 
@@ -118,7 +118,7 @@ export default function ServicesElPage() {
                       </li>
                     ))}
                   </ul>
-                  <a href="/el/contact" className="btn-primary w-full justify-center">Δωρεάν Συμβουλευτική</a>
+                  <a href="/el/contact/" className="btn-primary w-full justify-center">Δωρεάν Συμβουλευτική</a>
                 </div>
               </div>
             </AnimateIn>
@@ -147,7 +147,7 @@ export default function ServicesElPage() {
                     </li>
                   ))}
                 </ul>
-                <a href="/el/contact" className="btn-secondary w-full justify-center">Δωρεάν Συμβουλευτική</a>
+                <a href="/el/contact/" className="btn-secondary w-full justify-center">Δωρεάν Συμβουλευτική</a>
               </div>
             </AnimateIn>
 
@@ -168,7 +168,7 @@ export default function ServicesElPage() {
                     Για μεγαλύτερες επιχειρήσεις και οργανισμούς που χρειάζονται πλήρως custom λύση.
                   </p>
                   <a
-                    href="/el/contact"
+                    href="/el/contact/"
                     className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"
                     style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}
                   >
@@ -226,7 +226,7 @@ export default function ServicesElPage() {
               { icon: Headphones, title: "Υποστήριξη Μετά την Κυκλοφορία", desc: "Δεν εξαφανιζόμαστε μετά την κυκλοφορία - συνεχής υποστήριξη όταν τη χρειάζεστε.", anchor: "turnaround" },
             ].map((item) => (
               <StaggerItem key={item.title}>
-                <Link href={`/el/services/${item.anchor}`}>
+                <Link href={`/el/services/${item.anchor}/`}>
                   <div id={item.anchor} className="dm-card h-full !p-6 scroll-mt-24 cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
                     <div className="flex items-start gap-4">
                       <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
@@ -280,7 +280,7 @@ export default function ServicesElPage() {
                   </ul>
                 </div>
               </div>
-              <a href="/el/contact" className="btn-primary">
+              <a href="/el/contact/" className="btn-primary">
                 <MessageCircle size={18} />
                 Ρωτήστε για τη Συντήρηση
               </a>
@@ -310,11 +310,11 @@ export default function ServicesElPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Έτοιμοι να Ξεκινήσετε;</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Στείλτε μας μήνυμα και θα συζητήσουμε ποιο πακέτο ταιριάζει στην επιχείρησή σας.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/el/contact" className="btn-primary">
+              <a href="/el/contact/" className="btn-primary">
                 <MessageCircle size={18} />
                 Συνομιλήστε στο WhatsApp
               </a>
-              <Link href="/el/pricing" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
+              <Link href="/el/pricing/" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
                 Σύγκριση Τιμών <ArrowRight size={16} />
               </Link>
             </div>

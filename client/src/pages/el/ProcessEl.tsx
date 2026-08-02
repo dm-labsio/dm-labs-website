@@ -170,10 +170,10 @@ export default function ProcessElPage() {
               Το πρώτο βήμα είναι μια γρήγορη, χωρίς δέσμευση συνομιλία στο WhatsApp. Ας μιλήσουμε για την επιχείρησή σας.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/el/contact" className="btn-primary">
+              <a href="/el/contact/" className="btn-primary">
                 <MessageCircle size={18} /> Ξεκινήστε τη Συζήτηση
               </a>
-              <Link href="/el/pricing" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
+              <Link href="/el/pricing/" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
                 Δείτε τις Τιμές <ArrowRight size={16} />
               </Link>
             </div>

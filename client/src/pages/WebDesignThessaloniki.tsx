@@ -131,12 +131,12 @@ export default function WebDesignThessaloniki() {
             Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
+            <Link href="/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Get a Free Consultation
               </button>
             </Link>
-            <Link href="/pricing">
+            <Link href="/pricing/">
               <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors bg-white">
                 View Pricing
               </button>
@@ -174,7 +174,7 @@ export default function WebDesignThessaloniki() {
           </h2>
           <p className="text-[#5B6472] mb-10">
             Every site we deliver is built to perform - not just to look good.{" "}
-            <Link href="/services" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+            <Link href="/services/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               See our full services
             </Link>
             .
@@ -215,7 +215,7 @@ export default function WebDesignThessaloniki() {
           </h2>
           <p className="text-[#5B6472] mb-10">
             No hidden fees. No hourly billing. One fixed price, everything included.{" "}
-            <Link href="/pricing" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
+            <Link href="/pricing/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               View full pricing breakdown
             </Link>
             .
@@ -350,7 +350,7 @@ export default function WebDesignThessaloniki() {
             Tell us about your business and we will send you a free proposal within 24 hours. No commitment, no pressure. You can also reach us directly on WhatsApp - we are quick to respond.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
+            <Link href="/contact/">
               <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
                 Contact us today
               </button>

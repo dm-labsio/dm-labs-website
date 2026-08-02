@@ -909,14 +909,14 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             <p className="text-xs text-gray-500 mb-1 font-medium">Αυτό είναι έμπνευση σχεδιασμού</p>
             <p className="text-gray-400 text-xs mb-4 leading-relaxed">Κάθε ιστοσελίδα κατασκευάζεται από μηδενική βάση και προσαρμόζεται στο brand σας. Η τιμή εξαρτάται από το πλάνο που θα επιλέξετε - όχι από το παράδειγμα.</p>
             <a
-              href="/el/pricing"
+              href="/el/pricing/"
               className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] mb-2"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >
               Δείτε Τιμές Πακέτων
             </a>
             <a
-              href="/el/contact"
+              href="/el/contact/"
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-sm border border-gray-200 text-gray-700 transition-all duration-300 hover:border-[#5B8CFF] hover:text-[#5B8CFF]"
             >
               Ζητήστε Προσφορά για αυτό το Σχέδιο
@@ -1048,7 +1048,7 @@ function CustomBuildCard() {
         <div className="flex items-center justify-between">
           <span className="text-xs text-gray-400 italic">Τιμές από €299 - προσφορά κατόπιν αιτήματος</span>
           <a
-            href="/el/contact"
+            href="/el/contact/"
             className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
             style={{ color: "#5B8CFF" }}
             onClick={e => e.stopPropagation()}
@@ -1281,7 +1281,7 @@ export default function TemplatesEl() {
                 Ετοιμάζουμε όμορφα παραδείγματα για αυτόν τον κλάδο. Εν τω μεταξύ, μπορούμε να δημιουργήσουμε έναν εντελώς custom σχεδιασμό για την επιχείρησή σας - απλά επικοινωνήστε μαζί μας.
               </p>
               <a
-                href="/el/contact"
+                href="/el/contact/"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105"
                 style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
               >
@@ -1306,7 +1306,7 @@ export default function TemplatesEl() {
               Κάθε ιστοσελίδα που φτιάχνουμε είναι πλήρως προσαρμοσμένη. Πείτε μας για την επιχείρησή σας και θα σχεδιάσουμε κάτι μοναδικό - αποκλειστικά για εσάς.
             </p>
             <a
-              href="/el/contact"
+              href="/el/contact/"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >

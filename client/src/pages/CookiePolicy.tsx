@@ -123,7 +123,7 @@ export default function CookiePolicy() {
                   <li>Withdraw your consent at any time</li>
                   <li>Request deletion of data collected through cookies</li>
                 </ul>
-                <p className="mt-3">For more information about your data protection rights, see our <Link href="/privacy" className="text-[#5B8CFF] hover:underline">Privacy Policy</Link>.</p>
+                <p className="mt-3">For more information about your data protection rights, see our <Link href="/privacy/" className="text-[#5B8CFF] hover:underline">Privacy Policy</Link>.</p>
               </div>
 
               <div>
@@ -138,8 +138,8 @@ export default function CookiePolicy() {
 
             </div>
             <div className="mt-10 pt-8 border-t border-[#E2E5EA] flex gap-4">
-              <Link href="/privacy" className="text-sm text-[#5B8CFF] hover:underline">Privacy Policy</Link>
-              <Link href="/terms" className="text-sm text-[#5B8CFF] hover:underline">Terms of Service</Link>
+              <Link href="/privacy/" className="text-sm text-[#5B8CFF] hover:underline">Privacy Policy</Link>
+              <Link href="/terms/" className="text-sm text-[#5B8CFF] hover:underline">Terms of Service</Link>
             </div>
           </AnimateIn>
         </div>

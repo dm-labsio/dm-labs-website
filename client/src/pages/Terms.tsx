@@ -2,8 +2,15 @@
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 import { ChevronLeft } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Terms() {
+  useSEO({
+    title: "Terms of Service | DM-Labs.io",
+    description: "Read the DM-Labs.io Terms of Service for website design, development, and related services.",
+    canonicalPath: "/terms/",
+  });
+
   return (
     <>
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
@@ -36,8 +43,8 @@ export default function Terms() {
               <div><h2 className="text-xl font-semibold text-[#111315] mb-3">Contact</h2><p>Questions? Email <a href="mailto:info@dm-labs.io" className="text-[#5B8CFF] hover:underline">info@dm-labs.io</a>.</p></div>
             </div>
             <div className="mt-10 pt-8 border-t border-[#E2E5EA] flex gap-4">
-              <Link href="/privacy" className="text-sm text-[#5B8CFF] hover:underline">Privacy Policy</Link>
-              <Link href="/cookies" className="text-sm text-[#5B8CFF] hover:underline">Cookie Policy</Link>
+              <Link href="/privacy/" className="text-sm text-[#5B8CFF] hover:underline">Privacy Policy</Link>
+              <Link href="/cookies/" className="text-sm text-[#5B8CFF] hover:underline">Cookie Policy</Link>
             </div>
           </AnimateIn>
         </div>

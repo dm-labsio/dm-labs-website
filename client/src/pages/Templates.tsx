@@ -909,14 +909,14 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             <p className="text-xs text-gray-500 mb-1 font-medium">This is a design inspiration</p>
             <p className="text-gray-400 text-xs mb-4 leading-relaxed">Every website is built from scratch and tailored to your brand. Pricing depends on your chosen plan - not the example.</p>
             <a
-              href="/pricing"
+              href="/pricing/"
               className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] mb-2"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >
               View Pricing Plans
             </a>
             <a
-              href="/contact"
+              href="/contact/"
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-sm border border-gray-200 text-gray-700 transition-all duration-300 hover:border-[#5B8CFF] hover:text-[#5B8CFF]"
             >
               Get a Quote for This Design
@@ -1048,7 +1048,7 @@ function CustomBuildCard() {
         <div className="flex items-center justify-between">
           <span className="text-xs text-gray-400 italic">Pricing from €299 - quote on request</span>
           <a
-            href="/contact"
+            href="/contact/"
             className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
             style={{ color: "#5B8CFF" }}
             onClick={e => e.stopPropagation()}
@@ -1281,7 +1281,7 @@ export default function Templates() {
                 We're crafting beautiful examples for this industry. In the meantime, we can build a completely custom design for your business - just reach out.
               </p>
               <a
-                href="/contact"
+                href="/contact/"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105"
                 style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
               >
@@ -1306,7 +1306,7 @@ export default function Templates() {
               Every website we build is fully custom. Tell us about your business and we'll design something unique - just for you.
             </p>
             <a
-              href="/contact"
+              href="/contact/"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >

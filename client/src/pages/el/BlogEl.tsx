@@ -51,7 +51,7 @@ export default function ΆρθραEl() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {POSTS_EL.map((post, i) => (
                 <AnimateIn key={post.elSlug} delay={i * 0.08}>
-                  <Link href={`/el/blog/${post.elSlug}`} className="group block dm-card overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
+                  <Link href={`/el/blog/${post.elSlug}/`} className="group block dm-card overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
                     {/* Cover image */}
                     <div className="relative overflow-hidden" style={{ height: "200px" }}>
                       <img
@@ -100,7 +100,7 @@ export default function ΆρθραEl() {
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">
               Σταματήστε να διαβάζετε και ξεκινήστε να αναπτύσσεστε. Λάβετε δωρεάν συμβουλευτική και μια σαφή προσφορά εντός 24 ωρών.
             </p>
-            <Link href="/el/contact" className="btn-primary">
+            <Link href="/el/contact/" className="btn-primary">
               Δωρεάν Συμβουλευτική <ArrowRight size={18} />
             </Link>
           </AnimateIn>

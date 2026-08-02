@@ -152,7 +152,7 @@ export default function FAQEl() {
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Έχετε Ακόμα Ερωτήσεις;</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Είμαστε πάντα εδώ να βοηθήσουμε. Στείλτε μας μήνυμα και θα σας απαντήσουμε γρήγορα.</p>
-            <a href="/el/contact" className="btn-primary">
+            <a href="/el/contact/" className="btn-primary">
               <MessageCircle size={18} /> Επικοινωνήστε μαζί μας
             </a>
           </AnimateIn>

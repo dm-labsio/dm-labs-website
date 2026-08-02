@@ -154,7 +154,7 @@ export default function FAQ() {
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Still Have Questions?</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">We're always happy to help. Send us a message and we'll get back to you quickly.</p>
-            <a href="/contact" className="btn-primary">
+            <a href="/contact/" className="btn-primary">
               <MessageCircle size={18} /> Contact Us
             </a>
           </AnimateIn>

@@ -365,7 +365,7 @@ export default function ServiceDetailElPage() {
       <div className="container section-spacing text-center">
         <h1 className="text-3xl font-bold text-[#111315] mb-4">Η υπηρεσία δεν βρέθηκε</h1>
         <p className="text-[#5B6472] mb-8">Η υπηρεσία που αναζητάτε δεν υπάρχει.</p>
-        <Link href="/el/services" className="btn-primary">
+        <Link href="/el/services/" className="btn-primary">
           Δείτε Όλες τις Υπηρεσίες
           <ArrowRight size={16} />
         </Link>
@@ -393,7 +393,7 @@ export default function ServiceDetailElPage() {
         <div className="container relative z-10">
           {/* Breadcrumb */}
           <AnimateIn variant="fade-up" delay={0.05}>
-            <Link href="/el/services" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
+            <Link href="/el/services/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
               <ChevronLeft size={16} />
               Πίσω στις Υπηρεσίες
             </Link>
@@ -456,7 +456,7 @@ export default function ServiceDetailElPage() {
               <p className="text-base text-[#5B6472] leading-relaxed mb-8">
                 Κάθε στοιχείο παρακάτω περιλαμβάνεται στο έργο ιστοσελίδας σας. Χωρίς κρυφές χρεώσεις, χωρίς προαιρετικά πρόσθετα που θα έπρεπε να είναι τυπικά.
               </p>
-              <Link href="/el/contact" className="btn-primary">
+              <Link href="/el/contact/" className="btn-primary">
                 Ξεκινήστε το Έργο σας
                 <ArrowRight size={16} />
               </Link>
@@ -532,7 +532,7 @@ export default function ServiceDetailElPage() {
             <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {relatedServices.map((rel) => (
                 <StaggerItem key={rel.id}>
-                  <Link href={`/el/services/${rel.id}`}>
+                  <Link href={`/el/services/${rel.id}/`}>
                     <div className="dm-card text-center cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
                       <p className="text-sm font-semibold text-[#111315] mb-1">{rel.label}</p>
                       <span className="text-xs text-[#5B8CFF] inline-flex items-center gap-1 justify-center">
@@ -562,11 +562,11 @@ export default function ServiceDetailElPage() {
               Χωρίς δέσμευση, χωρίς πίεση. Επικοινωνήστε μαζί μας και θα συζητήσουμε το έργο σας εντός ωρών.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/el/contact" className="btn-primary !h-14 !text-base !px-8">
+              <Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">
                 <MessageCircle size={20} />
                 Επικοινωνήστε μαζί μας
               </Link>
-              <Link href="/el/pricing" className="inline-flex items-center gap-2 px-8 h-14 rounded-xl border-2 border-white/20 text-white font-semibold hover:border-white/40 transition-all duration-300 text-base">
+              <Link href="/el/pricing/" className="inline-flex items-center gap-2 px-8 h-14 rounded-xl border-2 border-white/20 text-white font-semibold hover:border-white/40 transition-all duration-300 text-base">
                 Δείτε Τιμές
                 <ArrowRight size={18} />
               </Link>

@@ -113,12 +113,12 @@ export default function WebDesignNicosiaEl() {
               Αυτή η σελίδα είναι διαθέσιμη και στα αγγλικά κατόπιν αιτήματος.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/el/contact">
+              <Link href="/el/contact/">
                 <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                   Λάβετε Δωρεάν Συμβουλευτική
                 </button>
               </Link>
-              <Link href="/el/pricing">
+              <Link href="/el/pricing/">
                 <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors bg-white">
                   Δείτε τις Τιμές
                 </button>
@@ -224,7 +224,7 @@ export default function WebDesignNicosiaEl() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/el/contact">
+                  <Link href="/el/contact/">
                     <button className={`w-full py-3 rounded-xl font-semibold text-sm transition-colors ${pkg.highlight ? "bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white hover:opacity-90" : "border border-[#5B8CFF] text-[#5B8CFF] hover:bg-[#EEF3FF]"}`}>
                       Ξεκινήστε
                     </button>
@@ -310,12 +310,12 @@ export default function WebDesignNicosiaEl() {
               Η DM-Labs.io συνεργάζεται με επιχειρήσεις σε όλη την Κύπρο και όχι μόνο. Έχουμε επίσης ειδικές σελίδες για άλλες πόλεις που εξυπηρετούμε:
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/el/web-design-limassol">
+              <Link href="/el/web-design-limassol/">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-sm hover:bg-[#EEF3FF] transition-colors cursor-pointer">
                   Κατασκευή Ιστοσελίδας Λεμεσός →
                 </span>
               </Link>
-              <Link href="/el/web-design-thessaloniki">
+              <Link href="/el/web-design-thessaloniki/">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#8B5CFF] text-[#8B5CFF] font-semibold text-sm hover:bg-[#F3EEFF] transition-colors cursor-pointer">
                   Κατασκευή Ιστοσελίδας Θεσσαλονίκη →
                 </span>
@@ -357,7 +357,7 @@ export default function WebDesignNicosiaEl() {
               Πείτε μας για την επιχείρησή σας και θα σας στείλουμε μια δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. Μπορείτε επίσης να επικοινωνήσετε μαζί μας απευθείας στο WhatsApp — απαντάμε γρήγορα.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/el/contact">
+              <Link href="/el/contact/">
                 <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
                   Επικοινωνήστε μαζί μας
                 </button>

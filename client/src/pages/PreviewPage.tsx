@@ -12,8 +12,8 @@
  *    contentDocument. This fires BEFORE the browser processes the hash link,
  *    allowing us to call preventDefault() and use scrollIntoView() instead.
  *    This completely stops history entries from being pushed.
- * 3. goBack() always calls navigate("/templates") — never history.back().
- * 4. popstate listener intercepts browser back button → navigate("/templates").
+ * 3. goBack() always calls navigate("/templates/") — never history.back().
+ * 4. popstate listener intercepts browser back button → navigate("/templates/").
  */
 import { useParams, useLocation } from "wouter";
 import { useEffect, useState, useRef, useCallback } from "react";
@@ -43,9 +43,9 @@ export default function PreviewPage() {
 
   const entry = PREVIEW_MAP[params.id ?? ""];
 
-  // Always navigate directly to /templates — never use history.back()
+  // Always navigate directly to /templates/ — never use history.back()
   const goBack = useCallback(() => {
-    navigate("/templates");
+    navigate("/templates/");
   }, [navigate]);
 
   // Fetch HTML content for srcdoc (no URL = cleaner history baseline)
@@ -75,8 +75,8 @@ export default function PreviewPage() {
     window.history.pushState({ previewSentinel: true }, "");
 
     const onPopState = () => {
-      // Any back press while preview is open → go directly to /templates
-      navigate("/templates");
+      // Any back press while preview is open → go directly to /templates/
+      navigate("/templates/");
     };
     window.addEventListener("popstate", onPopState);
 
@@ -134,7 +134,7 @@ export default function PreviewPage() {
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 gap-4">
         <p className="text-gray-500 text-lg">Preview not found.</p>
         <button
-          onClick={() => navigate("/templates")}
+          onClick={() => navigate("/templates/")}
           className="px-6 py-3 rounded-full font-semibold text-white"
           style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
         >
