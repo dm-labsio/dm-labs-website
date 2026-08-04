@@ -8,6 +8,7 @@ import { } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
+import InteractiveExampleCard from "@/components/InteractiveExampleCard";
 import {
   Globe, Smartphone, Search, Zap, Shield, Clock,
   CheckCircle2, ArrowRight, MessageCircle,
@@ -119,6 +120,8 @@ const FEATURED_TEMPLATES = [
     category: "Καφετέρια & Καφές",
     styleLabel: "Artisan Minimal",
     previewUrl: "/previews/nomad-coffee.html",
+    imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80",
+    imageAlt: "Nomad Coffee website example",
     palette: ["#1a1208", "#2c1f0e"],
   },
   {
@@ -128,6 +131,8 @@ const FEATURED_TEMPLATES = [
     category: "Ομορφιά & Wellness",
     styleLabel: "Κομψό & Θηλυκό",
     previewUrl: "/previews/bella-salon.html",
+    imageUrl: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80",
+    imageAlt: "Bella Salon website example",
     palette: ["#1a0a0f", "#6b2d3e"],
   },
   {
@@ -137,7 +142,19 @@ const FEATURED_TEMPLATES = [
     category: "Κλινικές & Υγεία",
     styleLabel: "Καθαρό & Επαγγελματικό",
     previewUrl: "/previews/dr-elara-dental.html",
+    imageUrl: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80",
+    imageAlt: "Dr. Elara Dental website example",
     palette: ["#0a1628", "#0d2040"],
+  },
+  {
+    id: "verde-restaurant",
+    industry: "restaurant",
+    name: "Verde Restaurant",
+    styleLabel: "Fresh Mediterranean",
+    previewUrl: "/previews/verde-restaurant.html",
+    imageUrl: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80",
+    imageAlt: "Verde Restaurant website example",
+    palette: ["#1a2e1a", "#2d5a27"],
   },
 ];
 
@@ -287,28 +304,17 @@ export default function HomeElPage() {
             </p>
           </AnimateIn>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 items-stretch">
+          <StaggerContainer className="mx-auto mb-10 grid max-w-5xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
             {FEATURED_TEMPLATES.map((tpl) => (
-              <StaggerItem key={tpl.id} className="flex">
-                <Link href="/el/templates/" className="flex w-full">
-                  <div className="dm-card !p-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group flex flex-col w-full">
-                    {/* Hand-crafted card mockup */}
-                    <HomeElCardPreview tplId={tpl.id} category={tpl.category} />
-
-                    {/* Card Details */}
-                    <div className="p-5 flex flex-col flex-1">
-                      <div className="mb-2">
-                        <h4 className="font-semibold text-[#111315] text-base leading-tight">{tpl.name}</h4>
-                        <p className="text-xs text-[#5B6472] mt-0.5">{tpl.styleLabel}</p>
-                      </div>
-
-                      {/* Learn More - pinned to bottom */}
-                      <div className="mt-auto flex items-center gap-1 text-sm font-semibold text-[#5B8CFF] group-hover:gap-2 transition-all">
-                        Δείτε παράδειγμα <ArrowRight size={14} />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
+              <StaggerItem key={tpl.id} className="flex min-w-0">
+                <InteractiveExampleCard
+                  title={tpl.name}
+                  subtitle={tpl.styleLabel}
+                  imageUrl={tpl.imageUrl}
+                  imageAlt={tpl.imageAlt}
+                  href={tpl.previewUrl}
+                  actionText="Δείτε παράδειγμα"
+                />
               </StaggerItem>
             ))}
           </StaggerContainer>
