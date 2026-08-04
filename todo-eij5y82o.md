@@ -16,3 +16,7 @@
 - [x] Give the English privacy and terms pages unique self-referencing titles and descriptions.
 - [x] Add focused automated SEO checks and verify redirects, hreflang targets, GEO links, sitemap canonicals, generated metadata, console health, and production build output; all 69 canonical sitemap URLs and generated alternate targets returned 200 in the local production verification.
 - [x] Complete the SEO repair through direct scoped source inspection only, without broad research or changes to the neon ribbon, design, content, or unrelated functionality.
+- [ ] Save a pre-change checkpoint and inspect the current Design Inspiration examples and homepage card implementation.
+- [ ] Create an isolated accessible interactive example card with controlled desktop pointer tilt, reduced-motion support, and touch-safe behavior.
+- [ ] Replace only the existing homepage Design Inspiration card row with four existing examples in a tight responsive 2×2 layout.
+- [ ] Add focused coverage and verify card count, existing links, desktop/mobile layout, interaction reset, console health, and production build output.
