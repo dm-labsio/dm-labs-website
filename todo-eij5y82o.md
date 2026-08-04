@@ -22,3 +22,7 @@
 - [x] Add focused coverage for exactly four existing cards, their direct preview destinations, depth/tilt reset, keyboard label, and reduced-motion safeguards.
 - [x] Verify card count, existing links, desktop/mobile layout, interaction reset, console health, and production build output; all 12 tests passed, all four existing preview URLs returned 200, desktop and mobile layouts rendered correctly, browser console was clean, and the 69-route production prerender succeeded. The unchanged project-wide TypeScript check remains blocked by five existing AIChatBox, Markdown, and ComponentShowcase errors outside the card files.
 - [x] Verify the live desktop hover tilt and spring reset in a real browser after the final card implementation.
+- [x] Inspect the existing in-app preview route and close control to preserve its intended return behavior.
+- [x] Change only homepage example-card destinations to use the existing preview view with an explicit return-to-source path.
+- [x] Add focused coverage for homepage preview entry paths, safe source-path parsing, and X close-return behavior.
+- [x] Verify that the top-right X returns to the correct English or Greek homepage across both desktop and mobile viewport classes; all four live browser combinations passed, six test files passed, the 69-route production build/prerender succeeded, and the preview console was clean. The unchanged project-wide TypeScript check remains blocked by five existing AIChatBox, Markdown, and ComponentShowcase errors outside the preview files.

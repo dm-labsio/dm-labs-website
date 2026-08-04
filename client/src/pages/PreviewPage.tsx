@@ -16,7 +16,7 @@
  * 4. popstate listener intercepts browser back button → navigate("/templates/").
  */
 import { useParams, useLocation } from "wouter";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import { X, ExternalLink } from "lucide-react";
 
 const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
@@ -33,6 +33,16 @@ const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
   "horizon-law":          { name: "Horizon Law",          url: "/previews/horizon-law.html" },
 };
 
+const DEFAULT_RETURN_PATH = "/templates/";
+
+function getReturnPath() {
+  const requestedPath = new URLSearchParams(window.location.search).get("from");
+  if (!requestedPath || !requestedPath.startsWith("/") || requestedPath.startsWith("//")) {
+    return DEFAULT_RETURN_PATH;
+  }
+  return requestedPath;
+}
+
 export default function PreviewPage() {
   const params = useParams<{ id: string }>();
   const [, navigate] = useLocation();
@@ -40,13 +50,14 @@ export default function PreviewPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const returnPath = useMemo(getReturnPath, []);
 
   const entry = PREVIEW_MAP[params.id ?? ""];
 
-  // Always navigate directly to /templates/ — never use history.back()
+  // Use the explicit source path passed by the entry point, never history.back().
   const goBack = useCallback(() => {
-    navigate("/templates/");
-  }, [navigate]);
+    navigate(returnPath);
+  }, [navigate, returnPath]);
 
   // Fetch HTML content for srcdoc (no URL = cleaner history baseline)
   useEffect(() => {
@@ -75,8 +86,8 @@ export default function PreviewPage() {
     window.history.pushState({ previewSentinel: true }, "");
 
     const onPopState = () => {
-      // Any back press while preview is open → go directly to /templates/
-      navigate("/templates/");
+      // Any back press while preview is open returns to the explicit source route.
+      navigate(returnPath);
     };
     window.addEventListener("popstate", onPopState);
 
@@ -84,7 +95,7 @@ export default function PreviewPage() {
       document.body.style.overflow = "";
       window.removeEventListener("popstate", onPopState);
     };
-  }, [navigate]);
+  }, [navigate, returnPath]);
 
   // Escape key
   useEffect(() => {
@@ -134,11 +145,11 @@ export default function PreviewPage() {
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 gap-4">
         <p className="text-gray-500 text-lg">Preview not found.</p>
         <button
-          onClick={() => navigate("/templates/")}
+          onClick={() => navigate(returnPath)}
           className="px-6 py-3 rounded-full font-semibold text-white"
           style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
         >
-          Back to Examples
+          Back to DM-Labs
         </button>
       </div>
     );
@@ -170,7 +181,7 @@ export default function PreviewPage() {
             <span className="hidden sm:inline">New tab</span>
           </a>
 
-          {/* X close — always navigates directly to /templates in one click */}
+          {/* X close — returns to the page that opened this preview in one click. */}
           <button
             onClick={goBack}
             className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-all"
@@ -201,7 +212,7 @@ export default function PreviewPage() {
               className="px-4 py-2 rounded-lg text-sm font-medium text-white"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >
-              Back to Examples
+              Back to DM-Labs
             </button>
           </div>
         </div>

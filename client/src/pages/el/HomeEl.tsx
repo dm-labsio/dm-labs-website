@@ -312,7 +312,7 @@ export default function HomeElPage() {
                   subtitle={tpl.styleLabel}
                   imageUrl={tpl.imageUrl}
                   imageAlt={tpl.imageAlt}
-                  href={tpl.previewUrl}
+                  href={`/preview/${tpl.id}?from=%2Fel%2F`}
                   actionText="Δείτε παράδειγμα"
                 />
               </StaggerItem>

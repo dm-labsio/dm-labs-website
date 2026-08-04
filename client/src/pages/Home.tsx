@@ -369,7 +369,7 @@ export default function HomePage() {
                   subtitle={tpl.styleLabel}
                   imageUrl={tpl.imageUrl}
                   imageAlt={tpl.imageAlt}
-                  href={tpl.previewUrl}
+                  href={`/preview/${tpl.id}?from=%2F`}
                   actionText="See example"
                 />
               </StaggerItem>
