@@ -55,15 +55,16 @@
     @media(max-width:768px){ .menu-strip{padding:2rem 1.5rem; justify-content:center;} .menu-divider{display:none;} }
 
     /* SCROLL VIDEO HERO */
-    .scroll-video-hero { --hero-progress:0; position:relative; height:520vh; background:#120b07; }
-    .scroll-video-hero-pin { position:sticky; top:0; height:100svh; min-height:28rem; overflow:hidden; isolation:isolate; background:#120b07; }
+    .scroll-video-hero { --hero-progress:0; position:relative; height:520vh; }
+    .scroll-video-hero-stage { position:fixed; inset:0; z-index:10; height:100svh; min-height:28rem; overflow:hidden; isolation:isolate; background:#120b07; pointer-events:none; }
+    .scroll-video-hero[data-active="false"] .scroll-video-hero-stage { display:none; }
     .scroll-video-hero video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; pointer-events:none; opacity:0; transition:opacity .25s ease-out; }
     .scroll-video-hero[data-ready="true"] video { opacity:1; }
     .scroll-video-hero::after { content:''; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(180deg, rgba(15,8,4,0.12) 0%, transparent 36%, rgba(15,8,4,0.32) 100%); }
     .scroll-video-hero-cue { position:absolute; z-index:2; left:50%; bottom:2.25rem; transform:translateX(-50%); color:rgba(250,246,240,0.8); font-size:0.65rem; letter-spacing:0.24em; text-transform:uppercase; white-space:nowrap; opacity:calc(1 - var(--hero-progress)); transition:opacity .18s linear; }
     .scroll-video-hero-cue::after { content:''; display:block; width:1px; height:2rem; margin:0.85rem auto 0; background:rgba(250,246,240,0.65); transform-origin:top; transform:scaleY(calc(1 - var(--hero-progress))); }
     @media(max-width:768px){ .scroll-video-hero{height:390svh;} .scroll-video-hero-cue{bottom:1.5rem; font-size:0.58rem;} }
-    @media(prefers-reduced-motion:reduce){ .scroll-video-hero{height:100svh;} .scroll-video-hero-pin{position:relative;} .scroll-video-hero video{opacity:1!important;} .scroll-video-hero-cue{display:none;} }
+    @media(prefers-reduced-motion:reduce){ .scroll-video-hero{height:100svh;} .scroll-video-hero-stage{position:relative; inset:auto; height:100svh;} .scroll-video-hero video{opacity:1!important;} .scroll-video-hero-cue{display:none;} }
 
     /* STORY */
     .story { padding:7rem 8%; display:grid; grid-template-columns:1fr 1fr; gap:7rem; align-items:center; }
@@ -159,8 +160,8 @@
   </nav>
 
   <!-- SCROLL VIDEO HERO -->
-  <section class="scroll-video-hero" id="coffee-film-hero" aria-label="Nomad Coffee film introduction" data-ready="false">
-    <div class="scroll-video-hero-pin">
+  <section class="scroll-video-hero" id="coffee-film-hero" aria-label="Nomad Coffee film introduction" data-ready="false" data-active="true">
+    <div class="scroll-video-hero-stage">
       <video id="coffee-scroll-video" muted playsinline preload="auto" aria-hidden="true">
         <source src="/manus-storage/nomad-coffee-scroll-video_09b84d3e.mp4" type="video/mp4" />
       </video>
@@ -326,9 +327,10 @@
   function updateFromScroll() {
     updateQueued = false;
     var sceneRect = scene.getBoundingClientRect();
-    var travel = Math.max(scene.offsetHeight - window.innerHeight, 1);
-    var progress = clamp(-sceneRect.top / travel, 0, 1);
+    var scrollSpan = Math.max(scene.offsetHeight, 1);
+    var progress = clamp(-sceneRect.top / scrollSpan, 0, 1);
     scene.style.setProperty('--hero-progress', progress.toFixed(4));
+    scene.setAttribute('data-active', sceneRect.bottom > 0 ? 'true' : 'false');
 
     if (!metadataReady || reducedMotion) return;
     var targetTime = Math.min(Math.max(duration - 0.04, 0), duration * progress);

@@ -44,3 +44,7 @@
 - [x] Reveal the existing Nomad Coffee webpage unchanged only after the video hero completes.
 - [x] Set a true final-frame, non-animating reduced-motion fallback and verify that the existing page remains accessible after it.
 - [x] Add focused coverage and verify the full desktop/mobile sequence, content reveal, console health, and production build; all 20 tests passed, live and built-production desktop/mobile scrubbing reached first, midpoint, and final frames before releasing the unchanged page, the 69-route prerender succeeded, and the preview console was clean. The unchanged project-wide TypeScript check remains blocked by five existing AIChatBox, Markdown, and ComponentShowcase errors outside this work.
+- [x] Replace the current sticky scroll scene with a true fixed video viewport that remains visible throughout the entire Nomad Coffee sequence.
+- [x] Remove the black spacer behavior so the completed video releases directly into the existing page with no empty scroll interval.
+- [x] Add focused no-gap regression coverage and verify desktop/mobile development and production behavior; all 20 tests passed, fixed-stage coverage and direct release passed in both development and built production, the 69-route production prerender succeeded, and the final preview console was clean. The unchanged project-wide TypeScript check remains blocked by five existing AIChatBox, Markdown, and ComponentShowcase errors outside this work.
+- [x] Confirm the sticky wrapper was leaving the viewport during the sequence, producing the reported black scroll space.

@@ -20,10 +20,12 @@ describe("Nomad Coffee scroll-driven hero", () => {
     expect(previewSource.indexOf('id="coffee-film-hero"')).toBeLessThan(previewSource.indexOf("<!-- HERO -->"));
   });
 
-  it("pins the hero while scroll progress advances the video once through its duration", () => {
+  it("keeps the hero fixed throughout the scroll span and releases it only when the existing page reaches the viewport", () => {
     expect(previewSource).toContain(".scroll-video-hero { --hero-progress:0; position:relative; height:520vh;");
-    expect(previewSource).toContain(".scroll-video-hero-pin { position:sticky; top:0; height:100svh;");
-    expect(previewSource).toContain("var progress = clamp(-sceneRect.top / travel, 0, 1);");
+    expect(previewSource).toContain(".scroll-video-hero-stage { position:fixed; inset:0; z-index:10;");
+    expect(previewSource).toContain('.scroll-video-hero[data-active="false"] .scroll-video-hero-stage { display:none; }');
+    expect(previewSource).toContain("var progress = clamp(-sceneRect.top / scrollSpan, 0, 1);");
+    expect(previewSource).toContain("scene.setAttribute('data-active', sceneRect.bottom > 0 ? 'true' : 'false');");
     expect(previewSource).toContain("video.currentTime = targetTime;");
     expect(previewSource).toContain("window.addEventListener('scroll', onScrollOrResize, { passive:true });");
     expect(previewSource).toContain("window.requestAnimationFrame(updateFromScroll)");
