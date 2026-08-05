@@ -12,7 +12,7 @@ const previewSource = readFileSync(
 describe("Nomad Coffee scroll-driven hero", () => {
   it("uses the supplied stored video as the page-first hero rather than a separate middle section", () => {
     expect(previewSource).toContain('id="coffee-scroll-video"');
-    expect(previewSource).toContain('src="/manus-storage/nomad-coffee-scroll-video_09b84d3e.mp4"');
+    expect(previewSource).toContain('src="/manus-storage/nomad-coffee-scroll-video-all-intra_ab16c684.mp4"');
     expect(previewSource).toContain('<section class="scroll-video-hero" id="coffee-film-hero"');
     expect(previewSource).toContain("muted playsinline preload=\"auto\"");
     expect(previewSource).not.toContain("autoplay muted loop");
@@ -26,9 +26,44 @@ describe("Nomad Coffee scroll-driven hero", () => {
     expect(previewSource).toContain('.scroll-video-hero[data-active="false"] .scroll-video-hero-stage { display:none; }');
     expect(previewSource).toContain("var progress = clamp(-sceneRect.top / scrollSpan, 0, 1);");
     expect(previewSource).toContain("scene.setAttribute('data-active', sceneRect.bottom > 0 ? 'true' : 'false');");
+    expect(previewSource).toContain("var targetTime = 0;");
+    expect(previewSource).toContain("function runSeekController() {");
+    expect(previewSource).toContain("if (!metadataReady || reducedMotion || !seekReady || video.seeking) return;");
+    expect(previewSource).toContain("seekReady = false;");
     expect(previewSource).toContain("video.currentTime = targetTime;");
+    expect(previewSource).toContain("function updateTargetTime(nextTime) {");
+    expect(previewSource).toContain("targetTime = clamp(nextTime, 0, duration);");
+    expect(previewSource).toContain("function onSeeked() {");
+    expect(previewSource).toContain("seekReady = true;");
+    expect(previewSource).toContain("video.addEventListener('seeked', onSeeked);");
+    expect(previewSource).toContain("updateTargetTime(Math.min(Math.max(duration - 0.04, 0), duration * progress));");
     expect(previewSource).toContain("window.addEventListener('scroll', onScrollOrResize, { passive:true });");
-    expect(previewSource).toContain("window.requestAnimationFrame(updateFromScroll)");
+    expect(previewSource).toContain("seekControllerRafId = window.requestAnimationFrame(runSeekController);");
+    expect(previewSource).toContain("window.cancelAnimationFrame(seekControllerRafId);");
+  });
+
+  it("updates only the latest target during scroll and issues one guarded seek at a time", () => {
+    const scrollUpdateStart = previewSource.indexOf("function updateFromScroll() {");
+    const scrollUpdateEnd = previewSource.indexOf("function queueUpdate() {");
+    const seekControllerStart = previewSource.indexOf("function runSeekController() {");
+    const seekControllerEnd = previewSource.indexOf("function updateTargetTime(nextTime) {");
+
+    expect(scrollUpdateStart).toBeGreaterThan(-1);
+    expect(scrollUpdateEnd).toBeGreaterThan(scrollUpdateStart);
+    expect(seekControllerStart).toBeGreaterThan(-1);
+    expect(seekControllerEnd).toBeGreaterThan(seekControllerStart);
+
+    const scrollUpdate = previewSource.slice(scrollUpdateStart, scrollUpdateEnd);
+    const seekController = previewSource.slice(seekControllerStart, seekControllerEnd);
+
+    expect(scrollUpdate).toContain("updateTargetTime(");
+    expect(scrollUpdate).not.toContain("video.currentTime =");
+    expect(seekController).toContain("video.seeking");
+    expect(seekController).toContain("seekReady = false;");
+    expect(seekController).toContain("video.currentTime = targetTime;");
+    expect(previewSource).toContain("video.addEventListener('seeked', onSeeked);");
+    expect(previewSource).toContain("function onSeeked() {");
+    expect(previewSource).toContain("seekReady = true;");
   });
 
   it("waits for valid metadata before scrubbing and retains the reduced-motion fallback", () => {
@@ -39,6 +74,7 @@ describe("Nomad Coffee scroll-driven hero", () => {
     expect(previewSource).toContain("prefers-reduced-motion: reduce");
     expect(previewSource).toContain("video.currentTime = Math.max(duration - 0.04, 0);");
     expect(previewSource).toContain("video.pause();");
-    expect(previewSource).toContain("window.cancelAnimationFrame(rafId)");
+    expect(previewSource).toContain("window.cancelAnimationFrame(scrollRafId);");
+    expect(previewSource).toContain("window.cancelAnimationFrame(seekControllerRafId);");
   });
 });

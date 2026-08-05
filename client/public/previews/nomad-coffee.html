@@ -163,7 +163,7 @@
   <section class="scroll-video-hero" id="coffee-film-hero" aria-label="Nomad Coffee film introduction" data-ready="false" data-active="true">
     <div class="scroll-video-hero-stage">
       <video id="coffee-scroll-video" muted playsinline preload="auto" aria-hidden="true">
-        <source src="/manus-storage/nomad-coffee-scroll-video_09b84d3e.mp4" type="video/mp4" />
+        <source src="/manus-storage/nomad-coffee-scroll-video-all-intra_ab16c684.mp4" type="video/mp4" />
       </video>
       <span class="scroll-video-hero-cue" aria-hidden="true">Scroll to explore</span>
     </div>
@@ -315,17 +315,36 @@
   if (!video || !scene || !window.requestAnimationFrame) return;
 
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var rafId = 0;
+  var scrollRafId = 0;
+  var seekControllerRafId = 0;
   var metadataReady = false;
-  var updateQueued = false;
   var duration = 0;
+  var targetTime = 0;
+  var seekReady = true;
+  var seekTolerance = 1 / 120;
 
   function clamp(value, minimum, maximum) {
     return Math.max(minimum, Math.min(maximum, value));
   }
 
+  function runSeekController() {
+    seekControllerRafId = window.requestAnimationFrame(runSeekController);
+    if (!metadataReady || reducedMotion || !seekReady || video.seeking) return;
+    if (Math.abs(video.currentTime - targetTime) <= seekTolerance) return;
+    seekReady = false;
+    video.currentTime = targetTime;
+  }
+
+  function updateTargetTime(nextTime) {
+    targetTime = clamp(nextTime, 0, duration);
+  }
+
+  function onSeeked() {
+    seekReady = true;
+  }
+
   function updateFromScroll() {
-    updateQueued = false;
+    scrollRafId = 0;
     var sceneRect = scene.getBoundingClientRect();
     var scrollSpan = Math.max(scene.offsetHeight, 1);
     var progress = clamp(-sceneRect.top / scrollSpan, 0, 1);
@@ -333,16 +352,12 @@
     scene.setAttribute('data-active', sceneRect.bottom > 0 ? 'true' : 'false');
 
     if (!metadataReady || reducedMotion) return;
-    var targetTime = Math.min(Math.max(duration - 0.04, 0), duration * progress);
-    if (Math.abs(video.currentTime - targetTime) > 0.025) {
-      video.currentTime = targetTime;
-    }
+    updateTargetTime(Math.min(Math.max(duration - 0.04, 0), duration * progress));
   }
 
   function queueUpdate() {
-    if (updateQueued) return;
-    updateQueued = true;
-    rafId = window.requestAnimationFrame(updateFromScroll);
+    if (scrollRafId) return;
+    scrollRafId = window.requestAnimationFrame(updateFromScroll);
   }
 
   function onScrollOrResize() {
@@ -362,13 +377,17 @@
   }
 
   video.addEventListener('loadedmetadata', onLoadedMetadata, { once:true });
+  video.addEventListener('seeked', onSeeked);
   window.addEventListener('scroll', onScrollOrResize, { passive:true });
   window.addEventListener('resize', onScrollOrResize, { passive:true });
+  if (!reducedMotion) seekControllerRafId = window.requestAnimationFrame(runSeekController);
   if (video.readyState >= 1) onLoadedMetadata();
   queueUpdate();
 
   window.addEventListener('pagehide', function() {
-    window.cancelAnimationFrame(rafId);
+    window.cancelAnimationFrame(scrollRafId);
+    window.cancelAnimationFrame(seekControllerRafId);
+    video.removeEventListener('seeked', onSeeked);
     window.removeEventListener('scroll', onScrollOrResize);
     window.removeEventListener('resize', onScrollOrResize);
   }, { once:true });
