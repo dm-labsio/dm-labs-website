@@ -87,6 +87,7 @@ const DYNAMIC_PATTERNS = [
   /^\/blog\/[a-z0-9-]+$/,
   /^\/services\/[a-z0-9-]+$/,
   /^\/el\/services\/[a-z0-9-]+$/,
+  /^\/preview\/[a-z0-9-]+$/,
   /^\/previews\/[a-z0-9-]+\.html$/,
 ];
 
@@ -201,6 +202,12 @@ export function serveStatic(app: Express) {
       }
     } else {
       // Root always gets the root index.html
+      return res.sendFile(path.resolve(distPath, "index.html"));
+    }
+
+    // Dynamic application routes without a prerendered HTML file still need the
+    // root shell so the client router can render their in-app experience.
+    if (isKnownRoute(urlPath)) {
       return res.sendFile(path.resolve(distPath, "index.html"));
     }
 

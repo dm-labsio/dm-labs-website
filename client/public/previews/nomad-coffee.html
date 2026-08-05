@@ -54,6 +54,20 @@
     .menu-divider { width:1px; height:40px; background:rgba(250,246,240,0.15); }
     @media(max-width:768px){ .menu-strip{padding:2rem 1.5rem; justify-content:center;} .menu-divider{display:none;} }
 
+    /* COFFEE FILM */
+    .coffee-film { position:relative; min-height:clamp(28rem,65vw,44rem); overflow:hidden; isolation:isolate; background:var(--brown); }
+    .coffee-film video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(var(--film-scale,1.02)); transition:transform 0.35s ease-out; pointer-events:none; }
+    .coffee-film::before { content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(90deg, rgba(35,20,12,0.76) 0%, rgba(35,20,12,0.36) 43%, rgba(35,20,12,0.08) 74%); pointer-events:none; }
+    .coffee-film::after { content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(35,20,12,0.28) 0%, transparent 36%, rgba(35,20,12,0.48) 100%); pointer-events:none; }
+    .coffee-film-content { position:relative; z-index:2; min-height:inherit; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:5rem 8%; max-width:720px; color:var(--cream); }
+    .coffee-film .eyebrow { font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:#F0C58E; font-weight:500; margin-bottom:1rem; }
+    .coffee-film h2 { max-width:560px; font-size:clamp(2.5rem,5vw,4.7rem); font-weight:500; line-height:1.04; letter-spacing:-0.035em; }
+    .coffee-film h2 em { color:#F0C58E; font-style:italic; }
+    .coffee-film p:last-child { max-width:355px; margin-top:1.5rem; color:rgba(250,246,240,0.78); font-size:0.9rem; line-height:1.75; }
+    .coffee-film-note { position:absolute; z-index:2; right:8%; bottom:2.25rem; color:rgba(250,246,240,0.62); font-size:0.66rem; letter-spacing:0.19em; text-transform:uppercase; }
+    @media(max-width:768px){ .coffee-film{min-height:32rem;} .coffee-film::before{background:linear-gradient(90deg, rgba(35,20,12,0.74), rgba(35,20,12,0.24));} .coffee-film-content{padding:4rem 1.5rem 5rem;} .coffee-film-note{right:1.5rem; bottom:1.5rem;} }
+    @media(prefers-reduced-motion:reduce){ .coffee-film video{transform:scale(1.02)!important; transition:none;} }
+
     /* STORY */
     .story { padding:7rem 8%; display:grid; grid-template-columns:1fr 1fr; gap:7rem; align-items:center; }
     .story-text .eyebrow { font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--caramel); font-weight:500; margin-bottom:1rem; }
@@ -182,6 +196,19 @@
     <div class="menu-item"><div class="menu-item-name">Avocado Toast</div><div class="menu-item-price">€7.50</div></div>
   </div>
 
+  <!-- COFFEE FILM -->
+  <section class="coffee-film" aria-labelledby="coffee-film-title">
+    <video id="coffee-scroll-video" autoplay muted loop playsinline preload="auto" aria-label="A coffee bean transforms into a freshly poured cup of coffee">
+      <source src="/manus-storage/nomad-coffee-scroll-video_09b84d3e.mp4" type="video/mp4" />
+    </video>
+    <div class="coffee-film-content">
+      <p class="eyebrow">The ritual in motion</p>
+      <h2 id="coffee-film-title">One bean.<br><em>One beautiful</em> beginning.</h2>
+      <p>From the first crack to the final pour, every detail is part of the ritual. Slow down and taste what care can do.</p>
+    </div>
+    <span class="coffee-film-note" aria-hidden="true">Scroll to stir the ritual</span>
+  </section>
+
   <!-- STORY -->
   <section class="story">
     <div class="story-text">
@@ -284,6 +311,75 @@
     </div>
   </footer>
 <script>
+/* DM Labs: scroll-responsive coffee film.
+   The video keeps playing natively; scrolling only changes playback speed and
+   a subtle scale variable, avoiding expensive frame seeking or canvas work. */
+(function() {
+  var video = document.getElementById('coffee-scroll-video');
+  var film = document.querySelector('.coffee-film');
+  if (!video || !film || !window.requestAnimationFrame) return;
+
+  var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var baseRate = 1;
+  var boostRate = 1.7;
+  var targetRate = baseRate;
+  var currentRate = baseRate;
+  var lastY = window.scrollY;
+  var lastTime = performance.now();
+  var rafId = 0;
+  var metadataReady = false;
+
+  function playVideo() {
+    var playback = video.play();
+    if (playback && typeof playback.catch === 'function') playback.catch(function() {});
+  }
+
+  function onScroll() {
+    if (!metadataReady) return;
+    var now = performance.now();
+    var distance = Math.abs(window.scrollY - lastY);
+    var elapsed = Math.max(now - lastTime, 1);
+    var velocity = distance / elapsed;
+    targetRate = reducedMotion ? baseRate : Math.min(baseRate + velocity * 0.42, boostRate);
+    lastY = window.scrollY;
+    lastTime = now;
+  }
+
+  function tick() {
+    if (!metadataReady) {
+      rafId = window.requestAnimationFrame(tick);
+      return;
+    }
+    targetRate += (baseRate - targetRate) * 0.055;
+    currentRate += (targetRate - currentRate) * 0.075;
+    var rate = Math.max(0.8, Math.min(currentRate, boostRate));
+    if (video.playbackRate !== rate) video.playbackRate = rate;
+
+    if (!reducedMotion) {
+      var rect = film.getBoundingClientRect();
+      var progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+      film.style.setProperty('--film-scale', (1.02 + progress * 0.045).toFixed(3));
+    }
+    rafId = window.requestAnimationFrame(tick);
+  }
+
+  function onLoadedMetadata() {
+    if (!isFinite(video.duration) || video.duration <= 0) return;
+    metadataReady = true;
+    playVideo();
+  }
+
+  video.addEventListener('loadedmetadata', onLoadedMetadata, { once:true });
+  window.addEventListener('scroll', onScroll, { passive:true });
+  if (video.readyState >= 1) onLoadedMetadata();
+  rafId = window.requestAnimationFrame(tick);
+
+  window.addEventListener('pagehide', function() {
+    window.cancelAnimationFrame(rafId);
+    window.removeEventListener('scroll', onScroll);
+  }, { once:true });
+})();
+
 /* DM Labs: prevent hash links from pushing browser history entries.
    Uses history.replaceState() + scrollIntoView() so iframe nav never
    adds entries to the parent page's history stack. */
