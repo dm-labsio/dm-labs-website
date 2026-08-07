@@ -64,3 +64,5 @@
 - [x] Replace only the Dr. Elara tooth-orbit visual with the supplied root-canal education MP4 through managed file storage.
 - [x] Add the provided Root Canal Treatment explanation and four treatment steps beneath the video while retaining the existing preview’s surrounding layout and styles.
 - [x] Add regression coverage and verify desktop/mobile video presentation, console health, and production build output; all 25 tests passed, the MP4 loaded with a 10.005-second duration and advanced in browser playback, desktop/mobile cards rendered correctly, the active preview console was clean, and the 69-route production prerender succeeded. The unchanged project-wide type check remains blocked by five existing errors in AIChatBox, Markdown, and ComponentShowcase, outside this work.
+- [ ] Verify the configured GitHub remote, commit the completed root-canal video update, and push it to the user-authorized repository.
+- [ ] Merge the existing GitHub `main` history into the active DM-Labs project without changing production, resolve only source-control conflicts, and push the unified `main` branch.
