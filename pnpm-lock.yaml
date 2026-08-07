@@ -214,6 +214,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@4.1.14)
+      three:
+        specifier: ^0.185.1
+        version: 0.185.1
       vaul:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@19.2.1(@types/react@19.2.1))(@types/react@19.2.1)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -4042,6 +4045,9 @@ packages:
   tar@7.5.1:
     resolution: {integrity: sha512-nlGpxf+hv0v7GkWBK2V9spgactGOp0qvfWRxUMjqHyzrt3SgwE48DIv/FhqPHJYLHpgW1opq3nERbz5Anq7n1g==}
     engines: {node: '>=18'}
+
+  three@0.185.1:
+    resolution: {integrity: sha512-5aojFCXKwnjBRZvUnt3WFfEcvUJgkN5LlijRFN95hMy8WVkG4I0QNcJE+OuWvuJ0bOdStrbfXn0pkd6/QyiAlg==}
 
   throttleit@2.1.0:
     resolution: {integrity: sha512-nt6AMGKW1p/70DF/hGBdJB57B8Tspmbp5gfJ8ilhLnt7kkr2ye7hzD6NVG8GGErk2HWF34igrL2CXmNIkzKqKw==}
@@ -8441,6 +8447,8 @@ snapshots:
       minipass: 7.1.2
       minizlib: 3.1.0
       yallist: 5.0.0
+
+  three@0.185.1: {}
 
   throttleit@2.1.0: {}
 

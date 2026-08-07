@@ -52,6 +52,18 @@
     .hero-card-text span { font-size:0.75rem; color:var(--mid); }
     @media(max-width:768px){ .hero{grid-template-columns:1fr;} .hero-right{height:55vw;} .hero-left{padding:3rem 1.5rem;} .hero-card{display:none;} }
 
+    /* TOOTH ORBIT */
+    .tooth-orbit { padding:5rem 8%; background:linear-gradient(135deg,#fff 0%,#f8fcfc 52%,#e8f5f5 100%); overflow:hidden; }
+    .tooth-orbit-inner { max-width:1120px; min-height:430px; margin:auto; display:grid; grid-template-columns:0.9fr 1.1fr; align-items:center; gap:3rem; padding:3rem; background:#fff; border:1px solid var(--border); border-radius:24px; box-shadow:0 24px 65px rgba(14,124,123,0.12); }
+    .tooth-orbit-copy .section-tag { margin-bottom:1.25rem; }
+    .tooth-orbit-copy .section-title { text-align:left; margin-bottom:1rem; }
+    .tooth-orbit-copy p { max-width:390px; font-size:0.9rem; color:var(--mid); line-height:1.8; }
+    .tooth-orbit-stage { --tilt-x:0deg; --tilt-y:0deg; position:relative; aspect-ratio:1; width:min(100%,390px); justify-self:center; border:1px solid var(--border); border-radius:32px; overflow:hidden; background:radial-gradient(circle at 50% 42%,#fff 0 15%,#e8f5f5 48%,#f8fcfc 100%); cursor:pointer; touch-action:manipulation; }
+    .tooth-scene-host { position:absolute; inset:0; z-index:2; }
+    .tooth-orbit-stage:focus-visible { outline:4px solid var(--teal-mid); outline-offset:4px; }
+    .tooth-orbit-hint { position:absolute; z-index:4; left:50%; bottom:1.25rem; transform:translateX(-50%); padding:.45rem .75rem; white-space:nowrap; border-radius:100px; background:rgba(255,255,255,.88); color:var(--teal); box-shadow:0 4px 12px rgba(14,124,123,.08); font-size:.64rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
+    @media(max-width:768px){ .tooth-orbit{padding:4rem 1.5rem;} .tooth-orbit-inner{grid-template-columns:1fr;gap:2rem;padding:2rem 1.25rem;} .tooth-orbit-copy .section-title{text-align:center;} .tooth-orbit-copy p{text-align:center;margin:auto;} .tooth-orbit-copy .section-tag{display:table;margin:0 auto 1.25rem;} }
+
     /* SERVICES */
     .services { padding:6rem 8%; background:var(--white); }
     .section-header { text-align:center; margin-bottom:4rem; }
@@ -181,6 +193,21 @@
           <span>Available Mon-Sat</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- TOOTH ORBIT -->
+  <section class="tooth-orbit" aria-labelledby="tooth-orbit-title">
+    <div class="tooth-orbit-inner">
+      <div class="tooth-orbit-copy">
+        <span class="section-tag">Precision in Motion</span>
+        <h2 class="section-title" id="tooth-orbit-title">Care designed around <em>your smile.</em></h2>
+        <p>Select the model to reveal a gentle orbit of clinical detail around a polished, natural tooth form.</p>
+      </div>
+      <button class="tooth-orbit-stage" type="button" aria-pressed="false" aria-label="Reveal the tooth orbit">
+        <div class="tooth-scene-host" aria-hidden="true"></div>
+        <span class="tooth-orbit-hint">Tap to explore</span>
+      </button>
     </div>
   </section>
 
@@ -366,6 +393,26 @@
     });
   }
 })();
+
+</script>
+<script type="module">
+  import { mountToothGravityScene } from '/previews/tooth-gravity-scene.js';
+  const stage = document.querySelector('.tooth-orbit-stage');
+  const host = stage?.querySelector('.tooth-scene-host');
+  const hint = stage?.querySelector('.tooth-orbit-hint');
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (stage && host) {
+    const controller = mountToothGravityScene(host, {
+      interactionTarget: stage,
+      reducedMotion: motion.matches,
+      onStateChange: ({ active, reducedMotion }) => {
+        stage.classList.toggle('active', active);
+        stage.setAttribute('aria-pressed', String(active));
+        if (hint) hint.textContent = reducedMotion ? 'Static model' : active ? 'Orbit active' : 'Tap to explore';
+      },
+    });
+    stage.addEventListener('click', () => controller.toggle());
+  }
 </script>
 </body>
 </html>
