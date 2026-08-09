@@ -7,6 +7,7 @@ const serverDirectory = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(serverDirectory, "..");
 const homeSource = readFileSync(resolve(projectRoot, "client/src/pages/Home.tsx"), "utf8");
 const homeElSource = readFileSync(resolve(projectRoot, "client/src/pages/el/HomeEl.tsx"), "utf8");
+const servicesSource = readFileSync(resolve(projectRoot, "client/src/pages/Services.tsx"), "utf8");
 const fitLineSource = readFileSync(resolve(projectRoot, "client/src/components/EditorialFitLine.tsx"), "utf8");
 const layoutSource = readFileSync(resolve(projectRoot, "client/src/components/Layout.tsx"), "utf8");
 const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "utf8");
@@ -78,5 +79,31 @@ describe("English homepage editorial typography", () => {
     expect(layoutSource).toContain('isEnglishHomepage ? "editorial-home-nav-link" : ""');
     expect(layoutSource).toContain('isEnglishHomepage ? "editorial-home-header-cta" : ""');
     expect(layoutSource).toContain('isEnglishHomepage ? "editorial-home-mobile-menu" : ""');
+  });
+});
+
+describe("Services page editorial typography", () => {
+  it("keeps the Services page as the only non-home route with the approved accent treatment", () => {
+    expect(servicesSource).toContain('className="services-editorial"');
+    expect(servicesSource).toContain('className="services-editorial-title');
+    expect(servicesSource).toContain('className="services-editorial-heading');
+    expect(servicesSource).toContain('className="services-editorial-label');
+    expect(servicesSource).toContain('className="services-editorial-price');
+    expect(servicesSource).toContain('className="services-editorial-serif');
+  });
+
+  it("scopes the Services display, mono label, serif emphasis, and mobile safeguards to that page", () => {
+    expect(stylesheet).toContain(".services-editorial {");
+    expect(stylesheet).toContain(".services-editorial .services-editorial-label");
+    expect(stylesheet).toContain(".services-editorial .services-editorial-title");
+    expect(stylesheet).toContain(".services-editorial .services-editorial-heading");
+    expect(stylesheet).toContain(".services-editorial .services-editorial-serif");
+    expect(stylesheet).toContain(".services-editorial .services-editorial-price");
+    expect(stylesheet).toContain("@media (max-width: 767px) {");
+  });
+
+  it("does not alter the Services SEO metadata declaration", () => {
+    expect(servicesSource).toContain('title: "Web Design Services Paphos & Cyprus | DM-Labs.io"');
+    expect(servicesSource).toContain('description: "Custom website design in Paphos and across Cyprus. Launch, Growth and Pro website packages from €299, plus ongoing care."');
   });
 });

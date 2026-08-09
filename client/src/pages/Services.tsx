@@ -22,6 +22,7 @@ export default function Services() {
   });
   return (
     <>
+      <div className="services-editorial">
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
         <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -32,11 +33,11 @@ export default function Services() {
         </div>
         <div className="container relative z-10 text-center">
           <AnimateIn>
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">What We Offer</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              Services That <span className="brand-gradient-text">Drive Results</span>
+            <p className="services-editorial-label text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">What We Offer</p>
+            <h1 className="services-editorial-title text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
+              Services That <em className="services-editorial-serif brand-gradient-text">Drive Results</em>
             </h1>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+            <p className="services-editorial-lead text-lg text-[#5B6472] max-w-2xl mx-auto">
               We are a small web design agency focused on building professional, high-quality websites. From custom design to SEO optimisation, we handle everything so you don't have to.
             </p>
           </AnimateIn>
@@ -47,15 +48,15 @@ export default function Services() {
       <section className="section-spacing bg-white">
         <div className="container">
           <AnimateIn className="mb-16">
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Core Services</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Website Packages</h2>
+            <p className="services-editorial-label text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Core Services</p>
+            <h2 className="services-editorial-heading text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Website <em className="services-editorial-serif">Packages</em></h2>
           </AnimateIn>
 
           <div
             className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl"
             style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
           >
-            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Packages from €299</span>
+            <span className="services-editorial-banner-label text-base sm:text-lg font-bold text-white tracking-widest uppercase">Packages from €299</span>
             <span className="hidden sm:block w-px h-5 bg-white/40" />
             <span className="text-sm sm:text-base text-white/90 font-medium">Clear scope, transparent pricing, and a free consultation before you commit.</span>
           </div>
@@ -67,7 +68,7 @@ export default function Services() {
               <div className="dm-card h-full flex flex-col">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="icon-container-gradient"><Globe size={24} className="text-[#5B8CFF]" strokeWidth={1.75} /></div>
-                  <div><p className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Launch Website</p><p className="text-2xl font-bold text-[#111315]">€299 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p></div>
+                  <div><p className="services-editorial-label text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Launch Website</p><p className="services-editorial-price text-2xl font-bold text-[#111315]">€299 <span className="services-editorial-price-note text-sm font-normal text-[#5B6472]">one-time</span></p></div>
                 </div>
                 <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">A lean online presence for a new business that needs to launch clearly and professionally.</p>
                 <ul className="space-y-3 mb-6 flex-1">
@@ -82,7 +83,7 @@ export default function Services() {
               <div className="brand-gradient-border h-full">
                 <div className="dm-card h-full !shadow-none relative flex flex-col">
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
-                  <div className="flex items-center gap-4 mb-4"><div className="icon-container-gradient"><Rocket size={24} className="text-[#8B5CFF]" strokeWidth={1.75} /></div><div><p className="text-xs font-semibold text-[#8B5CFF] uppercase tracking-wide">Growth Website</p><p className="text-2xl font-bold text-[#111315]">€749 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p></div></div>
+                  <div className="flex items-center gap-4 mb-4"><div className="icon-container-gradient"><Rocket size={24} className="text-[#8B5CFF]" strokeWidth={1.75} /></div><div><p className="services-editorial-label text-xs font-semibold text-[#8B5CFF] uppercase tracking-wide">Growth Website</p><p className="services-editorial-price text-2xl font-bold text-[#111315]">€749 <span className="services-editorial-price-note text-sm font-normal text-[#5B6472]">one-time</span></p></div></div>
                   <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">A conversion-focused site for a business ready to be found, trusted, and contacted online.</p>
                   <ul className="space-y-3 mb-6 flex-1">
                     {["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"].map((f) => <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}</li>)}
@@ -95,7 +96,7 @@ export default function Services() {
             {/* Pro Website */}
             <AnimateIn delay={0.3}>
               <div className="dm-card h-full flex flex-col">
-                <div className="flex items-center gap-4 mb-4"><div className="icon-container-gradient"><Globe size={24} className="text-[#6FE3FF]" strokeWidth={1.75} /></div><div><p className="text-xs font-semibold text-[#6FE3FF] uppercase tracking-wide">Pro Website</p><p className="text-2xl font-bold text-[#111315]">€1,499 <span className="text-sm font-normal text-[#5B6472]">one-time</span></p></div></div>
+                  <div className="flex items-center gap-4 mb-4"><div className="icon-container-gradient"><Globe size={24} className="text-[#6FE3FF]" strokeWidth={1.75} /></div><div><p className="services-editorial-label text-xs font-semibold text-[#6FE3FF] uppercase tracking-wide">Pro Website</p><p className="services-editorial-price text-2xl font-bold text-[#111315]">€1,499 <span className="services-editorial-price-note text-sm font-normal text-[#5B6472]">one-time</span></p></div></div>
                 <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">For a more complete digital presence with richer content, motion, and stronger search foundations.</p>
                 <ul className="space-y-3 mb-6 flex-1">
                   {["Up to 7 pages", "Gallery or portfolio", "Pop-up and scroll-driven animations", "Full SEO structure", "Blog setup or a website visual pack", "4 revision rounds"].map((f) => <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />{f}</li>)}
@@ -113,10 +114,10 @@ export default function Services() {
 
                 {/* Left: label + price + description */}
                 <div className="flex-shrink-0 lg:w-72">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
-                  <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise / Custom</p>
-                  <p className="text-4xl font-bold text-white mb-1">From €1,499</p>
-                  <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Quote based on scope</p>
+                  <span className="services-editorial-banner-label inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
+                  <p className="services-editorial-label text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise / Custom</p>
+                  <p className="services-editorial-price text-4xl font-bold text-white mb-1">From €1,499</p>
+                  <p className="services-editorial-label text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Quote based on scope</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
                     For integrations, multilingual builds, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, or unusual content volume.
                   </p>
@@ -162,8 +163,8 @@ export default function Services() {
       <section className="section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Included in Every Website</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">Everything You Need, Nothing You Don't</h2>
+            <p className="services-editorial-label text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Included in Every Website</p>
+            <h2 className="services-editorial-heading text-3xl sm:text-4xl font-bold text-[#111315]">Everything You <em className="services-editorial-serif">Need</em>, Nothing You Don't</h2>
           </AnimateIn>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
@@ -186,7 +187,7 @@ export default function Services() {
                         <item.icon size={20} className="text-[#5B8CFF]" strokeWidth={1.75} />
                       </div>
                       <div>
-                        <h3 className="text-base font-semibold text-[#111315] mb-1">{item.title}</h3>
+                        <h3 className="services-editorial-card-title text-base font-semibold text-[#111315] mb-1">{item.title}</h3>
                         <p className="text-sm text-[#5B6472] leading-relaxed mb-2">{item.desc}</p>
                         <span className="text-xs font-medium text-[#5B8CFF] inline-flex items-center gap-1">Learn more →</span>
                       </div>
@@ -204,16 +205,16 @@ export default function Services() {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <AnimateIn>
-              <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Optional Add-On</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-5">
-                Website Care Plans - <span className="brand-gradient-text">from €49/mo</span>
+              <p className="services-editorial-label text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Optional Add-On</p>
+              <h2 className="services-editorial-heading text-3xl sm:text-4xl font-bold text-[#111315] mb-5">
+                Website <em className="services-editorial-serif">Care</em> Plans - <span className="brand-gradient-text">from €49/mo</span>
               </h2>
               <p className="text-lg text-[#5B6472] mb-6 leading-relaxed">
                 Keep your website fresh, secure, and performing. Choose the plan that fits your needs.
               </p>
               <div className="space-y-5 mb-8">
                 <div className="dm-card !p-5">
-                  <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Basic Care — €49/month</p>
+                  <p className="services-editorial-label text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Basic Care — €49/month</p>
                   <ul className="space-y-2">
                     {["Hosting monitoring", "Backups and bug fixing", "WhatsApp support", "Up to 5 small content updates per month", "Cancel anytime, no contract"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
@@ -223,7 +224,7 @@ export default function Services() {
                   </ul>
                 </div>
                 <div className="dm-card !p-5 border-[#8B5CFF]/30">
-                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Complete Care — ongoing content updates</p>
+                  <p className="services-editorial-label text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Complete Care — ongoing content updates</p>
                   <ul className="space-y-2">
                     {["Everything in Basic Care", "Ongoing content updates", "Priority WhatsApp support", "Monthly performance check", "One simple banner or section update each month", "Cancel anytime, no contract"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
@@ -242,9 +243,9 @@ export default function Services() {
               <div className="dm-card !bg-[#F6F6F4]">
                 <div className="text-center py-8">
                   <div className="flex items-baseline justify-center gap-3 mb-2">
-                    <span className="text-5xl font-bold brand-gradient-text">€49</span>
+                    <span className="services-editorial-price text-5xl font-bold brand-gradient-text">€49</span>
                     <span className="text-2xl text-[#5B6472]">or</span>
-                    <span className="text-5xl font-bold brand-gradient-text">€129</span>
+                    <span className="services-editorial-price text-5xl font-bold brand-gradient-text">€129</span>
                   </div>
                   <p className="text-lg text-[#5B6472] mb-6">per month</p>
                   <div className="w-16 h-0.5 brand-gradient mx-auto rounded-full mb-6" />
@@ -260,7 +261,7 @@ export default function Services() {
       <section className="section-spacing dark-section text-center">
         <div className="container">
           <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Get Started?</h2>
+            <h2 className="services-editorial-heading services-editorial-heading-light text-3xl sm:text-4xl font-bold text-white mb-5">Ready to <em className="services-editorial-serif">Get Started?</em></h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Send us a message and we'll discuss which package is right for your business.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <a href="/contact/" className="btn-primary">
@@ -274,6 +275,7 @@ export default function Services() {
           </AnimateIn>
         </div>
       </section>
+      </div>
     </>
   );
 }

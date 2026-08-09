@@ -792,6 +792,121 @@
 }
 
 /* ============================================================
+   SERVICES PAGE EDITORIAL TYPOGRAPHY — PAGE 1 OF ROLLOUT
+   Scoped to the English Services page; preserves the approved
+   Commissioner base while using display and serif emphasis sparingly.
+   ============================================================ */
+.services-editorial {
+  --services-display: 'Anybody', 'Commissioner', sans-serif;
+  --services-serif: 'Instrument Serif', Georgia, serif;
+  --services-mono: 'DM Mono', ui-monospace, Menlo, monospace;
+  --services-sans: 'Commissioner', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --services-ink: #0E1012;
+  --services-muted: #4a5260;
+}
+
+.services-editorial .services-editorial-label,
+.services-editorial .services-editorial-banner-label {
+  font-family: var(--services-mono);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+}
+
+.services-editorial .services-editorial-title,
+.services-editorial .services-editorial-heading {
+  color: var(--services-ink);
+  font-family: var(--services-display);
+  font-variation-settings: 'wdth' 104, 'wght' 800;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.services-editorial .services-editorial-title {
+  font-size: clamp(3.2rem, 7vw, 6.7rem);
+  margin-inline: auto;
+  max-width: 14ch;
+}
+
+.services-editorial .services-editorial-heading {
+  font-size: clamp(2.25rem, 5vw, 4.8rem);
+  max-width: 18ch;
+}
+
+.services-editorial .services-editorial-heading-light {
+  color: #fff;
+  margin-inline: auto;
+}
+
+.services-editorial .services-editorial-serif {
+  display: inline-block;
+  font-family: var(--services-serif);
+  font-size: 1.08em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+  text-transform: none;
+}
+
+.services-editorial .services-editorial-lead {
+  color: var(--services-muted);
+  font-family: var(--services-sans);
+  font-size: clamp(1.05rem, 1.45vw, 1.3rem);
+  font-weight: 300;
+  letter-spacing: 0.005em;
+  line-height: 1.6;
+}
+
+.services-editorial .services-editorial-price {
+  font-family: var(--services-display);
+  font-variation-settings: 'wdth' 108, 'wght' 760;
+  font-weight: 760;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
+}
+
+.services-editorial .services-editorial-price-note {
+  font-family: var(--services-sans);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.services-editorial .services-editorial-card-title {
+  font-family: var(--services-sans);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+}
+
+.services-editorial .btn-primary,
+.services-editorial .btn-secondary {
+  font-family: var(--services-sans);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 767px) {
+  .services-editorial .services-editorial-title {
+    font-size: clamp(2.9rem, 13.5vw, 4.2rem);
+    letter-spacing: -0.058em;
+    line-height: 0.94;
+  }
+
+  .services-editorial .services-editorial-heading {
+    font-size: clamp(2rem, 10.8vw, 3.2rem);
+    letter-spacing: -0.055em;
+    line-height: 0.94;
+  }
+
+  .services-editorial .services-editorial-lead {
+    font-size: 1.03rem;
+    line-height: 1.55;
+  }
+}
+
+/* ============================================================
    HOMEPAGE SHORT SCROLL-SCRUB HERO
    ============================================================ */
 .hero-scrub-scope {
