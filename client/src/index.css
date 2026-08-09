@@ -525,15 +525,12 @@
    ============================================================ */
 .hero-scrub-scope {
   --hero-progress: 0;
-  --hero-copy-progress: 1;
   position: relative;
-  height: 100svh;
-  min-height: 34rem;
   background: #f6f6f4;
 }
 
 html.js .hero-scrub-scope[data-mode="scrub"] {
-  height: 142svh;
+  min-height: 34rem;
 }
 
 .hero-scrub-stage {
@@ -555,6 +552,11 @@ html.js .hero-scrub-scope[data-mode="scrub"] .hero-scrub-stage {
 
 html.js .hero-scrub-scope[data-mode="scrub"][data-active="false"] .hero-scrub-stage {
   display: none;
+}
+
+.hero-scrub-spacer {
+  height: calc(100svh - 72px);
+  min-height: 32rem;
 }
 
 .hero-scrub-poster,
@@ -594,10 +596,22 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-active="false"] .hero-scrub-st
   opacity: calc(0.52 - (var(--hero-progress) * 0.34));
 }
 
-.hero-scrub-copy {
-  position: absolute;
-  z-index: 3;
-  inset: 0;
+.hero-scrub-flow {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100svh - 72px);
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8faff 0%, #f6f6f4 46%, #f4f1ff 100%);
+}
+
+.hero-scrub-flow-poster {
+  display: none;
+}
+
+.hero-scrub-flow-content {
+  position: relative;
+  z-index: 1;
+  min-height: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -605,70 +619,72 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-active="false"] .hero-scrub-st
   text-align: center;
 }
 
-.hero-scrub-copy > div {
+.hero-scrub-flow-content > div {
   width: min(100%, 68rem);
 }
 
-html.js .hero-scrub-scope[data-mode="scrub"] .hero-scrub-copy {
-  opacity: var(--hero-copy-progress);
-  transform: translateY(calc((1 - var(--hero-copy-progress)) * 40px)) scale(calc(0.94 + (var(--hero-copy-progress) * 0.06)));
+html.js .hero-scrub-scope[data-mode="scrub"] .hero-scrub-flow-content {
+  opacity: 0;
+  transform: translateY(34px) scale(0.96);
   transform-origin: center;
   pointer-events: none;
+  transition: opacity 420ms cubic-bezier(0.23, 1, 0.32, 1), transform 520ms cubic-bezier(0.23, 1, 0.32, 1);
   will-change: opacity, transform;
 }
 
-html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scrub-copy {
+html.js .hero-scrub-scope[data-mode="scrub"][data-flow-active="true"] .hero-scrub-flow-content {
+  opacity: 1;
+  transform: none;
   pointer-events: auto;
 }
 
-.hero-scrub-copy h1 {
+.hero-scrub-flow-content h1 {
   text-wrap: balance;
   text-shadow: 0 2px 24px rgba(255, 255, 255, 0.65);
 }
 
-.hero-scrub-copy > div > p:first-child {
+.hero-scrub-flow-content > div > p:first-child {
   text-shadow: 0 1px 16px rgba(255, 255, 255, 0.7);
 }
 
-@media (max-width: 767px) {
-  html.js .hero-scrub-scope[data-mode="scrub"] {
-    height: 138svh;
-  }
+html:not(.js) .hero-scrub-stage,
+html:not(.js) .hero-scrub-spacer,
+.hero-scrub-scope[data-mode="fallback"] .hero-scrub-stage,
+.hero-scrub-scope[data-mode="fallback"] .hero-scrub-spacer {
+  display: none;
+}
 
+.hero-scrub-scope[data-mode="fallback"] .hero-scrub-flow-poster {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.22;
+}
+
+@media (max-width: 767px) {
   .hero-scrub-scope,
-  .hero-scrub-stage {
+  .hero-scrub-stage,
+  .hero-scrub-spacer,
+  .hero-scrub-flow {
     min-height: 31rem;
   }
 
-  .hero-scrub-copy {
+  .hero-scrub-flow-content {
     padding: 1.5rem;
   }
 
-  .hero-scrub-copy h1 {
+  .hero-scrub-flow-content h1 {
     font-size: clamp(2.25rem, 11vw, 3.25rem);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-scrub-scope,
-  html.js .hero-scrub-scope[data-mode="scrub"] {
-    height: 100svh;
-  }
-
-  .hero-scrub-stage,
-  html.js .hero-scrub-scope[data-mode="scrub"] .hero-scrub-stage {
-    position: relative;
-    top: auto;
-    right: auto;
-    left: auto;
-  }
-
-  .hero-scrub-video {
-    display: none;
-  }
-
-  .hero-scrub-copy,
-  html.js .hero-scrub-scope[data-mode="scrub"] .hero-scrub-copy {
+  .hero-scrub-flow-content,
+  html.js .hero-scrub-scope[data-mode="scrub"] .hero-scrub-flow-content {
     opacity: 1 !important;
     transform: none !important;
     pointer-events: auto !important;

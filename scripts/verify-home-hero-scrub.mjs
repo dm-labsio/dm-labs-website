@@ -24,21 +24,24 @@ async function inspectScenario({ name, viewport, reducedMotion = "no-preference"
     await page.evaluate(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       if (!scope) throw new Error("Missing hero scope");
-      const holdOffset = scope.offsetHeight * 0.76;
+      const stage = document.querySelector(".hero-scrub-stage");
+      if (!stage) throw new Error("Missing hero stage");
+      const holdOffset = stage.getBoundingClientRect().height + 8;
       window.scrollTo(0, scope.getBoundingClientRect().top + window.scrollY + holdOffset);
     });
     await page.waitForFunction(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const video = document.querySelector(".hero-scrub-video");
-      return scope && video && getComputedStyle(scope).getPropertyValue("--hero-copy-progress").trim() === "1.0000" && video.currentTime > 5.7;
+      return scope && video && scope.dataset.flowActive === "true" && scope.dataset.active === "false" && video.currentTime > 5.7;
     });
+    await page.waitForTimeout(650);
   }
 
   const state = await page.evaluate(() => {
     const scope = document.querySelector(".hero-scrub-scope");
     const stage = document.querySelector(".hero-scrub-stage");
-    const copy = document.querySelector(".hero-scrub-copy");
-    const h1 = document.querySelector(".hero-scrub-copy h1");
+    const copy = document.querySelector(".hero-scrub-flow-content");
+    const h1 = document.querySelector(".hero-scrub-flow-content h1");
     const video = document.querySelector(".hero-scrub-video");
     if (!scope || !stage || !copy || !h1 || !video) throw new Error("Hero elements missing");
     const rect = h1.getBoundingClientRect();
@@ -46,9 +49,9 @@ async function inspectScenario({ name, viewport, reducedMotion = "no-preference"
       mode: scope.dataset.mode,
       active: scope.dataset.active,
       progress: getComputedStyle(scope).getPropertyValue("--hero-progress").trim(),
-      copyProgress: getComputedStyle(scope).getPropertyValue("--hero-copy-progress").trim(),
+      flowActive: scope.dataset.flowActive,
       copyOpacity: getComputedStyle(copy).opacity,
-      videoDisplay: getComputedStyle(video).display,
+      stageDisplay: getComputedStyle(stage).display,
       videoTime: video.currentTime,
       duration: video.duration,
       scopeBottom: scope.getBoundingClientRect().bottom,
@@ -63,8 +66,8 @@ async function inspectScenario({ name, viewport, reducedMotion = "no-preference"
 
   const visible = state.headingRect.left >= 0 && state.headingRect.right <= state.viewport.width && state.headingRect.top >= 0 && state.headingRect.bottom <= state.viewport.height;
   const pass = reducedMotion === "reduce"
-    ? state.mode === "fallback" && state.copyOpacity === "1" && state.videoDisplay === "none" && visible
-    : state.mode === "scrub" && state.active === "true" && state.progress === "1.0000" && state.copyProgress === "1.0000" && state.copyOpacity === "1" && state.videoTime > state.duration * 0.95 && state.scopeBottom > 0 && visible;
+    ? state.mode === "fallback" && state.copyOpacity === "1" && state.stageDisplay === "none" && visible
+    : state.mode === "scrub" && state.active === "false" && state.flowActive === "true" && state.stageDisplay === "none" && state.progress === "1.0000" && state.copyOpacity === "1" && state.videoTime > state.duration * 0.95 && state.scopeBottom > 0 && visible;
 
   results.push({ name, pass, state, consoleErrors });
   if (!pass) failures.push(`${name} visual state did not meet the required hero constraints`);

@@ -26,17 +26,21 @@ describe("homepage short scroll-scrub hero", () => {
     expect(homeElSource).toContain("<HomeHeroScrub>");
   });
 
-  it("keeps the scrub runway compact while making the final hero copy centred and interactive only at the end", () => {
-    expect(stylesheet).toContain('height: 142svh;');
-    expect(stylesheet).toContain('height: 138svh;');
+  it("hands the completed video into a centred, normal-flow hero before the trust strip", () => {
+    expect(heroSource).toContain('className="hero-scrub-spacer"');
+    expect(heroSource).toContain('className="hero-scrub-flow"');
+    expect(heroSource).toContain('className="hero-scrub-flow-content"');
+    expect(stylesheet).toContain(".hero-scrub-spacer {");
+    expect(stylesheet).toContain("height: calc(100svh - 72px);");
+    expect(stylesheet).toContain(".hero-scrub-flow {");
+    expect(stylesheet).toContain("min-height: calc(100svh - 72px);");
     expect(stylesheet).toContain("display: flex;");
     expect(stylesheet).toContain("align-items: center;");
     expect(stylesheet).toContain("justify-content: center;");
     expect(stylesheet).toContain("text-align: center;");
-    expect(heroSource).toContain("const REVEAL_START = 0.82;");
-    expect(heroSource).toContain("const INTERACTION_START = 0.9;");
-    expect(heroSource).toContain("const SCRUB_SCROLL_RATIO = 0.72;");
-    expect(stylesheet).toContain('data-interactive="true"');
+    expect(heroSource).toContain("const VIDEO_COMPLETE_PROGRESS = 0.999;");
+    expect(heroSource).toContain("scope.dataset.flowActive");
+    expect(stylesheet).toContain('data-flow-active="true"');
   });
 
   it("records only a target in the scroll handler and uses a guarded rAF seek controller with a bounded speed", () => {
@@ -54,13 +58,14 @@ describe("homepage short scroll-scrub hero", () => {
     const controller = heroSource.slice(controllerStart, controllerEnd);
 
     expect(scrollHandler).toContain("targetProgress = clamp");
-    expect(scrollHandler).toContain("scope.offsetHeight * SCRUB_SCROLL_RATIO");
+    expect(scrollHandler).toContain("stage.offsetHeight");
     expect(scrollHandler).not.toContain("video.currentTime =");
     expect(controller).toContain("MAX_PROGRESS_SPEED");
     expect(controller).toContain("video.seeking");
     expect(controller).toContain("seekReady = false;");
     expect(controller).toContain("video.currentTime = desiredTime;");
-    expect(scrollHandler).toContain("scope.dataset.active = String(scopeRect.bottom > 0);");
+    expect(heroSource).toContain("scope.dataset.active = String(progress < VIDEO_COMPLETE_PROGRESS);");
+    expect(heroSource).toContain("scope.dataset.flowActive = String(progress >= VIDEO_COMPLETE_PROGRESS);");
     expect(heroSource).toContain('window.addEventListener("scroll", updateFromScroll, { passive: true });');
   });
 
@@ -71,6 +76,8 @@ describe("homepage short scroll-scrub hero", () => {
     expect(heroSource).toContain('video.addEventListener("error", activateFallback, { once: true });');
     expect(heroSource).toContain('window.matchMedia("(prefers-reduced-motion: reduce)")');
     expect(heroSource).toContain('scope.dataset.mode = "fallback"');
+    expect(stylesheet).toContain('html:not(.js) .hero-scrub-stage');
+    expect(stylesheet).toContain('.hero-scrub-scope[data-mode="fallback"] .hero-scrub-stage');
     expect(stylesheet).toContain("html.js .hero-scrub-scope[data-mode=\"scrub\"]");
     expect(stylesheet).toContain("@media (prefers-reduced-motion: reduce)");
   });

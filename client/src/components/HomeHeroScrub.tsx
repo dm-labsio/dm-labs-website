@@ -3,12 +3,10 @@ import { useEffect, useRef, type ReactNode } from "react";
 export const HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-hero-tunnel-scrub_89732dad.mp4";
 export const HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-hero-tunnel-opening-poster_7b05ee6d.jpg";
 
-const REVEAL_START = 0.82;
-const INTERACTION_START = 0.9;
-const SCRUB_SCROLL_RATIO = 0.72;
 const VIDEO_OPENING_PROGRESS = 0.15;
 const MAX_PROGRESS_SPEED = 0.75;
 const SEEK_TOLERANCE = 1 / 120;
+const VIDEO_COMPLETE_PROGRESS = 0.999;
 
 const clamp = (value: number, minimum: number, maximum: number) => Math.max(minimum, Math.min(maximum, value));
 
@@ -49,10 +47,9 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     const scrubStart = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
 
     const applyVisualProgress = (progress: number) => {
-      const reveal = clamp((progress - REVEAL_START) / (1 - REVEAL_START), 0, 1);
       scope.style.setProperty("--hero-progress", progress.toFixed(4));
-      scope.style.setProperty("--hero-copy-progress", reveal.toFixed(4));
-      scope.dataset.interactive = String(progress > INTERACTION_START);
+      scope.dataset.active = String(progress < VIDEO_COMPLETE_PROGRESS);
+      scope.dataset.flowActive = String(progress >= VIDEO_COMPLETE_PROGRESS);
     };
 
     const activateFallback = () => {
@@ -60,10 +57,9 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       useFallback = true;
       scope.dataset.mode = "fallback";
       scope.dataset.ready = "false";
-      scope.dataset.interactive = "true";
-      scope.dataset.active = "true";
+      scope.dataset.active = "false";
+      scope.dataset.flowActive = "true";
       scope.style.setProperty("--hero-progress", "1");
-      scope.style.setProperty("--hero-copy-progress", "1");
       video.pause();
       if (frameId) window.cancelAnimationFrame(frameId);
       frameId = 0;
@@ -106,10 +102,8 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     };
 
     const updateFromScroll = () => {
-      const scopeRect = scope.getBoundingClientRect();
-      const scrollSpan = Math.max(scope.offsetHeight * SCRUB_SCROLL_RATIO, 1);
+      const scrollSpan = Math.max(stage.offsetHeight, 1);
       targetProgress = clamp((window.scrollY - scrubStart) / scrollSpan, 0, 1);
-      scope.dataset.active = String(scopeRect.bottom > 0);
       scheduleController();
     };
 
@@ -184,8 +178,8 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       className="hero-scrub-scope"
       data-mode="scrub"
       data-ready="false"
-      data-interactive="false"
       data-active="true"
+      data-flow-active="false"
       aria-label="DM-Labs introduction"
     >
       <div ref={stageRef} className="hero-scrub-stage">
@@ -207,7 +201,16 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
           aria-hidden="true"
         />
         <div className="hero-scrub-wash" aria-hidden="true" />
-        <div className="hero-scrub-copy">
+      </div>
+      <div className="hero-scrub-spacer" aria-hidden="true" />
+      <div className="hero-scrub-flow">
+        <img
+          src={HERO_SCRUB_OPENING_POSTER_URL}
+          alt=""
+          aria-hidden="true"
+          className="hero-scrub-flow-poster"
+        />
+        <div className="hero-scrub-flow-content">
           <div>{children}</div>
         </div>
       </div>
