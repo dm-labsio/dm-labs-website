@@ -8,8 +8,10 @@ const VIDEO_SCRUB_END = 0.6;
 const COPY_REVEAL_START = 0.68;
 const COPY_REVEAL_END = 0.82;
 const COPY_INTERACTIVE_START = 0.8;
+const FINAL_HOLD_MS = 1100;
 const MAX_PROGRESS_SPEED = 0.75;
 const SEEK_TOLERANCE = 1 / 120;
+const FINAL_FRAME_TOLERANCE = 1 / 30;
 
 const clamp = (value: number, minimum: number, maximum: number) => Math.max(minimum, Math.min(maximum, value));
 
@@ -46,7 +48,10 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     let duration = 0;
     let frameId = 0;
     let timeoutId = 0;
+    let holdTimerId = 0;
     let unlocked = false;
+    let scrollProgress = 0;
+    let released = false;
     const scrubStart = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
 
     const applyVisualProgress = (progress: number) => {
@@ -58,7 +63,34 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       scope.style.setProperty("--hero-progress", progress.toFixed(4));
       scope.style.setProperty("--hero-copy-progress", copyProgress.toFixed(4));
       scope.dataset.interactive = String(progress >= COPY_INTERACTIVE_START);
-      scope.dataset.released = String(progress >= 1);
+      scope.dataset.released = String(released);
+      scope.dataset.phase = released
+        ? "released"
+        : holdTimerId
+          ? "final-hold"
+          : progress >= 1
+            ? "awaiting-final-frame"
+            : "scrubbing";
+    };
+
+    const releaseHero = () => {
+      holdTimerId = 0;
+      released = true;
+      scope.dataset.released = "true";
+      scope.dataset.phase = "released";
+    };
+
+    const beginFinalHold = () => {
+      if (holdTimerId || released || scrollProgress < 1) return;
+      scope.dataset.phase = "final-hold";
+      holdTimerId = window.setTimeout(releaseHero, FINAL_HOLD_MS);
+    };
+
+    const cancelFinalHold = () => {
+      if (!holdTimerId || released) return;
+      window.clearTimeout(holdTimerId);
+      holdTimerId = 0;
+      scope.dataset.phase = "scrubbing";
     };
 
     const activateFallback = () => {
@@ -66,6 +98,8 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       useFallback = true;
       scope.dataset.mode = "fallback";
       scope.dataset.ready = "false";
+      window.clearTimeout(holdTimerId);
+      holdTimerId = 0;
       applyVisualProgress(1);
       video.pause();
       if (frameId) window.cancelAnimationFrame(frameId);
@@ -99,6 +133,13 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
         video.currentTime = desiredTime;
       }
 
+      const finalFrameVisible =
+        metadataReady &&
+        currentVideoProgress >= 1 - 0.0001 &&
+        (video.currentTime >= duration - FINAL_FRAME_TOLERANCE ||
+          Math.abs(video.currentTime - desiredTime) <= SEEK_TOLERANCE);
+      if (scrollProgress >= 1 && finalFrameVisible) beginFinalHold();
+
       const needsAnotherFrame =
         Math.abs(targetVideoProgress - currentVideoProgress) > 0.0001 ||
         !seekReady ||
@@ -110,8 +151,19 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     const updateFromScroll = () => {
       const scrollSpan = Math.max(scope.offsetHeight - stage.offsetHeight, 1);
       const rawProgress = clamp((window.scrollY - scrubStart) / scrollSpan, 0, 1);
+      scrollProgress = rawProgress;
       applyVisualProgress(rawProgress);
       targetVideoProgress = clamp(rawProgress / VIDEO_SCRUB_END, 0, 1);
+
+      if (!released && rawProgress >= 1) {
+        const holdBoundary = scrubStart + scrollSpan;
+        if (Math.abs(window.scrollY - holdBoundary) > 1) {
+          window.scrollTo({ top: holdBoundary, left: 0, behavior: "instant" });
+        }
+      } else if (rawProgress < 1) {
+        cancelFinalHold();
+      }
+
       scheduleController();
     };
 
@@ -168,6 +220,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
 
     return () => {
       window.clearTimeout(timeoutId);
+      window.clearTimeout(holdTimerId);
       if (frameId) window.cancelAnimationFrame(frameId);
       video.removeEventListener("seeked", onSeeked);
       video.removeEventListener("error", activateFallback);
@@ -188,6 +241,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       data-ready="false"
       data-interactive="false"
       data-released="false"
+      data-phase="scrubbing"
       aria-label="DM-Labs introduction"
     >
       <div ref={stageRef} className="hero-scrub-stage">

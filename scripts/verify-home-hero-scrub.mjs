@@ -9,6 +9,7 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
   const context = await browser.newContext({ ...contextOptions, reducedMotion });
   const page = await context.newPage();
   const consoleErrors = [];
+  let releaseState = null;
   page.on("console", (message) => {
     if (message.type() === "error") consoleErrors.push(message.text());
   });
@@ -27,14 +28,14 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
       const stage = document.querySelector(".hero-scrub-stage");
       if (!stage) throw new Error("Missing hero stage");
       const scrollSpan = scope.offsetHeight - stage.offsetHeight;
-      window.scrollTo(0, scope.getBoundingClientRect().top + window.scrollY + scrollSpan * 0.82);
+      const scrubStart = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
+      window.scrollTo(0, scrubStart + scrollSpan * 1.6);
     });
     await page.waitForFunction(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const video = document.querySelector(".hero-scrub-video");
-      return scope && video && scope.dataset.released === "false" && Number(getComputedStyle(scope).getPropertyValue("--hero-progress")) >= 0.8 && video.currentTime > 5.7;
+      return scope && video && scope.dataset.phase === "final-hold" && scope.dataset.released === "false" && video.currentTime >= video.duration - (1 / 30);
     });
-    await page.waitForTimeout(650);
   }
 
   const state = await page.evaluate(() => {
@@ -48,6 +49,7 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
     return {
       mode: scope.dataset.mode,
       released: scope.dataset.released,
+      phase: scope.dataset.phase,
       progress: getComputedStyle(scope).getPropertyValue("--hero-progress").trim(),
       copyOpacity: getComputedStyle(copy).opacity,
       stageDisplay: getComputedStyle(stage).display,
@@ -61,15 +63,28 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
     };
   });
 
+  if (reducedMotion !== "reduce") {
+    await page.waitForTimeout(1200);
+    releaseState = await page.evaluate(() => {
+      const scope = document.querySelector(".hero-scrub-scope");
+      const stage = document.querySelector(".hero-scrub-stage");
+      return {
+        released: scope?.dataset.released,
+        phase: scope?.dataset.phase,
+        stagePosition: stage ? getComputedStyle(stage).position : null,
+      };
+    });
+  }
+
   await page.screenshot({ path: `/home/ubuntu/${name}-hero-scrub.png` });
   await context.close();
 
   const visible = state.headingRect.left >= 0 && state.headingRect.right <= state.viewport.width && state.headingRect.top >= 0 && state.headingRect.bottom <= state.viewport.height;
   const pass = reducedMotion === "reduce"
     ? state.mode === "fallback" && state.copyOpacity === "1" && visible
-    : state.mode === "scrub" && state.released === "false" && state.stageDisplay !== "none" && state.stagePosition === "fixed" && Number(state.progress) >= 0.8 && state.copyOpacity === "1" && state.videoTime > state.duration * 0.95 && state.scopeBottom > 0 && visible;
+    : state.mode === "scrub" && state.released === "false" && state.phase === "final-hold" && state.stageDisplay !== "none" && state.stagePosition === "fixed" && Number(state.progress) >= 1 && state.copyOpacity === "1" && state.videoTime >= state.duration - (1 / 30) && state.scopeBottom > 0 && visible && releaseState?.released === "true" && releaseState?.phase === "released" && releaseState?.stagePosition === "absolute";
 
-  results.push({ name, pass, state, consoleErrors });
+  results.push({ name, pass, state, releaseState, consoleErrors });
   if (!pass) failures.push(`${name} visual state did not meet the required hero constraints`);
   if (consoleErrors.length) failures.push(`${name} reported console errors: ${consoleErrors.join(" | ")}`);
   await browser.close();
