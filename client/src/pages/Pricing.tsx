@@ -83,7 +83,6 @@ const carePlans = [
       "Backups and bug fixing",
       "WhatsApp support",
       "Up to 5 small content updates each month",
-      "Cancel anytime, no contract",
     ],
   },
   {
@@ -97,7 +96,6 @@ const carePlans = [
       "Priority WhatsApp support",
       "Monthly performance check",
       "One simple banner or section update each month",
-      "Cancel anytime, no contract",
     ],
   },
 ];
@@ -116,41 +114,46 @@ export default function Pricing() {
   });
 
   return (
-    <>
-      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+    <div className="pricing-editorial">
+      <section className="pricing-editorial-hero relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
         <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
           <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
         </div>
         <div className="container relative z-10 text-center">
           <AnimateIn>
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Transparent Pricing</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Website Pricing for <span className="brand-gradient-text">Cyprus Businesses</span></h1>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">Clear scope, clear pricing, and a free consultation before you commit. Choose the right starting point for your business.</p>
+            <p className="pricing-editorial-label">Transparent Pricing</p>
+            <h1 className="pricing-editorial-hero-heading">Website Pricing <span>for Cyprus <em>Businesses</em></span></h1>
+            <p className="pricing-editorial-hero-lead">Clear scope, clear pricing, and a free consultation to define the right starting point for your business.</p>
           </AnimateIn>
         </div>
       </section>
 
-      <section className="bg-[#EEF3FF] border-y border-[#5B8CFF]/20 py-4">
+      <section className="pricing-editorial-assurance bg-[#EEF3FF] border-y border-[#5B8CFF]/20 py-4">
         <div className="container text-center">
-          <p className="text-sm font-semibold text-[#111315]">Packages from €299. Every project starts with a free consultation, so we can recommend the right scope before work begins.</p>
+          <p>Every project begins with a free consultation, so we can recommend the right scope before work begins.</p>
         </div>
       </section>
 
-      <section className="section-spacing bg-white">
+      <section className="pricing-editorial-plans section-spacing bg-white">
         <div className="container">
+          <AnimateIn className="pricing-editorial-section-intro text-center">
+            <p className="pricing-editorial-label">Choose Your Scope</p>
+            <h2 className="pricing-editorial-section-heading">Three clear plans. <em>One confident start.</em></h2>
+            <p>Every package is designed to give you a focused foundation without unnecessary complexity.</p>
+          </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {buildPlans.map((plan, index) => {
               const accent = plan.tone === "blue" ? "#5B8CFF" : plan.tone === "violet" ? "#8B5CFF" : "#6B3FD4";
               const card = (
-                <div className="dm-card h-full flex flex-col !shadow-none relative">
-                  {plan.recommended && <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>}
-                  <p className="text-sm font-semibold uppercase tracking-wide mb-2" style={{ color: accent }}>{plan.name}</p>
-                  <div className="flex items-baseline gap-1 mb-4">
-                    <span className="text-4xl font-bold text-[#111315]">{plan.price}</span>
-                    <span className="text-sm text-[#5B6472]">one-time</span>
+                <div className={`pricing-editorial-plan-card dm-card h-full flex flex-col relative${plan.recommended ? " pricing-editorial-plan-card--recommended" : ""}`}>
+                  {plan.recommended && <span className="pricing-editorial-recommended">Recommended</span>}
+                  <p className="pricing-editorial-plan-label" style={{ color: accent }}>{plan.name}</p>
+                  <div className="pricing-editorial-price-row">
+                    <span className="pricing-editorial-plan-price">{plan.price}</span>
+                    <span className="pricing-editorial-price-unit">one-time</span>
                   </div>
-                  <p className="text-sm text-[#5B6472] mb-6">{plan.summary}</p>
-                  <ul className="space-y-3 mb-8 flex-1">
+                  <p className="pricing-editorial-plan-summary">{plan.summary}</p>
+                  <ul className="pricing-editorial-feature-list flex-1">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={16} className="shrink-0 mt-0.5" style={{ color: accent }} />
@@ -158,25 +161,25 @@ export default function Pricing() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact/" className={plan.recommended ? "btn-primary w-full justify-center" : "btn-secondary w-full justify-center"}><MessageCircle size={16} /> Get a Free Consultation</Link>
+                  <Link href="/contact/" className={`${plan.recommended ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}><MessageCircle size={16} /> Get a Free Consultation</Link>
                 </div>
               );
-              return <AnimateIn delay={0.1 + index * 0.1} key={plan.name}>{plan.recommended ? <div className="brand-gradient-border h-full">{card}</div> : card}</AnimateIn>;
+              return <AnimateIn delay={0.1 + index * 0.1} key={plan.name}>{card}</AnimateIn>;
             })}
           </div>
 
           <AnimateIn delay={0.45} className="mt-8 max-w-5xl mx-auto">
-            <div className="rounded-2xl overflow-hidden" style={{ background: "linear-gradient(135deg, #0d1117 0%, #161b2e 50%, #0d1117 100%)", border: "1px solid rgba(91,140,255,0.2)" }}>
+            <div className="pricing-editorial-custom-panel rounded-2xl overflow-hidden">
               <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 p-8">
                 <div className="flex-shrink-0 lg:w-72">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for Your Scope</span>
-                  <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise / Custom</p>
-                  <p className="text-4xl font-bold text-white mb-1">From €1,499</p>
-                  <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Quote based on scope</p>
-                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>For projects beyond the standard packages, including integrations, multilingual sites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume.</p>
-                  <Link href="/contact/" className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}><MessageCircle size={16} /> Request a Quote</Link>
+                  <span className="pricing-editorial-custom-kicker">Built for Your Scope</span>
+                  <p className="pricing-editorial-plan-label">Enterprise / Custom</p>
+                  <p className="pricing-editorial-custom-price">From €1,499</p>
+                  <p className="pricing-editorial-custom-note">Quote based on scope</p>
+                  <p className="pricing-editorial-custom-copy">For projects beyond the standard packages, including integrations, multilingual sites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume.</p>
+                  <Link href="/contact/" className="pricing-editorial-custom-cta"><MessageCircle size={16} /> Request a Quote</Link>
                 </div>
-                <div className="hidden lg:block w-px self-stretch" style={{ background: "rgba(91,140,255,0.2)" }} />
+                <div className="pricing-editorial-custom-divider hidden lg:block w-px self-stretch" />
                 <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
                   {[
                     "Custom integrations and CRM or booking",
@@ -184,7 +187,7 @@ export default function Pricing() {
                     "AI or chatbot features",
                     "Complex motion and unusual content scope",
                   ].map((item) => (
-                    <div key={item} className="flex items-start gap-2.5"><CheckCircle2 size={16} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} /><span className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>{item}</span></div>
+                    <div key={item} className="pricing-editorial-custom-feature flex items-start gap-2.5"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /><span>{item}</span></div>
                   ))}
                 </div>
               </div>
@@ -193,31 +196,31 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section id="maintenance" className="section-spacing bg-white">
+      <section id="maintenance" className="pricing-editorial-care section-spacing bg-white">
         <div className="container max-w-4xl">
-          <AnimateIn className="text-center mb-10">
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Keep It Healthy</p>
-            <h2 className="text-3xl font-bold text-[#111315] mb-4">Monthly Website Care</h2>
-            <p className="text-[#5B6472] max-w-xl mx-auto">Ongoing care for businesses that want their website monitored, updated, and supported after launch.</p>
+          <AnimateIn className="pricing-editorial-section-intro text-center">
+            <p className="pricing-editorial-label">Keep It Healthy</p>
+            <h2 className="pricing-editorial-section-heading">Website Care <em>Plans</em></h2>
+            <p>Ongoing care for businesses that want their website monitored, updated, and supported after launch.</p>
           </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
             {carePlans.map((plan, index) => {
               const card = (
-                <div className="dm-card h-full flex flex-col !shadow-none relative">
-                  {plan.recommended && <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Most Complete</span>}
-                  <p className="text-sm font-semibold uppercase tracking-wide mb-2" style={{ color: plan.colour }}>{plan.name}</p>
-                  <div className="flex items-baseline gap-1 mb-4"><span className="text-3xl font-bold text-[#111315]">{plan.price}</span><span className="text-sm text-[#5B6472]">/month</span></div>
-                  <ul className="space-y-3 flex-1">
+                <div className={`pricing-editorial-care-card dm-card h-full flex flex-col relative${plan.recommended ? " pricing-editorial-plan-card--recommended" : ""}`}>
+                  {plan.recommended && <span className="pricing-editorial-recommended">Most Complete</span>}
+                  <p className="pricing-editorial-plan-label" style={{ color: plan.colour }}>{plan.name}</p>
+                  <div className="pricing-editorial-price-row"><span className="pricing-editorial-care-price">{plan.price}</span><span className="pricing-editorial-price-unit">per month</span></div>
+                  <ul className="pricing-editorial-feature-list flex-1">
                     {plan.features.map((feature) => <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={15} className="shrink-0 mt-0.5" style={{ color: plan.colour }} />{feature}</li>)}
                   </ul>
-                  <Link href="/contact/" className={plan.recommended ? "btn-primary w-full justify-center mt-6" : "btn-secondary w-full justify-center mt-6"}>Ask About {plan.name}</Link>
+                  <Link href="/contact/" className={`${plan.recommended ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>Ask About {plan.name}</Link>
                 </div>
               );
-              return <AnimateIn delay={0.1 + index * 0.1} key={plan.name}>{plan.recommended ? <div className="brand-gradient-border h-full">{card}</div> : card}</AnimateIn>;
+              return <AnimateIn delay={0.1 + index * 0.1} key={plan.name}>{card}</AnimateIn>;
             })}
           </div>
           <AnimateIn delay={0.35} className="mt-8 max-w-2xl mx-auto">
-            <div className="flex items-start gap-3 bg-[#EEF3FF] border border-[#5B8CFF]/20 rounded-xl px-5 py-4">
+            <div className="pricing-editorial-scope-guardrail flex items-start gap-3 rounded-xl px-5 py-4">
               <ShieldCheck size={19} className="text-[#5B8CFF] shrink-0 mt-0.5" />
               <p className="text-sm text-[#111315]"><span className="font-semibold">Scope guardrail:</span> New pages, copywriting, extra revision rounds beyond your package allowance, new integrations, redesigns, advanced or full SEO structure, and complex content migration are not included in either maintenance plan and are quoted separately.</p>
             </div>
@@ -225,9 +228,9 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="pricing-editorial-compare section-spacing">
         <div className="container">
-          <AnimateIn className="text-center mb-12"><h2 className="text-3xl font-bold text-[#111315] mb-4">Compare Website Packages</h2></AnimateIn>
+          <AnimateIn className="pricing-editorial-section-intro text-center"><p className="pricing-editorial-label">The Details</p><h2 className="pricing-editorial-section-heading">Compare Website <em>Packages</em></h2></AnimateIn>
           <AnimateIn delay={0.1}>
             <div className="overflow-x-auto rounded-2xl border border-[#E8EAF0] max-w-4xl mx-auto">
               <table className="text-sm" style={{ minWidth: "560px", width: "100%" }}>
@@ -239,9 +242,9 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="section-spacing bg-white">
+      <section className="pricing-editorial-questions section-spacing bg-white">
         <div className="container max-w-3xl">
-          <AnimateIn className="text-center mb-12"><h2 className="text-3xl font-bold text-[#111315] mb-4">Common Questions</h2></AnimateIn>
+          <AnimateIn className="pricing-editorial-section-intro text-center"><p className="pricing-editorial-label">Good to Know</p><h2 className="pricing-editorial-section-heading">Common <em>Questions</em></h2></AnimateIn>
           <StaggerContainer className="space-y-4">
             {[
               { q: "Can I see a preview before paying?", a: "Yes. We share a design direction for your approval before development proceeds." },
@@ -255,15 +258,15 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="pricing-editorial-cta-section section-spacing">
         <div className="container max-w-3xl text-center">
           <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-5">Not sure which package fits?</h2>
-            <p className="text-lg text-[#5B6472] mb-8">Tell us what your business needs and we will recommend the right starting scope.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center"><Link href="/contact/" className="btn-primary"><MessageCircle size={18} /> Book Free Consultation</Link><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Us <ArrowRight size={16} /></a></div>
+            <h2 className="pricing-editorial-cta-heading">Not sure which <em>package</em> fits?</h2>
+            <p>Tell us what your business needs and we will recommend the right starting scope.</p>
+            <div className="pricing-editorial-cta-actions flex flex-col sm:flex-row gap-4 justify-center"><Link href="/contact/" className="btn-primary"><MessageCircle size={18} /> Book Free Consultation</Link><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Us <ArrowRight size={16} /></a></div>
           </AnimateIn>
         </div>
       </section>
-    </>
+    </div>
   );
 }

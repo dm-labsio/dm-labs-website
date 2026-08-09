@@ -9,6 +9,7 @@ const homeSource = readFileSync(resolve(projectRoot, "client/src/pages/Home.tsx"
 const homeElSource = readFileSync(resolve(projectRoot, "client/src/pages/el/HomeEl.tsx"), "utf8");
 const servicesSource = readFileSync(join(projectRoot, "client/src/pages/Services.tsx"), "utf8");
 const processSource = readFileSync(join(projectRoot, "client/src/pages/Process.tsx"), "utf8");
+const pricingSource = readFileSync(join(projectRoot, "client/src/pages/Pricing.tsx"), "utf8");
 const fitLineSource = readFileSync(resolve(projectRoot, "client/src/components/EditorialFitLine.tsx"), "utf8");
 const layoutSource = readFileSync(resolve(projectRoot, "client/src/components/Layout.tsx"), "utf8");
 const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "utf8");
@@ -164,5 +165,28 @@ describe("Process page editorial typography", () => {
   it("preserves Process SEO metadata", () => {
     expect(processSource).toContain('title: "Our Process | How We Build Websites | DM-Labs.io"');
     expect(processSource).toContain('description: "From discovery call to launch in 5-14 days. See exactly how DM-Labs.io designs and builds your website, step by step."');
+  });
+});
+
+describe("Pricing page editorial typography", () => {
+  it("keeps the approved editorial treatment scoped to the Pricing page", () => {
+    expect(pricingSource).toContain('className="pricing-editorial"');
+    expect(pricingSource).toContain('className="pricing-editorial-hero-heading"');
+    expect(pricingSource).toContain("pricing-editorial-plan-card");
+    expect(stylesheet).toContain(".pricing-editorial .pricing-editorial-hero-heading");
+    expect(stylesheet).toContain(".pricing-editorial .pricing-editorial-plan-card");
+  });
+
+  it("keeps pricing readable and removes outdated care cancellation claims", () => {
+    expect(pricingSource).toContain('className="pricing-editorial-plan-price"');
+    expect(pricingSource).toContain('className="pricing-editorial-care-price"');
+    expect(pricingSource).not.toContain("Cancel anytime, no contract");
+    expect(pricingSource).not.toContain("brand-gradient-text");
+    expect(pricingSource).not.toContain("Packages from €299");
+  });
+
+  it("preserves Pricing SEO metadata", () => {
+    expect(pricingSource).toContain('title: "Website Pricing Cyprus | DM-Labs.io"');
+    expect(pricingSource).toContain('description: "Website packages for Cyprus businesses: Launch from €299');
   });
 });
