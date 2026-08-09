@@ -10,6 +10,7 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
   const page = await context.newPage();
   const consoleErrors = [];
   let releaseState = null;
+  let reverseState = null;
   page.on("console", (message) => {
     if (message.type() === "error") consoleErrors.push(message.text());
   });
@@ -29,12 +30,12 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
       if (!stage) throw new Error("Missing hero stage");
       const scrollSpan = scope.offsetHeight - stage.offsetHeight;
       const scrubStart = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
-      window.scrollTo(0, scrubStart + scrollSpan * 1.6);
+      window.scrollTo(0, scrubStart + scrollSpan * 0.85);
     });
     await page.waitForFunction(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const video = document.querySelector(".hero-scrub-video");
-      return scope && video && scope.dataset.phase === "final-hold" && scope.dataset.released === "false" && video.currentTime >= video.duration - (1 / 30);
+      return scope && video && scope.dataset.phase === "final-copy" && scope.dataset.released === "false" && video.currentTime >= video.duration - (1 / 30);
     });
   }
 
@@ -64,7 +65,16 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
   });
 
   if (reducedMotion !== "reduce") {
-    await page.waitForTimeout(1200);
+    releaseState = await page.evaluate(() => {
+      const scope = document.querySelector(".hero-scrub-scope");
+      const stage = document.querySelector(".hero-scrub-stage");
+      if (!scope || !stage) throw new Error("Hero elements missing for release");
+      const span = scope.offsetHeight - stage.offsetHeight;
+      const start = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
+      window.scrollTo(0, start + span * 1.25);
+      return null;
+    });
+    await page.waitForFunction(() => document.querySelector(".hero-scrub-scope")?.dataset.released === "true");
     releaseState = await page.evaluate(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const stage = document.querySelector(".hero-scrub-stage");
@@ -72,6 +82,26 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
         released: scope?.dataset.released,
         phase: scope?.dataset.phase,
         stagePosition: stage ? getComputedStyle(stage).position : null,
+      };
+    });
+    reverseState = await page.evaluate(() => {
+      const scope = document.querySelector(".hero-scrub-scope");
+      const stage = document.querySelector(".hero-scrub-stage");
+      if (!scope || !stage) throw new Error("Hero elements missing for reverse check");
+      const span = scope.offsetHeight - stage.offsetHeight;
+      const start = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
+      window.scrollTo(0, start + span * 0.85);
+      return null;
+    });
+    await page.waitForFunction(() => document.querySelector(".hero-scrub-scope")?.dataset.phase === "final-copy");
+    reverseState = await page.evaluate(() => {
+      const scope = document.querySelector(".hero-scrub-scope");
+      const stage = document.querySelector(".hero-scrub-stage");
+      return {
+        released: scope?.dataset.released,
+        phase: scope?.dataset.phase,
+        stagePosition: stage ? getComputedStyle(stage).position : null,
+        scopeBottom: scope?.getBoundingClientRect().bottom,
       };
     });
   }
@@ -82,9 +112,9 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
   const visible = state.headingRect.left >= 0 && state.headingRect.right <= state.viewport.width && state.headingRect.top >= 0 && state.headingRect.bottom <= state.viewport.height;
   const pass = reducedMotion === "reduce"
     ? state.mode === "fallback" && state.copyOpacity === "1" && visible
-    : state.mode === "scrub" && state.released === "false" && state.phase === "final-hold" && state.stageDisplay !== "none" && state.stagePosition === "fixed" && Number(state.progress) >= 1 && state.copyOpacity === "1" && state.videoTime >= state.duration - (1 / 30) && state.scopeBottom > 0 && visible && releaseState?.released === "true" && releaseState?.phase === "released" && releaseState?.stagePosition === "absolute";
+    : state.mode === "scrub" && state.released === "false" && state.phase === "final-copy" && state.stageDisplay !== "none" && state.stagePosition === "fixed" && Number(state.progress) >= 0.8 && state.copyOpacity === "1" && state.videoTime >= state.duration - (1 / 30) && state.scopeBottom > 0 && visible && releaseState?.released === "true" && releaseState?.phase === "released" && releaseState?.stagePosition === "absolute" && reverseState?.released === "false" && reverseState?.phase === "final-copy" && reverseState?.stagePosition === "fixed" && reverseState?.scopeBottom > 0;
 
-  results.push({ name, pass, state, releaseState, consoleErrors });
+  results.push({ name, pass, state, releaseState, reverseState, consoleErrors });
   if (!pass) failures.push(`${name} visual state did not meet the required hero constraints`);
   if (consoleErrors.length) failures.push(`${name} reported console errors: ${consoleErrors.join(" | ")}`);
   await browser.close();

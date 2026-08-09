@@ -26,7 +26,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(homeElSource).toContain("<HomeHeroScrub>");
   });
 
-  it("keeps the final video frame and centred existing copy in one responsive stage until an explicit final hold completes", () => {
+  it("keeps the final video frame and centred existing copy in one responsive stage while preserving a reversible natural release", () => {
     expect(heroSource).toContain('className="hero-scrub-stage"');
     expect(heroSource).toContain('className="hero-scrub-copy"');
     expect(heroSource).not.toContain('className="hero-scrub-spacer"');
@@ -43,7 +43,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(stylesheet).toContain("text-align: center;");
   });
 
-  it("uses raw scroll progress for copy reveal while serializing guarded video seeks and gating release on the actual final frame", () => {
+  it("uses raw scroll progress for copy reveal while serializing guarded video seeks and gating release only on the actual final frame", () => {
     const scrollStart = heroSource.indexOf("const updateFromScroll = () => {");
     const scrollEnd = heroSource.indexOf("const onSeeked = () => {");
     const controllerStart = heroSource.indexOf("const runController = (now: number) => {");
@@ -66,13 +66,14 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("const COPY_REVEAL_START = 0.68;");
     expect(heroSource).toContain("const COPY_REVEAL_END = 0.82;");
     expect(heroSource).toContain("scope.dataset.interactive = String(progress >= COPY_INTERACTIVE_START);");
-    expect(heroSource).toContain("const FINAL_HOLD_MS = 1100;");
     expect(heroSource).toContain("const FINAL_FRAME_TOLERANCE = 1 / 30;");
     expect(heroSource).toContain("const finalFrameVisible =");
-    expect(heroSource).toContain("if (scrollProgress >= 1 && finalFrameVisible) beginFinalHold();");
+    expect(heroSource).toContain("let finalFrameReady = false;");
+    expect(heroSource).toContain("released = progress >= 1 && finalFrameReady;");
+    expect(heroSource).toContain("if (finalFrameVisible && !finalFrameReady) {");
     expect(heroSource).toContain("window.scrollTo({ top: holdBoundary, left: 0, behavior: \"instant\" });");
-    expect(heroSource).toContain("holdTimerId = window.setTimeout(releaseHero, FINAL_HOLD_MS);");
-    expect(heroSource).toContain('scope.dataset.phase = "released";');
+    expect(heroSource).toContain("rawProgress >= 1 && !finalFrameReady");
+    expect(heroSource).toContain('"final-copy"');
     expect(stylesheet).toContain("--hero-copy-progress");
   });
 
