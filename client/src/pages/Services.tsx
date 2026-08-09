@@ -203,7 +203,7 @@ export default function Services() {
       {/* Monthly Maintenance */}
       <section className="section-spacing bg-white">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-4xl mx-auto">
             <AnimateIn>
               <p className="services-editorial-label text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Optional Add-On</p>
               <h2 className="services-editorial-heading text-3xl sm:text-4xl font-bold text-[#111315] mb-5">
@@ -212,21 +212,23 @@ export default function Services() {
               <p className="text-lg text-[#5B6472] mb-6 leading-relaxed">
                 Keep your website fresh, secure, and performing. Choose the plan that fits your needs.
               </p>
-              <div className="space-y-5 mb-8">
-                <div className="dm-card !p-5">
-                  <p className="services-editorial-label text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Basic Care — €49/month</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                <div className="dm-card !p-5 h-full">
+                  <p className="services-editorial-label text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Basic Care</p>
+                  <p className="services-editorial-care-price text-[#111315] mb-4">€49 <span>per month</span></p>
                   <ul className="space-y-2">
-                    {["Hosting monitoring", "Backups and bug fixing", "WhatsApp support", "Up to 5 small content updates per month", "Cancel anytime, no contract"].map((f) => (
+                    {["Hosting monitoring", "Backups and bug fixing", "WhatsApp support", "Up to 5 small content updates per month"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#5B8CFF] shrink-0 mt-0.5" />{f}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="dm-card !p-5 border-[#8B5CFF]/30">
-                  <p className="services-editorial-label text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Complete Care — ongoing content updates</p>
+                <div className="dm-card !p-5 border-[#8B5CFF]/30 h-full">
+                  <p className="services-editorial-label text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Complete Care</p>
+                  <p className="services-editorial-care-price text-[#111315] mb-4">€129 <span>per month</span></p>
                   <ul className="space-y-2">
-                    {["Everything in Basic Care", "Ongoing content updates", "Priority WhatsApp support", "Monthly performance check", "One simple banner or section update each month", "Cancel anytime, no contract"].map((f) => (
+                    {["Everything in Basic Care", "Ongoing content updates", "Priority WhatsApp support", "Monthly performance check", "One simple banner or section update each month"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}
                       </li>
@@ -238,20 +240,6 @@ export default function Services() {
                 <MessageCircle size={18} />
                 Ask About Maintenance
               </a>
-            </AnimateIn>
-            <AnimateIn delay={0.2}>
-              <div className="dm-card !bg-[#F6F6F4]">
-                <div className="text-center py-8">
-                  <div className="flex items-baseline justify-center gap-3 mb-2">
-                    <span className="services-editorial-price text-5xl font-bold brand-gradient-text">€49</span>
-                    <span className="text-2xl text-[#5B6472]">or</span>
-                    <span className="services-editorial-price text-5xl font-bold brand-gradient-text">€129</span>
-                  </div>
-                  <p className="text-lg text-[#5B6472] mb-6">per month</p>
-                  <div className="w-16 h-0.5 brand-gradient mx-auto rounded-full mb-6" />
-                  <p className="text-sm text-[#5B6472] max-w-xs mx-auto">Cancel anytime. No contracts. No commitments. Just ongoing care for your website.</p>
-                </div>
-              </div>
             </AnimateIn>
           </div>
         </div>

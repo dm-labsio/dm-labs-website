@@ -906,6 +906,24 @@
   line-height: 1.65;
 }
 
+.services-editorial .services-editorial-care-price {
+  font-family: var(--services-display);
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-variation-settings: 'wdth' 108, 'wght' 760;
+  font-weight: 760;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
+}
+
+.services-editorial .services-editorial-care-price span {
+  color: var(--services-muted);
+  font-family: var(--services-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
 .services-editorial .services-editorial-card-title {
   font-family: var(--services-sans);
   font-weight: 600;

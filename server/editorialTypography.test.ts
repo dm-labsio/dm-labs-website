@@ -116,4 +116,16 @@ describe("Services page editorial typography", () => {
     expect(stylesheet).toContain(".services-editorial .services-editorial-package-meta .services-editorial-label");
     expect(stylesheet).toContain(".services-editorial .services-editorial-heading-line");
   });
+
+  it("keeps care-plan pricing within its two plan cards and removes inaccurate cancellation claims", () => {
+    expect(servicesSource).toContain('className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8"');
+    expect(servicesSource).toContain('services-editorial-care-price text-[#111315] mb-4">€49');
+    expect(servicesSource).toContain('services-editorial-care-price text-[#111315] mb-4">€129');
+    expect(servicesSource).not.toContain("Cancel anytime");
+    expect(servicesSource).not.toContain("No contracts");
+    expect(servicesSource).not.toContain("No commitments");
+    expect(servicesSource).not.toContain('className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"');
+    expect(servicesSource).toContain('className="max-w-4xl mx-auto"');
+    expect(stylesheet).toContain(".services-editorial .services-editorial-care-price");
+  });
 });
