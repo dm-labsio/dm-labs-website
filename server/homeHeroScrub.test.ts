@@ -12,10 +12,10 @@ const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "u
 const htmlSource = readFileSync(resolve(projectRoot, "client/index.html"), "utf8");
 
 describe("homepage short scroll-scrub hero", () => {
-  it("uses the supplied managed video and final-frame poster only on the English and Greek home heroes", () => {
+  it("uses the supplied managed video and visible opening poster only on the English and Greek home heroes", () => {
     expect(heroSource).toContain('HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-hero-tunnel-scrub_89732dad.mp4"');
-    expect(heroSource).toContain('HERO_SCRUB_POSTER_URL = "/manus-storage/dm-labs-hero-tunnel-poster_dff033fd.jpg"');
-    expect(heroSource).toContain("poster={HERO_SCRUB_POSTER_URL}");
+    expect(heroSource).toContain('HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-hero-tunnel-opening-poster_7b05ee6d.jpg"');
+    expect(heroSource).toContain("poster={HERO_SCRUB_OPENING_POSTER_URL}");
     expect(heroSource).toContain("muted");
     expect(heroSource).toContain("playsInline");
     expect(heroSource).toContain('preload="auto"');
@@ -27,13 +27,15 @@ describe("homepage short scroll-scrub hero", () => {
   });
 
   it("keeps the scrub runway compact while making the final hero copy centred and interactive only at the end", () => {
-    expect(stylesheet).toContain('height: 100svh;');
+    expect(stylesheet).toContain('height: 142svh;');
+    expect(stylesheet).toContain('height: 138svh;');
     expect(stylesheet).toContain("display: flex;");
     expect(stylesheet).toContain("align-items: center;");
     expect(stylesheet).toContain("justify-content: center;");
     expect(stylesheet).toContain("text-align: center;");
     expect(heroSource).toContain("const REVEAL_START = 0.82;");
     expect(heroSource).toContain("const INTERACTION_START = 0.9;");
+    expect(heroSource).toContain("const SCRUB_SCROLL_RATIO = 0.72;");
     expect(stylesheet).toContain('data-interactive="true"');
   });
 
@@ -52,6 +54,7 @@ describe("homepage short scroll-scrub hero", () => {
     const controller = heroSource.slice(controllerStart, controllerEnd);
 
     expect(scrollHandler).toContain("targetProgress = clamp");
+    expect(scrollHandler).toContain("scope.offsetHeight * SCRUB_SCROLL_RATIO");
     expect(scrollHandler).not.toContain("video.currentTime =");
     expect(controller).toContain("MAX_PROGRESS_SPEED");
     expect(controller).toContain("video.seeking");
@@ -62,7 +65,7 @@ describe("homepage short scroll-scrub hero", () => {
   });
 
   it("has poster, load-timeout, media-error, reduced-motion, and no-JavaScript fallbacks", () => {
-    expect(htmlSource).toContain('rel="preload" as="image" href="/manus-storage/dm-labs-hero-tunnel-poster_dff033fd.jpg"');
+    expect(htmlSource).toContain('rel="preload" as="image" href="/manus-storage/dm-labs-hero-tunnel-opening-poster_7b05ee6d.jpg"');
     expect(htmlSource).toContain('document.documentElement.classList.add("js")');
     expect(heroSource).toContain("window.setTimeout(activateFallback, 2500)");
     expect(heroSource).toContain('video.addEventListener("error", activateFallback, { once: true });');

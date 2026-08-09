@@ -533,7 +533,7 @@
 }
 
 html.js .hero-scrub-scope[data-mode="scrub"] {
-  height: 100svh;
+  height: 142svh;
 }
 
 .hero-scrub-stage {
@@ -632,7 +632,7 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
 
 @media (max-width: 767px) {
   html.js .hero-scrub-scope[data-mode="scrub"] {
-    height: 100svh;
+    height: 138svh;
   }
 
   .hero-scrub-scope,

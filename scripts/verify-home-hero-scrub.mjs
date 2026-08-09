@@ -24,7 +24,8 @@ async function inspectScenario({ name, viewport, reducedMotion = "no-preference"
     await page.evaluate(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       if (!scope) throw new Error("Missing hero scope");
-      window.scrollTo(0, scope.getBoundingClientRect().top + window.scrollY + scope.offsetHeight - 2);
+      const holdOffset = scope.offsetHeight * 0.76;
+      window.scrollTo(0, scope.getBoundingClientRect().top + window.scrollY + holdOffset);
     });
     await page.waitForFunction(() => {
       const scope = document.querySelector(".hero-scrub-scope");
@@ -50,6 +51,7 @@ async function inspectScenario({ name, viewport, reducedMotion = "no-preference"
       videoDisplay: getComputedStyle(video).display,
       videoTime: video.currentTime,
       duration: video.duration,
+      scopeBottom: scope.getBoundingClientRect().bottom,
       headingRect: { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom },
       stageRect: stage.getBoundingClientRect().toJSON(),
       viewport: { width: innerWidth, height: innerHeight },
@@ -62,7 +64,7 @@ async function inspectScenario({ name, viewport, reducedMotion = "no-preference"
   const visible = state.headingRect.left >= 0 && state.headingRect.right <= state.viewport.width && state.headingRect.top >= 0 && state.headingRect.bottom <= state.viewport.height;
   const pass = reducedMotion === "reduce"
     ? state.mode === "fallback" && state.copyOpacity === "1" && state.videoDisplay === "none" && visible
-    : state.mode === "scrub" && state.active === "true" && state.progress === "1.0000" && state.copyProgress === "1.0000" && state.copyOpacity === "1" && state.videoTime > state.duration * 0.95 && visible;
+    : state.mode === "scrub" && state.active === "true" && state.progress === "1.0000" && state.copyProgress === "1.0000" && state.copyOpacity === "1" && state.videoTime > state.duration * 0.95 && state.scopeBottom > 0 && visible;
 
   results.push({ name, pass, state, consoleErrors });
   if (!pass) failures.push(`${name} visual state did not meet the required hero constraints`);

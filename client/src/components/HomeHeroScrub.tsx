@@ -1,10 +1,12 @@
 import { useEffect, useRef, type ReactNode } from "react";
 
 export const HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-hero-tunnel-scrub_89732dad.mp4";
-export const HERO_SCRUB_POSTER_URL = "/manus-storage/dm-labs-hero-tunnel-poster_dff033fd.jpg";
+export const HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-hero-tunnel-opening-poster_7b05ee6d.jpg";
 
 const REVEAL_START = 0.82;
 const INTERACTION_START = 0.9;
+const SCRUB_SCROLL_RATIO = 0.72;
+const VIDEO_OPENING_PROGRESS = 0.15;
 const MAX_PROGRESS_SPEED = 0.75;
 const SEEK_TOLERANCE = 1 / 120;
 
@@ -83,7 +85,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
         applyVisualProgress(currentProgress);
       }
 
-      const desiredTime = duration * currentProgress;
+      const desiredTime = duration * (VIDEO_OPENING_PROGRESS + (currentProgress * (1 - VIDEO_OPENING_PROGRESS)));
       if (
         metadataReady &&
         seekReady &&
@@ -105,7 +107,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
 
     const updateFromScroll = () => {
       const scopeRect = scope.getBoundingClientRect();
-      const scrollSpan = Math.max(scope.offsetHeight, 1);
+      const scrollSpan = Math.max(scope.offsetHeight * SCRUB_SCROLL_RATIO, 1);
       targetProgress = clamp((window.scrollY - scrubStart) / scrollSpan, 0, 1);
       scope.dataset.active = String(scopeRect.bottom > 0);
       scheduleController();
@@ -130,7 +132,6 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       unlocked = true;
       void video.play().then(() => {
         video.pause();
-        video.currentTime = 0;
       }).catch(() => undefined);
       window.removeEventListener("pointerdown", unlockVideoSeeking);
       window.removeEventListener("touchstart", unlockVideoSeeking);
@@ -189,7 +190,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     >
       <div ref={stageRef} className="hero-scrub-stage">
         <img
-          src={HERO_SCRUB_POSTER_URL}
+          src={HERO_SCRUB_OPENING_POSTER_URL}
           alt=""
           aria-hidden="true"
           fetchPriority="high"
@@ -198,7 +199,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
         <video
           ref={videoRef}
           src={HERO_SCRUB_VIDEO_URL}
-          poster={HERO_SCRUB_POSTER_URL}
+          poster={HERO_SCRUB_OPENING_POSTER_URL}
           muted
           playsInline
           preload="auto"
