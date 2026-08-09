@@ -207,7 +207,7 @@ export default function Services() {
             <AnimateIn>
               <p className="services-editorial-label text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Optional Add-On</p>
               <h2 className="services-editorial-heading text-3xl sm:text-4xl font-bold text-[#111315] mb-5">
-                Website <em className="services-editorial-serif">Care</em> Plans - <span className="brand-gradient-text">from €49/mo</span>
+                Website <em className="services-editorial-serif">Care</em> Plans
               </h2>
               <p className="text-lg text-[#5B6472] mb-6 leading-relaxed">
                 Keep your website fresh, secure, and performing. Choose the plan that fits your needs.

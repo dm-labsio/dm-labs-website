@@ -795,6 +795,9 @@
    SERVICES PAGE EDITORIAL TYPOGRAPHY — PAGE 1 OF ROLLOUT
    Scoped to the English Services page; preserves the approved
    Commissioner base while using display and serif emphasis sparingly.
+   Wrap rule: do not use decorative dashes, commas, or standalone
+   special-character spans in display headings unless a deliberate
+   responsive line structure keeps them with their intended phrase.
    ============================================================ */
 .services-editorial {
   --services-display: 'Anybody', 'Commissioner', sans-serif;

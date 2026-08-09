@@ -128,4 +128,11 @@ describe("Services page editorial typography", () => {
     expect(servicesSource).toContain('className="max-w-4xl mx-auto"');
     expect(stylesheet).toContain(".services-editorial .services-editorial-care-price");
   });
+
+  it("keeps the care heading free of a redundant price line or orphan-prone decorative dash", () => {
+    expect(servicesSource).toContain('Website <em className="services-editorial-serif">Care</em> Plans');
+    expect(servicesSource).not.toContain("from €49/mo");
+    expect(servicesSource).not.toContain("Plans - <span");
+    expect(stylesheet).toContain("Wrap rule: do not use decorative dashes, commas, or standalone");
+  });
 });
