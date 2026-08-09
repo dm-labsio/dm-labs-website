@@ -1178,12 +1178,20 @@
 .process-editorial .process-editorial-hero-heading-emphasis {
   display: block;
   font-family: var(--process-serif);
-  font-size: 0.92em;
-  font-weight: 400;
+  font-size: 0.88em;
+  font-weight: 400 !important;
+  font-style: italic;
+  font-variation-settings: normal;
   letter-spacing: -0.07em;
-  line-height: 0.72;
-  margin-top: 0.13em;
+  line-height: 0.78;
+  margin-top: 0.18em;
   white-space: nowrap;
+}
+
+.process-editorial .process-editorial-hero-heading-emphasis em {
+  font-family: var(--process-serif) !important;
+  font-style: italic;
+  font-weight: 400 !important;
 }
 
 .process-editorial .process-editorial-section-heading {
@@ -1214,6 +1222,17 @@
 .process-editorial .process-editorial-track-intro {
   margin-bottom: clamp(3.75rem, 8vw, 7rem);
   max-width: 46rem;
+}
+
+.process-editorial .process-editorial-step-list {
+  isolation: isolate;
+  position: relative;
+  z-index: 2;
+}
+
+.process-editorial .process-editorial-step {
+  position: relative;
+  z-index: 1;
 }
 
 .process-editorial .process-editorial-icon {
@@ -1316,7 +1335,8 @@
   }
 
   .process-editorial .process-editorial-hero-heading-emphasis {
-    line-height: 0.78;
+    font-size: 0.84em;
+    line-height: 0.82;
   }
 
   .process-editorial .process-editorial-step {

@@ -99,7 +99,7 @@ export default function Process() {
             {/* Connector line remains behind every icon and is animated only when motion is allowed. */}
             <div
               className="process-editorial-rail absolute left-[35px] sm:left-[39px] top-[96px] sm:top-[104px] bottom-[96px] sm:bottom-[104px] w-[2px] pointer-events-none"
-              style={{ zIndex: 1 }}
+              style={{ zIndex: 0 }}
             />
 
             <div className="process-editorial-step-list space-y-0">

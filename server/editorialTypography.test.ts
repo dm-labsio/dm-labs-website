@@ -151,11 +151,14 @@ describe("Process page editorial typography", () => {
     expect(processSource).toContain("From Idea to");
     expect(processSource).toContain('className="process-editorial-hero-heading-emphasis"');
     expect(processSource).toContain('className="process-editorial-rail');
+    expect(processSource).toContain('style={{ zIndex: 0 }}');
     expect(processSource).not.toContain("as quickly as possible - without");
     expect(processSource).not.toContain('Plans - <span');
     expect(stylesheet).toContain("@media (prefers-reduced-motion: no-preference)");
     expect(stylesheet).toContain("@media (prefers-reduced-motion: reduce)");
     expect(stylesheet).toContain("process-editorial-rail-flow");
+    expect(stylesheet).toContain(".process-editorial .process-editorial-step-list");
+    expect(stylesheet).toContain("font-family: var(--process-serif) !important;");
   });
 
   it("preserves Process SEO metadata", () => {
