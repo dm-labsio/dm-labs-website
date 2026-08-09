@@ -1658,6 +1658,179 @@
 }
 
 /* ============================================================
+   EXAMPLES INDEX — SCOPED EDITORIAL SYSTEM
+   This styling applies to the Examples catalogue and its shared
+   footer presentation only. Individual /preview/* routes are excluded.
+   ============================================================ */
+.templates-editorial {
+  --templates-sans: "Commissioner", "Inter", sans-serif;
+  --templates-display: "Anybody", "Commissioner", sans-serif;
+  --templates-serif: "Instrument Serif", Georgia, serif;
+  color: #111315;
+  font-family: var(--templates-sans);
+}
+
+.templates-editorial .templates-editorial-label {
+  color: #5b8cff;
+  font-family: "DM Mono", monospace;
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .17em;
+  line-height: 1.35;
+}
+
+.templates-editorial .templates-editorial-title,
+.templates-editorial .templates-editorial-cta-heading {
+  color: #111315;
+  font-family: var(--templates-display);
+  font-variation-settings: "wdth" 104, "wght" 750;
+  font-weight: 750;
+  letter-spacing: -.07em;
+  line-height: .9;
+  text-wrap: balance;
+}
+
+.templates-editorial .templates-editorial-title {
+  font-size: clamp(3.5rem, 7vw, 7.1rem);
+  margin-inline: auto;
+  max-width: 11.75ch;
+}
+
+.templates-editorial .templates-editorial-title > span,
+.templates-editorial .templates-editorial-cta-heading > span { display: block; }
+
+.templates-editorial .templates-editorial-title em,
+.templates-editorial .templates-editorial-cta-heading em,
+.templates-editorial .templates-editorial-custom-title em {
+  font-family: var(--templates-serif);
+  font-size: 1.1em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.075em;
+  white-space: nowrap;
+}
+
+.templates-editorial .templates-editorial-lead {
+  color: #4e596c;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.62;
+}
+
+.templates-editorial .templates-editorial-note {
+  color: #667085;
+  font-size: .91rem;
+  line-height: 1.58;
+}
+
+.templates-editorial .templates-editorial-note strong { color: #374151; font-weight: 600; }
+
+.templates-editorial .templates-editorial-industry-tab,
+.templates-editorial .templates-editorial-card-action,
+.templates-editorial .templates-editorial-cta-button {
+  font-family: var(--templates-sans);
+  font-weight: 650;
+}
+
+.templates-editorial .templates-editorial-grid-shell { max-width: 82rem; }
+
+.templates-editorial .templates-editorial-card-body { padding: 1.45rem; }
+.templates-editorial .templates-editorial-card-title { font-family: var(--templates-sans); font-weight: 650; letter-spacing: -.025em; }
+.templates-editorial .templates-editorial-card-tagline { font-family: var(--templates-sans); line-height: 1.5; }
+
+.templates-editorial .templates-editorial-card-note {
+  display: grid;
+  font-family: var(--templates-sans);
+  font-size: .7rem;
+  font-style: normal;
+  font-weight: 500;
+  gap: .13rem;
+  letter-spacing: .01em;
+  line-height: 1.35;
+}
+
+.templates-editorial .templates-editorial-card-note > span { display: block; }
+
+.templates-editorial .templates-editorial-custom-title {
+  font-family: var(--templates-display);
+  font-size: 1.75rem;
+  font-variation-settings: "wdth" 104, "wght" 750;
+  font-weight: 750;
+  letter-spacing: -.055em;
+}
+
+.templates-editorial .templates-editorial-custom-subtitle {
+  font-family: "DM Mono", monospace;
+  font-size: .67rem;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.templates-editorial .templates-editorial-custom-copy {
+  color: #526073;
+  font-family: var(--templates-sans);
+  line-height: 1.58;
+}
+
+.templates-editorial .templates-editorial-custom-feature { font-family: var(--templates-sans); line-height: 1.45; }
+
+.templates-editorial .templates-editorial-empty-title {
+  font-family: var(--templates-display);
+  font-variation-settings: "wdth" 104, "wght" 750;
+  font-weight: 750;
+  letter-spacing: -.055em;
+}
+
+.templates-editorial .templates-editorial-empty-copy,
+.templates-editorial .templates-editorial-cta-copy { color: #5b6472; font-size: 1.02rem; line-height: 1.6; }
+
+.templates-editorial .templates-editorial-cta-section { background: #f8faff; }
+
+.templates-editorial .templates-editorial-cta-heading {
+  font-size: clamp(2.7rem, 5.4vw, 5.35rem);
+  margin-inline: auto;
+  max-width: 12.5ch;
+}
+
+.templates-editorial .templates-editorial-cta-button {
+  transition: box-shadow 180ms cubic-bezier(.23, 1, .32, 1), transform 180ms cubic-bezier(.23, 1, .32, 1);
+}
+
+.templates-editorial-shell footer h4 {
+  font-family: "DM Mono", monospace;
+  font-size: .69rem;
+  font-weight: 400;
+  letter-spacing: .13em;
+}
+
+.templates-editorial-shell footer p,
+.templates-editorial-shell footer a { font-family: "Commissioner", "Inter", sans-serif; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .templates-editorial .templates-editorial-cta-button:hover { box-shadow: 0 .85rem 1.8rem rgba(91, 140, 255, .24); transform: translateY(-2px); }
+  .templates-editorial .templates-editorial-card-action { transition: transform 180ms cubic-bezier(.23, 1, .32, 1); }
+  .templates-editorial .templates-editorial-card-action:hover { transform: translateX(.2rem); }
+}
+
+@media (max-width: 767px) {
+  .templates-editorial .templates-editorial-title {
+    font-size: clamp(3.05rem, 15.1vw, 4.72rem);
+    line-height: .92;
+    max-width: 9.25ch;
+  }
+
+  .templates-editorial .templates-editorial-cta-heading {
+    font-size: clamp(2.35rem, 11.8vw, 3.5rem);
+    line-height: .96;
+    max-width: 10.8ch;
+  }
+
+  .templates-editorial .templates-editorial-lead { font-size: 1.02rem; line-height: 1.58; }
+  .templates-editorial .templates-editorial-card-body { padding: 1.25rem; }
+}
+
+/* ============================================================
    HOMEPAGE SHORT SCROLL-SCRUB HERO
    ============================================================ */
 .hero-scrub-scope {

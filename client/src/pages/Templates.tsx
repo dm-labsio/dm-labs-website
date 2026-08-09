@@ -960,10 +960,10 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         </div>
       </div>
 
-      <div className="p-5">
+      <div className="p-5 templates-editorial-card-body">
         <div className="mb-3">
-          <h3 className="text-gray-900 font-bold text-lg leading-tight">{template.name}</h3>
-          <p className="text-gray-500 text-sm">{template.tagline}</p>
+          <h3 className="text-gray-900 font-bold text-lg leading-tight templates-editorial-card-title">{template.name}</h3>
+          <p className="text-gray-500 text-sm templates-editorial-card-tagline">{template.tagline}</p>
         </div>
 
         <div className="flex items-center gap-2 mb-4">
@@ -977,9 +977,12 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
           <span className="px-2 py-0.5 bg-gray-100 rounded-md text-gray-400 text-xs">+{template.features.length - 3} more</span>
         </div>
 
-        <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Design inspiration - pricing from €299</span>
-          <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
+        <div className="flex items-center justify-between gap-4">
+          <span className="text-xs text-gray-400 templates-editorial-card-note">
+            <span>Design inspiration</span>
+            <span>Pricing from €299</span>
+          </span>
+          <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors templates-editorial-card-action" style={{ color: "#5B8CFF" }}>
             Preview <ChevronRight size={14} />
           </button>
         </div>
@@ -1019,37 +1022,40 @@ function CustomBuildCard() {
           </svg>
         </div>
 
-        <h3 className="relative z-10 text-white font-bold text-xl leading-tight mb-1">Custom Build</h3>
-        <p className="relative z-10 text-blue-200/80 text-sm">Fully Bespoke Design</p>
+        <h3 className="relative z-10 text-white font-bold text-xl leading-tight mb-1 templates-editorial-custom-title">Custom <em>Build</em></h3>
+        <p className="relative z-10 text-blue-200/80 text-sm templates-editorial-custom-subtitle">Fully bespoke design</p>
       </div>
 
       {/* Card body */}
-      <div className="p-5 flex flex-col flex-1">
-        <p className="text-gray-600 text-sm leading-relaxed mb-4">
-          None of these fit your vision? We design your website entirely from scratch - unique layout, custom graphics, and a brand identity built just for you.
+      <div className="p-5 flex flex-col flex-1 templates-editorial-custom-body">
+        <p className="text-gray-600 text-sm leading-relaxed mb-4 templates-editorial-custom-copy">
+          None of these fit your vision? We design your website entirely from scratch, with a unique layout, custom graphics, and a brand identity built just for you.
         </p>
 
         {/* Feature list */}
         <ul className="space-y-2 mb-5 flex-1">
           {[
-            "100% unique layout - fully bespoke",
+            "100% unique layout, fully bespoke",
             "Custom illustrations & brand graphics",
-            "Tailored colour palette & typography",
+            "Tailored colour palette and typography",
             "Built around your specific business goals",
             "Collaborative design process",
           ].map(f => (
-            <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={f} className="flex items-start gap-2 text-sm text-gray-700 templates-editorial-custom-feature">
               <Check size={14} className="text-[#5B8CFF] shrink-0 mt-0.5" />
               {f}
             </li>
           ))}
         </ul>
 
-        <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Pricing from €299 - quote on request</span>
+        <div className="flex items-center justify-between gap-4">
+          <span className="text-xs text-gray-400 templates-editorial-card-note">
+            <span>Pricing from €299</span>
+            <span>Quote on request</span>
+          </span>
           <a
             href="/contact/"
-            className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
+            className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2 templates-editorial-card-action"
             style={{ color: "#5B8CFF" }}
             onClick={e => e.stopPropagation()}
           >
@@ -1137,7 +1143,7 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
           <button
             key={industry.id}
             onClick={() => setActiveIndustry(industry.id)}
-            className="flex items-center px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 flex-shrink-0"
+            className="flex items-center px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 flex-shrink-0 templates-editorial-industry-tab"
             style={
               activeIndustry === industry.id
                 ? { background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)", color: "#fff", boxShadow: "0 4px 12px rgba(91,140,255,0.3)" }
@@ -1228,7 +1234,7 @@ export default function Templates() {
   })();
 
   return (
-    <div className="min-h-screen" style={{ background: "#F6F6F4" }}>
+    <div className="min-h-screen templates-editorial" style={{ background: "#F6F6F4" }}>
       {/* Hero */}
       <section className="relative py-12 sm:py-16 lg:py-24 overflow-hidden">
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(91,140,255,0.06) 0%, transparent 50%, rgba(139,92,255,0.06) 100%)" }} />
@@ -1236,17 +1242,15 @@ export default function Templates() {
         <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(139,92,255,0.07)" }} />
         <div className="relative container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>Website Examples</p>
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              Find Your Perfect
-              <span className="block" style={{ background: "linear-gradient(135deg, #5B8CFF, #6FE3FF, #8B5CFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                Website Style
-              </span>
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4 templates-editorial-label">Website examples</p>
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight templates-editorial-title">
+              <span>Find your perfect</span>
+              <span>website <em>style</em></span>
             </h1>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
-              Browse our curated designs by industry. Each example is fully customised for your business - your logo, your colours, your content.
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4 templates-editorial-lead">
+              Browse curated designs by industry. Each example is fully customised for your business, with your logo, colours, and content.
             </p>
-            <p className="text-sm text-gray-400 max-w-xl mx-auto">
+            <p className="text-sm text-gray-400 max-w-xl mx-auto templates-editorial-note">
               These are <strong className="text-gray-500">interactive demo concepts</strong>, not fixed packages. Every website we build is tailored from scratch for your business. Real client work is available on request.
             </p>
           </motion.div>
@@ -1260,7 +1264,7 @@ export default function Templates() {
 
       {/* Templates Grid */}
       <section className="py-16">
-        <div className="container">
+        <div className="container templates-editorial-grid-shell">
           {filtered.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
               {/* Custom Build card - always shown first */}
@@ -1274,15 +1278,15 @@ export default function Templates() {
               <div className="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mx-auto mb-6 shadow-md border border-gray-100">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" className="w-8 h-8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
               </div>
-              <h3 className="text-gray-900 text-2xl font-bold mb-3">
+              <h3 className="text-gray-900 text-2xl font-bold mb-3 templates-editorial-empty-title">
                 {INDUSTRIES.find(i => i.id === activeIndustry)?.label} Examples
               </h3>
-              <p className="text-gray-500 max-w-md mx-auto mb-8 leading-relaxed">
-                We're crafting beautiful examples for this industry. In the meantime, we can build a completely custom design for your business - just reach out.
+              <p className="text-gray-500 max-w-md mx-auto mb-8 leading-relaxed templates-editorial-empty-copy">
+                We're crafting beautiful examples for this industry. In the meantime, we can build a completely custom design for your business, so please reach out.
               </p>
               <a
                 href="/contact/"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 templates-editorial-cta-button"
                 style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
               >
                 <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white" aria-hidden>
@@ -1298,16 +1302,16 @@ export default function Templates() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20" style={{ borderTop: "1px solid rgba(226,229,234,0.8)" }}>
+      <section className="py-20 templates-editorial-cta-section" style={{ borderTop: "1px solid rgba(226,229,234,0.8)" }}>
         <div className="container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Don't see what you're looking for?</h2>
-            <p className="text-gray-500 mb-8 max-w-lg mx-auto">
-              Every website we build is fully custom. Tell us about your business and we'll design something unique - just for you.
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 templates-editorial-cta-heading"><span>Don&apos;t see what you&apos;re</span><span>looking <em>for?</em></span></h2>
+            <p className="text-gray-500 mb-8 max-w-lg mx-auto templates-editorial-cta-copy">
+              Every website we build is fully custom. Tell us about your business and we&apos;ll design something unique for you.
             </p>
             <a
               href="/contact/"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl templates-editorial-cta-button"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >
               Start a Conversation <ArrowRight size={18} />

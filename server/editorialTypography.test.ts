@@ -10,6 +10,7 @@ const homeElSource = readFileSync(resolve(projectRoot, "client/src/pages/el/Home
 const servicesSource = readFileSync(join(projectRoot, "client/src/pages/Services.tsx"), "utf8");
 const processSource = readFileSync(join(projectRoot, "client/src/pages/Process.tsx"), "utf8");
 const pricingSource = readFileSync(join(projectRoot, "client/src/pages/Pricing.tsx"), "utf8");
+const templatesSource = readFileSync(join(projectRoot, "client/src/pages/Templates.tsx"), "utf8");
 const fitLineSource = readFileSync(resolve(projectRoot, "client/src/components/EditorialFitLine.tsx"), "utf8");
 const layoutSource = readFileSync(resolve(projectRoot, "client/src/components/Layout.tsx"), "utf8");
 const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "utf8");
@@ -190,5 +191,46 @@ describe("Pricing page editorial typography", () => {
   it("preserves Pricing SEO metadata", () => {
     expect(pricingSource).toContain('title: "Web Design Pricing | Website Cost & Packages | DM-Labs.io"');
     expect(pricingSource).toContain('description: "How much does a website cost? Explore clear web design pricing');
+  });
+});
+
+describe("Examples index editorial typography", () => {
+  it("limits the accent treatment to the /templates/ catalogue and its route-scoped shared footer", () => {
+    expect(templatesSource).toContain('className="min-h-screen templates-editorial"');
+    expect(layoutSource).toContain('const isStandalonePreview = normalizedLocation.startsWith("/preview/");');
+    expect(layoutSource).toContain('const isTemplatesIndex = normalizedLocation === "/templates";');
+    expect(layoutSource).toContain('isTemplatesIndex ? "templates-editorial-shell" : ""');
+    expect(stylesheet).toContain(".templates-editorial {");
+    expect(stylesheet).toContain(".templates-editorial-shell footer h4");
+    expect(stylesheet).not.toContain(".preview-editorial");
+  });
+
+  it("uses the approved display, mono-label, and serif-accent roles without hero gradient text", () => {
+    expect(templatesSource).toContain("templates-editorial-label");
+    expect(templatesSource).toContain("templates-editorial-title");
+    expect(templatesSource).toContain("website <em>style</em>");
+    expect(templatesSource).toContain("templates-editorial-cta-heading");
+    expect(templatesSource).not.toContain("WebkitTextFillColor");
+    expect(stylesheet).toContain('.templates-editorial .templates-editorial-label');
+    expect(stylesheet).toContain('font-family: "DM Mono", monospace;');
+    expect(stylesheet).toContain(".templates-editorial .templates-editorial-title");
+    expect(stylesheet).toContain(".templates-editorial .templates-editorial-title em");
+  });
+
+  it("keeps card surroundings readable and avoids standalone decorative dash copy", () => {
+    expect(templatesSource).toContain("templates-editorial-card-note");
+    expect(templatesSource).toContain("Design inspiration");
+    expect(templatesSource).toContain("Pricing from €299");
+    expect(templatesSource).not.toContain("Design inspiration - pricing from €299");
+    expect(templatesSource).not.toContain("Pricing from €299 - quote on request");
+    expect(templatesSource).toContain("templates-editorial-custom-title");
+    expect(templatesSource).toContain("templates-editorial-custom-copy");
+    expect(templatesSource).toContain("templates-editorial-cta-button");
+  });
+
+  it("preserves the Examples index metadata and its existing preview links", () => {
+    expect(templatesSource).toContain('title: "Website Examples | See Our Work | DM-Labs.io"');
+    expect(templatesSource).toContain('canonicalPath: "/templates"');
+    expect(templatesSource).toContain('href={`/preview/${template.id}`}');
   });
 });

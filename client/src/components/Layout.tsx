@@ -103,6 +103,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const isGreek = normalizedLocation === "/el" || normalizedLocation.startsWith("/el/");
   const isStandalonePreview = normalizedLocation.startsWith("/preview/");
   const isEnglishHomepage = normalizedLocation === "/";
+  const isTemplatesIndex = normalizedLocation === "/templates";
   const isEnglishTypographyRoute = !isGreek && !isStandalonePreview && !EXCLUDED_ENGLISH_LOCATION_ROUTES.has(normalizedLocation);
   const NAV_LINKS = isGreek ? EL_NAV_LINKS : EN_NAV_LINKS;
 
@@ -184,7 +185,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col ${isEnglishTypographyRoute ? "english-commissioner-base" : ""} ${isEnglishHomepage ? "editorial-home-shell" : ""}`}>
+    <div className={`min-h-screen flex flex-col ${isEnglishTypographyRoute ? "english-commissioner-base" : ""} ${isEnglishHomepage ? "editorial-home-shell" : ""} ${isTemplatesIndex ? "templates-editorial-shell" : ""}`}>
       {/* ── NAVIGATION ── */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${isEnglishHomepage ? "editorial-home-header" : ""} ${
