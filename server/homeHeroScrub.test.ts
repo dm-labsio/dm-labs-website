@@ -63,8 +63,8 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(controller).toContain("seekReady = false;");
     expect(controller).toContain("video.currentTime = desiredTime;");
     expect(heroSource).toContain("const VIDEO_SCRUB_END = 0.6;");
-    expect(heroSource).toContain("const COPY_REVEAL_START = 0.55;");
-    expect(heroSource).toContain("const COPY_REVEAL_END = 0.72;");
+    expect(heroSource).toContain("const COPY_REVEAL_START = 0.68;");
+    expect(heroSource).toContain("const COPY_REVEAL_END = 0.82;");
     expect(heroSource).toContain("scope.dataset.interactive = String(progress >= COPY_INTERACTIVE_START);");
     expect(heroSource).toContain("scope.dataset.released = String(progress >= 1);");
     expect(stylesheet).toContain("--hero-copy-progress");

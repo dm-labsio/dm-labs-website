@@ -5,9 +5,9 @@ export const HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-hero-tunnel
 
 const VIDEO_OPENING_PROGRESS = 0.15;
 const VIDEO_SCRUB_END = 0.6;
-const COPY_REVEAL_START = 0.55;
-const COPY_REVEAL_END = 0.72;
-const COPY_INTERACTIVE_START = 0.7;
+const COPY_REVEAL_START = 0.68;
+const COPY_REVEAL_END = 0.82;
+const COPY_INTERACTIVE_START = 0.8;
 const MAX_PROGRESS_SPEED = 0.75;
 const SEEK_TOLERANCE = 1 / 120;
 
