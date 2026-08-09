@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
+import EditorialFitLine from "@/components/EditorialFitLine";
 import InteractiveExampleCard from "@/components/InteractiveExampleCard";
 import HomeHeroScrub from "@/components/HomeHeroScrub";
 import {
@@ -245,30 +246,36 @@ export default function HomePage() {
     return () => { document.getElementById("home-jsonld-schema")?.remove(); };
   }, []);
   return (
-    <>
+    <div className="editorial-home">
       {/* ═══════════════════════════════════════════
           HERO SECTION
           ═══════════════════════════════════════════ */}
       <HomeHeroScrub>
-        <p className="text-sm font-medium text-[#5B6472] mb-4 tracking-wide uppercase">
+        <div className="editorial-hero-copy">
+        <p className="editorial-label mb-5">
           Complete Website Solutions
         </p>
-        <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1] mb-6">
-          Your business is great.{" "}
-          <span className="brand-gradient-text">Your website should make that obvious.</span>
-        </h1>
-        <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-2xl mx-auto">
+        <h1 className="sr-only">Your business is great. Your website should make that obvious.</h1>
+        <div className="editorial-hero-fit" aria-hidden="true">
+          <EditorialFitLine maxSizeRatio={0.17}>Your business</EditorialFitLine>
+          <EditorialFitLine maxSizeRatio={0.17}>is great.</EditorialFitLine>
+          <EditorialFitLine maxSizeRatio={0.17}>Your website</EditorialFitLine>
+          <EditorialFitLine maxSizeRatio={0.17}>should make</EditorialFitLine>
+          <EditorialFitLine maxSizeRatio={0.17}>that <em className="editorial-serif">obvious.</em></EditorialFitLine>
+        </div>
+        <p className="editorial-lead mb-8 max-w-2xl mx-auto">
           We are a dedicated web design agency. We build professional, fast, and conversion-focused websites for businesses like yours - from €299.
         </p>
-        <div className="flex flex-wrap gap-4 justify-center">
+        <div className="editorial-hero-actions flex flex-wrap gap-4 justify-center">
           <Link href="/contact/" className="btn-primary">
             Get a Free Consultation
             <ArrowRight size={18} />
           </Link>
-          <Link href="/templates/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
+          <Link href="/templates/" className="editorial-outline-button">
             Browse Examples
             <ArrowRight size={18} />
           </Link>
+        </div>
         </div>
       </HomeHeroScrub>
 
@@ -305,11 +312,11 @@ export default function HomePage() {
         <div className="container relative z-10">
           {/* -- Template Showcase Grid -- */}
           <AnimateIn className="text-center mb-10">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Design Inspiration</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">
-              See What We Can Create for You
+            <p className="editorial-label mb-4">Design Inspiration</p>
+            <h2 className="editorial-section-heading mb-5">
+              See What We Can <span className="editorial-serif">Create</span> for You
             </h2>
-            <p className="text-base text-[#5B6472] max-w-2xl mx-auto">
+            <p className="editorial-lead max-w-2xl mx-auto">
               Every website we build is <strong className="text-[#111315]">fully custom</strong> - designed from scratch around your brand, your content, and your customers. These examples show the range of styles and industries we work with. Think of them as inspiration, not off-the-shelf packages.
             </p>
           </AnimateIn>
@@ -344,11 +351,11 @@ export default function HomePage() {
       <section className="section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Our Services</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Expert Solutions for Your Online Presence
+            <p className="editorial-label mb-4">Our Services</p>
+            <h2 className="editorial-section-heading mb-5">
+              Expert <span className="editorial-serif">Solutions</span> for Your Online Presence
             </h2>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+            <p className="editorial-lead max-w-2xl mx-auto">
               Everything you need to establish a professional web presence, from design to launch and beyond.
             </p>
           </AnimateIn>
@@ -368,8 +375,8 @@ export default function HomePage() {
                     <div className="icon-container-gradient mb-5">
                       <service.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
                     </div>
-                    <h3 className="text-lg font-semibold text-[#111315] mb-2">{service.title}</h3>
-                    <p className="text-sm text-[#5B6472] leading-relaxed mb-4">{service.desc}</p>
+                    <h3 className="editorial-card-title text-lg mb-2">{service.title}</h3>
+                    <p className="editorial-card-copy text-sm text-[#5B6472] leading-relaxed mb-4">{service.desc}</p>
                     <span className="text-sm font-medium text-[#5B8CFF] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                       Read more <ArrowRight size={14} />
                     </span>
@@ -391,11 +398,11 @@ export default function HomePage() {
 
         <div className="container relative z-10">
           <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">How It Works</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
+            <p className="editorial-label mb-4">How It Works</p>
+            <h2 className="editorial-section-heading mb-5">
               From Idea to Launch in 5 Simple Steps
             </h2>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+            <p className="editorial-lead max-w-2xl mx-auto">
               We've streamlined the process so you can focus on running your business.
             </p>
           </AnimateIn>
@@ -416,7 +423,7 @@ export default function HomePage() {
                       {item.step}
                     </span>
                   </div>
-                  <h3 className="text-base font-semibold text-[#111315] mb-1">{item.title}</h3>
+                  <h3 className="editorial-card-title text-base mb-1">{item.title}</h3>
                   <p className="text-xs text-[#8B5CFF] font-medium mb-2">{item.time}</p>
                   <p className="text-sm text-[#5B6472] leading-relaxed">{item.desc}</p>
                 </div>
@@ -439,11 +446,11 @@ export default function HomePage() {
       <section className="section-spacing bg-white">
         <div className="container">
           <AnimateIn className="text-center mb-14">
-              <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Client Stories</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
+              <p className="editorial-label mb-4">Client Stories</p>
+            <h2 className="editorial-section-heading mb-5">
               What Our Clients Say
             </h2>
-            <p className="text-lg text-[#5B6472] max-w-xl mx-auto">
+            <p className="editorial-lead max-w-xl mx-auto">
               Early feedback from the businesses we've worked with.
             </p>
           </AnimateIn>
@@ -458,7 +465,7 @@ export default function HomePage() {
                   </div>
                 
                   {/* Quote text */}
-                  <p className="text-sm text-[#3D4550] leading-relaxed mb-6 flex-1 italic">
+                  <p className="editorial-quote text-[#3D4550] mb-6 flex-1">
                     "{t.text}"
                   </p>
                   {/* Author */}
@@ -488,11 +495,11 @@ export default function HomePage() {
 
         <div className="container relative z-10">
           <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Transparent Pricing</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Simple, Honest Pricing
+            <p className="editorial-label mb-4">Transparent Pricing</p>
+            <h2 className="editorial-section-heading mb-5">
+              Simple, <span className="editorial-serif">Honest</span> Pricing
             </h2>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-5">
+            <p className="editorial-lead max-w-2xl mx-auto mb-5">
               No hidden fees. No surprises. Transparent pricing for every project.
             </p>
            </AnimateIn>
@@ -501,7 +508,7 @@ export default function HomePage() {
             className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl text-center sm:text-left"
             style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
           >
-            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Packages from €299</span>
+            <span className="editorial-label !text-white">Packages from €299</span>
             <span className="hidden sm:block w-px h-5 bg-white/40" />
             <span className="text-sm sm:text-base text-white/90 font-medium">Clear scope, transparent pricing, and a free consultation before you commit.</span>
           </div>
@@ -511,9 +518,9 @@ export default function HomePage() {
             {/* Launch Website */}
             <AnimateIn delay={0.1}>
               <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Launch Website</p>
+                <p className="editorial-label !text-[#5B8CFF] mb-3">Launch Website</p>
                 <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-4xl font-bold text-[#111315]">€299</span>
+                  <span className="editorial-price">€299</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
                 <p className="text-sm text-[#5B6472] mb-6">A lean online presence for a new business that needs to launch clearly and professionally.</p>
@@ -534,9 +541,9 @@ export default function HomePage() {
               <div className="brand-gradient-border h-full">
                 <div className="dm-card h-full flex flex-col !shadow-none relative">
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
-                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Growth Website</p>
+                  <p className="editorial-label !text-[#8B5CFF] mb-3">Growth Website</p>
                   <div className="flex items-baseline gap-1 mb-4">
-                    <span className="text-4xl font-bold text-[#111315]">€749</span>
+                    <span className="editorial-price">€749</span>
                     <span className="text-sm text-[#5B6472]">one-time</span>
                   </div>
                   <p className="text-sm text-[#5B6472] mb-6">A conversion-focused site for a business ready to be found, trusted, and contacted online.</p>
@@ -556,9 +563,9 @@ export default function HomePage() {
             {/* Pro Website */}
             <AnimateIn delay={0.3}>
               <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Pro Website</p>
+                <p className="editorial-label !text-[#3D9CBB] mb-3">Pro Website</p>
                 <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-4xl font-bold text-[#111315]">€1,499</span>
+                  <span className="editorial-price">€1,499</span>
                   <span className="text-sm text-[#5B6472]">one-time</span>
                 </div>
                 <p className="text-sm text-[#5B6472] mb-6">For a more complete digital presence with richer content, motion, and stronger search foundations.</p>
@@ -584,8 +591,8 @@ export default function HomePage() {
                 {/* Left: label + price + description */}
                 <div className="flex-shrink-0 lg:w-64">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
-                  <p className="text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise / Custom</p>
-                  <p className="text-4xl font-bold text-white mb-1">From €1,499</p>
+                  <p className="editorial-label !text-[#6FE3FF] mb-2">Enterprise / Custom</p>
+                  <p className="editorial-price !text-white mb-2">From €1,499</p>
                   <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Quote based on scope</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
                     For integrations, multilingual builds, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, or unusual content volume.
@@ -642,7 +649,7 @@ export default function HomePage() {
       <section className="section-spacing bg-white">
         <div className="container">
           <AnimateIn className="text-center mb-8">
-            <p className="text-base text-[#5B6472]">Industries we work with:</p>
+            <p className="editorial-label">Industries we work with</p>
           </AnimateIn>
           <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
             {[
@@ -658,7 +665,7 @@ export default function HomePage() {
                     <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
                       <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
                     </div>
-                    <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
+                    <p className="editorial-card-title text-sm">{biz.label}</p>
                     <p className="text-xs mt-1 text-[#5B8CFF]">View examples →</p>
                   </div>
                 </Link>
@@ -704,7 +711,7 @@ export default function HomePage() {
                   {/* Divider line on desktop */}
                   <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 w-px h-12 bg-white/10" />
                   <p
-                    className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 transition-transform duration-300 group-hover:scale-110"
+                    className="editorial-stat-value text-4xl sm:text-5xl lg:text-6xl mb-2 transition-transform duration-300 group-hover:scale-110"
                     style={{
                       background: i % 2 === 0
                         ? "linear-gradient(135deg, #6FE3FF 0%, #5B8CFF 100%)"
@@ -731,8 +738,8 @@ export default function HomePage() {
       <section className="section-spacing bg-white">
         <div className="container">
           <AnimateIn className="text-center mb-14">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#5B8CFF] mb-3">The people behind the work</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">Who We Are</h2>
+            <p className="editorial-label !text-[#5B8CFF] mb-4">The people behind the work</p>
+            <h2 className="editorial-section-heading">Who We Are</h2>
           </AnimateIn>
 
           {/* Two stacked cards - horizontal on desktop, photo-top on mobile */}
@@ -754,7 +761,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
                     <div>
-                      <h3 className="text-base font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
+                      <h3 className="editorial-card-title text-base mb-0.5">Anastacia B.</h3>
                       <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Creative Director &amp; AI Specialist</p>
                       <p className="text-xs text-[#5B6472] leading-relaxed">
                         I worked with global tech companies on digital products and AI implementation. I know how to use the best AI tools available today - not to replace craft, but to deliver sharper results, faster, for every client.
@@ -779,7 +786,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex flex-col justify-between p-7 flex-1">
                     <div>
-                      <h3 className="text-xl font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
+                      <h3 className="editorial-card-title text-xl mb-0.5">Anastacia B.</h3>
                       <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Creative Director &amp; AI Specialist</p>
                       <p className="text-sm text-[#5B6472] leading-relaxed">
                         I worked with global tech companies on digital products and AI implementation. I understand how to use the best AI tools available today - not to replace craft or human judgment, but to deliver sharper, more effective results for every client we work with.
@@ -810,7 +817,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
                     <div>
-                      <h3 className="text-base font-bold text-[#111315] mb-0.5">Tom B.</h3>
+                      <h3 className="editorial-card-title text-base mb-0.5">Tom B.</h3>
                       <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Technical Director &amp; SEO Expert</p>
                       <p className="text-xs text-[#5B6472] leading-relaxed">
                         My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side so you never have to think about it.
@@ -834,7 +841,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex flex-col justify-between p-7 flex-1">
                     <div>
-                      <h3 className="text-xl font-bold text-[#111315] mb-0.5">Tom B.</h3>
+                      <h3 className="editorial-card-title text-xl mb-0.5">Tom B.</h3>
                       <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Technical Director &amp; SEO Expert</p>
                       <p className="text-sm text-[#5B6472] leading-relaxed">
                         My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side of things so you never have to think about it - what you get is a site that is solid, fast, and built to last.
@@ -873,11 +880,11 @@ export default function HomePage() {
 
         <div className="container relative z-10 section-spacing text-center">
           <AnimateIn>
-            <p className="text-sm font-medium text-[#6FE3FF] mb-4 tracking-wide uppercase">Ready to Start?</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-3xl mx-auto leading-tight">
-              Let's Build Your Website Together
+            <p className="editorial-label !text-[#6FE3FF] mb-5">Ready to Start?</p>
+            <h2 className="editorial-section-heading !text-white mb-6 max-w-4xl mx-auto">
+              Let's Build Your Website <span className="editorial-serif">Together</span>
             </h2>
-            <p className="text-lg text-[#94A3B8] mb-10 max-w-xl mx-auto">
+            <p className="editorial-lead !text-[#D2D8E4] mb-10 max-w-xl mx-auto">
               Get in touch and we'll get back to you within hours. No commitment, no pressure - just a friendly conversation about your business.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -889,6 +896,6 @@ export default function HomePage() {
           </AnimateIn>
         </div>
       </section>
-    </>
+    </div>
   );
 }

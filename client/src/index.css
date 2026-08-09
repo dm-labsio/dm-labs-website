@@ -521,6 +521,184 @@
 }
 
 /* ============================================================
+   ENGLISH HOMEPAGE EDITORIAL TYPOGRAPHY
+   Intentionally scoped to .editorial-home. Greek routes retain
+   the existing type system until a dedicated Greek pass is approved.
+   ============================================================ */
+.editorial-home {
+  --editorial-display: 'Anybody', 'Commissioner', sans-serif;
+  --editorial-serif: 'Instrument Serif', Georgia, serif;
+  --editorial-mono: 'DM Mono', ui-monospace, Menlo, monospace;
+  --editorial-sans: 'Commissioner', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --editorial-ink: #0E1012;
+  --editorial-muted: #3d434c;
+  --editorial-meta: #707887;
+  font-family: var(--editorial-sans);
+}
+
+.editorial-home .editorial-label {
+  color: var(--editorial-meta);
+  font-family: var(--editorial-mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.editorial-home .editorial-lead {
+  color: var(--editorial-muted);
+  font-family: var(--editorial-sans);
+  font-size: clamp(1.05rem, 1.55vw, 1.35rem);
+  font-weight: 150;
+  letter-spacing: 0.01em;
+  line-height: 1.55;
+}
+
+.editorial-home .editorial-section-heading {
+  color: var(--editorial-ink);
+  font-family: var(--editorial-display);
+  font-size: clamp(2.4rem, 5.4vw, 5.4rem);
+  font-variation-settings: 'wdth' 104, 'wght' 800;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.editorial-home .editorial-section-heading .editorial-serif,
+.editorial-home .editorial-fit-line .editorial-serif {
+  font-family: var(--editorial-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+.editorial-home .editorial-hero-copy {
+  max-width: min(100%, 70rem);
+}
+
+.editorial-home .editorial-hero-fit {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.02em;
+  margin: 0 auto clamp(1.35rem, 2.3vw, 2rem);
+  max-width: min(100%, 68rem);
+}
+
+.editorial-fit-line {
+  display: block;
+  color: var(--editorial-ink);
+  font-family: var(--editorial-display);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.8;
+  opacity: 0;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.editorial-fit-line.is-fitted {
+  opacity: 1;
+  transition: opacity 150ms ease-out;
+}
+
+.editorial-home .editorial-hero-actions .btn-primary,
+.editorial-home .editorial-hero-actions .editorial-outline-button {
+  font-family: var(--editorial-sans);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.editorial-home .editorial-outline-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 52px;
+  padding: 0.75rem 2rem;
+  border: 1px solid rgba(14, 16, 18, 0.18);
+  border-radius: 12px;
+  color: var(--editorial-ink);
+  text-decoration: none;
+  transition: color 180ms ease-out, background-color 180ms ease-out, border-color 180ms ease-out, transform 180ms ease-out;
+}
+
+.editorial-home .editorial-outline-button:hover {
+  border-color: #5B8CFF;
+  color: #365fd1;
+  transform: translateY(-2px);
+}
+
+.editorial-home .editorial-card-title,
+.editorial-home .dm-card h3 {
+  color: var(--editorial-ink);
+  font-family: var(--editorial-sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.editorial-home .editorial-card-copy,
+.editorial-home .dm-card p,
+.editorial-home .dm-card li {
+  font-family: var(--editorial-sans);
+}
+
+.editorial-home .editorial-price {
+  color: var(--editorial-ink);
+  font-family: var(--editorial-display);
+  font-size: clamp(3rem, 4vw, 4.7rem);
+  font-variation-settings: 'wdth' 108, 'wght' 800;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.86;
+}
+
+.editorial-home .editorial-stat-value {
+  font-family: var(--editorial-display);
+  font-variation-settings: 'wdth' 112, 'wght' 800;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.84;
+}
+
+.editorial-home .editorial-quote {
+  font-family: var(--editorial-serif);
+  font-size: 1.2em;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+@media (max-width: 767px) {
+  .editorial-home .editorial-section-heading {
+    font-size: clamp(2.2rem, 11.5vw, 3.5rem);
+    letter-spacing: -0.055em;
+    line-height: 0.92;
+  }
+
+  .editorial-home .editorial-lead {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .editorial-home .editorial-hero-fit {
+    max-width: 100%;
+  }
+
+  .editorial-home .editorial-outline-button {
+    height: 48px;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+}
+
+/* ============================================================
    HOMEPAGE SHORT SCROLL-SCRUB HERO
    ============================================================ */
 .hero-scrub-scope {
