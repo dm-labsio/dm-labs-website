@@ -11,6 +11,7 @@ const servicesSource = readFileSync(join(projectRoot, "client/src/pages/Services
 const processSource = readFileSync(join(projectRoot, "client/src/pages/Process.tsx"), "utf8");
 const pricingSource = readFileSync(join(projectRoot, "client/src/pages/Pricing.tsx"), "utf8");
 const templatesSource = readFileSync(join(projectRoot, "client/src/pages/Templates.tsx"), "utf8");
+const faqSource = readFileSync(join(projectRoot, "client/src/pages/FAQ.tsx"), "utf8");
 const fitLineSource = readFileSync(resolve(projectRoot, "client/src/components/EditorialFitLine.tsx"), "utf8");
 const layoutSource = readFileSync(resolve(projectRoot, "client/src/components/Layout.tsx"), "utf8");
 const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "utf8");
@@ -232,5 +233,45 @@ describe("Examples index editorial typography", () => {
     expect(templatesSource).toContain('title: "Website Examples | See Our Work | DM-Labs.io"');
     expect(templatesSource).toContain('canonicalPath: "/templates"');
     expect(templatesSource).toContain('href={`/preview/${template.id}`}');
+  });
+});
+
+describe("FAQ page editorial typography", () => {
+  it("scopes the approved editorial treatment to the English FAQ page", () => {
+    expect(faqSource).toContain('className="faq-editorial"');
+    expect(faqSource).toContain("faq-editorial-title");
+    expect(faqSource).toContain("faq-editorial-label");
+    expect(faqSource).toContain("faq-editorial-question-copy");
+    expect(faqSource).toContain("faq-editorial-cta-heading");
+    expect(stylesheet).toContain(".faq-editorial {");
+    expect(stylesheet).toContain(".faq-editorial .faq-editorial-title");
+    expect(stylesheet).toContain(".faq-editorial .faq-editorial-question-copy");
+    expect(stylesheet).toContain(".faq-editorial .faq-editorial-cta-heading");
+  });
+
+  it("uses the display, mono-label, and restrained serif roles without gradient headline text", () => {
+    expect(faqSource).toContain("Frequently asked");
+    expect(faqSource).toContain("<em>questions</em>");
+    expect(faqSource).not.toContain("brand-gradient-text");
+    expect(stylesheet).toContain('.faq-editorial .faq-editorial-label');
+    expect(stylesheet).toContain(".faq-editorial .faq-editorial-title em");
+    expect(stylesheet).toContain("font-family: var(--faq-display);");
+  });
+
+  it("preserves accordion interaction and removes inaccurate no-contract cancellation copy", () => {
+    expect(faqSource).toContain("onClick={() => setOpen(!open)}");
+    expect(faqSource).toContain("aria-expanded={open}");
+    expect(faqSource).toContain('style={{ maxHeight: open ? "600px" : "0", opacity: open ? 1 : 0 }}');
+    expect(faqSource).toContain("Can I change or cancel a care plan?");
+    expect(faqSource).not.toContain("have no contract and can be cancelled anytime");
+    expect(faqSource).not.toContain("Cancel anytime");
+  });
+
+  it("preserves the existing FAQ metadata and FAQPage structured-data generation", () => {
+    expect(faqSource).toContain('title: "Website Design FAQ | DM-Labs.io"');
+    expect(faqSource).toContain('description: "Answers to common questions about DM-Labs.io website packages, pricing, SEO foundations, website care, and project scope."');
+    expect(faqSource).toContain('"@type": "FAQPage"');
+    expect(faqSource).toContain('"@type": "Question"');
+    expect(faqSource).toContain('"@type": "Answer"');
   });
 });

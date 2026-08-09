@@ -1831,6 +1831,153 @@
 }
 
 /* ============================================================
+   FAQ PAGE — SCOPED EDITORIAL SYSTEM
+   ============================================================ */
+.faq-editorial {
+  --faq-sans: "Commissioner", "Inter", sans-serif;
+  --faq-display: "Anybody", "Commissioner", sans-serif;
+  --faq-serif: "Instrument Serif", Georgia, serif;
+  color: #111315;
+  font-family: var(--faq-sans);
+}
+
+.faq-editorial .faq-editorial-hero {
+  background: radial-gradient(circle at 16% 16%, rgba(91, 140, 255, .1), transparent 28rem), radial-gradient(circle at 84% 76%, rgba(139, 92, 255, .07), transparent 24rem), #fbfcff;
+}
+
+.faq-editorial .faq-editorial-label {
+  color: #5b8cff;
+  font-family: "DM Mono", monospace;
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .17em;
+  line-height: 1.35;
+}
+
+.faq-editorial .faq-editorial-title,
+.faq-editorial .faq-editorial-cta-heading {
+  font-family: var(--faq-display);
+  font-variation-settings: "wdth" 104, "wght" 750;
+  font-weight: 750;
+  letter-spacing: -.07em;
+  line-height: .9;
+  text-wrap: balance;
+}
+
+.faq-editorial .faq-editorial-title {
+  color: #111315;
+  font-size: clamp(3.5rem, 7vw, 7.15rem);
+  margin-inline: auto;
+  max-width: 11ch;
+}
+
+.faq-editorial .faq-editorial-title > span,
+.faq-editorial .faq-editorial-cta-heading > span { display: block; }
+
+.faq-editorial .faq-editorial-title em,
+.faq-editorial .faq-editorial-cta-heading em {
+  font-family: var(--faq-serif);
+  font-size: 1.1em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.075em;
+  white-space: nowrap;
+}
+
+.faq-editorial .faq-editorial-lead {
+  color: #536074;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.62;
+}
+
+.faq-editorial .faq-editorial-section { background: #fff; }
+
+.faq-editorial .faq-editorial-category-heading {
+  color: #1a2435;
+  font-family: var(--faq-sans);
+  font-size: clamp(1.18rem, 1.8vw, 1.45rem);
+  font-weight: 650;
+  letter-spacing: -.032em;
+  line-height: 1.12;
+}
+
+.faq-editorial .faq-editorial-category-mark {
+  background: #5b8cff;
+  border-radius: 999px;
+}
+
+.faq-editorial .faq-editorial-list {
+  border: 1px solid #e3e9f3;
+  border-radius: 1.25rem;
+  box-shadow: 0 1rem 2.75rem rgba(29, 43, 74, .055);
+}
+
+.faq-editorial .faq-editorial-question {
+  align-items: flex-start;
+  gap: 1rem;
+  padding-block: 1.3rem;
+}
+
+.faq-editorial .faq-editorial-question-copy {
+  font-family: var(--faq-sans);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -.018em;
+  line-height: 1.4;
+}
+
+.faq-editorial .faq-editorial-chevron { margin-top: .1rem; }
+
+.faq-editorial .faq-editorial-answer {
+  color: #56647a;
+  font-family: var(--faq-sans);
+  font-size: .96rem;
+  line-height: 1.62;
+  max-width: 46rem;
+}
+
+.faq-editorial .faq-editorial-cta { background: #101a2c; }
+
+.faq-editorial .faq-editorial-cta-heading {
+  color: #fff;
+  font-size: clamp(2.75rem, 5.4vw, 5.4rem);
+  margin-inline: auto;
+  max-width: 10ch;
+}
+
+.faq-editorial .faq-editorial-cta-copy { color: #b4c0d4; font-size: 1.05rem; line-height: 1.62; }
+
+.faq-editorial .faq-editorial-cta-button {
+  font-family: var(--faq-sans);
+  font-weight: 650;
+  transition: box-shadow 180ms cubic-bezier(.23, 1, .32, 1), transform 180ms cubic-bezier(.23, 1, .32, 1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .faq-editorial .faq-editorial-question { transition: background-color 180ms cubic-bezier(.23, 1, .32, 1); }
+  .faq-editorial .faq-editorial-question:hover { background: #f8faff; }
+  .faq-editorial .faq-editorial-cta-button:hover { box-shadow: 0 .85rem 1.8rem rgba(91, 140, 255, .24); transform: translateY(-2px); }
+}
+
+@media (max-width: 767px) {
+  .faq-editorial .faq-editorial-title {
+    font-size: clamp(3.05rem, 15vw, 4.7rem);
+    line-height: .92;
+    max-width: 8.9ch;
+  }
+
+  .faq-editorial .faq-editorial-cta-heading {
+    font-size: clamp(2.4rem, 11.8vw, 3.55rem);
+    line-height: .96;
+  }
+
+  .faq-editorial .faq-editorial-lead { font-size: 1.02rem; line-height: 1.58; }
+  .faq-editorial .faq-editorial-question { gap: .8rem; padding-block: 1.18rem; }
+  .faq-editorial .faq-editorial-question-copy { font-size: .98rem; }
+  .faq-editorial .faq-editorial-answer { font-size: .94rem; line-height: 1.58; }
+}
+
+/* ============================================================
    HOMEPAGE SHORT SCROLL-SCRUB HERO
    ============================================================ */
 .hero-scrub-scope {

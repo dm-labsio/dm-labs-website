@@ -45,7 +45,7 @@ const faqs = [
     items: [
       { q: "What care plans do you offer?", a: "Basic Care is €49 per month and includes hosting monitoring, backups and bug fixing, WhatsApp support, and up to five small content updates each month. Complete Care is €129 per month and adds ongoing content updates, priority WhatsApp support, a monthly performance check, and one simple banner or section update each month." },
       { q: "What is not included in website care?", a: "New pages, copywriting, extra revision rounds beyond your package allowance, new integrations, redesigns, advanced or full SEO structure, and complex content migration are not included in either care plan and are quoted separately." },
-      { q: "Can I cancel a care plan?", a: "Yes. Both Basic Care and Complete Care have no contract and can be cancelled anytime." },
+      { q: "Can I change or cancel a care plan?", a: "Care-plan arrangements are confirmed before work begins. Contact us to discuss any change or cancellation, including the timing of scheduled work and access handover." },
     ],
   },
 ];
@@ -53,22 +53,23 @@ const faqs = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-b border-[#E2E5EA] last:border-0">
+    <div className="border-b border-[#E2E5EA] last:border-0 faq-editorial-item">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-5 text-left group"
+        className="w-full flex items-center justify-between py-5 text-left group faq-editorial-question"
+        aria-expanded={open}
       >
-        <span className="text-base font-medium text-[#111315] pr-4 group-hover:text-[#5B8CFF] transition-colors">{q}</span>
+        <span className="text-base font-medium text-[#111315] pr-4 group-hover:text-[#5B8CFF] transition-colors faq-editorial-question-copy">{q}</span>
         <ChevronDown
           size={20}
-          className={`text-[#5B6472] shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-[#5B8CFF]" : ""}`}
+          className={`text-[#5B6472] shrink-0 transition-transform duration-300 faq-editorial-chevron ${open ? "rotate-180 text-[#5B8CFF]" : ""}`}
         />
       </button>
       <div
         className="overflow-hidden transition-all duration-300"
         style={{ maxHeight: open ? "600px" : "0", opacity: open ? 1 : 0 }}
       >
-        <p className="text-sm text-[#5B6472] leading-relaxed pb-5">{a}</p>
+        <p className="text-sm text-[#5B6472] leading-relaxed pb-5 faq-editorial-answer">{a}</p>
       </div>
     </div>
   );
@@ -111,32 +112,33 @@ export default function FAQ() {
   }, []);
 
   return (
-    <>
+    <div className="faq-editorial">
       {/* Hero */}
-      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+      <section className="relative overflow-hidden faq-editorial-hero" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
         <div className="container relative z-10 text-center">
           <AnimateIn>
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">FAQ</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              Frequently Asked <span className="brand-gradient-text">Questions</span>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase faq-editorial-label">FAQ</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5 faq-editorial-title">
+              <span>Frequently asked</span>
+              <span><em>questions</em></span>
             </h1>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Everything you need to know about working with DM-Labs.io. Can't find your answer? Just message us.
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto faq-editorial-lead">
+              Everything you need to know about working with DM-Labs.io. If you need an answer, message us.
             </p>
           </AnimateIn>
         </div>
       </section>
 
       {/* FAQ Sections */}
-      <section className="section-spacing bg-white">
+      <section className="section-spacing bg-white faq-editorial-section">
         <div className="container max-w-3xl">
           {faqs.map((section, si) => (
             <AnimateIn key={section.category} delay={si * 0.1} className="mb-12 last:mb-0">
-              <h2 className="text-xl font-semibold text-[#111315] mb-4 flex items-center gap-2">
-                <span className="w-1.5 h-6 brand-gradient rounded-full" />
-                {section.category}
+              <h2 className="text-xl font-semibold text-[#111315] mb-4 flex items-center gap-2 faq-editorial-category-heading">
+                <span className="w-1.5 h-6 brand-gradient rounded-full faq-editorial-category-mark" />
+                <span>{section.category}</span>
               </h2>
-              <div className="dm-card !p-0 overflow-hidden">
+              <div className="dm-card !p-0 overflow-hidden faq-editorial-list">
                 <div className="px-6">
                   {section.items.map((item) => (
                     <FAQItem key={item.q} q={item.q} a={item.a} />
@@ -149,17 +151,17 @@ export default function FAQ() {
       </section>
 
       {/* CTA */}
-      <section className="section-spacing dark-section text-center">
+      <section className="section-spacing dark-section text-center faq-editorial-cta">
         <div className="container">
           <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Still Have Questions?</h2>
-            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">We're always happy to help. Send us a message and we'll get back to you quickly.</p>
-            <a href="/contact/" className="btn-primary">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5 faq-editorial-cta-heading"><span>Still have</span><span><em>questions?</em></span></h2>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto faq-editorial-cta-copy">We are always happy to help. Send us a message and we will get back to you quickly.</p>
+            <a href="/contact/" className="btn-primary faq-editorial-cta-button">
               <MessageCircle size={18} /> Contact Us
             </a>
           </AnimateIn>
         </div>
       </section>
-    </>
+    </div>
   );
 }
