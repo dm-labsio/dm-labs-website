@@ -44,6 +44,16 @@ const EN_NAV_LINKS = [
   { label: "Contact", href: "/contact/" },
 ];
 
+const EXCLUDED_ENGLISH_LOCATION_ROUTES = new Set([
+  "/web-design-paphos",
+  "/web-design-limassol",
+  "/web-design-cyprus",
+  "/web-design-crete",
+  "/web-design-nicosia",
+  "/web-design-thessaloniki",
+  "/web-design-restaurants-cyprus",
+]);
+
 const EL_NAV_LINKS = [
   { label: "Αρχική", href: "/el/" },
   { label: "Υπηρεσίες", href: "/el/services/" },
@@ -91,7 +101,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const normalizedLocation = normalizeRoutePath(location);
   const isGreek = normalizedLocation === "/el" || normalizedLocation.startsWith("/el/");
+  const isStandalonePreview = normalizedLocation.startsWith("/preview/");
   const isEnglishHomepage = normalizedLocation === "/";
+  const isEnglishTypographyRoute = !isGreek && !isStandalonePreview && !EXCLUDED_ENGLISH_LOCATION_ROUTES.has(normalizedLocation);
   const NAV_LINKS = isGreek ? EL_NAV_LINKS : EN_NAV_LINKS;
 
   useEffect(() => {
@@ -172,7 +184,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col ${isEnglishHomepage ? "editorial-home-shell" : ""}`}>
+    <div className={`min-h-screen flex flex-col ${isEnglishTypographyRoute ? "english-commissioner-base" : ""} ${isEnglishHomepage ? "editorial-home-shell" : ""}`}>
       {/* ── NAVIGATION ── */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${isEnglishHomepage ? "editorial-home-header" : ""} ${

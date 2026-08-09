@@ -521,6 +521,29 @@
 }
 
 /* ============================================================
+   ENGLISH SITE BASE TYPOGRAPHY — STEP 2
+   Commissioner becomes the readable base for approved English
+   content routes. Greek and excluded location landing pages do
+   not receive this wrapper class. Accent type remains page-specific.
+   ============================================================ */
+.english-commissioner-base {
+  --english-primary-sans: 'Commissioner', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--english-primary-sans);
+}
+
+.english-commissioner-base :where(
+  h1, h2, h3, h4, h5, h6, p, a, button, input, select, textarea,
+  label, li, dt, dd, th, td, small, strong, em
+) {
+  font-family: var(--english-primary-sans);
+}
+
+/* Covers existing Tailwind font-sans utility usage without raising selector specificity above page accents. */
+.english-commissioner-base .font-sans {
+  font-family: var(--english-primary-sans);
+}
+
+/* ============================================================
    ENGLISH HOMEPAGE EDITORIAL TYPOGRAPHY
    Intentionally scoped to .editorial-home. Greek routes retain
    the existing type system until a dedicated Greek pass is approved.

@@ -13,12 +13,23 @@ const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "u
 const htmlSource = readFileSync(resolve(projectRoot, "client/index.html"), "utf8");
 
 describe("English homepage editorial typography", () => {
-  it("loads the approved editorial families while preserving the existing fallback family", () => {
-    expect(htmlSource).toContain("family=Anybody:wdth,wght@80..132,700..900");
-    expect(htmlSource).toContain("family=Commissioner:wght@100..700");
-    expect(htmlSource).toContain("family=DM+Mono:wght@300;400;500");
-    expect(htmlSource).toContain("family=Instrument+Serif:ital@0;1");
+  it("loads the approved production font ranges while preserving Inter for routes not yet migrated", () => {
+    expect(htmlSource).toContain("family=Anybody:wdth,wght@80..132,750..800");
+    expect(htmlSource).toContain("family=Commissioner:wght@150..650");
+    expect(htmlSource).toContain("family=DM+Mono:wght@400");
+    expect(htmlSource).toContain("family=Instrument+Serif:ital@1");
     expect(htmlSource).toContain("family=Inter:wght@400;500;600;700");
+  });
+
+  it("scopes Commissioner as the English base without affecting Greek or excluded location pages", () => {
+    expect(stylesheet).toContain(".english-commissioner-base {");
+    expect(stylesheet).toContain("--english-primary-sans: 'Commissioner', Inter");
+    expect(stylesheet).toContain(".english-commissioner-base :where(");
+    expect(layoutSource).toContain("const EXCLUDED_ENGLISH_LOCATION_ROUTES = new Set([");
+    expect(layoutSource).toContain('const isStandalonePreview = normalizedLocation.startsWith("/preview/");');
+    expect(layoutSource).toContain('const isEnglishTypographyRoute = !isGreek && !isStandalonePreview && !EXCLUDED_ENGLISH_LOCATION_ROUTES.has(normalizedLocation);');
+    expect(layoutSource).toContain('isEnglishTypographyRoute ? "english-commissioner-base" : ""');
+    expect(homeElSource).not.toContain("english-commissioner-base");
   });
 
   it("uses the fitted display treatment only on the English homepage", () => {
