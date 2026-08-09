@@ -927,6 +927,413 @@
   white-space: nowrap;
 }
 
+/* ============================================================
+   PROCESS PAGE EDITORIAL TYPOGRAPHY — PAGE 2 OF ROLLOUT
+   Scoped to the English Process page. Display lines are authored
+   without orphan-prone punctuation and motion stays purposeful.
+   ============================================================ */
+.process-editorial {
+  --process-display: 'Anybody', 'Commissioner', sans-serif;
+  --process-sans: 'Commissioner', Inter, sans-serif;
+  --process-mono: 'DM Mono', monospace;
+  --process-serif: 'Instrument Serif', Georgia, serif;
+  --process-ink: #111315;
+  --process-muted: #5B6472;
+}
+
+.process-editorial .process-editorial-label {
+  color: #5B8CFF;
+  font-family: var(--process-mono);
+  font-size: 0.69rem;
+  font-weight: 400;
+  letter-spacing: 0.19em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.process-editorial .process-editorial-title,
+.process-editorial .process-editorial-heading,
+.process-editorial .process-editorial-step-title {
+  color: var(--process-ink);
+  font-family: var(--process-display);
+  font-variation-settings: 'wdth' 106, 'wght' 750;
+  font-weight: 750;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+}
+
+.process-editorial .process-editorial-title {
+  font-size: clamp(3.35rem, 8.5vw, 7.9rem);
+}
+
+.process-editorial .process-editorial-title-line {
+  display: block;
+}
+
+.process-editorial .process-editorial-heading {
+  font-size: clamp(2.25rem, 4.6vw, 4.6rem);
+}
+
+.process-editorial .process-editorial-serif {
+  font-family: var(--process-serif);
+  font-size: 1.17em;
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
+}
+
+.process-editorial .process-editorial-lead,
+.process-editorial .process-editorial-step-copy {
+  color: var(--process-muted);
+  font-family: var(--process-sans);
+  font-size: clamp(1.02rem, 1.5vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.process-editorial .process-editorial-hero {
+  background: linear-gradient(135deg, rgba(91, 140, 255, 0.06), rgba(255, 255, 255, 0.9) 48%, rgba(139, 92, 255, 0.07));
+}
+
+.process-editorial .process-editorial-hero-geometry {
+  transform: rotate(-8deg);
+}
+
+.process-editorial .process-editorial-rail {
+  background: linear-gradient(to bottom, #5B8CFF 0%, #6FE3FF 35%, #8B5CFF 68%, #5B8CFF 100%);
+  background-size: 100% 200%;
+}
+
+.process-editorial .process-editorial-step {
+  transition: transform 260ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.process-editorial .process-editorial-icon {
+  transition: transform 260ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 260ms ease;
+}
+
+.process-editorial .process-editorial-step-number,
+.process-editorial .process-editorial-time {
+  border-radius: 999px;
+  font-family: var(--process-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.075em;
+  line-height: 1;
+  padding: 0.55rem 0.7rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.process-editorial .process-editorial-time {
+  background: #F0F4FF;
+  color: var(--process-muted);
+}
+
+.process-editorial .process-editorial-step-title {
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+}
+
+.process-editorial .process-editorial-step-list {
+  color: var(--process-ink);
+  font-family: var(--process-sans);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.process-editorial .process-editorial-timing {
+  background: linear-gradient(180deg, #ffffff 0%, #F8FAFF 100%);
+}
+
+.process-editorial .process-editorial-timing-card {
+  border-top: 2px solid rgba(91, 140, 255, 0.16);
+  transition: transform 260ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 260ms ease, border-color 260ms ease;
+}
+
+.process-editorial .process-editorial-timing-value {
+  color: var(--process-ink);
+  font-family: var(--process-display);
+  font-size: clamp(2.25rem, 3vw, 3rem);
+  font-variation-settings: 'wdth' 112, 'wght' 750;
+  font-weight: 750;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+
+.process-editorial .process-editorial-timing-label {
+  color: var(--process-ink);
+  font-family: var(--process-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.process-editorial .process-editorial-timing-price {
+  color: var(--process-muted);
+  font-family: var(--process-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.process-editorial .process-editorial-heading-light {
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .process-editorial .process-editorial-hero-geometry {
+    animation: process-editorial-drift 9s ease-in-out infinite alternate;
+  }
+
+  .process-editorial .process-editorial-rail {
+    animation: process-editorial-rail-flow 6s linear infinite;
+  }
+
+  .process-editorial .process-editorial-step:hover {
+    transform: translateX(0.5rem);
+  }
+
+  .process-editorial .process-editorial-step:hover .process-editorial-icon {
+    box-shadow: 0 14px 30px rgba(91, 140, 255, 0.12);
+    transform: translateY(-0.2rem) rotate(-3deg);
+  }
+
+  .process-editorial .process-editorial-timing-card:hover {
+    border-color: rgba(91, 140, 255, 0.55);
+    box-shadow: 0 18px 34px rgba(27, 58, 112, 0.09);
+    transform: translateY(-0.35rem);
+  }
+}
+
+@keyframes process-editorial-drift {
+  from { transform: translate3d(0, 0, 0) rotate(-8deg); }
+  to { transform: translate3d(1.4rem, -0.75rem, 0) rotate(-3deg); }
+}
+
+@keyframes process-editorial-rail-flow {
+  from { background-position: 0 0; }
+  to { background-position: 0 200%; }
+}
+
+@media (max-width: 767px) {
+  .process-editorial .process-editorial-title {
+    font-size: clamp(3rem, 16vw, 4.45rem);
+    line-height: 0.94;
+  }
+
+  .process-editorial .process-editorial-heading {
+    font-size: clamp(2.05rem, 11vw, 3rem);
+    line-height: 0.95;
+  }
+
+  .process-editorial .process-editorial-step-title {
+    font-size: clamp(1.8rem, 9vw, 2.3rem);
+    line-height: 0.97;
+  }
+
+  .process-editorial .process-editorial-step-content {
+    min-width: 0;
+  }
+
+  .process-editorial .process-editorial-step-list {
+    font-size: 0.86rem;
+  }
+}
+
+/* Current Process markup compatibility: this layer maps the final page structure
+   to the same scoped display, mono, serif, and safe-motion system. */
+.process-editorial .process-editorial-hero {
+  align-items: center;
+  display: flex;
+  min-height: clamp(24rem, 52vw, 36rem);
+  padding-block: clamp(5rem, 11vw, 9rem);
+  text-align: center;
+}
+
+.process-editorial .process-editorial-hero .container {
+  max-width: 66rem;
+}
+
+.process-editorial .process-editorial-hero-heading,
+.process-editorial .process-editorial-section-heading,
+.process-editorial .process-editorial-cta-heading {
+  color: var(--process-ink);
+  font-family: var(--process-display);
+  font-variation-settings: 'wdth' 106, 'wght' 750;
+  font-weight: 750;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+}
+
+.process-editorial .process-editorial-hero-heading {
+  font-size: clamp(4rem, 10.6vw, 10.8rem);
+  margin: 0.75rem auto 1.65rem;
+  max-width: 10ch;
+}
+
+.process-editorial .process-editorial-fit-line {
+  display: block;
+  margin-inline: auto;
+  white-space: nowrap;
+}
+
+.process-editorial .process-editorial-hero-heading-emphasis {
+  display: block;
+  font-family: var(--process-serif);
+  font-size: 0.92em;
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  line-height: 0.72;
+  margin-top: 0.13em;
+  white-space: nowrap;
+}
+
+.process-editorial .process-editorial-section-heading {
+  font-size: clamp(2.45rem, 5.6vw, 5.4rem);
+  margin-top: 0.5rem;
+  max-width: 16ch;
+}
+
+.process-editorial .process-editorial-section-heading-centered {
+  margin-inline: auto;
+}
+
+.process-editorial .process-editorial-cta-heading {
+  color: #fff;
+  font-size: clamp(2.6rem, 5.2vw, 5.4rem);
+  margin-bottom: 1.25rem;
+}
+
+.process-editorial .process-editorial-section-heading em,
+.process-editorial .process-editorial-cta-heading em {
+  font-family: var(--process-serif);
+  font-size: 1.14em;
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  white-space: nowrap;
+}
+
+.process-editorial .process-editorial-track-intro {
+  margin-bottom: clamp(3.75rem, 8vw, 7rem);
+  max-width: 46rem;
+}
+
+.process-editorial .process-editorial-icon {
+  background: color-mix(in srgb, var(--process-accent) 11%, white);
+  border: 1.5px solid color-mix(in srgb, var(--process-accent) 34%, transparent);
+  color: var(--process-accent);
+}
+
+.process-editorial .process-editorial-icon-svg,
+.process-editorial .process-editorial-detail-check {
+  color: var(--process-accent);
+}
+
+.process-editorial .process-editorial-step-index,
+.process-editorial .process-editorial-step-time {
+  border-radius: 999px;
+  font-family: var(--process-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.075em;
+  line-height: 1;
+  padding: 0.55rem 0.7rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.process-editorial .process-editorial-step-index {
+  background: var(--process-accent);
+  color: #fff;
+}
+
+.process-editorial .process-editorial-step-time {
+  background: color-mix(in srgb, var(--process-accent) 11%, white);
+  color: var(--process-muted);
+}
+
+.process-editorial .process-editorial-step-desc {
+  color: var(--process-muted);
+  font-family: var(--process-sans);
+  font-size: 1rem;
+  line-height: 1.68;
+  margin-bottom: 1.4rem;
+  max-width: 42rem;
+}
+
+.process-editorial .process-editorial-step-details {
+  color: var(--process-ink);
+  font-family: var(--process-sans);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.process-editorial .process-editorial-timeline-lead {
+  color: var(--process-muted);
+  font-family: var(--process-sans);
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.6;
+  margin-inline: auto;
+  max-width: 38rem;
+}
+
+.process-editorial .process-editorial-timeline-time {
+  color: var(--process-ink);
+  font-family: var(--process-display);
+  font-size: clamp(2.25rem, 3vw, 3rem);
+  font-variation-settings: 'wdth' 112, 'wght' 750;
+  font-weight: 750;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  margin-bottom: 0.85rem;
+}
+
+.process-editorial .process-editorial-timeline-label {
+  color: var(--process-ink);
+  font-family: var(--process-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-editorial *,
+  .process-editorial *::before,
+  .process-editorial *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .process-editorial .process-editorial-hero {
+    min-height: 26rem;
+    padding-block: 5rem 4.5rem;
+  }
+
+  .process-editorial .process-editorial-hero-heading {
+    font-size: clamp(3.35rem, 18vw, 5.25rem);
+    line-height: 0.93;
+  }
+
+  .process-editorial .process-editorial-hero-heading-emphasis {
+    line-height: 0.78;
+  }
+
+  .process-editorial .process-editorial-step {
+    gap: 1.3rem;
+  }
+
+  .process-editorial .process-editorial-step-desc {
+    font-size: 0.95rem;
+  }
+
+  .process-editorial .process-editorial-section-heading,
+  .process-editorial .process-editorial-cta-heading {
+    font-size: clamp(2.2rem, 12vw, 3.3rem);
+    line-height: 0.97;
+  }
+}
+
 .services-editorial .services-editorial-card-title {
   font-family: var(--services-sans);
   font-weight: 600;

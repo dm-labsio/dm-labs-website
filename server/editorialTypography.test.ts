@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 
@@ -7,7 +7,8 @@ const serverDirectory = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(serverDirectory, "..");
 const homeSource = readFileSync(resolve(projectRoot, "client/src/pages/Home.tsx"), "utf8");
 const homeElSource = readFileSync(resolve(projectRoot, "client/src/pages/el/HomeEl.tsx"), "utf8");
-const servicesSource = readFileSync(resolve(projectRoot, "client/src/pages/Services.tsx"), "utf8");
+const servicesSource = readFileSync(join(projectRoot, "client/src/pages/Services.tsx"), "utf8");
+const processSource = readFileSync(join(projectRoot, "client/src/pages/Process.tsx"), "utf8");
 const fitLineSource = readFileSync(resolve(projectRoot, "client/src/components/EditorialFitLine.tsx"), "utf8");
 const layoutSource = readFileSync(resolve(projectRoot, "client/src/components/Layout.tsx"), "utf8");
 const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "utf8");
@@ -134,5 +135,31 @@ describe("Services page editorial typography", () => {
     expect(servicesSource).not.toContain("from €49/mo");
     expect(servicesSource).not.toContain("Plans - <span");
     expect(stylesheet).toContain("Wrap rule: do not use decorative dashes, commas, or standalone");
+  });
+});
+
+describe("Process page editorial typography", () => {
+  it("keeps the approved editorial treatment scoped to the Process page", () => {
+    expect(processSource).toContain('className="process-editorial"');
+    expect(processSource).toContain('import EditorialFitLine from "@/components/EditorialFitLine"');
+    expect(processSource).toContain('className="process-editorial-hero-heading"');
+    expect(stylesheet).toContain(".process-editorial .process-editorial-hero-heading");
+    expect(stylesheet).toContain("PROCESS PAGE EDITORIAL TYPOGRAPHY — PAGE 2 OF ROLLOUT");
+  });
+
+  it("uses authored display structure and reduced-motion-safe motion for the process journey", () => {
+    expect(processSource).toContain("From Idea to");
+    expect(processSource).toContain('className="process-editorial-hero-heading-emphasis"');
+    expect(processSource).toContain('className="process-editorial-rail');
+    expect(processSource).not.toContain("as quickly as possible - without");
+    expect(processSource).not.toContain('Plans - <span');
+    expect(stylesheet).toContain("@media (prefers-reduced-motion: no-preference)");
+    expect(stylesheet).toContain("@media (prefers-reduced-motion: reduce)");
+    expect(stylesheet).toContain("process-editorial-rail-flow");
+  });
+
+  it("preserves Process SEO metadata", () => {
+    expect(processSource).toContain('title: "Our Process | How We Build Websites | DM-Labs.io"');
+    expect(processSource).toContain('description: "From discovery call to launch in 5-14 days. See exactly how DM-Labs.io designs and builds your website, step by step."');
   });
 });

@@ -7,7 +7,9 @@
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
+import EditorialFitLine from "@/components/EditorialFitLine";
 import { MessageCircle, Palette, Code, Rocket, ArrowRight, CheckCircle2, CreditCard } from "lucide-react";
+import type { CSSProperties } from "react";
 
 const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
@@ -18,8 +20,8 @@ const steps = [
     icon: MessageCircle,
     title: "Discovery Call",
     time: "~1 day",
-    desc: "We start with a quick WhatsApp chat. Tell us about your business, what you need, and your goals. No technical jargon - just a friendly conversation.",
-    details: ["15-20 minute WhatsApp call", "We learn about your business", "You tell us what you need", "We recommend the best package"],
+    desc: "We start with a quick WhatsApp chat. Tell us about your business, what you need, and your goals. No technical jargon. Just a friendly conversation.",
+    details: ["15 to 20 minute WhatsApp call", "We learn about your business", "You tell us what you need", "We recommend the best package"],
     color: "#5B8CFF",
   },
   {
@@ -35,7 +37,7 @@ const steps = [
     step: "03",
     icon: Palette,
     title: "Design & Build",
-    time: "3-7 days",
+    time: "3 to 7 days",
     desc: "We design and develop your website. You'll see progress along the way and can provide feedback at key milestones.",
     details: ["Custom design for your brand", "Mobile-first development", "Regular progress updates", "Your feedback shapes the result"],
     color: "#8B5CFF",
@@ -44,9 +46,9 @@ const steps = [
     step: "04",
     icon: Code,
     title: "Review & Revisions",
-    time: "1-2 days",
+    time: "1 to 2 days",
     desc: "You review the website and request changes. We refine everything until you're completely happy with the result.",
-    details: ["Full website preview", "Starter: 2 revision rounds, Business: 3, Premium: 5", "We adjust until you're satisfied", "No extra charges for included revisions"],
+    details: ["Full website preview", "Two Starter revisions, three Business revisions, five Premium revisions", "We adjust until you're satisfied", "No extra charges for included revisions"],
     color: "#5B8CFF",
   },
   {
@@ -66,69 +68,69 @@ export default function Process() {
     description: "From discovery call to launch in 5-14 days. See exactly how DM-Labs.io designs and builds your website, step by step.",
   });
   return (
-    <>
+    <div className="process-editorial">
       {/* Hero */}
-      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
-        <div className="absolute top-10 left-10 w-[300px] h-[300px] opacity-[0.04] animate-float-slower pointer-events-none">
+      <section className="process-editorial-hero relative overflow-hidden">
+        <div className="process-editorial-hero-geometry absolute top-10 left-10 w-[300px] h-[300px] opacity-[0.04] pointer-events-none">
           <img src={TRIANGLE_GEO} alt="" className="w-full h-full object-contain" aria-hidden="true" />
         </div>
-        <div className="container relative z-10 text-center">
+        <div className="container relative z-10">
           <AnimateIn>
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">How It Works</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              From Idea to <span className="brand-gradient-text">Launch</span>
+            <p className="process-editorial-label">How It Works</p>
+            <h1 className="process-editorial-hero-heading" aria-label="From Idea to Launch">
+              <EditorialFitLine className="process-editorial-fit-line" maxSizeRatio={0.15}>From Idea to</EditorialFitLine>
+              <span className="process-editorial-hero-heading-emphasis"><em>Launch</em></span>
             </h1>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              A simple, transparent process designed to get your website live as quickly as possible - without the stress.
+            <p className="process-editorial-lead">
+              A simple, transparent process designed to get your website live as quickly as possible, without the stress.
             </p>
           </AnimateIn>
         </div>
       </section>
 
       {/* Steps */}
-      <section className="section-spacing bg-white">
-        <div className="container max-w-3xl">
+      <section className="process-editorial-track section-spacing bg-white">
+        <div className="container max-w-5xl">
+          <AnimateIn className="process-editorial-track-intro">
+            <p className="process-editorial-label">The Journey</p>
+            <h2 className="process-editorial-section-heading">Five clear stages. <em>One focused outcome.</em></h2>
+          </AnimateIn>
           <div className="relative">
-{/* Vertical connector line - sits between icons, hidden behind each icon box */}
+            {/* Connector line remains behind every icon and is animated only when motion is allowed. */}
             <div
-              className="absolute left-[35px] sm:left-[39px] top-[96px] sm:top-[104px] bottom-[96px] sm:bottom-[104px] w-[2px] pointer-events-none"
-              style={{ background: "linear-gradient(to bottom, #5B8CFF, #6FE3FF, #8B5CFF, #5B8CFF, #6FE3FF)", zIndex: 1 }}
+              className="process-editorial-rail absolute left-[35px] sm:left-[39px] top-[96px] sm:top-[104px] bottom-[96px] sm:bottom-[104px] w-[2px] pointer-events-none"
+              style={{ zIndex: 1 }}
             />
 
-            <div className="space-y-0">
+            <div className="process-editorial-step-list space-y-0">
               {steps.map((step, i) => (
-                <AnimateIn key={step.title} delay={i * 0.12}>
-                  <div className="relative flex gap-8 sm:gap-10" style={{ paddingBottom: i < steps.length - 1 ? "clamp(3rem, 6vh, 5rem)" : 0 }}>
-                    {/* Icon circle - z-10 so it sits above the connector line */}
+                <AnimateIn key={step.title} delay={i * 0.1} variant={i % 2 === 0 ? "fade-right" : "fade-left"}>
+                  <article className="process-editorial-step relative flex gap-8 sm:gap-10" style={{ "--process-accent": step.color, paddingBottom: i < steps.length - 1 ? "clamp(3.5rem, 7vh, 6rem)" : 0 } as CSSProperties}>
+                    {/* Icon box is above the connector line. */}
                     <div className="shrink-0 flex flex-col items-center" style={{ position: "relative", zIndex: 10 }}>
-                      <div
-                        className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-2xl flex items-center justify-center shadow-sm"
-                        style={{ background: `white`, border: `1.5px solid ${step.color}30`, boxShadow: `0 0 0 4px white` }}
-                      >
-                        <div className="w-full h-full rounded-2xl flex items-center justify-center" style={{ background: `${step.color}18` }}>
-                          <step.icon size={34} style={{ color: step.color }} strokeWidth={1.5} />
-                        </div>
+                      <div className="process-editorial-icon w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-2xl flex items-center justify-center" style={{ boxShadow: "0 0 0 4px white" }}>
+                        <step.icon size={34} className="process-editorial-icon-svg" strokeWidth={1.5} />
                       </div>
                     </div>
 
                     {/* Content */}
-                    <div className="flex-1 pt-3">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-xs font-bold text-white px-2.5 py-1 rounded-full" style={{ background: step.color }}>Step {step.step}</span>
-                        <span className="text-xs font-semibold text-[#5B6472] bg-[#F0F4FF] px-2.5 py-1 rounded-full">{step.time}</span>
+                    <div className="process-editorial-step-content flex-1 pt-3">
+                      <div className="process-editorial-step-meta flex items-center gap-3 mb-3">
+                        <span className="process-editorial-step-index">{step.step}</span>
+                        <span className="process-editorial-step-time">{step.time}</span>
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">{step.title}</h3>
-                      <p className="text-base text-[#5B6472] leading-relaxed mb-5 max-w-xl">{step.desc}</p>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <h3 className="process-editorial-step-title">{step.title}</h3>
+                      <p className="process-editorial-step-desc">{step.desc}</p>
+                      <ul className="process-editorial-step-details grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {step.details.map((d) => (
-                          <li key={d} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                            <CheckCircle2 size={16} style={{ color: step.color }} className="shrink-0 mt-0.5" />
+                          <li key={d} className="flex items-start gap-2.5">
+                            <CheckCircle2 size={16} className="process-editorial-detail-check shrink-0 mt-0.5" />
                             {d}
                           </li>
                         ))}
                       </ul>
                     </div>
-                  </div>
+                  </article>
                 </AnimateIn>
               ))}
             </div>
@@ -137,23 +139,24 @@ export default function Process() {
       </section>
 
       {/* Timeline */}
-      <section className="section-spacing">
+      <section className="process-editorial-timeline section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Typical Timeline</h2>
-            <p className="text-lg text-[#5B6472]">Most projects go from first message to live website in under two weeks.</p>
+            <p className="process-editorial-label">Pace With Purpose</p>
+            <h2 className="process-editorial-section-heading process-editorial-section-heading-centered">Typical <em>Timeline</em></h2>
+            <p className="process-editorial-timeline-lead">Most projects go from first message to live website in under two weeks.</p>
           </AnimateIn>
           <AnimateIn delay={0.2}>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="process-editorial-timeline-grid grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {[
-                { label: "Launch Website", time: "5-7 days", price: "from €299" },
-                { label: "Business Website", time: "7-10 days", price: "from €749" },
-                { label: "Premium Website", time: "10-14 days", price: "from €1,499" },
+                { label: "Launch Website", time: "5 to 7 days", price: "from €299" },
+                { label: "Business Website", time: "7 to 10 days", price: "from €749" },
+                { label: "Premium Website", time: "10 to 14 days", price: "from €1,499" },
               ].map((item) => (
-                <div key={item.label} className="dm-card text-center !p-8">
-                  <p className="text-3xl font-bold brand-gradient-text mb-2">{item.time}</p>
-                  <p className="text-sm font-semibold text-[#111315] mb-1">{item.label}</p>
-                  <p className="text-xs text-[#5B6472]">{item.price}</p>
+                <div key={item.label} className="process-editorial-timeline-card dm-card text-left !p-8">
+                  <p className="process-editorial-timeline-time">{item.time}</p>
+                  <p className="process-editorial-timeline-label">{item.label}</p>
+                  <p className="process-editorial-timeline-price">{item.price}</p>
                 </div>
               ))}
             </div>
@@ -162,10 +165,11 @@ export default function Process() {
       </section>
 
       {/* CTA */}
-      <section className="section-spacing dark-section text-center">
+      <section className="process-editorial-cta section-spacing dark-section text-center">
         <div className="container">
           <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Ready to Start the Process?</h2>
+            <p className="process-editorial-label process-editorial-label-light">The Next Step</p>
+            <h2 className="process-editorial-cta-heading">Ready to <em>Start</em> the Process?</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">
               The first step is a quick, no-pressure WhatsApp chat. Let's talk about your business.
             </p>
@@ -180,6 +184,6 @@ export default function Process() {
           </AnimateIn>
         </div>
       </section>
-    </>
+    </div>
   );
 }
