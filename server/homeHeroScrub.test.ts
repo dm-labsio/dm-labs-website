@@ -11,7 +11,7 @@ const homeElSource = readFileSync(resolve(projectRoot, "client/src/pages/el/Home
 const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "utf8");
 const htmlSource = readFileSync(resolve(projectRoot, "client/index.html"), "utf8");
 
-describe("homepage short scroll-scrub hero", () => {
+describe("homepage single-stage scroll-scrub hero", () => {
   it("uses the supplied managed video and visible opening poster only on the English and Greek home heroes", () => {
     expect(heroSource).toContain('HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-hero-tunnel-scrub_89732dad.mp4"');
     expect(heroSource).toContain('HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-hero-tunnel-opening-poster_7b05ee6d.jpg"');
@@ -26,47 +26,48 @@ describe("homepage short scroll-scrub hero", () => {
     expect(homeElSource).toContain("<HomeHeroScrub>");
   });
 
-  it("hands the completed video into a centred, normal-flow hero before the trust strip", () => {
-    expect(heroSource).toContain('className="hero-scrub-spacer"');
-    expect(heroSource).toContain('className="hero-scrub-flow"');
-    expect(heroSource).toContain('className="hero-scrub-flow-content"');
-    expect(stylesheet).toContain(".hero-scrub-spacer {");
-    expect(stylesheet).toContain("height: calc(100svh - 72px);");
-    expect(stylesheet).toContain(".hero-scrub-flow {");
-    expect(stylesheet).toContain("min-height: calc(100svh - 72px);");
+  it("keeps the final video frame and centred existing copy in one responsive stage that releases naturally", () => {
+    expect(heroSource).toContain('className="hero-scrub-stage"');
+    expect(heroSource).toContain('className="hero-scrub-copy"');
+    expect(heroSource).not.toContain('className="hero-scrub-spacer"');
+    expect(heroSource).not.toContain('className="hero-scrub-flow"');
+    expect(stylesheet).toContain("--hero-runway: clamp(520px, 75svh, 760px);");
+    expect(stylesheet).toContain("height: calc(100svh - 72px + var(--hero-runway));");
+    expect(stylesheet).toContain("position: fixed;");
+    expect(stylesheet).toContain('data-released="true"');
+    expect(stylesheet).toContain("position: absolute;");
+    expect(stylesheet).toContain(".hero-scrub-copy {");
     expect(stylesheet).toContain("display: flex;");
     expect(stylesheet).toContain("align-items: center;");
     expect(stylesheet).toContain("justify-content: center;");
     expect(stylesheet).toContain("text-align: center;");
-    expect(heroSource).toContain("const VIDEO_COMPLETE_PROGRESS = 0.999;");
-    expect(heroSource).toContain("scope.dataset.flowActive");
-    expect(stylesheet).toContain('data-flow-active="true"');
   });
 
-  it("records only a target in the scroll handler and uses a guarded rAF seek controller with a bounded speed", () => {
+  it("uses raw scroll progress for copy reveal while serializing guarded video seeks", () => {
     const scrollStart = heroSource.indexOf("const updateFromScroll = () => {");
     const scrollEnd = heroSource.indexOf("const onSeeked = () => {");
     const controllerStart = heroSource.indexOf("const runController = (now: number) => {");
     const controllerEnd = heroSource.indexOf("const updateFromScroll = () => {");
-
-    expect(scrollStart).toBeGreaterThan(-1);
-    expect(scrollEnd).toBeGreaterThan(scrollStart);
-    expect(controllerStart).toBeGreaterThan(-1);
-    expect(controllerEnd).toBeGreaterThan(controllerStart);
-
     const scrollHandler = heroSource.slice(scrollStart, scrollEnd);
     const controller = heroSource.slice(controllerStart, controllerEnd);
 
-    expect(scrollHandler).toContain("targetProgress = clamp");
-    expect(scrollHandler).toContain("stage.offsetHeight");
+    expect(scrollStart).toBeGreaterThan(-1);
+    expect(controllerStart).toBeGreaterThan(-1);
+    expect(scrollHandler).toContain("scope.offsetHeight - stage.offsetHeight");
+    expect(scrollHandler).toContain("const rawProgress = clamp");
+    expect(scrollHandler).toContain("applyVisualProgress(rawProgress);");
+    expect(scrollHandler).toContain("targetVideoProgress = clamp(rawProgress / VIDEO_SCRUB_END, 0, 1);");
     expect(scrollHandler).not.toContain("video.currentTime =");
     expect(controller).toContain("MAX_PROGRESS_SPEED");
     expect(controller).toContain("video.seeking");
     expect(controller).toContain("seekReady = false;");
     expect(controller).toContain("video.currentTime = desiredTime;");
-    expect(heroSource).toContain("scope.dataset.active = String(progress < VIDEO_COMPLETE_PROGRESS);");
-    expect(heroSource).toContain("scope.dataset.flowActive = String(progress >= VIDEO_COMPLETE_PROGRESS);");
-    expect(heroSource).toContain('window.addEventListener("scroll", updateFromScroll, { passive: true });');
+    expect(heroSource).toContain("const VIDEO_SCRUB_END = 0.6;");
+    expect(heroSource).toContain("const COPY_REVEAL_START = 0.55;");
+    expect(heroSource).toContain("const COPY_REVEAL_END = 0.72;");
+    expect(heroSource).toContain("scope.dataset.interactive = String(progress >= COPY_INTERACTIVE_START);");
+    expect(heroSource).toContain("scope.dataset.released = String(progress >= 1);");
+    expect(stylesheet).toContain("--hero-copy-progress");
   });
 
   it("has poster, load-timeout, media-error, reduced-motion, and no-JavaScript fallbacks", () => {
@@ -76,9 +77,7 @@ describe("homepage short scroll-scrub hero", () => {
     expect(heroSource).toContain('video.addEventListener("error", activateFallback, { once: true });');
     expect(heroSource).toContain('window.matchMedia("(prefers-reduced-motion: reduce)")');
     expect(heroSource).toContain('scope.dataset.mode = "fallback"');
-    expect(stylesheet).toContain('html:not(.js) .hero-scrub-stage');
-    expect(stylesheet).toContain('.hero-scrub-scope[data-mode="fallback"] .hero-scrub-stage');
-    expect(stylesheet).toContain("html.js .hero-scrub-scope[data-mode=\"scrub\"]");
     expect(stylesheet).toContain("@media (prefers-reduced-motion: reduce)");
+    expect(stylesheet).toContain("opacity: 1 !important;");
   });
 });
