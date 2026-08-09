@@ -1589,7 +1589,7 @@
 .pricing-editorial .pricing-editorial-custom-copy,
 .pricing-editorial .pricing-editorial-custom-feature { color: rgba(255, 255, 255, .76); font-size: .94rem; line-height: 1.6; }
 .pricing-editorial .pricing-editorial-custom-feature svg { color: #6fe3ff; }
-.pricing-editorial .pricing-editorial-custom-divider { background: rgba(167, 239, 255, .24); }
+.pricing-editorial .pricing-editorial-custom-grid { align-content: center; }
 
 .pricing-editorial .pricing-editorial-custom-cta {
   align-items: center;
@@ -1635,6 +1635,13 @@
     transform: translateY(-.3rem);
   }
   .pricing-editorial .pricing-editorial-custom-cta:hover { background: #a7efff; transform: translateY(-2px); }
+  .pricing-editorial .pricing-editorial-custom-feature {
+    transition: color 180ms cubic-bezier(.23, 1, .32, 1), transform 180ms cubic-bezier(.23, 1, .32, 1);
+  }
+  .pricing-editorial .pricing-editorial-custom-feature:hover {
+    color: #fff;
+    transform: translateX(.25rem);
+  }
 }
 
 @media (max-width: 767px) {

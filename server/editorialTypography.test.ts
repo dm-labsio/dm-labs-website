@@ -180,13 +180,15 @@ describe("Pricing page editorial typography", () => {
   it("keeps pricing readable and removes outdated care cancellation claims", () => {
     expect(pricingSource).toContain('className="pricing-editorial-plan-price"');
     expect(pricingSource).toContain('className="pricing-editorial-care-price"');
+    expect(pricingSource).toContain('className="pricing-editorial-custom-grid');
+    expect(pricingSource).not.toContain("pricing-editorial-custom-divider");
     expect(pricingSource).not.toContain("Cancel anytime, no contract");
     expect(pricingSource).not.toContain("brand-gradient-text");
     expect(pricingSource).not.toContain("Packages from €299");
   });
 
   it("preserves Pricing SEO metadata", () => {
-    expect(pricingSource).toContain('title: "Website Pricing Cyprus | DM-Labs.io"');
-    expect(pricingSource).toContain('description: "Website packages for Cyprus businesses: Launch from €299');
+    expect(pricingSource).toContain('title: "Web Design Pricing | Website Cost & Packages | DM-Labs.io"');
+    expect(pricingSource).toContain('description: "How much does a website cost? Explore clear web design pricing');
   });
 });

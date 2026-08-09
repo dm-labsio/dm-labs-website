@@ -109,8 +109,8 @@ function PlanCell({ value, colour }: { value: PlanValue; colour: string }) {
 
 export default function Pricing() {
   useSEO({
-    title: "Website Pricing Cyprus | DM-Labs.io",
-    description: "Website packages for Cyprus businesses: Launch from €299, Growth €749, Pro €1,499, and custom scope from €1,499. Clear scope, no hidden fees.",
+    title: "Web Design Pricing | Website Cost & Packages | DM-Labs.io",
+    description: "How much does a website cost? Explore clear web design pricing, website packages, and custom project costs from DM-Labs.io.",
   });
 
   return (
@@ -122,8 +122,8 @@ export default function Pricing() {
         <div className="container relative z-10 text-center">
           <AnimateIn>
             <p className="pricing-editorial-label">Transparent Pricing</p>
-            <h1 className="pricing-editorial-hero-heading">Website Pricing <span>for Cyprus <em>Businesses</em></span></h1>
-            <p className="pricing-editorial-hero-lead">Clear scope, clear pricing, and a free consultation to define the right starting point for your business.</p>
+            <h1 className="pricing-editorial-hero-heading">Web Design <span><em>Pricing</em></span></h1>
+            <p className="pricing-editorial-hero-lead">How much does a website cost? Compare clear packages and find the right starting point for your business.</p>
           </AnimateIn>
         </div>
       </section>
@@ -179,17 +179,16 @@ export default function Pricing() {
                   <p className="pricing-editorial-custom-copy">For projects beyond the standard packages, including integrations, multilingual sites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume.</p>
                   <Link href="/contact/" className="pricing-editorial-custom-cta"><MessageCircle size={16} /> Request a Quote</Link>
                 </div>
-                <div className="pricing-editorial-custom-divider hidden lg:block w-px self-stretch" />
-                <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                <StaggerContainer className="pricing-editorial-custom-grid flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4" staggerDelay={0.09}>
                   {[
                     "Custom integrations and CRM or booking",
                     "Multilingual and CMS self-editing",
                     "AI or chatbot features",
                     "Complex motion and unusual content scope",
                   ].map((item) => (
-                    <div key={item} className="pricing-editorial-custom-feature flex items-start gap-2.5"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /><span>{item}</span></div>
+                    <StaggerItem key={item} className="pricing-editorial-custom-feature flex items-start gap-2.5"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /><span>{item}</span></StaggerItem>
                   ))}
-                </div>
+                </StaggerContainer>
               </div>
             </div>
           </AnimateIn>
