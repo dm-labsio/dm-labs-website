@@ -525,7 +525,8 @@
    Intentionally scoped to .editorial-home. Greek routes retain
    the existing type system until a dedicated Greek pass is approved.
    ============================================================ */
-.editorial-home {
+.editorial-home,
+.editorial-home-shell {
   --editorial-display: 'Anybody', 'Commissioner', sans-serif;
   --editorial-serif: 'Instrument Serif', Georgia, serif;
   --editorial-mono: 'DM Mono', ui-monospace, Menlo, monospace;
@@ -593,7 +594,7 @@
   display: block;
   color: var(--editorial-ink);
   font-family: var(--editorial-display);
-  font-weight: 800;
+  font-weight: 750;
   letter-spacing: -0.045em;
   line-height: 0.8;
   opacity: 0;
@@ -609,6 +610,13 @@
 
 .editorial-home .editorial-hero-actions .btn-primary,
 .editorial-home .editorial-hero-actions .editorial-outline-button {
+  font-family: var(--editorial-sans);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.editorial-home .btn-primary,
+.editorial-home .btn-secondary {
   font-family: var(--editorial-sans);
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -652,8 +660,8 @@
   color: var(--editorial-ink);
   font-family: var(--editorial-display);
   font-size: clamp(3rem, 4vw, 4.7rem);
-  font-variation-settings: 'wdth' 108, 'wght' 800;
-  font-weight: 800;
+  font-variation-settings: 'wdth' 108, 'wght' 760;
+  font-weight: 760;
   letter-spacing: -0.06em;
   line-height: 0.86;
 }
@@ -672,6 +680,68 @@
   font-style: italic;
   font-weight: 400;
   line-height: 1.35;
+}
+
+.editorial-home-shell .editorial-home-header .container,
+.editorial-home-shell .editorial-home-mobile-menu,
+.editorial-home-shell .dark-section {
+  font-family: var(--editorial-sans);
+}
+
+.editorial-home-shell .editorial-home-header {
+  border-bottom: 1px solid transparent;
+}
+
+.editorial-home-shell .editorial-home-header.glass-nav {
+  border-bottom-color: rgba(14, 16, 18, 0.08);
+}
+
+.editorial-home-shell .editorial-home-nav-link {
+  color: #32363d;
+  font-family: var(--editorial-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+}
+
+.editorial-home-shell .editorial-home-header-cta,
+.editorial-home-shell .editorial-home-mobile-cta {
+  border-radius: 10px;
+  font-family: var(--editorial-sans);
+  font-size: 0.75rem !important;
+  font-weight: 650;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.editorial-home-shell .editorial-home-language-toggle {
+  border-color: rgba(14, 16, 18, 0.12);
+  font-family: var(--editorial-mono);
+}
+
+.editorial-home-shell .editorial-home-language-toggle a {
+  font-family: var(--editorial-mono);
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.editorial-home-shell .dark-section h4 {
+  font-family: var(--editorial-mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+}
+
+.editorial-home-shell .editorial-home-mobile-link {
+  font-family: var(--editorial-display);
+  font-size: 1.5rem;
+  font-variation-settings: 'wdth' 104, 'wght' 750;
+  font-weight: 750;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 @media (max-width: 767px) {

@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 const WIDTH_MIN = 80;
 const WIDTH_MAX = 132;
 const PROBE_SIZE = 100;
+const DISPLAY_WEIGHT = 750;
 
 type EditorialFitLineProps = {
   children: ReactNode;
@@ -31,9 +32,9 @@ export default function EditorialFitLine({
     if (!availableWidth) return;
 
     line.style.fontSize = `${PROBE_SIZE}px`;
-    line.style.fontVariationSettings = "'wdth' 100, 'wght' 800";
+    line.style.fontVariationSettings = `'wdth' 100, 'wght' ${DISPLAY_WEIGHT}`;
 
-    line.style.fontVariationSettings = `'wdth' ${WIDTH_MIN}, 'wght' 800`;
+    line.style.fontVariationSettings = `'wdth' ${WIDTH_MIN}, 'wght' ${DISPLAY_WEIGHT}`;
     let bestWidth = WIDTH_MIN;
 
     if (line.scrollWidth <= availableWidth) {
@@ -42,7 +43,7 @@ export default function EditorialFitLine({
 
       for (let iteration = 0; iteration < 12; iteration += 1) {
         const middle = (low + high) / 2;
-        line.style.fontVariationSettings = `'wdth' ${middle}, 'wght' 800`;
+        line.style.fontVariationSettings = `'wdth' ${middle}, 'wght' ${DISPLAY_WEIGHT}`;
 
         if (line.scrollWidth <= availableWidth) {
           low = middle;
@@ -53,7 +54,7 @@ export default function EditorialFitLine({
       }
     }
 
-    line.style.fontVariationSettings = `'wdth' ${bestWidth}, 'wght' 800`;
+    line.style.fontVariationSettings = `'wdth' ${bestWidth}, 'wght' ${DISPLAY_WEIGHT}`;
     const fittedSize = PROBE_SIZE * (availableWidth / Math.max(line.scrollWidth, 1));
     line.style.fontSize = `${Math.min(fittedSize, availableWidth * maxSizeRatio)}px`;
     setIsFitted(true);

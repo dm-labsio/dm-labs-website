@@ -91,6 +91,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const normalizedLocation = normalizeRoutePath(location);
   const isGreek = normalizedLocation === "/el" || normalizedLocation.startsWith("/el/");
+  const isEnglishHomepage = normalizedLocation === "/";
   const NAV_LINKS = isGreek ? EL_NAV_LINKS : EN_NAV_LINKS;
 
   useEffect(() => {
@@ -129,7 +130,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     const elHref = isGreek ? withTrailingSlash(normalizedLocation) : getAltLangHref("el");
     return (
       <div
-        className={`flex items-center rounded-full border border-[#E2E5EA] bg-white shadow-sm overflow-hidden ${className}`}
+        className={`flex items-center rounded-full border border-[#E2E5EA] bg-white shadow-sm overflow-hidden ${isEnglishHomepage ? "editorial-home-language-toggle" : ""} ${className}`}
         style={{ padding: "2px" }}
       >
         <a
@@ -171,10 +172,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className={`min-h-screen flex flex-col ${isEnglishHomepage ? "editorial-home-shell" : ""}`}>
       {/* ── NAVIGATION ── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${isEnglishHomepage ? "editorial-home-header" : ""} ${
           scrolled
             ? "glass-nav shadow-sm"
             : "bg-transparent"
@@ -192,7 +193,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-150 ${
+                className={`text-sm font-medium transition-colors duration-150 ${isEnglishHomepage ? "editorial-home-nav-link" : ""} ${
                   location === link.href
                     ? "text-[#5B8CFF]"
                     : "text-[#111315] hover:text-[#5B8CFF]"
@@ -208,7 +209,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <LangToggle />
             <Link
               href={isGreek ? "/el/contact/" : "/contact/"}
-              className="btn-primary !h-11 !text-sm !px-6"
+              className={`btn-primary !h-11 !text-sm !px-6 ${isEnglishHomepage ? "editorial-home-header-cta" : ""}`}
             >
               {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
             </Link>
@@ -237,14 +238,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 bg-[#F6F6F4] pt-20 px-6 lg:hidden"
+            className={`fixed inset-0 z-40 bg-[#F6F6F4] pt-20 px-6 lg:hidden ${isEnglishHomepage ? "editorial-home-mobile-menu" : ""}`}
           >
             <nav className="flex flex-col gap-1">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`py-4 text-lg font-medium border-b border-[#E2E5EA] transition-colors ${
+                  className={`py-4 text-lg font-medium border-b border-[#E2E5EA] transition-colors ${isEnglishHomepage ? "editorial-home-mobile-link" : ""} ${
                     location === link.href
                       ? "text-[#5B8CFF]"
                       : "text-[#111315]"
@@ -256,7 +257,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </nav>
             <Link
               href={isGreek ? "/el/contact/" : "/contact/"}
-              className="btn-primary w-full mt-6"
+              className={`btn-primary w-full mt-6 ${isEnglishHomepage ? "editorial-home-mobile-cta" : ""}`}
             >
               {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
             </Link>

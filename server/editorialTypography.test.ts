@@ -8,6 +8,7 @@ const projectRoot = resolve(serverDirectory, "..");
 const homeSource = readFileSync(resolve(projectRoot, "client/src/pages/Home.tsx"), "utf8");
 const homeElSource = readFileSync(resolve(projectRoot, "client/src/pages/el/HomeEl.tsx"), "utf8");
 const fitLineSource = readFileSync(resolve(projectRoot, "client/src/components/EditorialFitLine.tsx"), "utf8");
+const layoutSource = readFileSync(resolve(projectRoot, "client/src/components/Layout.tsx"), "utf8");
 const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "utf8");
 const htmlSource = readFileSync(resolve(projectRoot, "client/index.html"), "utf8");
 
@@ -38,6 +39,7 @@ describe("English homepage editorial typography", () => {
   it("fits with Anybody's real width axis and refits for loaded fonts and container changes", () => {
     expect(fitLineSource).toContain("const WIDTH_MIN = 80;");
     expect(fitLineSource).toContain("const WIDTH_MAX = 132;");
+    expect(fitLineSource).toContain("const DISPLAY_WEIGHT = 750;");
     expect(fitLineSource).toContain("fontVariationSettings");
     expect(fitLineSource).toContain("document.fonts?.ready.then(requestFit)");
     expect(fitLineSource).toContain("new ResizeObserver(requestFit)");
@@ -45,12 +47,25 @@ describe("English homepage editorial typography", () => {
   });
 
   it("contains editorial rules within the English homepage and raises light lead text on small screens", () => {
-    expect(stylesheet).toContain(".editorial-home {");
+    expect(stylesheet).toContain(".editorial-home,\n.editorial-home-shell {");
     expect(stylesheet).toContain(".editorial-home .editorial-label");
     expect(stylesheet).toContain(".editorial-home .editorial-section-heading");
     expect(stylesheet).toContain(".editorial-home .editorial-price");
+    expect(stylesheet).toContain("font-variation-settings: 'wdth' 108, 'wght' 760;");
+    expect(stylesheet).toContain(".editorial-home-shell .editorial-home-nav-link");
+    expect(stylesheet).toContain(".editorial-home-shell .editorial-home-language-toggle");
+    expect(stylesheet).toContain("font-variation-settings: 'wdth' 104, 'wght' 750;");
     expect(stylesheet).toContain("font-weight: 150;");
     expect(stylesheet).toContain("font-weight: 300;");
     expect(stylesheet).toContain("@media (max-width: 767px)");
+  });
+
+  it("limits the shared header and navigation treatment to the English homepage route", () => {
+    expect(layoutSource).toContain('const isEnglishHomepage = normalizedLocation === "/";');
+    expect(layoutSource).toContain('isEnglishHomepage ? "editorial-home-shell" : ""');
+    expect(layoutSource).toContain('isEnglishHomepage ? "editorial-home-header" : ""');
+    expect(layoutSource).toContain('isEnglishHomepage ? "editorial-home-nav-link" : ""');
+    expect(layoutSource).toContain('isEnglishHomepage ? "editorial-home-header-cta" : ""');
+    expect(layoutSource).toContain('isEnglishHomepage ? "editorial-home-mobile-menu" : ""');
   });
 });
