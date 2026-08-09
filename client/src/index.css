@@ -519,6 +519,161 @@
   border-radius: 50%;
   background: linear-gradient(135deg, #5B8CFF, #8B5CFF);
 }
+
+/* ============================================================
+   HOMEPAGE SHORT SCROLL-SCRUB HERO
+   ============================================================ */
+.hero-scrub-scope {
+  --hero-progress: 0;
+  --hero-copy-progress: 1;
+  position: relative;
+  height: 100svh;
+  min-height: 34rem;
+  background: #f6f6f4;
+}
+
+html.js .hero-scrub-scope[data-mode="scrub"] {
+  height: 100svh;
+}
+
+.hero-scrub-stage {
+  position: relative;
+  height: calc(100svh - 72px);
+  min-height: 32rem;
+  overflow: hidden;
+  isolation: isolate;
+  background: #f6f6f4;
+}
+
+html.js .hero-scrub-scope[data-mode="scrub"] .hero-scrub-stage {
+  position: fixed;
+  top: 72px;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+html.js .hero-scrub-scope[data-mode="scrub"][data-active="false"] .hero-scrub-stage {
+  display: none;
+}
+
+.hero-scrub-poster,
+.hero-scrub-video,
+.hero-scrub-wash {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-scrub-poster,
+.hero-scrub-video {
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-scrub-poster {
+  z-index: 0;
+}
+
+.hero-scrub-video {
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms ease-out;
+}
+
+.hero-scrub-scope[data-ready="true"] .hero-scrub-video {
+  opacity: 1;
+}
+
+.hero-scrub-wash {
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, rgba(246, 246, 244, 0.58) 100%);
+  opacity: calc(0.52 - (var(--hero-progress) * 0.34));
+}
+
+.hero-scrub-copy {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.hero-scrub-copy > div {
+  width: min(100%, 68rem);
+}
+
+html.js .hero-scrub-scope[data-mode="scrub"] .hero-scrub-copy {
+  opacity: var(--hero-copy-progress);
+  transform: translateY(calc((1 - var(--hero-copy-progress)) * 40px)) scale(calc(0.94 + (var(--hero-copy-progress) * 0.06)));
+  transform-origin: center;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scrub-copy {
+  pointer-events: auto;
+}
+
+.hero-scrub-copy h1 {
+  text-wrap: balance;
+  text-shadow: 0 2px 24px rgba(255, 255, 255, 0.65);
+}
+
+.hero-scrub-copy > div > p:first-child {
+  text-shadow: 0 1px 16px rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 767px) {
+  html.js .hero-scrub-scope[data-mode="scrub"] {
+    height: 100svh;
+  }
+
+  .hero-scrub-scope,
+  .hero-scrub-stage {
+    min-height: 31rem;
+  }
+
+  .hero-scrub-copy {
+    padding: 1.5rem;
+  }
+
+  .hero-scrub-copy h1 {
+    font-size: clamp(2.25rem, 11vw, 3.25rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scrub-scope,
+  html.js .hero-scrub-scope[data-mode="scrub"] {
+    height: 100svh;
+  }
+
+  .hero-scrub-stage,
+  html.js .hero-scrub-scope[data-mode="scrub"] .hero-scrub-stage {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+  }
+
+  .hero-scrub-video {
+    display: none;
+  }
+
+  .hero-scrub-copy,
+  html.js .hero-scrub-scope[data-mode="scrub"] .hero-scrub-copy {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+}
 .blog-content strong {
   color: #111315;
   font-weight: 600;

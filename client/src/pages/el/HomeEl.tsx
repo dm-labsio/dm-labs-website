@@ -9,6 +9,7 @@ import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import InteractiveExampleCard from "@/components/InteractiveExampleCard";
+import HomeHeroScrub from "@/components/HomeHeroScrub";
 import {
   Globe, Smartphone, Search, Zap, Shield, Clock,
   CheckCircle2, ArrowRight, MessageCircle,
@@ -105,7 +106,6 @@ function HomeElCardPreview({ tplId, category }: { tplId: string; category: strin
   );
 }
 
-const HERO_DEVICES = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/hero-devices-v2-8JXhBrX7f82um3hxnU6TmE.webp";
 const GRADIENT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
 const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
 const DARK_CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/dark-cta-bg-LgZ8epcpi9XDGLof5Q9KgS.webp";
@@ -192,75 +192,28 @@ export default function HomeElPage() {
       {/* ═══════════════════════════════════════════
           HERO SECTION
           ═══════════════════════════════════════════ */}
-      <section className="relative overflow-hidden" style={{ minHeight: "90vh" }}>
-        {/* Background Atmosphere Layers */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={GRADIENT_BG}
-            alt=""
-            role="presentation"
-            className="absolute inset-0 w-full h-full object-cover opacity-15"
-            aria-hidden="true"
-          />
+      <HomeHeroScrub>
+        <p className="text-sm font-medium text-[#5B6472] mb-4 tracking-wide uppercase">
+          Ολοκληρωμένες Λύσεις Ιστοσελίδας
+        </p>
+        <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1] mb-6">
+          Η επιχείρησή σας είναι σπουδαία.{" "}
+          <span className="brand-gradient-text">Η ιστοσελίδα σας πρέπει να το δείχνει.</span>
+        </h1>
+        <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-2xl mx-auto">
+          Είμαστε μια εξειδικευμένη εταιρεία web design. Φτιάχνουμε επαγγελματικές, γρήγορες ιστοσελίδες που φέρνουν αποτελέσματα για επιχειρήσεις σαν τη δική σας - από €299.
+        </p>
+        <div className="flex flex-wrap gap-4 justify-center">
+          <Link href="/el/contact/" className="btn-primary">
+            Δωρεάν Συμβουλευτική
+            <ArrowRight size={18} />
+          </Link>
+          <Link href="/el/templates/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
+            Δείτε Παραδείγματα
+            <ArrowRight size={18} />
+          </Link>
         </div>
-        <div className="absolute top-10 right-0 w-[500px] h-[500px] opacity-[0.06] animate-float-slower pointer-events-none z-0">
-          <img src={TRIANGLE_GEO} alt="" role="presentation" className="w-full h-full object-contain" aria-hidden="true" />
-        </div>
-        <div className="absolute bottom-0 left-10 w-[300px] h-[300px] opacity-[0.04] animate-float-slow pointer-events-none z-0" style={{ animationDelay: "-8s" }}>
-          <img src={TRIANGLE_GEO} alt="" role="presentation" className="w-full h-full object-contain rotate-180" aria-hidden="true" />
-        </div>
-        {/* Ambient glow */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#5B8CFF] rounded-full blur-[120px] opacity-[0.08] animate-pulse-glow pointer-events-none z-0" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#8B5CFF] rounded-full blur-[100px] opacity-[0.06] animate-pulse-glow pointer-events-none z-0" style={{ animationDelay: "-4s" }} />
-
-        <div className="container relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-8" style={{ paddingTop: "clamp(3rem, 8vh, 8rem)", paddingBottom: "clamp(2rem, 5vh, 6rem)" }}>
-          {/* Left: Text */}
-          <div className="flex-1 max-w-xl text-center md:text-left">
-            <AnimateIn variant="fade-up" delay={0.1}>
-              <p className="text-sm font-medium text-[#5B6472] mb-4 tracking-wide uppercase">
-                Ολοκληρωμένες Λύσεις Ιστοσελίδας
-              </p>
-            </AnimateIn>
-            <AnimateIn variant="fade-up" delay={0.2}>
-              <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1] mb-6">
-                Η επιχείρησή σας είναι σπουδαία.{" "}
-                <span className="brand-gradient-text">Η ιστοσελίδα σας πρέπει να το δείχνει.</span>
-              </h1>
-            </AnimateIn>
-            <AnimateIn variant="fade-up" delay={0.3}>
-              <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-md">
-                Είμαστε μια εξειδικευμένη εταιρεία web design. Φτιάχνουμε επαγγελματικές, γρήγορες ιστοσελίδες που φέρνουν αποτελέσματα για επιχειρήσεις σαν τη δική σας - από €299.
-              </p>
-            </AnimateIn>
-
-            <AnimateIn variant="fade-up" delay={0.4}>
-              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <Link href="/el/contact/" className="btn-primary">
-                  Δωρεάν Συμβουλευτική
-                  <ArrowRight size={18} />
-                </Link>
-                <Link href="/el/templates/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
-                  Δείτε Παραδείγματα
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
-            </AnimateIn>
-          </div>
-
-          {/* Right: Device Mockup */}
-          <div className="flex-1 flex justify-center md:justify-end">
-            <AnimateIn variant="fade-up" delay={0.5} className="relative">
-              <div className="animate-float-slow">
-                <img
-                  src={HERO_DEVICES}
-                  alt="DM-Labs.io website preview on laptop and mobile"
-                  className="w-full max-w-[260px] sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl drop-shadow-2xl"
-                />
-              </div>
-            </AnimateIn>
-          </div>
-        </div>
-      </section>
+      </HomeHeroScrub>
 
       {/* ═══════════════════════════════════════════
           TRUST STRIP
