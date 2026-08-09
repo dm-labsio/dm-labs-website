@@ -106,4 +106,14 @@ describe("Services page editorial typography", () => {
     expect(servicesSource).toContain('title: "Web Design Services Paphos & Cyprus | DM-Labs.io"');
     expect(servicesSource).toContain('description: "Custom website design in Paphos and across Cyprus. Launch, Growth and Pro website packages from €299, plus ongoing care."');
   });
+
+  it("keeps package pricing readable and heading punctuation out of isolated wrap lines", () => {
+    expect(servicesSource).toContain("services-editorial-package-card");
+    expect(servicesSource).toContain('className="services-editorial-package-meta"');
+    expect(servicesSource).toContain('className="services-editorial-package-copy');
+    expect(servicesSource).toContain('className="services-editorial-heading-line"');
+    expect(servicesSource).not.toContain('Need</em>, Nothing');
+    expect(stylesheet).toContain(".services-editorial .services-editorial-package-meta .services-editorial-label");
+    expect(stylesheet).toContain(".services-editorial .services-editorial-heading-line");
+  });
 });

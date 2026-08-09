@@ -840,6 +840,10 @@
   margin-inline: auto;
 }
 
+.services-editorial .services-editorial-heading-line {
+  display: block;
+}
+
 .services-editorial .services-editorial-serif {
   display: inline-block;
   font-family: var(--services-serif);
@@ -874,6 +878,34 @@
   letter-spacing: 0;
 }
 
+.services-editorial .services-editorial-package-card {
+  padding: clamp(1.65rem, 2.1vw, 2.1rem);
+}
+
+.services-editorial .services-editorial-package-meta {
+  min-width: 0;
+  padding-block: 0.125rem;
+}
+
+.services-editorial .services-editorial-package-meta .services-editorial-label {
+  display: block;
+  margin-bottom: 0.45rem;
+}
+
+.services-editorial .services-editorial-package-meta .services-editorial-price {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  line-height: 1;
+}
+
+.services-editorial .services-editorial-package-copy {
+  margin-top: 0.35rem;
+  margin-bottom: 1.65rem;
+  line-height: 1.65;
+}
+
 .services-editorial .services-editorial-card-title {
   font-family: var(--services-sans);
   font-weight: 600;
@@ -903,6 +935,19 @@
   .services-editorial .services-editorial-lead {
     font-size: 1.03rem;
     line-height: 1.55;
+  }
+
+  .services-editorial .services-editorial-package-card {
+    padding: 1.5rem;
+  }
+
+  .services-editorial .services-editorial-package-meta .services-editorial-label {
+    margin-bottom: 0.35rem;
+  }
+
+  .services-editorial .services-editorial-package-copy {
+    margin-top: 0.25rem;
+    margin-bottom: 1.4rem;
   }
 }
 

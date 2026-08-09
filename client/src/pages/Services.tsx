@@ -65,12 +65,12 @@ export default function Services() {
 
             {/* Launch Website */}
             <AnimateIn delay={0.1}>
-              <div className="dm-card h-full flex flex-col">
+              <div className="dm-card services-editorial-package-card h-full flex flex-col">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="icon-container-gradient"><Globe size={24} className="text-[#5B8CFF]" strokeWidth={1.75} /></div>
-                  <div><p className="services-editorial-label text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Launch Website</p><p className="services-editorial-price text-2xl font-bold text-[#111315]">€299 <span className="services-editorial-price-note text-sm font-normal text-[#5B6472]">one-time</span></p></div>
+                  <div className="services-editorial-package-meta"><p className="services-editorial-label text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Launch Website</p><p className="services-editorial-price text-2xl font-bold text-[#111315]">€299 <span className="services-editorial-price-note text-sm font-normal text-[#5B6472]">one-time</span></p></div>
                 </div>
-                <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">A lean online presence for a new business that needs to launch clearly and professionally.</p>
+                <p className="services-editorial-package-copy text-sm text-[#5B6472] mb-5 leading-relaxed">A lean online presence for a new business that needs to launch clearly and professionally.</p>
                 <ul className="space-y-3 mb-6 flex-1">
                   {["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"].map((f) => <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />{f}</li>)}
                 </ul>
@@ -81,10 +81,10 @@ export default function Services() {
             {/* Growth Website - Recommended */}
             <AnimateIn delay={0.2}>
               <div className="brand-gradient-border h-full">
-                <div className="dm-card h-full !shadow-none relative flex flex-col">
+                <div className="dm-card services-editorial-package-card h-full !shadow-none relative flex flex-col">
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
-                  <div className="flex items-center gap-4 mb-4"><div className="icon-container-gradient"><Rocket size={24} className="text-[#8B5CFF]" strokeWidth={1.75} /></div><div><p className="services-editorial-label text-xs font-semibold text-[#8B5CFF] uppercase tracking-wide">Growth Website</p><p className="services-editorial-price text-2xl font-bold text-[#111315]">€749 <span className="services-editorial-price-note text-sm font-normal text-[#5B6472]">one-time</span></p></div></div>
-                  <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">A conversion-focused site for a business ready to be found, trusted, and contacted online.</p>
+                  <div className="flex items-center gap-4 mb-4"><div className="icon-container-gradient"><Rocket size={24} className="text-[#8B5CFF]" strokeWidth={1.75} /></div><div className="services-editorial-package-meta"><p className="services-editorial-label text-xs font-semibold text-[#8B5CFF] uppercase tracking-wide">Growth Website</p><p className="services-editorial-price text-2xl font-bold text-[#111315]">€749 <span className="services-editorial-price-note text-sm font-normal text-[#5B6472]">one-time</span></p></div></div>
+                  <p className="services-editorial-package-copy text-sm text-[#5B6472] mb-5 leading-relaxed">A conversion-focused site for a business ready to be found, trusted, and contacted online.</p>
                   <ul className="space-y-3 mb-6 flex-1">
                     {["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"].map((f) => <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}</li>)}
                   </ul>
@@ -95,9 +95,9 @@ export default function Services() {
 
             {/* Pro Website */}
             <AnimateIn delay={0.3}>
-              <div className="dm-card h-full flex flex-col">
-                  <div className="flex items-center gap-4 mb-4"><div className="icon-container-gradient"><Globe size={24} className="text-[#6FE3FF]" strokeWidth={1.75} /></div><div><p className="services-editorial-label text-xs font-semibold text-[#6FE3FF] uppercase tracking-wide">Pro Website</p><p className="services-editorial-price text-2xl font-bold text-[#111315]">€1,499 <span className="services-editorial-price-note text-sm font-normal text-[#5B6472]">one-time</span></p></div></div>
-                <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">For a more complete digital presence with richer content, motion, and stronger search foundations.</p>
+              <div className="dm-card services-editorial-package-card h-full flex flex-col">
+                <div className="flex items-center gap-4 mb-4"><div className="icon-container-gradient"><Globe size={24} className="text-[#6FE3FF]" strokeWidth={1.75} /></div><div className="services-editorial-package-meta"><p className="services-editorial-label text-xs font-semibold text-[#6FE3FF] uppercase tracking-wide">Pro Website</p><p className="services-editorial-price text-2xl font-bold text-[#111315]">€1,499 <span className="services-editorial-price-note text-sm font-normal text-[#5B6472]">one-time</span></p></div></div>
+                <p className="services-editorial-package-copy text-sm text-[#5B6472] mb-5 leading-relaxed">For a more complete digital presence with richer content, motion, and stronger search foundations.</p>
                 <ul className="space-y-3 mb-6 flex-1">
                   {["Up to 7 pages", "Gallery or portfolio", "Pop-up and scroll-driven animations", "Full SEO structure", "Blog setup or a website visual pack", "4 revision rounds"].map((f) => <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />{f}</li>)}
                 </ul>
@@ -164,7 +164,7 @@ export default function Services() {
         <div className="container">
           <AnimateIn className="text-center mb-16">
             <p className="services-editorial-label text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Included in Every Website</p>
-            <h2 className="services-editorial-heading text-3xl sm:text-4xl font-bold text-[#111315]">Everything You <em className="services-editorial-serif">Need</em>, Nothing You Don't</h2>
+            <h2 className="services-editorial-heading text-3xl sm:text-4xl font-bold text-[#111315]"><span className="services-editorial-heading-line">Everything You <em className="services-editorial-serif">Need</em></span><span className="services-editorial-heading-line">Nothing You Don't</span></h2>
           </AnimateIn>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
