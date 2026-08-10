@@ -1,6 +1,5 @@
 /* ============================================================
    D&M LABS - Contact Page
-   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
 import { useState } from "react";
@@ -51,86 +50,87 @@ export default function Contact() {
   };
 
   return (
-    <>
-      {/* Hero */}
-      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+    <div className="contact-editorial">
+      <section
+        className="relative overflow-hidden contact-editorial-hero"
+        style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}
+      >
         <div className="container relative z-10 text-center">
           <AnimateIn>
-            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Get In Touch</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">
-              Let's Build <span className="brand-gradient-text">Something Great</span>
+            <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase contact-editorial-label">Get in touch</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5 contact-editorial-title">
+              <span>Let&apos;s build</span>
+              <span><em>something great</em></span>
             </h1>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
+            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto contact-editorial-lead">
               Ready to get started? Send us a message on WhatsApp for the fastest response, or use the form below.
             </p>
           </AnimateIn>
         </div>
       </section>
 
-      {/* Contact Methods + Form */}
-      <section className="section-spacing bg-white">
+      <section className="section-spacing bg-white contact-editorial-section">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 max-w-5xl mx-auto">
-            {/* Left - Contact Methods */}
-            <div className="md:col-span-2 space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 max-w-5xl mx-auto contact-editorial-grid">
+            <div className="md:col-span-2 space-y-6 contact-editorial-methods">
               <AnimateIn>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block dm-card !p-6 group hover:shadow-lg transition-shadow">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block dm-card !p-6 group hover:shadow-lg transition-shadow contact-editorial-method-card">
                   <div className="flex items-center gap-4 mb-3">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center icon-container-gradient !w-12 !h-12 !rounded-xl">
                       <MessageCircle size={22} className="text-[#5B8CFF]" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold text-[#111315]">WhatsApp</h3>
-                      <p className="text-xs text-[#5B6472]">Fastest response</p>
+                      <h3 className="text-base font-semibold text-[#111315] contact-editorial-method-title">WhatsApp</h3>
+                      <p className="text-xs text-[#5B6472] contact-editorial-method-note">Fastest response</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472]">+357 97 472 847</p>
-                  <p className="text-xs text-[#5B8CFF] mt-2 group-hover:underline">Send a message →</p>
+                  <p className="text-sm text-[#5B6472] contact-editorial-method-detail">+357 97 472 847</p>
+                  <p className="text-xs text-[#5B8CFF] mt-2 group-hover:underline contact-editorial-method-action">Send a message</p>
                 </a>
               </AnimateIn>
 
               <AnimateIn delay={0.1}>
-                <div className="dm-card !p-6">
+                <div className="dm-card !p-6 contact-editorial-method-card">
                   <div className="flex items-center gap-4 mb-3">
                     <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
                       <Mail size={22} className="text-[#5B8CFF]" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Email</h3>
-                      <p className="text-xs text-[#5B6472]">We reply within 24h</p>
+                      <h3 className="text-base font-semibold text-[#111315] contact-editorial-method-title">Email</h3>
+                      <p className="text-xs text-[#5B6472] contact-editorial-method-note">We reply within 24h</p>
                     </div>
                   </div>
-                  <a href="mailto:info@dm-labs.io" className="text-sm text-[#5B8CFF] hover:underline">info@dm-labs.io</a>
+                  <a href="mailto:info@dm-labs.io" className="text-sm text-[#5B8CFF] hover:underline contact-editorial-method-detail">info@dm-labs.io</a>
                 </div>
               </AnimateIn>
 
               <AnimateIn delay={0.2}>
-                <div className="dm-card !p-6">
+                <div className="dm-card !p-6 contact-editorial-method-card">
                   <div className="flex items-center gap-4 mb-3">
                     <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
                       <Clock size={22} className="text-[#5B8CFF]" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Working Hours</h3>
-                      <p className="text-xs text-[#5B6472]">Mon-Fri</p>
+                      <h3 className="text-base font-semibold text-[#111315] contact-editorial-method-title">Working Hours</h3>
+                      <p className="text-xs text-[#5B6472] contact-editorial-method-note">Mon-Fri</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472]">9:00 AM - 6:00 PM (EET)</p>
+                  <p className="text-sm text-[#5B6472] contact-editorial-method-detail">9:00 AM to 6:00 PM (EET)</p>
                 </div>
               </AnimateIn>
 
               <AnimateIn delay={0.3}>
-                <div className="dm-card !p-6">
+                <div className="dm-card !p-6 contact-editorial-method-card">
                   <div className="flex items-center gap-4 mb-3">
                     <div className="icon-container-gradient !w-12 !h-12 !rounded-xl">
                       <MapPin size={22} className="text-[#5B8CFF]" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Location</h3>
-                      <p className="text-xs text-[#5B6472]">Europe-based</p>
+                      <h3 className="text-base font-semibold text-[#111315] contact-editorial-method-title">Location</h3>
+                      <p className="text-xs text-[#5B6472] contact-editorial-method-note">Europe-based</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B6472]">Europe-based, serving clients worldwide</p>
+                  <p className="text-sm text-[#5B6472] contact-editorial-method-detail">Europe-based, serving clients worldwide</p>
                 </div>
               </AnimateIn>
 
@@ -139,7 +139,7 @@ export default function Contact() {
                   href="https://www.instagram.com/dm_labs.io/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block dm-card !p-6 group hover:shadow-lg transition-shadow"
+                  className="block dm-card !p-6 group hover:shadow-lg transition-shadow contact-editorial-method-card"
                 >
                   <div className="flex items-center gap-4 mb-3">
                     <div
@@ -149,54 +149,77 @@ export default function Contact() {
                       <Instagram size={22} className="text-[#5B8CFF]" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold text-[#111315]">Instagram</h3>
-                      <p className="text-xs text-[#5B6472]">Follow our work</p>
+                      <h3 className="text-base font-semibold text-[#111315] contact-editorial-method-title">Instagram</h3>
+                      <p className="text-xs text-[#5B6472] contact-editorial-method-note">Follow our work</p>
                     </div>
                   </div>
-                  <p className="text-sm text-[#5B8CFF] group-hover:underline">@dm_labs.io →</p>
+                  <p className="text-sm text-[#5B8CFF] group-hover:underline contact-editorial-method-action">@dm_labs.io</p>
                 </a>
               </AnimateIn>
             </div>
 
-            {/* Right - Form */}
             <AnimateIn delay={0.2} className="md:col-span-3">
-              <div className="dm-card !p-8">
-                <h2 className="text-xl font-semibold text-[#111315] mb-6">Send Us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="dm-card !p-8 contact-editorial-form-card">
+                <p className="contact-editorial-form-label">Project enquiry</p>
+                <h2 className="text-xl font-semibold text-[#111315] mb-6 contact-editorial-form-heading">Send us a message</h2>
+                <form onSubmit={handleSubmit} className="space-y-5 contact-editorial-form">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-medium text-[#111315] mb-1.5">Your Name</label>
-                      <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
-                        placeholder="John Smith" />
+                      <label htmlFor="contact-name" className="block text-sm font-medium text-[#111315] mb-1.5 contact-editorial-field-label">Your Name</label>
+                      <input
+                        id="contact-name"
+                        type="text"
+                        required
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all contact-editorial-field"
+                        placeholder="John Smith"
+                      />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[#111315] mb-1.5">Email</label>
-                      <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
-                        placeholder="john@business.com" />
+                      <label htmlFor="contact-email" className="block text-sm font-medium text-[#111315] mb-1.5 contact-editorial-field-label">Email</label>
+                      <input
+                        id="contact-email"
+                        type="email"
+                        required
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all contact-editorial-field"
+                        placeholder="john@business.com"
+                      />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#111315] mb-1.5">Business Name</label>
-                    <input type="text" value={form.business} onChange={(e) => setForm({ ...form, business: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all"
-                      placeholder="Your Business Name" />
+                    <label htmlFor="contact-business" className="block text-sm font-medium text-[#111315] mb-1.5 contact-editorial-field-label">Business Name</label>
+                    <input
+                      id="contact-business"
+                      type="text"
+                      value={form.business}
+                      onChange={(e) => setForm({ ...form, business: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all contact-editorial-field"
+                      placeholder="Your Business Name"
+                    />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#111315] mb-1.5">Tell Us About Your Project</label>
-                    <textarea required rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all resize-none"
-                      placeholder="What kind of website do you need? Any specific features?" />
+                    <label htmlFor="contact-project" className="block text-sm font-medium text-[#111315] mb-1.5 contact-editorial-field-label">Tell Us About Your Project</label>
+                    <textarea
+                      id="contact-project"
+                      required
+                      rows={4}
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all resize-none contact-editorial-field"
+                      placeholder="What kind of website do you need? Any specific features?"
+                    />
                   </div>
-                  <button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60">
+                  <button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60 contact-editorial-submit">
                     {sending ? (
                       <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending...</span>
                     ) : (
                       <span className="flex items-center gap-2"><Send size={16} /> Send Message</span>
                     )}
                   </button>
-                  <p className="text-xs text-[#5B6472] text-center">Or message us directly on <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline">WhatsApp</a> for faster response.</p>
+                  <p className="text-xs text-[#5B6472] text-center contact-editorial-form-note">Or message us directly on <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline">WhatsApp</a> for faster response.</p>
                 </form>
               </div>
             </AnimateIn>
@@ -204,18 +227,17 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-spacing dark-section text-center">
+      <section className="section-spacing dark-section text-center contact-editorial-cta">
         <div className="container">
           <AnimateIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Prefer a Quick Chat?</h2>
-            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Most of our clients start with a simple WhatsApp message. No pressure, no commitment.</p>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5 contact-editorial-cta-heading"><span>Prefer a</span><span><em>quick chat?</em></span></h2>
+            <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto contact-editorial-cta-copy">Most of our clients start with a simple WhatsApp message. Tell us what you are building and we will point you in the right direction.</p>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary contact-editorial-cta-button">
               <MessageCircle size={18} /> Chat on WhatsApp
             </a>
           </AnimateIn>
         </div>
       </section>
-    </>
+    </div>
   );
 }

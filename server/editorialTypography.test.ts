@@ -12,6 +12,7 @@ const processSource = readFileSync(join(projectRoot, "client/src/pages/Process.t
 const pricingSource = readFileSync(join(projectRoot, "client/src/pages/Pricing.tsx"), "utf8");
 const templatesSource = readFileSync(join(projectRoot, "client/src/pages/Templates.tsx"), "utf8");
 const faqSource = readFileSync(join(projectRoot, "client/src/pages/FAQ.tsx"), "utf8");
+const contactSource = readFileSync(join(projectRoot, "client/src/pages/Contact.tsx"), "utf8");
 const fitLineSource = readFileSync(resolve(projectRoot, "client/src/components/EditorialFitLine.tsx"), "utf8");
 const layoutSource = readFileSync(resolve(projectRoot, "client/src/components/Layout.tsx"), "utf8");
 const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "utf8");
@@ -273,5 +274,50 @@ describe("FAQ page editorial typography", () => {
     expect(faqSource).toContain('"@type": "FAQPage"');
     expect(faqSource).toContain('"@type": "Question"');
     expect(faqSource).toContain('"@type": "Answer"');
+  });
+});
+
+describe("Contact page editorial typography", () => {
+  it("scopes the approved editorial treatment to the English Contact page", () => {
+    expect(contactSource).toContain('className="contact-editorial"');
+    expect(contactSource).toContain("contact-editorial-title");
+    expect(contactSource).toContain("contact-editorial-label");
+    expect(contactSource).toContain("contact-editorial-form-card");
+    expect(contactSource).toContain("contact-editorial-cta-heading");
+    expect(stylesheet).toContain(".contact-editorial {");
+    expect(stylesheet).toContain(".contact-editorial .contact-editorial-title");
+    expect(stylesheet).toContain(".contact-editorial .contact-editorial-form-card");
+    expect(stylesheet).toContain(".contact-editorial .contact-editorial-cta-heading");
+  });
+
+  it("uses display, mono-label, and restrained serif roles without gradient headline text", () => {
+    expect(contactSource).toContain("Let&apos;s build");
+    expect(contactSource).toContain("<em>something great</em>");
+    expect(contactSource).not.toContain("brand-gradient-text");
+    expect(stylesheet).toContain(".contact-editorial .contact-editorial-label");
+    expect(stylesheet).toContain(".contact-editorial .contact-editorial-title em");
+    expect(stylesheet).toContain("font-family: var(--contact-display);");
+  });
+
+  it("preserves contact destinations and the existing form submission flow", () => {
+    expect(contactSource).toContain("https://wa.me/35797472847");
+    expect(contactSource).toContain('href="mailto:info@dm-labs.io"');
+    expect(contactSource).toContain('href="https://www.instagram.com/dm_labs.io/"');
+    expect(contactSource).toContain("const handleSubmit = async");
+    expect(contactSource).toContain("fetch(WEB3FORMS_URL");
+    expect(contactSource).toContain("access_key: WEB3FORMS_KEY");
+    expect(contactSource).toContain("onSubmit={handleSubmit}");
+    expect(contactSource).toContain("required\n                        value={form.name}");
+    expect(contactSource).toContain("required\n                        value={form.email}");
+    expect(contactSource).toContain("required\n                      rows={4}");
+    expect(contactSource).toContain("disabled={sending}");
+    expect(contactSource).toContain('setForm({ name: "", email: "", business: "", message: "" })');
+  });
+
+  it("preserves Contact metadata and removes the prohibited no-commitment claim", () => {
+    expect(contactSource).toContain('title: "Contact DM-Labs.io | Get a Free Website Quote"');
+    expect(contactSource).toContain('description: "Get in touch with DM-Labs.io for a free website consultation. We reply within 24 hours. WhatsApp, email, or contact form."');
+    expect(contactSource).not.toContain("No pressure, no commitment.");
+    expect(contactSource).not.toContain("no commitment");
   });
 });

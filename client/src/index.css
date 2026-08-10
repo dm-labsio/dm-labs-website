@@ -2333,3 +2333,170 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
     scroll-behavior: auto !important;
   }
 }
+/* ============================================================
+   CONTACT PAGE — SCOPED EDITORIAL SYSTEM
+   ============================================================ */
+.contact-editorial {
+  --contact-sans: "Commissioner", "Inter", sans-serif;
+  --contact-display: "Anybody", "Commissioner", sans-serif;
+  --contact-serif: "Instrument Serif", Georgia, serif;
+  color: #111315;
+  font-family: var(--contact-sans);
+}
+
+.contact-editorial .contact-editorial-hero {
+  background: radial-gradient(circle at 16% 16%, rgba(91, 140, 255, .1), transparent 27rem), radial-gradient(circle at 84% 78%, rgba(139, 92, 255, .075), transparent 24rem), #fbfcff;
+}
+
+.contact-editorial .contact-editorial-label,
+.contact-editorial .contact-editorial-form-label {
+  color: #5b8cff;
+  font-family: "DM Mono", monospace;
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .17em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.contact-editorial .contact-editorial-title,
+.contact-editorial .contact-editorial-cta-heading {
+  font-family: var(--contact-display);
+  font-variation-settings: "wdth" 104, "wght" 750;
+  font-weight: 750;
+  letter-spacing: -.07em;
+  line-height: .9;
+  text-wrap: balance;
+}
+
+.contact-editorial .contact-editorial-title {
+  color: #111315;
+  font-size: clamp(3.5rem, 7vw, 7.15rem);
+  margin-inline: auto;
+  max-width: 11ch;
+}
+
+.contact-editorial .contact-editorial-title > span,
+.contact-editorial .contact-editorial-cta-heading > span { display: block; }
+
+.contact-editorial .contact-editorial-title em,
+.contact-editorial .contact-editorial-cta-heading em {
+  font-family: var(--contact-serif);
+  font-size: 1.08em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.075em;
+  white-space: nowrap;
+}
+
+.contact-editorial .contact-editorial-lead {
+  color: #536074;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.62;
+}
+
+.contact-editorial .contact-editorial-grid { align-items: start; }
+
+.contact-editorial .contact-editorial-method-card,
+.contact-editorial .contact-editorial-form-card {
+  border: 1px solid #e3e9f3;
+  border-radius: 1.25rem;
+  box-shadow: 0 1rem 2.75rem rgba(29, 43, 74, .055);
+}
+
+.contact-editorial .contact-editorial-method-card { transition: border-color 180ms cubic-bezier(.23, 1, .32, 1), box-shadow 180ms cubic-bezier(.23, 1, .32, 1), transform 180ms cubic-bezier(.23, 1, .32, 1); }
+
+.contact-editorial .contact-editorial-method-title,
+.contact-editorial .contact-editorial-form-heading {
+  font-family: var(--contact-sans);
+  font-weight: 650;
+  letter-spacing: -.028em;
+}
+
+.contact-editorial .contact-editorial-method-note,
+.contact-editorial .contact-editorial-form-note {
+  font-family: var(--contact-sans);
+  font-size: .78rem;
+  line-height: 1.45;
+}
+
+.contact-editorial .contact-editorial-method-detail,
+.contact-editorial .contact-editorial-method-action {
+  font-family: var(--contact-sans);
+  font-weight: 500;
+  letter-spacing: -.012em;
+}
+
+.contact-editorial .contact-editorial-form-card { background: #fff; }
+.contact-editorial .contact-editorial-form-label { margin-bottom: .7rem; }
+
+.contact-editorial .contact-editorial-form-heading {
+  font-size: clamp(1.55rem, 2.4vw, 2.05rem);
+  line-height: 1.05;
+}
+
+.contact-editorial .contact-editorial-field-label {
+  font-family: var(--contact-sans);
+  font-size: .83rem;
+  font-weight: 600;
+  letter-spacing: -.012em;
+}
+
+.contact-editorial .contact-editorial-field {
+  font-family: var(--contact-sans);
+  font-size: .93rem;
+}
+
+.contact-editorial .contact-editorial-submit,
+.contact-editorial .contact-editorial-cta-button {
+  font-family: var(--contact-sans);
+  font-weight: 650;
+  transition: box-shadow 180ms cubic-bezier(.23, 1, .32, 1), transform 180ms cubic-bezier(.23, 1, .32, 1);
+}
+
+.contact-editorial .contact-editorial-cta { background: #101a2c; }
+
+.contact-editorial .contact-editorial-cta-heading {
+  color: #fff;
+  font-size: clamp(2.75rem, 5.4vw, 5.4rem);
+  margin-inline: auto;
+  max-width: 10ch;
+}
+
+.contact-editorial .contact-editorial-cta-copy {
+  color: #b4c0d4;
+  font-family: var(--contact-sans);
+  font-size: 1.05rem;
+  line-height: 1.62;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .contact-editorial .contact-editorial-method-card:hover {
+    border-color: rgba(91, 140, 255, .32);
+    box-shadow: 0 1.2rem 2.8rem rgba(51, 74, 124, .1);
+    transform: translateY(-3px);
+  }
+
+  .contact-editorial .contact-editorial-submit:hover,
+  .contact-editorial .contact-editorial-cta-button:hover {
+    box-shadow: 0 .85rem 1.8rem rgba(91, 140, 255, .24);
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-editorial .contact-editorial-title {
+    font-size: clamp(3.05rem, 15vw, 4.7rem);
+    line-height: .92;
+    max-width: 8.9ch;
+  }
+
+  .contact-editorial .contact-editorial-cta-heading {
+    font-size: clamp(2.4rem, 11.8vw, 3.55rem);
+    line-height: .96;
+  }
+
+  .contact-editorial .contact-editorial-lead { font-size: 1.02rem; line-height: 1.58; }
+  .contact-editorial .contact-editorial-form-card { padding: 1.5rem !important; }
+  .contact-editorial .contact-editorial-method-card { padding: 1.35rem !important; }
+}
