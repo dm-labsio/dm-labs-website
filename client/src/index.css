@@ -2098,12 +2098,20 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
     min-height: 31rem;
   }
 
+  .hero-scrub-scope {
+    --hero-runway: clamp(640px, 100svh, 820px);
+  }
+
   .hero-scrub-copy {
     padding: 1.5rem;
   }
 
   .hero-scrub-copy h1 {
     font-size: clamp(2.25rem, 11vw, 3.25rem);
+  }
+
+  .hero-scrub-stage {
+    touch-action: pan-y;
   }
 }
 

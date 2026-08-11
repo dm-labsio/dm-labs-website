@@ -9,6 +9,8 @@ const COPY_REVEAL_START = 0.68;
 const COPY_REVEAL_END = 0.82;
 const COPY_INTERACTIVE_START = 0.8;
 const MAX_PROGRESS_SPEED = 0.75;
+const MOBILE_MAX_PROGRESS_SPEED = 1.5;
+const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";
 const SEEK_TOLERANCE = 1 / 120;
 const FINAL_FRAME_TOLERANCE = 1 / 30;
 
@@ -51,7 +53,11 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     let scrollProgress = 0;
     let released = false;
     let finalFrameReady = false;
+    const mobileViewportQuery = window.matchMedia(MOBILE_VIEWPORT_QUERY);
+    let isMobileViewport = mobileViewportQuery.matches;
     const scrubStart = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
+
+    scope.dataset.mobile = String(isMobileViewport);
 
     const applyVisualProgress = (progress: number) => {
       const copyProgress = clamp(
@@ -92,7 +98,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       frameId = 0;
       const elapsedSeconds = Math.max((now - lastFrameTime) / 1000, 0);
       lastFrameTime = now;
-      const maxStep = MAX_PROGRESS_SPEED * elapsedSeconds;
+      const maxStep = (isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED) * elapsedSeconds;
       const delta = targetVideoProgress - currentVideoProgress;
 
       if (Math.abs(delta) > 0.0001) {
@@ -137,10 +143,14 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       applyVisualProgress(rawProgress);
       targetVideoProgress = clamp(rawProgress / VIDEO_SCRUB_END, 0, 1);
 
-      if (!released && rawProgress >= 1 && !finalFrameReady) {
+      // Desktop retains its deliberate final-frame boundary. On mobile, do not
+      // force scroll back to that boundary: a touch fling must always let the
+      // visitor continue through the rest of the page while the controller
+      // catches up to the final video frame.
+      if (!isMobileViewport && !released && rawProgress >= 1 && !finalFrameReady) {
         const holdBoundary = scrubStart + scrollSpan;
         if (Math.abs(window.scrollY - holdBoundary) > 1) {
-          window.scrollTo({ top: holdBoundary, left: 0, behavior: "instant" });
+          window.scrollTo({ top: holdBoundary, left: 0, behavior: "auto" });
         }
       }
 
@@ -176,6 +186,12 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       if (event.matches) activateFallback();
     };
 
+    const onMobileViewportChange = (event: MediaQueryListEvent) => {
+      isMobileViewport = event.matches;
+      scope.dataset.mobile = String(isMobileViewport);
+      updateFromScroll();
+    };
+
     if (motion.matches) {
       activateFallback();
       return;
@@ -194,6 +210,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     window.addEventListener("touchstart", unlockVideoSeeking, { passive: true });
     window.addEventListener("click", unlockVideoSeeking, { passive: true });
     motion.addEventListener("change", onMotionChange);
+    mobileViewportQuery.addEventListener("change", onMobileViewportChange);
 
     if (video.readyState >= HTMLMediaElement.HAVE_METADATA) onLoadedMetadata();
     updateFromScroll();
@@ -209,6 +226,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       window.removeEventListener("touchstart", unlockVideoSeeking);
       window.removeEventListener("click", unlockVideoSeeking);
       motion.removeEventListener("change", onMotionChange);
+      mobileViewportQuery.removeEventListener("change", onMobileViewportChange);
     };
   }, []);
 
@@ -220,6 +238,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       data-ready="false"
       data-interactive="false"
       data-released="false"
+      data-mobile="false"
       data-phase="scrubbing"
       aria-label="DM-Labs introduction"
     >

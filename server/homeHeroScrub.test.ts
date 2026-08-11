@@ -32,6 +32,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).not.toContain('className="hero-scrub-spacer"');
     expect(heroSource).not.toContain('className="hero-scrub-flow"');
     expect(stylesheet).toContain("--hero-runway: clamp(520px, 75svh, 760px);");
+    expect(stylesheet).toContain("--hero-runway: clamp(640px, 100svh, 820px);");
     expect(stylesheet).toContain("height: calc(100svh - 72px + var(--hero-runway));");
     expect(stylesheet).toContain("position: fixed;");
     expect(stylesheet).toContain('data-released="true"');
@@ -71,10 +72,14 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("let finalFrameReady = false;");
     expect(heroSource).toContain("released = progress >= 1 && finalFrameReady;");
     expect(heroSource).toContain("if (finalFrameVisible && !finalFrameReady) {");
-    expect(heroSource).toContain("window.scrollTo({ top: holdBoundary, left: 0, behavior: \"instant\" });");
+    expect(heroSource).toContain('const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";');
+    expect(heroSource).toContain("const MOBILE_MAX_PROGRESS_SPEED = 1.5;");
+    expect(heroSource).toContain("!isMobileViewport && !released && rawProgress >= 1 && !finalFrameReady");
+    expect(heroSource).toContain('window.scrollTo({ top: holdBoundary, left: 0, behavior: "auto" });');
     expect(heroSource).toContain("rawProgress >= 1 && !finalFrameReady");
     expect(heroSource).toContain('"final-copy"');
     expect(stylesheet).toContain("--hero-copy-progress");
+    expect(stylesheet).toContain("touch-action: pan-y;");
   });
 
   it("has poster, load-timeout, media-error, reduced-motion, and no-JavaScript fallbacks", () => {
