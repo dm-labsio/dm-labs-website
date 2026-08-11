@@ -20,7 +20,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("playsInline");
     expect(heroSource).toContain('preload="auto"');
     expect(heroSource).not.toContain("autoPlay");
-    expect(heroSource).not.toContain("loop");
+    expect(heroSource).not.toContain("loop=");
     expect(heroSource).not.toContain("controls");
     expect(homeSource).toContain("<HomeHeroScrub>");
     expect(homeElSource).toContain("<HomeHeroScrub>");
@@ -32,7 +32,6 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).not.toContain('className="hero-scrub-spacer"');
     expect(heroSource).not.toContain('className="hero-scrub-flow"');
     expect(stylesheet).toContain("--hero-runway: clamp(520px, 75svh, 760px);");
-    expect(stylesheet).toContain("--hero-runway: clamp(640px, 100svh, 820px);");
     expect(stylesheet).toContain("height: calc(100svh - 72px + var(--hero-runway));");
     expect(stylesheet).toContain("position: fixed;");
     expect(stylesheet).toContain('data-released="true"');
@@ -73,8 +72,10 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("released = progress >= 1 && finalFrameReady;");
     expect(heroSource).toContain("if (finalFrameVisible && !finalFrameReady) {");
     expect(heroSource).toContain('const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";');
-    expect(heroSource).toContain("const MOBILE_MAX_PROGRESS_SPEED = 1.5;");
-    expect(heroSource).toContain("!isMobileViewport && !released && rawProgress >= 1 && !finalFrameReady");
+    expect(heroSource).toContain('scope.dataset.mode = "background";');
+    expect(heroSource).toContain('scope.dataset.phase = "background";');
+    expect(heroSource).toContain("video.loop = true;");
+    expect(heroSource).toContain("void video.play().catch(activateFallback);");
     expect(heroSource).toContain('window.scrollTo({ top: holdBoundary, left: 0, behavior: "auto" });');
     expect(heroSource).toContain("rawProgress >= 1 && !finalFrameReady");
     expect(heroSource).toContain('"final-copy"');

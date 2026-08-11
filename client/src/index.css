@@ -2098,10 +2098,6 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
     min-height: 31rem;
   }
 
-  .hero-scrub-scope {
-    --hero-runway: clamp(640px, 100svh, 820px);
-  }
-
   .hero-scrub-copy {
     padding: 1.5rem;
   }
