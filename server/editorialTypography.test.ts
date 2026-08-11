@@ -292,7 +292,7 @@ describe("Contact page editorial typography", () => {
 
   it("uses display, mono-label, and restrained serif roles without gradient headline text", () => {
     expect(contactSource).toContain("Let&apos;s build");
-    expect(contactSource).toContain("<em>something great</em>");
+    expect(contactSource).toContain("something <em>great</em>");
     expect(contactSource).not.toContain("brand-gradient-text");
     expect(stylesheet).toContain(".contact-editorial .contact-editorial-label");
     expect(stylesheet).toContain(".contact-editorial .contact-editorial-title em");

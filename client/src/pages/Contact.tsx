@@ -60,7 +60,7 @@ export default function Contact() {
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase contact-editorial-label">Get in touch</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5 contact-editorial-title">
               <span>Let&apos;s build</span>
-              <span><em>something great</em></span>
+              <span>something <em>great</em></span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto contact-editorial-lead">
               Ready to get started? Send us a message on WhatsApp for the fastest response, or use the form below.
