@@ -2,7 +2,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 export const HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-hero-tunnel-scrub_89732dad.mp4";
 export const HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-hero-tunnel-opening-poster_7b05ee6d.jpg";
-export const MOBILE_HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-mobile-hero-scrub_7970a5dc.mp4";
+export const MOBILE_HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4";
 export const MOBILE_HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-mobile-hero-opening-poster_6fc35873.jpg";
 
 const VIDEO_OPENING_PROGRESS = 0.15;
@@ -11,9 +11,10 @@ const COPY_REVEAL_START = 0.68;
 const COPY_REVEAL_END = 0.82;
 const COPY_INTERACTIVE_START = 0.8;
 const MAX_PROGRESS_SPEED = 0.75;
-const MOBILE_MAX_PROGRESS_SPEED = 1.2;
+const MOBILE_MAX_PROGRESS_SPEED = 0.5;
 const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";
 const SEEK_TOLERANCE = 1 / 120;
+const MOBILE_SEEK_TOLERANCE = 1 / 24;
 const FINAL_FRAME_TOLERANCE = 1 / 30;
 
 const clamp = (value: number, minimum: number, maximum: number) => Math.max(minimum, Math.min(maximum, value));
@@ -99,10 +100,13 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       frameId = 0;
       const elapsedSeconds = Math.max((now - lastFrameTime) / 1000, 0);
       lastFrameTime = now;
-      const maxStep = (isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED) * elapsedSeconds;
+      const progressElapsedSeconds = isMobileViewport ? Math.min(elapsedSeconds, 1 / 30) : elapsedSeconds;
+      const maxStep = (isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED) * progressElapsedSeconds;
+      const seekTolerance = isMobileViewport ? MOBILE_SEEK_TOLERANCE : SEEK_TOLERANCE;
       const delta = targetVideoProgress - currentVideoProgress;
+      const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);
 
-      if (Math.abs(delta) > 0.0001) {
+      if (canAdvanceProgress && Math.abs(delta) > 0.0001) {
         currentVideoProgress += Math.sign(delta) * Math.min(Math.abs(delta), maxStep || 0.0001);
       }
 
@@ -112,7 +116,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
         seekReady &&
         !video.seeking &&
         video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA &&
-        Math.abs(video.currentTime - desiredTime) > SEEK_TOLERANCE
+        Math.abs(video.currentTime - desiredTime) > seekTolerance
       ) {
         seekReady = false;
         video.currentTime = desiredTime;
@@ -122,7 +126,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
         metadataReady &&
         currentVideoProgress >= 1 - 0.0001 &&
         (video.currentTime >= duration - FINAL_FRAME_TOLERANCE ||
-          Math.abs(video.currentTime - desiredTime) <= SEEK_TOLERANCE);
+          Math.abs(video.currentTime - desiredTime) <= seekTolerance);
       if (finalFrameVisible && !finalFrameReady) {
         finalFrameReady = true;
         applyVisualProgress(scrollProgress);
@@ -131,7 +135,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       const needsAnotherFrame =
         Math.abs(targetVideoProgress - currentVideoProgress) > 0.0001 ||
         !seekReady ||
-        (metadataReady && Math.abs(video.currentTime - desiredTime) > SEEK_TOLERANCE);
+        (metadataReady && Math.abs(video.currentTime - desiredTime) > seekTolerance);
 
       if (needsAnotherFrame && !useFallback) frameId = window.requestAnimationFrame(runController);
     };

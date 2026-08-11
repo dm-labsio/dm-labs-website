@@ -15,7 +15,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
   it("uses the supplied desktop and mobile managed videos with responsive opening posters only on the English and Greek home heroes", () => {
     expect(heroSource).toContain('HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-hero-tunnel-scrub_89732dad.mp4"');
     expect(heroSource).toContain('HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-hero-tunnel-opening-poster_7b05ee6d.jpg"');
-    expect(heroSource).toContain('MOBILE_HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-mobile-hero-scrub_7970a5dc.mp4"');
+    expect(heroSource).toContain('MOBILE_HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4"');
     expect(heroSource).toContain('MOBILE_HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-mobile-hero-opening-poster_6fc35873.jpg"');
     expect(heroSource).toContain("poster={HERO_SCRUB_OPENING_POSTER_URL}");
     expect(heroSource).toContain("<source media={MOBILE_VIEWPORT_QUERY} srcSet={MOBILE_HERO_SCRUB_OPENING_POSTER_URL} />");
@@ -76,7 +76,10 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("released = progress >= 1 && finalFrameReady;");
     expect(heroSource).toContain("if (finalFrameVisible && !finalFrameReady) {");
     expect(heroSource).toContain('const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";');
-    expect(heroSource).toContain("const MOBILE_MAX_PROGRESS_SPEED = 1.2;");
+    expect(heroSource).toContain("const MOBILE_MAX_PROGRESS_SPEED = 0.5;");
+    expect(heroSource).toContain("const MOBILE_SEEK_TOLERANCE = 1 / 24;");
+    expect(heroSource).toContain("const progressElapsedSeconds = isMobileViewport ? Math.min(elapsedSeconds, 1 / 30) : elapsedSeconds;");
+    expect(heroSource).toContain("const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);");
     expect(heroSource).toContain("(isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED)");
     expect(heroSource).toContain('window.scrollTo({ top: holdBoundary, left: 0, behavior: "auto" });');
     expect(heroSource).toContain("rawProgress >= 1 && !finalFrameReady");

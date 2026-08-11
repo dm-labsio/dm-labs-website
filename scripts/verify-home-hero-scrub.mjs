@@ -11,6 +11,7 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
   const consoleErrors = [];
   let releaseState = null;
   let reverseState = null;
+  let mobileProgression = null;
   const expectsMobileScrub = Boolean(contextOptions?.isMobile);
   page.on("console", (message) => {
     if (message.type() === "error") consoleErrors.push(message.text());
@@ -24,6 +25,27 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
     await page.waitForFunction(() => document.querySelector(".hero-scrub-scope")?.dataset.mode === "fallback");
   } else {
     await page.waitForFunction(() => document.querySelector(".hero-scrub-scope")?.dataset.ready === "true");
+    if (expectsMobileScrub) {
+      await page.locator(".hero-scrub-stage").tap({ position: { x: 12, y: 12 } });
+      const snapshots = [];
+      for (const progress of [0.1, 0.2, 0.3, 0.4, 0.5]) {
+        await page.evaluate((nextProgress) => {
+          const scope = document.querySelector(".hero-scrub-scope");
+          const stage = document.querySelector(".hero-scrub-stage");
+          if (!scope || !stage) throw new Error("Mobile hero elements missing for progression check");
+          const span = scope.offsetHeight - stage.offsetHeight;
+          const start = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
+          window.scrollTo(0, start + span * nextProgress);
+        }, progress);
+        await page.waitForTimeout(120);
+        snapshots.push(await page.$eval(".hero-scrub-video", (video) => video.currentTime));
+      }
+      mobileProgression = {
+        snapshots,
+        uniqueFrames: new Set(snapshots.map((time) => time.toFixed(3))).size,
+        maxStep: Math.max(...snapshots.slice(1).map((time, index) => time - snapshots[index]), 0),
+      };
+    }
     await page.evaluate(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       if (!scope) throw new Error("Missing hero scope");
@@ -116,9 +138,9 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
   const visible = state.headingRect.left >= 0 && state.headingRect.right <= state.viewport.width && state.headingRect.top >= 0 && state.headingRect.bottom <= state.viewport.height;
   const pass = reducedMotion === "reduce"
     ? state.mode === "fallback" && state.copyOpacity === "1" && visible
-    : state.mode === "scrub" && state.released === "false" && state.phase === "final-copy" && state.stageDisplay !== "none" && state.stagePosition === "fixed" && Number(state.progress) >= 0.8 && state.copyOpacity === "1" && state.videoTime >= state.duration - (1 / 30) && state.scopeBottom > 0 && visible && (expectsMobileScrub ? state.videoSource.includes("dm-labs-mobile-hero-scrub_7970a5dc.mp4") : state.videoSource.includes("dm-labs-hero-tunnel-scrub_89732dad.mp4")) && releaseState?.released === "true" && releaseState?.phase === "released" && releaseState?.stagePosition === "absolute" && reverseState?.released === "false" && reverseState?.phase === "final-copy" && reverseState?.stagePosition === "fixed" && reverseState?.scopeBottom > 0;
+    : state.mode === "scrub" && state.released === "false" && state.phase === "final-copy" && state.stageDisplay !== "none" && state.stagePosition === "fixed" && Number(state.progress) >= 0.8 && state.copyOpacity === "1" && state.videoTime >= state.duration - (1 / 30) && state.scopeBottom > 0 && visible && (expectsMobileScrub ? state.videoSource.includes("dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4") && mobileProgression?.uniqueFrames >= 4 && mobileProgression?.maxStep <= 0.35 : state.videoSource.includes("dm-labs-hero-tunnel-scrub_89732dad.mp4")) && releaseState?.released === "true" && releaseState?.phase === "released" && releaseState?.stagePosition === "absolute" && reverseState?.released === "false" && reverseState?.phase === "final-copy" && reverseState?.stagePosition === "fixed" && reverseState?.scopeBottom > 0;
 
-  results.push({ name, pass, state, releaseState, reverseState, consoleErrors });
+  results.push({ name, pass, state, mobileProgression, releaseState, reverseState, consoleErrors });
   if (!pass) failures.push(`${name} visual state did not meet the required hero constraints`);
   if (consoleErrors.length) failures.push(`${name} reported console errors: ${consoleErrors.join(" | ")}`);
   await browser.close();
