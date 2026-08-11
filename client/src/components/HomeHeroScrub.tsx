@@ -2,6 +2,8 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 export const HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-hero-tunnel-scrub_89732dad.mp4";
 export const HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-hero-tunnel-opening-poster_7b05ee6d.jpg";
+export const MOBILE_HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-mobile-hero-scrub_7970a5dc.mp4";
+export const MOBILE_HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-mobile-hero-opening-poster_6fc35873.jpg";
 
 const VIDEO_OPENING_PROGRESS = 0.15;
 const VIDEO_SCRUB_END = 0.6;
@@ -9,6 +11,7 @@ const COPY_REVEAL_START = 0.68;
 const COPY_REVEAL_END = 0.82;
 const COPY_INTERACTIVE_START = 0.8;
 const MAX_PROGRESS_SPEED = 0.75;
+const MOBILE_MAX_PROGRESS_SPEED = 1.2;
 const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";
 const SEEK_TOLERANCE = 1 / 120;
 const FINAL_FRAME_TOLERANCE = 1 / 30;
@@ -96,7 +99,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       frameId = 0;
       const elapsedSeconds = Math.max((now - lastFrameTime) / 1000, 0);
       lastFrameTime = now;
-      const maxStep = MAX_PROGRESS_SPEED * elapsedSeconds;
+      const maxStep = (isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED) * elapsedSeconds;
       const delta = targetVideoProgress - currentVideoProgress;
 
       if (Math.abs(delta) > 0.0001) {
@@ -185,37 +188,6 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       return;
     }
 
-    if (isMobileViewport) {
-      scope.dataset.mode = "background";
-      scope.dataset.ready = "false";
-      scope.dataset.interactive = "true";
-      scope.dataset.released = "true";
-      scope.dataset.phase = "background";
-      scope.style.setProperty("--hero-progress", "1");
-      scope.style.setProperty("--hero-copy-progress", "1");
-      video.loop = true;
-
-      const playMobileBackground = () => {
-        if (useFallback) return;
-        scope.dataset.ready = "true";
-        void video.play().catch(activateFallback);
-      };
-
-      timeoutId = window.setTimeout(activateFallback, 2500);
-      video.addEventListener("loadedmetadata", playMobileBackground, { once: true });
-      video.addEventListener("error", activateFallback, { once: true });
-      motion.addEventListener("change", onMotionChange);
-
-      if (video.readyState >= HTMLMediaElement.HAVE_METADATA) playMobileBackground();
-
-      return () => {
-        window.clearTimeout(timeoutId);
-        video.pause();
-        video.removeEventListener("error", activateFallback);
-        motion.removeEventListener("change", onMotionChange);
-      };
-    }
-
     scope.dataset.mode = "scrub";
     applyVisualProgress(0);
     timeoutId = window.setTimeout(activateFallback, 2500);
@@ -256,27 +228,33 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       data-interactive="false"
       data-released="false"
       data-mobile="false"
+      data-video="desktop"
       data-phase="scrubbing"
       aria-label="DM-Labs introduction"
     >
       <div ref={stageRef} className="hero-scrub-stage">
-        <img
-          src={HERO_SCRUB_OPENING_POSTER_URL}
-          alt=""
-          aria-hidden="true"
-          fetchPriority="high"
-          className="hero-scrub-poster"
-        />
+        <picture>
+          <source media={MOBILE_VIEWPORT_QUERY} srcSet={MOBILE_HERO_SCRUB_OPENING_POSTER_URL} />
+          <img
+            src={HERO_SCRUB_OPENING_POSTER_URL}
+            alt=""
+            aria-hidden="true"
+            fetchPriority="high"
+            className="hero-scrub-poster"
+          />
+        </picture>
         <video
           ref={videoRef}
-          src={HERO_SCRUB_VIDEO_URL}
           poster={HERO_SCRUB_OPENING_POSTER_URL}
           muted
           playsInline
           preload="auto"
           className="hero-scrub-video"
           aria-hidden="true"
-        />
+        >
+          <source media={MOBILE_VIEWPORT_QUERY} src={MOBILE_HERO_SCRUB_VIDEO_URL} type="video/mp4" />
+          <source src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />
+        </video>
         <div className="hero-scrub-wash" aria-hidden="true" />
         <div className="hero-scrub-copy">
           <div>{children}</div>

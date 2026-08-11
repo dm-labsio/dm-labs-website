@@ -2093,6 +2093,10 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
 }
 
 @media (max-width: 767px) {
+  .hero-scrub-scope {
+    --hero-runway: clamp(640px, 100svh, 820px);
+  }
+
   .hero-scrub-scope,
   .hero-scrub-stage {
     min-height: 31rem;
