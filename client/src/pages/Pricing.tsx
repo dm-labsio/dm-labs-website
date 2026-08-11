@@ -138,7 +138,7 @@ export default function Pricing() {
         <div className="container">
           <AnimateIn className="pricing-editorial-section-intro text-center">
             <p className="pricing-editorial-label">Choose Your Scope</p>
-            <h2 className="pricing-editorial-section-heading">Three clear plans. <em>One confident start.</em></h2>
+            <h2 className="pricing-editorial-section-heading">Three clear plans.</h2>
             <p>Every package is designed to give you a focused foundation without unnecessary complexity.</p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">

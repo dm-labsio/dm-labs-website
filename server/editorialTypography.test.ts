@@ -191,6 +191,11 @@ describe("Pricing page editorial typography", () => {
     expect(pricingSource).not.toContain("Packages from €299");
   });
 
+  it("keeps the package introduction focused on the bold three-plan heading only", () => {
+    expect(pricingSource).toContain('>Three clear plans.</h2>');
+    expect(pricingSource).not.toContain("One confident start.");
+  });
+
   it("preserves Pricing SEO metadata", () => {
     expect(pricingSource).toContain('title: "Web Design Pricing | Website Cost & Packages | DM-Labs.io"');
     expect(pricingSource).toContain('description: "How much does a website cost? Explore clear web design pricing');
