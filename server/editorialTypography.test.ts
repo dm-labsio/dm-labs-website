@@ -13,6 +13,7 @@ const pricingSource = readFileSync(join(projectRoot, "client/src/pages/Pricing.t
 const templatesSource = readFileSync(join(projectRoot, "client/src/pages/Templates.tsx"), "utf8");
 const faqSource = readFileSync(join(projectRoot, "client/src/pages/FAQ.tsx"), "utf8");
 const contactSource = readFileSync(join(projectRoot, "client/src/pages/Contact.tsx"), "utf8");
+const blogSource = readFileSync(join(projectRoot, "client/src/pages/Blog.tsx"), "utf8");
 const fitLineSource = readFileSync(resolve(projectRoot, "client/src/components/EditorialFitLine.tsx"), "utf8");
 const layoutSource = readFileSync(resolve(projectRoot, "client/src/components/Layout.tsx"), "utf8");
 const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "utf8");
@@ -319,5 +320,44 @@ describe("Contact page editorial typography", () => {
     expect(contactSource).toContain('description: "Get in touch with DM-Labs.io for a free website consultation. We reply within 24 hours. WhatsApp, email, or contact form."');
     expect(contactSource).not.toContain("No pressure, no commitment.");
     expect(contactSource).not.toContain("no commitment");
+  });
+});
+
+describe("Blog index editorial typography", () => {
+  it("keeps the editorial layer isolated to the English Blog index for straightforward future replacement", () => {
+    expect(blogSource).toContain('className="blog-editorial"');
+    expect(blogSource).toContain("blog-editorial-title");
+    expect(blogSource).toContain("blog-editorial-card");
+    expect(blogSource).toContain("blog-editorial-cta-heading");
+    expect(stylesheet).toContain("BLOG INDEX — MODULAR EDITORIAL LAYER");
+    expect(stylesheet).toContain("This scope is deliberately isolated for replacement by the future Blog redesign.");
+    expect(stylesheet).toContain(".blog-editorial {");
+    expect(stylesheet).toContain(".blog-editorial .blog-editorial-card");
+    expect(stylesheet).toContain(".blog-editorial .blog-editorial-cta-heading");
+  });
+
+  it("uses the approved display, mono-label, and restrained serif roles without hero gradient text", () => {
+    expect(blogSource).toContain("Resources and insights");
+    expect(blogSource).toContain("The DM-Labs.io");
+    expect(blogSource).toContain("<em>Blog</em>");
+    expect(blogSource).not.toContain("brand-gradient-text");
+    expect(stylesheet).toContain(".blog-editorial .blog-editorial-label");
+    expect(stylesheet).toContain(".blog-editorial .blog-editorial-title em");
+    expect(stylesheet).toContain("font-family: var(--blog-display);");
+  });
+
+  it("preserves post data, article destinations, images, and the existing contact CTA route", () => {
+    expect(blogSource).toContain('import { POSTS } from "@/data/blogPosts"');
+    expect(blogSource).toContain("POSTS.map((post, i) =>");
+    expect(blogSource).toContain("href={`/blog/${post.slug}/`}");
+    expect(blogSource).toContain("src={post.coverImage}");
+    expect(blogSource).toContain("alt={post.title}");
+    expect(blogSource).toContain('href="/contact/"');
+  });
+
+  it("preserves the Blog index metadata and removes the orphan-prone visual meta separator", () => {
+    expect(blogSource).toContain('title: "Blog | Web Design Tips & Guides | DM-Labs.io"');
+    expect(blogSource).toContain('description: "Practical guides, honest advice, and web design insights for businesses in Cyprus and beyond."');
+    expect(blogSource).not.toContain('<span>·</span>');
   });
 });

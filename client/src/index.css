@@ -2500,3 +2500,163 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
   .contact-editorial .contact-editorial-form-card { padding: 1.5rem !important; }
   .contact-editorial .contact-editorial-method-card { padding: 1.35rem !important; }
 }
+
+/* ============================================================
+   BLOG INDEX — MODULAR EDITORIAL LAYER
+   This scope is deliberately isolated for replacement by the future Blog redesign.
+   ============================================================ */
+.blog-editorial {
+  --blog-sans: "Commissioner", "Inter", sans-serif;
+  --blog-display: "Anybody", "Commissioner", sans-serif;
+  --blog-serif: "Instrument Serif", Georgia, serif;
+  color: #111315;
+  font-family: var(--blog-sans);
+}
+
+.blog-editorial .blog-editorial-hero {
+  background: radial-gradient(circle at 16% 14%, rgba(91, 140, 255, .1), transparent 26rem), radial-gradient(circle at 84% 80%, rgba(139, 92, 255, .065), transparent 23rem), #fbfcff;
+}
+
+.blog-editorial .blog-editorial-label {
+  color: #5b8cff;
+  font-family: "DM Mono", monospace;
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .17em;
+  line-height: 1.35;
+}
+
+.blog-editorial .blog-editorial-title,
+.blog-editorial .blog-editorial-cta-heading {
+  font-family: var(--blog-display);
+  font-variation-settings: "wdth" 104, "wght" 750;
+  font-weight: 750;
+  letter-spacing: -.068em;
+  line-height: .9;
+  text-wrap: balance;
+}
+
+.blog-editorial .blog-editorial-title {
+  color: #111315;
+  font-size: clamp(3.45rem, 7vw, 7rem);
+  margin-inline: auto;
+  max-width: 10.5ch;
+}
+
+.blog-editorial .blog-editorial-title > span,
+.blog-editorial .blog-editorial-cta-heading > span { display: block; }
+
+.blog-editorial .blog-editorial-title em,
+.blog-editorial .blog-editorial-cta-heading em {
+  font-family: var(--blog-serif);
+  font-size: 1.08em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.075em;
+  white-space: nowrap;
+}
+
+.blog-editorial .blog-editorial-lead {
+  color: #536074;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.62;
+}
+
+.blog-editorial .blog-editorial-card {
+  border: 1px solid #e3e9f3;
+  border-radius: 1.15rem;
+  box-shadow: 0 1rem 2.7rem rgba(29, 43, 74, .05);
+  transition: border-color 180ms cubic-bezier(.23, 1, .32, 1), box-shadow 180ms cubic-bezier(.23, 1, .32, 1), transform 180ms cubic-bezier(.23, 1, .32, 1);
+}
+
+.blog-editorial .blog-editorial-card-image { background: #e9edf5; }
+
+.blog-editorial .blog-editorial-card-category {
+  background: #3158be;
+  font-family: "DM Mono", monospace;
+  font-size: .63rem;
+  font-weight: 400;
+  letter-spacing: .025em;
+}
+
+.blog-editorial .blog-editorial-card-body { padding: 1.45rem; }
+
+.blog-editorial .blog-editorial-card-meta {
+  color: #77849a;
+  font-family: "DM Mono", monospace;
+  font-size: .66rem;
+  letter-spacing: .005em;
+}
+
+.blog-editorial .blog-editorial-card-title {
+  font-family: var(--blog-sans);
+  font-size: 1.08rem;
+  font-weight: 650;
+  letter-spacing: -.032em;
+  line-height: 1.22;
+}
+
+.blog-editorial .blog-editorial-card-excerpt {
+  color: #607087;
+  font-family: var(--blog-sans);
+  font-size: .91rem;
+  line-height: 1.62;
+}
+
+.blog-editorial .blog-editorial-card-action {
+  font-family: var(--blog-sans);
+  font-size: .88rem;
+  font-weight: 650;
+  letter-spacing: -.015em;
+}
+
+.blog-editorial .blog-editorial-cta { background: #101a2c; }
+
+.blog-editorial .blog-editorial-cta-heading {
+  color: #fff;
+  font-size: clamp(2.75rem, 5.4vw, 5.4rem);
+  margin-inline: auto;
+  max-width: 10.5ch;
+}
+
+.blog-editorial .blog-editorial-cta-copy {
+  color: #b4c0d4;
+  font-family: var(--blog-sans);
+  font-size: 1.05rem;
+  line-height: 1.62;
+}
+
+.blog-editorial .blog-editorial-cta-button {
+  font-family: var(--blog-sans);
+  font-weight: 650;
+  transition: box-shadow 180ms cubic-bezier(.23, 1, .32, 1), transform 180ms cubic-bezier(.23, 1, .32, 1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .blog-editorial .blog-editorial-card:hover {
+    border-color: rgba(91, 140, 255, .3);
+    box-shadow: 0 1.25rem 2.8rem rgba(51, 74, 124, .1);
+    transform: translateY(-3px);
+  }
+
+  .blog-editorial .blog-editorial-cta-button:hover {
+    box-shadow: 0 .85rem 1.8rem rgba(91, 140, 255, .24);
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 767px) {
+  .blog-editorial .blog-editorial-title {
+    font-size: clamp(3rem, 14.5vw, 4.65rem);
+    line-height: .93;
+    max-width: 8.6ch;
+  }
+
+  .blog-editorial .blog-editorial-cta-heading {
+    font-size: clamp(2.4rem, 11.8vw, 3.55rem);
+    line-height: .96;
+  }
+
+  .blog-editorial .blog-editorial-lead { font-size: 1.02rem; line-height: 1.58; }
+  .blog-editorial .blog-editorial-card-body { padding: 1.3rem; }
+}
