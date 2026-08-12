@@ -150,3 +150,6 @@
 - [ ] Continue from the user-approved shared checkpoint `8e27d2d1`, preserve its newer controller changes, and complete only any missing timing-verification or finalization work.
 - [ ] Treat checkpoint `14922d06` as authoritative, make no further version forks, and finish only the continuous-timeline verifier alignment, regression checks, and final checkpoint.
 - [ ] Replace the unreliable event-based second-scroll gate with one continuous reversible timeline: late-video copy reveal, a fully visible final-frame hold across the remaining runway, then natural release.
+- [ ] Shorten the homepage scrub runway to a balanced desktop and mobile duration so the effect remains clear without requiring excessive scrolling.
+- [ ] Keep the completed hero text persistently visible after the scrub and hand it into normal page flow instead of fading it away; retain smooth reverse behavior, reduced motion, and separate mobile/desktop video assets.
+- [ ] Verify scrub distance, persistent final text, natural-flow handoff, reverse scrolling, desktop, mobile, reduced motion, metadata, console health, full regression, and production prerender.
