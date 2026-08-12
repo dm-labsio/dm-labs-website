@@ -1,11 +1,11 @@
 html.js .hero-scrub-scope[data-mode="scrub"] .hero-scrub-stage,
 html.js .hero-scrub-scope[data-mode="scrub"][data-released="true"] .hero-scrub-stage {
-  position: fixed;
-  top: 72px;
-  right: 0;
-  bottom: auto;
-  left: 0;
-  width: auto;
+  position: fixed !important;
+  top: 72px !important;
+  right: 0 !important;
+  bottom: auto !important;
+  left: 0 !important;
+  width: auto !important;
 }
 
 html.js .hero-scrub-scope[data-mode="scrub"] .hero-scrub-stage {

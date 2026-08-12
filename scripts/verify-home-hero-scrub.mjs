@@ -50,6 +50,7 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
       await page.locator(".hero-scrub-stage").tap({ position: { x: 12, y: 12 } });
       const snapshots = [];
       for (const progress of [0.08, 0.16, 0.24, 0.32, 0.4, 0.5]) {
+        const previousTime = snapshots.at(-1);
         await page.evaluate((nextProgress) => {
           const scope = document.querySelector(".hero-scrub-scope");
           const stage = document.querySelector(".hero-scrub-stage");
@@ -58,7 +59,14 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
           const start = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
           window.scrollTo(0, start + span * nextProgress);
         }, progress);
-        await page.waitForTimeout(160);
+        if (previousTime === undefined) {
+          await page.waitForTimeout(120);
+        } else {
+          await page.waitForFunction((lastTime) => {
+            const video = document.querySelector(".hero-scrub-video");
+            return video && Math.abs(video.currentTime - lastTime) >= 1 / 100;
+          }, previousTime, { timeout: 1200 });
+        }
         snapshots.push(await page.$eval(".hero-scrub-video", (video) => video.currentTime));
       }
       mobileProgression = {
