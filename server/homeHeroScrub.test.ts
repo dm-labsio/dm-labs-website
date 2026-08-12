@@ -49,7 +49,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(stylesheet).toContain("text-align: center;");
   });
 
-  it("gates copy behind the actual final frame while keeping mobile and desktop seek pacing separate", () => {
+  it("reveals copy during the late video and requires a distinct post-final scroll before release", () => {
     const scrollStart = heroSource.indexOf("const updateFromScroll = () => {");
     const scrollEnd = heroSource.indexOf("const onSeeked = () => {");
     const controllerStart = heroSource.indexOf("const runController = (now: number) => {");
@@ -61,7 +61,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(controllerStart).toBeGreaterThan(-1);
     expect(scrollHandler).toContain("scope.offsetHeight - stage.offsetHeight");
     expect(scrollHandler).toContain("const rawProgress = clamp");
-    expect(scrollHandler).toContain("applyRenderedProgress(rawProgress);");
+    expect(scrollHandler).toContain("applyVisualProgress(rawProgress);");
     expect(scrollHandler).toContain("targetVideoProgress = clamp(rawProgress / VIDEO_SCRUB_END, 0, 1);");
     expect(scrollHandler).not.toContain("video.currentTime =");
     expect(controller).toContain("MAX_PROGRESS_SPEED");
@@ -76,10 +76,17 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("const FINAL_FRAME_TOLERANCE = 1 / 30;");
     expect(heroSource).toContain("const finalFrameVisible =");
     expect(heroSource).toContain("let finalFrameReady = false;");
-    expect(heroSource).toContain("released = progress >= 1 && finalFrameReady;");
+    expect(heroSource).toContain("released = progress >= 1 && finalFrameReady && releaseArmed;");
     expect(heroSource).toContain("if (finalFrameVisible && !finalFrameReady) {");
-    expect(heroSource).toContain("const renderedProgress = finalFrameReady ? progress : Math.min(progress, VIDEO_SCRUB_END);");
-    expect(heroSource).toContain("applyRenderedProgress(scrollProgress);");
+    expect(heroSource).toContain('scope.dataset.finalReady = "true";');
+    expect(heroSource).toContain("applyVisualProgress(scrollProgress);");
+    expect(heroSource).toContain("let releaseArmed = false;");
+    expect(heroSource).toContain("let finalBoundaryReached = false;");
+    expect(heroSource).toContain("const RELEASE_REARM_PROGRESS = 0.96;");
+    expect(heroSource).toContain("if (!finalBoundaryReached) {");
+    expect(heroSource).toContain("} else if (finalFrameReady && scrollingForward) {");
+    expect(heroSource).toContain("rawProgress < RELEASE_REARM_PROGRESS");
+    expect(heroSource).not.toContain("applyRenderedProgress");
     expect(heroSource).toContain('const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";');
     expect(heroSource).toContain("const MOBILE_MAX_PROGRESS_SPEED = 0.5;");
     expect(heroSource).toContain("const MOBILE_SEEK_TOLERANCE = 1 / 24;");
@@ -87,7 +94,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);");
     expect(heroSource).toContain("(isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED)");
     expect(heroSource).toContain('window.scrollTo({ top: holdBoundary, left: 0, behavior: "auto" });');
-    expect(heroSource).toContain("rawProgress >= 1 && !finalFrameReady");
+    expect(heroSource).toContain("rawProgress >= 1 && (!finalFrameReady || !releaseArmed)");
     expect(stylesheet).toContain("--hero-copy-progress: 0;");
     expect(stylesheet).toContain("transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1), transform 220ms cubic-bezier(0.23, 1, 0.32, 1);");
     expect(stylesheet).toContain("touch-action: pan-y;");

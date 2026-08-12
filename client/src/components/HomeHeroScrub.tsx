@@ -12,6 +12,7 @@ const VIDEO_SCRUB_END = 0.6;
 const COPY_REVEAL_START = 0.68;
 const COPY_REVEAL_END = 0.82;
 const COPY_INTERACTIVE_START = 0.8;
+const RELEASE_REARM_PROGRESS = 0.96;
 const MAX_PROGRESS_SPEED = 0.75;
 const MOBILE_MAX_PROGRESS_SPEED = 0.5;
 const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";
@@ -59,6 +60,9 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     let released = false;
     let finalFrameReady = false;
     let initialFrameReady = false;
+    let releaseArmed = false;
+    let finalBoundaryReached = false;
+    let previousScrollY = window.scrollY;
     const isMobileViewport = window.matchMedia(MOBILE_VIEWPORT_QUERY).matches;
     const openingProgress = isMobileViewport ? MOBILE_VIDEO_OPENING_PROGRESS : VIDEO_OPENING_PROGRESS;
     const seekTolerance = isMobileViewport ? MOBILE_SEEK_TOLERANCE : SEEK_TOLERANCE;
@@ -76,7 +80,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       scope.style.setProperty("--hero-progress", progress.toFixed(4));
       scope.style.setProperty("--hero-copy-progress", copyProgress.toFixed(4));
       scope.dataset.interactive = String(progress >= COPY_INTERACTIVE_START);
-      released = progress >= 1 && finalFrameReady;
+      released = progress >= 1 && finalFrameReady && releaseArmed;
       scope.dataset.released = String(released);
       scope.dataset.phase = released
         ? "released"
@@ -85,11 +89,6 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
           : progress >= VIDEO_SCRUB_END
             ? "copy-reveal"
             : "scrubbing";
-    };
-
-    const applyRenderedProgress = (progress: number) => {
-      const renderedProgress = finalFrameReady ? progress : Math.min(progress, VIDEO_SCRUB_END);
-      applyVisualProgress(renderedProgress);
     };
 
     const activateFallback = () => {
@@ -139,7 +138,8 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
           Math.abs(video.currentTime - desiredTime) <= seekTolerance);
       if (finalFrameVisible && !finalFrameReady) {
         finalFrameReady = true;
-        applyRenderedProgress(scrollProgress);
+        scope.dataset.finalReady = "true";
+        applyVisualProgress(scrollProgress);
       }
 
       const needsAnotherFrame =
@@ -151,14 +151,31 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     };
 
     const updateFromScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollingForward = currentScrollY > previousScrollY + 0.5;
+      previousScrollY = currentScrollY;
       const scrollSpan = Math.max(scope.offsetHeight - stage.offsetHeight, 1);
       const rawProgress = clamp((window.scrollY - scrubStart) / scrollSpan, 0, 1);
       scrollProgress = rawProgress;
-      if (rawProgress < VIDEO_SCRUB_END) finalFrameReady = false;
-      applyRenderedProgress(rawProgress);
+      if (rawProgress < VIDEO_SCRUB_END && finalFrameReady) {
+        finalFrameReady = false;
+        scope.dataset.finalReady = "false";
+      }
+      if (rawProgress < RELEASE_REARM_PROGRESS) {
+        finalBoundaryReached = false;
+        releaseArmed = false;
+      }
+      if (rawProgress >= 1) {
+        if (!finalBoundaryReached) {
+          finalBoundaryReached = true;
+        } else if (finalFrameReady && scrollingForward) {
+          releaseArmed = true;
+        }
+      }
+      applyVisualProgress(rawProgress);
       targetVideoProgress = clamp(rawProgress / VIDEO_SCRUB_END, 0, 1);
 
-      if (!released && rawProgress >= 1 && !finalFrameReady) {
+      if (!released && rawProgress >= 1 && (!finalFrameReady || !releaseArmed)) {
         const holdBoundary = scrubStart + scrollSpan;
         if (Math.abs(window.scrollY - holdBoundary) > 1) {
           window.scrollTo({ top: holdBoundary, left: 0, behavior: "auto" });
@@ -258,6 +275,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       data-mobile="false"
       data-video="desktop"
       data-phase="scrubbing"
+      data-final-ready="false"
       aria-label="DM-Labs introduction"
     >
       <div ref={stageRef} className="hero-scrub-stage">
