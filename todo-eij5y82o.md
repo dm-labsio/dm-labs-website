@@ -143,7 +143,10 @@
 - [ ] Reveal the existing hero copy during the late video, retain it visibly through the actual final frame, and require a distinct additional scroll before release on desktop and mobile.
 - [ ] Add explicit timing regression coverage for late-video reveal, unreleased final-boundary hold, deliberate release, reverse, and repeated traversal.
 - [ ] Verify desktop, iPhone-compatible mobile, Android-sized mobile, reduced motion, metadata, console health, full regression, and production prerender before requesting review.
+- [ ] Use the latest shared revision and finalize the interaction based on overall user experience: timely copy, a clearly readable hold, intuitive forward release, and seamless reverse traversal without changing approved visuals.
 - [ ] Reproduce and trace why hero copy now appears too late and can transition directly into release on desktop and mobile.
 - [ ] Reveal the existing hero copy during the late video, retain it visibly through the actual final frame, and require a distinct additional scroll before release while preserving flash-free startup and seamless reverse traversal.
 - [ ] Add timing regression coverage and verify startup, late-video reveal, readable final hold, deliberate release, reverse, repeated traversal, reduced motion, metadata, console health, and production prerender.
 - [ ] Continue from the user-approved shared checkpoint `8e27d2d1`, preserve its newer controller changes, and complete only any missing timing-verification or finalization work.
+- [ ] Treat checkpoint `14922d06` as authoritative, make no further version forks, and finish only the continuous-timeline verifier alignment, regression checks, and final checkpoint.
+- [ ] Replace the unreliable event-based second-scroll gate with one continuous reversible timeline: late-video copy reveal, a fully visible final-frame hold across the remaining runway, then natural release.

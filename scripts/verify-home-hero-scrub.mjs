@@ -89,12 +89,12 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
       };
     }
 
-    await scrollToProgress(0.75);
+    await scrollToProgress(0.73);
     await page.waitForFunction(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const copy = document.querySelector(".hero-scrub-copy");
       const opacity = copy ? Number(getComputedStyle(copy).opacity) : 0;
-      return scope?.dataset.phase === "copy-reveal" && scope?.dataset.released === "false" && opacity >= 0.4 && opacity <= 0.65;
+      return scope?.dataset.phase === "copy-reveal" && scope?.dataset.released === "false" && opacity >= 0.4 && opacity <= 0.6;
     });
     lateRevealState = await page.evaluate(() => {
       const scope = document.querySelector(".hero-scrub-scope");
@@ -143,7 +143,7 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
   });
 
   if (reducedMotion !== "reduce") {
-    await scrollToProgress(1);
+    await scrollToProgress(0.9);
     await page.waitForFunction(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const stage = document.querySelector(".hero-scrub-stage");
@@ -163,7 +163,7 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
       };
     });
 
-    await scrollToProgress(1.08);
+    await scrollToProgress(1);
     await page.waitForFunction(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const stage = document.querySelector(".hero-scrub-stage");
@@ -201,8 +201,6 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
     });
 
     await scrollToProgress(1);
-    await page.waitForFunction(() => document.querySelector(".hero-scrub-scope")?.dataset.released === "false");
-    await scrollToProgress(1.08);
     await page.waitForFunction(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const stage = document.querySelector(".hero-scrub-stage");
@@ -224,7 +222,7 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
   const flashFreeStartup = reducedMotion === "reduce" || (startupState?.ready === "false" && startupState?.copyOpacity === 0);
   const pass = reducedMotion === "reduce"
     ? state.mode === "fallback" && state.copyOpacity === "1" && visible
-    : flashFreeStartup && lateRevealState?.released === "false" && lateRevealState?.phase === "copy-reveal" && lateRevealState?.copyOpacity >= 0.4 && lateRevealState?.copyOpacity <= 0.65 && state.mode === "scrub" && state.released === "false" && state.phase === "final-copy" && state.finalReady === "true" && state.stageDisplay !== "none" && state.stagePosition === "fixed" && state.stageOpacity >= 0.98 && Number(state.progress) >= 0.8 && Number(state.copyOpacity) >= 0.98 && state.videoTime >= state.duration - (1 / 30) && state.scopeBottom > 0 && visible && boundaryHoldState?.released === "false" && boundaryHoldState?.phase === "final-copy" && boundaryHoldState?.finalReady === "true" && boundaryHoldState?.stageOpacity >= 0.98 && boundaryHoldState?.copyOpacity >= 0.98 && (expectsMobileScrub ? state.videoSource.includes("dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4") && mobileProgression?.uniqueFrames >= 4 && mobileProgression?.maxStep <= 0.35 : state.videoSource.includes("dm-labs-hero-tunnel-scrub_89732dad.mp4")) && releaseState?.released === "true" && releaseState?.phase === "released" && releaseState?.stagePosition === "fixed" && releaseState?.stageOpacity <= 0.02 && Math.abs((releaseState?.stageTop ?? 0) - 72) <= 1 && reverseState?.released === "false" && reverseState?.phase === "final-copy" && reverseState?.stagePosition === "fixed" && reverseState?.stageOpacity >= 0.98 && Math.abs((reverseState?.stageTop ?? 0) - 72) <= 1 && reverseState?.scopeBottom > 0 && repeatReleaseState?.released === "true" && repeatReleaseState?.stagePosition === "fixed" && repeatReleaseState?.stageOpacity <= 0.02;
+    : flashFreeStartup && lateRevealState?.released === "false" && lateRevealState?.phase === "copy-reveal" && lateRevealState?.copyOpacity >= 0.4 && lateRevealState?.copyOpacity <= 0.6 && state.mode === "scrub" && state.released === "false" && state.phase === "final-copy" && state.finalReady === "true" && state.stageDisplay !== "none" && state.stagePosition === "fixed" && state.stageOpacity >= 0.98 && Number(state.progress) >= 0.8 && Number(state.copyOpacity) >= 0.98 && state.videoTime >= state.duration - (1 / 30) && state.scopeBottom > 0 && visible && boundaryHoldState?.released === "false" && boundaryHoldState?.phase === "final-copy" && boundaryHoldState?.finalReady === "true" && boundaryHoldState?.stageOpacity >= 0.98 && boundaryHoldState?.copyOpacity >= 0.98 && (expectsMobileScrub ? state.videoSource.includes("dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4") && mobileProgression?.uniqueFrames >= 4 && mobileProgression?.maxStep <= 0.35 : state.videoSource.includes("dm-labs-hero-tunnel-scrub_89732dad.mp4")) && releaseState?.released === "true" && releaseState?.phase === "released" && releaseState?.stagePosition === "fixed" && releaseState?.stageOpacity <= 0.02 && Math.abs((releaseState?.stageTop ?? 0) - 72) <= 1 && reverseState?.released === "false" && reverseState?.phase === "final-copy" && reverseState?.stagePosition === "fixed" && reverseState?.stageOpacity >= 0.98 && Math.abs((reverseState?.stageTop ?? 0) - 72) <= 1 && reverseState?.scopeBottom > 0 && repeatReleaseState?.released === "true" && repeatReleaseState?.stagePosition === "fixed" && repeatReleaseState?.stageOpacity <= 0.02;
 
   results.push({ name, pass, startupState, lateRevealState, state, mobileProgression, boundaryHoldState, releaseState, reverseState, repeatReleaseState, consoleErrors });
   if (!pass) failures.push(`${name} visual state did not meet the required hero constraints`);

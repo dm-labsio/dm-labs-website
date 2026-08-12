@@ -9,10 +9,9 @@ export const MOBILE_HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-mobi
 const VIDEO_OPENING_PROGRESS = 0.15;
 const MOBILE_VIDEO_OPENING_PROGRESS = 0.05;
 const VIDEO_SCRUB_END = 0.6;
-const COPY_REVEAL_START = 0.68;
-const COPY_REVEAL_END = 0.82;
+const COPY_REVEAL_START = 0.66;
+const COPY_REVEAL_END = 0.8;
 const COPY_INTERACTIVE_START = 0.8;
-const RELEASE_REARM_PROGRESS = 0.96;
 const MAX_PROGRESS_SPEED = 0.75;
 const MOBILE_MAX_PROGRESS_SPEED = 0.5;
 const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";
@@ -60,9 +59,6 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     let released = false;
     let finalFrameReady = false;
     let initialFrameReady = false;
-    let releaseArmed = false;
-    let finalBoundaryReached = false;
-    let previousScrollY = window.scrollY;
     const isMobileViewport = window.matchMedia(MOBILE_VIEWPORT_QUERY).matches;
     const openingProgress = isMobileViewport ? MOBILE_VIDEO_OPENING_PROGRESS : VIDEO_OPENING_PROGRESS;
     const seekTolerance = isMobileViewport ? MOBILE_SEEK_TOLERANCE : SEEK_TOLERANCE;
@@ -80,7 +76,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       scope.style.setProperty("--hero-progress", progress.toFixed(4));
       scope.style.setProperty("--hero-copy-progress", copyProgress.toFixed(4));
       scope.dataset.interactive = String(progress >= COPY_INTERACTIVE_START);
-      released = progress >= 1 && finalFrameReady && releaseArmed;
+      released = progress >= 1 && finalFrameReady;
       scope.dataset.released = String(released);
       scope.dataset.phase = released
         ? "released"
@@ -151,9 +147,6 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     };
 
     const updateFromScroll = () => {
-      const currentScrollY = window.scrollY;
-      const scrollingForward = currentScrollY > previousScrollY + 0.5;
-      previousScrollY = currentScrollY;
       const scrollSpan = Math.max(scope.offsetHeight - stage.offsetHeight, 1);
       const rawProgress = clamp((window.scrollY - scrubStart) / scrollSpan, 0, 1);
       scrollProgress = rawProgress;
@@ -161,21 +154,10 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
         finalFrameReady = false;
         scope.dataset.finalReady = "false";
       }
-      if (rawProgress < RELEASE_REARM_PROGRESS) {
-        finalBoundaryReached = false;
-        releaseArmed = false;
-      }
-      if (rawProgress >= 1) {
-        if (!finalBoundaryReached) {
-          finalBoundaryReached = true;
-        } else if (finalFrameReady && scrollingForward) {
-          releaseArmed = true;
-        }
-      }
       applyVisualProgress(rawProgress);
       targetVideoProgress = clamp(rawProgress / VIDEO_SCRUB_END, 0, 1);
 
-      if (!released && rawProgress >= 1 && (!finalFrameReady || !releaseArmed)) {
+      if (!released && rawProgress >= 1 && !finalFrameReady) {
         const holdBoundary = scrubStart + scrollSpan;
         if (Math.abs(window.scrollY - holdBoundary) > 1) {
           window.scrollTo({ top: holdBoundary, left: 0, behavior: "auto" });
