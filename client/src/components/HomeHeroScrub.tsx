@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from "react";
+import "./HomeHeroScrub.css";
 
 export const HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-hero-tunnel-scrub_89732dad.mp4";
 export const HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-hero-tunnel-opening-poster_7b05ee6d.jpg";
@@ -6,6 +7,7 @@ export const MOBILE_HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-mobile-hero-s
 export const MOBILE_HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-mobile-hero-opening-poster_6fc35873.jpg";
 
 const VIDEO_OPENING_PROGRESS = 0.15;
+const MOBILE_VIDEO_OPENING_PROGRESS = 0.05;
 const VIDEO_SCRUB_END = 0.6;
 const COPY_REVEAL_START = 0.68;
 const COPY_REVEAL_END = 0.82;
@@ -56,10 +58,14 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     let scrollProgress = 0;
     let released = false;
     let finalFrameReady = false;
+    let initialFrameReady = false;
     const isMobileViewport = window.matchMedia(MOBILE_VIEWPORT_QUERY).matches;
+    const openingProgress = isMobileViewport ? MOBILE_VIDEO_OPENING_PROGRESS : VIDEO_OPENING_PROGRESS;
+    const seekTolerance = isMobileViewport ? MOBILE_SEEK_TOLERANCE : SEEK_TOLERANCE;
     const scrubStart = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
 
     scope.dataset.mobile = String(isMobileViewport);
+    scope.dataset.video = isMobileViewport ? "mobile" : "desktop";
 
     const applyVisualProgress = (progress: number) => {
       const copyProgress = clamp(
@@ -79,6 +85,11 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
           : progress >= VIDEO_SCRUB_END
             ? "copy-reveal"
             : "scrubbing";
+    };
+
+    const applyRenderedProgress = (progress: number) => {
+      const renderedProgress = finalFrameReady ? progress : Math.min(progress, VIDEO_SCRUB_END);
+      applyVisualProgress(renderedProgress);
     };
 
     const activateFallback = () => {
@@ -102,7 +113,6 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       lastFrameTime = now;
       const progressElapsedSeconds = isMobileViewport ? Math.min(elapsedSeconds, 1 / 30) : elapsedSeconds;
       const maxStep = (isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED) * progressElapsedSeconds;
-      const seekTolerance = isMobileViewport ? MOBILE_SEEK_TOLERANCE : SEEK_TOLERANCE;
       const delta = targetVideoProgress - currentVideoProgress;
       const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);
 
@@ -110,7 +120,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
         currentVideoProgress += Math.sign(delta) * Math.min(Math.abs(delta), maxStep || 0.0001);
       }
 
-      const desiredTime = duration * (VIDEO_OPENING_PROGRESS + (currentVideoProgress * (1 - VIDEO_OPENING_PROGRESS)));
+      const desiredTime = duration * (openingProgress + (currentVideoProgress * (1 - openingProgress)));
       if (
         metadataReady &&
         seekReady &&
@@ -129,7 +139,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
           Math.abs(video.currentTime - desiredTime) <= seekTolerance);
       if (finalFrameVisible && !finalFrameReady) {
         finalFrameReady = true;
-        applyVisualProgress(scrollProgress);
+        applyRenderedProgress(scrollProgress);
       }
 
       const needsAnotherFrame =
@@ -145,7 +155,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       const rawProgress = clamp((window.scrollY - scrubStart) / scrollSpan, 0, 1);
       scrollProgress = rawProgress;
       if (rawProgress < VIDEO_SCRUB_END) finalFrameReady = false;
-      applyVisualProgress(rawProgress);
+      applyRenderedProgress(rawProgress);
       targetVideoProgress = clamp(rawProgress / VIDEO_SCRUB_END, 0, 1);
 
       if (!released && rawProgress >= 1 && !finalFrameReady) {
@@ -160,6 +170,13 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
 
     const onSeeked = () => {
       seekReady = true;
+      if (!initialFrameReady) {
+        initialFrameReady = true;
+        scope.dataset.ready = "true";
+        window.clearTimeout(timeoutId);
+        updateFromScroll();
+        return;
+      }
       scheduleController();
     };
 
@@ -167,6 +184,13 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       if (!Number.isFinite(video.duration) || video.duration <= 0 || useFallback) return;
       duration = video.duration;
       metadataReady = true;
+      const openingTime = duration * openingProgress;
+      if (Math.abs(video.currentTime - openingTime) > seekTolerance) {
+        seekReady = false;
+        video.currentTime = openingTime;
+        return;
+      }
+      initialFrameReady = true;
       scope.dataset.ready = "true";
       window.clearTimeout(timeoutId);
       updateFromScroll();

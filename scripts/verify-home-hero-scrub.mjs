@@ -7,17 +7,38 @@ const results = [];
 async function inspectScenario({ name, browserType = chromium, contextOptions, reducedMotion = "no-preference" }) {
   const browser = await browserType.launch({ headless: true });
   const context = await browser.newContext({ ...contextOptions, reducedMotion });
-  const page = await context.newPage();
   const consoleErrors = [];
   let releaseState = null;
   let reverseState = null;
+  let repeatReleaseState = null;
   let mobileProgression = null;
+  let startupState = null;
   const expectsMobileScrub = Boolean(contextOptions?.isMobile);
+
+  const startupPage = await context.newPage();
+  await startupPage.route("**/*hero*scrub*.mp4", async (route) => {
+    await new Promise((resolve) => setTimeout(resolve, 350));
+    await route.continue();
+  });
+  await startupPage.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });
+  await startupPage.waitForSelector(".hero-scrub-scope");
+  startupState = await startupPage.evaluate(() => {
+    const scope = document.querySelector(".hero-scrub-scope");
+    const copy = document.querySelector(".hero-scrub-copy");
+    if (!scope || !copy) throw new Error("Hero startup elements missing");
+    return {
+      ready: scope.dataset.ready,
+      phase: scope.dataset.phase,
+      copyOpacity: Number(getComputedStyle(copy).opacity),
+    };
+  });
+  await startupPage.close();
+
+  const page = await context.newPage();
   page.on("console", (message) => {
     if (message.type() === "error") consoleErrors.push(message.text());
   });
   page.on("pageerror", (error) => consoleErrors.push(error.message));
-
   await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
   await page.waitForSelector(".hero-scrub-scope");
 
@@ -28,7 +49,7 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
     if (expectsMobileScrub) {
       await page.locator(".hero-scrub-stage").tap({ position: { x: 12, y: 12 } });
       const snapshots = [];
-      for (const progress of [0.1, 0.2, 0.3, 0.4, 0.5]) {
+      for (const progress of [0.08, 0.16, 0.24, 0.32, 0.4, 0.5]) {
         await page.evaluate((nextProgress) => {
           const scope = document.querySelector(".hero-scrub-scope");
           const stage = document.querySelector(".hero-scrub-stage");
@@ -37,7 +58,7 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
           const start = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
           window.scrollTo(0, start + span * nextProgress);
         }, progress);
-        await page.waitForTimeout(120);
+        await page.waitForTimeout(160);
         snapshots.push(await page.$eval(".hero-scrub-video", (video) => video.currentTime));
       }
       mobileProgression = {
@@ -46,27 +67,28 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
         maxStep: Math.max(...snapshots.slice(1).map((time, index) => time - snapshots[index]), 0),
       };
     }
+
     await page.evaluate(() => {
       const scope = document.querySelector(".hero-scrub-scope");
-      if (!scope) throw new Error("Missing hero scope");
       const stage = document.querySelector(".hero-scrub-stage");
-      if (!stage) throw new Error("Missing hero stage");
-      const scrollSpan = scope.offsetHeight - stage.offsetHeight;
-      const scrubStart = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
-      window.scrollTo(0, scrubStart + scrollSpan * 0.85);
+      if (!scope || !stage) throw new Error("Missing hero elements");
+      const span = scope.offsetHeight - stage.offsetHeight;
+      const start = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
+      window.scrollTo(0, start + span * 0.85);
     });
     await page.waitForFunction(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const video = document.querySelector(".hero-scrub-video");
-      return scope && video && scope.dataset.phase === "final-copy" && scope.dataset.released === "false" && video.currentTime >= video.duration - (1 / 30);
+      const copy = document.querySelector(".hero-scrub-copy");
+      return scope && video && copy && scope.dataset.phase === "final-copy" && scope.dataset.released === "false" && video.currentTime >= video.duration - (1 / 30) && Number(getComputedStyle(copy).opacity) >= 0.98;
     });
   }
 
   const state = await page.evaluate(() => {
     const scope = document.querySelector(".hero-scrub-scope");
     const stage = document.querySelector(".hero-scrub-stage");
-      const copy = document.querySelector(".hero-scrub-copy");
-      const h1 = document.querySelector(".hero-scrub-copy h1");
+    const copy = document.querySelector(".hero-scrub-copy");
+    const h1 = document.querySelector(".hero-scrub-copy h1");
     const video = document.querySelector(".hero-scrub-video");
     if (!scope || !stage || !copy || !h1 || !video) throw new Error("Hero elements missing");
     const rect = h1.getBoundingClientRect();
@@ -78,29 +100,34 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
       copyOpacity: getComputedStyle(copy).opacity,
       stageDisplay: getComputedStyle(stage).display,
       stagePosition: getComputedStyle(stage).position,
+      stageOpacity: Number(getComputedStyle(stage).opacity),
       videoTime: video.currentTime,
       duration: video.duration,
       videoSource: video.currentSrc,
-      videoPaused: video.paused,
-      videoLoop: video.loop,
       scopeBottom: scope.getBoundingClientRect().bottom,
       headingRect: { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom },
-      stageRect: stage.getBoundingClientRect().toJSON(),
       viewport: { width: innerWidth, height: innerHeight },
     };
   });
 
   if (reducedMotion !== "reduce") {
-    releaseState = await page.evaluate(() => {
+    const scrollToProgress = async (progress) => {
+      await page.evaluate((nextProgress) => {
+        const scope = document.querySelector(".hero-scrub-scope");
+        const stage = document.querySelector(".hero-scrub-stage");
+        if (!scope || !stage) throw new Error("Hero elements missing for transition check");
+        const span = scope.offsetHeight - stage.offsetHeight;
+        const start = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
+        window.scrollTo(0, start + span * nextProgress);
+      }, progress);
+    };
+
+    await scrollToProgress(1.25);
+    await page.waitForFunction(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const stage = document.querySelector(".hero-scrub-stage");
-      if (!scope || !stage) throw new Error("Hero elements missing for release");
-      const span = scope.offsetHeight - stage.offsetHeight;
-      const start = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
-      window.scrollTo(0, start + span * 1.25);
-      return null;
+      return scope?.dataset.released === "true" && stage && Number(getComputedStyle(stage).opacity) <= 0.02;
     });
-    await page.waitForFunction(() => document.querySelector(".hero-scrub-scope")?.dataset.released === "true");
     releaseState = await page.evaluate(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const stage = document.querySelector(".hero-scrub-stage");
@@ -108,18 +135,17 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
         released: scope?.dataset.released,
         phase: scope?.dataset.phase,
         stagePosition: stage ? getComputedStyle(stage).position : null,
+        stageTop: stage?.getBoundingClientRect().top,
+        stageOpacity: stage ? Number(getComputedStyle(stage).opacity) : null,
       };
     });
-    reverseState = await page.evaluate(() => {
+
+    await scrollToProgress(0.85);
+    await page.waitForFunction(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const stage = document.querySelector(".hero-scrub-stage");
-      if (!scope || !stage) throw new Error("Hero elements missing for reverse check");
-      const span = scope.offsetHeight - stage.offsetHeight;
-      const start = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
-      window.scrollTo(0, start + span * 0.85);
-      return null;
+      return scope?.dataset.phase === "final-copy" && stage && Number(getComputedStyle(stage).opacity) >= 0.98;
     });
-    await page.waitForFunction(() => document.querySelector(".hero-scrub-scope")?.dataset.phase === "final-copy");
     reverseState = await page.evaluate(() => {
       const scope = document.querySelector(".hero-scrub-scope");
       const stage = document.querySelector(".hero-scrub-stage");
@@ -127,35 +153,57 @@ async function inspectScenario({ name, browserType = chromium, contextOptions, r
         released: scope?.dataset.released,
         phase: scope?.dataset.phase,
         stagePosition: stage ? getComputedStyle(stage).position : null,
+        stageTop: stage?.getBoundingClientRect().top,
+        stageOpacity: stage ? Number(getComputedStyle(stage).opacity) : null,
         scopeBottom: scope?.getBoundingClientRect().bottom,
+      };
+    });
+
+    await scrollToProgress(1.25);
+    await page.waitForFunction(() => {
+      const scope = document.querySelector(".hero-scrub-scope");
+      const stage = document.querySelector(".hero-scrub-stage");
+      return scope?.dataset.released === "true" && stage && Number(getComputedStyle(stage).opacity) <= 0.02;
+    });
+    repeatReleaseState = await page.evaluate(() => {
+      const scope = document.querySelector(".hero-scrub-scope");
+      const stage = document.querySelector(".hero-scrub-stage");
+      return {
+        released: scope?.dataset.released,
+        phase: scope?.dataset.phase,
+        stagePosition: stage ? getComputedStyle(stage).position : null,
+        stageOpacity: stage ? Number(getComputedStyle(stage).opacity) : null,
       };
     });
   }
 
-  await page.screenshot({ path: `/home/ubuntu/${name}-hero-scrub.png` });
-  await context.close();
-
   const visible = state.headingRect.left >= 0 && state.headingRect.right <= state.viewport.width && state.headingRect.top >= 0 && state.headingRect.bottom <= state.viewport.height;
+  const flashFreeStartup = reducedMotion === "reduce" || (startupState?.ready === "false" && startupState?.copyOpacity === 0);
   const pass = reducedMotion === "reduce"
     ? state.mode === "fallback" && state.copyOpacity === "1" && visible
-    : state.mode === "scrub" && state.released === "false" && state.phase === "final-copy" && state.stageDisplay !== "none" && state.stagePosition === "fixed" && Number(state.progress) >= 0.8 && state.copyOpacity === "1" && state.videoTime >= state.duration - (1 / 30) && state.scopeBottom > 0 && visible && (expectsMobileScrub ? state.videoSource.includes("dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4") && mobileProgression?.uniqueFrames >= 4 && mobileProgression?.maxStep <= 0.35 : state.videoSource.includes("dm-labs-hero-tunnel-scrub_89732dad.mp4")) && releaseState?.released === "true" && releaseState?.phase === "released" && releaseState?.stagePosition === "absolute" && reverseState?.released === "false" && reverseState?.phase === "final-copy" && reverseState?.stagePosition === "fixed" && reverseState?.scopeBottom > 0;
+    : flashFreeStartup && state.mode === "scrub" && state.released === "false" && state.phase === "final-copy" && state.stageDisplay !== "none" && state.stagePosition === "fixed" && state.stageOpacity >= 0.98 && Number(state.progress) >= 0.8 && Number(state.copyOpacity) >= 0.98 && state.videoTime >= state.duration - (1 / 30) && state.scopeBottom > 0 && visible && (expectsMobileScrub ? state.videoSource.includes("dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4") && mobileProgression?.uniqueFrames >= 4 && mobileProgression?.maxStep <= 0.35 : state.videoSource.includes("dm-labs-hero-tunnel-scrub_89732dad.mp4")) && releaseState?.released === "true" && releaseState?.phase === "released" && releaseState?.stagePosition === "fixed" && releaseState?.stageOpacity <= 0.02 && Math.abs((releaseState?.stageTop ?? 0) - 72) <= 1 && reverseState?.released === "false" && reverseState?.phase === "final-copy" && reverseState?.stagePosition === "fixed" && reverseState?.stageOpacity >= 0.98 && Math.abs((reverseState?.stageTop ?? 0) - 72) <= 1 && reverseState?.scopeBottom > 0 && repeatReleaseState?.released === "true" && repeatReleaseState?.stagePosition === "fixed" && repeatReleaseState?.stageOpacity <= 0.02;
 
-  results.push({ name, pass, state, mobileProgression, releaseState, reverseState, consoleErrors });
+  results.push({ name, pass, startupState, state, mobileProgression, releaseState, reverseState, repeatReleaseState, consoleErrors });
   if (!pass) failures.push(`${name} visual state did not meet the required hero constraints`);
   if (consoleErrors.length) failures.push(`${name} reported console errors: ${consoleErrors.join(" | ")}`);
+  await context.close();
   await browser.close();
 }
 
 await inspectScenario({ name: "desktop", contextOptions: { viewport: { width: 1280, height: 900 } } });
 await inspectScenario({ name: "iphone-webkit", browserType: webkit, contextOptions: devices["iPhone 13"] });
-await inspectScenario({ name: "galaxy-android", contextOptions: {
-  viewport: { width: 360, height: 800 },
-  deviceScaleFactor: 3,
-  isMobile: true,
-  hasTouch: true,
-  userAgent: "Mozilla/5.0 (Linux; Android 14; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Mobile Safari/537.36",
-} });
+await inspectScenario({
+  name: "galaxy-android",
+  contextOptions: {
+    viewport: { width: 360, height: 800 },
+    deviceScaleFactor: 3,
+    isMobile: true,
+    hasTouch: true,
+    userAgent: "Mozilla/5.0 (Linux; Android 14; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Mobile Safari/537.36",
+  },
+});
 await inspectScenario({ name: "reduced-motion", contextOptions: { viewport: { width: 1280, height: 900 } }, reducedMotion: "reduce" });
+
 console.log(JSON.stringify({ baseUrl, results }, null, 2));
 if (failures.length) {
   console.error(failures.join("\n"));
