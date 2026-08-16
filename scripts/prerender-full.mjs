@@ -26,12 +26,12 @@
  *   node scripts/prerender-full.mjs
  *
  * Requires:
- *   - pnpm add -D playwright
- *   - npx playwright install chromium
+ *   - pnpm add -D playwright @sparticuz/chromium
+ *   - npx playwright install chromium (local builds only)
  *   - A completed Vite + esbuild build in dist/
  */
 
-import { chromium } from "playwright";
+import { chromium as playwrightChromium } from "playwright";
 import { spawn } from "child_process";
 import { existsSync, mkdirSync, writeFileSync, readFileSync } from "fs";
 import { join, dirname } from "path";
@@ -215,12 +215,30 @@ async function main() {
     await waitForPortSync(port, 30_000);
     console.log(`Server ready on port ${port}`);
 
-    // In the Docker build environment, PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH points
-    // to the system Chromium installed via apt. Playwright respects this env var
-    // automatically, but we also pass --disable-dev-shm-usage for container safety.
-    const browser = await chromium.launch({
-      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
-    });
+    const localChromiumArgs = [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+    ];
+    let browserLaunchOptions = { args: localChromiumArgs };
+
+    // Vercel's build image has no apt package manager or Chromium shared
+    // libraries. Use a Chromium 149 build that bundles its AL2023-compatible
+    // libraries and matches Playwright's Chromium 149 manifest. Local and
+    // Manus builds continue to use Playwright's installed browser unchanged.
+    if (process.env.VERCEL) {
+      const { default: serverlessChromium } = await import(
+        "@sparticuz/chromium"
+      );
+      serverlessChromium.setGraphicsMode = false;
+      browserLaunchOptions = {
+        args: [...new Set([...serverlessChromium.args, ...localChromiumArgs])],
+        executablePath: await serverlessChromium.executablePath(),
+        headless: true,
+      };
+    }
+
+    const browser = await playwrightChromium.launch(browserLaunchOptions);
     const context = await browser.newContext({
       // Disable JS-triggered navigation away from the page
       javaScriptEnabled: true,

@@ -20,7 +20,11 @@ const vercelConfig = JSON.parse(
 };
 const packageJson = JSON.parse(
   readFileSync(resolve(projectRoot, "package.json"), "utf8")
-) as { scripts: Record<string, string> };
+) as {
+  scripts: Record<string, string>;
+  engines: Record<string, string>;
+  devDependencies: Record<string, string>;
+};
 const staticServer = readFileSync(
   resolve(projectRoot, "server/_core/vite.ts"),
   "utf8"
@@ -52,13 +56,13 @@ function extractQuotedItems(source: string, pattern: RegExp): string[] {
 describe("Vercel static deployment configuration", () => {
   it("uses the required static build output, trailing slashes, and no rewrites", () => {
     expect(vercelConfig.$schema).toBe("https://openapi.vercel.sh/vercel.json");
-    expect(vercelConfig.installCommand).toBe(
-      "pnpm install --frozen-lockfile && pnpm exec playwright install --with-deps chromium"
-    );
+    expect(vercelConfig.installCommand).toBe("pnpm install --frozen-lockfile");
     expect(vercelConfig.buildCommand).toBe("pnpm build");
     expect(vercelConfig.outputDirectory).toBe("dist/public");
     expect(vercelConfig.trailingSlash).toBe(true);
     expect(vercelConfig.rewrites).toBeUndefined();
+    expect(packageJson.engines.node).toBe("24.x");
+    expect(packageJson.devDependencies["@sparticuz/chromium"]).toBe("149.0.0");
   });
 
   it("ports every Express legacy redirect one-for-one as an explicit 301", () => {
@@ -95,6 +99,12 @@ describe("Vercel static deployment configuration", () => {
   it("keeps the esbuild-backed prerender command and emits root 404.html after 69 routes", () => {
     expect(packageJson.scripts.build).toBe(
       "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/prerender-full.mjs"
+    );
+    expect(prerenderSource).toMatch(
+      /const \{ default: serverlessChromium \} = await import\(\s*"@sparticuz\/chromium"\s*\)/
+    );
+    expect(prerenderSource).toContain(
+      "const browser = await playwrightChromium.launch(browserLaunchOptions)"
     );
 
     const englishBlogSlugs = extractQuotedItems(
