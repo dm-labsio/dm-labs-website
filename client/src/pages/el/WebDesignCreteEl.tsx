@@ -181,7 +181,7 @@ export default function WebDesignCreteEl() {
         <div className="container max-w-4xl mx-auto px-4">
           <figure className="rounded-2xl overflow-hidden shadow-md">
             <img
-              src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/NIKoLQKtylnVMtQG.jpg?Expires=1808465447&Signature=NekukXt3to-~bJhXPzQNUorg179u8Hc-UKLNcR0nu416WRSXgRmm3LpMz5SjHKM2823T-nWQuRrEO83bif~n~wMm9FZfuJLLvbXTgOLh-VfN-yqrtQG~8fLV6IUdWWkdw45F1cS6COY747zhjWWe0fgce52M7xXpHbslHFFaVl87dJxtRu9kvT59mRZ0Mh3iiRi0xTWkK-y0mo~37FgVuETIlXxnTSBjsOwVHR7kv-I2vGjMH5kvswUS8eiXNp~Gca7L7dw~dAVmvqYJO1kKJ7IVIkfhCEjZLBP3RYZT~7TMTEA98AJxywMJY13yUOhDVQVa72sQTOTGMqn9TfXX-Q__&Key-Pair-Id=K2HSFNDJXOU9YS"
+              src="/media/manus/NIKoLQKtylnVMtQG.webp"
               alt="Το παλιό λιμάνι των Χανίων στο ηλιοβασίλεμα - web design για επιχειρήσεις στην Κρήτη"
               className="w-full h-auto object-cover"
             />

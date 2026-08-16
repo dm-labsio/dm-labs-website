@@ -15,9 +15,9 @@ const htmlSource = readFileSync(resolve(projectRoot, "client/index.html"), "utf8
 describe("homepage single-stage scroll-scrub hero", () => {
   it("uses the supplied desktop and mobile managed videos with responsive opening posters only on the English and Greek home heroes", () => {
     expect(heroSource).toContain('HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-hero-tunnel-scrub_89732dad.mp4"');
-    expect(heroSource).toContain('HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-hero-tunnel-opening-poster_7b05ee6d.jpg"');
+    expect(heroSource).toContain('HERO_SCRUB_OPENING_POSTER_URL = "/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp"');
     expect(heroSource).toContain('MOBILE_HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4"');
-    expect(heroSource).toContain('MOBILE_HERO_SCRUB_OPENING_POSTER_URL = "/manus-storage/dm-labs-mobile-hero-opening-poster_6fc35873.jpg"');
+    expect(heroSource).toContain('MOBILE_HERO_SCRUB_OPENING_POSTER_URL = "/media/hero/dm-labs-mobile-hero-opening-poster_6fc35873.webp"');
     expect(heroSource).toContain("poster={HERO_SCRUB_OPENING_POSTER_URL}");
     expect(heroSource).toContain("<source media={MOBILE_VIEWPORT_QUERY} srcSet={MOBILE_HERO_SCRUB_OPENING_POSTER_URL} />");
     expect(heroSource).toContain('<source media={MOBILE_VIEWPORT_QUERY} src={MOBILE_HERO_SCRUB_VIDEO_URL} type="video/mp4" />');
@@ -99,8 +99,8 @@ describe("homepage single-stage scroll-scrub hero", () => {
   });
 
   it("starts without a copy flash and retains poster, timeout, error, reduced-motion, and no-JavaScript fallbacks", () => {
-    expect(htmlSource).toContain('rel="preload" as="image" href="/manus-storage/dm-labs-hero-tunnel-opening-poster_7b05ee6d.jpg"');
-    expect(htmlSource).toContain('href="/manus-storage/dm-labs-mobile-hero-opening-poster_6fc35873.jpg" media="(max-width: 767px)"');
+    expect(htmlSource).toContain('rel="preload" as="image" href="/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp"');
+    expect(htmlSource).toContain('href="/media/hero/dm-labs-mobile-hero-opening-poster_6fc35873.webp" media="(max-width: 767px)"');
     expect(htmlSource).toContain('document.documentElement.classList.add("js")');
     expect(heroSource).toContain("window.setTimeout(activateFallback, 2500)");
     expect(heroSource).toContain("const openingTime = duration * openingProgress;");

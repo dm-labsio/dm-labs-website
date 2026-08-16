@@ -181,7 +181,7 @@ export default function WebDesignCrete() {
         <div className="container max-w-4xl mx-auto px-4">
           <figure className="rounded-2xl overflow-hidden shadow-md">
             <img
-              src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/NIKoLQKtylnVMtQG.jpg?Expires=1808465447&Signature=NekukXt3to-~bJhXPzQNUorg179u8Hc-UKLNcR0nu416WRSXgRmm3LpMz5SjHKM2823T-nWQuRrEO83bif~n~wMm9FZfuJLLvbXTgOLh-VfN-yqrtQG~8fLV6IUdWWkdw45F1cS6COY747zhjWWe0fgce52M7xXpHbslHFFaVl87dJxtRu9kvT59mRZ0Mh3iiRi0xTWkK-y0mo~37FgVuETIlXxnTSBjsOwVHR7kv-I2vGjMH5kvswUS8eiXNp~Gca7L7dw~dAVmvqYJO1kKJ7IVIkfhCEjZLBP3RYZT~7TMTEA98AJxywMJY13yUOhDVQVa72sQTOTGMqn9TfXX-Q__&Key-Pair-Id=K2HSFNDJXOU9YS"
+              src="/media/manus/NIKoLQKtylnVMtQG.webp"
               alt="Chania old harbour at sunset - web design for businesses in Crete Greece"
               className="w-full object-cover"
               style={{ maxHeight: "420px", objectPosition: "center 50%" }}
@@ -398,7 +398,7 @@ export default function WebDesignCrete() {
             </div>
             <figure className="rounded-2xl overflow-hidden shadow-md">
               <img
-                src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/vjogCczdOXQNydol.jpg?Expires=1808465447&Signature=JrB-tEOKwnwYOXiwzbFZfcPMnRGALbh7XJMrSUn62RNA8EE7JYOp4ig5HrnbHT4Ok3ec9K2u1i97UnXL~Y5q4jGz6DXFT5KRaJDk6bm00Vb2ZQjLqvPSJZmq0kdo-5LZ4ksSkgUGfGbDsTN6i7iyuxHX9pIEM36H5jppUfovJe0y0TND5t-fNuyWciKGC5NTQHGwFxzXMDqubN3-cVxdtUi-Cvvi0t5rHrQILJbYln~5O3BKWvMDMjkpciv6h-zYqP4qM8Hs5Ld3Rrpp9zR196DYIUKlyZ5XZYf27CG0pSjmRUzkHh6Rq68UAmTfhuuRYShcyPfDm3rwokvM~pvyeg__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                src="/media/manus/vjogCczdOXQNydol.webp"
                 alt="Crete island aerial view - tourism and local business website design"
                 className="w-full object-cover"
                 style={{ height: "300px", objectPosition: "center 40%" }}

@@ -106,9 +106,9 @@ function HomeElCardPreview({ tplId, category }: { tplId: string; category: strin
   );
 }
 
-const GRADIENT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
-const TRIANGLE_GEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
-const DARK_CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382574925/j9EcpdbCqdDF7cpWiHVsmq/dark-cta-bg-LgZ8epcpi9XDGLof5Q9KgS.webp";
+const GRADIENT_BG = "/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
+const TRIANGLE_GEO = "/media/cloudfront/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
+const DARK_CTA_BG = "/media/cloudfront/dark-cta-bg-LgZ8epcpi9XDGLof5Q9KgS.webp";
 
 // Featured live-preview mini-sites for the homepage showcase
 // Using the same mini-site HTML files as the Templates page
@@ -699,7 +699,7 @@ export default function HomeElPage() {
                 <div className="flex md:hidden flex-row">
                   <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
                     <img
-                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                      src="/media/manus/AtkkCmVLLZyIDtDx.webp"
                       alt="Anastacia B. - Creative Director and AI Specialist at DM-Labs.io"
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{ objectPosition: 'center top' }}
@@ -724,7 +724,7 @@ export default function HomeElPage() {
                 <div className="hidden md:flex flex-row">
                   <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px', minHeight: '240px', maxHeight: '280px' }}>
                     <img
-                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/AtkkCmVLLZyIDtDx.jpg?Expires=1805807307&Signature=tzN5G6aXHi-UfC~wwQP9QpBquJu7jfUai~BOy1r~7Qda~jKdARzVUNxj2kHpbAYeKbodOKiH2SAISEd-8ahuVDDuFT8FRpVVIODCAoHNwGdtS3R-NxO1Rdk6jMzGgV6LBrV8NYFkC9UVgmTirPdOvuu0nU~oQveGK8laTlItVMz6lh1~fvBDI9XtPeOq5uoeavcTWtr6pK2-NzM9P3aou8f2OUmFe5dIPmosvEEq6tqZM-TMP~gysouA6xxzog2U90vPjLusE6VBWtCm6UC6DhakpHinArKvNun2PS-sm7Zqc8QqZkI1KD7dJEhDThyb5TRTwhDWXZELMMR1n-LeaA__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                      src="/media/manus/AtkkCmVLLZyIDtDx.webp"
                       alt="Anastacia B. - Creative Director and AI Specialist at DM-Labs.io"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       style={{ objectPosition: 'top center' }}
@@ -756,7 +756,7 @@ export default function HomeElPage() {
                 <div className="flex md:hidden flex-row">
                   <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
                     <img
-                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                      src="/media/manus/DVIoYisVQvzbqoiR.webp"
                       alt="Tom B. - Technical Director and SEO Expert at DM-Labs.io"
                       className="absolute inset-0 w-full h-full object-cover object-top"
                     />
@@ -780,7 +780,7 @@ export default function HomeElPage() {
                 <div className="hidden md:flex flex-row">
                   <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px', maxHeight: '280px' }}>
                     <img
-                      src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663382574925/DVIoYisVQvzbqoiR.jpg?Expires=1805807307&Signature=sDadHPBIxNAi6lkiWTu64ioOt9Wvou6x~Akos8AKqATejLSMgwmbAZD8f~0e84UTqmXjYaSsbjvvamw1Y1h-3RSEbbutiwjpHPXGka~ZJRodfIKQQSPM9XytIixV9yDrEswB-7Jilroiu0d8A4D1mxlyvc1E0RR1AS2FrGj7ROLWp4T4vmB7rmiX0pXVhawbhH5D0H87lIyXVQ~Ue3ujz4AiyETwbvGuppqmVRXpmyZaqoDZTE9e1plVUn4-pR1jG9l2Pblw-D9VBnUxZuiBxEx2C5BUJOnjFEM6hS6RzjFEGwjQrEa3UFRhednppWiPKLZSbrjPQnzoh-jisjzTQA__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                      src="/media/manus/DVIoYisVQvzbqoiR.webp"
                       alt="Tom B. - Technical Director & SEO Expert at DM-Labs.io"
                       className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
