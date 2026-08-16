@@ -269,6 +269,45 @@ async function main() {
       }
     }
 
+    // Vercel serves a root-level 404.html with an actual HTTP 404 for unknown
+    // static paths. Capture the real hydrated NotFound route after all 69
+    // canonical pages so this extra artifact does not alter the route count.
+    const notFoundPage = await context.newPage();
+    try {
+      const response = await notFoundPage.goto(
+        `http://127.0.0.1:${port}/__vercel-static-404__/`,
+        { waitUntil: "domcontentloaded", timeout: 30_000 }
+      );
+
+      if (!response || response.status() !== 404) {
+        throw new Error(`Expected HTTP 404, received ${response?.status() ?? "no response"}`);
+      }
+
+      await notFoundPage.waitForFunction(
+        () => {
+          const robots = document.querySelector('meta[name="robots"]');
+          const heading = document.querySelector("h1");
+          return (
+            document.title === "Page Not Found | DM-Labs.io" &&
+            heading?.textContent?.trim() === "Page Not Found" &&
+            robots?.getAttribute("content") === "noindex, nofollow" &&
+            !document.querySelector('link[rel="canonical"]')
+          );
+        },
+        { timeout: 15_000 }
+      );
+
+      let notFoundHtml = await notFoundPage.content();
+      notFoundHtml = stripFallbackBlock(notFoundHtml);
+      writeFileSync(join(DIST_DIR, "404.html"), notFoundHtml, "utf-8");
+      console.log("OK  /404.html (root static 404 artifact)");
+    } catch (err) {
+      console.error(`ERR /404.html: ${err.message}`);
+      errors++;
+    } finally {
+      await notFoundPage.close();
+    }
+
     await browser.close();
     console.log(`\nPrerender complete: ${ok} OK, ${errors} errors`);
 

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "pnpm install --frozen-lockfile && pnpm exec playwright install chromium",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist/public",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/blog/geo-vrethite-apo-chatgpt-kypros",
+      "destination": "/el/blog/geo-vrethite-apo-chatgpt-kypros/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/pos-na-vretheite-google-kypros",
+      "destination": "/el/blog/pos-na-vretheite-google-kypros/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/istoselidha-nail-salon-beauty-studio-kypros",
+      "destination": "/el/blog/istoselidha-nail-salon-beauty-studio-kypros/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/posso-kostizei-istoselidha-kypros",
+      "destination": "/el/blog/posso-kostizei-istoselidha-kypros/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/web-design-ellada-odigos-2026",
+      "destination": "/el/blog/web-design-ellada-odigos-2026/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/istoselidha-yoga-pilates-studio-kypros",
+      "destination": "/el/blog/istoselidha-yoga-pilates-studio-kypros/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/local-seo-google-cyprus",
+      "destination": "/blog/how-to-get-found-on-google-cyprus/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/website-yoga-pilates-studio-cyprus",
+      "destination": "/blog/yoga-pilates-studio-website-cyprus/",
+      "statusCode": 301
+    },
+    {
+      "source": "/examples",
+      "destination": "/templates/",
+      "statusCode": 301
+    },
+    {
+      "source": "/el/examples",
+      "destination": "/el/templates/",
+      "statusCode": 301
+    },
+    {
+      "source": "/cookie-policy",
+      "destination": "/cookies/",
+      "statusCode": 301
+    },
+    {
+      "source": "/el/cookie-policy",
+      "destination": "/el/cookies/",
+      "statusCode": 301
+    },
+    {
+      "source": "/$",
+      "destination": "/",
+      "statusCode": 301
+    }
+  ],
+  "headers": [
+    {
+      "source": "/media/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { describe, expect, it } from "vitest";
+
+const projectRoot = resolve(import.meta.dirname, "..");
+const vercelConfig = JSON.parse(
+  readFileSync(resolve(projectRoot, "vercel.json"), "utf8"),
+) as {
+  $schema: string;
+  installCommand: string;
+  buildCommand: string;
+  outputDirectory: string;
+  trailingSlash: boolean;
+  redirects: Array<{ source: string; destination: string; statusCode: number }>;
+  headers: Array<{
+    source: string;
+    headers: Array<{ key: string; value: string }>;
+  }>;
+  rewrites?: unknown;
+};
+const packageJson = JSON.parse(
+  readFileSync(resolve(projectRoot, "package.json"), "utf8"),
+) as { scripts: Record<string, string> };
+const staticServer = readFileSync(
+  resolve(projectRoot, "server/_core/vite.ts"),
+  "utf8",
+);
+const prerenderSource = readFileSync(
+  resolve(projectRoot, "scripts/prerender-full.mjs"),
+  "utf8",
+);
+
+function extractExpressRedirects(source: string): Record<string, string> {
+  const block = source.match(
+    /const REDIRECTS: Record<string, string> = \{([\s\S]*?)\n\};/,
+  )?.[1];
+  if (!block) throw new Error("Express REDIRECTS map was not found");
+
+  return Object.fromEntries(
+    [...block.matchAll(/"([^"]+)"\s*:\s*"([^"]+)"/g)].map(match => [
+      match[1],
+      match[2],
+    ]),
+  );
+}
+
+function extractQuotedItems(source: string, pattern: RegExp): string[] {
+  const block = source.match(pattern)?.[1] ?? "";
+  return [...block.matchAll(/["']([^"']+)["']/g)].map(match => match[1]);
+}
+
+describe("Vercel static deployment configuration", () => {
+  it("uses the required static build output, trailing slashes, and no rewrites", () => {
+    expect(vercelConfig.$schema).toBe("https://openapi.vercel.sh/vercel.json");
+    expect(vercelConfig.installCommand).toBe(
+      "pnpm install --frozen-lockfile && pnpm exec playwright install chromium",
+    );
+    expect(vercelConfig.buildCommand).toBe("pnpm build");
+    expect(vercelConfig.outputDirectory).toBe("dist/public");
+    expect(vercelConfig.trailingSlash).toBe(true);
+    expect(vercelConfig.rewrites).toBeUndefined();
+  });
+
+  it("ports every Express legacy redirect one-for-one as an explicit 301", () => {
+    const expressRedirects = extractExpressRedirects(staticServer);
+    const vercelRedirects = Object.fromEntries(
+      vercelConfig.redirects.map(({ source, destination }) => [source, destination]),
+    );
+
+    expect(Object.keys(expressRedirects)).toHaveLength(13);
+    expect(vercelConfig.redirects).toHaveLength(13);
+    expect(vercelConfig.redirects.every(rule => rule.statusCode === 301)).toBe(true);
+    expect(vercelRedirects).toEqual(expressRedirects);
+  });
+
+  it("sets a one-year immutable cache header for every local media asset", () => {
+    expect(vercelConfig.headers).toEqual([
+      {
+        source: "/media/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ]);
+  });
+
+  it("keeps the esbuild-backed prerender command and emits root 404.html after 69 routes", () => {
+    expect(packageJson.scripts.build).toBe(
+      "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/prerender-full.mjs",
+    );
+
+    const englishBlogSlugs = extractQuotedItems(
+      prerenderSource,
+      /const EN_BLOG_SLUGS = \[([\s\S]*?)\];/,
+    );
+    const greekBlogSlugs = extractQuotedItems(
+      prerenderSource,
+      /const EL_BLOG_SLUGS = \[([\s\S]*?)\];/,
+    );
+    const literalRoutes = extractQuotedItems(
+      prerenderSource,
+      /const ROUTES = \[([\s\S]*?)\]\.map/,
+    ).filter(route => route.startsWith("/"));
+
+    expect(literalRoutes.length + englishBlogSlugs.length + greekBlogSlugs.length).toBe(69);
+    expect(prerenderSource.indexOf("for (const route of ROUTES)")).toBeLessThan(
+      prerenderSource.indexOf("const notFoundPage = await context.newPage()"),
+    );
+    expect(prerenderSource).toContain('response.status() !== 404');
+    expect(prerenderSource).toContain('robots?.getAttribute("content") === "noindex, nofollow"');
+    expect(prerenderSource).toContain('!document.querySelector(\'link[rel="canonical"]\')');
+    expect(prerenderSource).toContain(
+      'writeFileSync(join(DIST_DIR, "404.html"), notFoundHtml, "utf-8")',
+    );
+  });
+});
