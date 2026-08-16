@@ -77,7 +77,7 @@ describe("Vercel static deployment configuration", () => {
       vercelConfig.routes.map(({ src, headers }) => {
         const literalSource = src
           .replace(/^\^/, "")
-          .replace(/\$$/, "")
+          .replace(/\/\?\$$/, "")
           .replace(/\\\$/g, "$");
         return [literalSource, headers.Location];
       })
@@ -86,6 +86,9 @@ describe("Vercel static deployment configuration", () => {
     expect(Object.keys(expressRedirects)).toHaveLength(13);
     expect(vercelConfig.routes).toHaveLength(13);
     expect(vercelConfig.routes.every(rule => rule.status === 301)).toBe(true);
+    expect(vercelConfig.routes.every(rule => rule.src.endsWith("/?$"))).toBe(
+      true
+    );
     expect(vercelConfig.routes.every(rule => !rule.src.includes(".*"))).toBe(
       true
     );

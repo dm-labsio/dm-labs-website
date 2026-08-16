@@ -6,91 +6,91 @@
   "trailingSlash": true,
   "routes": [
     {
-      "src": "^/blog/geo-vrethite-apo-chatgpt-kypros$",
+      "src": "^/blog/geo-vrethite-apo-chatgpt-kypros/?$",
       "status": 301,
       "headers": {
         "Location": "/el/blog/geo-vrethite-apo-chatgpt-kypros/"
       }
     },
     {
-      "src": "^/blog/pos-na-vretheite-google-kypros$",
+      "src": "^/blog/pos-na-vretheite-google-kypros/?$",
       "status": 301,
       "headers": {
         "Location": "/el/blog/pos-na-vretheite-google-kypros/"
       }
     },
     {
-      "src": "^/blog/istoselidha-nail-salon-beauty-studio-kypros$",
+      "src": "^/blog/istoselidha-nail-salon-beauty-studio-kypros/?$",
       "status": 301,
       "headers": {
         "Location": "/el/blog/istoselidha-nail-salon-beauty-studio-kypros/"
       }
     },
     {
-      "src": "^/blog/posso-kostizei-istoselidha-kypros$",
+      "src": "^/blog/posso-kostizei-istoselidha-kypros/?$",
       "status": 301,
       "headers": {
         "Location": "/el/blog/posso-kostizei-istoselidha-kypros/"
       }
     },
     {
-      "src": "^/blog/web-design-ellada-odigos-2026$",
+      "src": "^/blog/web-design-ellada-odigos-2026/?$",
       "status": 301,
       "headers": {
         "Location": "/el/blog/web-design-ellada-odigos-2026/"
       }
     },
     {
-      "src": "^/blog/istoselidha-yoga-pilates-studio-kypros$",
+      "src": "^/blog/istoselidha-yoga-pilates-studio-kypros/?$",
       "status": 301,
       "headers": {
         "Location": "/el/blog/istoselidha-yoga-pilates-studio-kypros/"
       }
     },
     {
-      "src": "^/blog/local-seo-google-cyprus$",
+      "src": "^/blog/local-seo-google-cyprus/?$",
       "status": 301,
       "headers": {
         "Location": "/blog/how-to-get-found-on-google-cyprus/"
       }
     },
     {
-      "src": "^/blog/website-yoga-pilates-studio-cyprus$",
+      "src": "^/blog/website-yoga-pilates-studio-cyprus/?$",
       "status": 301,
       "headers": {
         "Location": "/blog/yoga-pilates-studio-website-cyprus/"
       }
     },
     {
-      "src": "^/examples$",
+      "src": "^/examples/?$",
       "status": 301,
       "headers": {
         "Location": "/templates/"
       }
     },
     {
-      "src": "^/el/examples$",
+      "src": "^/el/examples/?$",
       "status": 301,
       "headers": {
         "Location": "/el/templates/"
       }
     },
     {
-      "src": "^/cookie-policy$",
+      "src": "^/cookie-policy/?$",
       "status": 301,
       "headers": {
         "Location": "/cookies/"
       }
     },
     {
-      "src": "^/el/cookie-policy$",
+      "src": "^/el/cookie-policy/?$",
       "status": 301,
       "headers": {
         "Location": "/el/cookies/"
       }
     },
     {
-      "src": "^/\\$$",
+      "src": "^/\\$/?$",
       "status": 301,
       "headers": {
         "Location": "/"
