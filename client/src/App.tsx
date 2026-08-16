@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Analytics } from "@vercel/analytics/react";
 import { Route, Switch, Redirect, useLocation } from "wouter";
 import { useSEO } from "./hooks/useSEO";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -162,16 +163,19 @@ function AppRoutes() {
 
 function App() {
   return (
-    <ErrorBoundary>
-      <ThemeProvider defaultTheme="light">
-        <LanguageProvider>
-          <TooltipProvider>
-            <Toaster />
-            <AppRoutes />
-          </TooltipProvider>
-        </LanguageProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
+    <>
+      <ErrorBoundary>
+        <ThemeProvider defaultTheme="light">
+          <LanguageProvider>
+            <TooltipProvider>
+              <Toaster />
+              <AppRoutes />
+            </TooltipProvider>
+          </LanguageProvider>
+        </ThemeProvider>
+      </ErrorBoundary>
+      <Analytics mode={import.meta.env.MODE === "production" ? "production" : "development"} />
+    </>
   );
 }
 export default App;

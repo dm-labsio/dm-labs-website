@@ -173,8 +173,8 @@ export function serveStatic(app: Express) {
     );
   }
 
-  // NOTE: Trailing-slash normalisation is handled by the Manus hosting platform
-  // at the CDN/proxy layer. Adding a redirect here as well causes an infinite
+  // NOTE: Trailing-slash normalisation is delegated to the hosting edge
+  // before this application. Adding a redirect here as well can cause an infinite
   // redirect loop (/path → /path/ → /path → …). Do NOT add trailing-slash
   // redirect middleware in this file.
 

@@ -95,8 +95,8 @@ export function useSEO(options: SEOOptions = {}) {
 
     // Determine canonical path: use override if provided, otherwise use current wouter location.
     const cleanPath = normalizeRoutePath(canonicalPath ?? location);
-    // The Manus/Cloudflare platform adds a trailing slash to all paths except root.
-    // Canonicals must match the final URL the platform serves to avoid "Page with redirect" in GSC.
+    // Production routes use a trailing slash everywhere except the root URL.
+    // Canonicals must match the final public URL to avoid "Page with redirect" in GSC.
     const finalPath = withTrailingSlash(cleanPath);
     const canonicalUrl = `${BASE_URL}${finalPath}`;
 
