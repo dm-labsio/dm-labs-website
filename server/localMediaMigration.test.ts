@@ -20,6 +20,15 @@ const clientTextFiles = collectFiles(clientRoot).filter(path => {
   return textExtensions.has(extname(path).toLowerCase());
 });
 const clientSource = clientTextFiles.map(path => readFileSync(path, "utf8")).join("\n");
+const repositorySource = [
+  clientSource,
+  ...[resolve(projectRoot, "server"), resolve(projectRoot, "scripts")].flatMap(directory =>
+    collectFiles(directory)
+      .filter(path => textExtensions.has(extname(path).toLowerCase()))
+      .map(path => readFileSync(path, "utf8")),
+  ),
+  readFileSync(resolve(projectRoot, "vite.config.ts"), "utf8"),
+].join("\n");
 const mediaFiles = collectFiles(mediaRoot);
 
 describe("GitHub-backed static media migration", () => {
@@ -41,22 +50,22 @@ describe("GitHub-backed static media migration", () => {
     }
   });
 
-  it("removes every migrated image-host reference and the broken dormant Clinic 3 object", () => {
+  it("removes every migrated image host, retired storage route, and broken dormant Clinic 3 object", () => {
     expect(clientSource).not.toContain("private-us-east-1.manuscdn.com");
     expect(clientSource).not.toContain("cloudfront.net");
     expect(clientSource).not.toContain("gSjiYlaDNuHSgRBB.jpg");
-    expect(clientSource).not.toMatch(/\/manus-storage\/[^\s"'()]+\.(?:avif|gif|jpe?g|png|svg|webp)/i);
+    expect(repositorySource).not.toContain(["/manus", "storage/"].join("-"));
   });
 
-  it("leaves the four Manus-hosted MP4 videos and 79 Unsplash image objects unchanged in scope", () => {
-    const mp4References = new Set(
-      clientSource.match(/\/manus-storage\/[^\s"'()]+\.mp4/g) ?? [],
+  it("uses the four Vercel Blob MP4 videos and leaves 79 Unsplash image objects unchanged in scope", () => {
+    const blobVideoReferences = new Set(
+      clientSource.match(/https:\/\/zcqnftsc7hsxgrnx\.public\.blob\.vercel-storage\.com\/[^\s"'()]+\.mp4/g) ?? [],
     );
-    expect(mp4References).toEqual(new Set([
-      "/manus-storage/dm-labs-hero-tunnel-scrub_89732dad.mp4",
-      "/manus-storage/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4",
-      "/manus-storage/dr-elara-root-canal-treatment_dc985187.mp4",
-      "/manus-storage/nomad-coffee-scroll-video-all-intra_ab16c684.mp4",
+    expect(blobVideoReferences).toEqual(new Set([
+      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-hero-tunnel-scrub_89732dad.mp4",
+      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4",
+      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dr-elara-root-canal-treatment_dc985187.mp4",
+      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/nomad-coffee-scroll-video-all-intra_ab16c684.mp4",
     ]));
 
     const unsplashObjects = new Set(

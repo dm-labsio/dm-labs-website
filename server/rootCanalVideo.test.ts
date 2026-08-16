@@ -17,9 +17,9 @@ describe("Dr. Elara root canal treatment video", () => {
     expect(treatmentsStart).toBeGreaterThan(treatmentStart);
   });
 
-  it("uses the supplied managed root-canal MP4 with native mobile-friendly playback attributes", () => {
+  it("uses the supplied Vercel Blob root-canal MP4 with native mobile-friendly playback attributes", () => {
     expect(previewSource).toContain('class="root-canal-video"');
-    expect(previewSource).toContain('/manus-storage/dr-elara-root-canal-treatment_dc985187.mp4');
+    expect(previewSource).toContain('https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dr-elara-root-canal-treatment_dc985187.mp4');
     expect(previewSource).toContain('muted autoplay loop playsinline controls preload="metadata"');
     expect(previewSource).toContain('aria-label="Animated explanation of root canal treatment"');
   });

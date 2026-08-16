@@ -13,10 +13,10 @@ const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "u
 const htmlSource = readFileSync(resolve(projectRoot, "client/index.html"), "utf8");
 
 describe("homepage single-stage scroll-scrub hero", () => {
-  it("uses the supplied desktop and mobile managed videos with responsive opening posters only on the English and Greek home heroes", () => {
-    expect(heroSource).toContain('HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-hero-tunnel-scrub_89732dad.mp4"');
+  it("uses the supplied desktop and mobile Vercel Blob videos with responsive local opening posters only on the English and Greek home heroes", () => {
+    expect(heroSource).toContain('HERO_SCRUB_VIDEO_URL = "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-hero-tunnel-scrub_89732dad.mp4"');
     expect(heroSource).toContain('HERO_SCRUB_OPENING_POSTER_URL = "/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp"');
-    expect(heroSource).toContain('MOBILE_HERO_SCRUB_VIDEO_URL = "/manus-storage/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4"');
+    expect(heroSource).toContain('MOBILE_HERO_SCRUB_VIDEO_URL = "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4"');
     expect(heroSource).toContain('MOBILE_HERO_SCRUB_OPENING_POSTER_URL = "/media/hero/dm-labs-mobile-hero-opening-poster_6fc35873.webp"');
     expect(heroSource).toContain("poster={HERO_SCRUB_OPENING_POSTER_URL}");
     expect(heroSource).toContain("<source media={MOBILE_VIEWPORT_QUERY} srcSet={MOBILE_HERO_SCRUB_OPENING_POSTER_URL} />");
@@ -31,7 +31,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(homeElSource).toContain("<HomeHeroScrub>");
   });
 
-  it("keeps one fixed hero layer through hold, release fade, and reverse re-entry without changing positioning modes", () => {
+  it("keeps one persistent hero layer through hold, natural-flow release, and reverse re-entry", () => {
     expect(heroSource).toContain('className="hero-scrub-stage"');
     expect(heroSource).toContain('className="hero-scrub-copy"');
     expect(heroSource).not.toContain('className="hero-scrub-spacer"');
@@ -40,8 +40,9 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(stylesheet).toContain("height: calc(100svh - 72px + var(--hero-runway));");
     expect(heroStylesheet).toContain("position: fixed !important;");
     expect(heroStylesheet).toContain('data-released="true"');
-    expect(heroStylesheet).toContain("opacity: 0;");
-    expect(heroStylesheet).toContain("transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1);");
+    expect(heroStylesheet).toContain("position: absolute !important;");
+    expect(heroStylesheet).toContain("opacity: 1;");
+    expect(heroStylesheet).toContain("pointer-events: auto;");
     expect(stylesheet).toContain(".hero-scrub-copy {");
     expect(stylesheet).toContain("display: flex;");
     expect(stylesheet).toContain("align-items: center;");

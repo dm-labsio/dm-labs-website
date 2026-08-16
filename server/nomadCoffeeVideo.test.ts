@@ -10,9 +10,9 @@ const previewSource = readFileSync(
 );
 
 describe("Nomad Coffee scroll-driven hero", () => {
-  it("uses the supplied stored video as the page-first hero rather than a separate middle section", () => {
+  it("uses the supplied Vercel Blob video as the page-first hero rather than a separate middle section", () => {
     expect(previewSource).toContain('id="coffee-scroll-video"');
-    expect(previewSource).toContain('src="/manus-storage/nomad-coffee-scroll-video-all-intra_ab16c684.mp4"');
+    expect(previewSource).toContain('src="https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/nomad-coffee-scroll-video-all-intra_ab16c684.mp4"');
     expect(previewSource).toContain('<section class="scroll-video-hero" id="coffee-film-hero"');
     expect(previewSource).toContain("muted playsinline preload=\"auto\"");
     expect(previewSource).not.toContain("autoplay muted loop");

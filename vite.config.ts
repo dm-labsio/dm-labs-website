@@ -150,57 +150,7 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-/**
- * Keeps WebDev File Storage media playable in the standalone Vite preview.
- * Production already serves this same route through server/_core/storageProxy.ts.
- * The redirect is server-side only, so the Forge credential never reaches browser code.
- */
-function vitePluginManusStorageRedirect(): Plugin {
-  return {
-    name: "manus-storage-redirect",
-
-    configureServer(server: ViteDevServer) {
-      server.middlewares.use("/manus-storage", async (req, res, next) => {
-        if (req.method !== "GET" && req.method !== "HEAD") {
-          return next();
-        }
-
-        const key = (req.url || "").split("?")[0].replace(/^\/+/, "");
-        const forgeApiUrl = process.env.BUILT_IN_FORGE_API_URL;
-        const forgeApiKey = process.env.BUILT_IN_FORGE_API_KEY;
-        if (!key || !forgeApiUrl || !forgeApiKey) {
-          return next();
-        }
-
-        try {
-          const forgeUrl = new URL("v1/storage/presign/get", `${forgeApiUrl.replace(/\/+$/, "")}/`);
-          forgeUrl.searchParams.set("path", key);
-          const forgeResponse = await fetch(forgeUrl, {
-            headers: { Authorization: `Bearer ${forgeApiKey}` },
-          });
-          if (!forgeResponse.ok) {
-            return next();
-          }
-
-          const payload = (await forgeResponse.json()) as { url?: string };
-          if (!payload.url) {
-            return next();
-          }
-
-          res.writeHead(307, {
-            "Cache-Control": "no-store",
-            Location: payload.url,
-          });
-          res.end();
-        } catch {
-          next();
-        }
-      });
-    },
-  };
-}
-
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusStorageRedirect(), vitePluginManusDebugCollector()];
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
 
 export default defineConfig({
   plugins,
