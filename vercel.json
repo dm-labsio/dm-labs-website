@@ -4,71 +4,97 @@
   "buildCommand": "pnpm build",
   "outputDirectory": "dist/public",
   "trailingSlash": true,
-  "redirects": [
+  "routes": [
     {
-      "source": "/blog/geo-vrethite-apo-chatgpt-kypros",
-      "destination": "/el/blog/geo-vrethite-apo-chatgpt-kypros/",
-      "statusCode": 301
+      "src": "^/blog/geo-vrethite-apo-chatgpt-kypros$",
+      "status": 301,
+      "headers": {
+        "Location": "/el/blog/geo-vrethite-apo-chatgpt-kypros/"
+      }
     },
     {
-      "source": "/blog/pos-na-vretheite-google-kypros",
-      "destination": "/el/blog/pos-na-vretheite-google-kypros/",
-      "statusCode": 301
+      "src": "^/blog/pos-na-vretheite-google-kypros$",
+      "status": 301,
+      "headers": {
+        "Location": "/el/blog/pos-na-vretheite-google-kypros/"
+      }
     },
     {
-      "source": "/blog/istoselidha-nail-salon-beauty-studio-kypros",
-      "destination": "/el/blog/istoselidha-nail-salon-beauty-studio-kypros/",
-      "statusCode": 301
+      "src": "^/blog/istoselidha-nail-salon-beauty-studio-kypros$",
+      "status": 301,
+      "headers": {
+        "Location": "/el/blog/istoselidha-nail-salon-beauty-studio-kypros/"
+      }
     },
     {
-      "source": "/blog/posso-kostizei-istoselidha-kypros",
-      "destination": "/el/blog/posso-kostizei-istoselidha-kypros/",
-      "statusCode": 301
+      "src": "^/blog/posso-kostizei-istoselidha-kypros$",
+      "status": 301,
+      "headers": {
+        "Location": "/el/blog/posso-kostizei-istoselidha-kypros/"
+      }
     },
     {
-      "source": "/blog/web-design-ellada-odigos-2026",
-      "destination": "/el/blog/web-design-ellada-odigos-2026/",
-      "statusCode": 301
+      "src": "^/blog/web-design-ellada-odigos-2026$",
+      "status": 301,
+      "headers": {
+        "Location": "/el/blog/web-design-ellada-odigos-2026/"
+      }
     },
     {
-      "source": "/blog/istoselidha-yoga-pilates-studio-kypros",
-      "destination": "/el/blog/istoselidha-yoga-pilates-studio-kypros/",
-      "statusCode": 301
+      "src": "^/blog/istoselidha-yoga-pilates-studio-kypros$",
+      "status": 301,
+      "headers": {
+        "Location": "/el/blog/istoselidha-yoga-pilates-studio-kypros/"
+      }
     },
     {
-      "source": "/blog/local-seo-google-cyprus",
-      "destination": "/blog/how-to-get-found-on-google-cyprus/",
-      "statusCode": 301
+      "src": "^/blog/local-seo-google-cyprus$",
+      "status": 301,
+      "headers": {
+        "Location": "/blog/how-to-get-found-on-google-cyprus/"
+      }
     },
     {
-      "source": "/blog/website-yoga-pilates-studio-cyprus",
-      "destination": "/blog/yoga-pilates-studio-website-cyprus/",
-      "statusCode": 301
+      "src": "^/blog/website-yoga-pilates-studio-cyprus$",
+      "status": 301,
+      "headers": {
+        "Location": "/blog/yoga-pilates-studio-website-cyprus/"
+      }
     },
     {
-      "source": "/examples",
-      "destination": "/templates/",
-      "statusCode": 301
+      "src": "^/examples$",
+      "status": 301,
+      "headers": {
+        "Location": "/templates/"
+      }
     },
     {
-      "source": "/el/examples",
-      "destination": "/el/templates/",
-      "statusCode": 301
+      "src": "^/el/examples$",
+      "status": 301,
+      "headers": {
+        "Location": "/el/templates/"
+      }
     },
     {
-      "source": "/cookie-policy",
-      "destination": "/cookies/",
-      "statusCode": 301
+      "src": "^/cookie-policy$",
+      "status": 301,
+      "headers": {
+        "Location": "/cookies/"
+      }
     },
     {
-      "source": "/el/cookie-policy",
-      "destination": "/el/cookies/",
-      "statusCode": 301
+      "src": "^/el/cookie-policy$",
+      "status": 301,
+      "headers": {
+        "Location": "/el/cookies/"
+      }
     },
     {
-      "source": "/$",
-      "destination": "/",
-      "statusCode": 301
+      "src": "^/\\$$",
+      "status": 301,
+      "headers": {
+        "Location": "/"
+      }
     }
   ],
   "headers": [

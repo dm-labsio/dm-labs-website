@@ -11,11 +11,16 @@ const vercelConfig = JSON.parse(
   buildCommand: string;
   outputDirectory: string;
   trailingSlash: boolean;
-  redirects: Array<{ source: string; destination: string; statusCode: number }>;
+  routes: Array<{
+    src: string;
+    status: number;
+    headers: Record<string, string>;
+  }>;
   headers: Array<{
     source: string;
     headers: Array<{ key: string; value: string }>;
   }>;
+  redirects?: unknown;
   rewrites?: unknown;
 };
 const packageJson = JSON.parse(
@@ -60,23 +65,28 @@ describe("Vercel static deployment configuration", () => {
     expect(vercelConfig.buildCommand).toBe("pnpm build");
     expect(vercelConfig.outputDirectory).toBe("dist/public");
     expect(vercelConfig.trailingSlash).toBe(true);
+    expect(vercelConfig.redirects).toBeUndefined();
     expect(vercelConfig.rewrites).toBeUndefined();
     expect(packageJson.engines.node).toBe("24.x");
     expect(packageJson.devDependencies["@sparticuz/chromium"]).toBe("149.0.0");
   });
 
-  it("ports every Express legacy redirect one-for-one as an explicit 301", () => {
+  it("ports every Express legacy redirect one-for-one as a pre-normalization 301 route", () => {
     const expressRedirects = extractExpressRedirects(staticServer);
     const vercelRedirects = Object.fromEntries(
-      vercelConfig.redirects.map(({ source, destination }) => [
-        source,
-        destination,
-      ])
+      vercelConfig.routes.map(({ src, headers }) => {
+        const literalSource = src
+          .replace(/^\^/, "")
+          .replace(/\$$/, "")
+          .replace(/\\\$/g, "$");
+        return [literalSource, headers.Location];
+      })
     );
 
     expect(Object.keys(expressRedirects)).toHaveLength(13);
-    expect(vercelConfig.redirects).toHaveLength(13);
-    expect(vercelConfig.redirects.every(rule => rule.statusCode === 301)).toBe(
+    expect(vercelConfig.routes).toHaveLength(13);
+    expect(vercelConfig.routes.every(rule => rule.status === 301)).toBe(true);
+    expect(vercelConfig.routes.every(rule => !rule.src.includes(".*"))).toBe(
       true
     );
     expect(vercelRedirects).toEqual(expressRedirects);
