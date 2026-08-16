@@ -29,6 +29,7 @@ const packageJson = JSON.parse(
   scripts: Record<string, string>;
   engines: Record<string, string>;
   devDependencies: Record<string, string>;
+  packageManager: string;
 };
 const staticServer = readFileSync(
   resolve(projectRoot, "server/_core/vite.ts"),
@@ -59,7 +60,7 @@ function extractQuotedItems(source: string, pattern: RegExp): string[] {
 }
 
 describe("Vercel static deployment configuration", () => {
-  it("uses the required static build output, trailing slashes, and no rewrites", () => {
+  it("pins the static build output, Node, pnpm, Chromium, trailing slashes, and no rewrites", () => {
     expect(vercelConfig.$schema).toBe("https://openapi.vercel.sh/vercel.json");
     expect(vercelConfig.installCommand).toBe("pnpm install --frozen-lockfile");
     expect(vercelConfig.buildCommand).toBe("pnpm build");
@@ -68,6 +69,7 @@ describe("Vercel static deployment configuration", () => {
     expect(vercelConfig.redirects).toBeUndefined();
     expect(vercelConfig.rewrites).toBeUndefined();
     expect(packageJson.engines.node).toBe("24.x");
+    expect(packageJson.packageManager).toMatch(/^pnpm@10\.4\.1\+/);
     expect(packageJson.devDependencies["@sparticuz/chromium"]).toBe("149.0.0");
   });
 
