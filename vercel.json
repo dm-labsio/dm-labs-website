@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "pnpm install --frozen-lockfile && pnpm exec playwright install chromium",
+  "installCommand": "pnpm install --frozen-lockfile && pnpm exec playwright install --with-deps chromium",
   "buildCommand": "pnpm build",
   "outputDirectory": "dist/public",
   "trailingSlash": true,
