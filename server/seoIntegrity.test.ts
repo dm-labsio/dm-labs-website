@@ -16,6 +16,7 @@ const seoHook = read("client/src/hooks/useSEO.ts");
 const homePage = read("client/src/pages/Home.tsx");
 const templates = read("client/src/pages/Templates.tsx");
 const prerender = read("scripts/prerender-full.mjs");
+const app = read("client/src/App.tsx");
 const staticPreviews = [
   "arcos-architecture",
   "horizon-law",
@@ -34,6 +35,15 @@ describe("SEO integrity", () => {
     expect(vercelConfig).toContain('"source": "/preview/(.*)"');
     expect(vercelConfig).toContain('"source": "/previews/(.*)"');
     expect(vercelConfig).toContain('"value": "noindex, follow"');
+    expect(app).toContain('location.startsWith("/preview/")');
+    expect(prerender).toContain("const PREVIEW_ROUTES");
+    expect(prerender).toContain('"dr-elara-dental"');
+    expect(prerender).toContain("previewOk");
+    expect(prerender).toContain('iframe[title]');
+    expect(prerender).toContain('writeRouteHtml(route, html)');
+    expect(viteServer).not.toContain("/^\\/preview\\/[a-z0-9-]+$/");
+    expect(viteServer).toContain("const VALID_PREVIEW_IDS");
+    expect(viteServer).toContain('VALID_PREVIEW_IDS.has(urlPath.slice("/preview/".length))');
     for (const html of staticPreviews) {
       expect(html).toContain('name="robots" content="noindex, nofollow"');
       expect(html).not.toContain('rel="canonical"');
@@ -75,5 +85,12 @@ describe("SEO integrity", () => {
     expect(prerender).toContain("Vercel Analytics intentionally keeps a request open");
     expect(prerender).not.toContain('waitUntil: "networkidle"');
     expect(prerender).toContain("return root.children.length > 0;");
+  });
+
+  it("keeps an unknown preview ID inside the real 404 contract instead of treating every preview-shaped URL as valid", () => {
+    const staticHandler = viteServer.split("export function serveStatic(app: Express)")[1];
+    expect(staticHandler).not.toContain('urlPath.startsWith("/preview/")');
+    expect(staticHandler).toContain("if (isKnownRoute(urlPath))");
+    expect(staticHandler).toContain("return res.status(404)");
   });
 });

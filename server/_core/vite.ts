@@ -87,9 +87,25 @@ const DYNAMIC_PATTERNS = [
   /^\/blog\/[a-z0-9-]+$/,
   /^\/services\/[a-z0-9-]+$/,
   /^\/el\/services\/[a-z0-9-]+$/,
-  /^\/preview\/[a-z0-9-]+$/,
   /^\/previews\/[a-z0-9-]+\.html$/,
 ];
+
+// Valid visitor-facing demo pages are prerendered separately from the 69
+// canonical routes. Keep this explicit allowlist in sync with PreviewPage and
+// scripts/prerender-full.mjs so unknown /preview/:id paths retain a real 404.
+const VALID_PREVIEW_IDS = new Set([
+  "bella-salon",
+  "verde-restaurant",
+  "pulse-gym",
+  "dr-elara-dental",
+  "nomad-coffee",
+  "serenity-yoga",
+  "luxe-realty",
+  "little-stars-nursery",
+  "arcos-architecture",
+  "olio-deli",
+  "horizon-law",
+]);
 
 // ─── Permanent 301 redirects ──────────────────────────────────────────────────
 const REDIRECTS: Record<string, string> = {
@@ -115,6 +131,9 @@ const REDIRECTS: Record<string, string> = {
 
 function isKnownRoute(urlPath: string): boolean {
   if (STATIC_ROUTES.has(urlPath)) return true;
+  if (urlPath.startsWith("/preview/")) {
+    return VALID_PREVIEW_IDS.has(urlPath.slice("/preview/".length));
+  }
   for (const pattern of DYNAMIC_PATTERNS) {
     if (pattern.test(urlPath)) return true;
   }
@@ -208,20 +227,6 @@ export function serveStatic(app: Express) {
   // ── 3. SPA routing with real 404 (Task 1) ──────────────────────────────────
   app.use("*", (req, res) => {
     const urlPath = (req.originalUrl || req.path || "/").split("?")[0].replace(/\/$/, "") || "/";
-
-    // Showcase mock-ups remain useful conversion assets but must never become
-    // competing search documents or inherit a homepage canonical.
-    if (urlPath.startsWith("/preview/")) {
-      const rootHtmlPath = path.resolve(distPath, "index.html");
-      try {
-        return res
-          .status(200)
-          .set({ "Content-Type": "text/html" })
-          .end(previewNoindexHtml(fs.readFileSync(rootHtmlPath, "utf-8")));
-      } catch {
-        return res.status(200).set({ "X-Robots-Tag": "noindex, follow" }).send("");
-      }
-    }
 
     // Serve prerendered file if it exists
     if (urlPath !== "/") {

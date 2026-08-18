@@ -134,6 +134,23 @@ const ROUTES = [
   "/el/templates",
 ].map((route) => route === "/" ? route : `${route.replace(/\/+$/, "")}/`);
 
+// Preview demos are deliberate conversion assets, not canonical editorial pages.
+// They are emitted separately from the 69 indexable routes so Vercel can serve
+// each valid visitor-facing demo without a catch-all SPA rewrite.
+const PREVIEW_ROUTES = [
+  "bella-salon",
+  "verde-restaurant",
+  "pulse-gym",
+  "dr-elara-dental",
+  "nomad-coffee",
+  "serenity-yoga",
+  "luxe-realty",
+  "little-stars-nursery",
+  "arcos-architecture",
+  "olio-deli",
+  "horizon-law",
+].map((id) => `/preview/${id}/`);
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 /** Find a free TCP port */
@@ -288,6 +305,50 @@ async function main() {
       }
     }
 
+    // Valid demos remain fully usable for visitors clicking “See example”, but
+    // PreviewPage injects noindex and removes canonical/hreflang signals before
+    // this static snapshot is captured. They intentionally do not change the
+    // 69-route canonical prerender count above.
+    let previewOk = 0;
+    for (const route of PREVIEW_ROUTES) {
+      const url = `http://127.0.0.1:${port}${route}`;
+      const page = await context.newPage();
+
+      try {
+        const response = await page.goto(url, {
+          waitUntil: "domcontentloaded",
+          timeout: 30_000,
+        });
+        if (!response || response.status() !== 200) {
+          throw new Error(`Expected HTTP 200, received ${response?.status() ?? "no response"}`);
+        }
+
+        await page.waitForFunction(
+          () => {
+            const robots = document.querySelector('meta[name="robots"]');
+            const iframe = document.querySelector("iframe[title]");
+            return (
+              iframe instanceof HTMLIFrameElement &&
+              robots?.getAttribute("content") === "noindex, follow" &&
+              !document.querySelector('link[rel="canonical"]')
+            );
+          },
+          { timeout: 15_000 },
+        );
+
+        let html = await page.content();
+        html = stripFallbackBlock(html);
+        writeRouteHtml(route, html);
+        console.log(`OK  ${route} (preview)`);
+        previewOk++;
+      } catch (err) {
+        console.error(`ERR ${route} (preview): ${err.message}`);
+        errors++;
+      } finally {
+        await page.close();
+      }
+    }
+
     // Vercel serves a root-level 404.html with an actual HTTP 404 for unknown
     // static paths. Capture the real hydrated NotFound route after all 69
     // canonical pages so this extra artifact does not alter the route count.
@@ -328,7 +389,7 @@ async function main() {
     }
 
     await browser.close();
-    console.log(`\nPrerender complete: ${ok} OK, ${errors} errors`);
+    console.log(`\nPrerender complete: ${ok} canonical OK, ${previewOk} preview OK, ${errors} errors`);
 
     if (errors > 0) {
       process.exit(1);
