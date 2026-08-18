@@ -48,6 +48,27 @@
       }
     },
     {
+      "src": "^/blog/wix-vs-epaggelmatias-web-designer-kypros/?$",
+      "status": 301,
+      "headers": {
+        "Location": "/el/blog/wix-vs-epaggelmatias-web-designer-kypros/"
+      }
+    },
+    {
+      "src": "^/el/web-design-paphos/?$",
+      "status": 301,
+      "headers": {
+        "Location": "/el/web-design-cyprus/"
+      }
+    },
+    {
+      "src": "^/el/web-design-restaurants-cyprus/?$",
+      "status": 301,
+      "headers": {
+        "Location": "/el/web-design-cyprus/"
+      }
+    },
+    {
       "src": "^/blog/local-seo-google-cyprus/?$",
       "status": 301,
       "headers": {

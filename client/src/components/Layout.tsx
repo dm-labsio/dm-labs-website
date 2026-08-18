@@ -11,7 +11,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 import NeonCursorTrail from "@/components/NeonCursorTrail";
 import dmLabsLogo from "@/assets/dmLabsLogo";
-import { getHreflangPair, normalizeRoutePath, withTrailingSlash } from "@/lib/seoRoutes";
+import {
+  getGreekLanguageTogglePath,
+  getHreflangPair,
+  normalizeRoutePath,
+  withTrailingSlash,
+} from "@/lib/seoRoutes";
 
 
 const BrandMark = ({ dark = false }: { dark?: boolean }) => (
@@ -133,7 +138,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     const pair = getHreflangPair(normalizedLocation);
     return targetLang === "en"
       ? withTrailingSlash(pair.en)
-      : withTrailingSlash(pair.el ?? pair.en);
+      : withTrailingSlash(getGreekLanguageTogglePath(normalizedLocation));
   }
 
   // Flag-based language toggle — uses real <a href> for crawlability (Task 3)

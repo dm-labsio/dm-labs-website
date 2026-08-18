@@ -116,6 +116,10 @@ const REDIRECTS: Record<string, string> = {
   "/blog/posso-kostizei-istoselidha-kypros": "/el/blog/posso-kostizei-istoselidha-kypros/",
   "/blog/web-design-ellada-odigos-2026": "/el/blog/web-design-ellada-odigos-2026/",
   "/blog/istoselidha-yoga-pilates-studio-kypros": "/el/blog/istoselidha-yoga-pilates-studio-kypros/",
+  // Verified GSC legacy paths
+  "/blog/wix-vs-epaggelmatias-web-designer-kypros": "/el/blog/wix-vs-epaggelmatias-web-designer-kypros/",
+  "/el/web-design-paphos": "/el/web-design-cyprus/",
+  "/el/web-design-restaurants-cyprus": "/el/web-design-cyprus/",
   // Slug drift
   "/blog/local-seo-google-cyprus": "/blog/how-to-get-found-on-google-cyprus/",
   "/blog/website-yoga-pilates-studio-cyprus": "/blog/yoga-pilates-studio-website-cyprus/",

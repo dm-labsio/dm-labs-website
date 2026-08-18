@@ -22,6 +22,11 @@ export const EN_TO_EL_PATHS: Readonly<Record<string, string | null>> = {
   "/web-design-restaurants-cyprus": null,
 };
 
+const EL_LANGUAGE_TOGGLE_FALLBACKS: Readonly<Record<string, string>> = {
+  "/web-design-paphos": "/el/web-design-cyprus",
+  "/web-design-restaurants-cyprus": "/el/web-design-cyprus",
+};
+
 export const EL_TO_EN_PATHS: Readonly<Record<string, string>> = Object.fromEntries(
   Object.entries(EN_TO_EL_PATHS)
     .filter(([, elPath]) => elPath !== null)
@@ -49,4 +54,15 @@ export function getHreflangPair(path: string): HreflangPair {
     en: normalizedPath,
     el: mappedPath === undefined ? (normalizedPath === "/" ? "/el" : `/el${normalizedPath}`) : mappedPath,
   };
+}
+
+/**
+ * Visitor navigation fallback for English pages without a translation. This is
+ * deliberately separate from hreflang: missing translations must never emit a
+ * fabricated Greek alternate URL.
+ */
+export function getGreekLanguageTogglePath(path: string): string {
+  const normalizedPath = normalizeRoutePath(path);
+  const pair = getHreflangPair(normalizedPath);
+  return pair.el ?? EL_LANGUAGE_TOGGLE_FALLBACKS[normalizedPath] ?? "/el";
 }

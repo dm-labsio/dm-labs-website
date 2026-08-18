@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  getGreekLanguageTogglePath,
   getHreflangPair,
   normalizeRoutePath,
   withTrailingSlash,
@@ -38,5 +39,15 @@ describe("SEO route mapping", () => {
       el: null,
     });
     expect(getHreflangPair("/web-design-paphos/")).toEqual({ en: "/web-design-paphos", el: null });
+  });
+
+  it("uses Greek Cyprus only as a visitor toggle fallback for missing location translations", () => {
+    expect(getHreflangPair("/web-design-restaurants-cyprus/")).toEqual({
+      en: "/web-design-restaurants-cyprus",
+      el: null,
+    });
+    expect(getGreekLanguageTogglePath("/web-design-paphos/")).toBe("/el/web-design-cyprus");
+    expect(getGreekLanguageTogglePath("/web-design-restaurants-cyprus/")).toBe("/el/web-design-cyprus");
+    expect(getGreekLanguageTogglePath("/blog/google-search-console-ai-seo-prompts/")).toBe("/el");
   });
 });
