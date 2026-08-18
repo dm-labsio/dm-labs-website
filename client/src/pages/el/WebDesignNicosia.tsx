@@ -16,7 +16,7 @@ const schemaMarkup = {
   "description": "Η DM-Labs.io σχεδιάζει και κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λευκωσία και σε όλη την Κύπρο. Mobile-first, βελτιστοποιημένες για SEO, με παράδοση σε 5-14 ημέρες.",
   "url": "https://dm-labs.io/el/web-design-nicosia/",
   "logo": "https://dm-labs.io/logo.png",
-  "image": "https://dm-labs.io/og-image.png",
+  "image": "https://dm-labs.io/social/dm-labs-website-social-card.png",
   "telephone": "+35797472847",
   "email": "info@dm-labs.io",
   "address": {

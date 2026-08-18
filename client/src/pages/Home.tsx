@@ -210,7 +210,7 @@ export default function HomePage() {
           "description": "DM-Labs.io designs and builds professional, custom websites for businesses in Paphos, across Cyprus, and in Greece. Mobile-first, SEO-ready websites with clear packages from €299.",
           "url": "https://dm-labs.io/",
           "logo": "https://dm-labs.io/logo.png",
-          "image": "https://dm-labs.io/og-image.png",
+          "image": "https://dm-labs.io/social/dm-labs-website-social-card.png",
           "telephone": "+35797472847",
           "email": "info@dm-labs.io",
           "priceRange": "€299-€1,499",

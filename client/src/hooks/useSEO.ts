@@ -19,7 +19,10 @@ const BASE_URL = SEO_BASE_URL;
 const DEFAULT_TITLE = "DM-Labs.io | Web Design in Paphos & Cyprus from €299";
 const DEFAULT_DESCRIPTION =
   "DM-Labs.io builds custom, mobile-first websites for businesses in Paphos and across Cyprus. Clear scope, SEO foundations, and packages from €299.";
-const DEFAULT_OG_IMAGE = "https://dm-labs.io/og-image.png";
+const DEFAULT_OG_IMAGE = "https://dm-labs.io/social/dm-labs-website-social-card.png";
+const DEFAULT_OG_IMAGE_ALT = "We build your website. Unbeatable prices. DM-Labs.io";
+const DEFAULT_OG_IMAGE_WIDTH = "1200";
+const DEFAULT_OG_IMAGE_HEIGHT = "675";
 
 interface SEOOptions {
   title?: string;
@@ -49,6 +52,10 @@ function setOgTag(property: string, content: string) {
     document.head.appendChild(el);
   }
   el.content = content;
+}
+
+function removeOgTag(property: string) {
+  document.querySelector(`meta[property="${property}"]`)?.remove();
 }
 
 function setCanonical(href: string) {
@@ -165,15 +172,26 @@ export function useSEO(options: SEOOptions = {}) {
     setOgTag("og:title", title);
     setOgTag("og:description", description);
     setOgTag("og:url", canonicalUrl);
+    const resolvedOgImageAlt = ogImageAlt ?? (ogImage === DEFAULT_OG_IMAGE ? DEFAULT_OG_IMAGE_ALT : undefined);
     setOgTag("og:image", ogImage);
-    if (ogImageAlt) setOgTag("og:image:alt", ogImageAlt);
+    if (resolvedOgImageAlt) setOgTag("og:image:alt", resolvedOgImageAlt);
+    else removeOgTag("og:image:alt");
+    if (ogImage === DEFAULT_OG_IMAGE) {
+      setOgTag("og:image:secure_url", DEFAULT_OG_IMAGE);
+      setOgTag("og:image:type", "image/png");
+      setOgTag("og:image:width", DEFAULT_OG_IMAGE_WIDTH);
+      setOgTag("og:image:height", DEFAULT_OG_IMAGE_HEIGHT);
+    } else {
+      ["og:image:secure_url", "og:image:type", "og:image:width", "og:image:height"].forEach(removeOgTag);
+    }
     setOgTag("og:type", ogType);
     setOgTag("og:site_name", "DM-Labs.io");
 
     // Update Twitter tags
-    setOgTag("twitter:title", title);
-    setOgTag("twitter:description", description);
-    setOgTag("twitter:image", ogImage);
+    setMetaTag("twitter:title", title);
+    setMetaTag("twitter:description", description);
+    setMetaTag("twitter:image", ogImage);
+    if (resolvedOgImageAlt) setMetaTag("twitter:image:alt", resolvedOgImageAlt);
 
     // Inject hreflang link tags using the same final canonical path normalizer.
     const pair = getHreflangPair(cleanPath);
@@ -192,7 +210,7 @@ export function useSEO(options: SEOOptions = {}) {
       });
     }
     setBreadcrumbSchema(cleanPath, finalPath, title);
-  }, [location, options.title, options.description, options.ogImage, options.ogType, options.canonicalPath]);
+  }, [location, options.title, options.description, options.ogImage, options.ogImageAlt, options.ogType, options.canonicalPath]);
 }
 
 export default useSEO;

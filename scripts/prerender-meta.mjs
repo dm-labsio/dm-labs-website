@@ -19,7 +19,8 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.resolve(__dirname, "../dist/public");
 const BASE_URL = "https://dm-labs.io";
-const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/social/dm-labs-website-social-card.png`;
+const DEFAULT_OG_IMAGE_ALT = "We build your website. Unbeatable prices. DM-Labs.io";
 
 // ─── English Blog Posts ───────────────────────────────────────────────────────
 
@@ -512,11 +513,17 @@ function injectMetaTags(html, route) {
   <meta property="og:description" content="${safeDesc}" />
   <meta property="og:url" content="${safeCanonical}" />
   <meta property="og:image" content="${safeOgImage}" />
+  <meta property="og:image:secure_url" content="${safeOgImage}" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta property="og:image:alt" content="${DEFAULT_OG_IMAGE_ALT}" />
   <meta property="og:type" content="${routePath.includes("/blog/") ? "article" : "website"}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${safeTitle}" />
   <meta name="twitter:description" content="${safeDesc}" />
-  <meta name="twitter:image" content="${safeOgImage}" />`;
+  <meta name="twitter:image" content="${safeOgImage}" />
+  <meta name="twitter:image:alt" content="${DEFAULT_OG_IMAGE_ALT}" />`;
 
   let result = html;
 

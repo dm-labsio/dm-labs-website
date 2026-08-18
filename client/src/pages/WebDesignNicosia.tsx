@@ -16,7 +16,7 @@ const schemaMarkup = {
   "description": "DM-Labs.io designs and builds professional websites for businesses in Nicosia and across Cyprus. Mobile-first, SEO-optimised, delivered in 5-14 days.",
   "url": "https://dm-labs.io/web-design-nicosia/",
   "logo": "https://dm-labs.io/logo.png",
-  "image": "https://dm-labs.io/og-image.png",
+  "image": "https://dm-labs.io/social/dm-labs-website-social-card.png",
   "telephone": "+35797472847",
   "email": "info@dm-labs.io",
   "address": {
