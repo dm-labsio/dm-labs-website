@@ -64,7 +64,7 @@ export default function ServicesElPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
-            {/* Starter */}
+            {/* Launch Website */}
             <AnimateIn delay={0.1}>
               <div className="dm-card h-full flex flex-col">
                 <div className="flex items-center gap-4 mb-4">
@@ -72,9 +72,8 @@ export default function ServicesElPage() {
                     <Globe size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Starter</p>
+                    <p className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Launch Website</p>
                       <p className="text-2xl font-bold text-[#111315]">€299 <span className="text-sm font-normal text-[#5B6472]">εφάπαξ</span></p>
-                      <p className="text-xs text-[#5B8CFF] font-medium">€249 με πακέτο συντήρησης</p>
                   </div>
                 </div>
                 <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
@@ -92,7 +91,7 @@ export default function ServicesElPage() {
               </div>
             </AnimateIn>
 
-            {/* Business - Προτεινόμενο */}
+            {/* Growth Website - Προτεινόμενο */}
             <AnimateIn delay={0.2}>
               <div className="brand-gradient-border h-full">
                 <div className="dm-card h-full !shadow-none relative flex flex-col">
@@ -102,9 +101,8 @@ export default function ServicesElPage() {
                       <Rocket size={24} className="text-[#8B5CFF]" strokeWidth={1.75} />
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-[#8B5CFF] uppercase tracking-wide">Business</p>
-                      <p className="text-2xl font-bold text-[#111315]">€399 <span className="text-sm font-normal text-[#5B6472]">εφάπαξ</span></p>
-                      <p className="text-xs text-[#8B5CFF] font-medium">€349 με πακέτο συντήρησης</p>
+                      <p className="text-xs font-semibold text-[#8B5CFF] uppercase tracking-wide">Growth Website</p>
+                      <p className="text-2xl font-bold text-[#111315]">€749 <span className="text-sm font-normal text-[#5B6472]">εφάπαξ</span></p>
                     </div>
                   </div>
                   <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
@@ -123,7 +121,7 @@ export default function ServicesElPage() {
               </div>
             </AnimateIn>
 
-            {/* Premium */}
+            {/* Pro Website */}
             <AnimateIn delay={0.3}>
               <div className="dm-card h-full flex flex-col">
                 <div className="flex items-center gap-4 mb-4">
@@ -131,16 +129,15 @@ export default function ServicesElPage() {
                     <Globe size={24} className="text-[#6FE3FF]" strokeWidth={1.75} />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-[#6FE3FF] uppercase tracking-wide">Premium</p>
-                      <p className="text-2xl font-bold text-[#111315]">€699 <span className="text-sm font-normal text-[#5B6472]">εφάπαξ</span></p>
-                      <p className="text-xs text-[#6FE3FF] font-medium">€649 με πακέτο συντήρησης</p>
+                    <p className="text-xs font-semibold text-[#6FE3FF] uppercase tracking-wide">Pro Website</p>
+                      <p className="text-2xl font-bold text-[#111315]">€1,499 <span className="text-sm font-normal text-[#5B6472]">εφάπαξ</span></p>
                   </div>
                 </div>
                 <p className="text-sm text-[#5B6472] mb-5 leading-relaxed">
                   Για επιχειρήσεις που θέλουν πλήρως custom ιστοσελίδα με όλα τα χαρακτηριστικά.
                 </p>
                 <ul className="space-y-3 mb-6 flex-1">
-                  {["Έως 7 σελίδες", "Πλήρως custom σχεδιασμός + animations", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Μαρτυρίες + gallery", "5 SEO blog άρθρα", "Πλήρης meta/SEO δομή", "Βελτιστοποίηση ταχύτητας", "Pop-up συμπεριλαμβάνεται", "Widget προσβασιμότητας (δωρεάν)", "5 γύροι αναθεωρήσεων", "Παράδοση σε 10-14 μέρες"].map((f) => (
+                  {["Έως 7 σελίδες", "Πλήρως custom σχεδιασμός + animations", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Μαρτυρίες + gallery", "5 SEO blog άρθρα", "Πλήρης meta/SEO δομή", "Βελτιστοποίηση ταχύτητας", "Pop-up συμπεριλαμβάνεται", "Widget προσβασιμότητας (δωρεάν)", "4 γύροι αναθεωρήσεων", "Παράδοση σε 10-14 μέρες"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
                       {f}
@@ -253,14 +250,14 @@ export default function ServicesElPage() {
             <AnimateIn>
               <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Προαιρετική Υπηρεσία</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-5">
-                Μηνιαία Συντήρηση - <span className="brand-gradient-text">από €39/μήνα</span>
+                Μηνιαία Συντήρηση - <span className="brand-gradient-text">από €69/μήνα</span>
               </h2>
               <p className="text-lg text-[#5B6472] mb-6 leading-relaxed">
                 Κρατήστε την ιστοσελίδα σας ενημερωμένη, ασφαλή και σε κορυφαία απόδοση. Επιλέξτε το πλάνο που ταιριάζει στις ανάγκες σας.
               </p>
               <div className="space-y-5 mb-8">
                 <div className="dm-card !p-5">
-                  <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Essential - €39/μήνα</p>
+                  <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Basic Care - €69/μήνα</p>
                   <ul className="space-y-2">
                     {["Έως 3 ενημερώσεις περιεχομένου/μήνα", "Κείμενα, εικόνες, τιμές & ωράρια", "Παρακολούθηση hosting & διαθεσιμότητας", "Υποστήριξη WhatsApp (απάντηση 48ω)", "Μηνιαίο backup"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
@@ -270,9 +267,9 @@ export default function ServicesElPage() {
                   </ul>
                 </div>
                 <div className="dm-card !p-5 border-[#8B5CFF]/30">
-                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Premium - €59/μήνα</p>
+                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Complete Care - €129/μήνα</p>
                   <ul className="space-y-2">
-                    {["Ενημερώσεις περιεχομένου", "Προτεραιότητα απόκρισης WhatsApp", "Μηνιαίος έλεγχος απόδοσης", "Εποχιακά banners & προσφορές", "Προσθήκη νέων ενοτήτων", "Παρακολούθηση hosting & διαθεσιμότητας", "Μηνιαίο backup"].map((f) => (
+                    {["Απεριόριστες λογικές ενημερώσεις", "Προτεραιότητα απόκρισης WhatsApp", "Μηνιαίος έλεγχος απόδοσης", "Εποχιακά banners & προσφορές", "Προσθήκη νέων ενοτήτων", "Παρακολούθηση hosting & διαθεσιμότητας", "Μηνιαίο backup"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}
                       </li>
@@ -289,9 +286,9 @@ export default function ServicesElPage() {
               <div className="dm-card !bg-[#F6F6F4]">
                 <div className="text-center py-8">
                   <div className="flex items-baseline justify-center gap-3 mb-2">
-                    <span className="text-5xl font-bold brand-gradient-text">€39</span>
+                    <span className="text-5xl font-bold brand-gradient-text">€69</span>
                     <span className="text-2xl text-[#5B6472]">ή</span>
-                    <span className="text-5xl font-bold brand-gradient-text">€59</span>
+                    <span className="text-5xl font-bold brand-gradient-text">€129</span>
                   </div>
                   <p className="text-lg text-[#5B6472] mb-6">ανά μήνα</p>
                   <div className="w-16 h-0.5 brand-gradient mx-auto rounded-full mb-6" />

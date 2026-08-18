@@ -50,7 +50,7 @@ const SERVICES: Record<string, {
       "Hero sections, service cards, testimonials, and CTAs",
       "Custom illustrations or photography integration",
       "Consistent design language across desktop and mobile",
-      "2 revision rounds included (Starter) / 3 rounds (Business) / 5 rounds (Premium)",
+      "2 revision rounds included (Launch) / 3 rounds (Growth) / 4 rounds (Pro)",
     ],
     howItWorks: [
       { step: "01", title: "Discovery", desc: "We start with a brief conversation to understand your business, your audience, and what you want visitors to do on your site." },
@@ -61,7 +61,7 @@ const SERVICES: Record<string, {
     faqs: [
       { q: "Do you use page builders like Wix or Squarespace?", a: "No. We write clean, hand-crafted code using React and modern web technologies. This gives you better performance, more flexibility, and no platform lock-in." },
       { q: "Can I provide my own design or branding?", a: "Absolutely. If you have an existing brand guide, logo, or design preferences, we'll work within those guidelines. If you don't, we'll help you develop a visual identity." },
-      { q: "How many pages are included?", a: "The Starter plan includes a Branded Business Page. The Business plan includes up to 5 pages, and the Premium plan includes up to 7 pages. Additional pages can be added for a small fee." },
+      { q: "How many pages are included?", a: "The Launch plan includes a Branded Business Page. The Growth plan includes up to 4 pages, and the Pro plan includes up to 7 pages. Additional pages can be added for a small fee." },
       { q: "What if I want changes after launch?", a: "Minor updates are included in our maintenance plans. Larger redesigns are quoted separately." },
     ],
     relatedServices: ["mobile-first", "seo", "performance"],
@@ -131,7 +131,7 @@ const SERVICES: Record<string, {
     ],
     faqs: [
       { q: "How long does SEO take to show results?", a: "SEO is a long-term investment. Most sites start seeing improvements within 3-6 months, with significant results after 6-12 months. We set up the foundation - ongoing content and link building accelerate results." },
-      { q: "Do you offer ongoing SEO services?", a: "Our Premium Maintenance plan includes monthly SEO monitoring and minor optimisations. Full content marketing and link building campaigns are available as a separate service." },
+      { q: "Do you offer ongoing SEO services?", a: "Our Complete Care plan includes monthly SEO monitoring and minor optimisations. Full content marketing and link building campaigns are available as a separate service." },
       { q: "Will my site rank on Google immediately after launch?", a: "Google needs time to crawl and index your site. We submit your sitemap to Google Search Console at launch to speed up the process, but ranking takes time and depends on competition in your industry." },
     ],
     relatedServices: ["performance", "custom-design", "mobile-first"],

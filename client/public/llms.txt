@@ -26,9 +26,13 @@ DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-
 
 ## Packages
 
-- Starter: from €299 — up to 5 pages, mobile-first, SEO setup, contact form, 1 month support
-- Business: from €399 — up to 10 pages, blog, advanced SEO, WhatsApp integration, 2 months support
-- Premium: from €699 — unlimited pages, multilingual, custom features, priority support
+- Launch Website: €299 — 2 revision rounds
+- Growth Website: €749 — 3 revision rounds
+- Pro Website: €1,499 — 4 revision rounds
+- Enterprise / Custom: from €1,499 — as quoted
+- Basic Care: €69/mo — up to 3 small updates per month
+- Complete Care: €129/mo — unlimited reasonable updates
+- SEO + GEO retainer: from €149/mo
 
 ## Target Markets
 
@@ -79,7 +83,7 @@ DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-
 ## Frequently Asked Questions
 
 **How long does it take to build a website?**
-The Starter package typically launches in 5 to 7 days. Business and Premium packages take 10 to 14 days depending on scope.
+Launch Website typically launches in 5 to 7 days. Growth Website typically launches in 7 to 10 days. Pro Website is quoted per project.
 
 **Do you work with clients remotely?**
 Yes. DM-Labs.io works with clients across Cyprus and Greece entirely remotely via WhatsApp, email, and video call.

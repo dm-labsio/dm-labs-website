@@ -453,15 +453,14 @@ export default function HomeElPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
 
-            {/* Starter */}
+            {/* Launch Website */}
             <AnimateIn delay={0.1}>
               <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Starter</p>
+                <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Launch Website</p>
                 <div className="flex items-baseline gap-1 mb-1">
                   <span className="text-4xl font-bold text-[#111315]">€299</span>
                   <span className="text-sm text-[#5B6472]">εφάπαξ</span>
                 </div>
-                <p className="text-xs text-[#5B8CFF] font-medium mb-4">€249 με πακέτο συντήρησης</p>
                 <p className="text-sm text-[#5B6472] mb-6">Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική παρουσία στο διαδίκτυο.</p>
                 <ul className="space-y-3 mb-8 flex-1">
                   {["Επώνυμη επαγγελματική σελίδα", "Responsive για κινητά", "Κουμπί WhatsApp", "Σύνδεσμοι social media", "Widget προσβασιμότητας (δωρεάν)", "2 γύροι αναθεωρήσεων", "Παράδοση σε 5-7 μέρες"].map((f) => (
@@ -477,17 +476,16 @@ export default function HomeElPage() {
               </div>
             </AnimateIn>
 
-            {/* Business - Προτεινόμενο */}
+            {/* Growth Website - Προτεινόμενο */}
             <AnimateIn delay={0.2}>
               <div className="brand-gradient-border h-full">
                 <div className="dm-card h-full flex flex-col !shadow-none relative">
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Προτεινόμενο</span>
-                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Business</p>
+                  <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Growth Website</p>
                   <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-4xl font-bold text-[#111315]">€399</span>
+                    <span className="text-4xl font-bold text-[#111315]">€749</span>
                     <span className="text-sm text-[#5B6472]">εφάπαξ</span>
                   </div>
-                  <p className="text-xs text-[#8B5CFF] font-medium mb-4">€349 με πακέτο συντήρησης</p>
                   <p className="text-sm text-[#5B6472] mb-6">Για εδραιωμένες επιχειρήσεις που χρειάζονται μια ολοκληρωμένη ιστοσελίδα με έμφαση στις μετατροπές.</p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {["Έως 5 σελίδες", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Ενότητα μαρτυριών", "Βασική SEO βελτιστοποίηση", "Βελτιστοποίηση ταχύτητας", "Widget προσβασιμότητας (δωρεάν)", "3 γύροι αναθεωρήσεων", "Παράδοση σε 7-10 μέρες"].map((f) => (
@@ -504,18 +502,17 @@ export default function HomeElPage() {
               </div>
             </AnimateIn>
 
-            {/* Premium */}
+            {/* Pro Website */}
             <AnimateIn delay={0.3}>
               <div className="dm-card h-full flex flex-col">
-                <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Premium</p>
+                <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Pro Website</p>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold text-[#111315]">€699</span>
+                  <span className="text-4xl font-bold text-[#111315]">€1,499</span>
                   <span className="text-sm text-[#5B6472]">εφάπαξ</span>
                 </div>
-                <p className="text-xs text-[#6FE3FF] font-medium mb-4">€649 με πακέτο συντήρησης</p>
                 <p className="text-sm text-[#5B6472] mb-6">Για επιχειρήσεις που θέλουν μια εντελώς custom, πλούσια σε λειτουργίες ιστοσελίδα με τα πάντα συμπεριλαμβανόμενα.</p>
                 <ul className="space-y-3 mb-8 flex-1">
-                  {["Έως 7 σελίδες", "Πλήρως custom σχεδιασμός + animations", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Μαρτυρίες + gallery", "5 SEO blog άρθρα", "Πλήρης meta/SEO δομή", "Pop-up συμπεριλαμβάνεται", "Widget προσβασιμότητας (δωρεάν)", "5 γύροι αναθεωρήσεων", "Παράδοση σε 10-14 μέρες"].map((f) => (
+                  {["Έως 7 σελίδες", "Πλήρως custom σχεδιασμός + animations", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Μαρτυρίες + gallery", "5 SEO blog άρθρα", "Πλήρης meta/SEO δομή", "Pop-up συμπεριλαμβάνεται", "Widget προσβασιμότητας (δωρεάν)", "4 γύροι αναθεωρήσεων", "Παράδοση σε 10-14 μέρες"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                       <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
                       {f}

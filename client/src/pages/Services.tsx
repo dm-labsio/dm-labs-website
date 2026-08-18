@@ -215,9 +215,9 @@ export default function Services() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
                 <div className="dm-card !p-5 h-full">
                   <p className="services-editorial-label text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Basic Care</p>
-                  <p className="services-editorial-care-price text-[#111315] mb-4">€49 <span>per month</span></p>
+                  <p className="services-editorial-care-price text-[#111315] mb-4">€69 <span>per month</span></p>
                   <ul className="space-y-2">
-                    {["Hosting monitoring", "Backups and bug fixing", "WhatsApp support", "Up to 5 small content updates per month"].map((f) => (
+                    {["Hosting monitoring", "Backups and bug fixing", "WhatsApp support", "Up to 3 small content updates per month"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#5B8CFF] shrink-0 mt-0.5" />{f}
                       </li>
@@ -228,7 +228,7 @@ export default function Services() {
                   <p className="services-editorial-label text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Complete Care</p>
                   <p className="services-editorial-care-price text-[#111315] mb-4">€129 <span>per month</span></p>
                   <ul className="space-y-2">
-                    {["Everything in Basic Care", "Ongoing content updates", "Priority WhatsApp support", "Monthly performance check", "One simple banner or section update each month"].map((f) => (
+                    {["Everything in Basic Care", "Unlimited reasonable updates", "Priority WhatsApp support", "Monthly performance check", "One simple banner or section update each month"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
                         <CheckCircle2 size={15} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}
                       </li>

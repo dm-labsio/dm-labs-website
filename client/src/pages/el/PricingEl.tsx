@@ -29,8 +29,8 @@ const packages = [
 ];
 
 const carePlans = [
-  { name: "Basic Care", price: "€49 / μήνα", features: ["Monitoring hosting", "Backups και διόρθωση bugs", "Υποστήριξη μέσω WhatsApp", "Έως 5 μικρές ενημερώσεις περιεχομένου κάθε μήνα", "Χωρίς συμβόλαιο — ακύρωση οποιαδήποτε στιγμή"] },
-  { name: "Complete Care", price: "€129 / μήνα", features: ["Όλα όσα περιλαμβάνει το Basic Care", "Συνεχείς ενημερώσεις περιεχομένου", "Priority WhatsApp support", "Μηνιαίος έλεγχος απόδοσης", "Ένα απλό banner ή section update τον μήνα", "Χωρίς συμβόλαιο — ακύρωση οποιαδήποτε στιγμή"] },
+  { name: "Basic Care", price: "€69 / μήνα", features: ["Monitoring hosting", "Backups και διόρθωση bugs", "Υποστήριξη μέσω WhatsApp", "Έως 3 μικρές ενημερώσεις περιεχομένου κάθε μήνα", "Χωρίς συμβόλαιο — ακύρωση οποιαδήποτε στιγμή"] },
+  { name: "Complete Care", price: "€129 / μήνα", features: ["Όλα όσα περιλαμβάνει το Basic Care", "Απεριόριστες λογικές ενημερώσεις", "Priority WhatsApp support", "Μηνιαίος έλεγχος απόδοσης", "Ένα απλό banner ή section update τον μήνα", "Χωρίς συμβόλαιο — ακύρωση οποιαδήποτε στιγμή"] },
 ];
 
 const faqs = [

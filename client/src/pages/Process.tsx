@@ -48,7 +48,7 @@ const steps = [
     title: "Review & Revisions",
     time: "1 to 2 days",
     desc: "You review the website and request changes. We refine everything until you're completely happy with the result.",
-    details: ["Full website preview", "Two Starter revisions, three Business revisions, five Premium revisions", "We adjust until you're satisfied", "No extra charges for included revisions"],
+    details: ["Full website preview", "Two Launch revisions, three Growth revisions, four Pro revisions", "We adjust until you're satisfied", "No extra charges for included revisions"],
     color: "#5B8CFF",
   },
   {
@@ -150,8 +150,8 @@ export default function Process() {
             <div className="process-editorial-timeline-grid grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {[
                 { label: "Launch Website", time: "5 to 7 days", price: "from €299" },
-                { label: "Business Website", time: "7 to 10 days", price: "from €749" },
-                { label: "Premium Website", time: "10 to 14 days", price: "from €1,499" },
+                { label: "Growth Website", time: "7 to 10 days", price: "from €749" },
+                { label: "Pro Website", time: "10 to 14 days", price: "from €1,499" },
               ].map((item) => (
                 <div key={item.label} className="process-editorial-timeline-card dm-card text-left !p-8">
                   <p className="process-editorial-timeline-time">{item.time}</p>

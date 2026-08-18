@@ -272,7 +272,7 @@ export default function WebDesignCrete() {
               {
                 name: "Pro Website",
                 price: "€1,499",
-                desc: "Up to 7 pages with custom design and animations, gallery, 5 SEO blog articles, full meta and SEO structure, pop-up, and 5 revisions. Live in 10-14 days.",
+                desc: "Up to 7 pages with custom design and animations, gallery, 5 SEO blog articles, full meta and SEO structure, pop-up, and 4 revisions. Live in 10-14 days.",
                 highlight: false
               }
             ].map((p) => (

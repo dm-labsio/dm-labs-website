@@ -43,7 +43,7 @@ const faqs = [
   {
     category: "After Launch & Website Care",
     items: [
-      { q: "What care plans do you offer?", a: "Basic Care is €49 per month and includes hosting monitoring, backups and bug fixing, WhatsApp support, and up to five small content updates each month. Complete Care is €129 per month and adds ongoing content updates, priority WhatsApp support, a monthly performance check, and one simple banner or section update each month." },
+      { q: "What care plans do you offer?", a: "Basic Care is €69 per month and includes hosting monitoring, backups and bug fixing, WhatsApp support, and up to 3 small content updates each month. Complete Care is €129 per month and adds unlimited reasonable updates, priority WhatsApp support, a monthly performance check, and one simple banner or section update each month." },
       { q: "What is not included in website care?", a: "New pages, copywriting, extra revision rounds beyond your package allowance, new integrations, redesigns, advanced or full SEO structure, and complex content migration are not included in either care plan and are quoted separately." },
       { q: "Can I change or cancel a care plan?", a: "Care-plan arrangements are confirmed before work begins. Contact us to discuss any change or cancellation, including the timing of scheduled work and access handover." },
     ],

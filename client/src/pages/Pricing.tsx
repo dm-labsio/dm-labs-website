@@ -76,13 +76,13 @@ const comparison: Array<{ feature: string; launch: PlanValue; growth: PlanValue;
 const carePlans = [
   {
     name: "Basic Care",
-    price: "€49",
+    price: "€69",
     colour: "#5B8CFF",
     features: [
       "Hosting monitoring",
       "Backups and bug fixing",
       "WhatsApp support",
-      "Up to 5 small content updates each month",
+      "Up to 3 small content updates each month",
     ],
   },
   {
@@ -92,7 +92,7 @@ const carePlans = [
     recommended: true,
     features: [
       "Everything in Basic Care",
-      "Ongoing content updates",
+      "Unlimited reasonable updates",
       "Priority WhatsApp support",
       "Monthly performance check",
       "One simple banner or section update each month",

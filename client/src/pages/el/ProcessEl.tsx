@@ -46,7 +46,7 @@ const steps = [
     title: "Αναθεωρήσεις",
     time: "1-2 μέρες",
     desc: "Ελέγχετε την ιστοσελίδα και ζητάτε αλλαγές. Βελτιώνουμε τα πάντα μέχρι να είστε απόλυτα ικανοποιημένοι με το αποτέλεσμα.",
-    details: ["Πλήρης προεπισκόπηση ιστοσελίδας", "Starter: 2 γύροι αναθεωρήσεων, Business: 3, Premium: 5", "Προσαρμόζουμε μέχρι να είστε ικανοποιημένοι", "Χωρίς επιπλέον χρεώσεις για τις συμπεριλαμβανόμενες αναθεωρήσεις"],
+    details: ["Πλήρης προεπισκόπηση ιστοσελίδας", "Launch: 2 γύροι αναθεωρήσεων, Growth: 3, Pro: 4", "Προσαρμόζουμε μέχρι να είστε ικανοποιημένοι", "Χωρίς επιπλέον χρεώσεις για τις συμπεριλαμβανόμενες αναθεωρήσεις"],
     color: "#5B8CFF",
   },
   {
@@ -147,8 +147,8 @@ export default function ProcessElPage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
                 { label: "Launch Website", time: "5-7 μέρες", price: "από €299" },
-                { label: "Business Ιστοσελίδα", time: "7-10 μέρες", price: "από €749" },
-                { label: "Premium Ιστοσελίδα", time: "10-14 μέρες", price: "από €1,499" },
+                { label: "Growth Website", time: "7-10 μέρες", price: "από €749" },
+                { label: "Pro Website", time: "10-14 μέρες", price: "από €1,499" },
               ].map((item) => (
                 <div key={item.label} className="dm-card text-center !p-8">
                   <p className="text-3xl font-bold brand-gradient-text mb-2">{item.time}</p>

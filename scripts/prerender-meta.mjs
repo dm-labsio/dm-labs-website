@@ -374,7 +374,7 @@ const ROUTE_FALLBACKS = {
     h1: "Website Pricing for Cyprus Businesses",
     paragraphs: [
       "Launch Website packages start at €299, Growth Website packages start at €749, and Pro Website packages start at €1,499.",
-      "Enterprise / Custom projects begin from €1,499 and are quoted by scope. Basic Care is €49 per month with up to five small content updates, while Complete Care is €129 per month with ongoing content updates.",
+      "Enterprise / Custom projects begin from €1,499 and are quoted by scope. Basic Care is €69 per month with up to 3 small content updates, while Complete Care is €129 per month with unlimited reasonable updates.",
     ],
   },
   "/faq": {
