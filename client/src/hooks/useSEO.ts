@@ -80,6 +80,55 @@ function setHreflangTags(enPath: string, elPath: string) {
   });
 }
 
+function setBreadcrumbSchema(cleanPath: string, finalPath: string, title: string) {
+  const isGreek = cleanPath.startsWith("/el/");
+  const pathWithoutLocale = isGreek ? cleanPath.slice(3) || "/" : cleanPath;
+  const category = pathWithoutLocale.startsWith("/services/")
+    ? "services"
+    : pathWithoutLocale.startsWith("/blog/")
+      ? "blog"
+      : pathWithoutLocale.startsWith("/web-design-")
+        ? "location"
+        : null;
+  const schemaId = "route-breadcrumb-jsonld";
+  const existing = document.getElementById(schemaId);
+
+  if (!category) {
+    existing?.remove();
+    return;
+  }
+
+  const homePath = isGreek ? "/el/" : "/";
+  const items: Array<{ "@type": string; position: number; name: string; item: string }> = [
+    { "@type": "ListItem", position: 1, name: isGreek ? "Αρχική" : "Home", item: `${BASE_URL}${homePath}` },
+  ];
+  if (category === "services" || category === "blog") {
+    const parentPath = `${isGreek ? "/el" : ""}/${category}/`;
+    items.push({
+      "@type": "ListItem",
+      position: 2,
+      name: category === "services" ? (isGreek ? "Υπηρεσίες" : "Services") : (isGreek ? "Άρθρα" : "Blog"),
+      item: `${BASE_URL}${parentPath}`,
+    });
+  }
+  items.push({
+    "@type": "ListItem",
+    position: items.length + 1,
+    name: title.replace(/\s*\|\s*DM-Labs\.io.*$/i, "").trim(),
+    item: `${BASE_URL}${finalPath}`,
+  });
+
+  const script = existing instanceof HTMLScriptElement ? existing : document.createElement("script");
+  script.id = schemaId;
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items,
+  });
+  if (!existing) document.head.appendChild(script);
+}
+
 export function useSEO(options: SEOOptions = {}) {
   const [location] = useLocation();
 
@@ -142,6 +191,7 @@ export function useSEO(options: SEOOptions = {}) {
         document.head.appendChild(el);
       });
     }
+    setBreadcrumbSchema(cleanPath, finalPath, title);
   }, [location, options.title, options.description, options.ogImage, options.ogType, options.canonicalPath]);
 }
 

@@ -35,6 +35,18 @@ const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
 
 const DEFAULT_RETURN_PATH = "/templates/";
 
+function setPreviewNoindexHead() {
+  let robots = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+  if (!robots) {
+    robots = document.createElement("meta");
+    robots.name = "robots";
+    document.head.appendChild(robots);
+  }
+  robots.content = "noindex, follow";
+  document.querySelector('link[rel="canonical"]')?.remove();
+  document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((element) => element.remove());
+}
+
 function getReturnPath() {
   const requestedPath = new URLSearchParams(window.location.search).get("from");
   if (!requestedPath || !requestedPath.startsWith("/") || requestedPath.startsWith("//")) {
@@ -53,6 +65,12 @@ export default function PreviewPage() {
   const returnPath = useMemo(getReturnPath, []);
 
   const entry = PREVIEW_MAP[params.id ?? ""];
+
+  // Preview mock-ups are useful conversion assets, not indexable editorial pages.
+  // This runs before the prerender snapshot and also protects the dynamic Express route.
+  useEffect(() => {
+    setPreviewNoindexHead();
+  }, []);
 
   // Use the explicit source path passed by the entry point, never history.back().
   const goBack = useCallback(() => {

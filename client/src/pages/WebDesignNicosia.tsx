@@ -14,7 +14,7 @@ const schemaMarkup = {
   "@type": "LocalBusiness",
   "name": "DM-Labs.io",
   "description": "DM-Labs.io designs and builds professional websites for businesses in Nicosia and across Cyprus. Mobile-first, SEO-optimised, delivered in 5-14 days.",
-  "url": "https://dm-labs.io/web-design-nicosia",
+  "url": "https://dm-labs.io/web-design-nicosia/",
   "logo": "https://dm-labs.io/logo.png",
   "image": "https://dm-labs.io/og-image.png",
   "telephone": "+35797472847",
@@ -75,7 +75,7 @@ export default function WebDesignNicosia() {
   useSEO({
     title: "Web Design Nicosia | Professional Websites from €299 | DM-Labs.io",
     description: "Professional web design for businesses in Nicosia, Cyprus. Custom websites built in 5-14 days from €299. Mobile-first, SEO-optimised, no hidden fees. Free consultation.",
-    canonicalPath: "/web-design-nicosia"
+    canonicalPath: "/web-design-nicosia/"
   });
 
   useEffect(() => {

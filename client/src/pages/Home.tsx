@@ -224,6 +224,20 @@ export default function HomePage() {
             { "@type": "Country", "name": "Cyprus" },
             { "@type": "Country", "name": "Greece" }
           ],
+          "employee": [
+            {
+              "@type": "Person",
+              "name": "Anastacia B.",
+              "jobTitle": "Creative Director & AI Specialist",
+              "image": "https://dm-labs.io/media/manus/AtkkCmVLLZyIDtDx.webp"
+            },
+            {
+              "@type": "Person",
+              "name": "Tom B.",
+              "jobTitle": "Technical Director & SEO Expert",
+              "image": "https://dm-labs.io/media/manus/DVIoYisVQvzbqoiR.webp"
+            }
+          ],
           "sameAs": ["https://www.instagram.com/dm_labs.io/"],
           "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Website Packages", "itemListElement": offers }
         },
@@ -329,7 +343,7 @@ export default function HomePage() {
                   subtitle={tpl.styleLabel}
                   imageUrl={tpl.imageUrl}
                   imageAlt={tpl.imageAlt}
-                  href={`/preview/${tpl.id}?from=%2F`}
+                  href={`/preview/${tpl.id}/?from=%2F`}
                   actionText="See example"
                 />
               </StaggerItem>

@@ -34,8 +34,8 @@ describe("homepage interactive example cards", () => {
       expect(homeSource).toContain(`previewUrl: "${preview}"`);
       expect(greekHomeSource).toContain(`previewUrl: "${preview}"`);
     }
-    expect(homeSource).toContain('href={`/preview/${tpl.id}?from=%2F`}');
-    expect(greekHomeSource).toContain('href={`/preview/${tpl.id}?from=%2Fel%2F`}');
+    expect(homeSource).toContain('href={`/preview/${tpl.id}/?from=%2F`}');
+    expect(greekHomeSource).toContain('href={`/preview/${tpl.id}/?from=%2Fel%2F`}');
   });
 
   it("uses controlled pointer tilt with keyboard access, reduced-motion support, and no state updates", () => {

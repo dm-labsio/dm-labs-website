@@ -11,7 +11,7 @@ const schemaMarkup = {
   "@type": "LocalBusiness",
   name: "DM-Labs.io",
   description: "Επαγγελματικό πρακτορείο σχεδιασμού ιστοσελίδων που εξυπηρετεί επιχειρήσεις στη Λεμεσό, Κύπρος. Προσαρμοσμένες ιστοσελίδες από €299.",
-  url: "https://dm-labs.io/el/web-design-limassol",
+  url: "https://dm-labs.io/el/web-design-limassol/",
   telephone: "+357-96-000000",
   areaServed: {
     "@type": "City",
@@ -65,7 +65,7 @@ export default function WebDesignLimassol() {
   useSEO({
     title: "Web Design Λεμεσός | Κατασκευή Ιστοσελίδας από €299 | DM-Labs.io",
     description: "Η DM-Labs.io κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λεμεσό από €299. Mobile-first, SEO-ready, γρήγορη παράδοση. Αποκτήστε online παρουσία σήμερα.",
-    canonicalPath: "/el/web-design-limassol",
+    canonicalPath: "/el/web-design-limassol/",
   });
   useEffect(() => {
     // Inject schema markup
@@ -290,4 +290,3 @@ export default function WebDesignLimassol() {
     </main>
   );
 }
-

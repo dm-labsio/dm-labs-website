@@ -5,6 +5,7 @@
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import { Link, useParams } from "wouter";
+import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import {
@@ -361,6 +362,48 @@ export default function ServiceDetailPage() {
     title: service ? `${service.title} | DM-Labs.io` : "Service | DM-Labs.io",
     description: service ? service.intro : "Professional web design services in Cyprus. Custom websites built fast, built right.",
   });
+
+  useEffect(() => {
+    const schemaId = "service-jsonld-schema";
+    if (!service) {
+      document.getElementById(schemaId)?.remove();
+      return;
+    }
+    const existing = document.getElementById(schemaId);
+    const serviceUrl = `https://dm-labs.io/services/${service.id}/`;
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": `${serviceUrl}#service`,
+          "name": service.title,
+          "description": service.intro,
+          "serviceType": service.title,
+          "url": serviceUrl,
+          "provider": { "@id": "https://dm-labs.io/#professionalservice" },
+          "areaServed": [
+            { "@type": "Country", "name": "Cyprus" },
+            { "@type": "Country", "name": "Greece" },
+          ],
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": service.faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a },
+          })),
+        },
+      ],
+    };
+    const script = existing instanceof HTMLScriptElement ? existing : document.createElement("script");
+    script.id = schemaId;
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(schema);
+    if (!existing) document.head.appendChild(script);
+    return () => document.getElementById(schemaId)?.remove();
+  }, [service]);
 
   if (!service) {
     return (

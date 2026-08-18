@@ -8,7 +8,7 @@ export default function WebsiteCostEl() {
   useSEO({
     title: "Πόσο Κοστίζει μια Ιστοσελίδα στην Κύπρο; (Ειλικρινής Οδηγός 2026) | DM-Labs.io",
     description: "Η αλήθεια για τις τιμές κατασκευής ιστοσελίδας στην Κύπρο το 2026. Τι περιλαμβάνεται, τι δεν περιλαμβάνεται και πώς να επιλέξετε σωστά.",
-    canonicalPath: "/el/blog/posso-kostizei-istoselidha-kypros"
+    canonicalPath: "/el/blog/posso-kostizei-istoselidha-kypros/",
   });
 
   return (

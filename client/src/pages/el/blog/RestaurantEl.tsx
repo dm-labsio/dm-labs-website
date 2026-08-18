@@ -5,7 +5,7 @@ export default function ΕστιατόριοEl() {
   useSEO({
     title: "Γιατί Κάθε Εστιατόριο στην Κύπρο Χρειάζεται Ιστοσελίδα | DM-Labs.io",
     description: "Το Facebook δεν αρκεί για εστιατόριο στην Κύπρο. Δείτε τι χάνετε χωρίς επαγγελματική ιστοσελίδα και πώς να το διορθώσετε.",
-    canonicalPath: "/el/blog/istoselidha-estiatorio-kypros"
+    canonicalPath: "/el/blog/istoselidha-estiatorio-kypros/",
   });
 
   return (

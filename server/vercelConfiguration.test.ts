@@ -98,17 +98,23 @@ describe("Vercel static deployment configuration", () => {
   });
 
   it("sets a one-year immutable cache header for every local media asset", () => {
-    expect(vercelConfig.headers).toEqual([
-      {
-        source: "/media/(.*)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-    ]);
+    expect(vercelConfig.headers).toContainEqual({
+      source: "/media/(.*)",
+      headers: [
+        {
+          key: "Cache-Control",
+          value: "public, max-age=31536000, immutable",
+        },
+      ],
+    });
+    expect(vercelConfig.headers).toContainEqual({
+      source: "/preview/(.*)",
+      headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }],
+    });
+    expect(vercelConfig.headers).toContainEqual({
+      source: "/previews/(.*)",
+      headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }],
+    });
   });
 
   it("keeps the esbuild-backed prerender command and emits root 404.html after 69 routes", () => {

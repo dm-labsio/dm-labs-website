@@ -5,7 +5,7 @@ export default function YogaEl() {
   useSEO({
     title: "Ιστοσελίδα για Yoga και Pilates Studio στην Κύπρο | DM-Labs.io",
     description: "Γιατί το yoga ή pilates studio σας στην Κύπρο χρειάζεται ιστοσελίδα και όχι μόνο Instagram. Πρακτικός οδηγός.",
-    canonicalPath: "/el/blog/istoselidha-yoga-pilates-studio-kypros"
+    canonicalPath: "/el/blog/istoselidha-yoga-pilates-studio-kypros/",
   });
 
   return (

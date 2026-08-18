@@ -11,7 +11,7 @@ const schemaMarkup = {
   "@type": "LocalBusiness",
   "name": "DM-Labs.io",
   "description": "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε όλη την Κύπρο - Λεμεσός, Λευκωσία, Λάρνακα, Πάφος, Αμμόχωστος και όλες τις επαρχίες.",
-  "url": "https://dm-labs.io/el/web-design-cyprus",
+  "url": "https://dm-labs.io/el/web-design-cyprus/",
   "telephone": "+35797472847",
   "priceRange": "€€",
   "areaServed": [
@@ -97,7 +97,7 @@ export default function WebDesignCyprusEl() {
   useSEO({
     title: "Κατασκευή Ιστοσελίδας Κύπρος | Επαγγελματικές Ιστοσελίδες από €299 | DM-Labs.io",
     description: "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε όλη την Κύπρο - Λεμεσός, Λευκωσία, Λάρνακα, Πάφος και πέρα. Custom ιστοσελίδες από €299. Mobile-first, βελτιστοποιημένες για SEO, παράδοση σε 5-14 μέρες. Δωρεάν συμβουλευτική.",
-    canonicalPath: "/el/web-design-cyprus"
+    canonicalPath: "/el/web-design-cyprus/"
   });
 
   useEffect(() => {

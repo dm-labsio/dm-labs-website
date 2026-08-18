@@ -125,7 +125,7 @@ export default function WebDesignCrete() {
   useSEO({
     title: "Web Design Crete | Professional Websites from €299 | DM-Labs.io",
     description: "Professional web design for small businesses across Crete - Heraklion, Chania, Rethymno and beyond. Custom websites from €299, delivered in 5-14 days. Mobile-first, SEO-ready, no hidden fees.",
-    canonicalPath: "/web-design-crete"
+    canonicalPath: "/web-design-crete/"
   });
 
   useEffect(() => {

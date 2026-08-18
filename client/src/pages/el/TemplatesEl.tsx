@@ -1157,7 +1157,7 @@ export default function TemplatesEl() {
   useSEO({
     title: "Παραδείγματα Ιστοσελίδων | Δείτε τη Δουλειά μας | DM-Labs.io",
     description: "Δείτε πραγματικά παραδείγματα ιστοσελίδων από τη DM-Labs.io για εστιατόρια, σαλόνια, οδοντιατρεία, στούντιο yoga και άλλα. Ξεκινώντας από €299.",
-    canonicalPath: "/el/templates",
+    canonicalPath: "/el/templates/",
   });
   const [location] = useLocation();
   const [activeIndustry, setActiveIndustry] = useState("all");

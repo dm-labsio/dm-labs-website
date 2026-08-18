@@ -121,6 +121,19 @@ function isKnownRoute(urlPath: string): boolean {
   return false;
 }
 
+function previewNoindexHtml(html: string) {
+  let output = html.replace(
+    /<meta name="robots"[^>]*>/,
+    '<meta name="robots" content="noindex, follow" />',
+  );
+  if (!output.includes('name="robots"')) {
+    output = output.replace("</head>", '  <meta name="robots" content="noindex, follow" />\n</head>');
+  }
+  output = output.replace(/<link rel="canonical"[^>]*>\n?/g, "");
+  output = output.replace(/<link rel="alternate"[^>]*hreflang[^>]*>\n?/g, "");
+  return output;
+}
+
 export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
     middlewareMode: true,
@@ -154,7 +167,9 @@ export async function setupVite(app: Express, server: Server) {
         `src="/src/main.tsx?v=${nanoid()}"`
       );
       const page = await vite.transformIndexHtml(url, template);
-      res.status(200).set({ "Content-Type": "text/html" }).end(page);
+      const urlPath = url.split("?")[0].replace(/\/$/, "") || "/";
+      const html = urlPath.startsWith("/preview/") ? previewNoindexHtml(page) : page;
+      res.status(200).set({ "Content-Type": "text/html" }).end(html);
     } catch (e) {
       vite.ssrFixStacktrace(e as Error);
       next(e);
@@ -193,6 +208,20 @@ export function serveStatic(app: Express) {
   // ── 3. SPA routing with real 404 (Task 1) ──────────────────────────────────
   app.use("*", (req, res) => {
     const urlPath = (req.originalUrl || req.path || "/").split("?")[0].replace(/\/$/, "") || "/";
+
+    // Showcase mock-ups remain useful conversion assets but must never become
+    // competing search documents or inherit a homepage canonical.
+    if (urlPath.startsWith("/preview/")) {
+      const rootHtmlPath = path.resolve(distPath, "index.html");
+      try {
+        return res
+          .status(200)
+          .set({ "Content-Type": "text/html" })
+          .end(previewNoindexHtml(fs.readFileSync(rootHtmlPath, "utf-8")));
+      } catch {
+        return res.status(200).set({ "X-Robots-Tag": "noindex, follow" }).send("");
+      }
+    }
 
     // Serve prerendered file if it exists
     if (urlPath !== "/") {

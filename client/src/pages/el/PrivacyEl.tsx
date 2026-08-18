@@ -8,7 +8,7 @@ export default function PrivacyEl() {
   useSEO({
     title: "Πολιτική Απορρήτου | DM-Labs.io",
     description: "Πολιτική απορρήτου της DM-Labs.io. Πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τα προσωπικά σας δεδομένα σύμφωνα με τον GDPR.",
-    canonicalPath: "/el/privacy"
+    canonicalPath: "/el/privacy/",
   });
 
   return (

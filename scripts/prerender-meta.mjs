@@ -454,7 +454,7 @@ function buildFallbackBody(route) {
     .map((paragraph) => `<p style="margin:0 0 1rem;color:#475569;line-height:1.65">${paragraph}</p>`)
     .join("\n");
 
-  return `\n      <main data-seo-fallback="true" style="max-width:1120px;margin:0 auto;padding:5rem 1.5rem;font-family:Inter,Arial,sans-serif">\n        <p style="margin:0 0 .75rem;color:#5b8cff;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase">DM-Labs.io</p>\n        <h1 style="margin:0 0 1.25rem;color:#0f172a;font-size:clamp(2rem,5vw,3.5rem);line-height:1.12">${escapeHtml(fallback.h1)}</h1>\n        ${paragraphs}\n        <p style="margin:1.5rem 0 0"><a href="/contact" style="color:#355ec9;font-weight:600">Get a free consultation</a> · <a href="/pricing" style="color:#355ec9;font-weight:600">View website packages</a></p>\n      </main>`;
+  return `\n      <main data-seo-fallback="true" style="max-width:1120px;margin:0 auto;padding:5rem 1.5rem;font-family:Inter,Arial,sans-serif">\n        <p style="margin:0 0 .75rem;color:#5b8cff;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase">DM-Labs.io</p>\n        <h1 style="margin:0 0 1.25rem;color:#0f172a;font-size:clamp(2rem,5vw,3.5rem);line-height:1.12">${escapeHtml(fallback.h1)}</h1>\n        ${paragraphs}\n        <p style="margin:1.5rem 0 0"><a href="/contact/" style="color:#355ec9;font-weight:600">Get a free consultation</a> · <a href="/pricing/" style="color:#355ec9;font-weight:600">View website packages</a></p>\n      </main>`;
 }
 
 // ─── HTML injection helper ────────────────────────────────────────────────────

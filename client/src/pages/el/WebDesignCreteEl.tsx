@@ -125,7 +125,7 @@ export default function WebDesignCreteEl() {
   useSEO({
     title: "Κατασκευή Ιστοσελίδας Κρήτη | Web Design από €299 | DM-Labs.io",
     description: "Επαγγελματικό web design για μικρές επιχειρήσεις σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο. Custom ιστοσελίδες από €299, παράδοση σε 5-14 ημέρες. Mobile-first, SEO-ready, χωρίς κρυφές χρεώσεις.",
-    canonicalPath: "/el/web-design-crete"
+    canonicalPath: "/el/web-design-crete/"
   });
 
   useEffect(() => {
@@ -349,4 +349,3 @@ export default function WebDesignCreteEl() {
     </main>
   );
 }
-

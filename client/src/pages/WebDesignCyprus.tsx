@@ -25,11 +25,11 @@ const schemaMarkup = {
   "@graph": [
     {
       "@type": "ProfessionalService",
-      "@id": "https://dm-labs.io/web-design-cyprus#professionalservice",
+      "@id": "https://dm-labs.io/web-design-cyprus/#professionalservice",
       "name": "DM-Labs.io",
       "alternateName": "DM-Labs",
       "description": "Professional website design and web development for businesses across Cyprus.",
-      "url": "https://dm-labs.io/web-design-cyprus",
+      "url": "https://dm-labs.io/web-design-cyprus/",
       "telephone": "+35797472847",
       "email": "info@dm-labs.io",
       "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
@@ -53,7 +53,7 @@ export default function WebDesignCyprus() {
   useSEO({
     title: "Web Design Cyprus | Website Packages from €299 | DM-Labs.io",
     description: "Professional web design for Cyprus businesses. Launch websites from €299, Growth from €749, Pro from €1,499, and custom website projects from DM-Labs.io.",
-    canonicalPath: "/web-design-cyprus",
+    canonicalPath: "/web-design-cyprus/",
   });
 
   useEffect(() => {

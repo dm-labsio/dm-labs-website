@@ -66,7 +66,7 @@ export default function WebDesignThessalonikiEl() {
     title: "Κατασκευή Ιστοσελίδας Θεσσαλονίκη | Επαγγελματικές Ιστοσελίδες από €249 | DM-Labs.io",
     description:
       "Επαγγελματικό web design για επιχειρήσεις στη Θεσσαλονίκη. Προσαρμοσμένες ιστοσελίδες που κατασκευάζονται σε 5-14 ημέρες από €249. Mobile-first, βελτιστοποιημένες για SEO, χωρίς κρυφές χρεώσεις. Λάβετε μια δωρεάν συμβουλευτική συνάντηση.",
-    canonicalPath: "/el/web-design-thessaloniki",
+    canonicalPath: "/el/web-design-thessaloniki/",
   });
 
   useEffect(() => {
@@ -344,4 +344,3 @@ export default function WebDesignThessalonikiEl() {
     </main>
   );
 }
-

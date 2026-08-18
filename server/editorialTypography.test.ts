@@ -238,8 +238,8 @@ describe("Examples index editorial typography", () => {
 
   it("preserves the Examples index metadata and its existing preview links", () => {
     expect(templatesSource).toContain('title: "Website Examples | See Our Work | DM-Labs.io"');
-    expect(templatesSource).toContain('canonicalPath: "/templates"');
-    expect(templatesSource).toContain('href={`/preview/${template.id}`}');
+    expect(templatesSource).toContain('canonicalPath: "/templates/"');
+    expect(templatesSource).toContain('href={`/preview/${template.id}/`}');
   });
 });
 

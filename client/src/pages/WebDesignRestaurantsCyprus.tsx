@@ -25,10 +25,10 @@ const schemaMarkup = {
   "@graph": [
     {
       "@type": "ProfessionalService",
-      "@id": "https://dm-labs.io/web-design-restaurants-cyprus#professionalservice",
+      "@id": "https://dm-labs.io/web-design-restaurants-cyprus/#professionalservice",
       "name": "DM-Labs.io",
       "description": "DM-Labs.io designs and builds professional, mobile-first websites for restaurants, tavernas, cafés, and bars across Cyprus.",
-      "url": "https://dm-labs.io/web-design-restaurants-cyprus",
+      "url": "https://dm-labs.io/web-design-restaurants-cyprus/",
       "telephone": "+35797472847",
       "email": "info@dm-labs.io",
       "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
@@ -48,7 +48,7 @@ export default function WebDesignRestaurantsCyprus() {
   useSEO({
     title: "Restaurant Website Design Cyprus | DM-Labs.io",
     description: "DM-Labs.io builds professional, mobile-first restaurant websites in Cyprus. Clear package options from €299 for menus, contact paths, bookings, and search-friendly foundations.",
-    canonicalPath: "/web-design-restaurants-cyprus",
+    canonicalPath: "/web-design-restaurants-cyprus/",
   });
 
   useEffect(() => {

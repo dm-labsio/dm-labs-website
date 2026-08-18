@@ -143,6 +143,12 @@ export default function FAQEl() {
               </div>
             </AnimateIn>
           ))}
+          <p className="text-sm text-[#5B6472] leading-relaxed mt-2">
+            Για περισσότερες λεπτομέρειες, δείτε τις υπηρεσίες μας για{" "}
+            <a href="/el/services/mobile-first/" className="text-[#5B8CFF] font-medium hover:underline">mobile-first ιστοσελίδες</a>{" "}
+            και{" "}
+            <a href="/el/services/seo/" className="text-[#5B8CFF] font-medium hover:underline">SEO βάσεις</a>.
+          </p>
         </div>
       </section>
 

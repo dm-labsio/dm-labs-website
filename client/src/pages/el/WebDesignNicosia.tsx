@@ -14,7 +14,7 @@ const schemaMarkup = {
   "@type": "LocalBusiness",
   "name": "DM-Labs.io",
   "description": "Η DM-Labs.io σχεδιάζει και κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λευκωσία και σε όλη την Κύπρο. Mobile-first, βελτιστοποιημένες για SEO, με παράδοση σε 5-14 ημέρες.",
-  "url": "https://dm-labs.io/el/web-design-nicosia",
+  "url": "https://dm-labs.io/el/web-design-nicosia/",
   "logo": "https://dm-labs.io/logo.png",
   "image": "https://dm-labs.io/og-image.png",
   "telephone": "+35797472847",
@@ -73,7 +73,7 @@ export default function WebDesignNicosiaEl() {
   useSEO({
     title: "Κατασκευή Ιστοσελίδας Λευκωσία | Επαγγελματικές Ιστοσελίδες από €249 | DM-Labs.io",
     description: "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις στη Λευκωσία, Κύπρος. Προσαρμοσμένες ιστοσελίδες σε 5-14 ημέρες από €249. Mobile-first, βελτιστοποιημένες για SEO, χωρίς κρυφές χρεώσεις. Δωρεάν συμβουλευτική.",
-    canonicalPath: "/el/web-design-nicosia"
+    canonicalPath: "/el/web-design-nicosia/"
   });
 
   useEffect(() => {
@@ -379,4 +379,3 @@ export default function WebDesignNicosiaEl() {
     </main>
   );
 }
-

@@ -11,8 +11,8 @@ const previewSource = readFileSync(resolve(projectDirectory, "client/src/pages/P
 
 describe("homepage preview return paths", () => {
   it("opens English and Greek example cards in the in-app preview with explicit source paths", () => {
-    expect(homeSource).toContain('href={`/preview/${tpl.id}?from=%2F`}');
-    expect(greekHomeSource).toContain('href={`/preview/${tpl.id}?from=%2Fel%2F`}');
+    expect(homeSource).toContain('href={`/preview/${tpl.id}/?from=%2F`}');
+    expect(greekHomeSource).toContain('href={`/preview/${tpl.id}/?from=%2Fel%2F`}');
   });
 
   it("uses the passed source path for X close, Escape, error recovery, and browser back", () => {

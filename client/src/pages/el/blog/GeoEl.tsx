@@ -6,7 +6,7 @@ export default function GeoEl() {
   useSEO({
     title: "GEO: Πώς να Εμφανίζεται η Επιχείρησή σας στο ChatGPT | DM-Labs.io",
     description: "Το GEO (Generative Engine Optimization) είναι το νέο SEO. Μάθετε γιατί οι κυπριακές επιχειρήσεις είναι αόρατες στο ChatGPT και τι χρειάζεται για να αλλάξει αυτό.",
-    canonicalPath: "/el/blog/geo-vrethite-apo-chatgpt-kypros",
+    canonicalPath: "/el/blog/geo-vrethite-apo-chatgpt-kypros/",
   });
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">

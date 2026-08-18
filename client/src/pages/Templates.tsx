@@ -878,7 +878,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
 
           {/* Open Full Preview - primary CTA */}
           <a
-            href={`/preview/${template.id}`}
+            href={`/preview/${template.id}/`}
             className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
             style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
           >
@@ -1163,7 +1163,7 @@ export default function Templates() {
   useSEO({
     title: "Website Examples | See Our Work | DM-Labs.io",
     description: "Browse real website examples built by DM-Labs.io for restaurants, salons, dental clinics, yoga studios, and more. Starting from \u20ac299.",
-    canonicalPath: "/templates",
+    canonicalPath: "/templates/",
   });
   const [location] = useLocation();
   const [activeIndustry, setActiveIndustry] = useState("all");

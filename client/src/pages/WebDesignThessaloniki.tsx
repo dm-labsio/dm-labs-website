@@ -69,7 +69,7 @@ export default function WebDesignThessaloniki() {
   useSEO({
     title: "Web Design Thessaloniki | Professional Websites from €299 | DM-Labs.io",
     description: "Professional web design for businesses in Thessaloniki. Custom websites built in 5-14 days from €299. Mobile-first, SEO-optimised, no hidden fees. Get a free consultation.",
-    canonicalPath: "/web-design-thessaloniki"
+    canonicalPath: "/web-design-thessaloniki/"
   });
 
   useEffect(() => {

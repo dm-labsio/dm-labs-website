@@ -4,7 +4,7 @@ export default function TermsEl() {
   useSEO({
     title: "Όροι Χρήσης | DM-Labs.io",
     description: "Όροι χρήσης της ιστοσελίδας DM-Labs.io.",
-    canonicalPath: "/el/terms"
+    canonicalPath: "/el/terms/",
   });
 
   return (

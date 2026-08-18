@@ -25,10 +25,10 @@ const schemaMarkup = {
   "@graph": [
     {
       "@type": "ProfessionalService",
-      "@id": "https://dm-labs.io/web-design-limassol#professionalservice",
+      "@id": "https://dm-labs.io/web-design-limassol/#professionalservice",
       "name": "DM-Labs.io",
       "description": "DM-Labs.io designs and builds professional, mobile-first websites for businesses in Limassol and across Cyprus.",
-      "url": "https://dm-labs.io/web-design-limassol",
+      "url": "https://dm-labs.io/web-design-limassol/",
       "telephone": "+35797472847",
       "email": "info@dm-labs.io",
       "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
@@ -45,7 +45,7 @@ export default function WebDesignLimassol() {
   useSEO({
     title: "Web Design Limassol | Website Packages from €299 | DM-Labs.io",
     description: "DM-Labs.io builds professional, mobile-first websites for Limassol businesses. Clear website packages from €299 and custom scope for advanced requirements.",
-    canonicalPath: "/web-design-limassol",
+    canonicalPath: "/web-design-limassol/",
   });
 
   useEffect(() => {

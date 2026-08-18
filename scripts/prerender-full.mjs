@@ -252,8 +252,9 @@ async function main() {
       const page = await context.newPage();
 
       try {
-        // Navigate and wait for network to settle + React to hydrate
-        await page.goto(url, { waitUntil: "networkidle", timeout: 30_000 });
+        // Vercel Analytics intentionally keeps a request open, so wait for the
+        // document and then use the explicit React hydration check below.
+        await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30_000 });
 
         // Wait for the root div to have real content (React hydration complete)
         await page.waitForFunction(

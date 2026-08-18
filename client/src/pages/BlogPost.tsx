@@ -32,7 +32,7 @@ export default function BlogPost() {
     canonicalPath: post ? `/blog/${post.slug}/` : undefined,
   });
 
-  // Inject Article JSON-LD schema for Google rich results
+  // Visible post metadata is serialized as BlogPosting during prerender.
   useEffect(() => {
     const SCHEMA_ID = "article-jsonld-schema";
     let el = document.getElementById(SCHEMA_ID) as HTMLScriptElement | null;
@@ -40,16 +40,17 @@ export default function BlogPost() {
     if (post) {
       const schema = {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "BlogPosting",
         "headline": post.metaTitle,
         "description": post.metaDescription,
         "image": post.coverImage,
         "datePublished": post.date,
         "dateModified": post.date,
         "author": {
-          "@type": "Organization",
-          "name": "DM-Labs.io",
-          "url": "https://dm-labs.io"
+          "@type": "Person",
+          "name": "Anastacia B.",
+          "jobTitle": "Creative Director & AI Specialist",
+          "image": "https://dm-labs.io/media/manus/AtkkCmVLLZyIDtDx.webp"
         },
         "publisher": {
           "@type": "Organization",

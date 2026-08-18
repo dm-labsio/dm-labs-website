@@ -6,7 +6,7 @@ export default function WebDesignGreeceEl() {
   useSEO({
     title: "Κατασκευή Ιστοσελίδας στην Ελλάδα: Πλήρης Οδηγός 2026 | DM-Labs.io",
     description: "Όλα όσα χρειάζεται να ξέρει μια ελληνική επιχείρηση για την κατασκευή ιστοσελίδας το 2026 — κόστος, τι να ζητήσετε από έναν web designer, και πώς να βρεθείτε στη Google.",
-    canonicalPath: "/el/blog/web-design-ellada-odigos-2026",
+    canonicalPath: "/el/blog/web-design-ellada-odigos-2026/",
   });
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
