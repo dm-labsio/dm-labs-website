@@ -116,6 +116,7 @@ const ROUTES = [
   "/he/blog/yoga-pilates-studio-website-cyprus",
   "/he/blog/how-to-get-found-on-google-cyprus",
   "/he/blog/restaurant-website-design-cyprus",
+  "/he/blog/wix-vs-professional-web-designer-cyprus",
   // EN services sub-pages
   "/services/custom-design",
   "/services/mobile-first",

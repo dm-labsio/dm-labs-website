@@ -8,6 +8,7 @@ const articles = [
   { slug: "yoga-pilates-studio-website-cyprus", title: "למה סטודיו יוגה או פילאטיס בקפריסין צריך אתר", excerpt: "איך אתר הופך חיפוש מקומי לתלמיד חדש, גם כשיש כבר קהילה ב-Instagram.", date: "21 במרץ 2026", time: "5 דקות קריאה", category: "בריאות וכושר", cover: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&q=80", alt: "סטודיו יוגה ופילאטיס" },
   { slug: "how-to-get-found-on-google-cyprus", title: "איך לגרום לעסק להופיע ב-Google בקפריסין", excerpt: "מדריך פשוט ל-Google Maps, ביקורות, אתר מהיר ו-SEO מקומי.", date: "21 במרץ 2026", time: "7 דקות קריאה", category: "SEO וצמיחה", cover: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&q=80", alt: "נראות עסקית ב-Google" },
   { slug: "restaurant-website-design-cyprus", title: "למה כל מסעדה בקפריסין צריכה אתר", excerpt: "מה Facebook לא יכול לעשות, ואיך אתר טוב מביא סועדים, הזמנות ונראות ב-Google.", date: "6 באפריל 2026", time: "6 דקות קריאה", category: "עיצוב אתרים", cover: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80", alt: "אתר למסעדה בקפריסין" },
+  { slug: "wix-vs-professional-web-designer-cyprus", title: "Wix או מעצב אתרים מקצועי: מה עדיף לעסק?", excerpt: "השוואה ישירה בין Wix, WordPress ואתר מקצועי, כדי לבחור נכון לעסק בקפריסין.", date: "23 באפריל 2026", time: "7 דקות קריאה", category: "עיצוב אתרים", cover: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80", alt: "Wix מול אתר מקצועי לעסק" },
 ];
 
 export default function BlogHe() {

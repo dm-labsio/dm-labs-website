@@ -70,6 +70,8 @@ const STATIC_ROUTES = new Set([
   "/he/blog/how-to-get-found-on-google-cyprus",
   "/he/blog/how-to-get-found-on-google-cyprus/",
   "/he/blog/restaurant-website-design-cyprus/",
+  "/he/blog/wix-vs-professional-web-designer-cyprus",
+  "/he/blog/wix-vs-professional-web-designer-cyprus/",
   "/templates",
   "/examples",
   "/blog",

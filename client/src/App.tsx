@@ -45,6 +45,7 @@ import BeautyStudioHe from "./pages/he/BeautyStudioHe";
 import YogaPilatesHe from "./pages/he/YogaPilatesHe";
 import GoogleVisibilityHe from "./pages/he/GoogleVisibilityHe";
 import RestaurantHe from "./pages/he/RestaurantHe";
+import WixVsDesignerHe from "./pages/he/WixVsDesignerHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -174,6 +175,8 @@ function MainRouter() {
         <Route path="/he/blog/how-to-get-found-on-google-cyprus" component={GoogleVisibilityHe} />
         <Route path="/he/blog/how-to-get-found-on-google-cyprus/" component={GoogleVisibilityHe} />
         <Route path="/he/blog/restaurant-website-design-cyprus/" component={RestaurantHe} />
+        <Route path="/he/blog/wix-vs-professional-web-designer-cyprus" component={WixVsDesignerHe} />
+        <Route path="/he/blog/wix-vs-professional-web-designer-cyprus/" component={WixVsDesignerHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />
