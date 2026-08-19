@@ -9,6 +9,7 @@ const articles = [
   { slug: "how-to-get-found-on-google-cyprus", title: "איך לגרום לעסק להופיע ב-Google בקפריסין", excerpt: "מדריך פשוט ל-Google Maps, ביקורות, אתר מהיר ו-SEO מקומי.", date: "21 במרץ 2026", time: "7 דקות קריאה", category: "SEO וצמיחה", cover: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&q=80", alt: "נראות עסקית ב-Google" },
   { slug: "restaurant-website-design-cyprus", title: "למה כל מסעדה בקפריסין צריכה אתר", excerpt: "מה Facebook לא יכול לעשות, ואיך אתר טוב מביא סועדים, הזמנות ונראות ב-Google.", date: "6 באפריל 2026", time: "6 דקות קריאה", category: "עיצוב אתרים", cover: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80", alt: "אתר למסעדה בקפריסין" },
   { slug: "wix-vs-professional-web-designer-cyprus", title: "Wix או מעצב אתרים מקצועי: מה עדיף לעסק?", excerpt: "השוואה ישירה בין Wix, WordPress ואתר מקצועי, כדי לבחור נכון לעסק בקפריסין.", date: "23 באפריל 2026", time: "7 דקות קריאה", category: "עיצוב אתרים", cover: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80", alt: "Wix מול אתר מקצועי לעסק" },
+  { slug: "web-design-greece-guide-2026", title: "עיצוב אתרים ביוון: מה כל עסק צריך לדעת ב-2026", excerpt: "עלויות, SEO, דו-לשוניות ומה צריך לבדוק לפני שבונים או מחליפים אתר לעסק ביוון.", date: "12 ביוני 2026", time: "7 דקות קריאה", category: "עיצוב אתרים", cover: "https://images.unsplash.com/photo-1555993539-1732b0258235?w=1200&q=80", alt: "מדריך לעיצוב אתרים ביוון" },
 ];
 
 export default function BlogHe() {

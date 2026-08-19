@@ -117,6 +117,7 @@ const ROUTES = [
   "/he/blog/how-to-get-found-on-google-cyprus",
   "/he/blog/restaurant-website-design-cyprus",
   "/he/blog/wix-vs-professional-web-designer-cyprus",
+  "/he/blog/web-design-greece-guide-2026",
   // EN services sub-pages
   "/services/custom-design",
   "/services/mobile-first",

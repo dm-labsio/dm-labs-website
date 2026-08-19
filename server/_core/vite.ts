@@ -72,6 +72,8 @@ const STATIC_ROUTES = new Set([
   "/he/blog/restaurant-website-design-cyprus/",
   "/he/blog/wix-vs-professional-web-designer-cyprus",
   "/he/blog/wix-vs-professional-web-designer-cyprus/",
+  "/he/blog/web-design-greece-guide-2026",
+  "/he/blog/web-design-greece-guide-2026/",
   "/templates",
   "/examples",
   "/blog",
