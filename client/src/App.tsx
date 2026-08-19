@@ -30,6 +30,7 @@ import TemplatesHe from "./pages/he/TemplatesHe";
 import PrivacyHe from "./pages/he/PrivacyHe";
 import CookiePolicyHe from "./pages/he/CookiePolicyHe";
 import TermsHe from "./pages/he/TermsHe";
+import CustomDesignHe from "./pages/he/CustomDesignHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -130,6 +131,8 @@ function MainRouter() {
         <Route path="/he/cookies/" component={CookiePolicyHe} />
         <Route path="/he/terms" component={TermsHe} />
         <Route path="/he/terms/" component={TermsHe} />
+        <Route path="/he/services/custom-design" component={CustomDesignHe} />
+        <Route path="/he/services/custom-design/" component={CustomDesignHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />

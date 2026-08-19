@@ -12,6 +12,11 @@ describe("Hebrew locale foundation", () => {
       el: "/el/terms",
       he: "/he/terms",
     });
+    expect(getHreflangRouteSet("/services/custom-design/")).toEqual({
+      en: "/services/custom-design",
+      el: "/el/services/custom-design",
+      he: "/he/services/custom-design",
+    });
     expect(getHreflangRouteSet("/blog/google-search-console-ai-seo-prompts/")).toEqual({
       en: "/blog/google-search-console-ai-seo-prompts",
       el: null,
@@ -54,6 +59,7 @@ describe("Hebrew locale foundation", () => {
     expect(router).toContain('<Route path="/he/privacy" component={PrivacyHe} />');
     expect(router).toContain('<Route path="/he/cookies" component={CookiePolicyHe} />');
     expect(router).toContain('<Route path="/he/terms" component={TermsHe} />');
+    expect(router).toContain('<Route path="/he/services/custom-design" component={CustomDesignHe} />');
     expect(prerender).toContain('"/he"');
     expect(prerender).toContain('"/he/services"');
     expect(prerender).toContain('"/he/process"');
@@ -63,6 +69,7 @@ describe("Hebrew locale foundation", () => {
     expect(prerender).toContain('"/he/privacy"');
     expect(prerender).toContain('"/he/cookies"');
     expect(prerender).toContain('"/he/terms"');
+    expect(prerender).toContain('"/he/services/custom-design"');
     expect(serverRoutes).toContain('"/he"');
     expect(serverRoutes).toContain('"/he/services"');
     expect(serverRoutes).toContain('"/he/process"');
@@ -72,6 +79,10 @@ describe("Hebrew locale foundation", () => {
     expect(serverRoutes).toContain('"/he/privacy"');
     expect(serverRoutes).toContain('"/he/cookies"');
     expect(serverRoutes).toContain('"/he/terms"');
+    expect(serverRoutes).toContain('"/he/services/custom-design"');
+    expect(router).not.toMatch(/path="\/he\/services\/mobile-first/);
+    expect(prerender).not.toMatch(/"\/he\/services\/mobile-first/);
+    expect(serverRoutes).not.toMatch(/"\/he\/services\/mobile-first/);
     expect(router).not.toMatch(/path="\/he\/blog/);
     expect(prerender).not.toMatch(/"\/he\/blog/);
     expect(serverRoutes).not.toMatch(/"\/he\/blog/);
@@ -87,5 +98,17 @@ describe("Hebrew locale foundation", () => {
     expect(terms).toContain('href="/he/privacy/"');
     expect(terms).toContain('href="/he/cookies/"');
     expect(terms).not.toContain("AnimateIn");
+  });
+
+  it("keeps Hebrew custom design as a complete, staged RTL service counterpart", () => {
+    const customDesign = readSource("client/src/pages/he/CustomDesignHe.tsx");
+
+    expect(customDesign).toContain('canonicalPath: "/he/services/custom-design/"');
+    expect(customDesign).toContain("noindex: true");
+    expect(customDesign).toContain("עיצוב אתרים בהתאמה אישית");
+    expect(customDesign).toContain("FAQPage");
+    expect(customDesign).toContain('href="/he/contact/"');
+    expect(customDesign).toContain('href="/he/pricing/"');
+    expect(customDesign).toContain('dir="rtl"');
   });
 });
