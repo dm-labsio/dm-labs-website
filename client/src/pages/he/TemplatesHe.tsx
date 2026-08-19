@@ -1242,10 +1242,10 @@ export default function TemplatesHe() {
             <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>דוגמאות לאתרים</p>
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight"><span>מצאו את</span><span className="block"><em>סגנון האתר</em> שלכם</span></h1>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
-              עברו בין עיצובים לפי ענף. כל דוגמה מותאמת לחלוטין לעסק שלכם, עם הלוגו, הצבעים והתוכן שלכם.
+              עברו בין עיצובים לפי ענף וקחו השראה לאתר הבא שלכם. כל כיוון יכול לקבל את השפה, הצבעים והתוכן שמרגישים בדיוק כמו העסק שלכם.
             </p>
             <p className="text-sm text-gray-400 max-w-xl mx-auto">
-              אלו <strong className="text-gray-500">דוגמאות אינטראקטיביות</strong>, לא חבילות קבועות. כל אתר נבנה מאפס עבור העסק שלכם.
+              אלו <strong className="text-gray-500">נקודות השראה אינטראקטיביות</strong>. כל אתר נבנה מאפס עבור העסק שלכם.
             </p>
           </motion.div>
         </div>
@@ -1299,9 +1299,9 @@ export default function TemplatesHe() {
       <section className="py-20" style={{ borderTop: "1px solid rgba(226,229,234,0.8)" }}>
         <div className="container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">לא מצאתם את מה שחיפשתם?</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">מחפשים משהו שמרגיש בדיוק שלכם?</h2>
             <p className="text-gray-500 mb-8 max-w-lg mx-auto">
-              כל אתר שאנחנו בונים הוא מותאם אישית לחלוטין. ספרו לנו על העסק ונעצב משהו ייחודי רק עבורכם.
+              כל אתר שאנחנו בונים מותאם אישית. ספרו לנו על העסק, ונחשוב יחד על כיוון ייחודי שמרגיש נכון עבורו.
             </p>
             <a
               href="/he/contact/"

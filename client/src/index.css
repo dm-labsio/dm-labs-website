@@ -142,15 +142,73 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  html[dir="rtl"] body {
-    font-family: 'Heebo', Arial, sans-serif;
+  html[dir="rtl"] {
+    --hebrew-body-font: "Google Sans", "Heebo", Arial, sans-serif;
+    --hebrew-display-font: "Heebo", Arial, sans-serif;
+    --hebrew-accent-font: "Huninn", "Heebo", Arial, sans-serif;
+  }
+  html[dir="rtl"] body,
+  html[dir="rtl"] button,
+  html[dir="rtl"] input,
+  html[dir="rtl"] textarea,
+  html[dir="rtl"] select {
+    font-family: var(--hebrew-body-font);
     text-align: start;
   }
-  html[dir="rtl"] .hebrew-home h1,
+  html[dir="rtl"] h1,
+  html[dir="rtl"] .hebrew-home h1 {
+    font-family: var(--hebrew-display-font);
+    font-weight: 900;
+    font-variation-settings: "wght" 900;
+    letter-spacing: -0.06em;
+    line-height: 0.88;
+  }
+  html[dir="rtl"] h2,
   html[dir="rtl"] .hebrew-home h2 {
-    font-family: 'Frank Ruhl Libre', 'Heebo', serif;
-    font-weight: 700;
-    letter-spacing: -0.025em;
+    font-family: var(--hebrew-display-font);
+    font-weight: 850;
+    font-variation-settings: "wght" 850;
+    letter-spacing: -0.047em;
+    line-height: 0.98;
+  }
+  html[dir="rtl"] h3 {
+    font-family: var(--hebrew-display-font);
+    font-weight: 800;
+    font-variation-settings: "wght" 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  html[dir="rtl"] .hebrew-home h1 em,
+  html[dir="rtl"] .hebrew-home h2 em {
+    font-family: var(--hebrew-accent-font);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+  }
+  html[dir="rtl"] .hebrew-home .brand-gradient-text,
+  html[dir="rtl"] .hebrew-home [class*="text-[#8B7355]"],
+  html[dir="rtl"] .contact-editorial-label,
+  html[dir="rtl"] .contact-editorial-form-label,
+  html[dir="rtl"] .faq-editorial-label,
+  html[dir="rtl"] .process-editorial-label,
+  html[dir="rtl"] .process-editorial-step-index,
+  html[dir="rtl"] .process-editorial-timeline-price {
+    font-family: var(--hebrew-accent-font);
+    font-weight: 400;
+    letter-spacing: 0.015em;
+  }
+  html[dir="rtl"] .hebrew-home p,
+  html[dir="rtl"] .hebrew-home li,
+  html[dir="rtl"] .hebrew-home label,
+  html[dir="rtl"] .hebrew-home td,
+  html[dir="rtl"] .hebrew-home th {
+    font-family: var(--hebrew-body-font);
+    font-weight: 400;
+    letter-spacing: -0.012em;
+  }
+  html[dir="rtl"] .hebrew-ltr,
+  html[dir="rtl"] [dir="ltr"] {
+    unicode-bidi: isolate;
   }
   html[dir="rtl"] .hebrew-ltr {
     direction: ltr;

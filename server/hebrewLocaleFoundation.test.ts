@@ -44,6 +44,20 @@ describe("Hebrew locale foundation", () => {
     expect(styles).toContain('html[dir="rtl"] body');
   });
 
+  it("keeps the approved Hebrew type hierarchy scoped to RTL routes", () => {
+    const shell = readSource("client/index.html");
+    const styles = readSource("client/src/index.css");
+
+    expect(shell).toContain("family=Google+Sans");
+    expect(shell).toContain("family=Heebo:wght@100..900");
+    expect(shell).toContain("family=Huninn");
+    expect(styles).toContain('--hebrew-body-font: "Google Sans", "Heebo"');
+    expect(styles).toContain('--hebrew-display-font: "Heebo"');
+    expect(styles).toContain('--hebrew-accent-font: "Huninn"');
+    expect(styles).toContain('html[dir="rtl"] h1');
+    expect(styles).toContain('font-weight: 900');
+  });
+
   it("extends browser hreflang output without changing incomplete-route behavior", () => {
     const seoHook = readSource("client/src/hooks/useSEO.ts");
 
@@ -168,7 +182,8 @@ describe("Hebrew locale foundation", () => {
 
     expect(mobileFirst).toContain('canonicalPath: "/he/services/mobile-first/"');
     expect(mobileFirst).toContain("noindex: true");
-    expect(mobileFirst).toContain("פיתוח בגישת Mobile-First");
+    expect(mobileFirst).toContain("פיתוח עם מובייל");
+    expect(mobileFirst).toContain("פיתוח אתרים בגישת Mobile-First");
     expect(mobileFirst).toContain("FAQPage");
     expect(mobileFirst).toContain('href="/he/contact/"');
     expect(mobileFirst).toContain('href="/he/pricing/"');
