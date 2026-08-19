@@ -44,11 +44,11 @@ const STRINGS = {
   he: {
     title: "אנחנו משתמשים בעוגיות",
     body: "אנחנו משתמשים בעוגיות כדי לשפר את החוויה באתר. ניתן לבחור אילו עוגיות לאפשר.",
-    acceptAll: "אישור הכול",
-    reject: "דחייה",
-    manage: "ניהול",
-    cookiePolicy: "מדיניות עוגיות באנגלית",
-    privacyPolicy: "מדיניות פרטיות באנגלית",
+    acceptAll: "אני מאשר/ת",
+    reject: "לא, תודה",
+    manage: "הגדרות",
+    cookiePolicy: "מדיניות עוגיות",
+    privacyPolicy: "מדיניות פרטיות",
     chooseWhich: "בחרו אילו עוגיות לאפשר:",
     essential: "חיוניות",
     required: "נדרשות",
@@ -56,8 +56,8 @@ const STRINGS = {
     helpUs: "עוזרות לנו להשתפר",
     savePrefs: "שמירת העדפות",
     back: "חזרה",
-    cookieHref: "/cookies/",
-    privacyHref: "/privacy/",
+    cookieHref: "/he/cookies/",
+    privacyHref: "/he/privacy/",
   },
 };
 
@@ -97,13 +97,13 @@ export default function CookieBanner() {
 
   return (
     <div
-      className="fixed bottom-24 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-sm z-50 bg-white rounded-2xl shadow-2xl border border-[#E2E5EA] p-5"
+      className={`fixed bottom-6 left-4 right-4 sm:max-w-sm z-50 bg-white rounded-2xl shadow-2xl border border-[#E2E5EA] p-5 ${isHebrew ? "sm:left-1/2 sm:right-auto sm:-translate-x-1/2 text-center" : "sm:left-auto sm:right-6"}`}
       role="dialog" aria-label="Cookie consent" aria-live="polite"
       dir={isHebrew ? "rtl" : undefined}
     >
-      <div className="flex items-start justify-between gap-3 mb-3">
+      <div className={`flex items-start justify-between gap-3 mb-3 ${isHebrew ? "relative justify-center" : ""}`}>
         <h2 className="font-semibold text-sm text-[#111315]">{t.title}</h2>
-        <button onClick={reject} className="text-[#5B6472] hover:text-[#111315] transition-colors p-1 rounded" aria-label="Close">
+        <button onClick={reject} className={`text-[#5B6472] hover:text-[#111315] transition-colors p-1 rounded ${isHebrew ? "absolute left-0 top-0" : ""}`} aria-label="Close">
           <X size={16} />
         </button>
       </div>
@@ -112,10 +112,10 @@ export default function CookieBanner() {
         <>
           <p className="text-xs text-[#5B6472] leading-relaxed mb-4">{t.body}</p>
           <div className="flex flex-col gap-2">
-            <button onClick={accept} className="w-full py-2.5 rounded-xl brand-gradient text-white text-sm font-semibold hover:opacity-90 transition-opacity">{t.acceptAll}</button>
+            <button onClick={accept} className="w-full min-h-11 py-2.5 rounded-xl brand-gradient text-white text-sm font-semibold hover:opacity-90 transition-opacity flex items-center justify-center" style={{ textAlign: "center" }}>{t.acceptAll}</button>
             <div className="flex gap-2">
-              <button onClick={reject} className="flex-1 py-2.5 rounded-xl border border-[#E2E5EA] text-sm font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors">{t.reject}</button>
-              <button onClick={() => setShowPrefs(true)} className="flex-1 py-2.5 rounded-xl border border-[#E2E5EA] text-sm font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors">{t.manage}</button>
+            <button onClick={reject} className="flex-1 min-h-11 py-2.5 rounded-xl border border-[#E2E5EA] text-sm font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center">{t.reject}</button>
+            <button onClick={() => setShowPrefs(true)} className="flex-1 min-h-11 py-2.5 rounded-xl border border-[#E2E5EA] text-sm font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center">{t.manage}</button>
             </div>
           </div>
           <p className="text-xs text-[#5B6472] mt-3 text-center">
@@ -151,7 +151,7 @@ export default function CookieBanner() {
               </button>
             </div>
           </div>
-          <button onClick={savePrefs} className="w-full py-2.5 rounded-xl brand-gradient text-white text-sm font-semibold hover:opacity-90 transition-opacity">{t.savePrefs}</button>
+          <button onClick={savePrefs} className="w-full min-h-11 py-2.5 rounded-xl brand-gradient text-white text-sm font-semibold hover:opacity-90 transition-opacity flex items-center justify-center" style={{ textAlign: "center" }}>{t.savePrefs}</button>
           <button onClick={() => setShowPrefs(false)} className="w-full mt-2 py-2 text-xs text-[#5B6472] hover:text-[#111315] transition-colors">{t.back}</button>
         </>
       )}

@@ -58,6 +58,18 @@ describe("Hebrew locale foundation", () => {
     expect(styles).toContain('font-weight: 900');
   });
 
+  it("keeps Hebrew cookie consent centered with natural local actions", () => {
+    const cookieBanner = readSource("client/src/components/CookieBanner.tsx");
+
+    expect(cookieBanner).toContain('acceptAll: "אני מאשר/ת"');
+    expect(cookieBanner).toContain('reject: "לא, תודה"');
+    expect(cookieBanner).toContain('manage: "הגדרות"');
+    expect(cookieBanner).toContain('cookieHref: "/he/cookies/"');
+    expect(cookieBanner).toContain('privacyHref: "/he/privacy/"');
+    expect(cookieBanner).toContain('sm:left-1/2 sm:right-auto sm:-translate-x-1/2 text-center');
+    expect(cookieBanner).toContain('flex items-center justify-center');
+  });
+
   it("extends browser hreflang output without changing incomplete-route behavior", () => {
     const seoHook = readSource("client/src/hooks/useSEO.ts");
 
