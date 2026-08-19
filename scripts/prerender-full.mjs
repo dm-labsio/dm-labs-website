@@ -107,6 +107,7 @@ const ROUTES = [
   "/he/services/performance",
   "/he/services/security",
   "/he/services/turnaround",
+  "/he/services/maps",
   // EN services sub-pages
   "/services/custom-design",
   "/services/mobile-first",

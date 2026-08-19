@@ -41,6 +41,7 @@ export const EN_TO_HE_PATHS: Readonly<Record<string, string | null>> = {
   "/services/performance": "/he/services/performance",
   "/services/security": "/he/services/security",
   "/services/turnaround": "/he/services/turnaround",
+  "/services/maps": "/he/services/maps",
 };
 
 const EL_LANGUAGE_TOGGLE_FALLBACKS: Readonly<Record<string, string>> = {
