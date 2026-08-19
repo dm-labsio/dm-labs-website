@@ -37,4 +37,9 @@ describe("Greek Terms of Service parity", () => {
     expect(words(greekTerms)).toBeGreaterThanOrEqual(Math.floor(words(englishTerms) * 0.7));
     expect(greekTerms).not.toContain("Χρησιμοποιώντας την ιστοσελίδα dm-labs.io, αποδέχεστε τους παρακάτω όρους χρήσης.");
   });
+
+  it("keeps both legal documents immediately visible without reveal animation", () => {
+    expect(englishTerms).not.toContain("AnimateIn");
+    expect(greekTerms).not.toContain("AnimateIn");
+  });
 });

@@ -1,6 +1,5 @@
 /* D&M LABS - Terms of Service */
 import { Link } from "wouter";
-import AnimateIn from "@/components/AnimateIn";
 import { ChevronLeft } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -20,17 +19,14 @@ export default function Terms() {
             Back to Home
           </Link>
           <div className="text-center">
-          <AnimateIn>
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Legal</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Terms of Service — DM-Labs.io</h1>
             <p className="text-sm text-[#5B6472]">Last updated: 19 August 2026</p>
-          </AnimateIn>
           </div>
         </div>
       </section>
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl">
-          <AnimateIn>
             <div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">1. About these terms</h2>
@@ -191,7 +187,6 @@ export default function Terms() {
               <Link href="/privacy/" className="text-sm text-[#5B8CFF] hover:underline">Privacy Policy</Link>
               <Link href="/cookies/" className="text-sm text-[#5B8CFF] hover:underline">Cookie Policy</Link>
             </div>
-          </AnimateIn>
         </div>
       </section>
     </>

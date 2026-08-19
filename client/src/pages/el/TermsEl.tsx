@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import AnimateIn from "@/components/AnimateIn";
 import { useSEO } from "@/hooks/useSEO";
 
 export default function TermsEl() {
@@ -12,13 +11,13 @@ export default function TermsEl() {
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
-        <div className="container relative z-10"><div className="text-center"><AnimateIn>
+        <div className="container relative z-10"><div className="text-center">
           <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Νομικά</p>
           <h1 className="text-3xl sm:text-5xl font-bold text-[#111315] mb-5">Όροι Χρήσης — DM-Labs.io</h1>
           <p className="text-sm text-[#5B6472]">Τελευταία ενημέρωση: 19 Αυγούστου 2026</p>
-        </AnimateIn></div></div>
+        </div></div>
       </section>
-      <section className="section-spacing bg-white"><div className="container max-w-3xl"><AnimateIn>
+      <section className="section-spacing bg-white"><div className="container max-w-3xl">
         <div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">
           <div><h2 className="text-xl font-semibold text-[#111315] mb-3">1. Σχετικά με αυτούς τους όρους</h2><p>Οι παρόντες όροι εξηγούν τι μπορείτε να αναμένετε από τη DM-Labs.io και τι αναμένουμε από εσάς. Ισχύουν για κάθε έργο και κάθε πλάνο συντήρησης που παρέχουμε. Όπου το τιμολόγιο ή η γραπτή προσφορά σας αναφέρει κάτι πιο συγκεκριμένο, υπερισχύει εκείνο το έγγραφο.</p></div>
           <div><h2 className="text-xl font-semibold text-[#111315] mb-3">2. Οι υπηρεσίες μας</h2><p>Σχεδιάζουμε, κατασκευάζουμε, φιλοξενούμε, συντηρούμε και βελτιστοποιούμε ιστοσελίδες για επιχειρήσεις. Τα πακέτα ιστοσελίδων ξεκινούν από €299. Τα πλάνα συντήρησης, τα SEO retainers και οι πρόσθετες υπηρεσίες είναι προαιρετικά και αναφέρονται στο τιμολόγιό σας.</p></div>
@@ -38,7 +37,7 @@ export default function TermsEl() {
           <div><h2 className="text-xl font-semibold text-[#111315] mb-3">16. Επικοινωνία</h2><p>info@dm-labs.io</p></div>
         </div>
         <div className="mt-10 pt-8 border-t border-[#E2E5EA] flex gap-4"><Link href="/el/privacy/" className="text-sm text-[#5B8CFF] hover:underline">Πολιτική Απορρήτου</Link><Link href="/el/cookies/" className="text-sm text-[#5B8CFF] hover:underline">Πολιτική Cookies</Link></div>
-      </AnimateIn></div></section>
+      </div></section>
     </main>
   );
 }
