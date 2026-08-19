@@ -95,9 +95,12 @@ describe("Hebrew locale foundation", () => {
     expect(router).toContain('<Route path="/he/services/performance" component={PerformanceHe} />');
     expect(prerender).toContain('"/he/services/performance"');
     expect(serverRoutes).toContain('"/he/services/performance"');
-    expect(router).not.toMatch(/path="\/he\/services\/security/);
-    expect(prerender).not.toMatch(/"\/he\/services\/security/);
-    expect(serverRoutes).not.toMatch(/"\/he\/services\/security/);
+    expect(router).toContain('<Route path="/he/services/security" component={SecurityHe} />');
+    expect(prerender).toContain('"/he/services/security"');
+    expect(serverRoutes).toContain('"/he/services/security"');
+    expect(router).not.toMatch(/path="\/he\/services\/turnaround/);
+    expect(prerender).not.toMatch(/"\/he\/services\/turnaround/);
+    expect(serverRoutes).not.toMatch(/"\/he\/services\/turnaround/);
     expect(router).not.toMatch(/path="\/he\/blog/);
     expect(prerender).not.toMatch(/"\/he\/blog/);
     expect(serverRoutes).not.toMatch(/"\/he\/blog/);

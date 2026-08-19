@@ -34,6 +34,7 @@ import CustomDesignHe from "./pages/he/CustomDesignHe";
 import MobileFirstHe from "./pages/he/MobileFirstHe";
 import SeoHe from "./pages/he/SeoHe";
 import PerformanceHe from "./pages/he/PerformanceHe";
+import SecurityHe from "./pages/he/SecurityHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -142,6 +143,8 @@ function MainRouter() {
         <Route path="/he/services/seo/" component={SeoHe} />
         <Route path="/he/services/performance" component={PerformanceHe} />
         <Route path="/he/services/performance/" component={PerformanceHe} />
+        <Route path="/he/services/security" component={SecurityHe} />
+        <Route path="/he/services/security/" component={SecurityHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />
