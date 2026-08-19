@@ -73,9 +73,11 @@ const EL_NAV_LINKS = [
 
 const HE_NAV_LINKS = [
   { label: "דף הבית", href: "/he/" },
-  { label: "שירותים", href: "/he/#services" },
-  { label: "תהליך", href: "/he/#process" },
-  { label: "תמחור", href: "/he/#pricing" },
+  { label: "שירותים", href: "/he/services/" },
+  { label: "תהליך", href: "/he/process/" },
+  { label: "תמחור", href: "/he/pricing/" },
+  { label: "שאלות נפוצות", href: "/he/faq/" },
+  { label: "יצירת קשר", href: "/he/contact/" },
 ];
 
 const HEBREW_WHATSAPP_URL = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20DM-Labs.io%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%9C%D7%92%D7%91%D7%99%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.";
