@@ -44,7 +44,8 @@ describe("Hebrew shared shell and staged entry route", () => {
     expect(serverRoutes).toContain("הדף לא נמצא | DM-Labs.io");
     expect(notFound).toContain("הדף לא נמצא");
     expect(app).toContain('<Route path="/he/services" component={ServicesHe} />');
-    expect(app).toContain('<Route path="/he/blog" component={BlogHe} />');
-    expect(app).toContain('<Route path="/he/blog/website-cost-cyprus-2026-guide" component={WebsiteCostHe} />');
+    expect(app).not.toContain('path="/he/blog"');
+    expect(prerender).not.toContain('"/he/blog"');
+    expect(serverRoutes).not.toContain('"/he/blog"');
   });
 });

@@ -44,14 +44,6 @@ export const EN_TO_HE_PATHS: Readonly<Record<string, string | null>> = {
   "/services/maps": "/he/services/maps",
   "/services/forms": "/he/services/forms",
   "/services/social": "/he/services/social",
-  "/blog": "/he/blog",
-  "/blog/website-cost-cyprus-2026-guide": "/he/blog/website-cost-cyprus-2026-guide",
-  "/blog/web-design-nail-salon-beauty-studio-cyprus": "/he/blog/web-design-nail-salon-beauty-studio-cyprus",
-  "/blog/yoga-pilates-studio-website-cyprus": "/he/blog/yoga-pilates-studio-website-cyprus",
-  "/blog/how-to-get-found-on-google-cyprus": "/he/blog/how-to-get-found-on-google-cyprus",
-  "/blog/restaurant-website-design-cyprus": "/he/blog/restaurant-website-design-cyprus",
-  "/blog/wix-vs-professional-web-designer-cyprus": "/he/blog/wix-vs-professional-web-designer-cyprus",
-  "/blog/web-design-greece-guide-2026": "/he/blog/web-design-greece-guide-2026",
 };
 
 const EL_LANGUAGE_TOGGLE_FALLBACKS: Readonly<Record<string, string>> = {
