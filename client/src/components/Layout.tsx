@@ -75,6 +75,7 @@ const HE_NAV_LINKS = [
   { label: "דף הבית", href: "/he/" },
   { label: "שירותים", href: "/he/services/" },
   { label: "תהליך", href: "/he/process/" },
+  { label: "דוגמאות", href: "/he/templates/" },
   { label: "תמחור", href: "/he/pricing/" },
   { label: "שאלות נפוצות", href: "/he/faq/" },
   { label: "יצירת קשר", href: "/he/contact/" },
