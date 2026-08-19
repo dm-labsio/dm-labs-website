@@ -17,6 +17,11 @@ describe("Hebrew locale foundation", () => {
       el: "/el/services/custom-design",
       he: "/he/services/custom-design",
     });
+    expect(getHreflangRouteSet("/services/mobile-first/")).toEqual({
+      en: "/services/mobile-first",
+      el: "/el/services/mobile-first",
+      he: "/he/services/mobile-first",
+    });
     expect(getHreflangRouteSet("/blog/google-search-console-ai-seo-prompts/")).toEqual({
       en: "/blog/google-search-console-ai-seo-prompts",
       el: null,
@@ -60,6 +65,7 @@ describe("Hebrew locale foundation", () => {
     expect(router).toContain('<Route path="/he/cookies" component={CookiePolicyHe} />');
     expect(router).toContain('<Route path="/he/terms" component={TermsHe} />');
     expect(router).toContain('<Route path="/he/services/custom-design" component={CustomDesignHe} />');
+    expect(router).toContain('<Route path="/he/services/mobile-first" component={MobileFirstHe} />');
     expect(prerender).toContain('"/he"');
     expect(prerender).toContain('"/he/services"');
     expect(prerender).toContain('"/he/process"');
@@ -70,6 +76,7 @@ describe("Hebrew locale foundation", () => {
     expect(prerender).toContain('"/he/cookies"');
     expect(prerender).toContain('"/he/terms"');
     expect(prerender).toContain('"/he/services/custom-design"');
+    expect(prerender).toContain('"/he/services/mobile-first"');
     expect(serverRoutes).toContain('"/he"');
     expect(serverRoutes).toContain('"/he/services"');
     expect(serverRoutes).toContain('"/he/process"');
@@ -80,9 +87,10 @@ describe("Hebrew locale foundation", () => {
     expect(serverRoutes).toContain('"/he/cookies"');
     expect(serverRoutes).toContain('"/he/terms"');
     expect(serverRoutes).toContain('"/he/services/custom-design"');
-    expect(router).not.toMatch(/path="\/he\/services\/mobile-first/);
-    expect(prerender).not.toMatch(/"\/he\/services\/mobile-first/);
-    expect(serverRoutes).not.toMatch(/"\/he\/services\/mobile-first/);
+    expect(serverRoutes).toContain('"/he/services/mobile-first"');
+    expect(router).not.toMatch(/path="\/he\/services\/seo/);
+    expect(prerender).not.toMatch(/"\/he\/services\/seo/);
+    expect(serverRoutes).not.toMatch(/"\/he\/services\/seo/);
     expect(router).not.toMatch(/path="\/he\/blog/);
     expect(prerender).not.toMatch(/"\/he\/blog/);
     expect(serverRoutes).not.toMatch(/"\/he\/blog/);
@@ -110,5 +118,17 @@ describe("Hebrew locale foundation", () => {
     expect(customDesign).toContain('href="/he/contact/"');
     expect(customDesign).toContain('href="/he/pricing/"');
     expect(customDesign).toContain('dir="rtl"');
+  });
+
+  it("keeps Hebrew mobile-first as a complete, staged RTL service counterpart", () => {
+    const mobileFirst = readSource("client/src/pages/he/MobileFirstHe.tsx");
+
+    expect(mobileFirst).toContain('canonicalPath: "/he/services/mobile-first/"');
+    expect(mobileFirst).toContain("noindex: true");
+    expect(mobileFirst).toContain("פיתוח בגישת Mobile-First");
+    expect(mobileFirst).toContain("FAQPage");
+    expect(mobileFirst).toContain('href="/he/contact/"');
+    expect(mobileFirst).toContain('href="/he/pricing/"');
+    expect(mobileFirst).toContain('dir="rtl"');
   });
 });

@@ -36,6 +36,7 @@ export const EN_TO_HE_PATHS: Readonly<Record<string, string | null>> = {
   "/cookies": "/he/cookies",
   "/terms": "/he/terms",
   "/services/custom-design": "/he/services/custom-design",
+  "/services/mobile-first": "/he/services/mobile-first",
 };
 
 const EL_LANGUAGE_TOGGLE_FALLBACKS: Readonly<Record<string, string>> = {

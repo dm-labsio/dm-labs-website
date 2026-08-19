@@ -31,6 +31,7 @@ import PrivacyHe from "./pages/he/PrivacyHe";
 import CookiePolicyHe from "./pages/he/CookiePolicyHe";
 import TermsHe from "./pages/he/TermsHe";
 import CustomDesignHe from "./pages/he/CustomDesignHe";
+import MobileFirstHe from "./pages/he/MobileFirstHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -133,6 +134,8 @@ function MainRouter() {
         <Route path="/he/terms/" component={TermsHe} />
         <Route path="/he/services/custom-design" component={CustomDesignHe} />
         <Route path="/he/services/custom-design/" component={CustomDesignHe} />
+        <Route path="/he/services/mobile-first" component={MobileFirstHe} />
+        <Route path="/he/services/mobile-first/" component={MobileFirstHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />

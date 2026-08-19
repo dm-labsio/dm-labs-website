@@ -102,6 +102,7 @@ const ROUTES = [
   "/he/cookies",
   "/he/terms",
   "/he/services/custom-design",
+  "/he/services/mobile-first",
   // EN services sub-pages
   "/services/custom-design",
   "/services/mobile-first",
