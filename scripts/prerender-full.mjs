@@ -100,6 +100,7 @@ const ROUTES = [
   "/he/templates",
   "/he/privacy",
   "/he/cookies",
+  "/he/terms",
   // EN services sub-pages
   "/services/custom-design",
   "/services/mobile-first",

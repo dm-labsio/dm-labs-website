@@ -6,18 +6,18 @@ const readSource = (relativePath: string) =>
   readFileSync(new URL(`../${relativePath}`, import.meta.url), "utf8");
 
 describe("Hebrew locale foundation", () => {
-  it("keeps Hebrew absent from hreflang until a real translated target is mapped", () => {
+  it("maps reviewed Hebrew targets while keeping untranslated routes absent from hreflang", () => {
     expect(getHreflangRouteSet("/terms/")).toEqual({
       en: "/terms",
       el: "/el/terms",
-      he: null,
+      he: "/he/terms",
     });
     expect(getHreflangRouteSet("/blog/google-search-console-ai-seo-prompts/")).toEqual({
       en: "/blog/google-search-console-ai-seo-prompts",
       el: null,
       he: null,
     });
-    expect(getHebrewLanguageTogglePath("/terms/")).toBe("/he");
+    expect(getHebrewLanguageTogglePath("/terms/")).toBe("/he/terms");
   });
 
   it("prepares Hebrew document language, RTL direction, and a Hebrew-native font", () => {
@@ -53,6 +53,7 @@ describe("Hebrew locale foundation", () => {
     expect(router).toContain('<Route path="/he/faq" component={FAQHe} />');
     expect(router).toContain('<Route path="/he/privacy" component={PrivacyHe} />');
     expect(router).toContain('<Route path="/he/cookies" component={CookiePolicyHe} />');
+    expect(router).toContain('<Route path="/he/terms" component={TermsHe} />');
     expect(prerender).toContain('"/he"');
     expect(prerender).toContain('"/he/services"');
     expect(prerender).toContain('"/he/process"');
@@ -61,6 +62,7 @@ describe("Hebrew locale foundation", () => {
     expect(prerender).toContain('"/he/faq"');
     expect(prerender).toContain('"/he/privacy"');
     expect(prerender).toContain('"/he/cookies"');
+    expect(prerender).toContain('"/he/terms"');
     expect(serverRoutes).toContain('"/he"');
     expect(serverRoutes).toContain('"/he/services"');
     expect(serverRoutes).toContain('"/he/process"');
@@ -69,8 +71,21 @@ describe("Hebrew locale foundation", () => {
     expect(serverRoutes).toContain('"/he/faq"');
     expect(serverRoutes).toContain('"/he/privacy"');
     expect(serverRoutes).toContain('"/he/cookies"');
-    expect(router).not.toMatch(/path="\/he\/(?:blog|terms)/);
-    expect(prerender).not.toMatch(/"\/he\/(?:blog|terms)/);
-    expect(serverRoutes).not.toMatch(/"\/he\/(?:blog|terms)/);
+    expect(serverRoutes).toContain('"/he/terms"');
+    expect(router).not.toMatch(/path="\/he\/blog/);
+    expect(prerender).not.toMatch(/"\/he\/blog/);
+    expect(serverRoutes).not.toMatch(/"\/he\/blog/);
+  });
+
+  it("keeps Hebrew Terms complete, staged, and free of visibility-gating effects", () => {
+    const terms = readSource("client/src/pages/he/TermsHe.tsx");
+
+    expect(terms).toContain('canonicalPath: "/he/terms/"');
+    expect(terms).toContain("noindex: true");
+    expect(terms.match(/<h2\b/g)).toHaveLength(16);
+    expect(terms.match(/<h3\b/g)).toHaveLength(3);
+    expect(terms).toContain('href="/he/privacy/"');
+    expect(terms).toContain('href="/he/cookies/"');
+    expect(terms).not.toContain("AnimateIn");
   });
 });
