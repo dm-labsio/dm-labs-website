@@ -52,6 +52,7 @@ describe("Hebrew locale foundation", () => {
     expect(router).toContain('<Route path="/he/contact" component={ContactHe} />');
     expect(router).toContain('<Route path="/he/faq" component={FAQHe} />');
     expect(router).toContain('<Route path="/he/privacy" component={PrivacyHe} />');
+    expect(router).toContain('<Route path="/he/cookies" component={CookiePolicyHe} />');
     expect(prerender).toContain('"/he"');
     expect(prerender).toContain('"/he/services"');
     expect(prerender).toContain('"/he/process"');
@@ -59,6 +60,7 @@ describe("Hebrew locale foundation", () => {
     expect(prerender).toContain('"/he/contact"');
     expect(prerender).toContain('"/he/faq"');
     expect(prerender).toContain('"/he/privacy"');
+    expect(prerender).toContain('"/he/cookies"');
     expect(serverRoutes).toContain('"/he"');
     expect(serverRoutes).toContain('"/he/services"');
     expect(serverRoutes).toContain('"/he/process"');
@@ -66,8 +68,9 @@ describe("Hebrew locale foundation", () => {
     expect(serverRoutes).toContain('"/he/contact"');
     expect(serverRoutes).toContain('"/he/faq"');
     expect(serverRoutes).toContain('"/he/privacy"');
-    expect(router).not.toMatch(/path="\/he\/(?:blog|terms|cookies)/);
-    expect(prerender).not.toMatch(/"\/he\/(?:blog|terms|cookies)/);
-    expect(serverRoutes).not.toMatch(/"\/he\/(?:blog|terms|cookies)/);
+    expect(serverRoutes).toContain('"/he/cookies"');
+    expect(router).not.toMatch(/path="\/he\/(?:blog|terms)/);
+    expect(prerender).not.toMatch(/"\/he\/(?:blog|terms)/);
+    expect(serverRoutes).not.toMatch(/"\/he\/(?:blog|terms)/);
   });
 });

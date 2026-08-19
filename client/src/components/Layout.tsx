@@ -390,7 +390,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {isHebrew ? (
                   <>
                     <li><Link href="/he/privacy/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">מדיניות פרטיות</Link></li>
-                    <li><Link href="/cookies/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">מדיניות עוגיות באנגלית</Link></li>
+                    <li><Link href="/he/cookies/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">מדיניות עוגיות</Link></li>
                     <li><Link href="/terms/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">תנאי שירות באנגלית</Link></li>
                   </>
                 ) : isGreek ? (

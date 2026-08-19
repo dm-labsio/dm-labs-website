@@ -28,6 +28,7 @@ import ContactHe from "./pages/he/ContactHe";
 import FAQHe from "./pages/he/FAQHe";
 import TemplatesHe from "./pages/he/TemplatesHe";
 import PrivacyHe from "./pages/he/PrivacyHe";
+import CookiePolicyHe from "./pages/he/CookiePolicyHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -124,6 +125,8 @@ function MainRouter() {
         <Route path="/he/templates/" component={TemplatesHe} />
         <Route path="/he/privacy" component={PrivacyHe} />
         <Route path="/he/privacy/" component={PrivacyHe} />
+        <Route path="/he/cookies" component={CookiePolicyHe} />
+        <Route path="/he/cookies/" component={CookiePolicyHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />
