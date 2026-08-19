@@ -40,16 +40,19 @@ describe("Hebrew locale foundation", () => {
     expect(seoHook).toContain("routes.he ?");
   });
 
-  it("exposes only the reviewed Hebrew homepage and no invented child routes", () => {
+  it("exposes only reviewed Hebrew routes and no invented child routes", () => {
     const router = readSource("client/src/App.tsx");
     const prerender = readSource("scripts/prerender-full.mjs");
     const serverRoutes = readSource("server/_core/vite.ts");
 
     expect(router).toContain('<Route path="/he" component={HomeHe} />');
+    expect(router).toContain('<Route path="/he/services" component={ServicesHe} />');
     expect(prerender).toContain('"/he"');
+    expect(prerender).toContain('"/he/services"');
     expect(serverRoutes).toContain('"/he"');
-    expect(router).not.toMatch(/path="\/he\/(?:services|process|pricing|faq|contact|blog|terms|privacy|cookies)/);
-    expect(prerender).not.toMatch(/"\/he\/(?:services|process|pricing|faq|contact|blog|terms|privacy|cookies)/);
-    expect(serverRoutes).not.toMatch(/"\/he\/(?:services|process|pricing|faq|contact|blog|terms|privacy|cookies)/);
+    expect(serverRoutes).toContain('"/he/services"');
+    expect(router).not.toMatch(/path="\/he\/(?:process|pricing|faq|contact|blog|terms|privacy|cookies)/);
+    expect(prerender).not.toMatch(/"\/he\/(?:process|pricing|faq|contact|blog|terms|privacy|cookies)/);
+    expect(serverRoutes).not.toMatch(/"\/he\/(?:process|pricing|faq|contact|blog|terms|privacy|cookies)/);
   });
 });

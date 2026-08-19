@@ -20,9 +20,11 @@ const STATIC_ROUTES = new Set([
   "/cookies",
   // /cookie-policy is removed — 301 redirects to /cookies (see REDIRECTS below)
   "/terms",
-  // Hebrew staged route: add children only after they have real page content.
+  // Hebrew staged routes: add children only after they have real page content.
   "/he",
   "/he/",
+  "/he/services",
+  "/he/services/",
   "/templates",
   "/examples",
   "/blog",

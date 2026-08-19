@@ -21,6 +21,7 @@ import Privacy from "./pages/Privacy";
 import CookiePolicy from "./pages/CookiePolicy";
 import Terms from "./pages/Terms";
 import HomeHe from "./pages/he/HomeHe";
+import ServicesHe from "./pages/he/ServicesHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -103,6 +104,8 @@ function MainRouter() {
         {/* ── Hebrew staged route: only completed Hebrew homepage is exposed ── */}
         <Route path="/he" component={HomeHe} />
         <Route path="/he/" component={HomeHe} />
+        <Route path="/he/services" component={ServicesHe} />
+        <Route path="/he/services/" component={ServicesHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />
