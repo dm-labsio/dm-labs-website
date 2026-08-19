@@ -98,6 +98,7 @@ const ROUTES = [
   "/he/contact",
   "/he/faq",
   "/he/templates",
+  "/he/privacy",
   // EN services sub-pages
   "/services/custom-design",
   "/services/mobile-first",

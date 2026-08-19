@@ -389,7 +389,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <ul className="space-y-3">
                 {isHebrew ? (
                   <>
-                    <li><Link href="/privacy/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">מדיניות פרטיות באנגלית</Link></li>
+                    <li><Link href="/he/privacy/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">מדיניות פרטיות</Link></li>
                     <li><Link href="/cookies/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">מדיניות עוגיות באנגלית</Link></li>
                     <li><Link href="/terms/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">תנאי שירות באנגלית</Link></li>
                   </>

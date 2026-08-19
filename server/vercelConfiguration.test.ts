@@ -143,7 +143,7 @@ describe("Vercel static deployment configuration", () => {
 
     expect(
       literalRoutes.length + englishBlogSlugs.length + greekBlogSlugs.length
-    ).toBe(76);
+    ).toBe(77);
     expect(prerenderSource.indexOf("for (const route of ROUTES)")).toBeLessThan(
       prerenderSource.indexOf("const notFoundPage = await context.newPage()")
     );
