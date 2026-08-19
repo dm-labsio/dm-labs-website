@@ -1,18 +1,21 @@
-/* D&M LABS - WhatsApp Floating Button — bilingual EN/EL
+/* D&M LABS - WhatsApp Floating Button — EN/EL/HE
  * Styled in brand gradient (#5B8CFF to #8B5CFF) instead of WhatsApp green.
  */
 import { useState } from "react";
 
 const WA_EN = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 const WA_EL = "https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%98%CE%B1%20%CE%AE%CE%B8%CE%B5%CE%BB%CE%B1%20%CE%BD%CE%B1%20%CF%83%CF%85%CE%B6%CE%B7%CF%84%CE%AE%CF%83%CE%BF%CF%85%CE%BC%CE%B5%20%CE%B3%CE%B9%CE%B1%20%CE%BC%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1.";
+const WA_HE = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20DM-Labs.io%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%9C%D7%92%D7%91%D7%99%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.";
 
 export default function WhatsAppFloat() {
   const [hovered, setHovered] = useState(false);
 
-  const isGreek = typeof window !== "undefined" && window.location.pathname.startsWith("/el");
-  const tooltip = isGreek ? "Γρήγορη ερώτηση; Γράψτε μας!" : "Quick question? Message us!";
-  const waUrl = isGreek ? WA_EL : WA_EN;
-  const ariaLabel = isGreek ? "Επικοινωνήστε μαζί μας στο WhatsApp" : "Chat with us on WhatsApp";
+  const locale = typeof window !== "undefined" && window.location.pathname.startsWith("/he")
+    ? "he"
+    : typeof window !== "undefined" && window.location.pathname.startsWith("/el") ? "el" : "en";
+  const tooltip = locale === "he" ? "יש שאלה? דברו איתנו!" : locale === "el" ? "Γρήγορη ερώτηση; Γράψτε μας!" : "Quick question? Message us!";
+  const waUrl = locale === "he" ? WA_HE : locale === "el" ? WA_EL : WA_EN;
+  const ariaLabel = locale === "he" ? "פנייה אלינו ב-WhatsApp" : locale === "el" ? "Επικοινωνήστε μαζί μας στο WhatsApp" : "Chat with us on WhatsApp";
 
   return (
     <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end gap-2">

@@ -1,4 +1,4 @@
-/* D&M LABS - GDPR Cookie Consent Banner — bilingual EN/EL */
+/* D&M LABS - GDPR Cookie Consent Banner — EN/EL/HE */
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 
@@ -41,6 +41,24 @@ const STRINGS = {
     cookieHref: "/el/cookies/",
     privacyHref: "/el/privacy/",
   },
+  he: {
+    title: "אנחנו משתמשים בעוגיות",
+    body: "אנחנו משתמשים בעוגיות כדי לשפר את החוויה באתר. ניתן לבחור אילו עוגיות לאפשר.",
+    acceptAll: "אישור הכול",
+    reject: "דחייה",
+    manage: "ניהול",
+    cookiePolicy: "מדיניות עוגיות באנגלית",
+    privacyPolicy: "מדיניות פרטיות באנגלית",
+    chooseWhich: "בחרו אילו עוגיות לאפשר:",
+    essential: "חיוניות",
+    required: "נדרשות",
+    analytics: "אנליטיקה",
+    helpUs: "עוזרות לנו להשתפר",
+    savePrefs: "שמירת העדפות",
+    back: "חזרה",
+    cookieHref: "/cookies/",
+    privacyHref: "/privacy/",
+  },
 };
 
 export default function CookieBanner() {
@@ -48,8 +66,11 @@ export default function CookieBanner() {
   const [showPrefs, setShowPrefs] = useState(false);
   const [analytics, setAnalytics] = useState(false);
 
-  const isGreek = typeof window !== "undefined" && window.location.pathname.startsWith("/el");
-  const t = isGreek ? STRINGS.el : STRINGS.en;
+  const locale = typeof window !== "undefined" && window.location.pathname.startsWith("/he")
+    ? "he"
+    : typeof window !== "undefined" && window.location.pathname.startsWith("/el") ? "el" : "en";
+  const t = STRINGS[locale];
+  const isHebrew = locale === "he";
 
   useEffect(() => {
     const stored = localStorage.getItem(COOKIE_KEY);
@@ -78,6 +99,7 @@ export default function CookieBanner() {
     <div
       className="fixed bottom-24 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-sm z-50 bg-white rounded-2xl shadow-2xl border border-[#E2E5EA] p-5"
       role="dialog" aria-label="Cookie consent" aria-live="polite"
+      dir={isHebrew ? "rtl" : undefined}
     >
       <div className="flex items-start justify-between gap-3 mb-3">
         <h2 className="font-semibold text-sm text-[#111315]">{t.title}</h2>

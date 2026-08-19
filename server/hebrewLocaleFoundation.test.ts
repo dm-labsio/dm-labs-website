@@ -40,13 +40,16 @@ describe("Hebrew locale foundation", () => {
     expect(seoHook).toContain("routes.he ?");
   });
 
-  it("does not expose an incomplete Hebrew route before the first reviewed page is ready", () => {
+  it("exposes only the reviewed Hebrew homepage and no invented child routes", () => {
     const router = readSource("client/src/App.tsx");
     const prerender = readSource("scripts/prerender-full.mjs");
     const serverRoutes = readSource("server/_core/vite.ts");
 
-    expect(router).not.toMatch(/path="\/he(?:\/|\")/);
-    expect(prerender).not.toMatch(/"\/he(?:\/|\")/);
-    expect(serverRoutes).not.toMatch(/"\/he(?:\/|\")/);
+    expect(router).toContain('<Route path="/he" component={HomeHe} />');
+    expect(prerender).toContain('"/he"');
+    expect(serverRoutes).toContain('"/he"');
+    expect(router).not.toMatch(/path="\/he\/(?:services|process|pricing|faq|contact|blog|terms|privacy|cookies)/);
+    expect(prerender).not.toMatch(/"\/he\/(?:services|process|pricing|faq|contact|blog|terms|privacy|cookies)/);
+    expect(serverRoutes).not.toMatch(/"\/he\/(?:services|process|pricing|faq|contact|blog|terms|privacy|cookies)/);
   });
 });

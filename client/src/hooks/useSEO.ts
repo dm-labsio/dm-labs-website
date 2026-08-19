@@ -32,6 +32,10 @@ interface SEOOptions {
   ogType?: string;
   /** Override the canonical path if needed (e.g. for paginated pages). Defaults to current route. */
   canonicalPath?: string;
+  /** Temporary preview staging pages may be rendered fully but remain noindex until approved. */
+  noindex?: boolean;
+  /** Sets an Open Graph locale for a localized page, for example `he_IL`. */
+  ogLocale?: string;
 }
 
 function setMetaTag(name: string, content: string) {
@@ -159,6 +163,8 @@ export function useSEO(options: SEOOptions = {}) {
       ogImageAlt,
       ogType = "website",
       canonicalPath,
+      noindex = false,
+      ogLocale,
     } = options;
 
     // Determine canonical path: use override if provided, otherwise use current wouter location.
@@ -168,8 +174,7 @@ export function useSEO(options: SEOOptions = {}) {
     const finalPath = withTrailingSlash(cleanPath);
     const canonicalUrl = `${BASE_URL}${finalPath}`;
 
-    // Ensure robots meta is always reset to indexable on real pages
-    setMetaTag("robots", "index, follow");
+    setMetaTag("robots", noindex ? "noindex, follow" : "index, follow");
 
     // Update <title>
     document.title = title;
@@ -198,6 +203,8 @@ export function useSEO(options: SEOOptions = {}) {
     }
     setOgTag("og:type", ogType);
     setOgTag("og:site_name", "DM-Labs.io");
+    if (ogLocale) setOgTag("og:locale", ogLocale);
+    else removeOgTag("og:locale");
 
     // Update Twitter tags
     setMetaTag("twitter:title", title);
@@ -209,7 +216,7 @@ export function useSEO(options: SEOOptions = {}) {
     // a route has been implemented and mapped as part of the staged rollout.
     setHreflangTags(getHreflangRouteSet(cleanPath));
     setBreadcrumbSchema(cleanPath, finalPath, title);
-  }, [location, options.title, options.description, options.ogImage, options.ogImageAlt, options.ogType, options.canonicalPath]);
+  }, [location, options.title, options.description, options.ogImage, options.ogImageAlt, options.ogType, options.canonicalPath, options.noindex, options.ogLocale]);
 }
 
 export default useSEO;

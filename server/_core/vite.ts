@@ -20,6 +20,9 @@ const STATIC_ROUTES = new Set([
   "/cookies",
   // /cookie-policy is removed — 301 redirects to /cookies (see REDIRECTS below)
   "/terms",
+  // Hebrew staged route: add children only after they have real page content.
+  "/he",
+  "/he/",
   "/templates",
   "/examples",
   "/blog",
@@ -256,9 +259,14 @@ export function serveStatic(app: Express) {
     try {
       let html = fs.readFileSync(rootHtmlPath, "utf-8");
       // Replace title
+      const notFoundTitle = urlPath === "/he" || urlPath.startsWith("/he/")
+        ? "הדף לא נמצא | DM-Labs.io"
+        : urlPath === "/el" || urlPath.startsWith("/el/")
+          ? "Σελίδα Δεν Βρέθηκε | DM-Labs.io"
+          : "Page Not Found | DM-Labs.io";
       html = html.replace(
         /<title>[^<]*<\/title>/,
-        "<title>Page Not Found | DM-Labs.io</title>"
+        `<title>${notFoundTitle}</title>`
       );
       // Replace or inject robots meta
       if (html.includes('name="robots"')) {

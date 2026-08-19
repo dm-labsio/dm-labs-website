@@ -20,6 +20,7 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import CookiePolicy from "./pages/CookiePolicy";
 import Terms from "./pages/Terms";
+import HomeHe from "./pages/he/HomeHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -98,6 +99,10 @@ function MainRouter() {
         <Route path="/web-design-crete" component={WebDesignCrete} />
         <Route path="/web-design-paphos" component={WebDesignPaphos} />
         <Route path="/web-design-restaurants-cyprus" component={WebDesignRestaurantsCyprus} />
+
+        {/* ── Hebrew staged route: only completed Hebrew homepage is exposed ── */}
+        <Route path="/he" component={HomeHe} />
+        <Route path="/he/" component={HomeHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />

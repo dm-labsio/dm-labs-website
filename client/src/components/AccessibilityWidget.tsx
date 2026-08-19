@@ -20,6 +20,12 @@ export default function AccessibilityWidget() {
   const [open, setOpen] = useState(false);
   const [fontSize, setFontSize] = useState<FontSize>("normal");
   const [contrast, setContrast] = useState<Contrast>("normal");
+  const isHebrew = typeof window !== "undefined" && window.location.pathname.startsWith("/he");
+  const labels = isHebrew ? {
+    trigger: "אפשרויות נגישות", dialog: "הגדרות נגישות", title: "נגישות", close: "סגירת חלונית נגישות", size: "גודל טקסט", decrease: "הקטנת גודל הטקסט", increase: "הגדלת גודל הטקסט", normal: "ברירת מחדל", large: "גדול", xlarge: "גדול מאוד", contrast: "ניגודיות", contrastOn: "ניגודיות גבוהה: פעילה", contrastOff: "ניגודיות גבוהה: כבויה", reset: "איפוס לברירת מחדל",
+  } : {
+    trigger: "Accessibility options", dialog: "Accessibility settings", title: "Accessibility", close: "Close accessibility panel", size: "Text Size", decrease: "Decrease text size", increase: "Increase text size", normal: "Default", large: "Large", xlarge: "X-Large", contrast: "Contrast", contrastOn: "High Contrast: On", contrastOff: "High Contrast: Off", reset: "Reset to default",
+  };
 
   // Apply font size to root html element
   useEffect(() => {
@@ -72,7 +78,7 @@ export default function AccessibilityWidget() {
       {/* Trigger button - fixed bottom-left, always visible regardless of contrast state */}
       <button
         onClick={() => setOpen(o => !o)}
-        aria-label="Accessibility options"
+        aria-label={labels.trigger}
         aria-expanded={open}
         className="fixed bottom-6 left-5 z-[9998] w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5B8CFF] touch-manipulation"
         style={{
@@ -92,14 +98,15 @@ export default function AccessibilityWidget() {
           className="fixed bottom-16 left-5 z-[9999] rounded-xl border border-[#E2E5EA] bg-white shadow-lg p-4"
           style={{ width: "min(13rem, calc(100vw - 2.5rem))" }}
           role="dialog"
-          aria-label="Accessibility settings"
+          aria-label={labels.dialog}
+          dir={isHebrew ? "rtl" : undefined}
         >
           {/* Header */}
           <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-semibold text-[#111315] uppercase tracking-wide">Accessibility</span>
+            <span className="text-xs font-semibold text-[#111315] uppercase tracking-wide">{labels.title}</span>
             <button
               onClick={() => setOpen(false)}
-              aria-label="Close accessibility panel"
+              aria-label={labels.close}
               className="text-[#9BA3AF] hover:text-[#111315] transition-colors p-0.5 touch-manipulation"
             >
               <X size={14} />
@@ -108,22 +115,22 @@ export default function AccessibilityWidget() {
 
           {/* Font size */}
           <div className="mb-3">
-            <p className="text-xs text-[#5B6472] mb-1.5">Text Size</p>
+            <p className="text-xs text-[#5B6472] mb-1.5">{labels.size}</p>
             <div className="flex items-center gap-1.5">
               <button
                 onClick={() => setFontSize(s => s === "xlarge" ? "large" : s === "large" ? "normal" : "normal")}
-                aria-label="Decrease text size"
+                aria-label={labels.decrease}
                 disabled={fontSize === "normal"}
                 className="w-7 h-7 rounded-lg flex items-center justify-center border border-[#E2E5EA] text-[#5B6472] hover:border-[#5B8CFF] hover:text-[#5B8CFF] disabled:opacity-30 disabled:cursor-not-allowed transition-colors touch-manipulation"
               >
                 <Minus size={12} />
               </button>
               <span className="flex-1 text-center text-xs text-[#111315] font-medium">
-                {fontSize === "normal" ? "Default" : fontSize === "large" ? "Large" : "X-Large"}
+                {fontSize === "normal" ? labels.normal : fontSize === "large" ? labels.large : labels.xlarge}
               </span>
               <button
                 onClick={() => setFontSize(s => s === "normal" ? "large" : s === "large" ? "xlarge" : "xlarge")}
-                aria-label="Increase text size"
+                aria-label={labels.increase}
                 disabled={fontSize === "xlarge"}
                 className="w-7 h-7 rounded-lg flex items-center justify-center border border-[#E2E5EA] text-[#5B6472] hover:border-[#5B8CFF] hover:text-[#5B8CFF] disabled:opacity-30 disabled:cursor-not-allowed transition-colors touch-manipulation"
               >
@@ -134,7 +141,7 @@ export default function AccessibilityWidget() {
 
           {/* Contrast */}
           <div className="mb-3">
-            <p className="text-xs text-[#5B6472] mb-1.5">Contrast</p>
+            <p className="text-xs text-[#5B6472] mb-1.5">{labels.contrast}</p>
             <button
               onClick={() => setContrast(c => c === "normal" ? "high" : "normal")}
               aria-pressed={contrast === "high"}
@@ -146,7 +153,7 @@ export default function AccessibilityWidget() {
               }}
             >
               <Sun size={12} />
-              {contrast === "high" ? "High Contrast: On" : "High Contrast: Off"}
+              {contrast === "high" ? labels.contrastOn : labels.contrastOff}
             </button>
           </div>
 
@@ -156,7 +163,7 @@ export default function AccessibilityWidget() {
               onClick={reset}
               className="w-full text-xs text-[#9BA3AF] hover:text-[#5B6472] transition-colors text-center pt-2 border-t border-[#F3F4F6] touch-manipulation"
             >
-              Reset to default
+              {labels.reset}
             </button>
           )}
         </div>

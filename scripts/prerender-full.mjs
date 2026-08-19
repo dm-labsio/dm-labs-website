@@ -90,6 +90,8 @@ const ROUTES = [
   "/privacy",
   "/cookies",
   "/terms",
+  // Hebrew staged route: only the complete entry page exists at this phase.
+  "/he",
   // EN services sub-pages
   "/services/custom-design",
   "/services/mobile-first",

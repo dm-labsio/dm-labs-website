@@ -34,7 +34,7 @@ describe("English homepage editorial typography", () => {
     expect(stylesheet).toContain(".english-commissioner-base :where(");
     expect(layoutSource).toContain("const EXCLUDED_ENGLISH_LOCATION_ROUTES = new Set([");
     expect(layoutSource).toContain('const isStandalonePreview = normalizedLocation.startsWith("/preview/");');
-    expect(layoutSource).toContain('const isEnglishTypographyRoute = !isGreek && !isStandalonePreview && !EXCLUDED_ENGLISH_LOCATION_ROUTES.has(normalizedLocation);');
+    expect(layoutSource).toContain('const isEnglishTypographyRoute = !isGreek && !isHebrew && !isStandalonePreview && !EXCLUDED_ENGLISH_LOCATION_ROUTES.has(normalizedLocation);');
     expect(layoutSource).toContain('isEnglishTypographyRoute ? "english-commissioner-base" : ""');
     expect(homeElSource).not.toContain("english-commissioner-base");
   });

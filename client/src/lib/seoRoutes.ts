@@ -29,7 +29,9 @@ export const EN_TO_EL_PATHS: Readonly<Record<string, string | null>> = {
  * implemented, prerendered, and reviewed. This prevents fabricated Hebrew
  * hreflang URLs or language-switch targets during the staged rollout.
  */
-export const EN_TO_HE_PATHS: Readonly<Record<string, string | null>> = {};
+export const EN_TO_HE_PATHS: Readonly<Record<string, string | null>> = {
+  "/": "/he",
+};
 
 const EL_LANGUAGE_TOGGLE_FALLBACKS: Readonly<Record<string, string>> = {
   "/web-design-paphos": "/el/web-design-cyprus",

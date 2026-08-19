@@ -13,7 +13,8 @@ import NeonCursorTrail from "@/components/NeonCursorTrail";
 import dmLabsLogo from "@/assets/dmLabsLogo";
 import {
   getGreekLanguageTogglePath,
-  getHreflangPair,
+  getHebrewLanguageTogglePath,
+  getHreflangRouteSet,
   normalizeRoutePath,
   withTrailingSlash,
 } from "@/lib/seoRoutes";
@@ -70,6 +71,15 @@ const EL_NAV_LINKS = [
   { label: "Επικοινωνία", href: "/el/contact/" },
 ];
 
+const HE_NAV_LINKS = [
+  { label: "דף הבית", href: "/he/" },
+  { label: "שירותים", href: "/he/#services" },
+  { label: "תהליך", href: "/he/#process" },
+  { label: "תמחור", href: "/he/#pricing" },
+];
+
+const HEBREW_WHATSAPP_URL = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20DM-Labs.io%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%9C%D7%92%D7%91%D7%99%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.";
+
 /* ── Flag SVGs (inline, no external deps) ── */
 const FlagUK = () => (
   <svg width="20" height="14" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ borderRadius: "2px", display: "block" }}>
@@ -99,6 +109,15 @@ const FlagGR = () => (
   </svg>
 );
 
+const FlagIL = () => (
+  <svg width="20" height="14" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ borderRadius: "2px", display: "block" }}>
+    <rect width="60" height="40" fill="#fff" />
+    <rect y="4" width="60" height="5" fill="#1F5AA6" />
+    <rect y="31" width="60" height="5" fill="#1F5AA6" />
+    <path d="M30 11 20 28h20L30 11Zm0 18 10-17H20l10 17Z" fill="#1F5AA6" />
+  </svg>
+);
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location, navigate] = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -106,11 +125,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const normalizedLocation = normalizeRoutePath(location);
   const isGreek = normalizedLocation === "/el" || normalizedLocation.startsWith("/el/");
+  const isHebrew = normalizedLocation === "/he" || normalizedLocation.startsWith("/he/");
   const isStandalonePreview = normalizedLocation.startsWith("/preview/");
   const isEnglishHomepage = normalizedLocation === "/";
   const isTemplatesIndex = normalizedLocation === "/templates";
-  const isEnglishTypographyRoute = !isGreek && !isStandalonePreview && !EXCLUDED_ENGLISH_LOCATION_ROUTES.has(normalizedLocation);
-  const NAV_LINKS = isGreek ? EL_NAV_LINKS : EN_NAV_LINKS;
+  const isEnglishTypographyRoute = !isGreek && !isHebrew && !isStandalonePreview && !EXCLUDED_ENGLISH_LOCATION_ROUTES.has(normalizedLocation);
+  const NAV_LINKS = isHebrew ? HE_NAV_LINKS : isGreek ? EL_NAV_LINKS : EN_NAV_LINKS;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -134,18 +154,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, [mobileOpen]);
 
   // Derive the alternate-language URL for the current page
-  function getAltLangHref(targetLang: "en" | "el"): string {
-    const pair = getHreflangPair(normalizedLocation);
-    return targetLang === "en"
-      ? withTrailingSlash(pair.en)
-      : withTrailingSlash(getGreekLanguageTogglePath(normalizedLocation));
+  function getAltLangHref(targetLang: "en" | "el" | "he"): string {
+    const routes = getHreflangRouteSet(normalizedLocation);
+    if (targetLang === "en") return withTrailingSlash(routes.en);
+    if (targetLang === "el") return withTrailingSlash(getGreekLanguageTogglePath(normalizedLocation));
+    return withTrailingSlash(getHebrewLanguageTogglePath(normalizedLocation));
   }
 
-  // Flag-based language toggle — uses real <a href> for crawlability (Task 3)
+  // The Hebrew option safely falls back to the completed Hebrew home until the
+  // matching child route has been translated. Hreflang never uses that fallback.
   const LangToggle = ({ className = "", size = "md" }: { className?: string; size?: "sm" | "md" }) => {
     const isSmall = size === "sm";
-    const enHref = isGreek ? getAltLangHref("en") : withTrailingSlash(normalizedLocation);
+    const enHref = isGreek || isHebrew ? getAltLangHref("en") : withTrailingSlash(normalizedLocation);
     const elHref = isGreek ? withTrailingSlash(normalizedLocation) : getAltLangHref("el");
+    const heHref = isHebrew ? withTrailingSlash(normalizedLocation) : getAltLangHref("he");
     return (
       <div
         className={`flex items-center rounded-full border border-[#E2E5EA] bg-white shadow-sm overflow-hidden ${isEnglishHomepage ? "editorial-home-language-toggle" : ""} ${className}`}
@@ -185,12 +207,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <FlagGR />
           <span>EL</span>
         </a>
+        <a
+          href={heHref}
+          aria-label="מעבר לעברית"
+          title="עברית"
+          aria-current={isHebrew ? "true" : undefined}
+          className={`flex items-center gap-1.5 rounded-full transition-all duration-200 font-semibold ${
+            isSmall ? "px-2 py-1 text-xs" : "px-3 py-1.5 text-xs"
+          } ${
+            isHebrew
+              ? "bg-[#5B8CFF] text-white shadow-sm"
+              : "text-[#5B6472] hover:bg-[#F0F4FF] hover:text-[#5B8CFF]"
+          }`}
+          onClick={(e) => { e.preventDefault(); navigate(heHref); }}
+        >
+          <FlagIL />
+          <span>עב</span>
+        </a>
       </div>
     );
   };
 
   return (
-    <div className={`min-h-screen flex flex-col ${isEnglishTypographyRoute ? "english-commissioner-base" : ""} ${isEnglishHomepage ? "editorial-home-shell" : ""} ${isTemplatesIndex ? "templates-editorial-shell" : ""}`}>
+    <div className={`min-h-screen flex flex-col ${isEnglishTypographyRoute ? "english-commissioner-base" : ""} ${isEnglishHomepage ? "editorial-home-shell" : ""} ${isTemplatesIndex ? "templates-editorial-shell" : ""} ${isHebrew ? "hebrew-shell" : ""}`} dir={isHebrew ? "rtl" : undefined}>
       {/* ── NAVIGATION ── */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${isEnglishHomepage ? "editorial-home-header" : ""} ${
@@ -198,10 +237,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             ? "glass-nav shadow-sm"
             : "bg-transparent"
         }`}
+        dir={isHebrew ? "rtl" : undefined}
       >
         <div className="container flex items-center justify-between" style={{ height: "72px" }}>
           {/* Logo */}
-          <Link href={isGreek ? "/el/" : "/"} className="flex items-center gap-2 shrink-0">
+          <Link href={isHebrew ? "/he/" : isGreek ? "/el/" : "/"} className="flex items-center gap-2 shrink-0">
             <HeaderBrandMark />
           </Link>
 
@@ -225,17 +265,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Desktop right: lang toggle + CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <LangToggle />
-            <Link
-              href={isGreek ? "/el/contact/" : "/contact/"}
-              className={`btn-primary !h-11 !text-sm !px-6 ${isEnglishHomepage ? "editorial-home-header-cta" : ""}`}
-            >
-              {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
-            </Link>
+            {isHebrew ? (
+              <a href={HEBREW_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary !h-11 !text-sm !px-6">
+                ייעוץ ללא עלות
+              </a>
+            ) : (
+              <Link href={isGreek ? "/el/contact/" : "/contact/"} className={`btn-primary !h-11 !text-sm !px-6 ${isEnglishHomepage ? "editorial-home-header-cta" : ""}`}>
+                {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
+              </Link>
+            )}
           </div>
 
           {/* Mobile: lang toggle pill + hamburger */}
-          {/* aria-hidden: desktop LangToggle is the canonical crawlable version; mobile is a visual duplicate */}
-          <div className="lg:hidden flex items-center gap-2" aria-hidden="true">
+          <div className="lg:hidden flex items-center gap-2">
             <LangToggle size="sm" />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -252,9 +294,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ x: "100%" }}
+            initial={{ x: isHebrew ? "-100%" : "100%" }}
             animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            exit={{ x: isHebrew ? "-100%" : "100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className={`fixed inset-0 z-40 bg-[#F6F6F4] pt-20 px-6 lg:hidden ${isEnglishHomepage ? "editorial-home-mobile-menu" : ""}`}
           >
@@ -273,12 +315,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
             </nav>
-            <Link
-              href={isGreek ? "/el/contact/" : "/contact/"}
-              className={`btn-primary w-full mt-6 ${isEnglishHomepage ? "editorial-home-mobile-cta" : ""}`}
-            >
-              {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
-            </Link>
+            {isHebrew ? (
+              <a href={HEBREW_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full mt-6">
+                ייעוץ ללא עלות
+              </a>
+            ) : (
+              <Link href={isGreek ? "/el/contact/" : "/contact/"} className={`btn-primary w-full mt-6 ${isEnglishHomepage ? "editorial-home-mobile-cta" : ""}`}>
+                {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
+              </Link>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -295,9 +340,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="lg:col-span-1">
               <div style={{ marginBottom: "20px" }}><BrandMark dark /></div>
                 <p className="text-sm text-[#94A3B8] leading-relaxed max-w-xs">
-                  {isGreek
-                    ? "Μια μικρή, αφοσιωμένη εταιρεία web design. Κατασκευάζουμε επαγγελματικές ιστοσελίδες για επιχειρήσεις που θέλουν να ξεχωρίζουν online."
-                    : "A small, dedicated web design agency. We build professional, conversion-focused websites for businesses that want to stand out online."
+                  {isHebrew
+                    ? "סטודיו קטן ומסור לעיצוב אתרים. אנחנו בונים אתרים מקצועיים וממוקדי המרות לעסקים שרוצים לבלוט אונליין."
+                    : isGreek
+                      ? "Μια μικρή, αφοσιωμένη εταιρεία web design. Κατασκευάζουμε επαγγελματικές ιστοσελίδες για επιχειρήσεις που θέλουν να ξεχωρίζουν online."
+                      : "A small, dedicated web design agency. We build professional, conversion-focused websites for businesses that want to stand out online."
                   }
                 </p>
               {/* Social Links */}
@@ -320,7 +367,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Quick Links */}
             <div>
               <h4 className="text-sm font-semibold text-white mb-5 tracking-wide uppercase">
-                {isGreek ? "Πλοήγηση" : "Navigation"}
+                {isHebrew ? "ניווט" : isGreek ? "Πλοήγηση" : "Navigation"}
               </h4>
               <ul className="space-y-3">
                 {NAV_LINKS.map((link) => (
@@ -335,9 +382,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Legal */}
             <div>
-              <h4 className="text-sm font-semibold text-white mb-5 tracking-wide uppercase">{isGreek ? "Νομικά" : "Legal"}</h4>
+              <h4 className="text-sm font-semibold text-white mb-5 tracking-wide uppercase">{isHebrew ? "מידע משפטי" : isGreek ? "Νομικά" : "Legal"}</h4>
               <ul className="space-y-3">
-                {isGreek ? (
+                {isHebrew ? (
+                  <>
+                    <li><Link href="/privacy/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">מדיניות פרטיות באנגלית</Link></li>
+                    <li><Link href="/cookies/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">מדיניות עוגיות באנגלית</Link></li>
+                    <li><Link href="/terms/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">תנאי שירות באנגלית</Link></li>
+                  </>
+                ) : isGreek ? (
                   <>
                     <li><Link href="/el/privacy/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική Απορρήτου</Link></li>
                     <li><Link href="/el/cookies/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική Cookies</Link></li>
@@ -356,7 +409,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Contact */}
             <div>
               <h4 className="text-sm font-semibold text-white mb-5 tracking-wide uppercase">
-                {isGreek ? "Επικοινωνία" : "Contact"}
+                {isHebrew ? "יצירת קשר" : isGreek ? "Επικοινωνία" : "Contact"}
               </h4>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-sm text-[#94A3B8]">
@@ -369,7 +422,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </li>
                 <li className="flex items-start gap-3 text-sm text-[#94A3B8]">
                   <MapPin size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
-                  <span>{isGreek ? "Ευρώπη και Παγκοσμίως" : "Europe & Worldwide"}</span>
+                  <span>{isHebrew ? "אירופה והעולם" : isGreek ? "Ευρώπη και Παγκοσμίως" : "Europe & Worldwide"}</span>
                 </li>
               </ul>
             </div>
@@ -378,19 +431,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Bottom Bar */}
           <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-[#64748B]">
-              &copy; {new Date().getFullYear()} DM-Labs.io. {isGreek ? "Με επιφύλαξη παντός δικαιώματος." : "All rights reserved."}
+              &copy; {new Date().getFullYear()} DM-Labs.io. {isHebrew ? "כל הזכויות שמורות." : isGreek ? "Με επιφύλαξη παντός δικαιώματος." : "All rights reserved."}
             </p>
             <p className="text-xs text-[#64748B]">
-              {isGreek ? "Σχεδιασμένο στην Ευρώπη, παραδίδεται παγκοσμίως." : "Crafted in Europe, delivered worldwide."}
+              {isHebrew ? "מעוצב באירופה, נמסר לכל העולם." : isGreek ? "Σχεδιασμένο στην Ευρώπη, παραδίδεται παγκοσμίως." : "Crafted in Europe, delivered worldwide."}
             </p>
             {/* Crawlable language link in footer (Task 3) */}
             <a
-              href={isGreek ? getAltLangHref("en") : getAltLangHref("el")}
-              onClick={(e) => { e.preventDefault(); navigate(isGreek ? getAltLangHref("en") : getAltLangHref("el")); }}
+              href={isHebrew ? getAltLangHref("en") : isGreek ? getAltLangHref("en") : getAltLangHref("el")}
+              onClick={(e) => { e.preventDefault(); navigate(isHebrew || isGreek ? getAltLangHref("en") : getAltLangHref("el")); }}
               className="text-xs text-[#64748B] hover:text-white transition-colors underline underline-offset-2"
-              lang={isGreek ? "en" : "el"}
+              lang={isHebrew || isGreek ? "en" : "el"}
             >
-              {isGreek ? "View in English" : "Δείτε στα Ελληνικά"}
+              {isHebrew ? "View in English" : isGreek ? "View in English" : "Δείτε στα Ελληνικά"}
             </a>
           </div>
         </div>
