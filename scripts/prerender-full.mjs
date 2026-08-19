@@ -110,6 +110,8 @@ const ROUTES = [
   "/he/services/maps",
   "/he/services/forms",
   "/he/services/social",
+  "/he/blog",
+  "/he/blog/website-cost-cyprus-2026-guide",
   // EN services sub-pages
   "/services/custom-design",
   "/services/mobile-first",

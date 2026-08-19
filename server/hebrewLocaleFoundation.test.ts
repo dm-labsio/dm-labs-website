@@ -110,9 +110,12 @@ describe("Hebrew locale foundation", () => {
     expect(router).toContain('<Route path="/he/services/social" component={SocialHe} />');
     expect(prerender).toContain('"/he/services/social"');
     expect(serverRoutes).toContain('"/he/services/social"');
-    expect(router).not.toMatch(/path="\/he\/blog/);
-    expect(prerender).not.toMatch(/"\/he\/blog/);
-    expect(serverRoutes).not.toMatch(/"\/he\/blog/);
+    expect(router).toContain('<Route path="/he/blog" component={BlogHe} />');
+    expect(router).toContain('<Route path="/he/blog/website-cost-cyprus-2026-guide" component={WebsiteCostHe} />');
+    expect(prerender).toContain('"/he/blog"');
+    expect(prerender).toContain('"/he/blog/website-cost-cyprus-2026-guide"');
+    expect(serverRoutes).toContain('"/he/blog"');
+    expect(serverRoutes).toContain('"/he/blog/website-cost-cyprus-2026-guide"');
   });
 
   it("keeps Hebrew Terms complete, staged, and free of visibility-gating effects", () => {

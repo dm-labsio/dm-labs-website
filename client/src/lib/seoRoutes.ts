@@ -44,6 +44,8 @@ export const EN_TO_HE_PATHS: Readonly<Record<string, string | null>> = {
   "/services/maps": "/he/services/maps",
   "/services/forms": "/he/services/forms",
   "/services/social": "/he/services/social",
+  "/blog": "/he/blog",
+  "/blog/website-cost-cyprus-2026-guide": "/he/blog/website-cost-cyprus-2026-guide",
 };
 
 const EL_LANGUAGE_TOGGLE_FALLBACKS: Readonly<Record<string, string>> = {

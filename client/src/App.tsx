@@ -39,6 +39,8 @@ import TurnaroundHe from "./pages/he/TurnaroundHe";
 import MapsHe from "./pages/he/MapsHe";
 import FormsHe from "./pages/he/FormsHe";
 import SocialHe from "./pages/he/SocialHe";
+import BlogHe from "./pages/he/BlogHe";
+import WebsiteCostHe from "./pages/he/WebsiteCostHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -157,6 +159,10 @@ function MainRouter() {
         <Route path="/he/services/forms/" component={FormsHe} />
         <Route path="/he/services/social" component={SocialHe} />
         <Route path="/he/services/social/" component={SocialHe} />
+        <Route path="/he/blog" component={BlogHe} />
+        <Route path="/he/blog/" component={BlogHe} />
+        <Route path="/he/blog/website-cost-cyprus-2026-guide" component={WebsiteCostHe} />
+        <Route path="/he/blog/website-cost-cyprus-2026-guide/" component={WebsiteCostHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />
