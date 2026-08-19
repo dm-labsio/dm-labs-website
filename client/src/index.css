@@ -146,6 +146,12 @@
     font-family: 'Heebo', Arial, sans-serif;
     text-align: start;
   }
+  html[dir="rtl"] .hebrew-home h1,
+  html[dir="rtl"] .hebrew-home h2 {
+    font-family: 'Frank Ruhl Libre', 'Heebo', serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
   html[dir="rtl"] .hebrew-ltr {
     direction: ltr;
     unicode-bidi: isolate;

@@ -1,155 +1,80 @@
 import { useEffect } from "react";
-import { CheckCircle2, Globe, MessageCircle, Search, Shield, Smartphone, Sparkles, Zap } from "lucide-react";
+import { ArrowLeft, CalendarCheck, CheckCircle2, Clock, Code, Dumbbell, Globe, Headphones, HelpCircle, Languages, MessageCircle, Palette, Rocket, Scissors, Search, Shield, Smartphone, Stethoscope, Users, Utensils, Zap } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
+import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
+import InteractiveExampleCard from "@/components/InteractiveExampleCard";
+import HomeHeroScrub from "@/components/HomeHeroScrub";
 
 const WHATSAPP_HEBREW = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20DM-Labs.io%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%9C%D7%92%D7%91%D7%99%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.";
+const GRADIENT_BG = "/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
+const DARK_CTA_BG = "/media/cloudfront/dark-cta-bg-LgZ8epcpi9XDGLof5Q9KgS.webp";
 
-const services = [
-  { icon: Globe, title: "עיצוב אתרים בהתאמה אישית", body: "אתר שמרגיש כמו המותג שלכם, ונבנה מהיסוד סביב היעדים והקהל שלכם." },
-  { icon: Smartphone, title: "פיתוח שמתחיל במובייל", body: "חוויה מהירה, ברורה ונוחה בכל מסך, מהטלפון ועד למחשב." },
-  { icon: Search, title: "תשתית SEO", body: "מבנה נכון למנועי חיפוש כדי שהלקוחות המתאימים יוכלו למצוא אתכם בגוגל." },
-  { icon: Zap, title: "ביצועים מהירים", body: "קוד ונכסים מותאמים למהירות, כי ביצועים טובים משפיעים על אמון והמרות." },
-  { icon: Shield, title: "אבטחה ואמינות", body: "SSL, אירוח מאובטח וגיבויים שוטפים כדי שהאתר שלכם יישאר זמין ומוגן." },
-  { icon: Sparkles, title: "תהליך ברור", body: "תהליך ממוקד ומסודר, משיחת ההיכרות ועד להשקה." },
-];
+const examples = [
+  ["nomad-coffee", "Nomad Coffee", "מינימליזם אומנותי", "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80", "דוגמה לאתר Nomad Coffee"],
+  ["bella-salon", "Bella Salon", "אלגנטי ונשי", "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80", "דוגמה לאתר Bella Salon"],
+  ["dr-elara-dental", "Dr. Elara Dental", "נקי ומקצועי", "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80", "דוגמה לאתר Dr. Elara Dental"],
+  ["verde-restaurant", "Verde Restaurant", "ים תיכוני ורענן", "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80", "דוגמה לאתר Verde Restaurant"],
+] as const;
+
+const serviceItems = [
+  [Globe, "עיצוב אתרים בהתאמה אישית", "אתרים ייחודיים שמותאמים לזהות, למטרות ולקהל שלכם. שום תבנית מוכנה, כל אתר נבנה מהיסוד."],
+  [Smartphone, "פיתוח בגישת מובייל תחילה", "כל אתר מתוכנן קודם למובייל כדי לספק חוויה מעולה בטלפון, בטאבלט ובמחשב."],
+  [Search, "קידום אורגני SEO", "מבנה חיפוש נכון מהיום הראשון כדי שהלקוחות המתאימים יוכלו למצוא אתכם בגוגל."],
+  [Zap, "ביצועים מהירים", "קוד ונכסים מותאמים למהירות, כי מהירות משפיעה על אמון, דירוגים והמרות."],
+  [Shield, "מאובטח ואמין", "SSL, אירוח מאובטח וגיבויים שוטפים כדי שהאתר שלכם יישאר זמין ומוגן."],
+  [Clock, "מסירה מהירה", "מהרעיון ועד ההשקה בתוך 5 עד 14 ימי עסקים, בלי להתפשר על איכות."],
+] as const;
 
 const process = [
-  ["01", "שיחת היכרות", "נבין את העסק, היעדים והקהל שלכם."],
-  ["02", "כיוון עיצובי", "נבנה שפה חזותית ברורה שמתאימה למותג."],
-  ["03", "פיתוח", "נהפוך את העיצוב לאתר מהיר, נגיש ומוכן לחיפוש."],
-  ["04", "דיוקים", "נחדד את הפרטים לפי המשוב שלכם."],
-  ["05", "השקה", "נחבר את הדומיין ונבדוק שהכול עובד כמו שצריך."],
-];
+  [MessageCircle, "01", "שיחת פתיחה", "שיחה קצרה ב-WhatsApp כדי להבין את העסק ואת היעדים שלכם.", "יום אחד"],
+  [Palette, "02", "עיצוב", "יוצרים כיוון עיצובי שמבוסס על המותג ועל ההעדפות שלכם.", "2 עד 3 ימים"],
+  [Code, "03", "פיתוח", "בונים את האתר עם קוד נקי, מהיר ומותאם לחיפוש.", "3 עד 5 ימים"],
+  [Headphones, "04", "סבבי תיקונים", "מלטשים את הפרטים על פי המשוב שלכם עד שאתם מרוצים.", "1 עד 2 ימים"],
+  [Rocket, "05", "השקה", "מחברים דומיין, מפרסמים ובודקים שהכול עובד כמו שצריך.", "יום אחד"],
+] as const;
+
+const pricing = [
+  ["Launch Website", "€299", "מתאים לעסק חדש שצריך נוכחות דיגיטלית נקייה ומקצועית במהירות.", ["עמוד עסקי ממותג", "מותאם למובייל", "כפתור WhatsApp", "קישורים לרשתות חברתיות", "וידג׳ט נגישות", "2 סבבי תיקונים", "מסירה בתוך 5 עד 7 ימים"]],
+  ["Growth Website", "€749", "לעסק מבוסס שזקוק לאתר שלם יותר וממוקד המרות.", ["עד 5 עמודים", "מותאם למובייל", "WhatsApp ורשתות חברתיות", "טופס יצירת קשר והזמנות", "Google Maps", "SEO בסיסי", "אופטימיזציית מהירות", "3 סבבי תיקונים", "מסירה בתוך 7 עד 10 ימים"]],
+  ["Pro Website", "€1,499", "לעסק שרוצה אתר מותאם אישית, עשיר בפונקציונליות ובנוי לצמיחה.", ["עד 7 עמודים", "עיצוב מותאם אישית ואנימציות", "טופס יצירת קשר והזמנות", "גלריה ותוכן", "מבנה SEO מלא", "4 סבבי תיקונים", "מסירה בתוך 10 עד 14 ימים"]],
+] as const;
 
 export default function HomeHe() {
-  useSEO({
-    title: "DM-Labs.io | עיצוב אתרים מקצועי לעסקים",
-    description: "DM-Labs.io בונה אתרים מקצועיים, מהירים ומותאמים למובייל לעסקים. תהליך ברור, תשתית SEO וחבילות החל מ-€299.",
-    ogLocale: "he_IL",
-    noindex: true,
-  });
-
+  useSEO({ title: "DM-Labs.io | עיצוב אתרים מקצועי לעסקים", description: "DM-Labs.io בונה אתרים מקצועיים, מהירים ומותאמים למובייל לעסקים. תהליך ברור, תשתית SEO וחבילות החל מ-€299.", ogLocale: "he_IL", noindex: true });
   useEffect(() => {
     const id = "hebrew-home-webpage-schema";
-    if (document.getElementById(id)) return;
     const script = document.createElement("script");
-    script.id = id;
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "@id": "https://dm-labs.io/he/#webpage",
-      url: "https://dm-labs.io/he/",
-      name: "DM-Labs.io | עיצוב אתרים מקצועי לעסקים",
-      inLanguage: "he",
-      isPartOf: { "@id": "https://dm-labs.io/#website" },
-    });
-    document.head.appendChild(script);
-    return () => document.getElementById(id)?.remove();
+    script.id = id; script.type = "application/ld+json";
+    script.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "@id": "https://dm-labs.io/he/#webpage", url: "https://dm-labs.io/he/", name: "DM-Labs.io | עיצוב אתרים מקצועי לעסקים", inLanguage: "he", isPartOf: { "@id": "https://dm-labs.io/#website" } });
+    document.head.appendChild(script); return () => document.getElementById(id)?.remove();
   }, []);
 
-  return (
-    <div className="hebrew-home" dir="rtl">
-      <section className="relative overflow-hidden bg-[#F8FAFF] px-4 pb-20 pt-20 sm:pb-28 sm:pt-28">
-        <div className="absolute inset-0 opacity-50" aria-hidden="true" style={{ background: "radial-gradient(circle at 70% 20%, rgba(111,227,255,.25), transparent 34%), radial-gradient(circle at 25% 85%, rgba(139,92,255,.18), transparent 38%)" }} />
-        <div className="container relative z-10 mx-auto max-w-5xl text-center">
-          <p className="mb-5 text-sm font-semibold tracking-[0.18em] text-[#5B8CFF]">פתרונות דיגיטליים לעסקים</p>
-          <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-[1.08] text-[#111315] sm:text-6xl lg:text-7xl">
-            העסק שלכם מצוין.<br />האתר שלכם צריך להראות את זה.
-          </h1>
-          <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-[#5B6472] sm:text-xl">
-            אנחנו בונים אתרים מקצועיים, מהירים ומוכווני המרות לעסקים שרוצים להיראות טוב, להיות קלים למציאה ולגדול בביטחון. החבילות מתחילות ב-€299.
-          </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-4">
-            <a href={WHATSAPP_HEBREW} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
-              שיחת ייעוץ ללא עלות <MessageCircle size={18} />
-            </a>
-            <a href="#services" className="inline-flex items-center justify-center rounded-xl border border-[#5B8CFF] px-6 py-3 text-sm font-semibold text-[#315CD4] transition-colors hover:bg-[#EEF3FF]">
-              מה אנחנו עושים
-            </a>
-          </div>
-        </div>
-      </section>
+  return <div className="hebrew-home" dir="rtl">
+    <HomeHeroScrub>
+      <div className="text-center">
+        <p className="mb-4 text-sm font-semibold tracking-[0.16em] text-[#5B8CFF]">פתרונות אתרים שלמים לעסקים</p>
+        <h1 className="mx-auto max-w-4xl text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1]">העסק שלכם מצוין.<br />האתר שלכם צריך להראות את זה.</h1>
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#5B6472]">אנחנו בונים אתרים מקצועיים, מהירים ומוכווני המרות לעסקים שרוצים להיראות טוב, להיות קלים למציאה ולגדול בביטחון. החבילות מתחילות ב-€299.</p>
+        <div className="mt-8 flex flex-wrap justify-center gap-4"><a href={WHATSAPP_HEBREW} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">שיחת ייעוץ ללא עלות <MessageCircle size={18} /></a><a href="#examples" className="btn-secondary inline-flex items-center gap-2">דוגמאות לעבודה <ArrowLeft size={18} /></a></div>
+      </div>
+    </HomeHeroScrub>
 
-      <section className="border-y border-[#E2E5EA] bg-white">
-        <div className="container mx-auto flex flex-wrap justify-center gap-x-9 gap-y-3 px-4 py-6 text-sm font-medium text-[#4E5968]">
-          {["תמחור ברור", "מותאם למובייל", "תשתית SEO", "צוות אירופי", "תהליך מסודר"].map((item) => <span key={item} className="inline-flex items-center gap-2"><CheckCircle2 size={16} className="text-[#5B8CFF]" />{item}</span>)}
-        </div>
-      </section>
+    <section className="bg-white border-y border-[#E2E5EA]"><div className="container py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">{["ללא עלויות נסתרות", "מסירה בתוך ימים", "מותאם למובייל", "מוכן ל-SEO", "צוות אירופי"].map(item => <span key={item} className="flex items-center gap-2 text-sm font-medium text-[#5B6472]"><CheckCircle2 size={16} className="text-[#5B8CFF]" />{item}</span>)}</div></section>
 
-      <section id="services" className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="mb-3 text-sm font-semibold tracking-[0.16em] text-[#5B8CFF]">השירותים שלנו</p>
-            <h2 className="text-3xl font-extrabold text-[#111315] sm:text-5xl">כל מה שהנוכחות הדיגיטלית שלכם צריכה</h2>
-            <p className="mt-5 text-lg leading-relaxed text-[#5B6472]">מעיצוב ועד להשקה, אנו מחברים בין אסטרטגיה, ביצועים ותוכן כדי לייצר אתר שעובד עבור העסק שלכם.</p>
-          </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map(({ icon: Icon, title, body }) => (
-              <article key={title} className="rounded-2xl border border-[#E2E5EA] bg-[#FCFDFE] p-6 shadow-sm">
-                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#EEF3FF] text-[#5B8CFF]"><Icon size={24} /></div>
-                <h3 className="text-xl font-bold text-[#111315]">{title}</h3>
-                <p className="mt-3 leading-relaxed text-[#5B6472]">{body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+    <section id="examples" className="section-spacing relative overflow-hidden"><div className="absolute inset-0 opacity-[0.04] pointer-events-none"><img src={GRADIENT_BG} alt="" role="presentation" className="h-full w-full object-cover" /></div><div className="container relative z-10"><AnimateIn className="text-center mb-10"><p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide">השראה לעיצוב</p><h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">ראו מה אפשר ליצור בשבילכם</h2><p className="mt-4 mx-auto max-w-2xl text-lg text-[#5B6472] leading-relaxed">כל אתר שנבנה עבורכם מותאם למותג, לתוכן ולקהל שלכם. אלו דוגמאות לסגנונות ולענפים שאנו יודעים לשרת.</p></AnimateIn><StaggerContainer className="mx-auto grid max-w-5xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">{examples.map(([id, title, subtitle, imageUrl, imageAlt]) => <StaggerItem key={id}><InteractiveExampleCard title={title} subtitle={subtitle} imageUrl={imageUrl} imageAlt={imageAlt} href={`/preview/${id}/?from=%2Fhe%2F`} actionText="לצפייה בדוגמה" /></StaggerItem>)}</StaggerContainer></div></section>
 
-      <section id="process" className="section-spacing bg-[#F5F8FF]">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="mb-3 text-sm font-semibold tracking-[0.16em] text-[#5B8CFF]">איך זה עובד</p>
-            <h2 className="text-3xl font-extrabold text-[#111315] sm:text-5xl">מרעיון להשקה בחמישה שלבים</h2>
-          </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {process.map(([step, title, body]) => (
-              <article key={step} className="rounded-2xl border border-[#DCE5FF] bg-white p-5 text-center">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#5B8CFF] text-sm font-bold text-white">{step}</span>
-                <h3 className="mt-4 text-lg font-bold text-[#111315]">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#5B6472]">{body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+    <section id="services" className="section-spacing"><div className="container"><AnimateIn className="text-center mb-16"><p className="text-sm font-medium text-[#8B7355] mb-3">השירותים שלנו</p><h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">פתרונות מקצועיים לנוכחות הדיגיטלית שלכם</h2><p className="mt-4 mx-auto max-w-2xl text-lg text-[#5B6472]">כל מה שצריך כדי ליצור נוכחות מקצועית ברשת, מעיצוב ועד השקה ומעבר לה.</p></AnimateIn><StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">{serviceItems.map(([Icon, title, body]) => <StaggerItem key={title}><article className="dm-card h-full"><div className="icon-container-gradient mb-5"><Icon size={24} className="text-[#5B8CFF]" /></div><h3 className="text-lg font-semibold text-[#111315] mb-2">{title}</h3><p className="text-sm text-[#5B6472] leading-relaxed">{body}</p></article></StaggerItem>)}</StaggerContainer></div></section>
 
-      <section id="pricing" className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="mb-3 text-sm font-semibold tracking-[0.16em] text-[#5B8CFF]">תמחור שקוף</p>
-            <h2 className="text-3xl font-extrabold text-[#111315] sm:text-5xl">חבילות ברורות. החלטה קלה יותר.</h2>
-            <p className="mt-5 text-lg text-[#5B6472]">היקף עבודה מוגדר, תמחור שקוף ושיחת ייעוץ ללא עלות לפני שמחליטים.</p>
-          </div>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
-            {[
-              ["Launch Website", "€299", "נוכחות מקצועית ומדויקת לעסק חדש שרוצה לצאת לדרך בצורה ברורה."],
-              ["Growth Website", "€749", "אתר שממוקד בהמרות לעסק שרוצה להימצא, לבנות אמון ולקבל פניות."],
-              ["Pro Website", "€1,499", "נוכחות דיגיטלית מקיפה יותר, עם תוכן עשיר, תנועה ותשתית חיפוש חזקה."],
-            ].map(([name, price, body], index) => (
-              <article key={name} className={`rounded-2xl border p-7 ${index === 1 ? "border-[#5B8CFF] bg-[#F7FAFF] shadow-lg" : "border-[#E2E5EA]"}`}>
-                <p className="text-sm font-semibold tracking-wide text-[#5B8CFF]">{name}</p>
-                <p className="mt-4 text-4xl font-extrabold text-[#111315]">{price}</p>
-                <p className="mt-1 text-sm text-[#5B6472]">תשלום חד-פעמי</p>
-                <p className="mt-5 leading-relaxed text-[#5B6472]">{body}</p>
-                <a href={WHATSAPP_HEBREW} target="_blank" rel="noopener noreferrer" className={`mt-7 inline-flex w-full items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold ${index === 1 ? "btn-primary" : "border border-[#5B8CFF] text-[#315CD4] hover:bg-[#EEF3FF]"}`}>
-                  לפרטים ושיחת ייעוץ
-                </a>
-              </article>
-            ))}
-          </div>
-          <p className="mt-8 text-center text-sm text-[#5B6472]">לפרויקטים מורכבים או בהתאמה אישית, המחיר מתחיל ב-€1,499 ונקבע לפי היקף העבודה.</p>
-        </div>
-      </section>
+    <section id="process" className="section-spacing relative overflow-hidden bg-[#F5F8FF]"><div className="container relative z-10"><AnimateIn className="text-center mb-16"><p className="text-sm font-medium text-[#8B7355] mb-3">איך זה עובד</p><h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">מרעיון להשקה בחמישה שלבים פשוטים</h2><p className="mt-4 text-lg text-[#5B6472]">תהליך מסודר שמאפשר לכם להתמקד בעסק שלכם.</p></AnimateIn><StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">{process.map(([Icon, step, title, body, time]) => <StaggerItem key={step}><article className="text-center"><div className="relative inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#EAF0FF] mb-4"><Icon size={28} className="text-[#5B8CFF]" /><span className="absolute -top-2 -right-2 h-7 w-7 rounded-full brand-gradient text-white text-xs font-bold flex items-center justify-center" dir="ltr">{step}</span></div><h3 className="text-base font-semibold text-[#111315]">{title}</h3><p className="text-xs text-[#8B5CFF] font-medium my-2">{time}</p><p className="text-sm text-[#5B6472] leading-relaxed">{body}</p></article></StaggerItem>)}</StaggerContainer></div></section>
 
-      <section className="bg-[#0F172A] px-4 py-20 text-center text-white sm:py-28">
-        <div className="container mx-auto max-w-3xl">
-          <p className="mb-4 text-sm font-semibold tracking-[0.16em] text-[#6FE3FF]">מוכנים להתחיל?</p>
-          <h2 className="text-3xl font-extrabold leading-tight sm:text-5xl">בואו נבנה אתר שעובד קשה בשביל העסק שלכם.</h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#CBD5E1]">ספרו לנו על העסק שלכם. נחזור אליכם עם כיוון ברור, היקף עבודה והצעה שמתאימה לצרכים שלכם.</p>
-          <a href={WHATSAPP_HEBREW} target="_blank" rel="noopener noreferrer" className="btn-primary mt-9 inline-flex items-center gap-2">דברו איתנו ב-WhatsApp <MessageCircle size={18} /></a>
-        </div>
-      </section>
-    </div>
-  );
+    <section id="pricing" className="section-spacing relative overflow-hidden"><div className="absolute inset-0 opacity-[0.03] pointer-events-none"><img src={GRADIENT_BG} alt="" role="presentation" className="h-full w-full object-cover" /></div><div className="container relative z-10"><AnimateIn className="text-center mb-12"><p className="text-sm font-medium text-[#8B7355] mb-3">תמחור שקוף</p><h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">מחירים פשוטים וישרים</h2><p className="mt-4 text-lg text-[#5B6472]">ללא עלויות נסתרות וללא הפתעות.</p></AnimateIn><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">{pricing.map(([name, price, intro, features], index) => <AnimateIn key={name}><article className={index === 1 ? "brand-gradient-border h-full" : "h-full"}><div className="dm-card h-full flex flex-col"><p className="text-sm font-semibold text-[#5B8CFF] tracking-wide mb-2" dir="ltr">{name}</p><p className="text-4xl font-bold text-[#111315]" dir="ltr">{price}</p><p className="text-sm text-[#5B6472]">תשלום חד פעמי</p><p className="text-sm text-[#5B6472] my-6">{intro}</p><ul className="space-y-3 flex-1">{features.map(feature => <li key={feature} className="flex gap-2 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />{feature}</li>)}</ul><a href={WHATSAPP_HEBREW} target="_blank" rel="noopener noreferrer" className="btn-primary mt-7 w-full justify-center">שיחת ייעוץ ללא עלות</a></div></article></AnimateIn>)}</div><AnimateIn className="mt-8 max-w-5xl mx-auto"><div className="rounded-2xl p-8 bg-[#0F172A] text-white flex flex-col lg:flex-row gap-8 items-start"><div className="lg:w-72"><span className="text-xs px-3 py-1 rounded-full bg-[#5B8CFF]">מותאם במיוחד לכם</span><p className="mt-4 font-semibold" dir="ltr">Enterprise / Custom</p><p className="text-3xl font-bold mt-1" dir="ltr">from €1,499</p><p className="text-sm text-white/65 mt-3">לארגונים ולעסקים שזקוקים לפתרון שנבנה סביב היעדים שלהם.</p></div><div className="grid grid-cols-2 sm:grid-cols-4 gap-4 flex-1">{[{ Icon: Globe, label: "עיצוב מלא מהיסוד" }, { Icon: Zap, label: "עמודים ללא הגבלה" }, { Icon: CalendarCheck, label: "CRM והזמנות" }, { Icon: Languages, label: "תמיכה רב לשונית" }, { Icon: Users, label: "מנהל פרויקט" }, { Icon: Headphones, label: "תמיכה בעדיפות" }, { Icon: ArrowLeft, label: "ליווי מתמשך" }, { Icon: CheckCircle2, label: "אסטרטגיית SEO" }].map(({ Icon, label }) => <span key={label} className="flex gap-2 text-sm text-white/80"><Icon size={15} className="text-[#6FE3FF] shrink-0" />{label}</span>)}</div></div></AnimateIn></div></section>
+
+    <section className="section-spacing bg-white"><div className="container"><AnimateIn className="text-center mb-8"><p className="text-base text-[#5B6472]">ענפים שאנחנו עובדים איתם</p></AnimateIn><StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">{[{ Icon: Utensils, label: "מסעדות" }, { Icon: Scissors, label: "סלוני יופי" }, { Icon: Stethoscope, label: "קליניקות" }, { Icon: Dumbbell, label: "כושר וחדרי כושר" }].map(({ Icon, label }) => <StaggerItem key={label}><article className="dm-card text-center !p-6"><div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14"><Icon size={24} className="text-[#5B8CFF]" /></div><p className="text-sm font-semibold text-[#111315]">{label}</p></article></StaggerItem>)}</StaggerContainer><AnimateIn className="text-center mt-10"><div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-[#F8FAFF] border border-[#5B8CFF]/20"><HelpCircle size={18} className="text-[#5B8CFF]" /><p className="text-sm text-[#5B6472]"><strong className="text-[#111315]">לא מצאתם את הענף שלכם?</strong> אנחנו עובדים עם כל סוגי העסקים.</p></div></AnimateIn></div></section>
+
+    <section className="relative overflow-hidden py-16 sm:py-20 bg-[#0F172A]"><div className="container"><StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8">{[["5-14","ימים עד להשקה","מהשיחה הראשונה"],["5★","שביעות רצון","הסטנדרט שלנו"],["100%","מותאם למובייל","בכל פרויקט"],["∞","ליווי מתמשך","אנחנו כאן בשבילכם"]].map(([value,label,sub]) => <StaggerItem key={label}><div className="text-center"><p className="text-4xl sm:text-5xl font-bold text-[#6FE3FF]" dir="ltr">{value}</p><p className="text-base font-semibold text-white mt-2">{label}</p><p className="text-xs text-[#94A3B8]">{sub}</p></div></StaggerItem>)}</StaggerContainer></div></section>
+
+    <section className="section-spacing bg-white"><div className="container"><AnimateIn className="text-center mb-14"><p className="text-xs font-semibold tracking-[0.2em] text-[#5B8CFF] mb-3">האנשים שמאחורי העבודה</p><h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">מי אנחנו</h2></AnimateIn><div className="flex flex-col gap-8 max-w-3xl mx-auto">{[["Anastacia B.","מנהלת קריאייטיב ומומחית AI","/media/manus/AtkkCmVLLZyIDtDx.webp","עבדתי עם חברות טכנולוגיה גלובליות על מוצרים דיגיטליים והטמעת AI. אני משתמשת בכלים מתקדמים כדי לדייק תוצאות ולספק עבודה טובה יותר, בלי לוותר על יצירתיות ושיקול דעת אנושי.","האתר שלכם צריך לעבוד קשה בדיוק כמוכם."],["Tom B.","מנהל טכנולוגי ומומחה SEO","/media/manus/DVIoYisVQvzbqoiR.webp","הרקע שלי הוא באוטומציה, פיתוח ושילוב מערכות מורכבות. אני דואג לצד הטכני כדי שתקבלו אתר יציב, מהיר ובנוי לטווח ארוך.","קודם פותרים את הבעיה. אחר כך כותבים את הקוד."]].map(([name,role,image,body,quote]) => <AnimateIn key={name}><article className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] overflow-hidden md:flex"><div className="relative h-56 shrink-0 md:h-auto md:w-[200px]"><img src={image} alt={`${name}, ${role} ב-DM-Labs.io`} className="absolute inset-0 w-full h-full object-cover object-top" /></div><div className="p-7 flex flex-col justify-between"><div><h3 className="text-xl font-bold text-[#111315]" dir="ltr">{name}</h3><p className="text-sm font-semibold text-[#5B8CFF] mb-4">{role}</p><p className="text-sm text-[#5B6472] leading-relaxed">{body}</p></div><p className="border-t border-[#E2E5EA] mt-5 pt-4 text-sm italic text-[#111315] font-medium">״{quote}״</p></div></article></AnimateIn>)}</div></div></section>
+
+    <section className="relative overflow-hidden"><div className="absolute inset-0 bg-[#0F172A]"><img src={DARK_CTA_BG} alt="" role="presentation" className="absolute inset-0 h-full w-full object-cover opacity-40" /></div><div className="container relative z-10 section-spacing text-center"><AnimateIn><p className="text-sm font-medium text-[#6FE3FF] mb-4">מוכנים להתחיל?</p><h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">בואו נבנה את האתר שלכם יחד</h2><p className="mx-auto mt-6 mb-10 max-w-xl text-lg text-[#94A3B8]">פנו אלינו ונחזור אליכם בתוך שעות עם שיחה ידידותית על העסק שלכם.</p><a href={WHATSAPP_HEBREW} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2"><MessageCircle size={20} />שיחת ייעוץ ללא עלות</a></AnimateIn></div></section>
+  </div>;
 }
