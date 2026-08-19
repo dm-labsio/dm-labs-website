@@ -29,6 +29,8 @@ describe("Hebrew locale foundation", () => {
       he: null,
     });
     expect(getHebrewLanguageTogglePath("/terms/")).toBe("/he/terms");
+    expect(getHebrewLanguageTogglePath("/blog/")).toBe("/he");
+    expect(getHebrewLanguageTogglePath("/el/blog/")).toBe("/he");
   });
 
   it("prepares Hebrew document language, RTL direction, and a Hebrew-native font", () => {
@@ -49,6 +51,28 @@ describe("Hebrew locale foundation", () => {
     expect(seoHook).toContain('hreflang: "he-IL"');
     expect(seoHook).toContain("getHreflangRouteSet(cleanPath)");
     expect(seoHook).toContain("routes.he ?");
+  });
+
+  it("keeps the active language state exclusive and preserves reading position only for direct translations", () => {
+    const layout = readSource("client/src/components/Layout.tsx");
+
+    expect(layout).toContain("const isEnglish = !isGreek && !isHebrew;");
+    expect(layout).toContain("aria-current={isEnglish ? \"true\" : undefined}");
+    expect(layout).toContain("languageSwitchScrollRef");
+    expect(layout).toContain("targetLang === \"el\" ? routes.el !== null : routes.he !== null");
+    expect(layout).toContain('navigateLanguage("he", heHref)');
+  });
+
+  it("keeps the Hebrew Contact form structurally aligned with the shared contact contract", () => {
+    const contact = readSource("client/src/pages/he/ContactHe.tsx");
+
+    expect(contact).toContain('canonicalPath: "/he/contact/"');
+    expect(contact).toContain("WEB3FORMS_URL");
+    expect(contact).toContain("contact-editorial-form-card");
+    expect(contact).toContain("contact-editorial-field-label");
+    expect(contact).toContain("contact-editorial-submit");
+    expect(contact).toContain('id="contact-he-email"');
+    expect(contact).toContain('dir="ltr"');
   });
 
   it("exposes only reviewed Hebrew routes and no invented child routes", () => {

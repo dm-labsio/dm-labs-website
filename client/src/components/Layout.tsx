@@ -4,7 +4,7 @@
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
    Language toggle: flag-based EN/EL, visible on mobile as floating pill
    ============================================================ */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, Phone, Mail, MapPin, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -125,10 +125,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [location, navigate] = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const languageSwitchScrollRef = useRef<number | null | undefined>(undefined);
 
   const normalizedLocation = normalizeRoutePath(location);
   const isGreek = normalizedLocation === "/el" || normalizedLocation.startsWith("/el/");
   const isHebrew = normalizedLocation === "/he" || normalizedLocation.startsWith("/he/");
+  const isEnglish = !isGreek && !isHebrew;
   const isStandalonePreview = normalizedLocation.startsWith("/preview/");
   const isEnglishHomepage = normalizedLocation === "/";
   const isTemplatesIndex = normalizedLocation === "/templates";
@@ -143,10 +145,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMobileOpen(false);
-    // Use requestAnimationFrame to scroll after the new page has painted,
-    // preventing the brief flash/jump to the footer on language switch.
+    // Preserve reading position only for direct translations. A fallback such
+    // as Blog -> Hebrew home deliberately starts at the top.
+    const languageSwitchScroll = languageSwitchScrollRef.current;
+    languageSwitchScrollRef.current = undefined;
     const raf = requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      window.scrollTo({ top: languageSwitchScroll ?? 0, left: 0, behavior: "auto" });
     });
     return () => cancelAnimationFrame(raf);
   }, [location]);
@@ -162,6 +166,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     if (targetLang === "en") return withTrailingSlash(routes.en);
     if (targetLang === "el") return withTrailingSlash(getGreekLanguageTogglePath(normalizedLocation));
     return withTrailingSlash(getHebrewLanguageTogglePath(normalizedLocation));
+  }
+
+  function navigateLanguage(targetLang: "en" | "el" | "he", href: string) {
+    if (href === withTrailingSlash(normalizedLocation)) return;
+    const routes = getHreflangRouteSet(normalizedLocation);
+    const hasDirectTranslation = targetLang === "en" || (targetLang === "el" ? routes.el !== null : routes.he !== null);
+    languageSwitchScrollRef.current = hasDirectTranslation ? window.scrollY : null;
+    navigate(href);
   }
 
   // The Hebrew option safely falls back to the completed Hebrew home until the
@@ -180,15 +192,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           href={enHref}
           aria-label="Switch to English"
           title="English"
-          aria-current={!isGreek ? "true" : undefined}
+          aria-current={isEnglish ? "true" : undefined}
           className={`flex items-center gap-1.5 rounded-full transition-all duration-200 font-semibold ${
             isSmall ? "px-2 py-1 text-xs" : "px-3 py-1.5 text-xs"
           } ${
-            !isGreek
+            isEnglish
               ? "bg-[#5B8CFF] text-white shadow-sm"
               : "text-[#5B6472] hover:bg-[#F0F4FF] hover:text-[#5B8CFF]"
           }`}
-          onClick={(e) => { e.preventDefault(); navigate(enHref); }}
+          onClick={(e) => { e.preventDefault(); navigateLanguage("en", enHref); }}
         >
           <FlagUK />
           <span>EN</span>
@@ -205,7 +217,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               ? "bg-[#5B8CFF] text-white shadow-sm"
               : "text-[#5B6472] hover:bg-[#F0F4FF] hover:text-[#5B8CFF]"
           }`}
-          onClick={(e) => { e.preventDefault(); navigate(elHref); }}
+          onClick={(e) => { e.preventDefault(); navigateLanguage("el", elHref); }}
         >
           <FlagGR />
           <span>EL</span>
@@ -222,7 +234,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               ? "bg-[#5B8CFF] text-white shadow-sm"
               : "text-[#5B6472] hover:bg-[#F0F4FF] hover:text-[#5B8CFF]"
           }`}
-          onClick={(e) => { e.preventDefault(); navigate(heHref); }}
+          onClick={(e) => { e.preventDefault(); navigateLanguage("he", heHref); }}
         >
           <FlagIL />
           <span>עב</span>
