@@ -47,6 +47,7 @@ export const EN_TO_HE_PATHS: Readonly<Record<string, string | null>> = {
   "/blog": "/he/blog",
   "/blog/website-cost-cyprus-2026-guide": "/he/blog/website-cost-cyprus-2026-guide",
   "/blog/web-design-nail-salon-beauty-studio-cyprus": "/he/blog/web-design-nail-salon-beauty-studio-cyprus",
+  "/blog/yoga-pilates-studio-website-cyprus": "/he/blog/yoga-pilates-studio-website-cyprus",
 };
 
 const EL_LANGUAGE_TOGGLE_FALLBACKS: Readonly<Record<string, string>> = {

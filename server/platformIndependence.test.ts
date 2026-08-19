@@ -99,7 +99,7 @@ describe("platform-independent production stack", () => {
     expect(appSource.match(/<Analytics\b/g)).toHaveLength(1);
   });
 
-  it("preserves the production build, output directory, and 91-route prerender contract", () => {
+  it("preserves the production build, output directory, and 92-route prerender contract", () => {
     expect(packageJson.scripts.build).toBe(
       "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/prerender-full.mjs",
     );
@@ -112,7 +112,7 @@ describe("platform-independent production stack", () => {
     const literalRoutes = extractQuotedItems(prerenderSource, /const ROUTES = \[([\s\S]*?)\]\.map/)
       .filter(route => route.startsWith("/"));
 
-    expect(literalRoutes.length + englishBlogSlugs.length + greekBlogSlugs.length).toBe(91);
+    expect(literalRoutes.length + englishBlogSlugs.length + greekBlogSlugs.length).toBe(92);
     expect(prerenderSource).toContain('`${route.replace(/\\/+$/, "")}/`');
   });
 
