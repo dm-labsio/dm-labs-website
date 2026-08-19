@@ -104,6 +104,7 @@ const ROUTES = [
   "/he/services/custom-design",
   "/he/services/mobile-first",
   "/he/services/seo",
+  "/he/services/performance",
   // EN services sub-pages
   "/services/custom-design",
   "/services/mobile-first",
