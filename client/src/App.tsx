@@ -24,6 +24,7 @@ import HomeHe from "./pages/he/HomeHe";
 import ServicesHe from "./pages/he/ServicesHe";
 import ProcessHe from "./pages/he/ProcessHe";
 import PricingHe from "./pages/he/PricingHe";
+import ContactHe from "./pages/he/ContactHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -112,6 +113,8 @@ function MainRouter() {
         <Route path="/he/process/" component={ProcessHe} />
         <Route path="/he/pricing" component={PricingHe} />
         <Route path="/he/pricing/" component={PricingHe} />
+        <Route path="/he/contact" component={ContactHe} />
+        <Route path="/he/contact/" component={ContactHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />
