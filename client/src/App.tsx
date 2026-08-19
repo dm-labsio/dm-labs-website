@@ -22,6 +22,7 @@ import CookiePolicy from "./pages/CookiePolicy";
 import Terms from "./pages/Terms";
 import HomeHe from "./pages/he/HomeHe";
 import ServicesHe from "./pages/he/ServicesHe";
+import ProcessHe from "./pages/he/ProcessHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -106,6 +107,8 @@ function MainRouter() {
         <Route path="/he/" component={HomeHe} />
         <Route path="/he/services" component={ServicesHe} />
         <Route path="/he/services/" component={ServicesHe} />
+        <Route path="/he/process" component={ProcessHe} />
+        <Route path="/he/process/" component={ProcessHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />

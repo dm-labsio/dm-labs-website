@@ -47,12 +47,15 @@ describe("Hebrew locale foundation", () => {
 
     expect(router).toContain('<Route path="/he" component={HomeHe} />');
     expect(router).toContain('<Route path="/he/services" component={ServicesHe} />');
+    expect(router).toContain('<Route path="/he/process" component={ProcessHe} />');
     expect(prerender).toContain('"/he"');
     expect(prerender).toContain('"/he/services"');
+    expect(prerender).toContain('"/he/process"');
     expect(serverRoutes).toContain('"/he"');
     expect(serverRoutes).toContain('"/he/services"');
-    expect(router).not.toMatch(/path="\/he\/(?:process|pricing|faq|contact|blog|terms|privacy|cookies)/);
-    expect(prerender).not.toMatch(/"\/he\/(?:process|pricing|faq|contact|blog|terms|privacy|cookies)/);
-    expect(serverRoutes).not.toMatch(/"\/he\/(?:process|pricing|faq|contact|blog|terms|privacy|cookies)/);
+    expect(serverRoutes).toContain('"/he/process"');
+    expect(router).not.toMatch(/path="\/he\/(?:pricing|faq|contact|blog|terms|privacy|cookies)/);
+    expect(prerender).not.toMatch(/"\/he\/(?:pricing|faq|contact|blog|terms|privacy|cookies)/);
+    expect(serverRoutes).not.toMatch(/"\/he\/(?:pricing|faq|contact|blog|terms|privacy|cookies)/);
   });
 });

@@ -93,6 +93,7 @@ const ROUTES = [
   // Hebrew staged routes: add each only after its full page content is complete.
   "/he",
   "/he/services",
+  "/he/process",
   // EN services sub-pages
   "/services/custom-design",
   "/services/mobile-first",
