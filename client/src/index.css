@@ -142,6 +142,15 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  html[dir="rtl"] body {
+    font-family: 'Heebo', Arial, sans-serif;
+    text-align: start;
+  }
+  html[dir="rtl"] .hebrew-ltr {
+    direction: ltr;
+    unicode-bidi: isolate;
+    display: inline-block;
+  }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),

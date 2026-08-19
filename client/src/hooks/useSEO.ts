@@ -13,7 +13,7 @@
 
 import { useEffect } from "react";
 import { useLocation } from "wouter";
-import { getHreflangPair, normalizeRoutePath, SEO_BASE_URL, withTrailingSlash } from "@/lib/seoRoutes";
+import { getHreflangRouteSet, type HreflangRouteSet, normalizeRoutePath, SEO_BASE_URL, withTrailingSlash } from "@/lib/seoRoutes";
 
 const BASE_URL = SEO_BASE_URL;
 const DEFAULT_TITLE = "DM-Labs.io | Web Design in Paphos & Cyprus from €299";
@@ -68,14 +68,18 @@ function setCanonical(href: string) {
   el.href = href;
 }
 
-function setHreflangTags(enPath: string, elPath: string) {
+function setHreflangTags(routes: HreflangRouteSet) {
   // Remove any existing hreflang tags first
   document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
 
   const tags = [
-    { hreflang: "en", href: `${BASE_URL}${enPath}` },
-    { hreflang: "el", href: `${BASE_URL}${elPath}` },
-    { hreflang: "x-default", href: `${BASE_URL}${enPath}` },
+    { hreflang: "en", href: `${BASE_URL}${withTrailingSlash(routes.en)}` },
+    ...(routes.el ? [{ hreflang: "el", href: `${BASE_URL}${withTrailingSlash(routes.el)}` }] : []),
+    ...(routes.he ? [
+      { hreflang: "he", href: `${BASE_URL}${withTrailingSlash(routes.he)}` },
+      { hreflang: "he-IL", href: `${BASE_URL}${withTrailingSlash(routes.he)}` },
+    ] : []),
+    { hreflang: "x-default", href: `${BASE_URL}${withTrailingSlash(routes.en)}` },
   ];
 
   tags.forEach(({ hreflang, href }) => {
@@ -88,8 +92,13 @@ function setHreflangTags(enPath: string, elPath: string) {
 }
 
 function setBreadcrumbSchema(cleanPath: string, finalPath: string, title: string) {
-  const isGreek = cleanPath.startsWith("/el/");
-  const pathWithoutLocale = isGreek ? cleanPath.slice(3) || "/" : cleanPath;
+  const isGreek = cleanPath === "/el" || cleanPath.startsWith("/el/");
+  const isHebrew = cleanPath === "/he" || cleanPath.startsWith("/he/");
+  const pathWithoutLocale = isGreek
+    ? cleanPath.slice(3) || "/"
+    : isHebrew
+      ? cleanPath.slice(3) || "/"
+      : cleanPath;
   const category = pathWithoutLocale.startsWith("/services/")
     ? "services"
     : pathWithoutLocale.startsWith("/blog/")
@@ -105,16 +114,19 @@ function setBreadcrumbSchema(cleanPath: string, finalPath: string, title: string
     return;
   }
 
-  const homePath = isGreek ? "/el/" : "/";
+  const homePath = isGreek ? "/el/" : isHebrew ? "/he/" : "/";
   const items: Array<{ "@type": string; position: number; name: string; item: string }> = [
-    { "@type": "ListItem", position: 1, name: isGreek ? "Αρχική" : "Home", item: `${BASE_URL}${homePath}` },
+    { "@type": "ListItem", position: 1, name: isGreek ? "Αρχική" : isHebrew ? "דף הבית" : "Home", item: `${BASE_URL}${homePath}` },
   ];
   if (category === "services" || category === "blog") {
-    const parentPath = `${isGreek ? "/el" : ""}/${category}/`;
+    const localePrefix = isGreek ? "/el" : isHebrew ? "/he" : "";
+    const parentPath = `${localePrefix}/${category}/`;
     items.push({
       "@type": "ListItem",
       position: 2,
-      name: category === "services" ? (isGreek ? "Υπηρεσίες" : "Services") : (isGreek ? "Άρθρα" : "Blog"),
+      name: category === "services"
+        ? (isGreek ? "Υπηρεσίες" : isHebrew ? "שירותים" : "Services")
+        : (isGreek ? "Άρθρα" : isHebrew ? "מאמרים" : "Blog"),
       item: `${BASE_URL}${parentPath}`,
     });
   }
@@ -193,22 +205,9 @@ export function useSEO(options: SEOOptions = {}) {
     setMetaTag("twitter:image", ogImage);
     if (resolvedOgImageAlt) setMetaTag("twitter:image:alt", resolvedOgImageAlt);
 
-    // Inject hreflang link tags using the same final canonical path normalizer.
-    const pair = getHreflangPair(cleanPath);
-    if (pair.el) {
-      setHreflangTags(withTrailingSlash(pair.en), withTrailingSlash(pair.el));
-    } else {
-      // English-only post: emit self-referencing hreflang (en + x-default only, no el).
-      const selfUrl = `${BASE_URL}${withTrailingSlash(pair.en)}`;
-      document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
-      ["en", "x-default"].forEach(lang => {
-        const el = document.createElement("link");
-        el.setAttribute("rel", "alternate");
-        el.setAttribute("hreflang", lang);
-        el.setAttribute("href", selfUrl);
-        document.head.appendChild(el);
-      });
-    }
+    // Emit only reciprocal, real translation targets. Hebrew stays absent until
+    // a route has been implemented and mapped as part of the staged rollout.
+    setHreflangTags(getHreflangRouteSet(cleanPath));
     setBreadcrumbSchema(cleanPath, finalPath, title);
   }, [location, options.title, options.description, options.ogImage, options.ogImageAlt, options.ogType, options.canonicalPath]);
 }
