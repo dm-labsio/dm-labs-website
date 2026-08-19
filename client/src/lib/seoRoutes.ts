@@ -25,12 +25,17 @@ export const EN_TO_EL_PATHS: Readonly<Record<string, string | null>> = {
 };
 
 /**
- * Hebrew mappings remain deliberately empty until each translated route is
- * implemented, prerendered, and reviewed. This prevents fabricated Hebrew
- * hreflang URLs or language-switch targets during the staged rollout.
+ * Hebrew mappings contain only reviewed, prerendered Hebrew destinations.
+ * Missing paths, including every current Hebrew blog URL, remain absent so
+ * hreflang and language-switch targets can never fabricate a translation.
  */
 export const EN_TO_HE_PATHS: Readonly<Record<string, string | null>> = {
   "/": "/he",
+  "/services": "/he/services",
+  "/process": "/he/process",
+  "/pricing": "/he/pricing",
+  "/faq": "/he/faq",
+  "/contact": "/he/contact",
   "/templates": "/he/templates",
   "/privacy": "/he/privacy",
   "/cookies": "/he/cookies",

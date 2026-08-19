@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   getGreekLanguageTogglePath,
   getHreflangPair,
+  getHreflangRouteSet,
   normalizeRoutePath,
   withTrailingSlash,
 } from "../client/src/lib/seoRoutes";
@@ -49,5 +50,23 @@ describe("SEO route mapping", () => {
     expect(getGreekLanguageTogglePath("/web-design-paphos/")).toBe("/el/web-design-cyprus");
     expect(getGreekLanguageTogglePath("/web-design-restaurants-cyprus/")).toBe("/el/web-design-cyprus");
     expect(getGreekLanguageTogglePath("/blog/google-search-console-ai-seo-prompts/")).toBe("/el");
+  });
+
+  it("emits Hebrew alternates only for completed mapped routes and never for current blog routes", () => {
+    expect(getHreflangRouteSet("/pricing/")).toEqual({
+      en: "/pricing",
+      el: "/el/pricing",
+      he: "/he/pricing",
+    });
+    expect(getHreflangRouteSet("/he/services/social/")).toEqual({
+      en: "/services/social",
+      el: "/el/services/social",
+      he: "/he/services/social",
+    });
+    expect(getHreflangRouteSet("/blog/website-cost-cyprus-2026-guide/")).toEqual({
+      en: "/blog/website-cost-cyprus-2026-guide",
+      el: "/el/blog/posso-kostizei-istoselidha-kypros",
+      he: null,
+    });
   });
 });
