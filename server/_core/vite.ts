@@ -63,6 +63,8 @@ const STATIC_ROUTES = new Set([
   "/he/blog/",
   "/he/blog/website-cost-cyprus-2026-guide",
   "/he/blog/website-cost-cyprus-2026-guide/",
+  "/he/blog/web-design-nail-salon-beauty-studio-cyprus",
+  "/he/blog/web-design-nail-salon-beauty-studio-cyprus/",
   "/templates",
   "/examples",
   "/blog",

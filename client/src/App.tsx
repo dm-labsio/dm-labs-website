@@ -41,6 +41,7 @@ import FormsHe from "./pages/he/FormsHe";
 import SocialHe from "./pages/he/SocialHe";
 import BlogHe from "./pages/he/BlogHe";
 import WebsiteCostHe from "./pages/he/WebsiteCostHe";
+import BeautyStudioHe from "./pages/he/BeautyStudioHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -163,6 +164,8 @@ function MainRouter() {
         <Route path="/he/blog/" component={BlogHe} />
         <Route path="/he/blog/website-cost-cyprus-2026-guide" component={WebsiteCostHe} />
         <Route path="/he/blog/website-cost-cyprus-2026-guide/" component={WebsiteCostHe} />
+        <Route path="/he/blog/web-design-nail-salon-beauty-studio-cyprus" component={BeautyStudioHe} />
+        <Route path="/he/blog/web-design-nail-salon-beauty-studio-cyprus/" component={BeautyStudioHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />
