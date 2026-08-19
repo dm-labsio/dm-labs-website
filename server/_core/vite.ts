@@ -55,6 +55,8 @@ const STATIC_ROUTES = new Set([
   "/he/services/turnaround/",
   "/he/services/maps",
   "/he/services/maps/",
+  "/he/services/forms",
+  "/he/services/forms/",
   "/templates",
   "/examples",
   "/blog",

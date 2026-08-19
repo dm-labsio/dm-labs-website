@@ -37,6 +37,7 @@ import PerformanceHe from "./pages/he/PerformanceHe";
 import SecurityHe from "./pages/he/SecurityHe";
 import TurnaroundHe from "./pages/he/TurnaroundHe";
 import MapsHe from "./pages/he/MapsHe";
+import FormsHe from "./pages/he/FormsHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -151,6 +152,8 @@ function MainRouter() {
         <Route path="/he/services/turnaround/" component={TurnaroundHe} />
         <Route path="/he/services/maps" component={MapsHe} />
         <Route path="/he/services/maps/" component={MapsHe} />
+        <Route path="/he/services/forms" component={FormsHe} />
+        <Route path="/he/services/forms/" component={FormsHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />
