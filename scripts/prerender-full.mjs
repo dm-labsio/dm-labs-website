@@ -114,6 +114,7 @@ const ROUTES = [
   "/he/blog/website-cost-cyprus-2026-guide",
   "/he/blog/web-design-nail-salon-beauty-studio-cyprus",
   "/he/blog/yoga-pilates-studio-website-cyprus",
+  "/he/blog/how-to-get-found-on-google-cyprus",
   // EN services sub-pages
   "/services/custom-design",
   "/services/mobile-first",
