@@ -44,6 +44,7 @@ import WebsiteCostHe from "./pages/he/WebsiteCostHe";
 import BeautyStudioHe from "./pages/he/BeautyStudioHe";
 import YogaPilatesHe from "./pages/he/YogaPilatesHe";
 import GoogleVisibilityHe from "./pages/he/GoogleVisibilityHe";
+import RestaurantHe from "./pages/he/RestaurantHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -172,6 +173,7 @@ function MainRouter() {
         <Route path="/he/blog/yoga-pilates-studio-website-cyprus/" component={YogaPilatesHe} />
         <Route path="/he/blog/how-to-get-found-on-google-cyprus" component={GoogleVisibilityHe} />
         <Route path="/he/blog/how-to-get-found-on-google-cyprus/" component={GoogleVisibilityHe} />
+        <Route path="/he/blog/restaurant-website-design-cyprus/" component={RestaurantHe} />
 
         {/* ── Greek Routes ── */}
         <Route path="/el" component={HomeEl} />

@@ -69,6 +69,7 @@ const STATIC_ROUTES = new Set([
   "/he/blog/yoga-pilates-studio-website-cyprus/",
   "/he/blog/how-to-get-found-on-google-cyprus",
   "/he/blog/how-to-get-found-on-google-cyprus/",
+  "/he/blog/restaurant-website-design-cyprus/",
   "/templates",
   "/examples",
   "/blog",
