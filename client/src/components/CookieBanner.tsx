@@ -97,12 +97,12 @@ export default function CookieBanner() {
 
   return (
     <div
-      className={`fixed z-50 bg-white rounded-xl shadow-xl border border-[#E2E5EA] ${isHebrew ? "bottom-5 w-[min(16rem,calc(100vw-2rem))] p-3 left-4 right-auto text-right sm:left-6" : "bottom-6 left-4 right-4 sm:max-w-sm p-5 sm:left-auto sm:right-6"}`}
+      className={`fixed z-50 bg-white rounded-xl shadow-xl border border-[#E2E5EA] ${isHebrew ? "bottom-3 w-[min(13.5rem,calc(100vw-1.5rem))] p-2.5 left-3 right-auto text-right sm:bottom-5 sm:w-[min(16rem,calc(100vw-2rem))] sm:p-3 sm:left-6" : "bottom-6 left-4 right-4 sm:max-w-sm p-5 sm:left-auto sm:right-6"}`}
       role="dialog" aria-label="Cookie consent" aria-live="polite"
       dir={isHebrew ? "rtl" : undefined}
     >
-      <div className="flex items-start justify-between gap-3 mb-2">
-        <h2 className="font-semibold text-sm text-[#111315]">{t.title}</h2>
+      <div className={`flex items-start justify-between gap-3 ${isHebrew ? "mb-1.5 sm:mb-2" : "mb-2"}`}>
+        <h2 className={`cookie-consent-title font-semibold text-[#111315] ${isHebrew ? "text-xs sm:text-sm" : "text-sm"}`}>{t.title}</h2>
         <button onClick={reject} className="text-[#5B6472] hover:text-[#111315] transition-colors p-1 rounded" aria-label="Close">
           <X size={16} />
         </button>
@@ -110,15 +110,15 @@ export default function CookieBanner() {
 
       {!showPrefs ? (
         <>
-          <p className={`text-xs text-[#5B6472] leading-relaxed ${isHebrew ? "mb-3" : "mb-4"}`}>{t.body}</p>
-          <div className="flex flex-col gap-2">
-            <button onClick={accept} className={`w-full ${isHebrew ? "min-h-10 py-2" : "min-h-11 py-2.5"} rounded-xl brand-gradient text-white text-sm font-semibold hover:opacity-90 transition-opacity flex items-center justify-center`} style={{ textAlign: "center" }}>{t.acceptAll}</button>
+          <p className={`text-xs text-[#5B6472] leading-relaxed ${isHebrew ? "mb-2 text-[11px] leading-4 sm:mb-3 sm:text-xs sm:leading-relaxed" : "mb-4"}`}>{t.body}</p>
+          <div className={`flex flex-col gap-2 ${isHebrew ? "gap-1.5 sm:gap-2" : ""}`}>
+            <button onClick={accept} className={`w-full ${isHebrew ? "min-h-8 py-1.5 text-xs sm:min-h-10 sm:py-2 sm:text-sm" : "min-h-11 py-2.5 text-sm"} rounded-xl brand-gradient text-white font-semibold hover:opacity-90 transition-opacity flex items-center justify-center`} style={{ textAlign: "center" }}>{t.acceptAll}</button>
             <div className="flex gap-2">
-            <button onClick={reject} className={`flex-1 ${isHebrew ? "min-h-10 py-2" : "min-h-11 py-2.5"} rounded-xl border border-[#E2E5EA] text-sm font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center`}>{t.reject}</button>
-            <button onClick={() => setShowPrefs(true)} className={`flex-1 ${isHebrew ? "min-h-10 py-2" : "min-h-11 py-2.5"} rounded-xl border border-[#E2E5EA] text-sm font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center`}>{t.manage}</button>
+            <button onClick={reject} className={`flex-1 ${isHebrew ? "min-h-8 py-1.5 text-xs sm:min-h-10 sm:py-2 sm:text-sm" : "min-h-11 py-2.5 text-sm"} rounded-xl border border-[#E2E5EA] font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center`}>{t.reject}</button>
+            <button onClick={() => setShowPrefs(true)} className={`flex-1 ${isHebrew ? "min-h-8 py-1.5 text-xs sm:min-h-10 sm:py-2 sm:text-sm" : "min-h-11 py-2.5 text-sm"} rounded-xl border border-[#E2E5EA] font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center`}>{t.manage}</button>
             </div>
           </div>
-          <p className="text-xs text-[#5B6472] mt-3 text-center">
+          <p className={`text-xs text-[#5B6472] text-center ${isHebrew ? "mt-2 text-[10px] sm:mt-3 sm:text-xs" : "mt-3"}`}>
             <a href={t.cookieHref} className="underline hover:text-[#5B8CFF] transition-colors">{t.cookiePolicy}</a>
             {" · "}
             <a href={t.privacyHref} className="underline hover:text-[#5B8CFF] transition-colors">{t.privacyPolicy}</a>

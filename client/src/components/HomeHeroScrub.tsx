@@ -23,6 +23,7 @@ const clamp = (value: number, minimum: number, maximum: number) => Math.max(mini
 
 type HomeHeroScrubProps = {
   children: ReactNode;
+  variant?: "default" | "hebrew";
 };
 
 /**
@@ -31,7 +32,7 @@ type HomeHeroScrubProps = {
  * at most one media seek at a time. This keeps the hero responsive on touch
  * devices and prevents rapid flicks from overwhelming the decoder.
  */
-export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
+export default function HomeHeroScrub({ children, variant = "default" }: HomeHeroScrubProps) {
   const scopeRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -60,6 +61,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
     let finalFrameReady = false;
     let initialFrameReady = false;
     const isMobileViewport = window.matchMedia(MOBILE_VIEWPORT_QUERY).matches;
+    const isHebrewMobile = isMobileViewport && variant === "hebrew";
     const openingProgress = isMobileViewport ? MOBILE_VIDEO_OPENING_PROGRESS : VIDEO_OPENING_PROGRESS;
     const seekTolerance = isMobileViewport ? MOBILE_SEEK_TOLERANCE : SEEK_TOLERANCE;
     const scrubStart = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
@@ -107,7 +109,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
       const elapsedSeconds = Math.max((now - lastFrameTime) / 1000, 0);
       lastFrameTime = now;
       const progressElapsedSeconds = isMobileViewport ? Math.min(elapsedSeconds, 1 / 30) : elapsedSeconds;
-      const maxStep = (isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED) * progressElapsedSeconds;
+      const maxStep = (isHebrewMobile ? 1.5 : isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED) * progressElapsedSeconds;
       const delta = targetVideoProgress - currentVideoProgress;
       const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);
 
@@ -249,7 +251,7 @@ export default function HomeHeroScrub({ children }: HomeHeroScrubProps) {
   return (
     <section
       ref={scopeRef}
-      className="hero-scrub-scope"
+      className={`hero-scrub-scope${variant === "hebrew" ? " hero-scrub-scope--hebrew" : ""}`}
       data-mode="scrub"
       data-ready="false"
       data-interactive="false"

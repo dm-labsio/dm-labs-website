@@ -2304,6 +2304,30 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
   .hero-scrub-stage {
     touch-action: pan-y;
   }
+
+  /* Hebrew mobile keeps the portrait source fully visible and reduces the
+     scrub runway. These rules are deliberately not shared with EN or EL. */
+  html[dir="rtl"] .hero-scrub-scope--hebrew {
+    --hero-runway: clamp(300px, 48svh, 420px);
+  }
+
+  html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video) {
+    object-fit: contain;
+    object-position: center;
+    background: #f6f6f4;
+  }
+
+  html[dir="rtl"] .hebrew-home .interactive-example-card > div,
+  html[dir="rtl"] .hebrew-home .interactive-example-card a {
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+
+  html[dir="rtl"] .hebrew-home .interactive-example-card img {
+    object-fit: contain;
+    object-position: center;
+    background: #101827;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2998,5 +3022,20 @@ html[dir="rtl"] .hebrew-home :is(.btn-primary, .btn-secondary, .pricing-editoria
 @media (max-width: 639px) {
   html[dir="rtl"] .hebrew-home :is(.btn-primary, .btn-secondary, .pricing-editorial-card-cta, .pricing-editorial-custom-cta) {
     font-size: 15px !important;
+  }
+}
+
+html[dir="rtl"] .cookie-consent-title {
+  font-family: var(--hebrew-body-font) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  line-height: 16px !important;
+}
+
+@media (min-width: 640px) {
+  html[dir="rtl"] .cookie-consent-title {
+    font-size: 14px !important;
+    line-height: 20px !important;
   }
 }

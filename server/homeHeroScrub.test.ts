@@ -90,7 +90,8 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("const MOBILE_SEEK_TOLERANCE = 1 / 24;");
     expect(heroSource).toContain("const progressElapsedSeconds = isMobileViewport ? Math.min(elapsedSeconds, 1 / 30) : elapsedSeconds;");
     expect(heroSource).toContain("const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);");
-    expect(heroSource).toContain("(isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED)");
+    expect(heroSource).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew";');
+    expect(heroSource).toContain("(isHebrewMobile ? 1.5 : isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED)");
     expect(heroSource).toContain('window.scrollTo({ top: holdBoundary, left: 0, behavior: "auto" });');
     expect(heroSource).toContain("rawProgress >= 1 && !finalFrameReady");
     expect(stylesheet).toContain("--hero-copy-progress: 0;");

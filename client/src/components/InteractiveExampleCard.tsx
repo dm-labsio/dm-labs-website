@@ -45,7 +45,7 @@ export default function InteractiveExampleCard({
   };
 
   return (
-    <div className="relative z-0 w-full [perspective:1000px] hover:z-10">
+    <div className="interactive-example-card relative z-0 w-full [perspective:1000px] hover:z-10">
       <motion.div
         onMouseMove={handleMouseMove}
         onMouseLeave={resetTilt}

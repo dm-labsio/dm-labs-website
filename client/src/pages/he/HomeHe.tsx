@@ -50,7 +50,7 @@ export default function HomeHe() {
   }, []);
 
   return <div className="hebrew-home" dir="rtl">
-    <HomeHeroScrub>
+    <HomeHeroScrub variant="hebrew">
       <div className="text-center">
         <p className="mb-4 text-sm font-semibold tracking-[0.16em] text-[#5B8CFF]">אתרים מדויקים לעסקים עם שאיפות</p>
         <h1 className="mx-auto max-w-4xl text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1]">העסק שלכם מצוין.<br />האתר שלכם צריך להראות את זה.</h1>

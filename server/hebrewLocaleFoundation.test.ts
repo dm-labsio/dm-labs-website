@@ -81,8 +81,8 @@ describe("Hebrew locale foundation", () => {
     expect(cookieBanner).toContain('manage: "הגדרות"');
     expect(cookieBanner).toContain('cookieHref: "/he/cookies/"');
     expect(cookieBanner).toContain('privacyHref: "/he/privacy/"');
-    expect(cookieBanner).toContain('w-[min(16rem,calc(100vw-2rem))]');
-    expect(cookieBanner).toContain('left-4 right-auto text-right sm:left-6');
+    expect(cookieBanner).toContain('w-[min(13.5rem,calc(100vw-1.5rem))]');
+    expect(cookieBanner).toContain('left-3 right-auto text-right sm:bottom-5 sm:w-[min(16rem,calc(100vw-2rem))]');
     expect(cookieBanner).toContain('flex items-center justify-center');
   });
 
@@ -98,6 +98,24 @@ describe("Hebrew locale foundation", () => {
     expect(styles).toContain('.faq-editorial .faq-editorial-title em { white-space: normal; }');
     expect(styles).toContain('background: #f6f6f4;');
     expect(layout).toContain('border-[#E2E5EA] bg-[#F6F6F4] shadow-sm');
+  });
+
+  it("keeps Hebrew mobile media and scrub behavior scoped away from English and Greek", () => {
+    const scrub = readSource("client/src/components/HomeHeroScrub.tsx");
+    const home = readSource("client/src/pages/he/HomeHe.tsx");
+    const cards = readSource("client/src/components/InteractiveExampleCard.tsx");
+    const styles = readSource("client/src/index.css");
+    const layout = readSource("client/src/components/Layout.tsx");
+
+    expect(home).toContain('<HomeHeroScrub variant="hebrew">');
+    expect(scrub).toContain('variant?: "default" | "hebrew"');
+    expect(scrub).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew"');
+    expect(cards).toContain('interactive-example-card');
+    expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew');
+    expect(styles).toContain('--hero-runway: clamp(300px, 48svh, 420px)');
+    expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video)');
+    expect(styles).toContain('html[dir="rtl"] .hebrew-home .interactive-example-card img');
+    expect(layout).toContain('M30 9 42 30H18L30 9ZM30 31 42 10H18L30 31Z');
   });
 
   it("keeps the Hebrew pricing comparison and consent persistence aligned with shared behavior", () => {
