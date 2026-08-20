@@ -58,6 +58,9 @@ describe("Hebrew locale foundation", () => {
     expect(styles).toContain('--pricing-sans: var(--hebrew-body-font)');
     expect(styles).toContain('--pricing-display: var(--hebrew-display-font)');
     expect(styles).toContain('--faq-display: var(--hebrew-display-font)');
+    expect(styles).toContain('.hebrew-home :not(.hebrew-template-preview-mockup):not(.hebrew-template-preview-mockup *)');
+    expect(styles).toContain('.hebrew-home :is(h1, h2, h3, h4, h5, h6, .font-bold, .font-extrabold, [class*="heading"], [class*="title"], [class*="price"])');
+    expect(styles).toContain('html[dir="rtl"] .font-mono');
     expect(styles).toContain('html[dir="rtl"] h1');
     expect(styles).toContain('font-weight: 900');
     expect(styles).not.toContain("-webkit-text-stroke");

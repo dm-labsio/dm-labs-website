@@ -465,7 +465,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
 
 function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
   const Design = CARD_DESIGNS[template.id];
-  if (Design) return <Design />;
+  if (Design) return <div className="hebrew-template-preview-mockup"><Design /></div>;
   const t = template as any;
   const palette: string[] = t.palette || ["#1a1a2e","#16213e","#0f3460","#e94560","#f5f5f5"];
   const [bg, accent1] = palette;

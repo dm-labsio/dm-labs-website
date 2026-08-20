@@ -193,6 +193,22 @@
     font-family: var(--hebrew-body-font);
     text-align: start;
   }
+  html[dir="rtl"] .hebrew-home :not(.hebrew-template-preview-mockup):not(.hebrew-template-preview-mockup *) {
+    font-family: var(--hebrew-body-font) !important;
+    font-style: normal;
+  }
+  html[dir="rtl"] .hebrew-home :is(h1, h2, h3, h4, h5, h6, .font-bold, .font-extrabold, [class*="heading"], [class*="title"], [class*="price"]):not(.hebrew-template-preview-mockup):not(.hebrew-template-preview-mockup *) {
+    font-family: var(--hebrew-display-font) !important;
+    font-style: normal !important;
+  }
+  html[dir="rtl"] .hebrew-home :is(.pricing-editorial-plan-price, .pricing-editorial-care-price, .pricing-editorial-custom-price, .process-editorial-timeline-price):not(.hebrew-template-preview-mockup):not(.hebrew-template-preview-mockup *) {
+    font-family: var(--hebrew-display-font) !important;
+    font-weight: 900 !important;
+    font-variation-settings: "wght" 900;
+  }
+  html[dir="rtl"] .font-mono {
+    font-family: var(--hebrew-body-font) !important;
+  }
   html[dir="rtl"] h1,
   html[dir="rtl"] .hebrew-home h1 {
     font-family: var(--hebrew-display-font) !important;
