@@ -82,26 +82,36 @@ export default function CookieBanner() {
     }
 
     let releaseCheckFrame = 0;
+    let heroHasLeftViewport = false;
+    let observer: IntersectionObserver | null = null;
     const revealAfterHero = () => {
       const hero = document.querySelector<HTMLElement>(".hero-scrub-scope--hebrew");
       if (!hero) {
         setVisible(true);
         return;
       }
-      const passedHero = window.scrollY >= hero.offsetTop + hero.offsetHeight - 8;
-      if (hero.dataset.released === "true" && passedHero) {
+      if (hero.dataset.released === "true" && heroHasLeftViewport) {
         setVisible(true);
         return;
       }
       releaseCheckFrame = window.requestAnimationFrame(revealAfterHero);
     };
     const timer = window.setTimeout(() => {
+      const hero = document.querySelector<HTMLElement>(".hero-scrub-scope--hebrew");
+      if (hero) {
+        observer = new IntersectionObserver(([entry]) => {
+          heroHasLeftViewport = !entry.isIntersecting;
+          if (heroHasLeftViewport) revealAfterHero();
+        }, { threshold: 0.02 });
+        observer.observe(hero);
+      }
       revealAfterHero();
     }, 2000);
     window.addEventListener("scroll", revealAfterHero, { passive: true });
     return () => {
       window.clearTimeout(timer);
       window.cancelAnimationFrame(releaseCheckFrame);
+      observer?.disconnect();
       window.removeEventListener("scroll", revealAfterHero);
     };
   }, [locale]);

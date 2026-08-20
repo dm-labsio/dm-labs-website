@@ -1,5 +1,6 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import "./HomeHeroScrub.css";
+import { HebrewMobileCanvasSequence } from "./HebrewMobileCanvasSequence";
 
 export const HERO_SCRUB_VIDEO_URL = "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-hero-tunnel-scrub_89732dad.mp4";
 export const HERO_SCRUB_OPENING_POSTER_URL = "/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp";
@@ -309,6 +310,7 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
           <source media={MOBILE_VIEWPORT_QUERY} src={MOBILE_HERO_SCRUB_VIDEO_URL} type="video/mp4" />
           <source src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />
         </video>
+        {variant === "hebrew" && <HebrewMobileCanvasSequence />}
         <div className="hero-scrub-wash" aria-hidden="true" />
         <div className="hero-scrub-copy">
           <div>{children}</div>

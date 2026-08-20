@@ -2206,6 +2206,7 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-released="true"] .hero-scrub-s
 
 .hero-scrub-poster,
 .hero-scrub-video,
+.hero-scrub-canvas,
 .hero-scrub-wash {
   position: absolute;
   inset: 0;
@@ -2230,8 +2231,24 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-released="true"] .hero-scrub-s
   transition: opacity 220ms ease-out;
 }
 
+.hero-scrub-canvas {
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+}
+
 .hero-scrub-scope[data-ready="true"] .hero-scrub-video {
   opacity: 1;
+}
+
+@media (max-width: 767px) {
+  html[dir="rtl"] .hero-scrub-scope--hebrew[data-canvas-ready="true"] .hero-scrub-canvas {
+    opacity: 1;
+  }
+
+  html[dir="rtl"] .hero-scrub-scope--hebrew[data-canvas-ready="true"] .hero-scrub-video {
+    opacity: 0;
+  }
 }
 
 .hero-scrub-wash {

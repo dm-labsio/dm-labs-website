@@ -85,7 +85,9 @@ describe("Hebrew locale foundation", () => {
     expect(cookieBanner).toContain('left-3 right-auto text-right sm:bottom-5 sm:w-[min(16rem,calc(100vw-2rem))]');
     expect(cookieBanner).toContain('document.querySelector<HTMLElement>(".hero-scrub-scope--hebrew")');
     expect(cookieBanner).toContain('hero.dataset.released === "true"');
-    expect(cookieBanner).toContain('window.scrollY >= hero.offsetTop + hero.offsetHeight - 8');
+    expect(cookieBanner).toContain('let heroHasLeftViewport = false');
+    expect(cookieBanner).toContain('new IntersectionObserver');
+    expect(cookieBanner).toContain('hero.dataset.released === "true" && heroHasLeftViewport');
     expect(cookieBanner).toContain('window.addEventListener("scroll", revealAfterHero, { passive: true })');
     expect(cookieBanner).toContain('window.requestAnimationFrame(revealAfterHero)');
     expect(cookieBanner).toContain('flex items-center justify-center');
@@ -109,6 +111,7 @@ describe("Hebrew locale foundation", () => {
     const scrub = readSource("client/src/components/HomeHeroScrub.tsx");
     const home = readSource("client/src/pages/he/HomeHe.tsx");
     const cards = readSource("client/src/components/InteractiveExampleCard.tsx");
+    const canvasSequence = readSource("client/src/components/HebrewMobileCanvasSequence.tsx");
     const styles = readSource("client/src/index.css");
     const layout = readSource("client/src/components/Layout.tsx");
 
@@ -120,6 +123,11 @@ describe("Hebrew locale foundation", () => {
     expect(styles).toContain('--hero-runway: clamp(440px, 58svh, 520px);');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video)');
     expect(styles).toContain('html[dir="rtl"] .hebrew-home .interactive-example-card img');
+    expect(canvasSequence).toContain('const HEBREW_MOBILE_SPRITE_URL = "/media/hero/hebrew-mobile-hero-sprite.webp"');
+    expect(canvasSequence).toContain('const SCRUB_END = 0.82');
+    expect(canvasSequence).toContain('const frameProgress = OPENING_PROGRESS + scrubProgress * (1 - OPENING_PROGRESS)');
+    expect(scrub).toContain('<HebrewMobileCanvasSequence />');
+    expect(styles).toContain('.hero-scrub-canvas');
     expect(layout).toContain('<polygon points="30,7 36,18 48,18 38,27 42,40 30,33 18,40 22,27 12,18 24,18" fill="#1F5AA6" />');
   });
 
