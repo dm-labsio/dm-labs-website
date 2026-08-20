@@ -247,8 +247,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className={`min-h-screen flex flex-col ${isEnglishTypographyRoute ? "english-commissioner-base" : ""} ${isEnglishHomepage ? "editorial-home-shell" : ""} ${isTemplatesIndex ? "templates-editorial-shell" : ""} ${isHebrew ? "hebrew-shell" : ""}`} dir={isHebrew ? "rtl" : undefined}>
       {/* ── NAVIGATION ── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 border-b border-[#E2E5EA] bg-[#F6F6F4] shadow-sm transition-all duration-200 ${isEnglishHomepage ? "editorial-home-header" : ""} ${
-          scrolled ? "glass-nav" : ""
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${isEnglishHomepage ? "editorial-home-header" : ""} ${
+          isHebrew
+            ? "border-b border-[#E2E5EA] bg-[#F6F6F4] shadow-sm"
+            : scrolled
+              ? "glass-nav shadow-sm"
+              : "bg-transparent"
         }`}
         dir={isHebrew ? "rtl" : undefined}
       >

@@ -147,6 +147,44 @@
     --hebrew-display-font: "Heebo", Arial, sans-serif;
     --hebrew-accent-font: "Huninn", "Heebo", Arial, sans-serif;
   }
+  html[dir="rtl"] .editorial-home-shell {
+    --editorial-sans: var(--hebrew-body-font);
+    --editorial-display: var(--hebrew-display-font);
+    --editorial-serif: var(--hebrew-display-font);
+    --editorial-mono: var(--hebrew-body-font);
+  }
+  html[dir="rtl"] .services-editorial {
+    --services-sans: var(--hebrew-body-font);
+    --services-display: var(--hebrew-display-font);
+    --services-serif: var(--hebrew-display-font);
+    --services-mono: var(--hebrew-body-font);
+  }
+  html[dir="rtl"] .process-editorial {
+    --process-sans: var(--hebrew-body-font);
+    --process-display: var(--hebrew-display-font);
+    --process-serif: var(--hebrew-display-font);
+    --process-mono: var(--hebrew-body-font);
+  }
+  html[dir="rtl"] .pricing-editorial {
+    --pricing-sans: var(--hebrew-body-font);
+    --pricing-display: var(--hebrew-display-font);
+    --pricing-serif: var(--hebrew-display-font);
+  }
+  html[dir="rtl"] .templates-editorial {
+    --templates-sans: var(--hebrew-body-font);
+    --templates-display: var(--hebrew-display-font);
+    --templates-serif: var(--hebrew-display-font);
+  }
+  html[dir="rtl"] .faq-editorial {
+    --faq-sans: var(--hebrew-body-font);
+    --faq-display: var(--hebrew-display-font);
+    --faq-serif: var(--hebrew-display-font);
+  }
+  html[dir="rtl"] .contact-editorial {
+    --contact-sans: var(--hebrew-body-font);
+    --contact-display: var(--hebrew-display-font);
+    --contact-serif: var(--hebrew-display-font);
+  }
   html[dir="rtl"] body,
   html[dir="rtl"] button,
   html[dir="rtl"] input,
@@ -358,7 +396,7 @@
      GLASSMORPHISM NAV
      ============================================================ */
   .glass-nav {
-    background: #f6f6f4;
+    background: rgba(246, 246, 244, 0.78);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(226, 229, 234, 0.5);

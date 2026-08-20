@@ -1,6 +1,6 @@
 import { CheckCircle2, HelpCircle, MessageCircle, ShieldCheck, X } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
-import AnimateIn from "@/components/AnimateIn";
+import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 
 const WA = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20DM-Labs.io%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5.";
 
@@ -26,6 +26,12 @@ const rows = [
   ["אנימציות גלילה", "—", "—", "✓"],
   ["סבבי תיקונים", "2", "3", "4"],
 ] as const;
+
+function PlanCell({ value, colour }: { value: string; colour: string }) {
+  if (value === "✓") return <CheckCircle2 size={18} className="mx-auto" style={{ color: colour }} />;
+  if (value === "—") return <X size={18} className="text-[#D1D5DB] mx-auto" />;
+  return <span className="text-sm text-[#5B6472]">{value}</span>;
+}
 
 export default function PricingHe() {
   useSEO({
@@ -61,7 +67,7 @@ export default function PricingHe() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {plans.map(([name, price, color, summary, features], index) => (
               <AnimateIn key={name} delay={index * .1}>
-                <article className="dm-card h-full flex flex-col relative">
+                <article className={`pricing-editorial-plan-card dm-card h-full flex flex-col relative${index === 1 ? " pricing-editorial-plan-card--recommended" : ""}`}>
                   {index === 1 && <span className="pricing-editorial-recommended">מומלץ</span>}
                   <p className="pricing-editorial-plan-label" style={{ color }} dir="ltr">{name}</p>
                   <div className="pricing-editorial-price-row">
@@ -70,21 +76,29 @@ export default function PricingHe() {
                   </div>
                   <p className="pricing-editorial-plan-summary">{summary}</p>
                   <ul className="pricing-editorial-feature-list flex-1">
-                    {features.map(feature => <li key={feature} className="flex gap-2"><CheckCircle2 size={16} style={{ color }} className="shrink-0" />{feature}</li>)}
+                    {features.map(feature => <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} style={{ color }} className="shrink-0 mt-0.5" />{feature}</li>)}
                   </ul>
-                  <a className="btn-primary w-full justify-center" href={WA}>שיחת ייעוץ ללא עלות</a>
+                  <a className={`${index === 1 ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`} href={WA}>שיחת ייעוץ ללא עלות</a>
                 </article>
               </AnimateIn>
             ))}
           </div>
 
           <AnimateIn className="mt-8 max-w-5xl mx-auto">
-            <div className="pricing-editorial-custom-panel rounded-2xl p-8">
-              <p className="pricing-editorial-custom-kicker">נבנה לפי ההיקף שלכם</p>
-              <p className="pricing-editorial-plan-label" dir="ltr">Enterprise / Custom</p>
-              <p className="pricing-editorial-custom-price" dir="ltr">from €1,499</p>
-              <p className="pricing-editorial-custom-copy">לאינטגרציות, אתרים רב לשוניים, CMS, AI, צ׳אטבוטים, CRM, הזמנות, אנימציות מורכבות או נפח תוכן חריג.</p>
-              <a className="pricing-editorial-custom-cta" href={WA}><MessageCircle size={16} />בקשת הצעת מחיר</a>
+            <div className="pricing-editorial-custom-panel rounded-2xl overflow-hidden">
+              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 p-8">
+                <div className="flex-shrink-0 lg:w-72">
+                  <span className="pricing-editorial-custom-kicker">נבנה לפי ההיקף שלכם</span>
+                  <p className="pricing-editorial-plan-label" dir="ltr">Enterprise / Custom</p>
+                  <p className="pricing-editorial-custom-price" dir="ltr">From €1,499</p>
+                  <p className="pricing-editorial-custom-note">הצעת מחיר לפי היקף</p>
+                  <p className="pricing-editorial-custom-copy">לאינטגרציות, אתרים רב לשוניים, CMS, AI, צ׳אטבוטים, CRM, הזמנות, אנימציות מורכבות או נפח תוכן חריג.</p>
+                  <a className="pricing-editorial-custom-cta" href={WA}><MessageCircle size={16} />בקשת הצעת מחיר</a>
+                </div>
+                <StaggerContainer className="pricing-editorial-custom-grid flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4" staggerDelay={0.09}>
+                  {["אינטגרציות מותאמות, CRM או הזמנות", "אתר רב לשוני ו-CMS לעריכה עצמית", "יכולות AI או צ׳אטבוט", "אנימציות מורכבות או היקף תוכן חריג"].map(item => <StaggerItem key={item} className="pricing-editorial-custom-feature flex items-start gap-2.5"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /><span>{item}</span></StaggerItem>)}
+                </StaggerContainer>
+              </div>
             </div>
           </AnimateIn>
         </div>
@@ -98,16 +112,18 @@ export default function PricingHe() {
             <p>שקט נפשי למי שרוצה אתר מנוטר, מעודכן ונתמך גם אחרי ההשקה.</p>
           </AnimateIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            {carePlans.map(([name, price, color, features]) => (
-              <article key={name} className="dm-card">
+            {carePlans.map(([name, price, color, features], index) => (
+              <article key={name} className={`pricing-editorial-care-card dm-card h-full flex flex-col relative${index === 1 ? " pricing-editorial-plan-card--recommended" : ""}`}>
+                {index === 1 && <span className="pricing-editorial-recommended">המקיפה ביותר</span>}
                 <p className="pricing-editorial-plan-label" style={{ color }} dir="ltr">{name}</p>
                 <div className="pricing-editorial-price-row">
                   <span className="pricing-editorial-care-price" dir="ltr">{price}</span>
                   <span className="pricing-editorial-price-unit" dir="ltr">per month</span>
                 </div>
                 <ul className="pricing-editorial-feature-list">
-                  {features.map(feature => <li key={feature} className="flex gap-2"><CheckCircle2 size={15} style={{ color }} />{feature}</li>)}
+                  {features.map(feature => <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={15} style={{ color }} className="shrink-0 mt-0.5" />{feature}</li>)}
                 </ul>
+                <a className={`${index === 1 ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`} href={WA}>שאלו על {name}</a>
               </article>
             ))}
           </div>
@@ -119,7 +135,7 @@ export default function PricingHe() {
         <div className="container">
           <AnimateIn className="pricing-editorial-section-intro text-center"><p className="pricing-editorial-label">הפרטים</p><h2 className="pricing-editorial-section-heading">השוואת <em>חבילות</em></h2></AnimateIn>
           <div className="overflow-x-auto rounded-2xl border border-[#E8EAF0] max-w-4xl mx-auto">
-            <table className="text-sm" style={{ minWidth: 560, width: "100%" }}><thead><tr><th>תכונה</th>{plans.map(plan => <th key={plan[0]} dir="ltr">{plan[0]}<br />{plan[1]}</th>)}</tr></thead><tbody>{rows.map(row => <tr key={row[0]}><td>{row[0]}</td>{row.slice(1).map((value, index) => <td key={index} className="text-center">{value === "✓" ? <CheckCircle2 size={18} className="mx-auto text-[#5B8CFF]" /> : value === "—" ? <X size={18} className="mx-auto text-[#D1D5DB]" /> : value}</td>)}</tr>)}</tbody></table>
+            <table className="text-sm" style={{ minWidth: 560, width: "100%" }}><thead><tr className="border-b border-[#E8EAF0]"><th className="text-right py-4 px-4 font-semibold text-[#111315]">תכונה</th><th className="py-4 px-4 font-semibold text-[#5B8CFF] text-center" dir="ltr">Launch<br /><span className="font-normal text-xs text-[#5B6472]">€299</span></th><th className="py-4 px-4 font-semibold text-[#8B5CFF] text-center bg-[#8B5CFF]/[0.03]" dir="ltr">Growth<br /><span className="font-normal text-xs text-[#5B6472]">€749</span></th><th className="py-4 px-4 font-semibold text-center" style={{ color: "#6B3FD4" }} dir="ltr">Pro<br /><span className="font-normal text-xs text-[#5B6472]">€1,499</span></th></tr></thead><tbody>{rows.map((row, rowIndex) => <tr key={row[0]} className={rowIndex % 2 === 0 ? "bg-[#FAFAFA]" : "bg-white"}><td className="py-3.5 px-4 text-[#111315] font-medium">{row[0]}</td><td className="py-3.5 px-4 text-center"><PlanCell value={row[1]} colour="#5B8CFF" /></td><td className="py-3.5 px-4 text-center bg-[#8B5CFF]/[0.03]"><PlanCell value={row[2]} colour="#8B5CFF" /></td><td className="py-3.5 px-4 text-center"><PlanCell value={row[3]} colour="#6B3FD4" /></td></tr>)}</tbody></table>
           </div>
         </div>
       </section>

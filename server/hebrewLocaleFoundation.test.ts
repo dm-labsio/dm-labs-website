@@ -54,6 +54,10 @@ describe("Hebrew locale foundation", () => {
     expect(styles).toContain('--hebrew-body-font: "Google Sans", "Heebo"');
     expect(styles).toContain('--hebrew-display-font: "Heebo"');
     expect(styles).toContain('--hebrew-accent-font: "Huninn"');
+    expect(styles).toContain('html[dir="rtl"] .editorial-home-shell');
+    expect(styles).toContain('--pricing-sans: var(--hebrew-body-font)');
+    expect(styles).toContain('--pricing-display: var(--hebrew-display-font)');
+    expect(styles).toContain('--faq-display: var(--hebrew-display-font)');
     expect(styles).toContain('html[dir="rtl"] h1');
     expect(styles).toContain('font-weight: 900');
     expect(styles).not.toContain("-webkit-text-stroke");
@@ -84,6 +88,18 @@ describe("Hebrew locale foundation", () => {
     expect(styles).toContain('.faq-editorial .faq-editorial-title em { white-space: normal; }');
     expect(styles).toContain('background: #f6f6f4;');
     expect(layout).toContain('border-[#E2E5EA] bg-[#F6F6F4] shadow-sm');
+  });
+
+  it("keeps the Hebrew pricing comparison and consent persistence aligned with shared behavior", () => {
+    const pricing = readSource("client/src/pages/he/PricingHe.tsx");
+    const cookieBanner = readSource("client/src/components/CookieBanner.tsx");
+
+    expect(pricing).toContain('className="border-b border-[#E8EAF0]"');
+    expect(pricing).toContain('bg-[#8B5CFF]/[0.03]');
+    expect(pricing).toContain('<PlanCell value={row[1]} colour="#5B8CFF" />');
+    expect(pricing).toContain('pricing-editorial-custom-grid');
+    expect(cookieBanner).toContain('const COOKIE_KEY = "dm_cookie_consent"');
+    expect(cookieBanner).toContain('const stored = localStorage.getItem(COOKIE_KEY)');
   });
 
   it("extends browser hreflang output without changing incomplete-route behavior", () => {

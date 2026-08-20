@@ -97,7 +97,7 @@ export default function CookieBanner() {
 
   return (
     <div
-      className={`fixed bottom-5 z-50 w-[min(16rem,calc(100vw-2rem))] bg-white rounded-xl shadow-xl border border-[#E2E5EA] p-3 ${isHebrew ? "left-4 right-auto text-right sm:left-6" : "right-4 left-auto sm:right-6"}`}
+      className={`fixed z-50 bg-white rounded-xl shadow-xl border border-[#E2E5EA] ${isHebrew ? "bottom-5 w-[min(16rem,calc(100vw-2rem))] p-3 left-4 right-auto text-right sm:left-6" : "bottom-6 left-4 right-4 sm:max-w-sm p-5 sm:left-auto sm:right-6"}`}
       role="dialog" aria-label="Cookie consent" aria-live="polite"
       dir={isHebrew ? "rtl" : undefined}
     >
@@ -110,12 +110,12 @@ export default function CookieBanner() {
 
       {!showPrefs ? (
         <>
-          <p className="text-xs text-[#5B6472] leading-relaxed mb-3">{t.body}</p>
+          <p className={`text-xs text-[#5B6472] leading-relaxed ${isHebrew ? "mb-3" : "mb-4"}`}>{t.body}</p>
           <div className="flex flex-col gap-2">
-            <button onClick={accept} className="w-full min-h-10 py-2 rounded-xl brand-gradient text-white text-sm font-semibold hover:opacity-90 transition-opacity flex items-center justify-center" style={{ textAlign: "center" }}>{t.acceptAll}</button>
+            <button onClick={accept} className={`w-full ${isHebrew ? "min-h-10 py-2" : "min-h-11 py-2.5"} rounded-xl brand-gradient text-white text-sm font-semibold hover:opacity-90 transition-opacity flex items-center justify-center`} style={{ textAlign: "center" }}>{t.acceptAll}</button>
             <div className="flex gap-2">
-            <button onClick={reject} className="flex-1 min-h-10 py-2 rounded-xl border border-[#E2E5EA] text-sm font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center">{t.reject}</button>
-            <button onClick={() => setShowPrefs(true)} className="flex-1 min-h-10 py-2 rounded-xl border border-[#E2E5EA] text-sm font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center">{t.manage}</button>
+            <button onClick={reject} className={`flex-1 ${isHebrew ? "min-h-10 py-2" : "min-h-11 py-2.5"} rounded-xl border border-[#E2E5EA] text-sm font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center`}>{t.reject}</button>
+            <button onClick={() => setShowPrefs(true)} className={`flex-1 ${isHebrew ? "min-h-10 py-2" : "min-h-11 py-2.5"} rounded-xl border border-[#E2E5EA] text-sm font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center`}>{t.manage}</button>
             </div>
           </div>
           <p className="text-xs text-[#5B6472] mt-3 text-center">
