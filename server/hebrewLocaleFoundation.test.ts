@@ -128,7 +128,8 @@ describe("Hebrew locale foundation", () => {
     expect(canvasSequence).toContain("const SCRUB_END = 0.68;");
     expect(canvasSequence).toContain('const frameProgress = OPENING_PROGRESS + scrubProgress * (1 - OPENING_PROGRESS)');
     expect(canvasSequence).not.toContain('scope.dataset.released = "true"');
-    expect(scrub).toContain('const HEBREW_MOBILE_RELEASE_PROGRESS = 0.88;');
+    expect(scrub).not.toContain('HEBREW_MOBILE_RELEASE_PROGRESS');
+    expect(scrub).toContain('leaving a separate natural exit range.');
     expect(scrub).toContain('<HebrewMobileCanvasSequence />');
     expect(styles).toContain('.hero-scrub-canvas');
     expect(layout).toContain('<polygon points="30,7 36,18 48,18 38,27 42,40 30,33 18,40 22,27 12,18 24,18" fill="#1F5AA6" />');

@@ -42,6 +42,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroStylesheet).toContain("position: fixed !important;");
     expect(heroStylesheet).toContain('data-released="true"');
     expect(heroStylesheet).toContain("position: absolute !important;");
+    expect(heroStylesheet).toContain("bottom: var(--hero-release-offset, 0px) !important;");
     expect(heroStylesheet).toContain("opacity: 1;");
     expect(heroStylesheet).toContain("pointer-events: auto;");
     expect(stylesheet).toContain(".hero-scrub-copy {");
@@ -63,6 +64,8 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(controllerStart).toBeGreaterThan(-1);
     expect(scrollHandler).toContain("const baseScrollSpan = Math.max(scope.offsetHeight - stage.offsetHeight, 1);");
     expect(scrollHandler).toContain("const scrollSpan = isHebrewMobile ? baseScrollSpan * 0.78 : baseScrollSpan;");
+    expect(scrollHandler).toContain("const releaseOffset = isHebrewMobile ? baseScrollSpan - scrollSpan : 0;");
+    expect(scrollHandler).toContain('scope.style.setProperty("--hero-release-offset", `${releaseOffset.toFixed(2)}px`);');
     expect(scrollHandler).toContain("const rawProgress = clamp");
     expect(scrollHandler).toContain("applyVisualProgress(rawProgress);");
     expect(scrollHandler).toContain("targetVideoProgress = clamp(rawProgress / scrubEnd, 0, 1);");
@@ -97,8 +100,11 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("const HEBREW_MOBILE_SCRUB_END = 0.68;");
     expect(heroSource).toContain("const HEBREW_MOBILE_COPY_REVEAL_START = 0.58;");
     expect(heroSource).toContain("const HEBREW_MOBILE_COPY_REVEAL_END = 0.68;");
-    expect(heroSource).toContain("const HEBREW_MOBILE_RELEASE_PROGRESS = 0.88;");
+    expect(heroSource).not.toContain("HEBREW_MOBILE_RELEASE_PROGRESS");
     expect(scrollHandler).toContain('scope.dataset.canvasReady === "true" && rawProgress >= HEBREW_MOBILE_SCRUB_END');
+    expect(scrollHandler).toContain("leaving a separate natural exit range.");
+    expect(scrollHandler).toContain("applyVisualProgress(rawProgress);");
+    expect(stylesheet).toContain("bottom: var(--hero-release-offset, 0px);");
     expect(heroSource).toContain("if (isHebrewMobile) {");
     expect(heroSource).toContain("currentVideoProgress = targetVideoProgress;");
     expect(heroSource).toContain("(isHebrewMobile ? HEBREW_MOBILE_MAX_PROGRESS_SPEED : isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED)");
