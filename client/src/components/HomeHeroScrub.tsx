@@ -122,7 +122,11 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
       const delta = targetVideoProgress - currentVideoProgress;
       const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);
 
-      if (canAdvanceProgress && Math.abs(delta) > 0.0001) {
+      if (isHebrewMobile) {
+        // Keep the rendered frame tied to the latest scroll position. Seeking itself
+        // remains coalesced below, so quick wheel/touch movement cannot queue seeks.
+        currentVideoProgress = targetVideoProgress;
+      } else if (canAdvanceProgress && Math.abs(delta) > 0.0001) {
         currentVideoProgress += Math.sign(delta) * Math.min(Math.abs(delta), maxStep || 0.0001);
       }
 
