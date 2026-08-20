@@ -24,6 +24,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("muted");
     expect(heroSource).toContain("playsInline");
     expect(heroSource).toContain('preload="auto"');
+    expect(heroSource).toContain("video.src = MOBILE_HERO_SCRUB_VIDEO_URL;");
     expect(heroSource).not.toContain("autoPlay");
     expect(heroSource).not.toContain("loop=");
     expect(heroSource).not.toContain("controls");

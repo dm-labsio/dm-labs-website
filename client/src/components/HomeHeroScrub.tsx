@@ -251,6 +251,10 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
     window.addEventListener("click", unlockVideoSeeking, { passive: true });
     motion.addEventListener("change", onMotionChange);
 
+    if (isHebrewMobile) {
+      video.src = MOBILE_HERO_SCRUB_VIDEO_URL;
+      video.load();
+    }
     if (video.readyState >= HTMLMediaElement.HAVE_METADATA) onLoadedMetadata();
     updateFromScroll();
 
