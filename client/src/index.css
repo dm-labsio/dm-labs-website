@@ -160,33 +160,40 @@
     font-family: var(--hebrew-display-font);
     font-weight: 900;
     font-variation-settings: "wght" 900;
-    -webkit-text-stroke: 0.012em currentColor;
-    letter-spacing: -0.065em;
-    line-height: 0.88;
+    letter-spacing: -0.045em;
+    line-height: 0.95;
   }
   html[dir="rtl"] h2,
   html[dir="rtl"] .hebrew-home h2 {
     font-family: var(--hebrew-display-font);
     font-weight: 900;
     font-variation-settings: "wght" 900;
-    -webkit-text-stroke: 0.009em currentColor;
-    letter-spacing: -0.052em;
-    line-height: 0.98;
+    letter-spacing: -0.038em;
+    line-height: 1;
   }
   html[dir="rtl"] h3 {
     font-family: var(--hebrew-display-font);
-    font-weight: 900;
-    font-variation-settings: "wght" 900;
-    -webkit-text-stroke: 0.006em currentColor;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
+    font-weight: 850;
+    font-variation-settings: "wght" 850;
+    letter-spacing: -0.022em;
+    line-height: 1.15;
   }
   html[dir="rtl"] .hebrew-home h1 em,
   html[dir="rtl"] .hebrew-home h2 em {
-    font-family: var(--hebrew-accent-font);
+    font-family: var(--hebrew-display-font);
     font-style: normal;
-    font-weight: 400;
-    letter-spacing: -0.035em;
+    font-weight: 900;
+    font-variation-settings: "wght" 900;
+    letter-spacing: -0.038em;
+  }
+  html[dir="rtl"] h1 em,
+  html[dir="rtl"] h2 em,
+  html[dir="rtl"] h3 em {
+    font-family: var(--hebrew-display-font) !important;
+    font-style: normal !important;
+    font-weight: 900 !important;
+    font-variation-settings: "wght" 900;
+    letter-spacing: -0.032em;
   }
   html[dir="rtl"] .hebrew-home .font-bold,
   html[dir="rtl"] .hebrew-home .font-extrabold {
@@ -194,20 +201,45 @@
     font-weight: 900;
     font-variation-settings: "wght" 900;
   }
-  html[dir="rtl"] .hebrew-home .dm-card p[dir="ltr"],
-  html[dir="rtl"] .hebrew-home .pricing-editorial-custom-panel p[dir="ltr"],
-  html[dir="rtl"] .hebrew-home .pricing-editorial-plan-price,
-  html[dir="rtl"] .hebrew-home .pricing-editorial-care-price,
-  html[dir="rtl"] .hebrew-home .pricing-editorial-custom-price {
-    font-family: var(--hebrew-display-font);
-    font-weight: 900;
-    font-variation-settings: "wght" 900;
+  html[dir="rtl"] .pricing-editorial .pricing-editorial-price-row {
+    direction: ltr;
+    justify-content: flex-start;
+    max-width: 100%;
+    min-width: 0;
+  }
+  html[dir="rtl"] .pricing-editorial .pricing-editorial-plan-price,
+  html[dir="rtl"] .pricing-editorial .pricing-editorial-care-price,
+  html[dir="rtl"] .pricing-editorial .pricing-editorial-custom-price {
+    font-family: var(--pricing-display);
+    font-variation-settings: "wdth" 100, "wght" 800;
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    max-width: 100%;
+    overflow-wrap: anywhere;
     text-align: left;
   }
-  html[dir="rtl"] .hebrew-home .pricing-editorial-plan-price,
-  html[dir="rtl"] .hebrew-home .pricing-editorial-care-price,
-  html[dir="rtl"] .hebrew-home .pricing-editorial-custom-price {
-    -webkit-text-stroke: 0.012em currentColor;
+  html[dir="rtl"] .pricing-editorial .pricing-editorial-plan-price,
+  html[dir="rtl"] .pricing-editorial .pricing-editorial-care-price {
+    font-size: clamp(2.35rem, 3.2vw, 3.45rem);
+  }
+  html[dir="rtl"] .pricing-editorial .pricing-editorial-price-unit {
+    direction: ltr;
+    font-family: var(--pricing-sans);
+    font-size: .78rem;
+    font-weight: 650;
+    letter-spacing: 0;
+  }
+  html[dir="rtl"] .pricing-editorial .pricing-editorial-custom-price {
+    font-size: clamp(2.45rem, 3.4vw, 3.7rem);
+  }
+  @media (max-width: 767px) {
+    html[dir="rtl"] .pricing-editorial .pricing-editorial-plan-price,
+    html[dir="rtl"] .pricing-editorial .pricing-editorial-care-price {
+      font-size: clamp(2.25rem, 11vw, 3rem);
+    }
+    html[dir="rtl"] .pricing-editorial .pricing-editorial-custom-price {
+      font-size: clamp(2.35rem, 11vw, 3.1rem);
+    }
   }
   html[dir="rtl"] .hebrew-home .brand-gradient-text,
   html[dir="rtl"] .hebrew-home [class*="text-[#8B7355]"],
@@ -326,7 +358,7 @@
      GLASSMORPHISM NAV
      ============================================================ */
   .glass-nav {
-    background: rgba(246, 246, 244, 0.78);
+    background: #f6f6f4;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(226, 229, 234, 0.5);
@@ -2058,10 +2090,12 @@
 
 @media (max-width: 767px) {
   .faq-editorial .faq-editorial-title {
-    font-size: clamp(3.05rem, 15vw, 4.7rem);
-    line-height: .92;
-    max-width: 8.9ch;
+    font-size: clamp(2.65rem, 12vw, 3.55rem);
+    line-height: .98;
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
+  .faq-editorial .faq-editorial-title em { white-space: normal; }
 
   .faq-editorial .faq-editorial-cta-heading {
     font-size: clamp(2.4rem, 11.8vw, 3.55rem);

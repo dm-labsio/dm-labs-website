@@ -56,9 +56,10 @@ describe("Hebrew locale foundation", () => {
     expect(styles).toContain('--hebrew-accent-font: "Huninn"');
     expect(styles).toContain('html[dir="rtl"] h1');
     expect(styles).toContain('font-weight: 900');
+    expect(styles).not.toContain("-webkit-text-stroke");
   });
 
-  it("keeps Hebrew cookie consent centered with natural local actions", () => {
+  it("keeps Hebrew cookie consent compact at the side with natural local actions", () => {
     const cookieBanner = readSource("client/src/components/CookieBanner.tsx");
 
     expect(cookieBanner).toContain('acceptAll: "אני מאשר/ת"');
@@ -66,8 +67,23 @@ describe("Hebrew locale foundation", () => {
     expect(cookieBanner).toContain('manage: "הגדרות"');
     expect(cookieBanner).toContain('cookieHref: "/he/cookies/"');
     expect(cookieBanner).toContain('privacyHref: "/he/privacy/"');
-    expect(cookieBanner).toContain('sm:left-1/2 sm:right-auto sm:-translate-x-1/2 text-center');
+    expect(cookieBanner).toContain('w-[min(16rem,calc(100vw-2rem))]');
+    expect(cookieBanner).toContain('left-4 right-auto text-right sm:left-6');
     expect(cookieBanner).toContain('flex items-center justify-center');
+  });
+
+  it("keeps the Hebrew pricing and header treatments visually contained", () => {
+    const pricing = readSource("client/src/pages/he/PricingHe.tsx");
+    const layout = readSource("client/src/components/Layout.tsx");
+    const styles = readSource("client/src/index.css");
+
+    expect(pricing).toContain('className="pricing-editorial-price-row"');
+    expect(pricing).toContain('className="pricing-editorial-price-unit"');
+    expect(pricing).not.toContain('<small> one-time</small>');
+    expect(styles).toContain('overflow-wrap: anywhere;');
+    expect(styles).toContain('.faq-editorial .faq-editorial-title em { white-space: normal; }');
+    expect(styles).toContain('background: #f6f6f4;');
+    expect(layout).toContain('border-[#E2E5EA] bg-[#F6F6F4] shadow-sm');
   });
 
   it("extends browser hreflang output without changing incomplete-route behavior", () => {
