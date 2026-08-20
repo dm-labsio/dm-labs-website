@@ -195,23 +195,23 @@
   }
   html[dir="rtl"] h1,
   html[dir="rtl"] .hebrew-home h1 {
-    font-family: var(--hebrew-display-font);
-    font-weight: 900;
+    font-family: var(--hebrew-display-font) !important;
+    font-weight: 900 !important;
     font-variation-settings: "wght" 900;
     letter-spacing: -0.045em;
     line-height: 0.95;
   }
   html[dir="rtl"] h2,
   html[dir="rtl"] .hebrew-home h2 {
-    font-family: var(--hebrew-display-font);
-    font-weight: 900;
+    font-family: var(--hebrew-display-font) !important;
+    font-weight: 900 !important;
     font-variation-settings: "wght" 900;
     letter-spacing: -0.038em;
     line-height: 1;
   }
   html[dir="rtl"] h3 {
-    font-family: var(--hebrew-display-font);
-    font-weight: 850;
+    font-family: var(--hebrew-display-font) !important;
+    font-weight: 850 !important;
     font-variation-settings: "wght" 850;
     letter-spacing: -0.022em;
     line-height: 1.15;
@@ -249,8 +249,8 @@
   html[dir="rtl"] .pricing-editorial .pricing-editorial-care-price,
   html[dir="rtl"] .pricing-editorial .pricing-editorial-custom-price {
     font-family: var(--pricing-display);
-    font-variation-settings: "wdth" 100, "wght" 800;
-    font-weight: 800;
+    font-variation-settings: "wdth" 100, "wght" 900;
+    font-weight: 900;
     letter-spacing: -0.045em;
     max-width: 100%;
     overflow-wrap: anywhere;
@@ -287,8 +287,8 @@
   html[dir="rtl"] .process-editorial-label,
   html[dir="rtl"] .process-editorial-step-index,
   html[dir="rtl"] .process-editorial-timeline-price {
-    font-family: var(--hebrew-accent-font);
-    font-weight: 400;
+    font-family: var(--hebrew-body-font);
+    font-weight: 500;
     letter-spacing: 0.015em;
   }
   html[dir="rtl"] .hebrew-home p,
