@@ -88,6 +88,7 @@ describe("Hebrew locale foundation", () => {
     expect(cookieBanner).toContain('let revealTimer = 0');
     expect(cookieBanner).toContain('hero.dataset.released === "true"');
     expect(cookieBanner).toContain('window.setTimeout(() => setVisible(true), 650)');
+    expect(cookieBanner).toContain('setVisible(false);');
     expect(cookieBanner).toContain('window.addEventListener("scroll", revealAfterHero, { passive: true })');
     expect(cookieBanner).toContain('window.requestAnimationFrame(revealAfterHero)');
     expect(cookieBanner).toContain('flex items-center justify-center');
@@ -120,7 +121,7 @@ describe("Hebrew locale foundation", () => {
     expect(scrub).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew"');
     expect(cards).toContain('interactive-example-card');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew');
-    expect(styles).toContain('--hero-runway: clamp(440px, 58svh, 520px);');
+    expect(styles).toContain('--hero-runway: clamp(880px, 118svh, 1040px);');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video)');
     expect(styles).toContain('html[dir="rtl"] .hebrew-home .interactive-example-card img');
     expect(canvasSequence).toContain('const HEBREW_MOBILE_SPRITE_URL = "/media/hero/hebrew-mobile-hero-sprite.webp"');

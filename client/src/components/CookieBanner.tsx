@@ -95,6 +95,11 @@ export default function CookieBanner() {
         }
         return;
       }
+      if (revealTimer) {
+        window.clearTimeout(revealTimer);
+        revealTimer = 0;
+      }
+      setVisible(false);
       releaseCheckFrame = window.requestAnimationFrame(revealAfterHero);
     };
     const timer = window.setTimeout(() => {
