@@ -2859,3 +2859,144 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
   .blog-editorial .blog-editorial-lead { font-size: 1.02rem; line-height: 1.58; }
   .blog-editorial .blog-editorial-card-body { padding: 1.3rem; }
 }
+
+/* ============================================================
+   HEBREW HOMEPAGE TOKEN SYSTEM
+   The Hebrew homepage is the sole visual reference. These rules
+   deliberately apply only to RTL pages and override the older
+   English editorial scales without changing EN or EL.
+   ============================================================ */
+html[dir="rtl"] {
+  --hebrew-token-eyebrow-size: 14px;
+  --hebrew-token-eyebrow-line: 20px;
+  --hebrew-token-body-size: 14px;
+  --hebrew-token-body-line: 22.75px;
+  --hebrew-token-lead-size: 18px;
+  --hebrew-token-lead-line: 28px;
+  --hebrew-token-button-size: 16px;
+}
+
+html[dir="rtl"] h1 {
+  font-family: var(--hebrew-display-font) !important;
+  font-size: 42.9px !important;
+  font-weight: 900 !important;
+  font-variation-settings: "wght" 900;
+  letter-spacing: -0.045em !important;
+  line-height: 1.1 !important;
+}
+
+html[dir="rtl"] h2 {
+  font-family: var(--hebrew-display-font) !important;
+  font-size: 30px !important;
+  font-weight: 900 !important;
+  font-variation-settings: "wght" 900;
+  letter-spacing: -0.038em !important;
+  line-height: 1.2 !important;
+}
+
+html[dir="rtl"] h3 {
+  font-family: var(--hebrew-display-font) !important;
+  font-size: 18px !important;
+  font-weight: 850 !important;
+  font-variation-settings: "wght" 850;
+  letter-spacing: -0.022em !important;
+  line-height: 28px !important;
+}
+
+html[dir="rtl"] .hebrew-home :is(.process-editorial-label, .pricing-editorial-label, .pricing-editorial-plan-label, .pricing-editorial-custom-kicker, .contact-editorial-label, .contact-editorial-form-label, .faq-editorial-label) {
+  font-family: var(--hebrew-body-font) !important;
+  font-size: var(--hebrew-token-eyebrow-size) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.015em !important;
+  line-height: var(--hebrew-token-eyebrow-line) !important;
+  text-transform: none !important;
+}
+
+html[dir="rtl"] .hebrew-home :is(.process-editorial-hero-heading, .pricing-editorial-hero-heading, .contact-editorial-title, .faq-editorial-title) {
+  font-size: 42.9px !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.045em !important;
+  max-width: 16ch !important;
+}
+
+html[dir="rtl"] .hebrew-home :is(.process-editorial-section-heading, .pricing-editorial-section-heading, .pricing-editorial-cta-heading, .contact-editorial-form-heading, .contact-editorial-cta-heading, .faq-editorial-cta-heading) {
+  font-size: 30px !important;
+  line-height: 36px !important;
+  letter-spacing: -0.038em !important;
+  max-width: 24ch !important;
+}
+
+html[dir="rtl"] .hebrew-home :is(.process-editorial-lead, .process-editorial-timeline-lead, .pricing-editorial-hero-lead, .pricing-editorial-section-intro > p:not(.pricing-editorial-label), .pricing-editorial-cta-section > .container > div > p, .contact-editorial-lead, .faq-editorial-lead) {
+  font-family: var(--hebrew-body-font) !important;
+  font-size: var(--hebrew-token-lead-size) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.012em !important;
+  line-height: var(--hebrew-token-lead-line) !important;
+}
+
+html[dir="rtl"] .hebrew-home :is(.process-editorial-step-desc, .process-editorial-step-details, .pricing-editorial-plan-summary, .pricing-editorial-feature-list, .pricing-editorial-custom-copy, .pricing-editorial-custom-feature, .contact-editorial-method-note, .contact-editorial-method-detail, .contact-editorial-field-label, .faq-editorial-cta-copy) {
+  font-family: var(--hebrew-body-font) !important;
+  font-size: var(--hebrew-token-body-size) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.012em !important;
+  line-height: var(--hebrew-token-body-line) !important;
+}
+
+html[dir="rtl"] .hebrew-home :is(.process-editorial-timeline-time, .pricing-editorial-plan-price, .pricing-editorial-care-price) {
+  font-family: var(--hebrew-display-font) !important;
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  font-variation-settings: "wght" 700 !important;
+  letter-spacing: -0.012em !important;
+  line-height: 40px !important;
+}
+
+html[dir="rtl"] .hebrew-home :is(.pricing-editorial-custom-price) {
+  font-family: var(--hebrew-display-font) !important;
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  font-variation-settings: "wght" 700 !important;
+  letter-spacing: -0.012em !important;
+  line-height: 36px !important;
+}
+
+html[dir="rtl"] .hebrew-home :is(.pricing-editorial-price-unit, .pricing-editorial-custom-note, .process-editorial-timeline-label, .process-editorial-step-index, .process-editorial-step-time) {
+  font-family: var(--hebrew-body-font) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.012em !important;
+  line-height: 20px !important;
+  text-transform: none !important;
+}
+
+html[dir="rtl"] .hebrew-home :is(.btn-primary, .btn-secondary, .pricing-editorial-card-cta, .pricing-editorial-custom-cta) {
+  font-family: var(--hebrew-body-font) !important;
+  font-size: var(--hebrew-token-button-size) !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+}
+
+@media (min-width: 640px) {
+  html[dir="rtl"] h1,
+  html[dir="rtl"] .hebrew-home :is(.process-editorial-hero-heading, .pricing-editorial-hero-heading, .contact-editorial-title, .faq-editorial-title) {
+    font-size: 48px !important;
+  }
+  html[dir="rtl"] h2,
+  html[dir="rtl"] .hebrew-home :is(.process-editorial-section-heading, .pricing-editorial-section-heading, .pricing-editorial-cta-heading, .contact-editorial-form-heading, .contact-editorial-cta-heading, .faq-editorial-cta-heading) {
+    font-size: 36px !important;
+    line-height: 40px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  html[dir="rtl"] h1,
+  html[dir="rtl"] .hebrew-home :is(.process-editorial-hero-heading, .pricing-editorial-hero-heading, .contact-editorial-title, .faq-editorial-title) {
+    font-size: 64px !important;
+  }
+}
+
+@media (max-width: 639px) {
+  html[dir="rtl"] .hebrew-home :is(.btn-primary, .btn-secondary, .pricing-editorial-card-cta, .pricing-editorial-custom-cta) {
+    font-size: 15px !important;
+  }
+}

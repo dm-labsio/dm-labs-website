@@ -63,6 +63,13 @@ describe("Hebrew locale foundation", () => {
     expect(styles).toContain('html[dir="rtl"] .font-mono');
     expect(styles).toContain('html[dir="rtl"] h1');
     expect(styles).toContain('font-weight: 900');
+    expect(styles).toContain('HEBREW HOMEPAGE TOKEN SYSTEM');
+    expect(styles).toContain('--hebrew-token-lead-size: 18px');
+    expect(styles).toContain('--hebrew-token-body-size: 14px');
+    expect(styles).toContain('font-size: 42.9px !important;');
+    expect(styles).toContain('font-size: 30px !important;');
+    expect(styles).toContain('font-size: 36px !important;');
+    expect(styles).toContain('font-weight: 700 !important;');
     expect(styles).not.toContain("-webkit-text-stroke");
   });
 
