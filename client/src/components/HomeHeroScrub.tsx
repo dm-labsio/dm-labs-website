@@ -14,7 +14,10 @@ const COPY_REVEAL_END = 0.8;
 const COPY_INTERACTIVE_START = 0.8;
 const MAX_PROGRESS_SPEED = 0.75;
 const MOBILE_MAX_PROGRESS_SPEED = 0.5;
-const HEBREW_MOBILE_MAX_PROGRESS_SPEED = 0.42;
+const HEBREW_MOBILE_MAX_PROGRESS_SPEED = 0.75;
+const HEBREW_MOBILE_SCRUB_END = 0.82;
+const HEBREW_MOBILE_COPY_REVEAL_START = 0.85;
+const HEBREW_MOBILE_COPY_REVEAL_END = 0.94;
 const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";
 const SEEK_TOLERANCE = 1 / 120;
 const MOBILE_SEEK_TOLERANCE = 1 / 24;
@@ -64,6 +67,10 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
     let initialFrameReady = false;
     const isMobileViewport = window.matchMedia(MOBILE_VIEWPORT_QUERY).matches;
     const isHebrewMobile = isMobileViewport && variant === "hebrew";
+    const scrubEnd = isHebrewMobile ? HEBREW_MOBILE_SCRUB_END : VIDEO_SCRUB_END;
+    const copyRevealStart = isHebrewMobile ? HEBREW_MOBILE_COPY_REVEAL_START : COPY_REVEAL_START;
+    const copyRevealEnd = isHebrewMobile ? HEBREW_MOBILE_COPY_REVEAL_END : COPY_REVEAL_END;
+    const copyInteractiveStart = isHebrewMobile ? HEBREW_MOBILE_COPY_REVEAL_END : COPY_INTERACTIVE_START;
     const openingProgress = isMobileViewport ? MOBILE_VIDEO_OPENING_PROGRESS : VIDEO_OPENING_PROGRESS;
     const seekTolerance = isMobileViewport ? MOBILE_SEEK_TOLERANCE : SEEK_TOLERANCE;
     const scrubStart = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
@@ -73,20 +80,20 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
 
     const applyVisualProgress = (progress: number) => {
       const copyProgress = clamp(
-        (progress - COPY_REVEAL_START) / (COPY_REVEAL_END - COPY_REVEAL_START),
+        (progress - copyRevealStart) / (copyRevealEnd - copyRevealStart),
         0,
         1,
       );
       scope.style.setProperty("--hero-progress", progress.toFixed(4));
       scope.style.setProperty("--hero-copy-progress", copyProgress.toFixed(4));
-      scope.dataset.interactive = String(progress >= COPY_INTERACTIVE_START);
+      scope.dataset.interactive = String(progress >= copyInteractiveStart);
       released = progress >= 1 && finalFrameReady;
       scope.dataset.released = String(released);
       scope.dataset.phase = released
         ? "released"
-        : progress >= COPY_REVEAL_END
-          ? "final-copy"
-          : progress >= VIDEO_SCRUB_END
+          : progress >= copyRevealEnd
+            ? "final-copy"
+            : progress >= scrubEnd
             ? "copy-reveal"
             : "scrubbing";
     };
@@ -157,7 +164,7 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
         scope.dataset.finalReady = "false";
       }
       applyVisualProgress(rawProgress);
-      targetVideoProgress = clamp(rawProgress / VIDEO_SCRUB_END, 0, 1);
+      targetVideoProgress = clamp(rawProgress / scrubEnd, 0, 1);
 
       if (!released && rawProgress >= 1 && !finalFrameReady) {
         const holdBoundary = scrubStart + scrollSpan;

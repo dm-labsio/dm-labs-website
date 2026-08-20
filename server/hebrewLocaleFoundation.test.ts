@@ -117,7 +117,7 @@ describe("Hebrew locale foundation", () => {
     expect(scrub).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew"');
     expect(cards).toContain('interactive-example-card');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew');
-    expect(styles).toContain('--hero-runway: clamp(360px, 48svh, 440px);');
+    expect(styles).toContain('--hero-runway: clamp(440px, 58svh, 520px);');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video)');
     expect(styles).toContain('html[dir="rtl"] .hebrew-home .interactive-example-card img');
     expect(layout).toContain('<polygon points="30,7 36,18 48,18 38,27 42,40 30,33 18,40 22,27 12,18 24,18" fill="#1F5AA6" />');

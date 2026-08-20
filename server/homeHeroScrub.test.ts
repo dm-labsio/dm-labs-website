@@ -63,7 +63,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(scrollHandler).toContain("scope.offsetHeight - stage.offsetHeight");
     expect(scrollHandler).toContain("const rawProgress = clamp");
     expect(scrollHandler).toContain("applyVisualProgress(rawProgress);");
-    expect(scrollHandler).toContain("targetVideoProgress = clamp(rawProgress / VIDEO_SCRUB_END, 0, 1);");
+    expect(scrollHandler).toContain("targetVideoProgress = clamp(rawProgress / scrubEnd, 0, 1);");
     expect(scrollHandler).not.toContain("video.currentTime =");
     expect(controller).toContain("MAX_PROGRESS_SPEED");
     expect(controller).toContain("video.seeking");
@@ -73,7 +73,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("const VIDEO_SCRUB_END = 0.6;");
     expect(heroSource).toContain("const COPY_REVEAL_START = 0.66;");
     expect(heroSource).toContain("const COPY_REVEAL_END = 0.8;");
-    expect(heroSource).toContain("scope.dataset.interactive = String(progress >= COPY_INTERACTIVE_START);");
+    expect(heroSource).toContain("scope.dataset.interactive = String(progress >= copyInteractiveStart);");
     expect(heroSource).toContain("const FINAL_FRAME_TOLERANCE = 1 / 30;");
     expect(heroSource).toContain("const finalFrameVisible =");
     expect(heroSource).toContain("let finalFrameReady = false;");
@@ -91,7 +91,8 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("const progressElapsedSeconds = isMobileViewport ? Math.min(elapsedSeconds, 1 / 30) : elapsedSeconds;");
     expect(heroSource).toContain("const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);");
     expect(heroSource).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew";');
-    expect(heroSource).toContain("const HEBREW_MOBILE_MAX_PROGRESS_SPEED = 0.42;");
+    expect(heroSource).toContain("const HEBREW_MOBILE_MAX_PROGRESS_SPEED = 0.75;");
+    expect(heroSource).toContain("const HEBREW_MOBILE_SCRUB_END = 0.82;");
     expect(heroSource).toContain("(isHebrewMobile ? HEBREW_MOBILE_MAX_PROGRESS_SPEED : isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED)");
     expect(heroSource).toContain('window.scrollTo({ top: holdBoundary, left: 0, behavior: "auto" });');
     expect(heroSource).toContain("rawProgress >= 1 && !finalFrameReady");
