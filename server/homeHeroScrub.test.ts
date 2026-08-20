@@ -23,7 +23,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain('<source media={MOBILE_VIEWPORT_QUERY} src={MOBILE_HERO_SCRUB_VIDEO_URL} type="video/mp4" />');
     expect(heroSource).toContain("muted");
     expect(heroSource).toContain("playsInline");
-    expect(heroSource).toContain('preload={variant === "hebrew" ? "none" : "auto"}');
+    expect(heroSource).toContain('preload="auto"');
     expect(heroSource).not.toContain("autoPlay");
     expect(heroSource).not.toContain("loop=");
     expect(heroSource).not.toContain("controls");
@@ -110,9 +110,8 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(htmlSource).toContain('document.documentElement.classList.add("js")');
     expect(heroSource).toContain("if (!isHebrewMobile) {");
     expect(heroSource).toContain("timeoutId = window.setTimeout(activateFallback, 2500);");
-    expect(heroSource).toContain("fetch(MOBILE_HERO_SCRUB_VIDEO_URL");
-    expect(heroSource).toContain("URL.createObjectURL(blob)");
-    expect(heroSource).toContain('preload={variant === "hebrew" ? "none" : "auto"}');
+    expect(heroSource).toContain('preload="auto"');
+    expect(heroSource).not.toContain("URL.createObjectURL(blob)");
     expect(heroSource).toContain("const openingTime = duration * openingProgress;");
     expect(heroSource).toContain("if (!initialFrameReady) {");
     expect(heroSource).toContain('video.addEventListener("error", activateFallback, { once: true });');

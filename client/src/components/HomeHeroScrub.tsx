@@ -61,15 +61,12 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
     let frameId = 0;
     let timeoutId = 0;
     let unlocked = false;
-    let disposed = false;
-    let localVideoUrl = "";
     let scrollProgress = 0;
     let released = false;
     let finalFrameReady = false;
     let initialFrameReady = false;
     const isMobileViewport = window.matchMedia(MOBILE_VIEWPORT_QUERY).matches;
     const isHebrewMobile = isMobileViewport && variant === "hebrew";
-    const localVideoRequest = isHebrewMobile ? new AbortController() : null;
     const scrubEnd = isHebrewMobile ? HEBREW_MOBILE_SCRUB_END : VIDEO_SCRUB_END;
     const copyRevealStart = isHebrewMobile ? HEBREW_MOBILE_COPY_REVEAL_START : COPY_REVEAL_START;
     const copyRevealEnd = isHebrewMobile ? HEBREW_MOBILE_COPY_REVEAL_END : COPY_REVEAL_END;
@@ -254,31 +251,11 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
     window.addEventListener("click", unlockVideoSeeking, { passive: true });
     motion.addEventListener("change", onMotionChange);
 
-    if (isHebrewMobile) {
-      void fetch(MOBILE_HERO_SCRUB_VIDEO_URL, { signal: localVideoRequest?.signal })
-        .then((response) => {
-          if (!response.ok) throw new Error(`Unable to load Hebrew mobile hero: ${response.status}`);
-          return response.blob();
-        })
-        .then((blob) => {
-          if (disposed) return;
-          localVideoUrl = URL.createObjectURL(blob);
-          video.src = localVideoUrl;
-          video.load();
-        })
-        .catch((error: unknown) => {
-          if ((error as { name?: string }).name !== "AbortError") activateFallback();
-        });
-    } else {
-      video.load();
-      if (video.readyState >= HTMLMediaElement.HAVE_METADATA) onLoadedMetadata();
-    }
+    video.load();
+    if (video.readyState >= HTMLMediaElement.HAVE_METADATA) onLoadedMetadata();
     updateFromScroll();
 
     return () => {
-      disposed = true;
-      localVideoRequest?.abort();
-      if (localVideoUrl) URL.revokeObjectURL(localVideoUrl);
       window.clearTimeout(timeoutId);
       if (frameId) window.cancelAnimationFrame(frameId);
       video.removeEventListener("seeked", onSeeked);
@@ -322,7 +299,7 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
           poster={HERO_SCRUB_OPENING_POSTER_URL}
           muted
           playsInline
-          preload={variant === "hebrew" ? "none" : "auto"}
+          preload="auto"
           className="hero-scrub-video"
           aria-hidden="true"
         >
