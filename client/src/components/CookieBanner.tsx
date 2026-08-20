@@ -74,11 +74,36 @@ export default function CookieBanner() {
 
   useEffect(() => {
     const stored = localStorage.getItem(COOKIE_KEY);
-    if (!stored) {
-      const timer = setTimeout(() => setVisible(true), locale === "he" ? 4000 : 1200);
+    if (stored) return;
+
+    if (locale !== "he") {
+      const timer = setTimeout(() => setVisible(true), 1200);
       return () => clearTimeout(timer);
     }
-  }, []);
+
+    let delayElapsed = false;
+    const hebrewHero = document.querySelector<HTMLElement>(".hero-scrub-scope--hebrew");
+    const revealAfterHero = () => {
+      if (!delayElapsed) return;
+      if (!hebrewHero) {
+        setVisible(true);
+        return;
+      }
+      const threshold = hebrewHero.offsetTop + hebrewHero.offsetHeight - 120;
+      if (window.scrollY >= threshold) {
+        setVisible(true);
+        window.removeEventListener("scroll", revealAfterHero);
+      }
+    };
+    const timer = window.setTimeout(() => {
+      delayElapsed = true;
+    }, 2000);
+    window.addEventListener("scroll", revealAfterHero, { passive: true });
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", revealAfterHero);
+    };
+  }, [locale]);
 
   const accept = () => {
     localStorage.setItem(COOKIE_KEY, JSON.stringify({ essential: true, analytics: true }));
