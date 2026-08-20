@@ -89,7 +89,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("const MOBILE_MAX_PROGRESS_SPEED = 0.5;");
     expect(heroSource).toContain("const MOBILE_SEEK_TOLERANCE = 1 / 24;");
     expect(heroSource).toContain("const progressElapsedSeconds = isMobileViewport ? Math.min(elapsedSeconds, 1 / 30) : elapsedSeconds;");
-    expect(heroSource).toContain("const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);");
+    expect(heroSource).toContain("const canAdvanceProgress = !isMobileViewport || isHebrewMobile || (seekReady && !video.seeking);");
     expect(heroSource).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew";');
     expect(heroSource).toContain("(isHebrewMobile ? 1.5 : isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED)");
     expect(heroSource).toContain('window.scrollTo({ top: holdBoundary, left: 0, behavior: "auto" });');
@@ -104,7 +104,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(htmlSource).toContain('rel="preload" as="image" href="/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp"');
     expect(htmlSource).toContain('href="/media/hero/dm-labs-mobile-hero-opening-poster_6fc35873.webp" media="(max-width: 767px)"');
     expect(htmlSource).toContain('document.documentElement.classList.add("js")');
-    expect(heroSource).toContain("window.setTimeout(activateFallback, 2500)");
+    expect(heroSource).toContain("window.setTimeout(activateFallback, isHebrewMobile ? 4000 : 2500)");
     expect(heroSource).toContain("const openingTime = duration * openingProgress;");
     expect(heroSource).toContain("if (!initialFrameReady) {");
     expect(heroSource).toContain('video.addEventListener("error", activateFallback, { once: true });');

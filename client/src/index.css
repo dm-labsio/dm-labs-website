@@ -2308,13 +2308,17 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
   /* Hebrew mobile keeps the portrait source fully visible and reduces the
      scrub runway. These rules are deliberately not shared with EN or EL. */
   html[dir="rtl"] .hero-scrub-scope--hebrew {
-    --hero-runway: clamp(300px, 48svh, 420px);
+    --hero-runway: clamp(230px, 34svh, 310px);
   }
 
   html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video) {
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     background: #f6f6f4;
+  }
+
+  html[dir="rtl"] .hero-scrub-scope--hebrew .hero-scrub-stage {
+    min-height: min(43rem, calc(100svh - 72px));
   }
 
   html[dir="rtl"] .hebrew-home .interactive-example-card > div,

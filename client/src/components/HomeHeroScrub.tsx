@@ -50,6 +50,7 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
     let useFallback = false;
     let targetVideoProgress = 0;
     let currentVideoProgress = 0;
+    let pendingSeekTime: number | null = null;
     let lastFrameTime = performance.now();
     let seekReady = true;
     let duration = 0;
@@ -111,22 +112,20 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
       const progressElapsedSeconds = isMobileViewport ? Math.min(elapsedSeconds, 1 / 30) : elapsedSeconds;
       const maxStep = (isHebrewMobile ? 1.5 : isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED) * progressElapsedSeconds;
       const delta = targetVideoProgress - currentVideoProgress;
-      const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);
+      const canAdvanceProgress = !isMobileViewport || isHebrewMobile || (seekReady && !video.seeking);
 
       if (canAdvanceProgress && Math.abs(delta) > 0.0001) {
         currentVideoProgress += Math.sign(delta) * Math.min(Math.abs(delta), maxStep || 0.0001);
       }
 
       const desiredTime = duration * (openingProgress + (currentVideoProgress * (1 - openingProgress)));
-      if (
-        metadataReady &&
-        seekReady &&
-        !video.seeking &&
-        video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA &&
-        Math.abs(video.currentTime - desiredTime) > seekTolerance
-      ) {
-        seekReady = false;
-        video.currentTime = desiredTime;
+      if (metadataReady && video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+        if (isHebrewMobile && (video.seeking || !seekReady)) {
+          pendingSeekTime = desiredTime;
+        } else if (seekReady && !video.seeking && Math.abs(video.currentTime - desiredTime) > seekTolerance) {
+          seekReady = false;
+          video.currentTime = desiredTime;
+        }
       }
 
       const finalFrameVisible =
@@ -169,13 +168,20 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
       scheduleController();
     };
 
-    const onSeeked = () => {
-      seekReady = true;
+      const onSeeked = () => {
+        seekReady = true;
       if (!initialFrameReady) {
         initialFrameReady = true;
         scope.dataset.ready = "true";
         window.clearTimeout(timeoutId);
         updateFromScroll();
+        return;
+        }
+      if (isHebrewMobile && pendingSeekTime !== null && Math.abs(video.currentTime - pendingSeekTime) > seekTolerance) {
+        const nextTime = pendingSeekTime;
+        pendingSeekTime = null;
+        seekReady = false;
+        video.currentTime = nextTime;
         return;
       }
       scheduleController();
@@ -219,7 +225,7 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
 
     scope.dataset.mode = "scrub";
     applyVisualProgress(0);
-    timeoutId = window.setTimeout(activateFallback, 2500);
+    timeoutId = window.setTimeout(activateFallback, isHebrewMobile ? 4000 : 2500);
 
     video.addEventListener("loadedmetadata", onLoadedMetadata, { once: true });
     video.addEventListener("seeked", onSeeked);

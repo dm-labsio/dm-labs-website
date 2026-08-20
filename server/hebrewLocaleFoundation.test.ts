@@ -81,7 +81,7 @@ describe("Hebrew locale foundation", () => {
     expect(cookieBanner).toContain('manage: "הגדרות"');
     expect(cookieBanner).toContain('cookieHref: "/he/cookies/"');
     expect(cookieBanner).toContain('privacyHref: "/he/privacy/"');
-    expect(cookieBanner).toContain('w-[min(13.5rem,calc(100vw-1.5rem))]');
+    expect(cookieBanner).toContain('w-[min(11.5rem,calc(100vw-1.5rem))]');
     expect(cookieBanner).toContain('left-3 right-auto text-right sm:bottom-5 sm:w-[min(16rem,calc(100vw-2rem))]');
     expect(cookieBanner).toContain('flex items-center justify-center');
   });
@@ -112,10 +112,10 @@ describe("Hebrew locale foundation", () => {
     expect(scrub).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew"');
     expect(cards).toContain('interactive-example-card');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew');
-    expect(styles).toContain('--hero-runway: clamp(300px, 48svh, 420px)');
+    expect(styles).toContain('--hero-runway: clamp(230px, 34svh, 310px)');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video)');
     expect(styles).toContain('html[dir="rtl"] .hebrew-home .interactive-example-card img');
-    expect(layout).toContain('M30 9 42 30H18L30 9ZM30 31 42 10H18L30 31Z');
+    expect(layout).toContain('M30 9 35.8 19H47L41.2 29 30 31 18.8 29 13 19H24.2L30 9Z');
   });
 
   it("keeps the Hebrew pricing comparison and consent persistence aligned with shared behavior", () => {
