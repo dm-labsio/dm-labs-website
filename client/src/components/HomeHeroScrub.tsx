@@ -18,6 +18,7 @@ const HEBREW_MOBILE_MAX_PROGRESS_SPEED = 0.75;
 const HEBREW_MOBILE_SCRUB_END = 0.82;
 const HEBREW_MOBILE_COPY_REVEAL_START = 0.85;
 const HEBREW_MOBILE_COPY_REVEAL_END = 0.94;
+const HEBREW_MOBILE_FALLBACK_TIMEOUT = 8000;
 const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";
 const SEEK_TOLERANCE = 1 / 120;
 const MOBILE_SEEK_TOLERANCE = 1 / 24;
@@ -237,7 +238,7 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
 
     scope.dataset.mode = "scrub";
     applyVisualProgress(0);
-    timeoutId = window.setTimeout(activateFallback, isHebrewMobile ? 2800 : 2500);
+    timeoutId = window.setTimeout(activateFallback, isHebrewMobile ? HEBREW_MOBILE_FALLBACK_TIMEOUT : 2500);
 
     video.addEventListener("loadedmetadata", onLoadedMetadata, { once: true });
     video.addEventListener("seeked", onSeeked);
