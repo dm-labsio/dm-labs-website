@@ -117,7 +117,7 @@ const FlagIL = () => (
     <rect width="60" height="40" fill="#fff" />
     <rect y="4" width="60" height="5" fill="#1F5AA6" />
     <rect y="31" width="60" height="5" fill="#1F5AA6" />
-    <path d="M30 9 42 30H18L30 9ZM30 31 42 10H18L30 31Z" fill="#1F5AA6" fillRule="evenodd" />
+    <polygon points="30,7 36,18 48,18 38,27 42,40 30,33 18,40 22,27 12,18 24,18" fill="#1F5AA6" />
   </svg>
 );
 

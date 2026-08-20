@@ -14,6 +14,7 @@ const COPY_REVEAL_END = 0.8;
 const COPY_INTERACTIVE_START = 0.8;
 const MAX_PROGRESS_SPEED = 0.75;
 const MOBILE_MAX_PROGRESS_SPEED = 0.5;
+const HEBREW_MOBILE_MAX_PROGRESS_SPEED = 0.42;
 const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";
 const SEEK_TOLERANCE = 1 / 120;
 const MOBILE_SEEK_TOLERANCE = 1 / 24;
@@ -110,9 +111,9 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
       const elapsedSeconds = Math.max((now - lastFrameTime) / 1000, 0);
       lastFrameTime = now;
       const progressElapsedSeconds = isMobileViewport ? Math.min(elapsedSeconds, 1 / 30) : elapsedSeconds;
-      const maxStep = (isHebrewMobile ? 1.5 : isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED) * progressElapsedSeconds;
+      const maxStep = (isHebrewMobile ? HEBREW_MOBILE_MAX_PROGRESS_SPEED : isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED) * progressElapsedSeconds;
       const delta = targetVideoProgress - currentVideoProgress;
-      const canAdvanceProgress = !isMobileViewport || isHebrewMobile || (seekReady && !video.seeking);
+      const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);
 
       if (canAdvanceProgress && Math.abs(delta) > 0.0001) {
         currentVideoProgress += Math.sign(delta) * Math.min(Math.abs(delta), maxStep || 0.0001);
@@ -225,7 +226,7 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
 
     scope.dataset.mode = "scrub";
     applyVisualProgress(0);
-    timeoutId = window.setTimeout(activateFallback, isHebrewMobile ? 4000 : 2500);
+    timeoutId = window.setTimeout(activateFallback, isHebrewMobile ? 2800 : 2500);
 
     video.addEventListener("loadedmetadata", onLoadedMetadata, { once: true });
     video.addEventListener("seeked", onSeeked);

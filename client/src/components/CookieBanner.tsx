@@ -84,7 +84,12 @@ export default function CookieBanner() {
     let releaseCheckFrame = 0;
     const revealAfterHero = () => {
       const hero = document.querySelector<HTMLElement>(".hero-scrub-scope--hebrew");
-      if (!hero || hero.dataset.released === "true") {
+      if (!hero) {
+        setVisible(true);
+        return;
+      }
+      const passedHero = window.scrollY >= hero.offsetTop + hero.offsetHeight - 8;
+      if (hero.dataset.released === "true" && passedHero) {
         setVisible(true);
         return;
       }
@@ -93,9 +98,11 @@ export default function CookieBanner() {
     const timer = window.setTimeout(() => {
       revealAfterHero();
     }, 2000);
+    window.addEventListener("scroll", revealAfterHero, { passive: true });
     return () => {
       window.clearTimeout(timer);
       window.cancelAnimationFrame(releaseCheckFrame);
+      window.removeEventListener("scroll", revealAfterHero);
     };
   }, [locale]);
 

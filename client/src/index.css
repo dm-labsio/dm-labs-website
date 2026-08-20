@@ -2308,7 +2308,7 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
   /* Hebrew mobile keeps the portrait source fully visible and reduces the
      scrub runway. These rules are deliberately not shared with EN or EL. */
   html[dir="rtl"] .hero-scrub-scope--hebrew {
-    --hero-runway: clamp(230px, 34svh, 310px);
+    --hero-runway: clamp(360px, 48svh, 440px);
   }
 
   html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video) {

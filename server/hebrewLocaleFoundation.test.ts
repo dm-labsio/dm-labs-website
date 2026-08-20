@@ -85,6 +85,8 @@ describe("Hebrew locale foundation", () => {
     expect(cookieBanner).toContain('left-3 right-auto text-right sm:bottom-5 sm:w-[min(16rem,calc(100vw-2rem))]');
     expect(cookieBanner).toContain('document.querySelector<HTMLElement>(".hero-scrub-scope--hebrew")');
     expect(cookieBanner).toContain('hero.dataset.released === "true"');
+    expect(cookieBanner).toContain('window.scrollY >= hero.offsetTop + hero.offsetHeight - 8');
+    expect(cookieBanner).toContain('window.addEventListener("scroll", revealAfterHero, { passive: true })');
     expect(cookieBanner).toContain('window.requestAnimationFrame(revealAfterHero)');
     expect(cookieBanner).toContain('flex items-center justify-center');
   });
@@ -115,11 +117,10 @@ describe("Hebrew locale foundation", () => {
     expect(scrub).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew"');
     expect(cards).toContain('interactive-example-card');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew');
-    expect(styles).toContain('--hero-runway: clamp(230px, 34svh, 310px)');
+    expect(styles).toContain('--hero-runway: clamp(360px, 48svh, 440px);');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video)');
     expect(styles).toContain('html[dir="rtl"] .hebrew-home .interactive-example-card img');
-    expect(layout).toContain('M30 9 42 30H18L30 9ZM30 31 42 10H18L30 31Z');
-    expect(layout).toContain('fillRule="evenodd"');
+    expect(layout).toContain('<polygon points="30,7 36,18 48,18 38,27 42,40 30,33 18,40 22,27 12,18 24,18" fill="#1F5AA6" />');
   });
 
   it("keeps the Hebrew pricing comparison and consent persistence aligned with shared behavior", () => {
