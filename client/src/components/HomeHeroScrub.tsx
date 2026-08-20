@@ -16,9 +16,10 @@ const COPY_INTERACTIVE_START = 0.8;
 const MAX_PROGRESS_SPEED = 0.75;
 const MOBILE_MAX_PROGRESS_SPEED = 0.5;
 const HEBREW_MOBILE_MAX_PROGRESS_SPEED = 0.75;
-const HEBREW_MOBILE_SCRUB_END = 0.78;
-const HEBREW_MOBILE_COPY_REVEAL_START = 0.85;
-const HEBREW_MOBILE_COPY_REVEAL_END = 0.94;
+const HEBREW_MOBILE_SCRUB_END = 0.68;
+const HEBREW_MOBILE_COPY_REVEAL_START = 0.58;
+const HEBREW_MOBILE_COPY_REVEAL_END = 0.68;
+const HEBREW_MOBILE_RELEASE_PROGRESS = 0.88;
 const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";
 const SEEK_TOLERANCE = 1 / 120;
 const MOBILE_SEEK_TOLERANCE = 1 / 24;
@@ -71,7 +72,7 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
     const scrubEnd = isHebrewMobile ? HEBREW_MOBILE_SCRUB_END : VIDEO_SCRUB_END;
     const copyRevealStart = isHebrewMobile ? HEBREW_MOBILE_COPY_REVEAL_START : COPY_REVEAL_START;
     const copyRevealEnd = isHebrewMobile ? HEBREW_MOBILE_COPY_REVEAL_END : COPY_REVEAL_END;
-    const copyInteractiveStart = isHebrewMobile ? HEBREW_MOBILE_COPY_REVEAL_END : COPY_INTERACTIVE_START;
+      const copyInteractiveStart = isHebrewMobile ? 0.76 : COPY_INTERACTIVE_START;
     const openingProgress = isMobileViewport ? MOBILE_VIDEO_OPENING_PROGRESS : VIDEO_OPENING_PROGRESS;
     const seekTolerance = isMobileViewport ? MOBILE_SEEK_TOLERANCE : SEEK_TOLERANCE;
     const scrubStart = Math.max(scope.getBoundingClientRect().top + window.scrollY - 72, 0);
@@ -170,7 +171,7 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
         scope.dataset.finalReady = "true";
         targetVideoProgress = 1;
         currentVideoProgress = 1;
-        applyVisualProgress(1);
+        applyVisualProgress(rawProgress >= HEBREW_MOBILE_RELEASE_PROGRESS ? 1 : rawProgress);
         return;
       }
       if (rawProgress < VIDEO_SCRUB_END && finalFrameReady) {

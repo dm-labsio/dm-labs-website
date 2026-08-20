@@ -94,7 +94,10 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);");
     expect(heroSource).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew";');
     expect(heroSource).toContain("const HEBREW_MOBILE_MAX_PROGRESS_SPEED = 0.75;");
-    expect(heroSource).toContain("const HEBREW_MOBILE_SCRUB_END = 0.78;");
+    expect(heroSource).toContain("const HEBREW_MOBILE_SCRUB_END = 0.68;");
+    expect(heroSource).toContain("const HEBREW_MOBILE_COPY_REVEAL_START = 0.58;");
+    expect(heroSource).toContain("const HEBREW_MOBILE_COPY_REVEAL_END = 0.68;");
+    expect(heroSource).toContain("const HEBREW_MOBILE_RELEASE_PROGRESS = 0.88;");
     expect(scrollHandler).toContain('scope.dataset.canvasReady === "true" && rawProgress >= HEBREW_MOBILE_SCRUB_END');
     expect(heroSource).toContain("if (isHebrewMobile) {");
     expect(heroSource).toContain("currentVideoProgress = targetVideoProgress;");

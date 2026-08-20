@@ -4,7 +4,7 @@ const FRAME_WIDTH = 270;
 const FRAME_HEIGHT = 480;
 const COLUMNS = 7;
 const OPENING_PROGRESS = 0.05;
-const SCRUB_END = 0.78;
+const SCRUB_END = 0.68;
 
 const HEBREW_MOBILE_SPRITE_URL = "/media/hero/hebrew-mobile-hero-sprite.webp";
 
@@ -61,10 +61,6 @@ export function HebrewMobileCanvasSequence() {
       const scrubProgress = Math.min(rawProgress / SCRUB_END, 1);
       const frameProgress = OPENING_PROGRESS + scrubProgress * (1 - OPENING_PROGRESS);
       const nextFrame = Math.round(frameProgress * 60);
-
-      if (scrubProgress >= 0.96) {
-        scope.dataset.released = "true";
-      }
 
       if (nextFrame !== lastFrame) {
         lastFrame = nextFrame;
