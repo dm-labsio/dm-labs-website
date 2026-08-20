@@ -81,31 +81,21 @@ export default function CookieBanner() {
       return () => clearTimeout(timer);
     }
 
-    let delayElapsed = false;
-    const hebrewHero = document.querySelector<HTMLElement>(".hero-scrub-scope--hebrew");
+    let releaseCheckFrame = 0;
     const revealAfterHero = () => {
-      if (!delayElapsed) return;
-      if (!hebrewHero) {
+      const hero = document.querySelector<HTMLElement>(".hero-scrub-scope--hebrew");
+      if (!hero || hero.dataset.released === "true") {
         setVisible(true);
         return;
       }
-      if (hebrewHero.dataset.released === "true") {
-        setVisible(true);
-        observer?.disconnect();
-      }
+      releaseCheckFrame = window.requestAnimationFrame(revealAfterHero);
     };
-    let observer: MutationObserver | null = null;
-    if (hebrewHero) {
-      observer = new MutationObserver(revealAfterHero);
-      observer.observe(hebrewHero, { attributes: true, attributeFilter: ["data-released"] });
-    }
     const timer = window.setTimeout(() => {
-      delayElapsed = true;
       revealAfterHero();
     }, 2000);
     return () => {
       window.clearTimeout(timer);
-      observer?.disconnect();
+      window.cancelAnimationFrame(releaseCheckFrame);
     };
   }, [locale]);
 

@@ -84,8 +84,8 @@ describe("Hebrew locale foundation", () => {
     expect(cookieBanner).toContain('w-[min(11.5rem,calc(100vw-1.5rem))]');
     expect(cookieBanner).toContain('left-3 right-auto text-right sm:bottom-5 sm:w-[min(16rem,calc(100vw-2rem))]');
     expect(cookieBanner).toContain('document.querySelector<HTMLElement>(".hero-scrub-scope--hebrew")');
-    expect(cookieBanner).toContain('hebrewHero.dataset.released === "true"');
-    expect(cookieBanner).toContain('new MutationObserver(revealAfterHero)');
+    expect(cookieBanner).toContain('hero.dataset.released === "true"');
+    expect(cookieBanner).toContain('window.requestAnimationFrame(revealAfterHero)');
     expect(cookieBanner).toContain('flex items-center justify-center');
   });
 
