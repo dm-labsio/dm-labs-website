@@ -108,8 +108,8 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(htmlSource).toContain('rel="preload" as="image" href="/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp"');
     expect(htmlSource).toContain('href="/media/hero/dm-labs-mobile-hero-opening-poster_6fc35873.webp" media="(max-width: 767px)"');
     expect(htmlSource).toContain('document.documentElement.classList.add("js")');
-    expect(heroSource).toContain("const HEBREW_MOBILE_FALLBACK_TIMEOUT = 8000;");
-    expect(heroSource).toContain("window.setTimeout(activateFallback, isHebrewMobile ? HEBREW_MOBILE_FALLBACK_TIMEOUT : 2500)");
+    expect(heroSource).toContain("if (!isHebrewMobile) {");
+    expect(heroSource).toContain("timeoutId = window.setTimeout(activateFallback, 2500);");
     expect(heroSource).toContain("fetch(MOBILE_HERO_SCRUB_VIDEO_URL");
     expect(heroSource).toContain("URL.createObjectURL(blob)");
     expect(heroSource).toContain('preload={variant === "hebrew" ? "none" : "auto"}');
