@@ -61,7 +61,8 @@ describe("homepage single-stage scroll-scrub hero", () => {
 
     expect(scrollStart).toBeGreaterThan(-1);
     expect(controllerStart).toBeGreaterThan(-1);
-    expect(scrollHandler).toContain("scope.offsetHeight - stage.offsetHeight");
+    expect(scrollHandler).toContain("const baseScrollSpan = Math.max(scope.offsetHeight - stage.offsetHeight, 1);");
+    expect(scrollHandler).toContain("const scrollSpan = isHebrewMobile ? baseScrollSpan * 0.78 : baseScrollSpan;");
     expect(scrollHandler).toContain("const rawProgress = clamp");
     expect(scrollHandler).toContain("applyVisualProgress(rawProgress);");
     expect(scrollHandler).toContain("targetVideoProgress = clamp(rawProgress / scrubEnd, 0, 1);");
@@ -93,7 +94,8 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);");
     expect(heroSource).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew";');
     expect(heroSource).toContain("const HEBREW_MOBILE_MAX_PROGRESS_SPEED = 0.75;");
-    expect(heroSource).toContain("const HEBREW_MOBILE_SCRUB_END = 0.82;");
+    expect(heroSource).toContain("const HEBREW_MOBILE_SCRUB_END = 0.78;");
+    expect(scrollHandler).toContain('scope.dataset.canvasReady === "true" && rawProgress >= HEBREW_MOBILE_SCRUB_END');
     expect(heroSource).toContain("if (isHebrewMobile) {");
     expect(heroSource).toContain("currentVideoProgress = targetVideoProgress;");
     expect(heroSource).toContain("(isHebrewMobile ? HEBREW_MOBILE_MAX_PROGRESS_SPEED : isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED)");

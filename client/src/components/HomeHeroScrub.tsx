@@ -16,7 +16,7 @@ const COPY_INTERACTIVE_START = 0.8;
 const MAX_PROGRESS_SPEED = 0.75;
 const MOBILE_MAX_PROGRESS_SPEED = 0.5;
 const HEBREW_MOBILE_MAX_PROGRESS_SPEED = 0.75;
-const HEBREW_MOBILE_SCRUB_END = 0.82;
+const HEBREW_MOBILE_SCRUB_END = 0.78;
 const HEBREW_MOBILE_COPY_REVEAL_START = 0.85;
 const HEBREW_MOBILE_COPY_REVEAL_END = 0.94;
 const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";
@@ -161,9 +161,18 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
     };
 
     const updateFromScroll = () => {
-      const scrollSpan = Math.max(scope.offsetHeight - stage.offsetHeight, 1);
+      const baseScrollSpan = Math.max(scope.offsetHeight - stage.offsetHeight, 1);
+      const scrollSpan = isHebrewMobile ? baseScrollSpan * 0.78 : baseScrollSpan;
       const rawProgress = clamp((window.scrollY - scrubStart) / scrollSpan, 0, 1);
       scrollProgress = rawProgress;
+      if (isHebrewMobile && scope.dataset.canvasReady === "true" && rawProgress >= HEBREW_MOBILE_SCRUB_END) {
+        finalFrameReady = true;
+        scope.dataset.finalReady = "true";
+        targetVideoProgress = 1;
+        currentVideoProgress = 1;
+        applyVisualProgress(1);
+        return;
+      }
       if (rawProgress < VIDEO_SCRUB_END && finalFrameReady) {
         finalFrameReady = false;
         scope.dataset.finalReady = "false";
