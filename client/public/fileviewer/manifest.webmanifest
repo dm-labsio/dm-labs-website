@@ -1,0 +1,45 @@
+{
+  "name": "DM FileViewer",
+  "short_name": "FileViewer",
+  "description": "A fast, ad-free file and PDF viewer that shares straight to WhatsApp.",
+  "id": "/fileviewer/",
+  "scope": "/fileviewer/",
+  "start_url": "/fileviewer/?source=pwa",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0F172A",
+  "theme_color": "#0F172A",
+  "icons": [
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+  ],
+  "share_target": {
+    "action": "/fileviewer/share-target",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "files": [
+        {
+          "name": "files",
+          "accept": [
+            "application/pdf",
+            "image/*",
+            "video/*",
+            "audio/*",
+            "text/*",
+            "application/json",
+            "application/zip",
+            "application/msword",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "application/vnd.ms-excel",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "application/vnd.ms-powerpoint",
+            "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+          ]
+        }
+      ]
+    }
+  }
+}
