@@ -2296,7 +2296,11 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
   text-shadow: 0 2px 24px rgba(255, 255, 255, 0.65);
 }
 
-.hero-scrub-copy > div > p:first-child {
+.hero-scrub-copy .editorial-hero-fit {
+  text-shadow: 0 2px 24px rgba(255, 255, 255, 0.65);
+}
+
+.hero-scrub-copy .editorial-label {
   text-shadow: 0 1px 16px rgba(255, 255, 255, 0.7);
 }
 
@@ -2355,6 +2359,30 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
     opacity: 1;
     transform: none;
     pointer-events: auto;
+  }
+
+  html.js .hero-scrub-scope[data-mobile-hero="static"] .hero-scrub-poster {
+    object-position: center 82%;
+    transform: scale(1.1);
+    transform-origin: center bottom;
+  }
+
+  html.js .hero-scrub-scope[data-mobile-hero="static"] .hero-scrub-wash {
+    opacity: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(246, 246, 244, 0.92) 0%,
+      rgba(246, 246, 244, 0.88) 44%,
+      rgba(246, 246, 244, 0.62) 68%,
+      rgba(246, 246, 244, 0.14) 90%,
+      rgba(246, 246, 244, 0) 100%
+    );
+  }
+
+  html.js .hero-scrub-scope[data-mobile-hero="static"] .editorial-lead,
+  .editorial-home .hero-scrub-copy .editorial-lead {
+    color: #23272e;
+    font-weight: 400;
   }
 
   html.js .hero-scrub-scope--hebrew[data-mobile-hero="static"] {
