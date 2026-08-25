@@ -81,6 +81,11 @@ export default function CookieBanner() {
       return () => clearTimeout(timer);
     }
 
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      const timer = window.setTimeout(() => setVisible(true), 1200);
+      return () => window.clearTimeout(timer);
+    }
+
     let releaseCheckFrame = 0;
     let revealTimer = 0;
     const revealAfterHero = () => {

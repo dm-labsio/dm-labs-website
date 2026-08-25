@@ -48,8 +48,6 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
     const video = videoRef.current;
     if (!scope || !stage || !video) return;
 
-    video.setAttribute("webkit-playsinline", "true");
-
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let metadataReady = false;
     let useFallback = false;
@@ -68,6 +66,21 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
     let initialFrameReady = false;
     const isMobileViewport = window.matchMedia(MOBILE_VIEWPORT_QUERY).matches;
     const isHebrewMobile = isMobileViewport && variant === "hebrew";
+    const isStaticHebrewMobile = isHebrewMobile && scope.dataset.mobileHero === "static";
+
+    if (isStaticHebrewMobile) {
+      scope.dataset.mode = "static";
+      scope.dataset.ready = "true";
+      scope.dataset.interactive = "true";
+      scope.dataset.released = "false";
+      scope.dataset.video = "none";
+      scope.dataset.phase = "static";
+      scope.style.setProperty("--hero-progress", "1");
+      scope.style.setProperty("--hero-copy-progress", "1");
+      return;
+    }
+
+    video.setAttribute("webkit-playsinline", "true");
     const scrubEnd = isHebrewMobile ? HEBREW_MOBILE_SCRUB_END : VIDEO_SCRUB_END;
     const copyRevealStart = isHebrewMobile ? HEBREW_MOBILE_COPY_REVEAL_START : COPY_REVEAL_START;
     const copyRevealEnd = isHebrewMobile ? HEBREW_MOBILE_COPY_REVEAL_END : COPY_REVEAL_END;
@@ -266,10 +279,6 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
     window.addEventListener("click", unlockVideoSeeking, { passive: true });
     motion.addEventListener("change", onMotionChange);
 
-    if (isHebrewMobile) {
-      video.src = MOBILE_HERO_SCRUB_VIDEO_URL;
-      video.load();
-    }
     if (video.readyState >= HTMLMediaElement.HAVE_METADATA) onLoadedMetadata();
     updateFromScroll();
 
@@ -297,6 +306,7 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
       data-released="false"
       data-mobile="false"
       data-video="desktop"
+      data-mobile-hero={variant === "hebrew" ? "static" : "scrub"}
       data-phase="scrubbing"
       data-final-ready="false"
       aria-label="DM-Labs introduction"
@@ -314,15 +324,21 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
         </picture>
         <video
           ref={videoRef}
-          poster={HERO_SCRUB_OPENING_POSTER_URL}
+          poster={variant === "hebrew" ? undefined : HERO_SCRUB_OPENING_POSTER_URL}
           muted
           playsInline
           preload="auto"
           className="hero-scrub-video"
           aria-hidden="true"
         >
-          <source media={MOBILE_VIEWPORT_QUERY} src={MOBILE_HERO_SCRUB_VIDEO_URL} type="video/mp4" />
-          <source src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />
+          {variant === "hebrew" ? (
+            <source media="(min-width: 768px)" src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />
+          ) : (
+            <>
+              <source media={MOBILE_VIEWPORT_QUERY} src={MOBILE_HERO_SCRUB_VIDEO_URL} type="video/mp4" />
+              <source src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />
+            </>
+          )}
         </video>
         {variant === "hebrew" && <HebrewMobileCanvasSequence />}
         <div className="hero-scrub-wash" aria-hidden="true" />

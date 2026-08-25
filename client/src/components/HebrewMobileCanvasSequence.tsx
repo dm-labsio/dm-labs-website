@@ -14,7 +14,7 @@ export function HebrewMobileCanvasSequence() {
   useEffect(() => {
     const canvas = canvasRef.current;
     const scope = canvas?.closest<HTMLElement>(".hero-scrub-scope--hebrew");
-    if (!canvas || !scope || !window.matchMedia("(max-width: 767px)").matches) return;
+    if (!canvas || !scope || !window.matchMedia("(max-width: 767px)").matches || scope.dataset.mobileHero === "static") return;
 
     const context = canvas.getContext("2d", { alpha: false });
     if (!context) return;

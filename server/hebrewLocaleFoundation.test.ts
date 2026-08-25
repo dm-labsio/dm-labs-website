@@ -73,7 +73,7 @@ describe("Hebrew locale foundation", () => {
     expect(styles).not.toContain("-webkit-text-stroke");
   });
 
-  it("keeps Hebrew cookie consent compact at the side with natural local actions", () => {
+  it("keeps Hebrew cookie consent compact at the side, with a simple mobile-entry delay", () => {
     const cookieBanner = readSource("client/src/components/CookieBanner.tsx");
 
     expect(cookieBanner).toContain('acceptAll: "אני מאשר/ת"');
@@ -88,6 +88,8 @@ describe("Hebrew locale foundation", () => {
     expect(cookieBanner).toContain('let revealTimer = 0');
     expect(cookieBanner).toContain('hero.dataset.released === "true"');
     expect(cookieBanner).toContain('window.setTimeout(() => setVisible(true), 650)');
+    expect(cookieBanner).toContain('if (window.matchMedia("(max-width: 767px)").matches)');
+    expect(cookieBanner).toContain('const timer = window.setTimeout(() => setVisible(true), 1200);');
     expect(cookieBanner).toContain('setVisible(false);');
     expect(cookieBanner).toContain('window.addEventListener("scroll", revealAfterHero, { passive: true })');
     expect(cookieBanner).toContain('window.requestAnimationFrame(revealAfterHero)');
@@ -108,7 +110,7 @@ describe("Hebrew locale foundation", () => {
     expect(layout).toContain('border-[#E2E5EA] bg-[#F6F6F4] shadow-sm');
   });
 
-  it("keeps Hebrew mobile media and scrub behavior scoped away from English and Greek", () => {
+  it("keeps Hebrew mobile entry static while preserving desktop-only hero media and language isolation", () => {
     const scrub = readSource("client/src/components/HomeHeroScrub.tsx");
     const home = readSource("client/src/pages/he/HomeHe.tsx");
     const cards = readSource("client/src/components/InteractiveExampleCard.tsx");
@@ -121,15 +123,15 @@ describe("Hebrew locale foundation", () => {
     expect(scrub).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew"');
     expect(cards).toContain('interactive-example-card');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew');
-    expect(styles).toContain('--hero-runway: clamp(880px, 118svh, 1040px);');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video)');
     expect(styles).toContain('html[dir="rtl"] .hebrew-home .interactive-example-card img');
-    expect(canvasSequence).toContain('const HEBREW_MOBILE_SPRITE_URL = "/media/hero/hebrew-mobile-hero-sprite.webp"');
-    expect(canvasSequence).toContain("const SCRUB_END = 0.68;");
-    expect(canvasSequence).toContain('const frameProgress = OPENING_PROGRESS + scrubProgress * (1 - OPENING_PROGRESS)');
+    expect(scrub).toContain('data-mobile-hero={variant === "hebrew" ? "static" : "scrub"}');
+    expect(scrub).toContain('const isStaticHebrewMobile = isHebrewMobile && scope.dataset.mobileHero === "static";');
+    expect(scrub).toContain('scope.dataset.video = "none";');
+    expect(scrub).toContain('<source media="(min-width: 768px)" src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />');
+    expect(canvasSequence).toContain('scope.dataset.mobileHero === "static"');
     expect(canvasSequence).not.toContain('scope.dataset.released = "true"');
-    expect(scrub).not.toContain('HEBREW_MOBILE_RELEASE_PROGRESS');
-    expect(scrub).toContain('leaving a separate natural exit range.');
+    expect(styles).toContain('html.js .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-copy');
     expect(scrub).toContain('<HebrewMobileCanvasSequence />');
     expect(styles).toContain('.hero-scrub-canvas');
     expect(layout).toContain('<polygon points="30,7 36,18 48,18 38,27 42,40 30,33 18,40 22,27 12,18 24,18" fill="#1F5AA6" />');

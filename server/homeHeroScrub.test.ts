@@ -13,18 +13,23 @@ const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "u
 const htmlSource = readFileSync(resolve(projectRoot, "client/index.html"), "utf8");
 
 describe("homepage single-stage scroll-scrub hero", () => {
-  it("uses the supplied desktop and mobile Vercel Blob videos with responsive local opening posters only on the English and Greek home heroes", () => {
+  it("keeps supplied scroll videos for English, Greek, and Hebrew desktop while keeping Hebrew mobile static", () => {
     expect(heroSource).toContain('HERO_SCRUB_VIDEO_URL = "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-hero-tunnel-scrub_89732dad.mp4"');
     expect(heroSource).toContain('HERO_SCRUB_OPENING_POSTER_URL = "/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp"');
     expect(heroSource).toContain('MOBILE_HERO_SCRUB_VIDEO_URL = "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4"');
     expect(heroSource).toContain('MOBILE_HERO_SCRUB_OPENING_POSTER_URL = "/media/hero/dm-labs-mobile-hero-opening-poster_6fc35873.webp"');
-    expect(heroSource).toContain("poster={HERO_SCRUB_OPENING_POSTER_URL}");
+    expect(heroSource).toContain('poster={variant === "hebrew" ? undefined : HERO_SCRUB_OPENING_POSTER_URL}');
     expect(heroSource).toContain("<source media={MOBILE_VIEWPORT_QUERY} srcSet={MOBILE_HERO_SCRUB_OPENING_POSTER_URL} />");
     expect(heroSource).toContain('<source media={MOBILE_VIEWPORT_QUERY} src={MOBILE_HERO_SCRUB_VIDEO_URL} type="video/mp4" />');
     expect(heroSource).toContain("muted");
     expect(heroSource).toContain("playsInline");
     expect(heroSource).toContain('preload="auto"');
-    expect(heroSource).toContain("video.src = MOBILE_HERO_SCRUB_VIDEO_URL;");
+    expect(heroSource).toContain('<source media="(min-width: 768px)" src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />');
+    expect(heroSource).toContain('data-mobile-hero={variant === "hebrew" ? "static" : "scrub"}');
+    expect(heroSource).toContain('const isStaticHebrewMobile = isHebrewMobile && scope.dataset.mobileHero === "static";');
+    expect(heroSource).toContain('scope.dataset.mode = "static";');
+    expect(heroSource).toContain('scope.dataset.video = "none";');
+    expect(heroSource).not.toContain("video.src = MOBILE_HERO_SCRUB_VIDEO_URL;");
     expect(heroSource).not.toContain("autoPlay");
     expect(heroSource).not.toContain("loop=");
     expect(heroSource).not.toContain("controls");
@@ -52,7 +57,7 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(stylesheet).toContain("text-align: center;");
   });
 
-  it("uses one continuous late-reveal, readable-hold, and reversible release timeline", () => {
+  it("keeps the continuous timeline for scrub variants but bypasses it for static Hebrew mobile entry", () => {
     const scrollStart = heroSource.indexOf("const updateFromScroll = () => {");
     const scrollEnd = heroSource.indexOf("const onSeeked = () => {");
     const controllerStart = heroSource.indexOf("const runController = (now: number) => {");
@@ -96,18 +101,16 @@ describe("homepage single-stage scroll-scrub hero", () => {
     expect(heroSource).toContain("const progressElapsedSeconds = isMobileViewport ? Math.min(elapsedSeconds, 1 / 30) : elapsedSeconds;");
     expect(heroSource).toContain("const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);");
     expect(heroSource).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew";');
-    expect(heroSource).toContain("const HEBREW_MOBILE_MAX_PROGRESS_SPEED = 0.75;");
-    expect(heroSource).toContain("const HEBREW_MOBILE_SCRUB_END = 0.68;");
-    expect(heroSource).toContain("const HEBREW_MOBILE_COPY_REVEAL_START = 0.58;");
-    expect(heroSource).toContain("const HEBREW_MOBILE_COPY_REVEAL_END = 0.68;");
+    expect(heroSource).toContain('const isStaticHebrewMobile = isHebrewMobile && scope.dataset.mobileHero === "static";');
+    expect(heroSource).toContain('scope.dataset.mode = "static";');
+    expect(heroSource).toContain('scope.dataset.ready = "true";');
+    expect(heroSource).toContain('scope.dataset.interactive = "true";');
+    expect(heroSource).toContain('scope.style.setProperty("--hero-copy-progress", "1");');
+    expect(heroSource).toContain("if (isStaticHebrewMobile) {");
+    expect(stylesheet).toContain('html.js .hero-scrub-scope--hebrew[data-mobile-hero="static"]');
+    expect(stylesheet).toContain('html.js .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-stage');
+    expect(stylesheet).toContain('html.js .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-copy');
     expect(heroSource).not.toContain("HEBREW_MOBILE_RELEASE_PROGRESS");
-    expect(scrollHandler).toContain('scope.dataset.canvasReady === "true" && rawProgress >= HEBREW_MOBILE_SCRUB_END');
-    expect(scrollHandler).toContain("leaving a separate natural exit range.");
-    expect(scrollHandler).toContain("applyVisualProgress(rawProgress);");
-    expect(stylesheet).toContain("bottom: var(--hero-release-offset, 0px);");
-    expect(heroSource).toContain("if (isHebrewMobile) {");
-    expect(heroSource).toContain("currentVideoProgress = targetVideoProgress;");
-    expect(heroSource).toContain("(isHebrewMobile ? HEBREW_MOBILE_MAX_PROGRESS_SPEED : isMobileViewport ? MOBILE_MAX_PROGRESS_SPEED : MAX_PROGRESS_SPEED)");
     expect(heroSource).toContain('window.scrollTo({ top: holdBoundary, left: 0, behavior: "auto" });');
     expect(heroSource).toContain("rawProgress >= 1 && !finalFrameReady");
     expect(stylesheet).toContain("--hero-copy-progress: 0;");

@@ -2338,6 +2338,25 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
     min-height: min(43rem, calc(100svh - 72px));
   }
 
+  html.js .hero-scrub-scope--hebrew[data-mobile-hero="static"] {
+    height: auto;
+  }
+
+  html.js .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-stage {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: auto;
+  }
+
+  html.js .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-copy {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
   html[dir="rtl"] .hebrew-home .interactive-example-card > div,
   html[dir="rtl"] .hebrew-home .interactive-example-card a {
     min-height: 0;
