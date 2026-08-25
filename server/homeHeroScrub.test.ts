@@ -6,133 +6,37 @@ import { describe, expect, it } from "vitest";
 const serverDirectory = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(serverDirectory, "..");
 const heroSource = readFileSync(resolve(projectRoot, "client/src/components/HomeHeroScrub.tsx"), "utf8");
-const heroStylesheet = readFileSync(resolve(projectRoot, "client/src/components/HomeHeroScrub.css"), "utf8");
+const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "utf8");
 const homeSource = readFileSync(resolve(projectRoot, "client/src/pages/Home.tsx"), "utf8");
 const homeElSource = readFileSync(resolve(projectRoot, "client/src/pages/el/HomeEl.tsx"), "utf8");
-const stylesheet = readFileSync(resolve(projectRoot, "client/src/index.css"), "utf8");
-const htmlSource = readFileSync(resolve(projectRoot, "client/index.html"), "utf8");
 
-describe("homepage single-stage scroll-scrub hero", () => {
-  it("keeps supplied scroll videos for English, Greek, and Hebrew desktop while keeping Hebrew mobile static", () => {
-    expect(heroSource).toContain('HERO_SCRUB_VIDEO_URL = "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-hero-tunnel-scrub_89732dad.mp4"');
-    expect(heroSource).toContain('HERO_SCRUB_OPENING_POSTER_URL = "/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp"');
-    expect(heroSource).toContain('MOBILE_HERO_SCRUB_VIDEO_URL = "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4"');
-    expect(heroSource).toContain('MOBILE_HERO_SCRUB_OPENING_POSTER_URL = "/media/hero/dm-labs-mobile-hero-opening-poster_6fc35873.webp"');
-    expect(heroSource).toContain('poster={variant === "hebrew" ? undefined : HERO_SCRUB_OPENING_POSTER_URL}');
-    expect(heroSource).toContain("<source media={MOBILE_VIEWPORT_QUERY} srcSet={MOBILE_HERO_SCRUB_OPENING_POSTER_URL} />");
-    expect(heroSource).toContain('<source media={MOBILE_VIEWPORT_QUERY} src={MOBILE_HERO_SCRUB_VIDEO_URL} type="video/mp4" />');
-    expect(heroSource).toContain("muted");
-    expect(heroSource).toContain("playsInline");
-    expect(heroSource).toContain('preload="auto"');
-    expect(heroSource).toContain('<source media="(min-width: 768px)" src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />');
-    expect(heroSource).toContain('data-mobile-hero={variant === "hebrew" ? "static" : "scrub"}');
-    expect(heroSource).toContain('const isStaticHebrewMobile = isHebrewMobile && scope.dataset.mobileHero === "static";');
+describe("homepage Hero media behavior", () => {
+  it("uses an immediate static mobile Hero in every locale", () => {
+    expect(heroSource).toContain('const isStaticMobile = isMobileViewport && scope.dataset.mobileHero === "static";');
+    expect(heroSource).toContain("if (isStaticMobile) {");
     expect(heroSource).toContain('scope.dataset.mode = "static";');
     expect(heroSource).toContain('scope.dataset.video = "none";');
+    expect(heroSource).toContain('scope.style.setProperty("--hero-copy-progress", "1");');
+    expect(heroSource).toContain('data-mobile-hero="static"');
+    expect(heroSource).not.toContain('<source media={MOBILE_VIEWPORT_QUERY} src={MOBILE_HERO_SCRUB_VIDEO_URL} type="video/mp4" />');
     expect(heroSource).not.toContain("video.src = MOBILE_HERO_SCRUB_VIDEO_URL;");
-    expect(heroSource).not.toContain("autoPlay");
-    expect(heroSource).not.toContain("loop=");
-    expect(heroSource).not.toContain("controls");
+  });
+
+  it("keeps the existing video scrub available only on desktop", () => {
+    expect(heroSource).toContain('HERO_SCRUB_VIDEO_URL = "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-hero-tunnel-scrub_89732dad.mp4"');
+    expect(heroSource).toContain('<source media="(min-width: 768px)" src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />');
+    expect(heroSource).toContain("const updateFromScroll = () => {");
+    expect(heroSource).toContain("video.currentTime = desiredTime;");
     expect(homeSource).toContain("<HomeHeroScrub>");
     expect(homeElSource).toContain("<HomeHeroScrub>");
   });
 
-  it("keeps one persistent hero layer through hold, natural-flow release, and reverse re-entry", () => {
-    expect(heroSource).toContain('className="hero-scrub-stage"');
-    expect(heroSource).toContain('className="hero-scrub-copy"');
-    expect(heroSource).not.toContain('className="hero-scrub-spacer"');
-    expect(heroSource).not.toContain('className="hero-scrub-flow"');
-    expect(stylesheet).toContain("--hero-runway: clamp(520px, 75svh, 760px);");
-    expect(stylesheet).toContain("height: calc(100svh - 72px + var(--hero-runway));");
-    expect(heroStylesheet).toContain("position: fixed !important;");
-    expect(heroStylesheet).toContain('data-released="true"');
-    expect(heroStylesheet).toContain("position: absolute !important;");
-    expect(heroStylesheet).toContain("bottom: var(--hero-release-offset, 0px) !important;");
-    expect(heroStylesheet).toContain("opacity: 1;");
-    expect(heroStylesheet).toContain("pointer-events: auto;");
-    expect(stylesheet).toContain(".hero-scrub-copy {");
-    expect(stylesheet).toContain("display: flex;");
-    expect(stylesheet).toContain("align-items: center;");
-    expect(stylesheet).toContain("justify-content: center;");
-    expect(stylesheet).toContain("text-align: center;");
-  });
-
-  it("keeps the continuous timeline for scrub variants but bypasses it for static Hebrew mobile entry", () => {
-    const scrollStart = heroSource.indexOf("const updateFromScroll = () => {");
-    const scrollEnd = heroSource.indexOf("const onSeeked = () => {");
-    const controllerStart = heroSource.indexOf("const runController = (now: number) => {");
-    const controllerEnd = heroSource.indexOf("const updateFromScroll = () => {");
-    const scrollHandler = heroSource.slice(scrollStart, scrollEnd);
-    const controller = heroSource.slice(controllerStart, controllerEnd);
-
-    expect(scrollStart).toBeGreaterThan(-1);
-    expect(controllerStart).toBeGreaterThan(-1);
-    expect(scrollHandler).toContain("const baseScrollSpan = Math.max(scope.offsetHeight - stage.offsetHeight, 1);");
-    expect(scrollHandler).toContain("const scrollSpan = isHebrewMobile ? baseScrollSpan * 0.78 : baseScrollSpan;");
-    expect(scrollHandler).toContain("const releaseOffset = isHebrewMobile ? baseScrollSpan - scrollSpan : 0;");
-    expect(scrollHandler).toContain('scope.style.setProperty("--hero-release-offset", `${releaseOffset.toFixed(2)}px`);');
-    expect(scrollHandler).toContain("const rawProgress = clamp");
-    expect(scrollHandler).toContain("applyVisualProgress(rawProgress);");
-    expect(scrollHandler).toContain("targetVideoProgress = clamp(rawProgress / scrubEnd, 0, 1);");
-    expect(scrollHandler).not.toContain("video.currentTime =");
-    expect(controller).toContain("MAX_PROGRESS_SPEED");
-    expect(controller).toContain("video.seeking");
-    expect(controller).toContain("seekReady = false;");
-    expect(controller).toContain("video.currentTime = desiredTime;");
-    expect(heroSource).toContain("const MOBILE_VIDEO_OPENING_PROGRESS = 0.05;");
-    expect(heroSource).toContain("const VIDEO_SCRUB_END = 0.6;");
-    expect(heroSource).toContain("const COPY_REVEAL_START = 0.66;");
-    expect(heroSource).toContain("const COPY_REVEAL_END = 0.8;");
-    expect(heroSource).toContain("scope.dataset.interactive = String(progress >= copyInteractiveStart);");
-    expect(heroSource).toContain("const FINAL_FRAME_TOLERANCE = 1 / 30;");
-    expect(heroSource).toContain("const finalFrameVisible =");
-    expect(heroSource).toContain("let finalFrameReady = false;");
-    expect(heroSource).toContain("released = progress >= 1 && finalFrameReady;");
-    expect(heroSource).toContain("if (finalFrameVisible && !finalFrameReady) {");
-    expect(heroSource).toContain('scope.dataset.finalReady = "true";');
-    expect(heroSource).toContain("applyVisualProgress(scrollProgress);");
-    expect(heroSource).not.toContain("releaseArmed");
-    expect(heroSource).not.toContain("finalBoundaryReached");
-    expect(heroSource).not.toContain("RELEASE_REARM_PROGRESS");
-    expect(heroSource).not.toContain("applyRenderedProgress");
-    expect(heroSource).toContain('const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";');
-    expect(heroSource).toContain("const MOBILE_MAX_PROGRESS_SPEED = 0.5;");
-    expect(heroSource).toContain("const MOBILE_SEEK_TOLERANCE = 1 / 24;");
-    expect(heroSource).toContain("const progressElapsedSeconds = isMobileViewport ? Math.min(elapsedSeconds, 1 / 30) : elapsedSeconds;");
-    expect(heroSource).toContain("const canAdvanceProgress = !isMobileViewport || (seekReady && !video.seeking);");
-    expect(heroSource).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew";');
-    expect(heroSource).toContain('const isStaticHebrewMobile = isHebrewMobile && scope.dataset.mobileHero === "static";');
-    expect(heroSource).toContain('scope.dataset.mode = "static";');
-    expect(heroSource).toContain('scope.dataset.ready = "true";');
-    expect(heroSource).toContain('scope.dataset.interactive = "true";');
-    expect(heroSource).toContain('scope.style.setProperty("--hero-copy-progress", "1");');
-    expect(heroSource).toContain("if (isStaticHebrewMobile) {");
-    expect(stylesheet).toContain('html.js .hero-scrub-scope--hebrew[data-mobile-hero="static"]');
-    expect(stylesheet).toContain('html.js .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-stage');
-    expect(stylesheet).toContain('html.js .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-copy');
-    expect(heroSource).not.toContain("HEBREW_MOBILE_RELEASE_PROGRESS");
-    expect(heroSource).toContain('window.scrollTo({ top: holdBoundary, left: 0, behavior: "auto" });');
-    expect(heroSource).toContain("rawProgress >= 1 && !finalFrameReady");
-    expect(stylesheet).toContain("--hero-copy-progress: 0;");
-    expect(stylesheet).toContain("transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1), transform 220ms cubic-bezier(0.23, 1, 0.32, 1);");
-    expect(stylesheet).toContain("touch-action: pan-y;");
-    expect(stylesheet).toContain("--hero-runway: clamp(640px, 100svh, 820px);");
-  });
-
-  it("starts without a copy flash and retains poster, timeout, error, reduced-motion, and no-JavaScript fallbacks", () => {
-    expect(htmlSource).toContain('rel="preload" as="image" href="/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp"');
-    expect(htmlSource).toContain('href="/media/hero/dm-labs-mobile-hero-opening-poster_6fc35873.webp" media="(max-width: 767px)"');
-    expect(htmlSource).toContain('document.documentElement.classList.add("js")');
-    expect(heroSource).toContain("if (!isHebrewMobile) {");
-    expect(heroSource).toContain("timeoutId = window.setTimeout(activateFallback, 2500);");
-    expect(heroSource).toContain('preload="auto"');
-    expect(heroSource).not.toContain("URL.createObjectURL(blob)");
-    expect(heroSource).toContain("const openingTime = duration * openingProgress;");
-    expect(heroSource).toContain("if (!initialFrameReady) {");
-    expect(heroSource).toContain('video.addEventListener("error", activateFallback, { once: true });');
-    expect(heroSource).toContain('window.matchMedia("(prefers-reduced-motion: reduce)")');
-    expect(heroSource).toContain('scope.dataset.mode = "fallback"');
-    expect(stylesheet).toContain("@media (prefers-reduced-motion: reduce)");
-    expect(stylesheet).toContain("opacity: 1 !important;");
+  it("renders the static mobile Hero before JavaScript effects run", () => {
+    expect(stylesheet).toContain('html.js .hero-scrub-scope[data-mobile-hero="static"] {');
+    expect(stylesheet).toContain('html.js .hero-scrub-scope[data-mobile-hero="static"] .hero-scrub-stage');
+    expect(stylesheet).toContain('html.js .hero-scrub-scope[data-mobile-hero="static"] .hero-scrub-copy');
+    expect(stylesheet).toContain("height: auto;");
+    expect(stylesheet).toContain("opacity: 1;");
+    expect(stylesheet).toContain("pointer-events: auto;");
   });
 });

@@ -66,9 +66,9 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
     let initialFrameReady = false;
     const isMobileViewport = window.matchMedia(MOBILE_VIEWPORT_QUERY).matches;
     const isHebrewMobile = isMobileViewport && variant === "hebrew";
-    const isStaticHebrewMobile = isHebrewMobile && scope.dataset.mobileHero === "static";
+    const isStaticMobile = isMobileViewport && scope.dataset.mobileHero === "static";
 
-    if (isStaticHebrewMobile) {
+    if (isStaticMobile) {
       scope.dataset.mode = "static";
       scope.dataset.ready = "true";
       scope.dataset.interactive = "true";
@@ -306,7 +306,7 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
       data-released="false"
       data-mobile="false"
       data-video="desktop"
-      data-mobile-hero={variant === "hebrew" ? "static" : "scrub"}
+      data-mobile-hero="static"
       data-phase="scrubbing"
       data-final-ready="false"
       aria-label="DM-Labs introduction"
@@ -331,14 +331,7 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
           className="hero-scrub-video"
           aria-hidden="true"
         >
-          {variant === "hebrew" ? (
-            <source media="(min-width: 768px)" src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />
-          ) : (
-            <>
-              <source media={MOBILE_VIEWPORT_QUERY} src={MOBILE_HERO_SCRUB_VIDEO_URL} type="video/mp4" />
-              <source src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />
-            </>
-          )}
+          <source media="(min-width: 768px)" src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />
         </video>
         {variant === "hebrew" && <HebrewMobileCanvasSequence />}
         <div className="hero-scrub-wash" aria-hidden="true" />

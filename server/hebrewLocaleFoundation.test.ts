@@ -110,7 +110,7 @@ describe("Hebrew locale foundation", () => {
     expect(layout).toContain('border-[#E2E5EA] bg-[#F6F6F4] shadow-sm');
   });
 
-  it("keeps Hebrew mobile entry static while preserving desktop-only hero media and language isolation", () => {
+  it("keeps Hebrew within the shared static-mobile Hero contract while preserving desktop media and language isolation", () => {
     const scrub = readSource("client/src/components/HomeHeroScrub.tsx");
     const home = readSource("client/src/pages/he/HomeHe.tsx");
     const cards = readSource("client/src/components/InteractiveExampleCard.tsx");
@@ -120,18 +120,17 @@ describe("Hebrew locale foundation", () => {
 
     expect(home).toContain('<HomeHeroScrub variant="hebrew">');
     expect(scrub).toContain('variant?: "default" | "hebrew"');
-    expect(scrub).toContain('const isHebrewMobile = isMobileViewport && variant === "hebrew"');
+    expect(scrub).toContain('const isStaticMobile = isMobileViewport && scope.dataset.mobileHero === "static";');
     expect(cards).toContain('interactive-example-card');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video)');
     expect(styles).toContain('html[dir="rtl"] .hebrew-home .interactive-example-card img');
-    expect(scrub).toContain('data-mobile-hero={variant === "hebrew" ? "static" : "scrub"}');
-    expect(scrub).toContain('const isStaticHebrewMobile = isHebrewMobile && scope.dataset.mobileHero === "static";');
+    expect(scrub).toContain('data-mobile-hero="static"');
     expect(scrub).toContain('scope.dataset.video = "none";');
     expect(scrub).toContain('<source media="(min-width: 768px)" src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />');
     expect(canvasSequence).toContain('scope.dataset.mobileHero === "static"');
     expect(canvasSequence).not.toContain('scope.dataset.released = "true"');
-    expect(styles).toContain('html.js .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-copy');
+    expect(styles).toContain('html.js .hero-scrub-scope[data-mobile-hero="static"] .hero-scrub-copy');
     expect(scrub).toContain('<HebrewMobileCanvasSequence />');
     expect(styles).toContain('.hero-scrub-canvas');
     expect(layout).toContain('<polygon points="30,7 36,18 48,18 38,27 42,40 30,33 18,40 22,27 12,18 24,18" fill="#1F5AA6" />');
