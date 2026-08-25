@@ -6,11 +6,19 @@
    ============================================================ */
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone, Mail, MapPin, Instagram } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Instagram, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 import NeonCursorTrail from "@/components/NeonCursorTrail";
 import dmLabsLogo from "@/assets/dmLabsLogo";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   getGreekLanguageTogglePath,
   getHebrewLanguageTogglePath,
@@ -124,6 +132,7 @@ const FlagIL = () => (
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location, navigate] = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [languageSheetOpen, setLanguageSheetOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const languageSwitchScrollRef = useRef<number | null | undefined>(undefined);
 
@@ -145,6 +154,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMobileOpen(false);
+    setLanguageSheetOpen(false);
     // Preserve reading position only for direct translations. A fallback such
     // as Blog -> Hebrew home deliberately starts at the top.
     const languageSwitchScroll = languageSwitchScrollRef.current;
@@ -183,6 +193,74 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     const enHref = isGreek || isHebrew ? getAltLangHref("en") : withTrailingSlash(normalizedLocation);
     const elHref = isGreek ? withTrailingSlash(normalizedLocation) : getAltLangHref("el");
     const heHref = isHebrew ? withTrailingSlash(normalizedLocation) : getAltLangHref("he");
+
+    const currentLanguage = isHebrew
+      ? { code: "HE", name: "עברית", flag: <FlagIL /> }
+      : isGreek
+        ? { code: "EL", name: "Ελληνικά", flag: <FlagGR /> }
+        : { code: "EN", name: "English", flag: <FlagUK /> };
+    const sheetTitle = isHebrew ? "בחירת שפה" : isGreek ? "Επιλογή γλώσσας" : "Choose language";
+
+    if (isSmall) {
+      const languageOptions = [
+        { code: "EN", name: "English", href: enHref, isActive: isEnglish, flag: <FlagUK />, target: "en" as const },
+        { code: "EL", name: "Ελληνικά", href: elHref, isActive: isGreek, flag: <FlagGR />, target: "el" as const },
+        { code: "HE", name: "עברית", href: heHref, isActive: isHebrew, flag: <FlagIL />, target: "he" as const },
+      ];
+
+      return (
+        <Sheet open={languageSheetOpen} onOpenChange={setLanguageSheetOpen}>
+          <SheetTrigger asChild>
+            <button
+              type="button"
+              aria-label={`${sheetTitle}: ${currentLanguage.name}`}
+              className={`inline-flex h-9 items-center gap-1.5 rounded-full border border-[#E2E5EA] bg-white px-2.5 text-xs font-semibold text-[#334155] shadow-sm transition-colors hover:border-[#B8C9FF] hover:bg-[#F6F8FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8CFF] focus-visible:ring-offset-2 ${className}`}
+            >
+              {currentLanguage.flag}
+              <span>{currentLanguage.code}</span>
+              <ChevronDown size={14} strokeWidth={2.25} aria-hidden="true" />
+            </button>
+          </SheetTrigger>
+          <SheetContent
+            side="bottom"
+            dir={isHebrew ? "rtl" : "ltr"}
+            className="rounded-t-[1.5rem] border-[#E2E5EA] bg-[#F6F6F4] px-4 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-3"
+          >
+            <SheetHeader className={isHebrew ? "px-1 pb-2 text-right" : "px-1 pb-2 text-left"}>
+              <SheetTitle className="text-base font-semibold text-[#111315]">{sheetTitle}</SheetTitle>
+            </SheetHeader>
+            <div className="grid gap-2 px-1 pb-1">
+              {languageOptions.map((language) => (
+                <SheetClose asChild key={language.code}>
+                  <a
+                    href={language.href}
+                    lang={language.target}
+                    aria-current={language.isActive ? "true" : undefined}
+                    className={`flex min-h-14 items-center justify-between rounded-2xl border px-4 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8CFF] focus-visible:ring-offset-2 ${
+                      language.isActive
+                        ? "border-[#AFC5FF] bg-[#EAF0FF] text-[#285EDB]"
+                        : "border-[#E2E5EA] bg-white text-[#334155] hover:border-[#B8C9FF] hover:bg-[#F6F8FF]"
+                    }`}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setLanguageSheetOpen(false);
+                      navigateLanguage(language.target, language.href);
+                    }}
+                  >
+                    <span className="flex items-center gap-3">
+                      {language.flag}
+                      <span>{language.name}</span>
+                    </span>
+                    <span className="text-xs font-bold tracking-[0.08em] text-current">{language.code}</span>
+                  </a>
+                </SheetClose>
+              ))}
+            </div>
+          </SheetContent>
+        </Sheet>
+      );
+    }
+
     return (
       <div
         className={`flex items-center rounded-full border border-[#E2E5EA] bg-white shadow-sm overflow-hidden ${isEnglishHomepage ? "editorial-home-language-toggle" : ""} ${className}`}

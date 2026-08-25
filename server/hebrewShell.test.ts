@@ -27,6 +27,11 @@ describe("Hebrew shared shell and staged entry route", () => {
     expect(layout).toContain("const HE_NAV_LINKS");
     expect(layout).toContain('aria-label="מעבר לעברית"');
     expect(layout).toContain("getHebrewLanguageTogglePath");
+    expect(layout).toContain('SheetContent');
+    expect(layout).toContain('side="bottom"');
+    expect(layout).toContain('dir={isHebrew ? "rtl" : "ltr"}');
+    expect(layout).toContain('const currentLanguage = isHebrew');
+    expect(layout).toContain('code: "HE"');
     expect(cookieBanner).toContain("he: {");
     expect(whatsapp).toContain("const WA_HE");
     expect(accessibility).toContain("אפשרויות נגישות");
