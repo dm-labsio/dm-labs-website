@@ -116,7 +116,7 @@ export default function Services() {
                 <div className="flex-shrink-0 lg:w-72">
                   <span className="services-editorial-banner-label inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
                   <p className="services-editorial-label text-sm font-semibold uppercase tracking-wide mb-1" style={{ color: "#6FE3FF" }}>Enterprise / Custom</p>
-                  <p className="services-editorial-price text-4xl font-bold text-white mb-1">From €1,499</p>
+                  <p className="services-editorial-price text-4xl font-bold text-white mb-1">Pricing tailored to your scope</p>
                   <p className="services-editorial-label text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Quote based on scope</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
                     For integrations, multilingual builds, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, or unusual content volume.

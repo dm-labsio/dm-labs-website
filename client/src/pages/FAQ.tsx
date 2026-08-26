@@ -24,7 +24,7 @@ const faqs = [
   {
     category: "Website Packages & Payment",
     items: [
-      { q: "How much does a website cost?", a: "Launch Website packages start at €299, Growth Website packages start at €749, and Pro Website packages start at €1,499. Enterprise / Custom projects start at €1,499 and are quoted based on scope." },
+      { q: "How much does a website cost?", a: "Launch Website packages start at €299, Growth Website packages start at €749, and Pro Website packages start at €1,499. Enterprise / Custom pricing is tailored to your scope." },
       { q: "Are there hidden fees?", a: "No. We agree the project scope and price before work begins. Domain, hosting, and third-party service costs, where relevant, are explained separately." },
       { q: "How does payment work?", a: "We agree the payment stages before work begins. The final balance is due on delivery once you have reviewed the agreed result." },
       { q: "What payment methods do you accept?", a: "We accept bank transfer and major payment methods. We provide payment details when you are ready to proceed." },

@@ -33,10 +33,10 @@ const mediaFiles = collectFiles(mediaRoot);
 
 describe("GitHub-backed static media migration", () => {
   it("stores every migrated file as a referenced WebP below the one-megabyte checkpoint cap", () => {
-    expect(mediaFiles).toHaveLength(115);
+    expect(mediaFiles).toHaveLength(116);
 
     const mediaReferences = new Set(clientSource.match(/\/media\/[A-Za-z0-9._/-]+\.webp/g) ?? []);
-    expect(mediaReferences.size).toBe(115);
+    expect(mediaReferences.size).toBe(116);
 
     for (const mediaFile of mediaFiles) {
       expect(extname(mediaFile)).toBe(".webp");
