@@ -18,7 +18,10 @@ export default function WhatsAppFloat() {
   const ariaLabel = locale === "he" ? "פנייה אלינו ב-WhatsApp" : locale === "el" ? "Επικοινωνήστε μαζί μας στο WhatsApp" : "Chat with us on WhatsApp";
 
   return (
-    <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end gap-2">
+    <div
+      className="whatsapp-float fixed bottom-6 right-5 z-50 flex flex-col items-end gap-2"
+      data-locale={locale}
+    >
       {/* Tooltip */}
       <div
         className="bg-[#111315] text-white text-xs font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap transition-all duration-200"

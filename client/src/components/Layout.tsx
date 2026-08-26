@@ -121,11 +121,11 @@ const FlagGR = () => (
 );
 
 const FlagIL = () => (
-  <svg width="20" height="14" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ borderRadius: "2px", display: "block" }}>
+  <svg width="24" height="16" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ borderRadius: "2px", display: "block" }}>
     <rect width="60" height="40" fill="#fff" />
-    <rect y="4" width="60" height="5" fill="#1F5AA6" />
-    <rect y="31" width="60" height="5" fill="#1F5AA6" />
-    <polygon points="30,7 36,18 48,18 38,27 42,40 30,33 18,40 22,27 12,18 24,18" fill="#1F5AA6" />
+    <rect y="3" width="60" height="5" fill="#0038B8" />
+    <rect y="32" width="60" height="5" fill="#0038B8" />
+    <path d="M30 14 L38.5 27 H21.5 Z M30 26 L38.5 13 H21.5 Z" fill="none" stroke="#0038B8" strokeWidth="1.8" strokeLinejoin="round" />
   </svg>
 );
 

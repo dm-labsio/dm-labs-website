@@ -2207,7 +2207,8 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-released="true"] .hero-scrub-s
 .hero-scrub-poster,
 .hero-scrub-video,
 .hero-scrub-canvas,
-.hero-scrub-wash {
+.hero-scrub-wash,
+.hero-scrub-hebrew-static-art {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -2222,6 +2223,10 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-released="true"] .hero-scrub-s
 
 .hero-scrub-poster {
   z-index: 0;
+}
+
+.hero-scrub-hebrew-static-art {
+  display: none;
 }
 
 .hero-scrub-video {
@@ -2404,6 +2409,36 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
     pointer-events: auto;
   }
 
+  /* Hebrew keeps the pastel Hero poster visible beneath its RTL copy. */
+  html[dir="rtl"] .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-poster {
+    object-position: center 64%;
+    transform: scale(1.38) translateY(-14%);
+    transform-origin: center;
+    filter: saturate(1.35) contrast(1.18);
+    mix-blend-mode: multiply;
+  }
+
+  html[dir="rtl"] .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-wash {
+    opacity: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(246, 246, 244, 0.64) 0%,
+      rgba(246, 246, 244, 0.54) 42%,
+      rgba(246, 246, 244, 0.32) 70%,
+      rgba(246, 246, 244, 0.12) 92%,
+      rgba(246, 246, 244, 0) 100%
+    );
+  }
+
+  html[dir="rtl"] .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-hebrew-static-art {
+    display: block;
+    z-index: 1;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.52;
+    pointer-events: none;
+  }
+
   html[dir="rtl"] .hebrew-home .interactive-example-card > div,
   html[dir="rtl"] .hebrew-home .interactive-example-card a {
     min-height: 0;
@@ -2425,6 +2460,14 @@ html.js .hero-scrub-scope[data-mode="scrub"][data-interactive="true"] .hero-scru
     pointer-events: auto !important;
   }
 }
+
+/* RTL copies are normally mirrored, but the floating support control stays
+   on the physical right edge to match EN and EL. */
+html[dir="rtl"] .whatsapp-float[data-locale="he"] {
+  right: 1.25rem !important;
+  left: auto !important;
+}
+
 .blog-content strong {
   color: #111315;
   font-weight: 600;
