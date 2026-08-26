@@ -133,8 +133,9 @@ describe("Hebrew locale foundation", () => {
     expect(styles).toContain('html.js .hero-scrub-scope[data-mobile-hero="static"] .hero-scrub-copy');
     expect(scrub).toContain('<HebrewMobileCanvasSequence />');
     expect(styles).toContain('.hero-scrub-canvas');
-    expect(layout).toContain('M30 14 L38.5 27 H21.5 Z M30 26 L38.5 13 H21.5 Z');
-    expect(layout).toContain('stroke="#0038B8"');
+    expect(layout).toContain('src="/media/icons/israel-flag-icon.webp"');
+    expect(layout).toContain('width="20"');
+    expect(layout).toContain('height="20"');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-poster');
     expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-wash');
     expect(scrub).toContain('HEBREW_STATIC_MOBILE_HERO_ART_URL');

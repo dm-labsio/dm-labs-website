@@ -91,7 +91,7 @@ const HE_NAV_LINKS = [
 
 const HEBREW_WHATSAPP_URL = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20DM-Labs.io%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%9C%D7%92%D7%91%D7%99%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.";
 
-/* ── Flag SVGs (inline, no external deps) ── */
+/* ── Flag marks ── */
 const FlagUK = () => (
   <svg width="20" height="14" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ borderRadius: "2px", display: "block" }}>
     <rect width="60" height="40" fill="#012169"/>
@@ -121,12 +121,14 @@ const FlagGR = () => (
 );
 
 const FlagIL = () => (
-  <svg width="24" height="16" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ borderRadius: "2px", display: "block" }}>
-    <rect width="60" height="40" fill="#fff" />
-    <rect y="3" width="60" height="5" fill="#0038B8" />
-    <rect y="32" width="60" height="5" fill="#0038B8" />
-    <path d="M30 14 L38.5 27 H21.5 Z M30 26 L38.5 13 H21.5 Z" fill="none" stroke="#0038B8" strokeWidth="1.8" strokeLinejoin="round" />
-  </svg>
+  <img
+    src="/media/icons/israel-flag-icon.webp"
+    alt=""
+    aria-hidden="true"
+    width="20"
+    height="20"
+    className="block h-5 w-5 shrink-0 object-contain"
+  />
 );
 
 export default function Layout({ children }: { children: React.ReactNode }) {

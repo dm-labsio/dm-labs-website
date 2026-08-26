@@ -24,6 +24,7 @@ describe("Hebrew shared shell and staged entry route", () => {
     const accessibility = readSource("client/src/components/AccessibilityWidget.tsx");
 
     expect(layout).toContain("const FlagIL");
+    expect(layout).toContain('src="/media/icons/israel-flag-icon.webp"');
     expect(layout).toContain("const HE_NAV_LINKS");
     expect(layout).toContain('aria-label="מעבר לעברית"');
     expect(layout).toContain("getHebrewLanguageTogglePath");
