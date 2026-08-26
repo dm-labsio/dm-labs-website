@@ -2468,6 +2468,15 @@ html[dir="rtl"] .whatsapp-float[data-locale="he"] {
   left: auto !important;
 }
 
+@media (max-width: 767px) {
+  /* In RTL, Tailwind's items-end aligns the child FAB to the physical left
+     edge of its tooltip-width container. Align at the cross-axis start so
+     the icon itself stays on the same physical right edge as EN and EL. */
+  html[dir="rtl"] .whatsapp-float[data-locale="he"] {
+    align-items: flex-start !important;
+  }
+}
+
 .blog-content strong {
   color: #111315;
   font-weight: 600;
