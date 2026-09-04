@@ -13,7 +13,7 @@
 
 import { useEffect } from "react";
 import { useLocation } from "wouter";
-import { getHreflangRouteSet, type HreflangRouteSet, normalizeRoutePath, SEO_BASE_URL, withTrailingSlash } from "@/lib/seoRoutes";
+import { getHreflangRouteSet, isIndexableHebrewRoute, type HreflangRouteSet, normalizeRoutePath, SEO_BASE_URL, withTrailingSlash } from "@/lib/seoRoutes";
 
 const BASE_URL = SEO_BASE_URL;
 const DEFAULT_TITLE = "DM-Labs.io | Web Design in Paphos & Cyprus from €299";
@@ -174,7 +174,11 @@ export function useSEO(options: SEOOptions = {}) {
     const finalPath = withTrailingSlash(cleanPath);
     const canonicalUrl = `${BASE_URL}${finalPath}`;
 
-    setMetaTag("robots", noindex ? "noindex, follow" : "index, follow");
+    // Completed Hebrew routes are now explicitly approved for indexing. This
+    // safely supersedes their temporary per-page staging flag while leaving
+    // preview demos and genuine 404 behavior untouched.
+    const shouldNoindex = isIndexableHebrewRoute(cleanPath) ? false : noindex;
+    setMetaTag("robots", shouldNoindex ? "noindex, follow" : "index, follow");
 
     // Update <title>
     document.title = title;
@@ -212,8 +216,8 @@ export function useSEO(options: SEOOptions = {}) {
     setMetaTag("twitter:image", ogImage);
     if (resolvedOgImageAlt) setMetaTag("twitter:image:alt", resolvedOgImageAlt);
 
-    // Emit only reciprocal, real translation targets. Hebrew stays absent until
-    // a route has been implemented and mapped as part of the staged rollout.
+    // Emit only reciprocal, real translation targets. Completed Hebrew routes
+    // participate through the explicit route map; Hebrew blog URLs remain absent.
     setHreflangTags(getHreflangRouteSet(cleanPath));
     setBreadcrumbSchema(cleanPath, finalPath, title);
   }, [location, options.title, options.description, options.ogImage, options.ogImageAlt, options.ogType, options.canonicalPath, options.noindex, options.ogLocale]);

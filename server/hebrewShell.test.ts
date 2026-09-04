@@ -9,7 +9,11 @@ describe("Hebrew shared shell and staged entry route", () => {
     const home = readSource("client/src/pages/he/HomeHe.tsx");
 
     expect(home).toContain('title: "DM-Labs.io | עיצוב אתרים מקצועי לעסקים"');
-    expect(home).toContain("noindex: true");
+    const seoRoutes = readSource("client/src/lib/seoRoutes.ts");
+    const seoHook = readSource("client/src/hooks/useSEO.ts");
+    expect(seoRoutes).toContain("INDEXABLE_HEBREW_PATHS");
+    expect(seoRoutes).toContain("isIndexableHebrewRoute");
+    expect(seoHook).toContain("isIndexableHebrewRoute(cleanPath) ? false : noindex");
     expect(home).toContain('url: "https://dm-labs.io/he/"');
     expect(home).toContain('inLanguage: "he"');
     expect(home).toContain("€299");

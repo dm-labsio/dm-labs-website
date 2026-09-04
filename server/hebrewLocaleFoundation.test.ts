@@ -250,11 +250,12 @@ describe("Hebrew locale foundation", () => {
     expect(serverRoutes).not.toContain('"/he/blog"');
   });
 
-  it("keeps Hebrew Terms complete, staged, and free of visibility-gating effects", () => {
+  it("keeps Hebrew Terms complete, indexable, and free of visibility-gating effects", () => {
     const terms = readSource("client/src/pages/he/TermsHe.tsx");
+    const seoRoutes = readSource("client/src/lib/seoRoutes.ts");
 
     expect(terms).toContain('canonicalPath: "/he/terms/"');
-    expect(terms).toContain("noindex: true");
+    expect(seoRoutes).toContain('"/terms": "/he/terms"');
     expect(terms.match(/<h2\b/g)).toHaveLength(16);
     expect(terms.match(/<h3\b/g)).toHaveLength(3);
     expect(terms).toContain('href="/he/privacy/"');
@@ -262,11 +263,12 @@ describe("Hebrew locale foundation", () => {
     expect(terms).not.toContain("AnimateIn");
   });
 
-  it("keeps Hebrew custom design as a complete, staged RTL service counterpart", () => {
+  it("keeps Hebrew custom design as a complete, indexable RTL service counterpart", () => {
     const customDesign = readSource("client/src/pages/he/CustomDesignHe.tsx");
+    const seoRoutes = readSource("client/src/lib/seoRoutes.ts");
 
     expect(customDesign).toContain('canonicalPath: "/he/services/custom-design/"');
-    expect(customDesign).toContain("noindex: true");
+    expect(seoRoutes).toContain('"/services/custom-design": "/he/services/custom-design"');
     expect(customDesign).toContain("עיצוב אתרים בהתאמה אישית");
     expect(customDesign).toContain("FAQPage");
     expect(customDesign).toContain('href="/he/contact/"');
@@ -274,11 +276,12 @@ describe("Hebrew locale foundation", () => {
     expect(customDesign).toContain('dir="rtl"');
   });
 
-  it("keeps Hebrew mobile-first as a complete, staged RTL service counterpart", () => {
+  it("keeps Hebrew mobile-first as a complete, indexable RTL service counterpart", () => {
     const mobileFirst = readSource("client/src/pages/he/MobileFirstHe.tsx");
+    const seoRoutes = readSource("client/src/lib/seoRoutes.ts");
 
     expect(mobileFirst).toContain('canonicalPath: "/he/services/mobile-first/"');
-    expect(mobileFirst).toContain("noindex: true");
+    expect(seoRoutes).toContain('"/services/mobile-first": "/he/services/mobile-first"');
     expect(mobileFirst).toContain("פיתוח עם מובייל");
     expect(mobileFirst).toContain("פיתוח אתרים בגישת Mobile-First");
     expect(mobileFirst).toContain("FAQPage");
@@ -287,10 +290,11 @@ describe("Hebrew locale foundation", () => {
     expect(mobileFirst).toContain('dir="rtl"');
   });
 
-  it("keeps Hebrew SEO as a complete, staged RTL service counterpart", () => {
+  it("keeps Hebrew SEO as a complete, indexable RTL service counterpart", () => {
     const seo = readSource("client/src/pages/he/SeoHe.tsx");
+    const seoRoutes = readSource("client/src/lib/seoRoutes.ts");
     expect(seo).toContain('canonicalPath: "/he/services/seo/"');
-    expect(seo).toContain("noindex: true");
+    expect(seoRoutes).toContain('"/services/seo": "/he/services/seo"');
     expect(seo).toContain("אופטימיזציית SEO");
     expect(seo).toContain("FAQPage");
     expect(seo).toContain('href="/he/contact/"');
