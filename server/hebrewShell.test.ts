@@ -26,10 +26,12 @@ describe("Hebrew shared shell and staged entry route", () => {
     expect(layout).toContain("const FlagIL");
     expect(layout).toContain('src="/media/icons/israel-flag-icon.webp"');
     expect(layout).toContain("const HE_NAV_LINKS");
-    expect(layout).toContain('aria-label="מעבר לעברית"');
+    expect(layout).toContain('aria-label={`${sheetTitle}: ${currentLanguage.name}`}');
     expect(layout).toContain("getHebrewLanguageTogglePath");
     expect(layout).toContain('SheetContent');
     expect(layout).toContain('side="bottom"');
+    expect(layout).toContain('DropdownMenuContent');
+    expect(layout).toContain('DropdownMenuTrigger asChild');
     expect(layout).toContain('dir={isHebrew ? "rtl" : "ltr"}');
     expect(layout).toContain('const currentLanguage = isHebrew');
     expect(layout).toContain('code: "HE"');
@@ -41,6 +43,9 @@ describe("Hebrew shared shell and staged entry route", () => {
     expect(styles).toContain('html[dir="rtl"] .whatsapp-float[data-locale="he"]');
     expect(styles).toContain('right: 1.25rem !important;');
     expect(styles).toContain('align-items: flex-start !important;');
+    expect(layout).toContain("function handleBrandClick");
+    expect(layout).toContain('const scrollToTop = () => window.scrollTo({ top: 0, left: 0, behavior: "auto" })');
+    expect(layout).toContain("window.requestAnimationFrame(scrollToTop)");
     expect(accessibility).toContain("אפשרויות נגישות");
   });
 

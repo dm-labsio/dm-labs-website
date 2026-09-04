@@ -168,10 +168,10 @@ describe("Hebrew locale foundation", () => {
     const layout = readSource("client/src/components/Layout.tsx");
 
     expect(layout).toContain("const isEnglish = !isGreek && !isHebrew;");
-    expect(layout).toContain("aria-current={isEnglish ? \"true\" : undefined}");
+    expect(layout).toContain('aria-current={language.isActive ? "true" : undefined}');
     expect(layout).toContain("languageSwitchScrollRef");
     expect(layout).toContain("targetLang === \"el\" ? routes.el !== null : routes.he !== null");
-    expect(layout).toContain('navigateLanguage("he", heHref)');
+    expect(layout).toContain("navigateLanguage(language.target, language.href)");
   });
 
   it("keeps the Hebrew Contact form structurally aligned with the shared contact contract", () => {
