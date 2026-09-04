@@ -33,6 +33,28 @@ const commercialSources = [
 ].map(source).join("\n");
 
 const termsSource = source("client/src/pages/Terms.tsx");
+const enterprisePricingSources = [
+  "client/public/llms.txt",
+  "client/src/pages/Home.tsx",
+  "client/src/pages/Pricing.tsx",
+  "client/src/pages/Services.tsx",
+  "client/src/pages/FAQ.tsx",
+  "client/src/pages/WebDesignCyprus.tsx",
+  "client/src/pages/WebDesignLimassol.tsx",
+  "client/src/pages/WebDesignPaphos.tsx",
+  "client/src/pages/WebDesignRestaurantsCyprus.tsx",
+  "client/src/pages/el/PricingEl.tsx",
+  "client/src/pages/el/WebDesignCreteEl.tsx",
+  "client/src/pages/el/WebDesignCyprusEl.tsx",
+  "client/src/pages/el/WebDesignLimassol.tsx",
+  "client/src/pages/el/WebDesignNicosia.tsx",
+  "client/src/pages/el/WebDesignThessaloniki.tsx",
+  "client/src/pages/he/FAQHe.tsx",
+  "client/src/pages/he/HomeHe.tsx",
+  "client/src/pages/he/PricingHe.tsx",
+  "client/src/pages/he/ServicesHe.tsx",
+  "scripts/prerender-meta.mjs",
+].map(source).join("\n");
 
 describe("canonical package and care-plan consistency", () => {
   it("keeps the approved one-time package names, prices, and revision rounds", () => {
@@ -62,6 +84,27 @@ describe("canonical package and care-plan consistency", () => {
     for (const retired of ["Starter", "Premium Care", "€399", "€699", "€39", "€49", "€59"]) {
       expect(commercialSources).not.toContain(retired);
     }
+  });
+
+  it("keeps Enterprise quote-only across content and structured data", () => {
+    expect(enterprisePricingSources).toContain("Pricing tailored to your scope");
+    expect(enterprisePricingSources).toContain("Τιμή προσαρμοσμένη στο εύρος του έργου σας");
+    expect(enterprisePricingSources).toContain("מחיר מותאם להיקף הפרויקט");
+    for (const retiredEnterprisePrice of [
+      "Enterprise / Custom: from €1,499",
+      "Enterprise / Custom projects start at €1,499",
+      "Enterprise / Custom projects begin from €1,499",
+      "Enterprise / Custom έργα ξεκινούν από €1,499",
+      "Enterprise / Custom έργα ξεκινούν από €1.499",
+      "From €1,499, quoted by scope",
+      "Από €1.499, με προσφορά ανά scope",
+      "from €1,499</p><p className=\"text-sm text-white/65",
+      "From €1,499</p>",
+    ]) {
+      expect(enterprisePricingSources).not.toContain(retiredEnterprisePrice);
+    }
+    expect(source("client/src/pages/Home.tsx")).not.toContain('"minPrice": "1499"');
+    expect(source("client/src/pages/el/WebDesignCyprusEl.tsx")).not.toContain('name": "Enterprise / Custom Κύπρος", "description": "Τιμή προσαρμοσμένη στο εύρος του έργου σας" }, "price"');
   });
 });
 

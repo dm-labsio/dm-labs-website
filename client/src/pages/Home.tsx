@@ -197,7 +197,7 @@ export default function HomePage() {
       { "@type": "Offer", "name": "Launch Website", "description": "1-page landing site, mobile responsive, WhatsApp button, basic SEO, 2 revision rounds.", "price": "299", "priceCurrency": "EUR" },
       { "@type": "Offer", "name": "Growth Website", "description": "Up to 4 pages, contact form, map, testimonials, basic SEO, Search Console and Analytics setup, 3 revision rounds.", "price": "749", "priceCurrency": "EUR" },
       { "@type": "Offer", "name": "Pro Website", "description": "Up to 7 pages, gallery, pop-up, scroll animations, full SEO structure, blog setup or a website visual pack, 4 revision rounds.", "price": "1499", "priceCurrency": "EUR" },
-      { "@type": "Offer", "name": "Enterprise / Custom", "description": "Custom scope for integrations, multilingual websites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume.", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "1499", "priceCurrency": "EUR" } }
+      { "@type": "Offer", "name": "Enterprise / Custom", "description": "Pricing tailored to your scope for integrations, multilingual websites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume." }
     ];
     const schema = {
       "@context": "https://schema.org",
@@ -606,7 +606,7 @@ export default function HomePage() {
                 <div className="flex-shrink-0 lg:w-64">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
                   <p className="editorial-label !text-[#6FE3FF] mb-2">Enterprise / Custom</p>
-                  <p className="editorial-price !text-white mb-2">From €1,499</p>
+                  <p className="editorial-price !text-white mb-2">Pricing tailored to your scope</p>
                   <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Quote based on scope</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
                     For integrations, multilingual builds, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, or unusual content volume.

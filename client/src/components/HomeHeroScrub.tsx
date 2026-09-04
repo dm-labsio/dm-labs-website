@@ -6,6 +6,7 @@ export const HERO_SCRUB_VIDEO_URL = "https://zcqnftsc7hsxgrnx.public.blob.vercel
 export const HERO_SCRUB_OPENING_POSTER_URL = "/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp";
 export const MOBILE_HERO_SCRUB_VIDEO_URL = "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4";
 export const MOBILE_HERO_SCRUB_OPENING_POSTER_URL = "/media/hero/dm-labs-mobile-hero-opening-poster_6fc35873.webp";
+export const HEBREW_STATIC_MOBILE_HERO_ART_URL = "/media/hero/hebrew-mobile-hero-static-frame.webp";
 
 const VIDEO_OPENING_PROGRESS = 0.15;
 const MOBILE_VIDEO_OPENING_PROGRESS = 0.05;
@@ -334,6 +335,14 @@ export default function HomeHeroScrub({ children, variant = "default" }: HomeHer
           <source media="(min-width: 768px)" src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />
         </video>
         {variant === "hebrew" && <HebrewMobileCanvasSequence />}
+        {variant === "hebrew" && (
+          <img
+            src={HEBREW_STATIC_MOBILE_HERO_ART_URL}
+            alt=""
+            aria-hidden="true"
+            className="hero-scrub-hebrew-static-art"
+          />
+        )}
         <div className="hero-scrub-wash" aria-hidden="true" />
         <div className="hero-scrub-copy">
           <div>{children}</div>

@@ -133,7 +133,14 @@ describe("Hebrew locale foundation", () => {
     expect(styles).toContain('html.js .hero-scrub-scope[data-mobile-hero="static"] .hero-scrub-copy');
     expect(scrub).toContain('<HebrewMobileCanvasSequence />');
     expect(styles).toContain('.hero-scrub-canvas');
-    expect(layout).toContain('<polygon points="30,7 36,18 48,18 38,27 42,40 30,33 18,40 22,27 12,18 24,18" fill="#1F5AA6" />');
+    expect(layout).toContain('src="/media/icons/israel-flag-icon.webp"');
+    expect(layout).toContain('width="20"');
+    expect(layout).toContain('height="20"');
+    expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-poster');
+    expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-wash');
+    expect(scrub).toContain('HEBREW_STATIC_MOBILE_HERO_ART_URL');
+    expect(scrub).toContain('className="hero-scrub-hebrew-static-art"');
+    expect(styles).toContain('hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-hebrew-static-art');
   });
 
   it("keeps the Hebrew pricing comparison and consent persistence aligned with shared behavior", () => {

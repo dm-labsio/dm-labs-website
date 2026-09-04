@@ -24,6 +24,7 @@ describe("Hebrew shared shell and staged entry route", () => {
     const accessibility = readSource("client/src/components/AccessibilityWidget.tsx");
 
     expect(layout).toContain("const FlagIL");
+    expect(layout).toContain('src="/media/icons/israel-flag-icon.webp"');
     expect(layout).toContain("const HE_NAV_LINKS");
     expect(layout).toContain('aria-label="מעבר לעברית"');
     expect(layout).toContain("getHebrewLanguageTogglePath");
@@ -34,6 +35,9 @@ describe("Hebrew shared shell and staged entry route", () => {
     expect(layout).toContain('code: "HE"');
     expect(cookieBanner).toContain("he: {");
     expect(whatsapp).toContain("const WA_HE");
+    expect(whatsapp).toContain('className="whatsapp-float fixed bottom-6 right-5');
+    expect(whatsapp).toContain('data-locale={locale}');
+    expect(readSource("client/src/index.css")).toContain('align-items: flex-start !important;');
     expect(accessibility).toContain("אפשרויות נגישות");
   });
 

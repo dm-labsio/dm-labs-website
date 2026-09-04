@@ -174,7 +174,7 @@ export default function Pricing() {
                 <div className="flex-shrink-0 lg:w-72">
                   <span className="pricing-editorial-custom-kicker">Built for Your Scope</span>
                   <p className="pricing-editorial-plan-label">Enterprise / Custom</p>
-                  <p className="pricing-editorial-custom-price">From €1,499</p>
+                  <p className="pricing-editorial-custom-price">Pricing tailored to your scope</p>
                   <p className="pricing-editorial-custom-note">Quote based on scope</p>
                   <p className="pricing-editorial-custom-copy">For projects beyond the standard packages, including integrations, multilingual sites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume.</p>
                   <Link href="/contact/" className="pricing-editorial-custom-cta"><MessageCircle size={16} /> Request a Quote</Link>

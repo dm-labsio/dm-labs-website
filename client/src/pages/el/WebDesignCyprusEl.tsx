@@ -29,7 +29,7 @@ const schemaMarkup = {
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Launch Website Κύπρος", "description": "Επώνυμη επαγγελματική σελίδα για επιχειρήσεις στην Κύπρο" }, "price": "299", "priceCurrency": "EUR" },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Growth Website Κύπρος", "description": "Ιστοσελίδα έως 5 σελίδων με SEO και φόρμες επικοινωνίας για κυπριακές επιχειρήσεις" }, "price": "749", "priceCurrency": "EUR" },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pro Website Κύπρος", "description": "Πλήρως custom ιστοσελίδα με animations, blog άρθρα και πλήρη δομή SEO" }, "price": "1499", "priceCurrency": "EUR" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise / Custom Κύπρος", "description": "Προσαρμοσμένο scope όπως αναφέρεται στην προσφορά σας" }, "price": "1499", "priceCurrency": "EUR" }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise / Custom Κύπρος", "description": "Τιμή προσαρμοσμένη στο εύρος του έργου σας" } }
     ]
   }
 };
@@ -57,7 +57,7 @@ const industries = [
 const faqs = [
   {
     q: "Πόσο κοστίζει η κατασκευή ιστοσελίδας στην Κύπρο;",
-    a: "Η κατασκευή ιστοσελίδας στην Κύπρο κυμαίνεται συνήθως από €299 έως €2.500+ ανάλογα με το μέγεθος και την πολυπλοκότητα του project. Στη DM-Labs.io, το Launch Website πακέτο μας ξεκινά από €299 για μια επώνυμη επαγγελματική σελίδα, το Growth Website πακέτο είναι €749 για έως 5 σελίδες με φόρμες επικοινωνίας και SEO, και το Pro Website πακέτο είναι €1,499 για μια πλήρως custom ιστοσελίδα με animations, blog άρθρα και πλήρη δομή SEO. Τα Enterprise / Custom έργα ξεκινούν από €1,499 και κοστολογούνται όπως αναφέρεται στην προσφορά σας. Όλες οι τιμές είναι διαφανείς, χωρίς κρυφές χρεώσεις."
+    a: "Η κατασκευή ιστοσελίδας στην Κύπρο κυμαίνεται συνήθως από €299 έως €2.500+ ανάλογα με το μέγεθος και την πολυπλοκότητα του project. Στη DM-Labs.io, το Launch Website πακέτο μας ξεκινά από €299 για μια επώνυμη επαγγελματική σελίδα, το Growth Website πακέτο είναι €749 για έως 5 σελίδες με φόρμες επικοινωνίας και SEO, και το Pro Website πακέτο είναι €1,499 για μια πλήρως custom ιστοσελίδα με animations, blog άρθρα και πλήρη δομή SEO. Η τιμή για Enterprise / Custom έργα προσαρμόζεται στο εύρος του έργου σας. Όλες οι τιμές είναι διαφανείς, χωρίς κρυφές χρεώσεις."
   },
   {
     q: "Ποια είναι η διαφορά μεταξύ web design και web development στην Κύπρο;",

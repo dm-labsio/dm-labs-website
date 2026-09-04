@@ -90,7 +90,7 @@ export default function PricingHe() {
                 <div className="flex-shrink-0 lg:w-72">
                   <span className="pricing-editorial-custom-kicker">נבנה לפי ההיקף שלכם</span>
                   <p className="pricing-editorial-plan-label" dir="ltr">Enterprise / Custom</p>
-                  <p className="pricing-editorial-custom-price" dir="ltr">From €1,499</p>
+                  <p className="pricing-editorial-custom-price" dir="ltr">מחיר מותאם להיקף הפרויקט</p>
                   <p className="pricing-editorial-custom-note">הצעת מחיר לפי היקף</p>
                   <p className="pricing-editorial-custom-copy">לאינטגרציות, אתרים רב לשוניים, CMS, AI, צ׳אטבוטים, CRM, הזמנות, אנימציות מורכבות או נפח תוכן חריג.</p>
                   <a className="pricing-editorial-custom-cta" href={WA}><MessageCircle size={16} />בקשת הצעת מחיר</a>
