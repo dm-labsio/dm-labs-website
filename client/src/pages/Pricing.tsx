@@ -179,12 +179,16 @@ export default function Pricing() {
                   <p className="pricing-editorial-custom-copy">For projects beyond the standard packages, including integrations, multilingual sites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume.</p>
                   <Link href="/contact/" className="pricing-editorial-custom-cta"><MessageCircle size={16} /> Request a Quote</Link>
                 </div>
-                <StaggerContainer className="pricing-editorial-custom-grid flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4" staggerDelay={0.09}>
+                <StaggerContainer className="pricing-editorial-custom-grid flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-4" staggerDelay={0.09}>
                   {[
-                    "Custom integrations and CRM or booking",
-                    "Multilingual and CMS self-editing",
-                    "AI or chatbot features",
-                    "Complex motion and unusual content scope",
+                    "Brand direction and visual identity",
+                    "CRM, booking and lead-capture integrations",
+                    "Multilingual websites and self-editing CMS",
+                    "Custom SEO strategy and performance reporting",
+                    "UX and content structure for your audience",
+                    "Advanced forms and automated lead routing",
+                    "AI or chatbot features where useful",
+                    "Dedicated project support and ongoing optimisation",
                   ].map((item) => (
                     <StaggerItem key={item} className="pricing-editorial-custom-feature flex items-start gap-2.5"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /><span>{item}</span></StaggerItem>
                   ))}
