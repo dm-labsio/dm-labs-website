@@ -90,13 +90,13 @@ export default function PricingHe() {
                 <div className="flex-shrink-0 lg:w-72">
                   <span className="pricing-editorial-custom-kicker">נבנה לפי ההיקף שלכם</span>
                   <p className="pricing-editorial-plan-label" dir="ltr">Enterprise / Custom</p>
-                  <p className="pricing-editorial-custom-price" dir="ltr">מחיר מותאם להיקף הפרויקט</p>
+                  <p className="pricing-editorial-custom-price" dir="rtl">מחיר מותאם להיקף הפרויקט</p>
                   <p className="pricing-editorial-custom-note">הצעת מחיר לפי היקף</p>
                   <p className="pricing-editorial-custom-copy">לאינטגרציות, אתרים רב לשוניים, CMS, AI, צ׳אטבוטים, CRM, הזמנות, אנימציות מורכבות או נפח תוכן חריג.</p>
                   <a className="pricing-editorial-custom-cta" href={WA}><MessageCircle size={16} />בקשת הצעת מחיר</a>
                 </div>
-                <StaggerContainer className="pricing-editorial-custom-grid flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4" staggerDelay={0.09}>
-                  {["אינטגרציות מותאמות, CRM או הזמנות", "אתר רב לשוני ו-CMS לעריכה עצמית", "יכולות AI או צ׳אטבוט", "אנימציות מורכבות או היקף תוכן חריג"].map(item => <StaggerItem key={item} className="pricing-editorial-custom-feature flex items-start gap-2.5"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /><span>{item}</span></StaggerItem>)}
+                <StaggerContainer className="pricing-editorial-custom-grid flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-4" staggerDelay={0.09}>
+                  {["כיוון מותגי וזהות ויזואלית", "אינטגרציות CRM, הזמנות ואיסוף פניות", "אתר רב לשוני ו-CMS לעריכה עצמית", "אסטרטגיית SEO ודוחות ביצועים מותאמים", "חוויית משתמש ומבנה תוכן לקהל שלכם", "טפסים מתקדמים וניתוב פניות אוטומטי", "יכולות AI או צ׳אטבוט כשזה מתאים", "ליווי של מנהל פרויקט ואופטימיזציה שוטפת"].map(item => <StaggerItem key={item} className="pricing-editorial-custom-feature flex items-start gap-2.5"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /><span>{item}</span></StaggerItem>)}
                 </StaggerContainer>
               </div>
             </div>

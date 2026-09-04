@@ -106,6 +106,23 @@ describe("canonical package and care-plan consistency", () => {
     expect(source("client/src/pages/Home.tsx")).not.toContain('"minPrice": "1499"');
     expect(source("client/src/pages/el/WebDesignCyprusEl.tsx")).not.toContain('name": "Enterprise / Custom Κύπρος", "description": "Τιμή προσαρμοσμένη στο εύρος του έργου σας" }, "price"');
   });
+
+  it("keeps the primary Enterprise pricing grids equivalent and Greek-only", () => {
+    const englishPricing = source("client/src/pages/Pricing.tsx");
+    const greekPricing = source("client/src/pages/el/PricingEl.tsx");
+    const hebrewPricing = source("client/src/pages/he/PricingHe.tsx");
+
+    expect(englishPricing).toContain("Brand direction and visual identity");
+    expect(englishPricing).toContain("Custom SEO strategy and performance reporting");
+    expect(greekPricing).toContain("Στρατηγική branding και οπτική ταυτότητα");
+    expect(greekPricing).toContain("αναφορές απόδοσης");
+    expect(hebrewPricing).toContain("כיוון מותגי וזהות ויזואלית");
+    expect(hebrewPricing).toContain("דוחות ביצועים מותאמים");
+    expect(greekPricing).not.toMatch(/[\u0590-\u05FF]/);
+    for (const pricingSource of [englishPricing, greekPricing, hebrewPricing]) {
+      expect(pricingSource).toContain("lg:grid-cols-4");
+    }
+  });
 });
 
 describe("Terms of Service supplied content", () => {

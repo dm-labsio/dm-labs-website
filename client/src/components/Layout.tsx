@@ -20,6 +20,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
   getGreekLanguageTogglePath,
   getHebrewLanguageTogglePath,
   getHreflangRouteSet,
@@ -188,6 +194,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     navigate(href);
   }
 
+  function handleBrandClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    const homeHref = isHebrew ? "/he/" : isGreek ? "/el/" : "/";
+    if (withTrailingSlash(normalizedLocation) !== homeHref) return;
+    event.preventDefault();
+    const scrollToTop = () => window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    scrollToTop();
+    window.requestAnimationFrame(scrollToTop);
+  }
+
   // The Hebrew option safely falls back to the completed Hebrew home until the
   // matching child route has been translated. Hreflang never uses that fallback.
   const LangToggle = ({ className = "", size = "md" }: { className?: string; size?: "sm" | "md" }) => {
@@ -203,25 +218,30 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         : { code: "EN", name: "English", flag: <FlagUK /> };
     const sheetTitle = isHebrew ? "בחירת שפה" : isGreek ? "Επιλογή γλώσσας" : "Choose language";
 
+    const languageOptions = [
+      { code: "EN", name: "English", href: enHref, isActive: isEnglish, flag: <FlagUK />, target: "en" as const },
+      { code: "EL", name: "Ελληνικά", href: elHref, isActive: isGreek, flag: <FlagGR />, target: "el" as const },
+      { code: "HE", name: "עברית", href: heHref, isActive: isHebrew, flag: <FlagIL />, target: "he" as const },
+    ];
+
+    const trigger = (
+      <button
+        type="button"
+        aria-label={`${sheetTitle}: ${currentLanguage.name}`}
+        className={`inline-flex h-9 items-center gap-1.5 rounded-full border border-[#E2E5EA] bg-white px-2.5 text-xs font-semibold text-[#334155] shadow-sm transition-colors hover:border-[#B8C9FF] hover:bg-[#F6F8FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8CFF] focus-visible:ring-offset-2 ${className}`}
+      >
+        {currentLanguage.flag}
+        <span>{currentLanguage.code}</span>
+        <ChevronDown size={14} strokeWidth={2.25} aria-hidden="true" />
+      </button>
+    );
+
     if (isSmall) {
-      const languageOptions = [
-        { code: "EN", name: "English", href: enHref, isActive: isEnglish, flag: <FlagUK />, target: "en" as const },
-        { code: "EL", name: "Ελληνικά", href: elHref, isActive: isGreek, flag: <FlagGR />, target: "el" as const },
-        { code: "HE", name: "עברית", href: heHref, isActive: isHebrew, flag: <FlagIL />, target: "he" as const },
-      ];
 
       return (
         <Sheet open={languageSheetOpen} onOpenChange={setLanguageSheetOpen}>
           <SheetTrigger asChild>
-            <button
-              type="button"
-              aria-label={`${sheetTitle}: ${currentLanguage.name}`}
-              className={`inline-flex h-9 items-center gap-1.5 rounded-full border border-[#E2E5EA] bg-white px-2.5 text-xs font-semibold text-[#334155] shadow-sm transition-colors hover:border-[#B8C9FF] hover:bg-[#F6F8FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8CFF] focus-visible:ring-offset-2 ${className}`}
-            >
-              {currentLanguage.flag}
-              <span>{currentLanguage.code}</span>
-              <ChevronDown size={14} strokeWidth={2.25} aria-hidden="true" />
-            </button>
+            {trigger}
           </SheetTrigger>
           <SheetContent
             side="bottom"
@@ -264,62 +284,38 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     }
 
     return (
-      <div
-        className={`flex items-center rounded-full border border-[#E2E5EA] bg-white shadow-sm overflow-hidden ${isEnglishHomepage ? "editorial-home-language-toggle" : ""} ${className}`}
-        style={{ padding: "2px" }}
-      >
-        <a
-          href={enHref}
-          aria-label="Switch to English"
-          title="English"
-          aria-current={isEnglish ? "true" : undefined}
-          className={`flex items-center gap-1.5 rounded-full transition-all duration-200 font-semibold ${
-            isSmall ? "px-2 py-1 text-xs" : "px-3 py-1.5 text-xs"
-          } ${
-            isEnglish
-              ? "bg-[#5B8CFF] text-white shadow-sm"
-              : "text-[#5B6472] hover:bg-[#F0F4FF] hover:text-[#5B8CFF]"
-          }`}
-          onClick={(e) => { e.preventDefault(); navigateLanguage("en", enHref); }}
+      <DropdownMenu dir={isHebrew ? "rtl" : "ltr"}>
+        <DropdownMenuTrigger asChild>{trigger}</DropdownMenuTrigger>
+        <DropdownMenuContent
+          align="end"
+          className="min-w-44 rounded-2xl border-[#E2E5EA] bg-[#F6F6F4] p-2 shadow-xl"
         >
-          <FlagUK />
-          <span>EN</span>
-        </a>
-        <a
-          href={elHref}
-          aria-label="Εναλλαγή σε Ελληνικά"
-          title="Ελληνικά"
-          aria-current={isGreek ? "true" : undefined}
-          className={`flex items-center gap-1.5 rounded-full transition-all duration-200 font-semibold ${
-            isSmall ? "px-2 py-1 text-xs" : "px-3 py-1.5 text-xs"
-          } ${
-            isGreek
-              ? "bg-[#5B8CFF] text-white shadow-sm"
-              : "text-[#5B6472] hover:bg-[#F0F4FF] hover:text-[#5B8CFF]"
-          }`}
-          onClick={(e) => { e.preventDefault(); navigateLanguage("el", elHref); }}
-        >
-          <FlagGR />
-          <span>EL</span>
-        </a>
-        <a
-          href={heHref}
-          aria-label="מעבר לעברית"
-          title="עברית"
-          aria-current={isHebrew ? "true" : undefined}
-          className={`flex items-center gap-1.5 rounded-full transition-all duration-200 font-semibold ${
-            isSmall ? "px-2 py-1 text-xs" : "px-3 py-1.5 text-xs"
-          } ${
-            isHebrew
-              ? "bg-[#5B8CFF] text-white shadow-sm"
-              : "text-[#5B6472] hover:bg-[#F0F4FF] hover:text-[#5B8CFF]"
-          }`}
-          onClick={(e) => { e.preventDefault(); navigateLanguage("he", heHref); }}
-        >
-          <FlagIL />
-          <span>עב</span>
-        </a>
-      </div>
+          {languageOptions.map((language) => (
+            <DropdownMenuItem key={language.code} asChild>
+              <a
+                href={language.href}
+                lang={language.target}
+                aria-current={language.isActive ? "true" : undefined}
+                className={`flex min-h-11 items-center justify-between rounded-xl px-3 text-sm font-semibold outline-none transition-colors ${
+                  language.isActive
+                    ? "bg-[#EAF0FF] text-[#285EDB]"
+                    : "text-[#334155] hover:bg-white hover:text-[#285EDB]"
+                }`}
+                onClick={(event) => {
+                  event.preventDefault();
+                  navigateLanguage(language.target, language.href);
+                }}
+              >
+                <span className="flex items-center gap-3">
+                  {language.flag}
+                  <span>{language.name}</span>
+                </span>
+                <span className="text-xs font-bold tracking-[0.08em] text-current">{language.code}</span>
+              </a>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
     );
   };
 
@@ -338,7 +334,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       >
         <div className="container flex items-center justify-between" style={{ height: "72px" }}>
           {/* Logo */}
-          <Link href={isHebrew ? "/he/" : isGreek ? "/el/" : "/"} className="flex items-center gap-2 shrink-0">
+          <Link href={isHebrew ? "/he/" : isGreek ? "/el/" : "/"} onClick={handleBrandClick} className="flex items-center gap-2 shrink-0" aria-label="DM-Labs.io home">
             <HeaderBrandMark />
           </Link>
 
