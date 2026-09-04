@@ -68,6 +68,18 @@ export const HE_TO_EN_PATHS: Readonly<Record<string, string>> = Object.fromEntri
     .map(([enPath, hePath]) => [hePath as string, enPath]),
 );
 
+/**
+ * Hebrew routes were initially launched in staging with page-level noindex
+ * settings. This explicit allowlist marks the completed rollout as eligible for
+ * indexing while deliberately excluding every Hebrew blog path.
+ */
+export const INDEXABLE_HEBREW_PATHS = new Set(
+  Object.values(EN_TO_HE_PATHS).filter((path): path is string => path !== null),
+);
+
+export const isIndexableHebrewRoute = (path: string) =>
+  INDEXABLE_HEBREW_PATHS.has(normalizeRoutePath(path));
+
 export type HreflangRouteSet = {
   en: string;
   el: string | null;
