@@ -37,7 +37,10 @@ describe("Hebrew shared shell and staged entry route", () => {
     expect(whatsapp).toContain("const WA_HE");
     expect(whatsapp).toContain('className="whatsapp-float fixed bottom-6 right-5');
     expect(whatsapp).toContain('data-locale={locale}');
-    expect(readSource("client/src/index.css")).toContain('align-items: flex-start !important;');
+    const styles = readSource("client/src/index.css");
+    expect(styles).toContain('html[dir="rtl"] .whatsapp-float[data-locale="he"]');
+    expect(styles).toContain('right: 1.25rem !important;');
+    expect(styles).toContain('align-items: flex-start !important;');
     expect(accessibility).toContain("אפשרויות נגישות");
   });
 

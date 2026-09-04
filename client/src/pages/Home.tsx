@@ -606,7 +606,7 @@ export default function HomePage() {
                 <div className="flex-shrink-0 lg:w-64">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
                   <p className="editorial-label !text-[#6FE3FF] mb-2">Enterprise / Custom</p>
-                  <p className="editorial-price !text-white mb-2">Pricing tailored to your scope</p>
+                  <p className="editorial-price !text-white mb-2 enterprise-scope-title">Pricing tailored to your scope</p>
                   <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Quote based on scope</p>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
                     For integrations, multilingual builds, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, or unusual content volume.
