@@ -4,6 +4,7 @@ export type CinematicBannerProps = {
   videoSrc: string;
   label: string;
   accent?: "cyan" | "violet" | "blue";
+  tall?: boolean;
 };
 
 /**
@@ -12,7 +13,7 @@ export type CinematicBannerProps = {
  * The MP4 URL is deliberately not attached until the banner is near the viewport.
  * Mobile, reduced-motion, and data-saving visitors keep the lightweight brand fallback.
  */
-export default function CinematicBanner({ videoSrc, label, accent = "cyan" }: CinematicBannerProps) {
+export default function CinematicBanner({ videoSrc, label, accent = "cyan", tall = false }: CinematicBannerProps) {
   const bannerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [shouldLoad, setShouldLoad] = useState(false);
@@ -62,7 +63,7 @@ export default function CinematicBanner({ videoSrc, label, accent = "cyan" }: Ci
   return (
     <section
       ref={bannerRef}
-      className={`cinematic-banner cinematic-banner--${accent}`}
+      className={`cinematic-banner cinematic-banner--${accent} ${tall ? "cinematic-banner--tall" : ""}`}
       aria-label={label}
     >
       <div className="cinematic-banner__fallback" aria-hidden="true" />

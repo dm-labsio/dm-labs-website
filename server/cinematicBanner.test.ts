@@ -4,7 +4,10 @@ import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const component = readFileSync(resolve(root, "client/src/components/CinematicBanner.tsx"), "utf8");
+const heroComponent = readFileSync(resolve(root, "client/src/components/CinematicHeroBackground.tsx"), "utf8");
 const layout = readFileSync(resolve(root, "client/src/components/Layout.tsx"), "utf8");
+const cinematicStyles = readFileSync(resolve(root, "client/src/index.css"), "utf8");
+const prerender = readFileSync(resolve(root, "scripts/prerender-full.mjs"), "utf8");
 
 describe("cinematic banner delivery", () => {
   it("keeps decorative video out of the mobile, reduced-motion, and save-data paths", () => {
@@ -37,5 +40,37 @@ describe("cinematic banner delivery", () => {
     expect(layout).not.toContain('"/blog": {');
     expect(layout).toContain('"/faq": {');
     expect(layout).toContain('normalizedLocation.replace(/^\\/(?:el|he)(?=\\/|$)/, "") || "/"');
+  });
+
+  it("uses the five non-home, non-contact sources as protected Hero media in every matched locale", () => {
+    const heroKinds = ["services", "process", "templates", "pricing", "faq"] as const;
+    const pagesByLocale = [
+      ["Services.tsx", "Process.tsx", "Templates.tsx", "Pricing.tsx", "FAQ.tsx"],
+      ["el/ServicesEl.tsx", "el/ProcessEl.tsx", "el/TemplatesEl.tsx", "el/PricingEl.tsx", "el/FAQEl.tsx"],
+      ["he/ServicesHe.tsx", "he/ProcessHe.tsx", "he/TemplatesHe.tsx", "he/PricingHe.tsx", "he/FAQHe.tsx"],
+    ];
+
+    pagesByLocale.forEach((pages) => pages.forEach((page, index) => {
+      const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");
+      expect(source).toContain('className="cinematic-hero-surface');
+      expect(source).toContain(`<CinematicHeroBackground kind="${heroKinds[index]}" />`);
+    }));
+
+    heroKinds.forEach((kind) => expect(heroComponent).toContain(`${kind}: "https://`));
+    expect(heroComponent).toContain("network.connection?.saveData");
+    expect(heroComponent).toContain("(min-width: 768px)");
+    expect(heroComponent).toContain("IntersectionObserver");
+    expect(heroComponent).toContain('rootMargin: "180px 0px"');
+    expect(heroComponent).toContain("preload=\"auto\"");
+    expect(prerender).toContain('locator(".cinematic-hero-media__video")');
+    expect(prerender).toContain("videos.forEach((video) => video.remove())");
+  });
+
+  it("keeps the approved homepage interlude and reserves the taller lower-page treatment for Contact", () => {
+    expect(layout).toContain('languageNeutralPath === "/" || languageNeutralPath === "/contact"');
+    expect(layout).toContain('tall={languageNeutralPath === "/contact"}');
+    expect(cinematicStyles).toContain(".cinematic-banner--tall");
+    expect(cinematicStyles).toContain("min-height: clamp(19rem, 28vw, 27rem)");
+    expect(cinematicStyles).toContain(".cinematic-hero-media { display: none; }");
   });
 });

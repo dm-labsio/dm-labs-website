@@ -1,5 +1,6 @@
 import { CheckCircle2, HelpCircle, MessageCircle, ShieldCheck, X } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
+import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 
 const WA = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20DM-Labs.io%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5.";
@@ -43,7 +44,8 @@ export default function PricingHe() {
 
   return (
     <main className="hebrew-home pricing-editorial" dir="rtl">
-      <section className="pricing-editorial-hero relative overflow-hidden">
+      <section className="cinematic-hero-surface pricing-editorial-hero relative overflow-hidden">
+        <CinematicHeroBackground kind="pricing" />
         <div className="container relative z-10 text-center">
           <AnimateIn>
             <p className="pricing-editorial-label">מחירים שקופים</p>

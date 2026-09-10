@@ -308,6 +308,13 @@ async function main() {
         // Small extra wait for any deferred content (images, lazy components)
         await page.waitForTimeout(200);
 
+        // Hero videos attach only after client-side viewport observation. Remove
+        // any headless-browser attachment before persisting the static snapshot
+        // so Vercel serves the lightweight fallback HTML on first paint.
+        await page.locator(".cinematic-hero-media__video").evaluateAll((videos) => {
+          videos.forEach((video) => video.remove());
+        });
+
         // Get the full serialised DOM
         let html = await page.content();
 

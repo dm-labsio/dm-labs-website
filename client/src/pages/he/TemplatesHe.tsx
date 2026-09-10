@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
+import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Star, ArrowRight, Check, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
@@ -1233,7 +1234,8 @@ export default function TemplatesHe() {
   return (
     <div className="min-h-screen hebrew-home" dir="rtl" style={{ background: "#F6F6F4" }}>
       {/* Hero */}
-      <section className="relative py-12 sm:py-16 lg:py-24 overflow-hidden">
+      <section className="cinematic-hero-surface relative py-12 sm:py-16 lg:py-24 overflow-hidden">
+        <CinematicHeroBackground kind="templates" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(91,140,255,0.06) 0%, transparent 50%, rgba(139,92,255,0.06) 100%)" }} />
         <div className="absolute top-16 left-1/4 w-80 h-80 rounded-full blur-3xl" style={{ background: "rgba(91,140,255,0.08)" }} />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(139,92,255,0.07)" }} />

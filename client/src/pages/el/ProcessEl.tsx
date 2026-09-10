@@ -5,6 +5,7 @@
            generous breathing room between each stage
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
+import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 import { MessageCircle, Palette, Code, Rocket, ArrowRight, CheckCircle2, CreditCard } from "lucide-react";
@@ -68,7 +69,8 @@ export default function ProcessElPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+      <section className="cinematic-hero-surface relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <CinematicHeroBackground kind="process" />
         <div className="absolute top-10 left-10 w-[300px] h-[300px] opacity-[0.04] animate-float-slower pointer-events-none">
           <img src={TRIANGLE_GEO} alt="" className="w-full h-full object-contain" aria-hidden="true" />
         </div>

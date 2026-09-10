@@ -194,6 +194,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const NAV_LINKS = isHebrew ? HE_NAV_LINKS : isGreek ? EL_NAV_LINKS : EN_NAV_LINKS;
   const languageNeutralPath = normalizedLocation.replace(/^\/(?:el|he)(?=\/|$)/, "") || "/";
   const cinematicBanner = isStandalonePreview ? null : CINEMATIC_BANNERS[languageNeutralPath] ?? null;
+  const cinematicInterlude = languageNeutralPath === "/" || languageNeutralPath === "/contact" ? cinematicBanner : null;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -466,7 +467,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div id="a11y-content-wrapper" className="flex-1 flex flex-col">
       <main className="flex-1 pt-[72px]">{children}</main>
 
-      {cinematicBanner ? <CinematicBanner {...cinematicBanner} /> : null}
+      {cinematicInterlude ? <CinematicBanner {...cinematicInterlude} tall={languageNeutralPath === "/contact"} /> : null}
 
       {/* ── FOOTER ── */}
       <footer className="dark-section">

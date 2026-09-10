@@ -2,6 +2,7 @@
    DM-Labs.io — Σελίδα Τιμών (Greek)
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
+import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import AnimateIn from "@/components/AnimateIn";
 import { CheckCircle2, MessageCircle } from "lucide-react";
 
@@ -48,7 +49,8 @@ export default function PricingEl() {
 
   return (
     <main className="min-w-0 overflow-x-hidden bg-[#F6F6F4]">
-      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+      <section className="cinematic-hero-surface relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <CinematicHeroBackground kind="pricing" />
         <div className="container relative z-10 text-center">
           <AnimateIn><p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Διαφανείς Τιμές</p><h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Ιστοσελίδες με <span className="brand-gradient-text">Καθαρό Scope</span></h1><p className="text-lg text-[#5B6472] max-w-2xl mx-auto">Επιλέξτε μια καθαρή αρχική επιλογή για την επιχείρησή σας ή ζητήστε custom προσφορά για πιο σύνθετες ανάγκες.</p></AnimateIn>
         </div>

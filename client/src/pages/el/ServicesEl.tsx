@@ -3,6 +3,7 @@
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #F6F6F4 base
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
+import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import {
@@ -23,7 +24,8 @@ export default function ServicesElPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+      <section className="cinematic-hero-surface relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <CinematicHeroBackground kind="services" />
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <img src={SERVICES_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
         </div>

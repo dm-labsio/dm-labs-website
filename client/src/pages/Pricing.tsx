@@ -3,6 +3,7 @@
    Public website and maintenance packages.
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
+import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import { ArrowRight, CheckCircle2, HelpCircle, MessageCircle, ShieldCheck, X } from "lucide-react";
@@ -115,7 +116,8 @@ export default function Pricing() {
 
   return (
     <div className="pricing-editorial">
-      <section className="pricing-editorial-hero relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+      <section className="cinematic-hero-surface pricing-editorial-hero relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <CinematicHeroBackground kind="pricing" />
         <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
           <img src={GRADIENT_BG} alt="" className="w-full h-full object-cover" aria-hidden="true" />
         </div>

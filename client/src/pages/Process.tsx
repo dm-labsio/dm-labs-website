@@ -5,6 +5,7 @@
            generous breathing room between each stage
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
+import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 import EditorialFitLine from "@/components/EditorialFitLine";
@@ -70,7 +71,8 @@ export default function Process() {
   return (
     <div className="process-editorial">
       {/* Hero */}
-      <section className="process-editorial-hero relative overflow-hidden">
+      <section className="cinematic-hero-surface process-editorial-hero relative overflow-hidden">
+        <CinematicHeroBackground kind="process" />
         <div className="process-editorial-hero-geometry absolute top-10 left-10 w-[300px] h-[300px] opacity-[0.04] pointer-events-none">
           <img src={TRIANGLE_GEO} alt="" className="w-full h-full object-contain" aria-hidden="true" />
         </div>
