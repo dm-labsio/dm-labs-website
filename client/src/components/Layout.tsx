@@ -10,6 +10,7 @@ import { Menu, X, Phone, Mail, MapPin, Instagram, ChevronDown } from "lucide-rea
 import { motion, AnimatePresence } from "framer-motion";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 import NeonCursorTrail from "@/components/NeonCursorTrail";
+import CinematicBanner, { type CinematicBannerProps } from "@/components/CinematicBanner";
 import dmLabsLogo from "@/assets/dmLabsLogo";
 import {
   Sheet,
@@ -97,6 +98,44 @@ const HE_NAV_LINKS = [
 
 const HEBREW_WHATSAPP_URL = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20DM-Labs.io%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%9C%D7%92%D7%91%D7%99%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.";
 
+const CINEMATIC_BANNERS: Record<string, CinematicBannerProps> = {
+  "/": {
+    label: "Abstract digital studio motion",
+    accent: "blue",
+    videoSrc: "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_futuristic_herobackground_animation.mp4",
+  },
+  "/services": {
+    label: "Premium technology motion",
+    accent: "cyan",
+    videoSrc: "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_premium_technology_animation.mp4",
+  },
+  "/process": {
+    label: "Digital flow motion",
+    accent: "violet",
+    videoSrc: "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_futuristic_digitalflow_animation.mp4",
+  },
+  "/templates": {
+    label: "High technology gallery motion",
+    accent: "blue",
+    videoSrc: "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_hightech_gallery_animation.mp4",
+  },
+  "/pricing": {
+    label: "Premium growth motion",
+    accent: "violet",
+    videoSrc: "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/premium_growth_animation_from_this_exact_image.mp4",
+  },
+  "/faq": {
+    label: "Editorial insight motion",
+    accent: "cyan",
+    videoSrc: "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/futuristic_editorial_animation_from_this_exact_image.mp4",
+  },
+  "/contact": {
+    label: "Conversation motion",
+    accent: "blue",
+    videoSrc: "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_futuristic_conversation_animation.mp4",
+  },
+};
+
 /* ── Flag marks ── */
 const FlagUK = () => (
   <svg width="20" height="14" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ borderRadius: "2px", display: "block" }}>
@@ -153,6 +192,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const isTemplatesIndex = normalizedLocation === "/templates";
   const isEnglishTypographyRoute = !isGreek && !isHebrew && !isStandalonePreview && !EXCLUDED_ENGLISH_LOCATION_ROUTES.has(normalizedLocation);
   const NAV_LINKS = isHebrew ? HE_NAV_LINKS : isGreek ? EL_NAV_LINKS : EN_NAV_LINKS;
+  const languageNeutralPath = normalizedLocation.replace(/^\/(?:el|he)(?=\/|$)/, "") || "/";
+  const cinematicBanner = isStandalonePreview ? null : CINEMATIC_BANNERS[languageNeutralPath] ?? null;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -424,6 +465,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* PAGE CONTENT (wrapped for contrast filter - does NOT include fixed elements) */}
       <div id="a11y-content-wrapper" className="flex-1 flex flex-col">
       <main className="flex-1 pt-[72px]">{children}</main>
+
+      {cinematicBanner ? <CinematicBanner {...cinematicBanner} /> : null}
 
       {/* ── FOOTER ── */}
       <footer className="dark-section">

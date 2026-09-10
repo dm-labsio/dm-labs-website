@@ -57,7 +57,7 @@ describe("GitHub-backed static media migration", () => {
     expect(repositorySource).not.toContain(["/manus", "storage/"].join("-"));
   });
 
-  it("uses the four Vercel Blob MP4 videos and leaves 79 Unsplash image objects unchanged in scope", () => {
+  it("uses the four existing and seven approved cinematic Vercel Blob MP4 videos while leaving 79 Unsplash image objects unchanged in scope", () => {
     const blobVideoReferences = new Set(
       clientSource.match(/https:\/\/zcqnftsc7hsxgrnx\.public\.blob\.vercel-storage\.com\/[^\s"'()]+\.mp4/g) ?? [],
     );
@@ -66,6 +66,13 @@ describe("GitHub-backed static media migration", () => {
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4",
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dr-elara-root-canal-treatment_dc985187.mp4",
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/nomad-coffee-scroll-video-all-intra_ab16c684.mp4",
+      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_futuristic_conversation_animation.mp4",
+      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_futuristic_digitalflow_animation.mp4",
+      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_futuristic_herobackground_animation.mp4",
+      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_hightech_gallery_animation.mp4",
+      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_premium_technology_animation.mp4",
+      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/futuristic_editorial_animation_from_this_exact_image.mp4",
+      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/premium_growth_animation_from_this_exact_image.mp4",
     ]));
 
     const unsplashObjects = new Set(
