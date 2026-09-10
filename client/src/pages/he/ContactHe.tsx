@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSEO } from "@/hooks/useSEO";
+import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import AnimateIn from "@/components/AnimateIn";
 import { Clock, Instagram, Mail, MapPin, MessageCircle, Send } from "lucide-react";
 import { toast } from "sonner";
@@ -56,7 +57,8 @@ export default function ContactHe() {
 
   return (
     <div className="contact-editorial hebrew-home" dir="rtl">
-      <section className="relative overflow-hidden contact-editorial-hero" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+      <section className="cinematic-hero-surface relative overflow-hidden contact-editorial-hero" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <CinematicHeroBackground kind="contact" />
         <div className="container relative z-10 text-center">
           <AnimateIn>
             <p className="contact-editorial-label mb-3">צרו קשר</p>

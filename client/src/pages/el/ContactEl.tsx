@@ -3,6 +3,7 @@
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
+import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { useState } from "react";
 import AnimateIn from "@/components/AnimateIn";
 import { MessageCircle, Mail, Clock, MapPin, Send, Instagram } from "lucide-react";
@@ -53,7 +54,8 @@ export default function ΕπικοινωνίαEl() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+      <section className="cinematic-hero-surface relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
+        <CinematicHeroBackground kind="contact" />
         <div className="container relative z-10 text-center">
           <AnimateIn>
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Επικοινωνήστε μαζί μας</p>

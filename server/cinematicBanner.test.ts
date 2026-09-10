@@ -56,7 +56,12 @@ describe("cinematic banner delivery", () => {
       expect(source).toContain(`<CinematicHeroBackground kind="${heroKinds[index]}" />`);
     }));
 
-    heroKinds.forEach((kind) => expect(heroComponent).toContain(`${kind}: "https://`));
+    [...heroKinds, "contact"].forEach((kind) => expect(heroComponent).toContain(`${kind}: "https://`));
+    ["Contact.tsx", "el/ContactEl.tsx", "he/ContactHe.tsx"].forEach((page) => {
+      const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");
+      expect(source).toContain('className="cinematic-hero-surface');
+      expect(source).toContain('<CinematicHeroBackground kind="contact" />');
+    });
     expect(heroComponent).toContain("network.connection?.saveData");
     expect(heroComponent).toContain("(min-width: 768px)");
     expect(heroComponent).toContain("IntersectionObserver");
