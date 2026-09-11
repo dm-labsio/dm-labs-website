@@ -2,6 +2,7 @@
    D&M LABS - Blog Index Page
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
+import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 import { POSTS } from "@/data/blogPosts";
@@ -24,9 +25,10 @@ export default function Blog() {
   return (
     <div className="blog-editorial">
       <section
-        className="relative overflow-hidden blog-editorial-hero"
+        className="cinematic-hero-surface relative overflow-hidden blog-editorial-hero"
         style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(3rem, 6vh, 5rem)" }}
       >
+        <CinematicHeroBackground kind="blog" />
         <div className="container relative z-10 text-center">
           <AnimateIn>
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase blog-editorial-label">Resources and insights</p>

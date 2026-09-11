@@ -42,7 +42,7 @@ describe("cinematic banner delivery", () => {
     expect(layout).toContain('normalizedLocation.replace(/^\\/(?:el|he)(?=\\/|$)/, "") || "/"');
   });
 
-  it("uses the five non-home, non-contact sources as protected Hero media in every matched locale", () => {
+  it("uses the five shared routes, matched Contact routes, and English/Greek Blog as protected Hero media", () => {
     const heroKinds = ["services", "process", "templates", "pricing", "faq"] as const;
     const pagesByLocale = [
       ["Services.tsx", "Process.tsx", "Templates.tsx", "Pricing.tsx", "FAQ.tsx"],
@@ -56,11 +56,16 @@ describe("cinematic banner delivery", () => {
       expect(source).toContain(`<CinematicHeroBackground kind="${heroKinds[index]}" />`);
     }));
 
-    [...heroKinds, "contact"].forEach((kind) => expect(heroComponent).toContain(`${kind}: "https://`));
+    [...heroKinds, "contact", "blog"].forEach((kind) => expect(heroComponent).toContain(`${kind}: "https://`));
     ["Contact.tsx", "el/ContactEl.tsx", "he/ContactHe.tsx"].forEach((page) => {
       const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");
       expect(source).toContain('className="cinematic-hero-surface');
       expect(source).toContain('<CinematicHeroBackground kind="contact" />');
+    });
+    ["Blog.tsx", "el/BlogEl.tsx"].forEach((page) => {
+      const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");
+      expect(source).toContain('className="cinematic-hero-surface');
+      expect(source).toContain('<CinematicHeroBackground kind="blog" />');
     });
     expect(heroComponent).toContain("network.connection?.saveData");
     expect(heroComponent).toContain("(min-width: 768px)");

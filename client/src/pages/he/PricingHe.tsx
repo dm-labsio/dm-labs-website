@@ -44,8 +44,9 @@ export default function PricingHe() {
 
   return (
     <main className="hebrew-home pricing-editorial" dir="rtl">
-      <section className="cinematic-hero-surface pricing-editorial-hero relative overflow-hidden">
+      <section className="cinematic-hero-surface pricing-editorial-hero relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
         <CinematicHeroBackground kind="pricing" />
+        <div className="absolute inset-0 opacity-[0.06] pointer-events-none"><img src="/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp" alt="" className="w-full h-full object-cover" aria-hidden="true" /></div>
         <div className="container relative z-10 text-center">
           <AnimateIn>
             <p className="pricing-editorial-label">מחירים שקופים</p>

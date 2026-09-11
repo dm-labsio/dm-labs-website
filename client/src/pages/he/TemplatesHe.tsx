@@ -1232,7 +1232,7 @@ export default function TemplatesHe() {
   })();
 
   return (
-    <div className="min-h-screen hebrew-home" dir="rtl" style={{ background: "#F6F6F4" }}>
+    <div className="min-h-screen hebrew-home templates-editorial" dir="rtl" style={{ background: "#F6F6F4" }}>
       {/* Hero */}
       <section className="cinematic-hero-surface relative py-12 sm:py-16 lg:py-24 overflow-hidden">
         <CinematicHeroBackground kind="templates" />
@@ -1241,12 +1241,12 @@ export default function TemplatesHe() {
         <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(139,92,255,0.07)" }} />
         <div className="relative container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>דוגמאות לאתרים</p>
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight"><span>מצאו את</span><span className="block"><em>סגנון האתר</em> שלכם</span></h1>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
+            <p className="templates-editorial-label text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>דוגמאות לאתרים</p>
+            <h1 className="templates-editorial-title text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight"><span>מצאו את</span><span><em>סגנון האתר</em> שלכם</span></h1>
+            <p className="templates-editorial-lead text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
               עברו בין עיצובים לפי ענף וקחו השראה לאתר הבא שלכם. כל כיוון יכול לקבל את השפה, הצבעים והתוכן שמרגישים בדיוק כמו העסק שלכם.
             </p>
-            <p className="text-sm text-gray-400 max-w-xl mx-auto">
+            <p className="templates-editorial-note text-sm text-gray-400 max-w-xl mx-auto">
               אלו <strong className="text-gray-500">נקודות השראה אינטראקטיביות</strong>. כל אתר נבנה מאפס עבור העסק שלכם.
             </p>
           </motion.div>
@@ -1262,7 +1262,7 @@ export default function TemplatesHe() {
       <section className="py-16">
         <div className="container">
           {filtered.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
+            <div className="templates-editorial-grid-shell grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
               {/* Προσαρμοσμένη Κατασκευή card - always shown first */}
               <CustomBuildCard />
               {filtered.map(template => (

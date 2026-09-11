@@ -322,6 +322,36 @@
     font-weight: 400;
     letter-spacing: -0.012em;
   }
+  /* Align the previously simplified Hebrew service-detail Heroes with the
+     established editorial spacing and mesh texture used by the richer pages. */
+  html[dir="rtl"] main.hebrew-home > section:first-child:has(> .container.max-w-4xl) {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-top: clamp(4rem, 8vh, 7rem);
+    padding-bottom: clamp(3rem, 6vh, 5rem);
+    background:
+      linear-gradient(135deg, rgba(248, 251, 255, .88), rgba(246, 246, 244, .76)),
+      url("/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp") center / cover;
+  }
+  html[dir="rtl"] main.hebrew-home > section:first-child:has(> .container.max-w-4xl)::before {
+    content: "";
+    position: absolute;
+    width: 22rem;
+    height: 22rem;
+    left: -6rem;
+    top: -10rem;
+    z-index: -1;
+    border: 1px solid rgba(91, 140, 255, .14);
+    border-radius: 32% 68% 61% 39% / 49% 36% 64% 51%;
+    box-shadow: 0 0 5rem rgba(111, 227, 255, .18);
+    transform: rotate(18deg);
+  }
+  html[dir="rtl"] main.hebrew-home > section:first-child:has(> .container.max-w-4xl) > .container { position: relative; z-index: 1; max-width: 64rem; }
+  @media (max-width: 767px) {
+    html[dir="rtl"] main.hebrew-home > section:first-child:has(> .container.max-w-4xl) { padding-top: 3.75rem; padding-bottom: 3rem; }
+    html[dir="rtl"] main.hebrew-home > section:first-child:has(> .container.max-w-4xl)::before { width: 15rem; height: 15rem; left: -5rem; top: -6rem; }
+  }
   html[dir="rtl"] .hebrew-ltr,
   html[dir="rtl"] [dir="ltr"] {
     unicode-bidi: isolate;
@@ -3317,16 +3347,16 @@ html[dir="rtl"] .cookie-consent-title {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  filter: saturate(.82) contrast(.92);
+  filter: saturate(.98) contrast(.98);
   transition: opacity 700ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.cinematic-hero-media__video.is-ready { opacity: .62; }
+.cinematic-hero-media__video.is-ready { opacity: .68; }
 
 .cinematic-hero-media__wash {
   background:
-    linear-gradient(90deg, rgba(251, 252, 255, .86) 0%, rgba(251, 252, 255, .70) 43%, rgba(251, 252, 255, .58) 100%),
-    radial-gradient(circle at 50% 43%, rgba(255, 255, 255, .35), transparent 52%);
+    linear-gradient(90deg, rgba(251, 252, 255, .82) 0%, rgba(251, 252, 255, .65) 43%, rgba(251, 252, 255, .53) 100%),
+    radial-gradient(circle at 50% 43%, rgba(255, 255, 255, .28), transparent 52%);
 }
 
 .cinematic-hero-surface > .container {

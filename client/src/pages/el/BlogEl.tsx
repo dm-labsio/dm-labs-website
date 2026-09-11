@@ -4,6 +4,7 @@
    Clean editorial layout, card grid, category filters
    ============================================================ */
 import { useSEO } from "@/hooks/useSEO";
+import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
 import { POSTS_EL } from "@/data/blogPostsEl";
@@ -26,9 +27,10 @@ export default function ΆρθραEl() {
     <>
       {/* Hero */}
       <section
-        className="relative overflow-hidden"
+        className="cinematic-hero-surface relative overflow-hidden"
         style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(3rem, 6vh, 5rem)" }}
       >
+        <CinematicHeroBackground kind="blog" />
         <div className="container relative z-10 text-center">
           <AnimateIn>
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Άρθρα & Συμβουλές</p>

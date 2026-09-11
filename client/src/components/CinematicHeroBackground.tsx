@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export type CinematicHeroKind = "services" | "process" | "templates" | "pricing" | "faq" | "contact";
+export type CinematicHeroKind = "services" | "process" | "templates" | "pricing" | "faq" | "contact" | "blog";
 
 const HERO_VIDEO_SOURCES: Record<CinematicHeroKind, string> = {
   services: "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_premium_technology_animation.mp4",
@@ -9,6 +9,7 @@ const HERO_VIDEO_SOURCES: Record<CinematicHeroKind, string> = {
   pricing: "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/premium_growth_animation_from_this_exact_image.mp4",
   faq: "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/futuristic_editorial_animation_from_this_exact_image.mp4",
   contact: "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_futuristic_conversation_animation.mp4",
+  blog: "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/futuristic_editorial_animation_from_this_exact_image.mp4",
 };
 
 type CinematicHeroBackgroundProps = {
