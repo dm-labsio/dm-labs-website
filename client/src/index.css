@@ -3356,10 +3356,28 @@ html[dir="rtl"] .cookie-consent-title {
 /* The supplied Process and Examples films include a quiet edge frame. A small
    overscan keeps their active composition full-bleed inside the existing Hero
    rather than exposing that frame above or below the copy. */
-.cinematic-hero-media--process .cinematic-hero-media__video,
-.cinematic-hero-media--templates .cinematic-hero-media__video {
+.cinematic-hero-media--process .cinematic-hero-media__video {
   transform: scale(1.12);
   transform-origin: center;
+}
+
+/* The high-tech gallery has a broader, darker perimeter than the other films.
+   Crop it more decisively and use a locally lighter readability layer so the
+   Examples Hero reads as full-bleed animated artwork, not a small panel. */
+.cinematic-hero-media--templates .cinematic-hero-media__video {
+  transform: scale(1.28);
+  transform-origin: center;
+  filter: saturate(1.06) brightness(1.06) contrast(.97);
+}
+
+.cinematic-hero-media--templates .cinematic-hero-media__video.is-ready {
+  opacity: .82;
+}
+
+.cinematic-hero-media--templates .cinematic-hero-media__wash {
+  background:
+    linear-gradient(90deg, rgba(251, 252, 255, .72) 0%, rgba(251, 252, 255, .54) 43%, rgba(251, 252, 255, .42) 100%),
+    radial-gradient(circle at 50% 43%, rgba(255, 255, 255, .2), transparent 52%);
 }
 
 .cinematic-hero-media__wash {
