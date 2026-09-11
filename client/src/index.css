@@ -3353,6 +3353,15 @@ html[dir="rtl"] .cookie-consent-title {
 
 .cinematic-hero-media__video.is-ready { opacity: .68; }
 
+/* The supplied Process and Examples films include a quiet edge frame. A small
+   overscan keeps their active composition full-bleed inside the existing Hero
+   rather than exposing that frame above or below the copy. */
+.cinematic-hero-media--process .cinematic-hero-media__video,
+.cinematic-hero-media--templates .cinematic-hero-media__video {
+  transform: scale(1.12);
+  transform-origin: center;
+}
+
 .cinematic-hero-media__wash {
   background:
     linear-gradient(90deg, rgba(251, 252, 255, .82) 0%, rgba(251, 252, 255, .65) 43%, rgba(251, 252, 255, .53) 100%),

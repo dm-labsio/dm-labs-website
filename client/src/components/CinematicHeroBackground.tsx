@@ -71,7 +71,7 @@ export default function CinematicHeroBackground({
   }, [isVisible, shouldLoad]);
 
   return (
-    <div ref={rootRef} className="cinematic-hero-media" aria-hidden="true">
+    <div ref={rootRef} className={`cinematic-hero-media cinematic-hero-media--${kind}`} aria-hidden="true">
       <div className="cinematic-hero-media__fallback" />
       {shouldLoad ? (
         <video

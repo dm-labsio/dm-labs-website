@@ -74,6 +74,10 @@ describe("cinematic banner delivery", () => {
     expect(heroComponent).toContain("preload=\"auto\"");
     expect(prerender).toContain('locator(".cinematic-hero-media__video")');
     expect(prerender).toContain("videos.forEach((video) => video.remove())");
+    expect(heroComponent).toContain('cinematic-hero-media--${kind}');
+    expect(cinematicStyles).toContain(".cinematic-hero-media--process .cinematic-hero-media__video");
+    expect(cinematicStyles).toContain(".cinematic-hero-media--templates .cinematic-hero-media__video");
+    expect(cinematicStyles).toContain("transform: scale(1.12)");
   });
 
   it("keeps the approved homepage interlude and reserves the taller lower-page treatment for Contact", () => {
