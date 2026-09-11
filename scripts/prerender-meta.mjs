@@ -198,6 +198,12 @@ const EN_STATIC_ROUTES = [
     description: "Turn Google Search Console data into SEO actions with seven copy-ready AI prompts for quick wins, content gaps, CTR, decay and planning.",
     // No elPath — this post is English-only; hreflang will self-reference
   },
+  {
+    path: "/blog/website-leads-real-estate-construction-hospitality",
+    title: "How to Get More Website Leads | Property, Construction & Hotels",
+    description: "A practical guide for real estate, construction, hotel, and villa businesses on turning website visitors into viewing requests, project enquiries, and direct bookings.",
+    // No elPath — this post is intentionally English-only; hreflang will self-reference
+  },
 ];
 
 // ─── Greek Static Routes ──────────────────────────────────────────────────────

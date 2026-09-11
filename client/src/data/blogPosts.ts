@@ -21,6 +21,142 @@ export interface BlogPost {
 
 export const POSTS: BlogPost[] = [
   {
+    slug: "website-leads-real-estate-construction-hospitality",
+    title: "How Can Real Estate, Construction, and Hospitality Businesses Get More Leads From Their Website?",
+    metaTitle: "How to Get More Website Leads | Property, Construction & Hotels",
+    metaDescription: "A practical guide for real estate, construction, hotel, and villa businesses on turning website visitors into viewing requests, project enquiries, and direct bookings.",
+    date: "2026-09-11",
+    readTime: "6 min read",
+    category: "SEO & Growth",
+    excerpt: "A practical guide to clearer property pages, project case studies, booking journeys, and enquiry forms that help real estate, construction, hotel, and villa businesses turn more visitors into qualified leads.",
+    coverImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+    imageAlt: "Modern Mediterranean villa exterior with a pool",
+    author: "Anastacia B.",
+    content: `
+<p class="blog-lead">Someone visits your website because they are considering a decision: arranging a property viewing, choosing a construction company, or booking a stay. Before they contact you, they need answers. Is this suitable for me? Can I trust this business? What will it cost? What happens next?</p>
+
+<p>For real estate agencies, construction companies, hotels, and villa owners in Cyprus, Greece, and Israel, a useful website makes those answers easy to find and makes the next step easy to take. Here are the questions business owners should ask when building or improving their website.</p>
+
+<h2>Why is my website getting visitors but very few enquiries?</h2>
+
+<p>Start by checking whether visitors can quickly understand what you offer, where you operate, and how to contact you.</p>
+
+<p>A construction website that says “We deliver excellence” leaves important questions unanswered. “Home renovations in Limassol, from bathroom upgrades to complete property refurbishments” gives potential customers something concrete.</p>
+
+<p>Other possible obstacles include:</p>
+<ul>
+  <li>Property listings with missing prices, floor plans, or availability.</li>
+  <li>Project galleries that show photographs without explaining the work.</li>
+  <li>Accommodation pages with unclear fees or cancellation terms.</li>
+  <li>Forms that ask for too much information.</li>
+  <li>Contact or booking buttons that are difficult to find on a phone.</li>
+</ul>
+
+<p>Before paying for more traffic, try completing an enquiry yourself on mobile. Notice every point where you need to search, guess, or wait.</p>
+
+<h2>What should a real estate website include to generate better leads?</h2>
+
+<p>Give each property a detailed page that helps a buyer decide whether to arrange a viewing.</p>
+
+<p>Include its location, price, size, bedrooms, key features, floor plan, current availability, and clear photographs. Explain relevant details such as parking, outdoor space, property condition, and nearby amenities.</p>
+
+<p>Answer the questions people would otherwise need to send you:</p>
+<ul>
+  <li>Is this property still available?</li>
+  <li>Is it ready to move into?</li>
+  <li>Can I arrange a remote viewing?</li>
+  <li>What information can you provide about ongoing costs?</li>
+  <li>Who will handle my enquiry?</li>
+</ul>
+
+<p>Keep financial and legal details specific to the property and verified by the appropriate professional.</p>
+
+<p>End the page with an action such as “Arrange a viewing” or “Ask about this property.” When someone submits the form, automatically include the property reference so they do not have to describe the listing again.</p>
+
+<h2>How can a construction company attract more suitable projects?</h2>
+
+<p>Explain the work you take on and show evidence that you can deliver it.</p>
+
+<p>Create separate pages for your main services, such as new builds, home renovations, extensions, or commercial fit-outs. State the areas you serve and the types of projects that suit your team.</p>
+
+<p>Turn completed projects into short case studies. Describe the client’s brief, the scope of work, any important challenges, and the finished result. Use your own photographs and publish customer feedback with permission.</p>
+
+<p>Your enquiry form can ask for the project location, type of work, approximate budget, and preferred start date. Make optional uploads available for plans or photographs.</p>
+
+<p>This gives you a more useful starting point for a conversation and helps customers understand whether you are a suitable match.</p>
+
+<h2>Should construction companies publish prices?</h2>
+
+<p>Publish enough information to help customers understand the likely scale of the investment.</p>
+
+<p>If every project needs an assessment, explain what affects the quote: floor area, condition, materials, access, design requirements, and the scope of work.</p>
+
+<p>Where you have reliable examples, you can publish a starting price or a typical project range. Clearly explain what it includes and what could change the cost.</p>
+
+<p>Avoid an attractive headline price that bears little resemblance to the work most customers need. Clear expectations make the first conversation more productive.</p>
+
+<h2>How can hotels and villas get more direct bookings?</h2>
+
+<p>Let guests check whether the accommodation suits them, understand the total cost, and complete a reservation with confidence.</p>
+
+<p>Your website should answer practical questions about:</p>
+<ul>
+  <li>Availability and prices for their dates.</li>
+  <li>Occupancy, bedrooms, beds, and bathrooms.</li>
+  <li>Location, access, parking, and transport.</li>
+  <li>Facilities such as a pool, kitchen, or workspace.</li>
+  <li>Deposits, additional fees, and cancellation terms.</li>
+  <li>Check-in arrangements and how to reach the host.</li>
+</ul>
+
+<p>Use a booking system that works comfortably on mobile and keeps availability aligned with your other booking channels.</p>
+
+<p>If you offer a direct-booking benefit, make it specific and accurate. This might be a flexible arrival arrangement or an included extra, where your business can provide it.</p>
+
+<p>Eligible hotels can also explore <a href="https://support.google.com/hotelprices/answer/10472393?hl=en" class="blog-link" target="_blank" rel="noopener noreferrer">Google’s free booking links</a>, which can send travellers to a hotel booking page. Participation requires the appropriate setup. Publishing a website alone does not activate them.</p>
+
+<h2>Do I still need a website if I use property portals, Instagram, or booking platforms?</h2>
+
+<p>A website gives interested customers a place to explore your business in more detail and contact you directly.</p>
+
+<p>A property portal can introduce a buyer to a listing. Your website can explain your agency’s approach and show related properties. Instagram can showcase a renovation. Your project page can explain the work and invite a quote request.</p>
+
+<p>For accommodation, your website can answer questions that need more detail than a platform listing. Connect these channels so that people can move naturally from discovering your business to taking the next step.</p>
+
+<h2>Which languages should my website support?</h2>
+
+<p>Start with the languages your actual customers use.</p>
+
+<p>A business serving local and international customers in Cyprus or Greece may benefit from Greek and English. A business in Israel may need Hebrew and English, or other languages depending on its audience.</p>
+
+<p>Look at your existing enquiries before choosing. Translate the important parts of the customer journey, including service descriptions, forms, booking information, and confirmation messages.</p>
+
+<p>Google recommends separate page addresses for different language versions. Visitors should also be able to choose their preferred language easily. Read <a href="https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites" class="blog-link" target="_blank" rel="noopener noreferrer">Google’s multilingual website guidance</a>.</p>
+
+<h2>Can a new website guarantee more leads?</h2>
+
+<p>No. Results depend on whether suitable customers find your website, how convincing your offer is, and what happens after someone enquires.</p>
+
+<p>A website can support that process by explaining your services, presenting credible evidence, answering questions, and making contact straightforward.</p>
+
+<p>Measure completed enquiries, viewing requests, quote requests, and bookings. Then track which enquiries become customers. A click on a WhatsApp button shows interest, but it does not confirm that a conversation or sale happened.</p>
+
+<h2>Do I need a complete redesign?</h2>
+
+<p>Sometimes a few focused improvements are enough.</p>
+
+<p>If the website already works well, better property pages, clearer project examples, a simpler form, or a smoother booking process may address the main problem.</p>
+
+<p>A full rebuild becomes more relevant when the site is difficult to use on mobile, hard to update, or unable to support the features your business needs. Start with the customer journey and identify where it breaks down.</p>
+
+<div class="blog-cta">
+  <h3>Want a website that makes it easier for customers to choose you?</h3>
+  <p>We build websites for real estate agencies, construction companies, hotels, and villa businesses serving Cyprus, Greece, and Israel. Send us your website address, or tell us about the business you are launching, along with your location and the enquiries you want to attract. We can discuss the right scope and provide a tailored proposal.</p>
+  <a href="/contact/" class="blog-cta-btn">Request a Website Lead Review</a>
+</div>
+    `,
+  },
+  {
     slug: "website-cost-cyprus-2026-guide",
     title: "How Much Does a Website Cost in Cyprus? (2026 Honest Guide)",
     metaTitle: "Website Cost Cyprus 2026 | Honest Pricing Guide",

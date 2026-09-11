@@ -39,6 +39,10 @@ describe("SEO route mapping", () => {
       en: "/blog/google-search-console-ai-seo-prompts",
       el: null,
     });
+    expect(getHreflangPair("/blog/website-leads-real-estate-construction-hospitality/")).toEqual({
+      en: "/blog/website-leads-real-estate-construction-hospitality",
+      el: null,
+    });
     expect(getHreflangPair("/web-design-paphos/")).toEqual({ en: "/web-design-paphos", el: null });
   });
 
@@ -50,6 +54,7 @@ describe("SEO route mapping", () => {
     expect(getGreekLanguageTogglePath("/web-design-paphos/")).toBe("/el/web-design-cyprus");
     expect(getGreekLanguageTogglePath("/web-design-restaurants-cyprus/")).toBe("/el/web-design-cyprus");
     expect(getGreekLanguageTogglePath("/blog/google-search-console-ai-seo-prompts/")).toBe("/el");
+    expect(getGreekLanguageTogglePath("/blog/website-leads-real-estate-construction-hospitality/")).toBe("/el");
   });
 
   it("emits Hebrew alternates only for completed mapped routes and never for current blog routes", () => {

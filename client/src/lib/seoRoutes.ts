@@ -20,6 +20,7 @@ export const EN_TO_EL_PATHS: Readonly<Record<string, string | null>> = {
   "/blog/web-design-greece-guide-2026": "/el/blog/web-design-ellada-odigos-2026",
   "/blog/geo-get-found-by-chatgpt-cyprus": "/el/blog/geo-vrethite-apo-chatgpt-kypros",
   "/blog/google-search-console-ai-seo-prompts": null,
+  "/blog/website-leads-real-estate-construction-hospitality": null,
   "/web-design-paphos": null,
   "/web-design-restaurants-cyprus": null,
 };

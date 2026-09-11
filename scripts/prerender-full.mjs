@@ -57,6 +57,7 @@ const EN_BLOG_SLUGS = [
   "web-design-greece-guide-2026",
   "geo-get-found-by-chatgpt-cyprus",
   "google-search-console-ai-seo-prompts",
+  "website-leads-real-estate-construction-hospitality",
 ];
 
 const EL_BLOG_SLUGS = [
