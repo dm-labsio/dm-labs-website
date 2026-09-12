@@ -101,7 +101,7 @@ describe("platform-independent production stack", () => {
 
   it("preserves the production build, output directory, and 89-route prerender contract", () => {
     expect(packageJson.scripts.build).toBe(
-      "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/prerender-full.mjs",
+      "tsx scripts/check-link-integrity.ts && vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/prerender-full.mjs",
     );
     expect(viteConfig).toContain('outDir: path.resolve(import.meta.dirname, "dist/public")');
     expect(prerenderSource).toContain('const DIST_DIR = join(ROOT, "dist", "public")');

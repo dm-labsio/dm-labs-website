@@ -9,7 +9,7 @@ import viteConfig from "../../vite.config";
 // ─── Known valid routes (production 404 guard) ────────────────────────────────
 // Any path NOT in this set AND not matching a dynamic pattern returns HTTP 404.
 // Keep in sync with App.tsx Route definitions.
-const STATIC_ROUTES = new Set([
+export const STATIC_ROUTES = new Set([
   "/",
   "/services",
   "/process",
@@ -69,7 +69,10 @@ const STATIC_ROUTES = new Set([
   "/web-design-crete",
   "/web-design-paphos",
   "/web-design-restaurants-cyprus",
-  "/404",
+  // /404 is intentionally NOT a known route: it must fall through to the
+  // catch-all below and return a real HTTP 404, not 200. The client-side
+  // <Route path="/404"> in App.tsx still renders the NotFound UI for any
+  // in-app navigate("/404") call, which never touches this server logic.
   // Services sub-pages
   "/services/custom-design",
   "/services/mobile-first",
@@ -122,7 +125,7 @@ const STATIC_ROUTES = new Set([
 ]);
 
 // Dynamic route patterns (regex)
-const DYNAMIC_PATTERNS = [
+export const DYNAMIC_PATTERNS = [
   /^\/blog\/[a-z0-9-]+$/,
   /^\/services\/[a-z0-9-]+$/,
   /^\/el\/services\/[a-z0-9-]+$/,
@@ -132,7 +135,7 @@ const DYNAMIC_PATTERNS = [
 // Valid visitor-facing demo pages are prerendered separately from the 69
 // canonical routes. Keep this explicit allowlist in sync with PreviewPage and
 // scripts/prerender-full.mjs so unknown /preview/:id paths retain a real 404.
-const VALID_PREVIEW_IDS = new Set([
+export const VALID_PREVIEW_IDS = new Set([
   "bella-salon",
   "verde-restaurant",
   "pulse-gym",
@@ -147,7 +150,7 @@ const VALID_PREVIEW_IDS = new Set([
 ]);
 
 // ─── Permanent 301 redirects ──────────────────────────────────────────────────
-const REDIRECTS: Record<string, string> = {
+export const REDIRECTS: Record<string, string> = {
   // Greek slugs incorrectly served on English paths
   "/blog/geo-vrethite-apo-chatgpt-kypros": "/el/blog/geo-vrethite-apo-chatgpt-kypros/",
   "/blog/pos-na-vretheite-google-kypros": "/el/blog/pos-na-vretheite-google-kypros/",
@@ -172,7 +175,7 @@ const REDIRECTS: Record<string, string> = {
   "/$": "/",
 };
 
-function isKnownRoute(urlPath: string): boolean {
+export function isKnownRoute(urlPath: string): boolean {
   if (STATIC_ROUTES.has(urlPath)) return true;
   if (urlPath.startsWith("/preview/")) {
     return VALID_PREVIEW_IDS.has(urlPath.slice("/preview/".length));

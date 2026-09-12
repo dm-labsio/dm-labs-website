@@ -119,7 +119,7 @@ describe("Vercel static deployment configuration", () => {
 
   it("keeps the esbuild-backed prerender command and emits root 404.html after 96 routes", () => {
     expect(packageJson.scripts.build).toBe(
-      "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/prerender-full.mjs"
+      "tsx scripts/check-link-integrity.ts && vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/prerender-full.mjs"
     );
     expect(prerenderSource).toMatch(
       /const \{ default: serverlessChromium \} = await import\(\s*"@sparticuz\/chromium"\s*\)/
