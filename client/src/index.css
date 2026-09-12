@@ -2546,6 +2546,57 @@ html[dir="rtl"] .whatsapp-float[data-locale="he"] {
 .blog-content .blog-link:hover {
   color: #8B5CFF;
 }
+.blog-content .blog-toc {
+  margin: 1.75rem 0 2.25rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid #E2E5EA;
+  border-radius: 0.9rem;
+  background: #F8FAFD;
+}
+.blog-content .blog-toc__title {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: #111315;
+  font-weight: 700;
+}
+.blog-content .blog-toc ol {
+  margin: 0;
+  padding-left: 1.35rem;
+}
+.blog-content .blog-toc li {
+  margin: 0.3rem 0;
+  padding-left: 0.15rem;
+}
+.blog-content .blog-toc li::marker {
+  color: #5B8CFF;
+  font-weight: 700;
+}
+.blog-content .blog-toc a {
+  color: #374151;
+  text-decoration: none;
+}
+.blog-content .blog-toc a:hover {
+  color: #5B8CFF;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.blog-content .blog-soft-cta {
+  margin: 2rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid #5B8CFF;
+  color: #111315;
+  font-weight: 600;
+}
+.blog-content .blog-placeholder-note {
+  margin: 1rem 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.7rem;
+  background: #FFF8E7;
+  border: 1px solid #F2D58B;
+  color: #5C4A18;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
 .blog-table {
   width: 100%;
   border-collapse: collapse;

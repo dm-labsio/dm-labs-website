@@ -204,6 +204,12 @@ const EN_STATIC_ROUTES = [
     description: "A practical guide for real estate, construction, hotel, and villa businesses on turning website visitors into viewing requests, project enquiries, and direct bookings.",
     // No elPath — this post is intentionally English-only; hreflang will self-reference
   },
+  {
+    path: "/blog/google-ai-mode-near-me-cyprus",
+    title: "Google AI Answers \"Near Me\" Searches in Cyprus (2026)",
+    description: "Google AI Mode now answers \"near me\" questions in Greek and English. Here's what decides which Cyprus business it recommends — and how to become it.",
+    // No elPath — this post is intentionally English-only; hreflang will self-reference
+  },
 ];
 
 // ─── Greek Static Routes ──────────────────────────────────────────────────────

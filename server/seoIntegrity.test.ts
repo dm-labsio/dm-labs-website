@@ -62,7 +62,7 @@ describe("SEO integrity", () => {
     expect(home).toContain('"name": "Tom B."');
     expect(home).toContain('"name": "Greece"');
     expect(blogPost).toContain('"@type": "BlogPosting"');
-    expect(blogPost).toContain('"@type": "Person"');
+    expect(blogPost).toContain('"@type": isOrganisationAuthor ? "Organization" : "Person"');
     expect(serviceDetail).toContain('"@type": "Service"');
     expect(serviceDetail).toContain('"@type": "FAQPage"');
     expect(seoHook).toContain('"@type": "BreadcrumbList"');
