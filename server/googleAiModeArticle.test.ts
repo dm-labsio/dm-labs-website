@@ -24,7 +24,8 @@ describe("Google AI Mode Cyprus article", () => {
     expect(post?.content).toContain("checked <strong>12 September 2026 / at the time of writing</strong>");
     expect(post?.content).toContain("PPC Land");
     expect(post?.content).toContain("every business-data value in this example must be replaced");
-    expect(post?.content).toContain("Get your free AI Answer Check");
+    expect(post?.content).toContain("Request an AI Answer Check");
+    expect(post?.content).not.toMatch(/free AI Answer Check|free, no commitment|no sales call/i);
     expect(post?.content).toContain("Greek-language AI Mode went live in Greece on <strong>8 October 2025</strong>");
     expect(post?.content).toContain("published in <strong>July 2025</strong> and covering <strong>May 2024 to May 2025</strong>");
     expect(post?.content).toContain("ChatGPT builds its answer from mentions.");

@@ -128,7 +128,7 @@ export const POSTS: BlogPost[] = [
   <li><strong>Publish a real Greek version when Greek is part of your market.</strong> A language widget is not a Greek page. Google recommends distinct URLs for language versions with appropriate <code>hreflang</code> annotations. <a href="https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites" class="blog-link" target="_blank" rel="noopener noreferrer">Read Google’s multilingual-site guidance</a>.</li>
 </ol>
 
-<p class="blog-soft-cta">Want the checklist applied to your own site? <a href="/contact/" class="blog-link">Ask for a free AI Answer Check</a> and we will show you the gaps we find.</p>
+<p class="blog-soft-cta">Want the checklist applied to your own site? <a href="/contact/" class="blog-link">Request an AI Answer Check</a> and we will show you the gaps we find.</p>
 
 <p>Structured data is part of the consistency check. The LocalBusiness example below is a template, not copy-and-paste business information.</p>
 
@@ -217,8 +217,8 @@ export const POSTS: BlogPost[] = [
 
 <div class="blog-cta">
   <h3>See what Google’s AI says about your business today</h3>
-  <p>We will run the five questions above against your business in Greek and English and send you what comes back: which competitors get named, why, and the gaps on your side. Free, no commitment, and no sales call unless you ask for one.</p>
-  <a href="/contact/" class="blog-cta-btn">Get your free AI Answer Check</a>
+  <p>We will run the five questions above against your business in Greek and English, then show you which competitors get named, why, and the gaps on your side. We will recommend next steps based on your market, website, and priorities.</p>
+  <a href="/contact/" class="blog-cta-btn">Request an AI Answer Check</a>
 </div>
 
 <p><em>Related reading: <a href="/blog/geo-get-found-by-chatgpt-cyprus/" class="blog-link">GEO: How to Get Your Cyprus Business Found by ChatGPT and AI Search</a> · <a href="/blog/how-to-get-found-on-google-cyprus/" class="blog-link">How to Get Your Business Found on Google in Cyprus</a> · <a href="/blog/website-cost-cyprus-2026-guide/" class="blog-link">How Much Does a Website Cost in Cyprus?</a></em></p>
