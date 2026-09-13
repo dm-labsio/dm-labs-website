@@ -10,6 +10,7 @@ export interface BlogPost {
   metaTitle: string;
   metaDescription: string;
   date: string;
+  dateModified?: string;
   readTime: string;
   category: string;
   excerpt: string;
@@ -17,9 +18,212 @@ export interface BlogPost {
   imageAlt?: string; // Optional custom alt text for cover image (defaults to post title)
   content: string; // HTML string
   author?: string; // Optional visible byline, e.g. "DM-Labs.io"
+  authorType?: "Person" | "Organization";
+  language?: string;
+  keywords?: string[];
+  faq?: Array<{ question: string; answer: string }>;
 }
 
 export const POSTS: BlogPost[] = [
+  {
+    slug: "google-ai-mode-near-me-cyprus",
+    title: "Google's AI Now Answers \"Near Me\" Searches in Cyprus. Here's How to Be the Business It Recommends.",
+    metaTitle: "Google AI Answers \"Near Me\" Searches in Cyprus (2026)",
+    metaDescription: "Google AI Mode now answers \"near me\" questions in Greek and English. Here's what decides which Cyprus business it recommends — and how to become it.",
+    date: "2026-09-12",
+    dateModified: "2026-09-12",
+    readTime: "8 min read",
+    category: "SEO & GEO",
+    excerpt: "Google AI Mode is changing how Cyprus customers ask local questions. Here is the practical checklist we use when auditing whether a business is ready to be named in an AI answer.",
+    coverImage: "/media/google-ai-mode-cyprus-editorial-cover.webp",
+    imageAlt: "Smartphone with an abstract AI local-discovery signal over a stylised Cyprus coastline",
+    author: "DM-Labs.io",
+    authorType: "Organization",
+    language: "en",
+    keywords: [
+      "google ai mode cyprus",
+      "ai search cyprus",
+      "near me searches cyprus",
+      "google business profile cyprus",
+      "localbusiness schema cyprus",
+    ],
+    faq: [
+      {
+        question: "Is Google AI Mode available in Cyprus?",
+        answer: "Google says AI Mode is available in more than 200 countries and territories and supports Greek. Check the current supported-country list in your own Google account, because availability and features can change by location and account.",
+      },
+      {
+        question: "Does Google AI Mode work in Greek?",
+        answer: "Yes. Google added Greek during its October 2025 language expansion. A proper Greek version of a business website gives local customers and search systems clear Greek-language information to work with.",
+      },
+      {
+        question: "Do I need a new website to appear in AI search?",
+        answer: "Usually not. Many businesses should first complete their Google Business Profile, correct inconsistent business details, add useful service pages, and publish crawlable content. A rebuild becomes relevant when the current website is slow, inaccessible, or cannot support those foundations.",
+      },
+      {
+        question: "Does Google Business Profile matter more than my website?",
+        answer: "For local discovery, Google Business Profile and the website work together. The profile provides core local business details, while the website proves, expands, and keeps those details consistent through service pages, contact information, and structured data.",
+      },
+      {
+        question: "How long does it take to appear in AI search results?",
+        answer: "There is no guaranteed timeframe. In our Cyprus site audits, meaningful progress commonly takes 60 to 90 days after the foundations are corrected and new pages are crawled. Profile updates can appear sooner, while reviews and organic visibility build over time.",
+      },
+      {
+        question: "Will an AI answer send me less traffic than a normal search result?",
+        answer: "Sometimes it can mean fewer clicks, but in our audits the people who do click after reading an AI answer are often further along in the decision. Measure enquiries, calls, bookings, and sales rather than treating raw traffic as the only outcome.",
+      },
+    ],
+    content: `
+<p class="blog-lead">Someone in Paphos picks up their phone and asks Google: <em>“Best physio near me that speaks English?”</em> The old search result was a page of links. Increasingly, the answer appears first, with a short list of businesses and a reason to choose each one.</p>
+
+<p>If Google names your business, you start the conversation with trust already in place. If it does not, you are not automatically out of the market, but you are outside the first answer. This is the practical reality behind <strong>Google AI Mode Cyprus</strong> searches in 2026.</p>
+
+<nav class="blog-toc" aria-label="Table of contents">
+  <span class="blog-toc__title">In this guide</span>
+  <ol>
+    <li><a href="#what-actually-changed">What actually changed</a></li>
+    <li><a href="#near-me-signal">The “near me” signal</a></li>
+    <li><a href="#chatgpt-versus-ai-mode">Why AI Mode is different from ChatGPT</a></li>
+    <li><a href="#seven-things">The seven things we audit</a></li>
+    <li><a href="#test-ai-mode">Run the test yourself</a></li>
+    <li><a href="#what-this-does-not-mean">What this does not mean</a></li>
+    <li><a href="#how-long">How long it takes</a></li>
+    <li><a href="#faq">Frequently asked questions</a></li>
+  </ol>
+</nav>
+
+<h2 id="what-actually-changed">What actually changed</h2>
+
+<p>Three shifts now matter together. First, Greek-language AI Mode went live in Greece on <strong>8 October 2025</strong>, according to <a href="https://www.tovima.com/society/googles-ai-mode-goes-live-in-greece-with-greek-language-support/" class="blog-link" target="_blank" rel="noopener noreferrer">To Vima’s launch report</a>. Google’s official expansion announcement, published the day before, says AI Mode was expanding to more than 35 additional languages and over 40 additional countries and territories, bringing it to more than 200 countries and territories overall. <a href="https://blog.google/products-and-platforms/products/search/ai-mode-expands-languages-locations/" class="blog-link" target="_blank" rel="noopener noreferrer">Read Google’s expansion announcement</a>.</p>
+
+<p>Second, the Cyprus search behaviour is moving fast. In Google Trends for Cyprus, <em>gemini</em> is up around 350%, <em>gemini ai</em> around 250%, and <em>chatgpt</em> around 50% over the past 12 months, checked <strong>12 September 2026 / at the time of writing</strong>. The five-year view shows ChatGPT interest peaking around November 2025 and then flattening or drifting down, while Gemini continues to climb through 2026. <a href="https://trends.google.com/trends/explore?date=2025-09-12%202026-09-12&amp;geo=CY&amp;q=gemini,gemini%20ai,chatgpt" class="blog-link" target="_blank" rel="noopener noreferrer">View the Cyprus Google Trends comparison</a>.</p>
+
+<p>Third, customers are asking fuller questions. Google says the average AI Mode query is three times the length of a traditional Search query. <a href="https://blog.google/products-and-platforms/products/search/ai-mode-us-insights/" class="blog-link" target="_blank" rel="noopener noreferrer">Google’s 2026 AI Mode research</a> gives the context. Instead of <em>“restaurant Paphos”</em>, the customer asks where to eat with two children, outdoor seating, and a late table. That is a very different brief for a business website.</p>
+
+<h2 id="near-me-signal">The “near me” signal nobody in Cyprus is watching</h2>
+
+<p>Look at related web-design queries in Cyprus and the pattern is clear. <em>“web design services near me”</em> and <em>“web design company near me”</em> are both marked as Breakout, while <em>“web design agency”</em> grew around 110% in the five-year view. In the Cyprus Web Design &amp; Development category, <em>website</em> and <em>chatgpt</em> each rose around 30% over the past 12 months, checked <strong>12 September 2026 / at the time of writing</strong>. <a href="https://trends.google.com/trends/explore?date=2021-09-12%202026-09-12&amp;geo=CY&amp;q=web%20design%20services%20near%20me,web%20design%20company%20near%20me,web%20design%20agency" class="blog-link" target="_blank" rel="noopener noreferrer">See the local-service query trend</a> and <a href="https://trends.google.com/trends/explore?date=2025-09-12%202026-09-12&amp;geo=CY&amp;cat=422&amp;q=website,chatgpt" class="blog-link" target="_blank" rel="noopener noreferrer">the Web Design &amp; Development category view</a>.</p>
+
+<p>Swap in your own business. A customer might ask for a dentist open Saturday in Larnaca, a plumber in Paphos for an emergency, or a nail salon in Limassol that does gel extensions. These are specific, local questions. When we audit Cyprus sites, we start by asking whether the site and Google Business Profile give a clear answer to the same question.</p>
+
+<h2 id="chatgpt-versus-ai-mode">Why this is a different job from getting cited by ChatGPT</h2>
+
+<p>We have already covered <a href="/blog/geo-get-found-by-chatgpt-cyprus/" class="blog-link">how to get your Cyprus business found by ChatGPT and AI search</a>. That work still matters. But Google AI Mode starts from a different place: Google’s own search systems, local data, business profiles, maps, pages, and web links.</p>
+
+<p><strong>ChatGPT builds its answer from mentions.</strong> Directories, articles, reviews on third-party sites, anywhere your name appears in trustworthy text. Your own website matters, but it is one voice among many. For Google’s local answer surfaces, your own site and Google Business Profile need to be accurate, crawlable, and specific enough to answer the question a person asked.</p>
+
+<p><strong>The 96% figure needs the right context.</strong> PPC Land reports a Brainlabs study, published in <strong>July 2025</strong> and covering <strong>May 2024 to May 2025</strong>, in which 96% of links in <strong>AI Overviews</strong>, not AI Mode specifically, came from websites already ranking in the top 10 organic results. <a href="https://ppc.land/googles-new-guide-for-ai-search-what-seo-really-needs-now/" class="blog-link" target="_blank" rel="noopener noreferrer">PPC Land names the study and scope here</a>. It does not reveal an AI Mode formula. It does reinforce what we see in Cyprus audits: solid organic foundations are not old SEO baggage. They are still the work.</p>
+
+<h2 id="seven-things">The seven things that decide whether the AI names you</h2>
+
+<p>Not theory. This is the checklist we run on every Cyprus site we audit before we talk about bigger campaigns.</p>
+
+<ol>
+  <li><strong>Finish your Google Business Profile.</strong> Use the right primary category, list real services, keep opening hours current, and add genuine photographs. The profile should make sense even when the reader never reaches your website.</li>
+  <li><strong>Earn and answer recent reviews.</strong> Ask real customers in the languages they naturally use. Do not script or invent reviews. A useful reply can clarify service details for the next person reading it.</li>
+  <li><strong>Make your website and profile agree.</strong> Your business name, address, phone number, opening hours, and core services should match wherever a customer sees them. In our audits, inconsistent contact details are one of the fastest credibility problems to find.</li>
+  <li><strong>Build a useful page for each important service and place.</strong> A page that clearly explains physiotherapy in Limassol is more useful than a generic service list that tries to cover every treatment and every town at once.</li>
+  <li><strong>Shape content like an answer.</strong> Put the customer’s real question in the heading and answer it early. Give prices, availability, practical limits, and next steps in ordinary text where you can verify them.</li>
+  <li><strong>Keep key facts crawlable.</strong> If you can't select it with your cursor, assume Google can't use it. Do not trap hours, prices, menus, or service details inside an image or animation. Put critical facts in HTML text that a visitor can select and a crawler can read.</li>
+  <li><strong>Publish a real Greek version when Greek is part of your market.</strong> A language widget is not a Greek page. Google recommends distinct URLs for language versions with appropriate <code>hreflang</code> annotations. <a href="https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites" class="blog-link" target="_blank" rel="noopener noreferrer">Read Google’s multilingual-site guidance</a>.</li>
+</ol>
+
+<p class="blog-soft-cta">Want the checklist applied to your own site? <a href="/contact/" class="blog-link">Request an AI Answer Check</a> and we will show you the gaps we find.</p>
+
+<p>Structured data is part of the consistency check. The LocalBusiness example below is a template, not copy-and-paste business information.</p>
+
+<p class="blog-placeholder-note"><strong>Placeholder only:</strong> every business-data value in this example must be replaced with your real, verified information before use. Do not publish sample names, addresses, phone numbers, URLs, coordinates, prices, services, or languages.</p>
+
+<pre class="blog-code"><code>{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "REPLACE_WITH_YOUR_BUSINESS_NAME",
+  "image": "REPLACE_WITH_YOUR_REAL_IMAGE_URL",
+  "@id": "REPLACE_WITH_YOUR_CANONICAL_BUSINESS_ID_URL",
+  "url": "REPLACE_WITH_YOUR_WEBSITE_URL",
+  "telephone": "REPLACE_WITH_YOUR_REAL_+357_PHONE_NUMBER",
+  "priceRange": "REPLACE_WITH_YOUR_REAL_PRICE_RANGE",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "REPLACE_WITH_YOUR_REAL_PAPHOS_STREET_ADDRESS",
+    "addressLocality": "REPLACE_WITH_YOUR_REAL_LOCALITY",
+    "postalCode": "REPLACE_WITH_YOUR_REAL_POSTAL_CODE",
+    "addressCountry": "REPLACE_WITH_YOUR_REAL_COUNTRY_CODE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "REPLACE_WITH_YOUR_REAL_LATITUDE",
+    "longitude": "REPLACE_WITH_YOUR_REAL_LONGITUDE"
+  },
+  "areaServed": ["REPLACE_WITH_YOUR_REAL_SERVICE_AREA"],
+  "availableLanguage": ["REPLACE_WITH_YOUR_REAL_LANGUAGE_CODES"]
+}</code></pre>
+
+<h2 id="test-ai-mode">Run this test yourself in twenty minutes</h2>
+
+<p>Open Google, select AI Mode where it is available in your account, and ask these questions once in English and once in Greek. Replace the words in brackets with your service and town.</p>
+
+<ol>
+  <li><em>“Best [your service] in [your town] — who should I call?”</em></li>
+  <li><em>“[Your service] near me open on Saturday in [your town]”</em></li>
+  <li><em>“How much does [your service] cost in Cyprus?”</em></li>
+  <li><em>“[Your service] in [your town] that speaks English and Greek”</em></li>
+  <li><em>“Compare the top [your service] providers in [your town]”</em></li>
+</ol>
+
+<p>Write down the businesses named and the reason given. That list is more useful than a guessed competitor list. Then compare their profile, reviews, service pages, and contact details with yours. The gaps are often basic, visible, and fixable.</p>
+
+<h2 id="what-this-does-not-mean">What this does not mean</h2>
+
+<p><strong>SEO is not dead.</strong> The PPC Land figure points the other way: businesses that already earn strong organic visibility are better placed for AI Overview citations. AI Mode has changed the customer journey, not erased the need for good pages and clear information.</p>
+
+<p><strong>You do not need every AI platform.</strong> For a local Cyprus business, start with the places customers already use to make a local decision: Google Search, Maps, your Business Profile, and your own service pages. The broader AI-search footprint can follow.</p>
+
+<p><strong>You may not need a new website.</strong> A complete profile, a corrected phone number, a proper Greek service page, or a clearer contact journey can matter more than a rebuild. Rebuild when the current site is slow, inaccessible, difficult to update, or cannot carry the content your customers need.</p>
+
+<h2 id="how-long">How long does it take to appear in AI search results?</h2>
+
+<p>There is no guaranteed placement or fixed timetable. Google Business Profile changes can appear relatively quickly. New pages and structured data still need to be crawled, indexed, and understood. Review momentum takes longer because it depends on real customer experience.</p>
+
+<p>In the Cyprus sites we audit, 60 to 90 days is the honest window for meaningful movement once the foundations are in place. It is close to the timeline we see for <a href="/blog/how-to-get-found-on-google-cyprus/" class="blog-link">getting found on Google in Cyprus</a> more broadly. Anyone promising an overnight answer is selling a story rather than a process.</p>
+
+<h2 id="faq">FAQ</h2>
+
+<h3>Is Google AI Mode available in Cyprus?</h3>
+<p>Google says AI Mode is available in more than 200 countries and territories and supports Greek. Check the current supported-country list in your own account because availability and features can change by location and account. <a href="https://support.google.com/websearch/answer/16011537" class="blog-link" target="_blank" rel="noopener noreferrer">Google’s AI Mode help page</a> is the live reference.</p>
+
+<h3>Does Google AI Mode work in Greek?</h3>
+<p>Yes. Google added Greek during its October 2025 language expansion. A real Greek version of your website gives local customers and search systems clear Greek-language information to work with.</p>
+
+<h3>Do I need a new website to appear in AI search?</h3>
+<p>Usually not. Start with the profile, inconsistent details, useful service pages, and crawlable content. A rebuild becomes relevant when the current site is slow, inaccessible, or cannot support those foundations.</p>
+
+<h3>Does Google Business Profile matter more than my website?</h3>
+<p>For local discovery, the two work together. Your profile gives Google core local business details. Your website proves and expands them through service pages, contact information, and structured data.</p>
+
+<h3>How long does it take to appear in AI search results?</h3>
+<p>There is no guarantee. In our Cyprus site audits, 60 to 90 days is a realistic window for meaningful movement after the foundations are corrected and new pages are crawled. Profile updates can appear sooner, while organic visibility and reviews build over time.</p>
+
+<h3>Will an AI answer send me less traffic than a normal search result?</h3>
+<p>Sometimes it can mean fewer clicks, but in our audits the people who do click after reading an AI answer are often further along in the decision. Measure enquiries, calls, bookings, and sales rather than treating raw traffic as the only outcome.</p>
+
+<h2 id="sources">Sources</h2>
+<ol>
+  <li><a href="https://blog.google/products-and-platforms/products/search/ai-mode-expands-languages-locations/" class="blog-link" target="_blank" rel="noopener noreferrer">Google: AI Mode language and location expansion, 07 October 2025</a>.</li>
+  <li><a href="https://blog.google/products-and-platforms/products/search/ai-mode-us-insights/" class="blog-link" target="_blank" rel="noopener noreferrer">Google: AI Mode query behaviour, 19 May 2026</a>.</li>
+  <li><a href="https://ppc.land/googles-new-guide-for-ai-search-what-seo-really-needs-now/" class="blog-link" target="_blank" rel="noopener noreferrer">PPC Land: the Brainlabs AI Overviews top-10 analysis</a>.</li>
+  <li><a href="https://trends.google.com/trends/explore?date=2025-09-12%202026-09-12&amp;geo=CY&amp;q=gemini,gemini%20ai,chatgpt" class="blog-link" target="_blank" rel="noopener noreferrer">Google Trends: Cyprus Gemini, Gemini AI, and ChatGPT comparison, checked 12 September 2026</a>.</li>
+</ol>
+
+<div class="blog-cta">
+  <h3>See what Google’s AI says about your business today</h3>
+  <p>We will run the five questions above against your business in Greek and English, then show you which competitors get named, why, and the gaps on your side. We will recommend next steps based on your market, website, and priorities.</p>
+  <a href="/contact/" class="blog-cta-btn">Request an AI Answer Check</a>
+</div>
+
+<p><em>Related reading: <a href="/blog/geo-get-found-by-chatgpt-cyprus/" class="blog-link">GEO: How to Get Your Cyprus Business Found by ChatGPT and AI Search</a> · <a href="/blog/how-to-get-found-on-google-cyprus/" class="blog-link">How to Get Your Business Found on Google in Cyprus</a> · <a href="/blog/website-cost-cyprus-2026-guide/" class="blog-link">How Much Does a Website Cost in Cyprus?</a></em></p>
+    `,
+  },
   {
     slug: "website-leads-real-estate-construction-hospitality",
     title: "How Can Real Estate, Construction, and Hospitality Businesses Get More Leads From Their Website?",
@@ -718,6 +922,7 @@ export const POSTS: BlogPost[] = [
 
 <h2>What We Don't Cover Here</h2>
 <p>This article covers the fundamentals. The full GEO playbook — the specific directories that matter most for Cyprus businesses, the exact schema markup that AI models prioritise, the content formats that get cited most frequently, and the ongoing maintenance that keeps you visible as AI models update — is what we implement for clients as part of our <a href="/pricing/" class="blog-link">SEO + GEO package</a>.</p>
+<p>For the Google-specific local-search layer, read <a href="/blog/google-ai-mode-near-me-cyprus/" class="blog-link">Google AI Mode and “near me” searches in Cyprus</a>. It covers the profile, Maps, service-page, and Greek-language checks we run when a business wants to understand why Google does or does not name it.</p>
 <p>If you want to understand where your business currently stands in AI search — what AI models say about you right now, what's missing, and what the specific gaps are — that's what our free consultation covers.</p>
 
 <div class="blog-cta">

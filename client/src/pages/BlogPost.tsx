@@ -38,6 +38,7 @@ export default function BlogPost() {
     let el = document.getElementById(SCHEMA_ID) as HTMLScriptElement | null;
 
     if (post) {
+      const isOrganisationAuthor = post.authorType === "Organization";
       const schema = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -45,12 +46,14 @@ export default function BlogPost() {
         "description": post.metaDescription,
         "image": post.coverImage,
         "datePublished": post.date,
-        "dateModified": post.date,
+        "dateModified": post.dateModified ?? post.date,
         "author": {
-          "@type": "Person",
-          "name": "Anastacia B.",
-          "jobTitle": "Creative Director & AI Specialist",
-          "image": "https://dm-labs.io/media/manus/AtkkCmVLLZyIDtDx.webp"
+          "@type": isOrganisationAuthor ? "Organization" : "Person",
+          "name": post.author ?? (isOrganisationAuthor ? "DM-Labs.io" : "Anastacia B."),
+          ...(!isOrganisationAuthor ? {
+            "jobTitle": "Creative Director & AI Specialist",
+            "image": "https://dm-labs.io/media/manus/AtkkCmVLLZyIDtDx.webp"
+          } : {})
         },
         "publisher": {
           "@type": "Organization",
@@ -63,7 +66,9 @@ export default function BlogPost() {
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": `https://dm-labs.io/blog/${post.slug}/`
-        }
+        },
+        ...(post.language ? { "inLanguage": post.language } : {}),
+        ...(post.keywords?.length ? { "keywords": post.keywords.join(", ") } : {})
       };
 
       if (!el) {
@@ -80,6 +85,40 @@ export default function BlogPost() {
     return () => {
       const s = document.getElementById(SCHEMA_ID);
       if (s) s.remove();
+    };
+  }, [post]);
+
+  useEffect(() => {
+    const SCHEMA_ID = "article-faq-jsonld-schema";
+    let el = document.getElementById(SCHEMA_ID) as HTMLScriptElement | null;
+
+    if (post?.faq?.length) {
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": post.faq.map(({ question, answer }) => ({
+          "@type": "Question",
+          "name": question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": answer,
+          },
+        })),
+      };
+
+      if (!el) {
+        el = document.createElement("script");
+        el.id = SCHEMA_ID;
+        el.type = "application/ld+json";
+        document.head.appendChild(el);
+      }
+      el.textContent = JSON.stringify(schema);
+    } else {
+      el?.remove();
+    }
+
+    return () => {
+      document.getElementById(SCHEMA_ID)?.remove();
     };
   }, [post]);
 

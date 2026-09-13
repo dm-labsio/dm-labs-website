@@ -58,6 +58,7 @@ const EN_BLOG_SLUGS = [
   "geo-get-found-by-chatgpt-cyprus",
   "google-search-console-ai-seo-prompts",
   "website-leads-real-estate-construction-hospitality",
+  "google-ai-mode-near-me-cyprus",
 ];
 
 const EL_BLOG_SLUGS = [
