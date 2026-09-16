@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { pricingEnquiry } from "@/lib/pricingEnquiry";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import AnimateIn from "@/components/AnimateIn";
@@ -19,7 +20,7 @@ export default function ContactHe() {
     noindex: true,
   });
 
-  const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
+  const [form, setForm] = useState(() => ({ name: "", email: "", business: "", message: pricingEnquiry("he") }));
   const [sending, setSending] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent) => {

@@ -5,6 +5,7 @@
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { useState } from "react";
+import { pricingEnquiry } from "@/lib/pricingEnquiry";
 import AnimateIn from "@/components/AnimateIn";
 import { MessageCircle, Mail, Clock, MapPin, Send, Instagram } from "lucide-react";
 import { toast } from "sonner";
@@ -20,7 +21,7 @@ export default function ΕπικοινωνίαEl() {
     title: "Επικοινωνία DM-Labs.io | Λάβετε Δωρεάν Προσφορά",
     description: "Επικοινωνήστε μαζί μας για μια δωρεάν συμβουλευτική. Απαντάμε εντός 24 ωρών. WhatsApp, email ή φόρμα επικοινωνίας.",
   });
-  const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
+  const [form, setForm] = useState(() => ({ name: "", email: "", business: "", message: pricingEnquiry("el") }));
   const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {

@@ -1638,6 +1638,7 @@
 .pricing-journey .journey-billing-thumb { position: absolute; left: 5px; top: 5px; bottom: 5px; width: calc(50% - 5px); border-radius: 99px; background: #fff; box-shadow: 0 3px 10px #28365712; transition: transform 300ms cubic-bezier(.22,1,.36,1); z-index: -1; }
 .pricing-journey .is-yearly .journey-billing-thumb { transform: translateX(100%); }
 .pricing-journey .journey-billing button { min-height: 46px; border-radius: 99px; font-weight: 600; font-size: 14px; color: #5b6472; }
+.pricing-journey .journey-billing button { display: flex; align-items: center; justify-content: center; gap: 4px; }
 .pricing-journey .journey-billing button[aria-pressed=true] { color: #27203f; }
 .pricing-journey .journey-billing button span { font-size: 10px; border-radius: 99px; padding: 4px 6px; color: #6545b5; background: #eee7ff; margin-left: 4px; }
 .pricing-journey .journey-billing > p { color: #697181; font-size: 13px; margin-top: 12px; }
@@ -1660,6 +1661,23 @@
 .pricing-journey .journey-ownership { margin: 20px auto 0; text-align: center; font-size: 12px; line-height: 1.9; color: #657083; max-width: 650px; }
 .pricing-journey .journey-ownership a { color: #6652aa; text-decoration: underline; text-underline-offset: 3px; }
 .pricing-journey button { cursor: pointer; }
+.pricing-journey .pricing-editorial-card-cta[aria-pressed="true"],
+.pricing-journey .pricing-editorial-card-cta[aria-pressed="true"]:hover {
+  background: #5532a8;
+  color: #fff;
+  border-color: #5532a8;
+  box-shadow: inset 0 1px 0 #ffffff24;
+  transform: none;
+}
+.pricing-journey .pricing-editorial-card-cta[aria-pressed="true"]::before,
+.pricing-journey .pricing-editorial-card-cta[aria-pressed="true"]::after { display: none; }
+.pricing-journey[lang="el"] .pricing-editorial-section-heading em { white-space: normal; }
+.pricing-journey[lang="el"] .journey-billing-track { width: 360px; }
+.pricing-journey[lang="el"] .journey-summary { flex-wrap: wrap; }
+.pricing-journey[dir="rtl"] .journey-billing-thumb { left: auto; right: 5px; }
+.pricing-journey[dir="rtl"] .is-yearly .journey-billing-thumb { transform: translateX(-100%); }
+.pricing-journey[dir="rtl"] .lucide-arrow-right { transform: scaleX(-1); }
+.pricing-journey[dir="rtl"] :is(.journey-summary, .journey-billing, .journey-ownership, .journey-care-description, .journey-build-context, .journey-recurring, .journey-billing-detail, .journey-saving) { font-family: var(--hebrew-body-font); }
 .pricing-journey :is(button, a):focus-visible { outline: 3px solid #7758cf; outline-offset: 5px; }
 @keyframes care-price-in { from { opacity: .4; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 767px) {

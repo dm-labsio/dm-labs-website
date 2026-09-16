@@ -101,8 +101,10 @@ describe("Hebrew locale foundation", () => {
     const layout = readSource("client/src/components/Layout.tsx");
     const styles = readSource("client/src/index.css");
 
-    expect(pricing).toContain('className="pricing-editorial-price-row"');
-    expect(pricing).toContain('className="pricing-editorial-price-unit"');
+    const journey = readSource("client/src/components/LocalizedPricingJourney.tsx");
+    expect(pricing).toContain('<LocalizedPricingJourney locale="he"');
+    expect(journey).toContain('className="pricing-editorial-price-row"');
+    expect(journey).toContain('className="pricing-editorial-price-unit"');
     expect(pricing).not.toContain('<small> one-time</small>');
     expect(styles).toContain('overflow-wrap: anywhere;');
     expect(styles).toContain('.faq-editorial .faq-editorial-title em { white-space: normal; }');

@@ -1,3 +1,4 @@
+import LocalizedPricingJourney, { PricingSteps } from "@/components/LocalizedPricingJourney";
 import { CheckCircle2, HelpCircle, MessageCircle, ShieldCheck, X } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
@@ -11,10 +12,7 @@ const plans = [
   ["Pro Website", "€1,499", "#6B3FD4", "נוכחות דיגיטלית עשירה יותר, עם תוכן ותשתית חיפוש שמוכנים לצמוח איתכם.", ["עד 7 עמודים", "גלריה או תיק עבודות", "אנימציות Popup וגלילה", "מבנה SEO מלא", "בלוג או חבילת נכסים", "4 סבבי תיקונים"]],
 ] as const;
 
-const carePlans = [
-  ["Basic Care", "€69", "#5B8CFF", ["ניטור רציף של האתר והאירוח", "גיבויים ותיקוני תקלות", "תמיכה ב-WhatsApp", "עד 3 עדכוני תוכן קטנים בחודש"]],
-  ["Complete Care", "€129", "#8B5CFF", ["כל מה שבתוכנית Basic Care", "עדכונים סבירים ללא הגבלה", "תמיכת WhatsApp בעדיפות", "בדיקת ביצועים חודשית", "עדכון באנר או אזור פשוט בחודש"]],
-] as const;
+
 
 const rows = [
   ["עמודים", "1 או 2 קלים", "עד 4", "עד 7"],
@@ -43,7 +41,7 @@ export default function PricingHe() {
   });
 
   return (
-    <main className="hebrew-home pricing-editorial" dir="rtl">
+    <main className="hebrew-home pricing-editorial pricing-journey" lang="he" dir="rtl">
       <section className="cinematic-hero-surface pricing-editorial-hero relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
         <CinematicHeroBackground kind="pricing" />
         <div className="absolute inset-0 opacity-[0.06] pointer-events-none"><img src="/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp" alt="" className="w-full h-full object-cover" aria-hidden="true" /></div>
@@ -51,43 +49,12 @@ export default function PricingHe() {
           <AnimateIn>
             <p className="pricing-editorial-label">מחירים שקופים</p>
             <h1 className="pricing-editorial-hero-heading">מחירי <span><em>עיצוב אתרים</em></span></h1>
-            <p className="pricing-editorial-hero-lead">כמה עולה אתר? השוו חבילות ברורות ומצאו יחד איתנו את נקודת הפתיחה הנכונה לעסק שלכם.</p>
+            <p className="pricing-editorial-hero-lead">נבנה בשבילכם. מטופל על ידינו. בחרו את האתר שלכם, ואז את האירוח והתחזוקה שלו.</p><PricingSteps locale="he" />
           </AnimateIn>
         </div>
       </section>
 
-      <section className="pricing-editorial-assurance bg-[#EEF3FF] border-y border-[#5B8CFF]/20 py-4">
-        <div className="container text-center"><p>כל פרויקט מתחיל בשיחת ייעוץ ללא עלות, כדי להתאים את ההיקף הנכון עוד לפני שמתחילים.</p></div>
-      </section>
-
-      <section className="pricing-editorial-plans section-spacing bg-white">
-        <div className="container">
-          <AnimateIn className="pricing-editorial-section-intro text-center">
-            <p className="pricing-editorial-label">בחרו היקף</p>
-            <h2 className="pricing-editorial-section-heading">שלוש חבילות ברורות.</h2>
-            <p>כל חבילה נותנת בסיס מדויק, בלי מורכבות מיותרת.</p>
-          </AnimateIn>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {plans.map(([name, price, color, summary, features], index) => (
-              <AnimateIn key={name} delay={index * .1}>
-                <article className={`pricing-editorial-plan-card dm-card h-full flex flex-col relative${index === 1 ? " pricing-editorial-plan-card--recommended" : ""}`}>
-                  {index === 1 && <span className="pricing-editorial-recommended">מומלץ</span>}
-                  <p className="pricing-editorial-plan-label" style={{ color }} dir="ltr">{name}</p>
-                  <div className="pricing-editorial-price-row">
-                    <span className="pricing-editorial-plan-price" dir="ltr">{price}</span>
-                    <span className="pricing-editorial-price-unit" dir="ltr">one-time</span>
-                  </div>
-                  <p className="pricing-editorial-plan-summary">{summary}</p>
-                  <ul className="pricing-editorial-feature-list flex-1">
-                    {features.map(feature => <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} style={{ color }} className="shrink-0 mt-0.5" />{feature}</li>)}
-                  </ul>
-                  <a className={`${index === 1 ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`} href={WA}>שיחת ייעוץ ללא עלות</a>
-                </article>
-              </AnimateIn>
-            ))}
-          </div>
-
-          <AnimateIn className="mt-8 max-w-5xl mx-auto">
+      <LocalizedPricingJourney locale="he" plans={plans.map(([name, price, tone, summary, features]) => ({ name, price, tone, summary, features }))} custom={<AnimateIn className="mt-8 max-w-5xl mx-auto">
             <div className="pricing-editorial-custom-panel rounded-2xl overflow-hidden">
               <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 p-8">
                 <div className="flex-shrink-0 lg:w-72">
@@ -103,36 +70,7 @@ export default function PricingHe() {
                 </StaggerContainer>
               </div>
             </div>
-          </AnimateIn>
-        </div>
-      </section>
-
-      <section className="pricing-editorial-care section-spacing bg-white">
-        <div className="container max-w-4xl">
-          <AnimateIn className="pricing-editorial-section-intro text-center">
-            <p className="pricing-editorial-label">שומרים על האתר בריא</p>
-            <h2 className="pricing-editorial-section-heading">תוכניות <em>תחזוקה</em></h2>
-            <p>שקט נפשי למי שרוצה אתר מנוטר, מעודכן ונתמך גם אחרי ההשקה.</p>
-          </AnimateIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            {carePlans.map(([name, price, color, features], index) => (
-              <article key={name} className={`pricing-editorial-care-card dm-card h-full flex flex-col relative${index === 1 ? " pricing-editorial-plan-card--recommended" : ""}`}>
-                {index === 1 && <span className="pricing-editorial-recommended">המקיפה ביותר</span>}
-                <p className="pricing-editorial-plan-label" style={{ color }} dir="ltr">{name}</p>
-                <div className="pricing-editorial-price-row">
-                  <span className="pricing-editorial-care-price" dir="ltr">{price}</span>
-                  <span className="pricing-editorial-price-unit" dir="ltr">per month</span>
-                </div>
-                <ul className="pricing-editorial-feature-list">
-                  {features.map(feature => <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={15} style={{ color }} className="shrink-0 mt-0.5" />{feature}</li>)}
-                </ul>
-                <a className={`${index === 1 ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`} href={WA}>שאלו על {name}</a>
-              </article>
-            ))}
-          </div>
-          <div className="pricing-editorial-scope-guardrail flex gap-3 rounded-xl px-5 py-4 mt-8"><ShieldCheck size={19} className="text-[#5B8CFF] shrink-0" /><p><strong>הבהרת היקף:</strong> עמודים חדשים, כתיבה, סבבי תיקונים נוספים, אינטגרציות, עיצוב מחדש, SEO מתקדם והעברת תוכן מורכבת מתומחרים בנפרד.</p></div>
-        </div>
-      </section>
+          </AnimateIn>} />
 
       <section className="pricing-editorial-compare section-spacing">
         <div className="container">

@@ -3,31 +3,39 @@ import assert from 'node:assert/strict';
 
 const browser = await chromium.launch({ headless: true });
 try {
+  for (const locale of ["en", "el", "he"]) {
   for (const width of [1440, 768, 390, 320]) {
     const page = await browser.newPage({ viewport: { width, height: 1000 }, reducedMotion: 'reduce' });
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
-    await page.goto(`${process.env.QA_BASE_URL || 'http://127.0.0.1:5173'}/pricing/`);
+    await page.goto(`${process.env.QA_BASE_URL || 'http://127.0.0.1:5173'}/${locale === 'en' ? '' : locale + '/'}pricing/`);
     const reject = page.getByRole('button', { name: 'Reject', exact: true });
     if (await reject.isVisible()) await reject.click();
-    await page.getByRole('button', { name: 'Choose Growth', exact: true }).click();
-    await page.getByRole('button', { name: 'Yearly Save ~10%', exact: true }).click();
-    await page.getByRole('button', { name: 'Choose Basic Care', exact: true }).click();
-    assert.match(await page.locator('.journey-summary').innerText(), /€750/);
+    await page.locator('.journey-build-grid button').nth(1).click();
+    await page.locator('.journey-billing-track button').nth(1).click();
+    await page.locator('.pricing-editorial-care-card button').nth(0).click();
+    assert.match(await page.locator('.journey-summary').innerText(), /750/);
     assert.match(await page.locator('.journey-summary').innerText(), /€749/);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth), false, `overflow at ${width}`);
     await page.locator('.journey-billing').scrollIntoViewIfNeeded();
-    await page.screenshot({ path: `/tmp/dm-pricing-${width}.png` });
-    await page.getByRole('button', { name: 'Monthly', exact: true }).click();
-    assert.match(await page.locator('.journey-summary').innerText(), /€69/);
-    await page.getByRole('button', { name: 'Choose Complete Care', exact: true }).click();
-    await page.getByRole('button', { name: 'Yearly Save ~10%', exact: true }).click();
-    assert.match(await page.locator('.journey-summary').innerText(), /€1,395/);
-    await page.getByRole('link', { name: 'Let’s build your website' }).click();
+    await page.screenshot({ path: `/tmp/dm-pricing-${locale}-${width}.png` });
+    const selectedColor = await page.locator('.pricing-editorial-care-card button').nth(0).evaluate(el => getComputedStyle(el).backgroundColor);
+    assert.equal(selectedColor, 'rgb(85, 50, 168)');
+    await page.locator('.journey-billing-track button').nth(0).click();
+    assert.match(await page.locator('.journey-summary').innerText(), /69/);
+    await page.locator('.pricing-editorial-care-card button').nth(1).click();
+    await page.locator('.journey-billing-track button').nth(1).click();
+    assert.match(await page.locator('.journey-summary').innerText(), /1[,.]395/);
+    await page.locator('.journey-summary a').click();
     await page.waitForURL('**/contact/**');
-    assert.match(await page.locator('textarea').inputValue(), /Growth Website with Complete Care, billed yearly/);
+    const message = await page.locator('textarea').inputValue();
+    assert.match(message, /Growth Website/);
+    assert.match(message, /Complete Care/);
+    assert.match(message, locale === 'el' ? /ετήσια/ : locale === 'he' ? /שנתי/ : /yearly/);
+    assert.ok(page.url().includes(locale === 'en' ? '/contact/' : `/${locale}/contact/`));
     assert.deepEqual(errors, []);
-    console.log(`PASS ${width}px: selections, yearly/monthly prices, no overflow, contact handoff, no runtime errors`);
+    console.log(`PASS ${locale} ${width}px: selections, selected color, yearly/monthly prices, no overflow, localized contact handoff, no runtime errors`);
     await page.close();
+  }
   }
 } finally { await browser.close(); }
