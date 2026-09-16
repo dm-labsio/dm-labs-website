@@ -5,6 +5,8 @@ import { describe, expect, it } from "vitest";
 const projectRoot = resolve(import.meta.dirname, "..");
 const packageJson = JSON.parse(readFileSync(resolve(projectRoot, "package.json"), "utf8"));
 const appSource = readFileSync(resolve(projectRoot, "client/src/App.tsx"), "utf8");
+const postHogSource = readFileSync(resolve(projectRoot, "client/src/components/PostHogAnalytics.tsx"), "utf8");
+const cookieBannerSource = readFileSync(resolve(projectRoot, "client/src/components/CookieBanner.tsx"), "utf8");
 const htmlShell = readFileSync(resolve(projectRoot, "client/index.html"), "utf8");
 const viteConfig = readFileSync(resolve(projectRoot, "vite.config.ts"), "utf8");
 const serverEntry = readFileSync(resolve(projectRoot, "server/_core/index.ts"), "utf8");
@@ -97,6 +99,16 @@ describe("platform-independent production stack", () => {
     expect(appSource).toContain('import { Analytics } from "@vercel/analytics/react";');
     expect(appSource).toContain('<Analytics mode={import.meta.env.MODE === "production" ? "production" : "development"} />');
     expect(appSource.match(/<Analytics\b/g)).toHaveLength(1);
+  });
+
+  it("loads PostHog only after analytics consent and masks session-replay inputs", () => {
+    expect(packageJson.dependencies["posthog-js"]).toMatch(/^\^1\./);
+    expect(appSource).toContain("<PostHogAnalytics />");
+    expect(postHogSource).toContain("hasAnalyticsConsent()");
+    expect(postHogSource).toContain('api_host: "https://eu.i.posthog.com"');
+    expect(postHogSource).toContain("maskAllInputs: true");
+    expect(postHogSource).toContain("capture_exceptions: true");
+    expect(cookieBannerSource).toContain('new Event(CONSENT_UPDATED_EVENT)');
   });
 
   it("preserves the production build, output directory, and 90-route prerender contract", () => {

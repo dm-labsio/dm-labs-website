@@ -7,6 +7,7 @@ import { useState } from "react";
 import AnimateIn from "@/components/AnimateIn";
 import { MessageCircle, Mail, Clock, MapPin, Send, Instagram } from "lucide-react";
 import { toast } from "sonner";
+import { capturePostHogEvent } from "@/components/PostHogAnalytics";
 
 const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20D%26M%20Labs!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
 
@@ -38,6 +39,7 @@ export default function Contact() {
         }),
       });
       if (res.ok) {
+        capturePostHogEvent("lead_form_submitted", { form: "contact", locale: "en" });
         toast.success("Message sent! We'll get back to you within 24 hours.");
         setForm({ name: "", email: "", business: "", message: "" });
       } else {

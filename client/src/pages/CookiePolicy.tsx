@@ -68,10 +68,10 @@ export default function CookiePolicy() {
                         <td className="py-3">Persistent</td>
                       </tr>
                       <tr className="border-b border-[#E2E5EA]/50">
-                        <td className="py-3 pr-4 font-mono text-xs">_analytics</td>
+                        <td className="py-3 pr-4 font-mono text-xs">ph_*</td>
                         <td className="py-3 pr-4">Analytics</td>
-                        <td className="py-3 pr-4">Tracks page views and visitor behaviour (anonymised)</td>
-                        <td className="py-3">26 months</td>
+                        <td className="py-3 pr-4">PostHog analytics, session replay and error tracking (loaded only with consent)</td>
+                        <td className="py-3">12 months</td>
                       </tr>
                     </tbody>
                   </table>
@@ -99,6 +99,7 @@ export default function CookiePolicy() {
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">6. Third-Party Cookies</h2>
                 <p>We do not use third-party advertising cookies. The only third-party services that may set cookies are:</p>
                 <ul className="list-disc pl-5 space-y-2 mt-3">
+                  <li><strong className="text-[#111315]">PostHog (EU):</strong> Our analytics, session replay and error-tracking provider. It is loaded only after you consent to analytics cookies.</li>
                   <li><strong className="text-[#111315]">Web3Forms:</strong> Our contact form processor. Web3Forms may set essential cookies to prevent spam submissions.</li>
                   <li><strong className="text-[#111315]">WhatsApp:</strong> The floating WhatsApp widget links to an external WhatsApp page and does not set cookies on our site.</li>
                 </ul>

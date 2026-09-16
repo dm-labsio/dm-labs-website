@@ -8,6 +8,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Layout from "./components/Layout";
 import CookieBanner from "./components/CookieBanner";
+import PostHogAnalytics from "./components/PostHogAnalytics";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 
 // ── English Pages ──
@@ -229,6 +230,7 @@ function App() {
             <TooltipProvider>
               <Toaster />
               <AppRoutes />
+              <PostHogAnalytics />
             </TooltipProvider>
           </LanguageProvider>
         </ThemeProvider>

@@ -69,10 +69,10 @@ export default function CookiePolicyEl() {
                         <td className="py-3">Μόνιμο</td>
                       </tr>
                       <tr className="border-b border-[#E2E5EA]/50">
-                        <td className="py-3 pr-4 font-mono text-xs">_analytics</td>
+                        <td className="py-3 pr-4 font-mono text-xs">ph_*</td>
                         <td className="py-3 pr-4">Ανάλυση</td>
-                        <td className="py-3 pr-4">Παρακολουθεί προβολές σελίδων και συμπεριφορά επισκεπτών (ανωνυμοποιημένα)</td>
-                        <td className="py-3">26 μήνες</td>
+                        <td className="py-3 pr-4">PostHog για αναλυτικά στοιχεία, καταγραφή συνεδριών και παρακολούθηση σφαλμάτων (φορτώνεται μόνο με συγκατάθεση)</td>
+                        <td className="py-3">12 μήνες</td>
                       </tr>
                     </tbody>
                   </table>
@@ -100,6 +100,7 @@ export default function CookiePolicyEl() {
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">6. Cookies Τρίτων</h2>
                 <p>Δεν χρησιμοποιούμε cookies διαφήμισης τρίτων. Οι μόνες υπηρεσίες τρίτων που ενδέχεται να ορίσουν cookies είναι:</p>
                 <ul className="list-disc pl-5 space-y-2 mt-3">
+                  <li><strong className="text-[#111315]">PostHog (EU):</strong> Ο πάροχός μας για αναλυτικά στοιχεία, καταγραφή συνεδριών και παρακολούθηση σφαλμάτων. Φορτώνεται μόνο αφού συναινέσετε στα analytics cookies.</li>
                   <li><strong className="text-[#111315]">Web3Forms:</strong> Ο επεξεργαστής φόρμας επικοινωνίας μας. Το Web3Forms ενδέχεται να ορίσει απαραίτητα cookies για την αποτροπή ανεπιθύμητων υποβολών.</li>
                   <li><strong className="text-[#111315]">WhatsApp:</strong> Το αιωρούμενο widget WhatsApp συνδέεται με εξωτερική σελίδα WhatsApp και δεν ορίζει cookies στην ιστοσελίδα μας.</li>
                 </ul>

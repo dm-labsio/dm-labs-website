@@ -4,6 +4,7 @@ import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import AnimateIn from "@/components/AnimateIn";
 import { Clock, Instagram, Mail, MapPin, MessageCircle, Send } from "lucide-react";
 import { toast } from "sonner";
+import { capturePostHogEvent } from "@/components/PostHogAnalytics";
 
 const WA = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20DM-Labs.io%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%9C%D7%92%D7%91%D7%99%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.";
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
@@ -38,6 +39,7 @@ export default function ContactHe() {
         }),
       });
       if (!response.ok) throw new Error("Submission failed");
+      capturePostHogEvent("lead_form_submitted", { form: "contact", locale: "he" });
       toast.success("ההודעה נשלחה. נחזור אליכם בתוך 24 שעות.");
       setForm({ name: "", email: "", business: "", message: "" });
     } catch {

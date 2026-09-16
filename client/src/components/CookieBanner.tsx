@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 
 const COOKIE_KEY = "dm_cookie_consent";
+const CONSENT_UPDATED_EVENT = "dm-cookie-consent-updated";
 
 const STRINGS = {
   en: {
@@ -119,16 +120,20 @@ export default function CookieBanner() {
     };
   }, [locale]);
 
+  const saveConsent = (analyticsConsent: boolean) => {
+    localStorage.setItem(COOKIE_KEY, JSON.stringify({ essential: true, analytics: analyticsConsent }));
+    window.dispatchEvent(new Event(CONSENT_UPDATED_EVENT));
+  };
   const accept = () => {
-    localStorage.setItem(COOKIE_KEY, JSON.stringify({ essential: true, analytics: true }));
+    saveConsent(true);
     setVisible(false);
   };
   const reject = () => {
-    localStorage.setItem(COOKIE_KEY, JSON.stringify({ essential: true, analytics: false }));
+    saveConsent(false);
     setVisible(false);
   };
   const savePrefs = () => {
-    localStorage.setItem(COOKIE_KEY, JSON.stringify({ essential: true, analytics }));
+    saveConsent(analytics);
     setVisible(false);
   };
 
