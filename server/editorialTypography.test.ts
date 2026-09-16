@@ -174,7 +174,7 @@ describe("Process page editorial typography", () => {
 
 describe("Pricing page editorial typography", () => {
   it("keeps the approved editorial treatment scoped to the Pricing page", () => {
-    expect(pricingSource).toContain('className="pricing-editorial"');
+    expect(pricingSource).toMatch(/className="pricing-editorial(?: [^"]*)?"/);
     expect(pricingSource).toContain('className="pricing-editorial-hero-heading"');
     expect(pricingSource).toContain("pricing-editorial-plan-card");
     expect(stylesheet).toContain(".pricing-editorial .pricing-editorial-hero-heading");

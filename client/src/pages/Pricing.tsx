@@ -5,6 +5,7 @@
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
+import { useState } from "react";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import { ArrowRight, CheckCircle2, HelpCircle, MessageCircle, ShieldCheck, X } from "lucide-react";
 
@@ -78,9 +79,12 @@ const carePlans = [
   {
     name: "Basic Care",
     price: "€69",
+    yearlyPrice: 750,
+    monthlyPrice: 69,
     colour: "#5B8CFF",
     features: [
-      "Hosting monitoring",
+      "Managed hosting & uptime monitoring",
+      "Website assets & database management, where applicable",
       "Backups and bug fixing",
       "WhatsApp support",
       "Up to 3 small content updates each month",
@@ -89,6 +93,8 @@ const carePlans = [
   {
     name: "Complete Care",
     price: "€129",
+    yearlyPrice: 1395,
+    monthlyPrice: 129,
     colour: "#8B5CFF",
     recommended: true,
     features: [
@@ -109,13 +115,23 @@ function PlanCell({ value, colour }: { value: PlanValue; colour: string }) {
 }
 
 export default function Pricing() {
+  const [selectedBuild, setSelectedBuild] = useState<number | null>(null);
+  const [selectedCare, setSelectedCare] = useState<number | null>(null);
+  const [yearly, setYearly] = useState(false);
+  const euro = (value: number) => `€${value.toLocaleString("en-IE")}`;
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
+  };
+  const build = selectedBuild === null ? null : buildPlans[selectedBuild];
+  const care = selectedCare === null ? null : carePlans[selectedCare];
+  const enquiry = build && care ? `/contact/?${new URLSearchParams({ package: build.name, care: care.name, billing: yearly ? "yearly" : "monthly" })}` : "/contact/";
   useSEO({
     title: "Web Design Pricing | Website Cost & Packages | DM-Labs.io",
     description: "How much does a website cost? Explore clear web design pricing, website packages, and custom project costs from DM-Labs.io.",
   });
 
   return (
-    <div className="pricing-editorial">
+    <div className="pricing-editorial pricing-journey">
       <section className="cinematic-hero-surface pricing-editorial-hero relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(4rem, 8vh, 6rem)" }}>
         <CinematicHeroBackground kind="pricing" />
         <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
@@ -125,35 +141,37 @@ export default function Pricing() {
           <AnimateIn>
             <p className="pricing-editorial-label">Transparent Pricing</p>
             <h1 className="pricing-editorial-hero-heading">Web Design <span><em>Pricing</em></span></h1>
-            <p className="pricing-editorial-hero-lead">How much does a website cost? Compare clear packages and find the right starting point for your business.</p>
+            <p className="pricing-editorial-hero-lead">Built for you. Cared for by us.<br />Choose your website, then the hosting & care that keeps it running.</p>
+            <div className="journey-steps"><a href="#website-packages"><span>01</span> Your website</a><ArrowRight size={16} aria-hidden="true" /><a href="#maintenance"><span>02</span> Your ongoing care</a></div>
           </AnimateIn>
         </div>
       </section>
 
       <section className="pricing-editorial-assurance bg-[#EEF3FF] border-y border-[#5B8CFF]/20 py-4">
         <div className="container text-center">
-          <p>Every project begins with a free consultation, so we can recommend the right scope before work begins.</p>
+          <p>A one-time website build + required hosting & care from €69/month. Clear from the start.</p>
         </div>
       </section>
 
-      <section className="pricing-editorial-plans section-spacing bg-white">
+      <section id="website-packages" className="pricing-editorial-plans section-spacing bg-white">
         <div className="container">
           <AnimateIn className="pricing-editorial-section-intro text-center">
-            <p className="pricing-editorial-label">Choose Your Scope</p>
+            <p className="pricing-editorial-label">01 / Your website</p>
             <h2 className="pricing-editorial-section-heading">Three clear plans.</h2>
             <p>Every package is designed to give you a focused foundation without unnecessary complexity.</p>
           </AnimateIn>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="journey-build-grid grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {buildPlans.map((plan, index) => {
               const accent = plan.tone === "blue" ? "#5B8CFF" : plan.tone === "violet" ? "#8B5CFF" : "#6B3FD4";
               const card = (
-                <div className={`pricing-editorial-plan-card dm-card h-full flex flex-col relative${plan.recommended ? " pricing-editorial-plan-card--recommended" : ""}`}>
+                <div className={`pricing-editorial-plan-card dm-card h-full flex flex-col relative${selectedBuild === index ? " journey-selected" : ""}`}>
                   {plan.recommended && <span className="pricing-editorial-recommended">Recommended</span>}
                   <p className="pricing-editorial-plan-label" style={{ color: accent }}>{plan.name}</p>
                   <div className="pricing-editorial-price-row">
                     <span className="pricing-editorial-plan-price">{plan.price}</span>
                     <span className="pricing-editorial-price-unit">one-time</span>
                   </div>
+                  <a href="#maintenance" className="journey-recurring">+ hosting & care from €69/month <ArrowRight size={13} aria-hidden="true" /></a>
                   <p className="pricing-editorial-plan-summary">{plan.summary}</p>
                   <ul className="pricing-editorial-feature-list flex-1">
                     {plan.features.map((feature) => (
@@ -163,7 +181,7 @@ export default function Pricing() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact/" className={`${plan.recommended ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}><MessageCircle size={16} /> Get a Free Consultation</Link>
+                  <button type="button" aria-pressed={selectedBuild === index} onClick={() => { setSelectedBuild(index); scrollTo("maintenance"); }} className={`${selectedBuild === index || plan.recommended ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>{selectedBuild === index ? <CheckCircle2 size={16} /> : <ArrowRight size={16} />} {selectedBuild === index ? "Selected" : `Choose ${plan.name.split(" ")[0]}`}</button>
                 </div>
               );
               return <AnimateIn delay={0.1 + index * 0.1} key={plan.name}>{card}</AnimateIn>;
@@ -204,26 +222,37 @@ export default function Pricing() {
       <section id="maintenance" className="pricing-editorial-care section-spacing bg-white">
         <div className="container max-w-4xl">
           <AnimateIn className="pricing-editorial-section-intro text-center">
-            <p className="pricing-editorial-label">Keep It Healthy</p>
-            <h2 className="pricing-editorial-section-heading">Website Care <em>Plans</em></h2>
-            <p>Ongoing care for businesses that want their website monitored, updated, and supported after launch.</p>
+            <p className="pricing-editorial-label">02 / Your ongoing care</p>
+            <h2 className="pricing-editorial-section-heading">A home for<br />your <em>website.</em></h2>
+            <p>Hosting & care is required while we manage your website. We keep it online, look after its assets, and take care of the updates.</p>
+            <div className="journey-build-context">{build ? <><CheckCircle2 size={16} /> {build.name} selected <button type="button" onClick={() => scrollTo("website-packages")}>Change</button></> : <>Pairs with every website package</>}</div>
           </AnimateIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <div className="journey-billing" role="group" aria-label="Care billing frequency">
+            <div className={`journey-billing-track${yearly ? " is-yearly" : ""}`}><span className="journey-billing-thumb" aria-hidden="true" /><button type="button" aria-pressed={!yearly} onClick={() => setYearly(false)}>Monthly</button><button type="button" aria-pressed={yearly} onClick={() => setYearly(true)}>Yearly <span>Save ~10%</span></button></div>
+            <p>Same thoughtful care. Your choice of billing.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {carePlans.map((plan, index) => {
               const card = (
-                <div className={`pricing-editorial-care-card dm-card h-full flex flex-col relative${plan.recommended ? " pricing-editorial-plan-card--recommended" : ""}`}>
+                <div className={`pricing-editorial-care-card dm-card h-full flex flex-col relative${plan.recommended ? " journey-care-featured" : ""}${selectedCare === index ? " journey-selected" : ""}`}>
                   {plan.recommended && <span className="pricing-editorial-recommended">Most Complete</span>}
                   <p className="pricing-editorial-plan-label" style={{ color: plan.colour }}>{plan.name}</p>
-                  <div className="pricing-editorial-price-row"><span className="pricing-editorial-care-price">{plan.price}</span><span className="pricing-editorial-price-unit">per month</span></div>
+                  <p className="journey-care-description">{index === 0 ? "The essentials, taken care of." : "A little more ambition. A lot more support."}</p>
+                  <div className="journey-price-block" aria-live="polite" aria-atomic="true"><div key={String(yearly)} className="journey-price-transition"><div className="pricing-editorial-price-row"><span className="pricing-editorial-care-price">{yearly ? euro(plan.yearlyPrice) : plan.price}</span><span className="pricing-editorial-price-unit">{yearly ? "/ year" : "/ month"}</span></div><p className="journey-billing-detail">{yearly ? `${euro(plan.yearlyPrice / 12)} per month equivalent · paid yearly` : "Paid monthly · ongoing hosting & care"}</p><p className="journey-saving">{yearly ? `Save ${euro(plan.monthlyPrice * 12 - plan.yearlyPrice)} each year` : "Yearly billing available at ~10% less"}</p></div></div>
                   <ul className="pricing-editorial-feature-list flex-1">
                     {plan.features.map((feature) => <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={15} className="shrink-0 mt-0.5" style={{ color: plan.colour }} />{feature}</li>)}
                   </ul>
-                  <Link href="/contact/" className={`${plan.recommended ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>Ask About {plan.name}</Link>
+                  <button type="button" aria-pressed={selectedCare === index} onClick={() => setSelectedCare(index)} className={`${plan.recommended || selectedCare === index ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>{selectedCare === index ? <CheckCircle2 size={16} /> : <ArrowRight size={16} />}{selectedCare === index ? `${plan.name} selected` : `Choose ${plan.name}`}</button>
                 </div>
               );
               return <AnimateIn delay={0.1 + index * 0.1} key={plan.name}>{card}</AnimateIn>;
             })}
           </div>
+          <div className="journey-summary" id="your-selection">
+            <div aria-live="polite"><p className="pricing-editorial-label">Made for your next chapter</p><h3>{build && care ? `${build.name} + ${care.name}` : "Your website. Our ongoing care."}</h3><p>{build && care ? <><strong>{build.price}</strong> one-time build <span className="journey-summary-plus">+</span> <strong>{yearly ? euro(care.yearlyPrice) : care.price}</strong>{yearly ? "/year, paid yearly" : "/month"}</> : "Choose a website and care plan above, or let’s find your fit together."}</p></div>
+            <Link href={enquiry} className="btn-primary">{build && care ? "Let’s build your website" : "Help me choose"}<ArrowRight size={16} /></Link>
+          </div>
+          <p className="journey-ownership">Your paid-for website belongs to you. Hosting & care continues while we manage it. <Link href="/terms/">View terms</Link><br />Prices exclude applicable taxes. Domain and third-party costs are agreed separately.</p>
           <AnimateIn delay={0.35} className="mt-8 max-w-2xl mx-auto">
             <div className="pricing-editorial-scope-guardrail flex items-start gap-3 rounded-xl px-5 py-4">
               <ShieldCheck size={19} className="text-[#5B8CFF] shrink-0 mt-0.5" />
@@ -252,6 +281,7 @@ export default function Pricing() {
           <AnimateIn className="pricing-editorial-section-intro text-center"><p className="pricing-editorial-label">Good to Know</p><h2 className="pricing-editorial-section-heading">Common <em>Questions</em></h2></AnimateIn>
           <StaggerContainer className="space-y-4">
             {[
+              { q: "Do I need a hosting & care plan?", a: "Yes. Every website we host and manage needs an active care plan, starting at €69/month, in addition to the one-time build price. Choose monthly or yearly billing. Ownership and handover arrangements are explained in our terms." },
               { q: "Can I see a preview before paying?", a: "Yes. We share a design direction for your approval before development proceeds." },
               { q: "Can I upgrade later?", a: "Yes. We can quote the additional scope if you need more pages, features, or a larger package after launch." },
               { q: "Are there hidden fees?", a: "No. We agree the scope and price before work begins. Domain and third-party service costs, where relevant, are explained separately." },

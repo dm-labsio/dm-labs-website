@@ -19,7 +19,14 @@ export default function Contact() {
     title: "Contact DM-Labs.io | Get a Free Website Quote",
     description: "Get in touch with DM-Labs.io for a free website consultation. We reply within 24 hours. WhatsApp, email, or contact form.",
   });
-  const [form, setForm] = useState({ name: "", email: "", business: "", message: "" });
+  const [form, setForm] = useState(() => {
+    const query = new URLSearchParams(typeof window === "undefined" ? "" : window.location.search);
+    const website = query.get("package");
+    const care = query.get("care");
+    const billing = query.get("billing");
+    const valid = ["Launch Website", "Growth Website", "Pro Website"].includes(website ?? "") && ["Basic Care", "Complete Care"].includes(care ?? "") && ["monthly", "yearly"].includes(billing ?? "");
+    return { name: "", email: "", business: "", message: valid ? `Hi DM Labs! I'm interested in ${website} with ${care}, billed ${billing}. I'd love to discuss my project.` : "" };
+  });
   const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
