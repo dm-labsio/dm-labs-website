@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doral Municipal · Email Signature Generator</title>
+<style>
+  :root{
+    --brand:#34535F; --brand-08:#EFF1F2; --brand-15:#E0E5E7;
+    --line:#D2D9DC; --ink:#34535F; --muted:#6D838C; --bg:#F7F8F9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:'Assistant','Segoe UI',Arial,Helvetica,sans-serif;font-size:15px;line-height:1.55}
+  header{background:var(--brand);color:#fff;padding:24px 28px}
+  header h1{margin:0;font-size:20px;font-weight:700}
+  header p{margin:6px 0 0;font-size:13.5px;opacity:.82}
+  .wrap{max-width:1120px;margin:0 auto;padding:24px 20px 60px}
+  .grid{display:grid;grid-template-columns:400px 1fr;gap:22px;align-items:start}
+  @media (max-width:900px){.grid{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--brand-15);border-radius:12px;padding:22px}
+  .card h2{margin:0 0 4px;font-size:15px;font-weight:700}
+  .card .sub{margin:0 0 18px;font-size:13px;color:var(--muted)}
+  label{display:block;margin:0 0 14px}
+  label>span{display:block;font-size:12.5px;font-weight:600;margin-bottom:5px;color:var(--muted)}
+  input[type=text]{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:7px;
+        font:inherit;font-size:14px;color:var(--ink);background:#fff}
+  input[type=text]:focus{outline:2px solid var(--brand);outline-offset:-1px;border-color:var(--brand)}
+  input[dir=ltr]{text-align:left}
+  .seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;margin-bottom:20px}
+  .seg button{flex:1;border:0;border-radius:0;background:#fff;color:var(--muted);
+              padding:11px 8px;font-weight:700;font-size:13.5px;cursor:pointer}
+  .seg button[aria-pressed=true]{background:var(--brand);color:#fff}
+  .swatch{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;color:var(--muted);
+          background:var(--brand-08);border-radius:20px;padding:6px 13px 6px 7px}
+  .swatch i{width:17px;height:17px;border-radius:50%;background:var(--brand);display:inline-block}
+  .swatch b{color:var(--brand);font-family:ui-monospace,Menlo,Consolas,monospace}
+  .preview{background:#fff;border:1px dashed var(--line);border-radius:9px;padding:24px;overflow-x:auto}
+  .preview.dark{background:#1b1b1b;border-color:#3a3a3a}
+  .pvhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+  .toggle{font-size:12px;color:var(--muted);cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;align-items:center}
+  button.act{font:inherit;font-weight:700;font-size:14px;border-radius:8px;padding:11px 18px;cursor:pointer;border:1px solid var(--brand)}
+  .primary{background:var(--brand);color:#fff}
+  .primary:hover{background:#2A444E}
+  .ghost{background:#fff;color:var(--brand)}
+  .ghost:hover{background:var(--brand-08)}
+  .ok{font-size:13px;font-weight:700;color:#1f7a4d;opacity:0;transition:opacity .2s}
+  .ok.show{opacity:1}
+  ol{margin:10px 0 0;padding-inline-start:20px;font-size:13.5px;color:var(--muted)}
+  ol li{margin-bottom:7px}
+  .note{margin-top:18px;font-size:12.5px;color:var(--muted);border-inline-start:3px solid var(--line);padding-inline-start:12px}
+  .locked{margin-top:4px;font-size:12px;color:var(--muted);background:var(--brand-08);
+          border-radius:8px;padding:10px 12px;line-height:1.6}
+  .locked b{color:var(--brand)}
+  details{margin-top:16px}
+  summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--muted)}
+  textarea{width:100%;height:170px;margin-top:10px;font-family:ui-monospace,Menlo,Consolas,monospace;
+           font-size:11px;direction:ltr;text-align:left;border:1px solid var(--line);border-radius:7px;padding:10px}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="h_title">Doral Municipal · מחולל חתימות מייל</h1>
+  <p id="h_sub">מלאו את הפרטים, בחרו שפה, לחצו «העתקת חתימה» והדביקו בהגדרות המייל.</p>
+</header>
+
+<div class="wrap">
+  <div class="grid">
+
+    <div class="card">
+      <h2 id="l_details">הפרטים שלך</h2>
+      <p class="sub" id="l_detailsSub">רק השדות האלה משתנים בין עובד לעובד.</p>
+
+      <div class="seg" role="group">
+        <button id="btn_he" aria-pressed="true">עברית (RTL)</button>
+        <button id="btn_en" aria-pressed="false">English (LTR)</button>
+      </div>
+
+      <label><span id="l_name">שם מלא</span><input type="text" id="f_name" value="עידו פלג"></label>
+      <label><span id="l_role">תפקיד</span><input type="text" id="f_title" value="מנהל פיתוח עסקי"></label>
+      <label><span id="l_mobile">נייד</span><input type="text" id="f_mobile" dir="ltr" value="054-2223211"></label>
+      <label><span id="l_office">משרד</span><input type="text" id="f_office" dir="ltr" value="074-7876888"></label>
+      <label><span id="l_site">אתר</span><input type="text" id="f_site" dir="ltr" value="Doral-Energy.com"></label>
+
+      <div class="swatch"><i></i><span id="l_color"></span></div>
+
+      <div class="locked" id="l_locked"></div>
+
+      <details>
+        <summary id="l_showCode">הצגת קוד ה־HTML</summary>
+        <textarea id="src" readonly></textarea>
+      </details>
+    </div>
+
+    <div class="card">
+      <div class="pvhead">
+        <div>
+          <h2 id="l_preview" style="margin:0">תצוגה מקדימה</h2>
+          <p class="sub" style="margin:2px 0 0" id="l_previewSub">כך זה ייראה בגוף המייל.</p>
+        </div>
+        <label class="toggle"><input type="checkbox" id="darkToggle"> <span id="l_dark">בדיקת מצב כהה</span></label>
+      </div>
+      <div class="preview" id="preview"></div>
+
+      <div class="row">
+        <button class="act primary" id="copy">העתקת חתימה</button>
+        <button class="act ghost" id="download">הורדת קובץ HTML</button>
+        <span class="ok" id="ok">✓</span>
+      </div>
+
+      <div class="note" id="note_gmail"></div>
+      <div class="note" id="note_outlook"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ---------------------------------------------------------------
+   HARDCODED CONSTANTS — employees cannot change these.
+   --------------------------------------------------------------- */
+const PROD_ORIGIN = 'https://doral-signature-dm-labsios-projects.vercel.app';
+const ORIGIN = /^https?:$/.test(location.protocol) ? location.origin : PROD_ORIGIN;
+
+const LOGO_URL   = 'https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/Doral/Doral_sign_gif.gif';
+const LOGO_W     = 170;
+const LOGO_H     = 60;                    /* 900x316 source, locked ratio */
+const SOCIAL = [
+  { name:'LinkedIn', url:'https://www.linkedin.com/company/doral-energy', icon: ORIGIN + '/linkedin.png' },
+  { name:'Facebook', url:'https://www.facebook.com/DoralEnergy',          icon: ORIGIN + '/facebook.png' }
+];
+const BRAND_HEX = '#34535F';   /* sampled from the GIF wordmark - not editable */
+const ICON_PX  = 20;
+const TABLE_W  = 450;
+const FF       = "Arial, Helvetica, sans-serif";
+
+let LANG = 'he';
+
+/* --------------------------- helpers --------------------------- */
+const esc  = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const tel  = s => String(s).replace(/[^\d+]/g,'');
+const val  = id => document.getElementById(id).value.trim();
+const hex  = () => BRAND_HEX;
+const tint = (h, amt) => {
+  const n = parseInt(h.slice(1),16), r=n>>16, g=(n>>8)&255, b=n&255;
+  const m = v => Math.round(v + (255-v)*amt);
+  return '#' + [m(r),m(g),m(b)].map(v=>v.toString(16).padStart(2,'0')).join('').toUpperCase();
+};
+
+/* Text rows shared by both layouts. `align` is "right" or "left". */
+function textRows(C, align){
+  const d = LANG === 'he' ? 'rtl' : 'ltr';
+  const name = esc(val('f_name')), role = esc(val('f_title'));
+  const mob  = esc(val('f_mobile')), off = esc(val('f_office'));
+  const site = esc(val('f_site').replace(/^https?:\/\//,''));
+  const L    = LANG === 'he' ? {mob:'נייד:', off:'משרד:'} : {mob:'Mobile:', off:'Office:'};
+  const base = `font-family:${FF};margin:0;padding:0;mso-line-height-rule:exactly;`;
+  const link = `color:${C} !important;text-decoration:none;`;
+
+  return ''
+  + `<div dir="${d}" data-ogsc="${C}" style="${base}font-size:21px;line-height:27px;font-weight:bold;color:${C} !important;">${name}</div>`
+  + `<div dir="${d}" data-ogsc="${C}" style="${base}font-size:16px;line-height:22px;font-weight:bold;color:${C} !important;padding-top:1px;">${role}</div>`
+  + `<div dir="${d}" data-ogsc="${C}" style="${base}font-size:14px;line-height:20px;font-weight:normal;color:${C} !important;padding-top:8px;">`
+  +   `${L.mob} <span dir="ltr"><a href="tel:${tel(mob)}" style="${link}">${mob}</a></span></div>`
+  + `<div dir="${d}" data-ogsc="${C}" style="${base}font-size:14px;line-height:20px;font-weight:normal;color:${C} !important;">`
+  +   `${L.off} <span dir="ltr"><a href="tel:${tel(off)}" style="${link}">${off}</a></span></div>`
+  + `<div dir="ltr" data-ogsc="${C}" style="${base}font-size:16px;line-height:22px;font-weight:normal;color:${C} !important;padding-top:6px;text-align:${align};">`
+  +   `<a href="https://${site}" style="${link}">${site}</a></div>`;
+}
+
+/* Social icon strip. Separate table so Outlook keeps the icons on one line. */
+function socialTable(align){
+  const pad = align === 'right' ? 'padding:0 0 0 8px;' : 'padding:0 8px 0 0;';
+  const cells = SOCIAL.map(s =>
+    `<td style="${pad}"><a href="${s.url}" target="_blank">`
+    + `<img src="${s.icon}" width="${ICON_PX}" height="${ICON_PX}" alt="${s.name}" border="0" `
+    + `style="display:inline-block;border:0;outline:none;text-decoration:none;width:${ICON_PX}px;height:${ICON_PX}px;">`
+    + `</a></td>`).join('');
+  return `<table dir="${LANG==='he'?'rtl':'ltr'}" align="${align}" cellpadding="0" cellspacing="0" border="0" role="presentation" `
+       + `style="border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;"><tr>${cells}</tr></table>`;
+}
+
+function logoCell(C){
+  return `<img src="${LOGO_URL}" width="${LOGO_W}" height="${LOGO_H}" alt="Doral Municipal" border="0" `
+       + `style="display:block;border:0;outline:none;text-decoration:none;width:${LOGO_W}px;height:${LOGO_H}px;">`;
+}
+
+/* =====================================================================
+   TABLE BUILDER 1 of 2 — HEBREW / RTL
+   Logo on the RIGHT, vertical rule, text right-aligned in the LEFT cell.
+   ===================================================================== */
+function buildHebrew(){
+  const C = hex(), RULE = tint(C, 0.72);
+  const TXT_W = TABLE_W - LOGO_W - 20 - 1 - 20;
+  return ''
++ `<table dir="rtl" width="${TABLE_W}" cellpadding="0" cellspacing="0" border="0" role="presentation" bgcolor="#FFFFFF" data-ogsb="#FFFFFF"`
++ ` style="width:${TABLE_W}px;border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;background-color:#FFFFFF;font-family:${FF};">`
++ `<tr>`
++ `<td dir="rtl" width="${LOGO_W}" valign="top" align="right" style="width:${LOGO_W}px;padding:0;vertical-align:top;">${logoCell(C)}</td>`
++ `<td width="20" style="width:20px;font-size:0;line-height:0;">&nbsp;</td>`
++ `<td width="1" bgcolor="${RULE}" data-ogsb="${RULE}" style="width:1px;background-color:${RULE};font-size:0;line-height:0;">&nbsp;</td>`
++ `<td width="20" style="width:20px;font-size:0;line-height:0;">&nbsp;</td>`
++ `<td dir="rtl" width="${TXT_W}" valign="top" align="right" style="width:${TXT_W}px;padding:0;text-align:right;vertical-align:top;">`
++ `${textRows(C,'right')}`
++ `<div style="font-size:0;line-height:0;height:18px;">&nbsp;</div>`
++ `${socialTable('right')}`
++ `</td>`
++ `</tr>`
++ `</table>`;
+}
+
+/* =====================================================================
+   TABLE BUILDER 2 of 2 — ENGLISH / LTR
+   Logo on the LEFT, vertical rule, text left-aligned in the RIGHT cell.
+   ===================================================================== */
+function buildEnglish(){
+  const C = hex(), RULE = tint(C, 0.72);
+  const TXT_W = TABLE_W - LOGO_W - 20 - 1 - 20;
+  return ''
++ `<table dir="ltr" width="${TABLE_W}" cellpadding="0" cellspacing="0" border="0" role="presentation" bgcolor="#FFFFFF" data-ogsb="#FFFFFF"`
++ ` style="width:${TABLE_W}px;border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;background-color:#FFFFFF;font-family:${FF};">`
++ `<tr>`
++ `<td dir="ltr" width="${LOGO_W}" valign="top" align="left" style="width:${LOGO_W}px;padding:0;vertical-align:top;">${logoCell(C)}</td>`
++ `<td width="20" style="width:20px;font-size:0;line-height:0;">&nbsp;</td>`
++ `<td width="1" bgcolor="${RULE}" data-ogsb="${RULE}" style="width:1px;background-color:${RULE};font-size:0;line-height:0;">&nbsp;</td>`
++ `<td width="20" style="width:20px;font-size:0;line-height:0;">&nbsp;</td>`
++ `<td dir="ltr" width="${TXT_W}" valign="top" align="left" style="width:${TXT_W}px;padding:0;text-align:left;vertical-align:top;">`
++ `${textRows(C,'left')}`
++ `<div style="font-size:0;line-height:0;height:18px;">&nbsp;</div>`
++ `${socialTable('left')}`
++ `</td>`
++ `</tr>`
++ `</table>`;
+}
+
+const build = () => LANG === 'he' ? buildHebrew() : buildEnglish();
+
+/* ----------------------------- UI ------------------------------ */
+const T = {
+  he:{ title:'Doral Municipal · מחולל חתימות מייל',
+       sub:'מלאו את הפרטים, בחרו שפה, לחצו «העתקת חתימה» והדביקו בהגדרות המייל.',
+       details:'הפרטים שלך', detailsSub:'רק השדות האלה משתנים בין עובד לעובד.',
+       name:'שם מלא', role:'תפקיד', mobile:'נייד', office:'משרד', site:'אתר',
+       color:'הצבע נעול על #34535F — נדגם מהלוגו', preview:'תצוגה מקדימה', previewSub:'כך זה ייראה בגוף המייל.',
+       dark:'בדיקת מצב כהה', copy:'העתקת חתימה', dl:'הורדת קובץ HTML', ok:'הועתק ✓',
+       showCode:'הצגת קוד ה־HTML',
+       locked:'<b>נעול:</b> הלוגו, הצבע, אייקוני הרשתות והקישורים אליהן מוגדרים מראש וזהים לכל העובדים.',
+       gmail:'<strong>התקנה ב־Gmail</strong><ol><li>גלגל שיניים ← «הצגת כל ההגדרות» ← לשונית «כללי».</li><li>גללו ל«חתימה» ← «יצירת חדשה» ← תנו שם.</li><li>לחצו בתוך תיבת החתימה והדביקו (Ctrl/⌘ + V).</li><li>בחרו את החתימה ב«לשימוש במיילים חדשים» וב«בתשובה/העברה».</li><li>«שמירת שינויים» בתחתית העמוד.</li></ol>',
+       outlook:'<strong>התקנה ב־Outlook</strong><ol><li>הגדרות ← דואר ← «כתיבה ותשובה» ← חתימת דוא״ל.</li><li>הדביקו, בחרו כברירת מחדל להודעות חדשות ולתשובות, ושמרו.</li></ol>' },
+  en:{ title:'Doral Municipal · Email Signature Generator',
+       sub:'Fill in your details, pick a language, hit Copy Signature and paste it into your mail settings.',
+       details:'Your details', detailsSub:'Only these fields change between employees.',
+       name:'Full name', role:'Job title', mobile:'Mobile', office:'Office', site:'Website',
+       color:'Colour locked to #34535F — sampled from the logo', preview:'Preview', previewSub:'This is how it will look in the email body.',
+       dark:'Dark-mode check', copy:'Copy signature', dl:'Download HTML file', ok:'Copied ✓',
+       showCode:'Show HTML source',
+       locked:'<b>Locked:</b> the logo, the colour, the social icons and the links behind them are fixed and identical for every employee.',
+       gmail:'<strong>Install in Gmail</strong><ol><li>Gear icon → “See all settings” → “General” tab.</li><li>Scroll to “Signature” → “Create new” → name it.</li><li>Click inside the signature box and paste (Ctrl/⌘ + V).</li><li>Set it under “For new emails use” and “On reply/forward use”.</li><li>“Save Changes” at the bottom.</li></ol>',
+       outlook:'<strong>Install in Outlook</strong><ol><li>Settings → Mail → “Compose and reply” → Email signature.</li><li>Paste, set it as default for new messages and replies, then save.</li></ol>' }
+};
+
+function applyLang(){
+  const t = T[LANG], d = LANG === 'he' ? 'rtl' : 'ltr';
+  document.documentElement.lang = LANG;
+  document.documentElement.dir  = d;
+  const set = (id,v)=>{ const el=document.getElementById(id); if(el) el.textContent = v; };
+  set('h_title',t.title); set('h_sub',t.sub);
+  set('l_details',t.details); set('l_detailsSub',t.detailsSub);
+  set('l_name',t.name); set('l_role',t.role); set('l_mobile',t.mobile);
+  set('l_office',t.office); set('l_site',t.site); set('l_color',t.color);
+  set('l_preview',t.preview); set('l_previewSub',t.previewSub); set('l_dark',t.dark);
+  set('l_showCode',t.showCode);
+  document.getElementById('copy').textContent = t.copy;
+  document.getElementById('download').textContent = t.dl;
+  document.getElementById('ok').textContent = t.ok;
+  document.getElementById('l_locked').innerHTML   = t.locked;
+  document.getElementById('note_gmail').innerHTML = t.gmail;
+  document.getElementById('note_outlook').innerHTML = t.outlook;
+  document.getElementById('btn_he').setAttribute('aria-pressed', LANG==='he');
+  document.getElementById('btn_en').setAttribute('aria-pressed', LANG==='en');
+}
+
+function render(){
+  const html = build();
+  document.getElementById('preview').innerHTML = html;
+  document.getElementById('src').value = html;
+}
+
+document.getElementById('btn_he').addEventListener('click',()=>{LANG='he';applyLang();render();});
+document.getElementById('btn_en').addEventListener('click',()=>{LANG='en';applyLang();render();});
+document.querySelectorAll('input[type=text]').forEach(i=>i.addEventListener('input',render));
+document.getElementById('darkToggle').addEventListener('change',e=>{
+  document.getElementById('preview').classList.toggle('dark', e.target.checked);
+});
+
+document.getElementById('copy').addEventListener('click', async () => {
+  const html = build();
+  try{
+    await navigator.clipboard.write([new ClipboardItem({
+      'text/html' : new Blob([html], {type:'text/html'}),
+      'text/plain': new Blob([document.getElementById('preview').innerText], {type:'text/plain'})
+    })]);
+  }catch(e){
+    const r=document.createRange(); r.selectNodeContents(document.getElementById('preview'));
+    const s=getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); s.removeAllRanges();
+  }
+  const ok=document.getElementById('ok'); ok.classList.add('show'); setTimeout(()=>ok.classList.remove('show'),1800);
+});
+
+document.getElementById('download').addEventListener('click', () => {
+  const d = LANG==='he'?'rtl':'ltr';
+  const blob = new Blob(['<!doctype html><html dir="'+d+'"><meta charset="utf-8"><body>'+build()+'</body></html>'],{type:'text/html'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='doral-signature-'+LANG+'-'+(val('f_name').replace(/\s+/g,'-')||'employee')+'.html';
+  a.click(); URL.revokeObjectURL(a.href);
+});
+
+applyLang(); render();
+</script>
+</body>
+</html>
