@@ -1444,6 +1444,193 @@ intent.</code></pre>
 </div>
     `,
   },
+
+  // ─── Article 12 ───────────────────────────────────────────────────────────
+  {
+    slug: "online-shop-cyprus-shopify-vs-woocommerce",
+    title: "Shopify vs WooCommerce for a Cyprus Online Shop: Costs, Payments and Delivery (Launch Before Black Friday)",
+    metaTitle: "Online Shop Cyprus: Shopify vs WooCommerce (2026)",
+    metaDescription: "Planning an online shop in Cyprus before Black Friday? Compare Shopify vs WooCommerce costs, Cyprus payments and delivery, then launch in 6 weeks.",
+    date: "2026-09-22",
+    dateModified: "2026-09-22",
+    readTime: "10 min read",
+    category: "Ecommerce",
+    excerpt: "Zara, Jumbo, and IKEA already take your customers' money online while you're still relying on Instagram DMs. Here is the straight-talking Shopify vs WooCommerce comparison, the Cyprus payment and delivery setup that actually works, and a 6-week countdown to launch before Black Friday.",
+    coverImage: "/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp",
+    imageAlt: "PLACEHOLDER COVER — abstract gradient background reused temporarily so the build doesn't ship a broken image. Replace before publishing with a real photo: a Cyprus retail shop owner (fashion, gifts, beauty, or homeware) packing an online order box next to a laptop showing a live eshop checkout screen, warm natural light, in-store shelves visible in the background",
+    author: "Anastacia B.",
+    language: "en",
+    keywords: [
+      "online shop cyprus",
+      "eshop cyprus",
+      "shopify vs woocommerce",
+      "shopify cyprus",
+      "woocommerce pricing",
+    ],
+    faq: [
+      {
+        question: "How much does an online shop cost in Cyprus?",
+        answer: "As of September 2026, Shopify's Basic plan runs about $39/month billed monthly (roughly $29/month if billed yearly), plus card transaction fees. WooCommerce's plugin is free, but a working store needs hosting, a theme, and extensions, which typically lands between roughly $200 and $3,000+ a year depending on how much you need. On top of either platform, budget for design, product setup and payment integration — through DM-Labs.io, a fully built online shop typically falls in the same range as our larger custom builds, scoped once we know your product count and features. Get a fixed quote after a free consultation.",
+      },
+      {
+        question: "Do I need a company to sell online in Cyprus?",
+        answer: "You can start as a self-employed sole trader registered with the Cyprus Tax Department, which is common for small local sellers. You only need to register for VAT once your annual taxable turnover exceeds €15,600, per the Cyprus Tax Department's rules. This is general information, not tax advice — confirm your specific situation with a licensed Cyprus accountant before you launch.",
+      },
+      {
+        question: "Can I sell in Greek and English on the same shop?",
+        answer: "Yes, and for the Cyprus market you should. Both Shopify and WooCommerce support multiple languages through apps or plugins, but a bolt-on translator is not the same as clean, separate Greek and English product pages that read naturally and rank properly on Google. Build the language structure in from day one rather than retrofitting it later.",
+      },
+      {
+        question: "Shopify or WooCommerce — which one should I actually choose?",
+        answer: "Choose Shopify if you want the fastest path to a working, secure, low-maintenance shop and you're comfortable with a monthly subscription. Choose WooCommerce if you already run a WordPress site, want maximum long-term flexibility, and don't mind a partner who handles the technical upkeep. Neither is 'wrong' — the right one depends on your budget shape and how hands-on you want to be.",
+      },
+      {
+        question: "How long does it take to launch an online shop before Black Friday?",
+        answer: "Realistically, 4 to 6 weeks from a standing start, covering platform setup, product pages, payment and delivery configuration, and testing. Black Friday 2026 falls on Friday, 27 November. Starting in the second half of October gives you breathing room; starting in September gives you a proper buffer for photography, copy and a dry run before the rush.",
+      },
+    ],
+    content: `
+<!-- PLACEHOLDER NOTE FOR DM-LABS.IO: cover image above (coverImage field) currently reuses the site's existing abstract gradient background so the build doesn't ship a broken image. Replace with a real photo before publishing — see imageAlt for the shot we need. -->
+<p class="blog-lead">Let's be honest about what is actually happening to your business right now. Zara has an online shop. Jumbo has an online shop. IKEA has an online shop. They take the sale, the card payment, and the delivery — all before your customer even finishes typing "is this in stock?" into your Instagram DMs. You are not losing to bigger, better products. You are losing to a checkout button you don't have.</p>
+
+<p>Here's the number that should light a fire under you: Black Friday 2026 lands on <strong>Friday, 27 November</strong>. November is the single biggest online shopping month of the year in Cyprus, full stop, every year, no exceptions. Every shop owner with a working <strong>online shop in Cyprus</strong> is about to have the best six weeks of their year. Everyone without one is about to stand there and watch it happen to someone else.</p>
+
+<p>You have two options. Option one: read another ten articles, stay confused about Shopify vs WooCommerce, and open your eshop sometime in January when the moment has already passed. Option two: read this one, make the call, and be taking orders before Black Friday. This article is built for option two — the platform decision, the payments that actually work in Cyprus, delivery and VAT without the jargon, how to get found on Google, and a six-week countdown that ends on the biggest shopping day of the year. No fluff. Let's go.</p>
+
+<nav class="blog-toc" aria-label="Table of contents">
+  <span class="blog-toc__title">In this guide</span>
+  <ol>
+    <li><a href="#shopify-vs-woocommerce">Shopify vs WooCommerce: the honest comparison</a></li>
+    <li><a href="#payments-cyprus">Getting paid in Cyprus: Stripe, JCC, Viva, PayPal, Apple Pay and Google Pay</a></li>
+    <li><a href="#delivery-vat">Delivery, VAT and the EU OSS scheme</a></li>
+    <li><a href="#getting-found">Getting found: Google Shopping, product SEO and Instagram</a></li>
+    <li><a href="#six-week-plan">The 6-week launch plan to Black Friday</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ol>
+</nav>
+
+<h2 id="shopify-vs-woocommerce">Shopify vs WooCommerce: the honest comparison</h2>
+
+<p>Every "online shop cyprus" search eventually lands here, so let's settle it. Both platforms will sell your products. The difference is who does the work and how you pay for it.</p>
+
+<p><strong>Shopify</strong> is a hosted platform — you rent the software, and Shopify runs the servers, security and updates for you. As of September 2026, Shopify's plans start at the Basic tier for roughly $39/month billed monthly (about $29/month if you commit to annual billing), with card transaction rates around 2.9% + 30¢ per online sale when you use Shopify Payments, dropping as you move up plans. Shopify Payments is available for online selling in Cyprus, with payouts in euro. Always check <a href="https://www.shopify.com/pricing" class="blog-link" target="_blank" rel="noopener noreferrer">Shopify's current pricing page</a> before committing, because plan names and prices shift.</p>
+
+<p><strong>WooCommerce</strong> is a free plugin that turns a WordPress site into a shop. "Free" is the headline, not the whole story: you still pay for hosting, a theme, and the extensions you actually need (product filters, better checkout, backups, security). A realistic, fully working WooCommerce store commonly costs somewhere between roughly $200 and a few thousand dollars a year, depending on how much you bolt on. See <a href="https://woocommerce.com/pricing/" class="blog-link" target="_blank" rel="noopener noreferrer">WooCommerce's own pricing page</a> for its official extensions and themes.</p>
+
+<table class="blog-table">
+  <thead>
+    <tr><th>Factor</th><th>Shopify</th><th>WooCommerce</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Monthly cost</td><td>From ~$39/mo (Basic), billed by Shopify directly</td><td>Plugin is free; hosting + extensions usually $15–$100+/mo</td></tr>
+    <tr><td>Transaction fees</td><td>~2.9% + 30¢ with Shopify Payments; extra surcharge if you use another gateway</td><td>Set by whichever gateway you connect (e.g. Stripe, Viva) — no separate platform cut</td></tr>
+    <tr><td>Hosting & security</td><td>Included, fully managed by Shopify</td><td>Your responsibility (or your web partner's) — pick a host, manage updates</td></tr>
+    <tr><td>Ease of use</td><td>Very high — guided setup, one dashboard</td><td>Moderate — more moving parts, more control</td></tr>
+    <tr><td>Flexibility</td><td>Good within Shopify's app ecosystem</td><td>Very high — WordPress plugin library is enormous</td></tr>
+    <tr><td>Greek / English support</td><td>Via translation apps (e.g. Weglot, Langify)</td><td>Via translation plugins (e.g. WPML, Polylang)</td></tr>
+    <tr><td>Best suited to</td><td>Owners who want it running fast with minimal upkeep</td><td>Owners already on WordPress, or who want long-term flexibility</td></tr>
+  </tbody>
+</table>
+
+<p class="blog-soft-cta">Staring at that table wondering which column describes you? That is a five-minute conversation, not a five-week research project. <a href="/contact/" class="blog-link">Talk to us</a> and we'll tell you straight.</p>
+
+<p><strong>Our honest recommendation:</strong> choose Shopify if you want the fastest, lowest-maintenance route to a secure shop and you're fine paying a monthly subscription for that convenience. Choose WooCommerce if you already have a WordPress site, want maximum control over every detail, and you have a partner who will actually maintain it — because an unmaintained WooCommerce store is a security problem waiting to happen. Either way, notice what neither platform does for you: neither one photographs your products, writes your product pages in Greek and English, connects your payment provider, or makes sure the checkout actually works on a phone at 11pm when someone's ready to buy. The platform is 20% of the decision. Everything below — and everything we build — is the other 80%, the part that turns a shop that exists into a shop that sells.</p>
+
+<h2 id="payments-cyprus">Getting paid in Cyprus: Stripe, JCC, Viva, PayPal, Apple Pay and Google Pay</h2>
+
+<p>A shop that cannot take a Cypriot customer's preferred payment method is a shop that loses the sale at the last click. Here are the real options, as of September 2026.</p>
+
+<ul>
+  <li><strong>Stripe</strong> — operates in Cyprus and integrates directly with both Shopify and WooCommerce. Widely used, well documented, straightforward for card payments and popular wallets. <a href="https://stripe.com/resources/more/payments-in-cyprus" class="blog-link" target="_blank" rel="noopener noreferrer">See Stripe's own Cyprus payments page</a>.</li>
+  <li><strong>JCC (JCCsmart)</strong> — Cyprus's own long-standing payment infrastructure, owned by local banks including Bank of Cyprus and Hellenic Bank. Worth considering if you want a locally rooted option your customers may already recognise from paying bills. <a href="https://www.jcc.com.cy/jcc-online-solutions/jccsmart/" class="blog-link" target="_blank" rel="noopener noreferrer">JCC's ecommerce page</a>.</li>
+  <li><strong>Viva.com</strong> — a European payment provider active in Cyprus, with published fees starting from around 1.4% per transaction and no monthly charge for its basic service, making it worth comparing directly against Stripe for your specific volumes. <a href="https://www.viva.com/en-cy/pricing" class="blog-link" target="_blank" rel="noopener noreferrer">Viva.com's Cyprus pricing page</a>.</li>
+  <li><strong>PayPal</strong> — still expected by a meaningful slice of online shoppers as a trust signal, even if they end up paying by card anyway. Offering it costs you little and removes a hesitation point at checkout.</li>
+  <li><strong>Apple Pay and Google Pay</strong> — both are available to shoppers in Cyprus, subject to their own bank supporting it. Turning these on inside Shopify or WooCommerce is usually a checkbox, not a project, and they meaningfully speed up mobile checkout — where most of your Instagram traffic is already browsing from.</li>
+</ul>
+
+<p>On fees: card processing in Europe typically lands somewhere in the 1.4%–2.9% + a small fixed fee per transaction range, depending on provider, card type, and your negotiated rate. Don't guess — pull the current rate card from whichever provider you're evaluating before you decide, because a half-percent difference matters once volume builds. None of the providers named above are partners of DM-Labs.io; we're naming them because they are real, working options in this market, not because we get anything for mentioning them.</p>
+
+<h2 id="delivery-vat">Delivery, VAT and the EU OSS scheme</h2>
+
+<p>Getting the product made and the payment taken is half the job. Getting it into your customer's hands — and getting the tax right — is the other half.</p>
+
+<h3>Delivery that doesn't kill the sale</h3>
+<p>Cyprus Post offers island-wide postal and parcel delivery with tracking, and several private local couriers (including operators like easyCourier and Travel Express) specifically offer eshop delivery contracts across Nicosia, Limassol, Larnaca, Paphos and Famagusta. For anything beyond a letter-sized item, compare a local courier's speed and price against Cyprus Post before choosing — and if you have a physical shop, offer <strong>click & collect</strong> as a free, zero-shipping-cost option. It converts browsers who are on the fence about delivery fees, and it gets people back into your store.</p>
+<p>Whatever you charge for delivery, set a clear <strong>free-delivery threshold</strong> (a spend amount above which delivery is free) and display it everywhere — homepage, cart, checkout. It is one of the single biggest levers for increasing average order value, and customers actively shop toward it.</p>
+
+<h3>VAT, in plain English</h3>
+<p>Cyprus's standard VAT rate is <strong>19%</strong> as of September 2026, with reduced rates of 9%, 5% and 3% applying to specific categories of goods and services. If you're a Cyprus-resident business, you must register for VAT once your taxable turnover passes <strong>€15,600</strong> in a rolling 12-month period, per the Cyprus Tax Department's own guidance.</p>
+<p>If you plan to sell to customers in <em>other</em> EU countries — not just Cyprus — there's an EU-wide rule to know: once your total cross-border B2C sales into the rest of the EU pass <strong>€10,000</strong> a year, you're expected to charge VAT at the buyer's country rate rather than your own. The <strong>EU OSS (One Stop Shop)</strong> scheme exists specifically so you can register once and file a single quarterly return covering all of it, instead of registering separately in every country you ship to.</p>
+<p class="blog-placeholder-note"><strong>Not tax advice:</strong> the figures above are general, publicly published rates and thresholds, correct as of September 2026 to the best of our verification. Tax rules change and every business's situation differs — confirm your specific VAT and OSS obligations with a licensed Cyprus accountant before you launch.</p>
+
+<h2 id="getting-found">Getting found: Google Shopping, product SEO and Instagram</h2>
+
+<p>A beautiful shop nobody can find is a beautiful waste of money. Three things matter here, and none of them cost you anything to start.</p>
+
+<ul>
+  <li><strong>Google Merchant Center free listings</strong> — upload a product feed to Google Merchant Center and your products can appear, at no cost, in Google Search, the Shopping tab, Google Images and Google Maps. This is separate from paid Shopping ads and is turned on by default once your feed is approved. It is the closest thing to free advertising Google offers a small shop.</li>
+  <li><strong>Basic product SEO</strong> — every product page needs a real title (not "Item #4521"), a genuine description in both Greek and English if you serve both markets, and an actual price and stock status visible as text, not locked inside an image. This is unglamorous work and it is exactly the work that gets you found.</li>
+  <li><strong>Link your eshop to your Google Business Profile</strong> and keep your <strong>Instagram Shopping</strong> catalogue synced to the same product feed. Customers who already follow you on Instagram are your warmest traffic — make the "buy" step one tap, not a DM negotiation.</li>
+</ul>
+
+<p>For the bigger picture on ranking locally in Cyprus, see our guide on <a href="/blog/how-to-get-found-on-google-cyprus/" class="blog-link">how to get your business found on Google in Cyprus</a> — the same fundamentals apply to a shop, with product pages standing in for service pages.</p>
+
+<h2 id="six-week-plan">The 6-week launch plan to Black Friday</h2>
+
+<p>Black Friday 2026 is Friday, 27 November. Working backwards from that date, here is a realistic week-by-week plan. Start this week and you land with room to breathe. Start in November and you're launching into the rush blind — still possible, just riskier. Every week you wait is a week you don't get back before the biggest shopping day of the year arrives without you.</p>
+
+<ul>
+  <li><strong>Week 1 — Decide and set up.</strong> Choose Shopify or WooCommerce based on the comparison above. Register your business/VAT status if not already done. Set up your payment provider(s) and confirm payouts land in EUR.</li>
+  <li><strong>Week 2 — Products and pages.</strong> Photograph your top-selling products properly (natural light, consistent background). Write real product descriptions in Greek and English. Set prices, stock levels and your free-delivery threshold.</li>
+  <li><strong>Week 3 — Delivery and checkout.</strong> Set up your courier or Cyprus Post rates, click & collect if you have a physical location, and test the full checkout flow yourself on a phone, start to finish, with a real card.</li>
+  <li><strong>Week 4 — Getting found.</strong> Submit your product feed to Google Merchant Center, connect Instagram Shopping, and link everything back to your Google Business Profile.</li>
+  <li><strong>Week 5 — Soft launch.</strong> Open the shop quietly to your existing customers and Instagram followers. Fix whatever breaks — something always does on the first real orders.</li>
+  <li><strong>Week 6 — Black Friday.</strong> Announce properly, run your promotion, and watch the orders come in on a shop that was actually ready for them.</li>
+</ul>
+
+<p class="blog-soft-cta">Six weeks sounds tight because it is tight. We compress this timeline for a living. <a href="/contact/" class="blog-link">Book a call</a> and tell us your Black Friday deadline — we'll tell you exactly what's realistic.</p>
+
+<h2 id="faq">FAQ</h2>
+
+<h3>How much does an online shop cost in Cyprus?</h3>
+<p>As of September 2026, Shopify's Basic plan runs about $39/month (roughly $29/month billed yearly) plus card fees. WooCommerce's plugin is free, but hosting, a theme and extensions typically bring a working store to somewhere between $200 and $3,000+ a year. Add design, product setup and payment integration on top of either, and a fully built shop through DM-Labs.io is scoped and quoted after we know your product count and features — no guessing, no hidden lines.</p>
+
+<h3>Do I need a company to sell online in Cyprus?</h3>
+<p>You can start as a registered sole trader with the Cyprus Tax Department. VAT registration is required once your annual taxable turnover passes €15,600. This is general information, not tax advice — check your specific situation with a licensed Cyprus accountant.</p>
+
+<h3>Can I sell in Greek and English on the same shop?</h3>
+<p>Yes, and for Cyprus you should. Both platforms support it through apps or plugins, but proper separate Greek and English product pages beat a bolted-on translator every time — for customers and for Google.</p>
+
+<h3>Shopify or WooCommerce — which one should I actually choose?</h3>
+<p>Shopify if you want it running fast with minimal upkeep and you're fine with a monthly fee. WooCommerce if you're already on WordPress, want maximum flexibility, and have someone keeping it maintained. There is no universally "right" answer — only the right one for your budget and how hands-on you want to be.</p>
+
+<h3>How long does it take to launch before Black Friday?</h3>
+<p>Realistically 4 to 6 weeks from a standing start. Black Friday 2026 is Friday, 27 November. Starting now gives you a proper buffer for photography, copy, testing and a soft launch before the real rush hits.</p>
+
+<h2 id="sources">Sources</h2>
+<ol>
+  <li><a href="https://www.shopify.com/pricing" class="blog-link" target="_blank" rel="noopener noreferrer">Shopify: official pricing plans</a>, checked September 2026.</li>
+  <li><a href="https://help.shopify.com/en/manual/payments/shopify-payments/supported-countries/cyprus/accepting-payments" class="blog-link" target="_blank" rel="noopener noreferrer">Shopify Help Center: Shopify Payments in Cyprus</a>.</li>
+  <li><a href="https://woocommerce.com/pricing/" class="blog-link" target="_blank" rel="noopener noreferrer">WooCommerce: official pricing and extensions</a>, checked September 2026.</li>
+  <li><a href="https://www.businessincyprus.gov.cy/doing-business-in-cyprus/start-your-business/registering-for-income-tax-and-value-added-tax/" class="blog-link" target="_blank" rel="noopener noreferrer">Invest Cyprus (businessincyprus.gov.cy): registering for VAT, €15,600 threshold</a>.</li>
+  <li><a href="https://vat-one-stop-shop.ec.europa.eu/one-stop-shop_en" class="blog-link" target="_blank" rel="noopener noreferrer">European Commission: the EU VAT One Stop Shop (OSS) scheme</a>.</li>
+  <li><a href="https://stripe.com/resources/more/payments-in-cyprus" class="blog-link" target="_blank" rel="noopener noreferrer">Stripe: accepting payments in Cyprus</a>.</li>
+  <li><a href="https://www.jcc.com.cy/jcc-online-solutions/jccsmart/" class="blog-link" target="_blank" rel="noopener noreferrer">JCC Payment Systems: JCCsmart ecommerce portal</a>.</li>
+  <li><a href="https://www.viva.com/en-cy/pricing" class="blog-link" target="_blank" rel="noopener noreferrer">Viva.com: Cyprus pricing</a>.</li>
+  <li><a href="https://www.cypruspost.post/en/home" class="blog-link" target="_blank" rel="noopener noreferrer">Cyprus Post: postal and courier services</a>.</li>
+  <li><a href="https://support.google.com/merchants/answer/13889434" class="blog-link" target="_blank" rel="noopener noreferrer">Google Merchant Center: free listings for products</a>.</li>
+  <li><a href="https://www.timeanddate.com/holidays/us/black-friday" class="blog-link" target="_blank" rel="noopener noreferrer">Black Friday 2026 date: Friday, 27 November</a>.</li>
+</ol>
+
+<div class="blog-cta">
+  <h3>Launch your eshop before Black Friday.</h3>
+  <p>Stop losing sales to Zara, Jumbo and IKEA while your best customers wait on you in the DMs. Tell us your products and your deadline. We'll tell you exactly what it costs, what platform fits, and whether 27 November is realistic — no jargon, no pressure, just a straight answer.</p>
+  <a href="/contact/" class="blog-cta-btn">Book a Call With D&amp;M Labs</a>
+</div>
+
+<p><em>Related reading: <a href="/blog/website-cost-cyprus-2026-guide/" class="blog-link">How Much Does a Website Cost in Cyprus?</a> · <a href="/blog/how-to-get-found-on-google-cyprus/" class="blog-link">How to Get Your Business Found on Google in Cyprus</a></em></p>
+    `,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

@@ -59,6 +59,7 @@ const EN_BLOG_SLUGS = [
   "google-search-console-ai-seo-prompts",
   "website-leads-real-estate-construction-hospitality",
   "google-ai-mode-near-me-cyprus",
+  "online-shop-cyprus-shopify-vs-woocommerce",
 ];
 
 const EL_BLOG_SLUGS = [

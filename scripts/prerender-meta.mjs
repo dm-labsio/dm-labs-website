@@ -210,6 +210,12 @@ const EN_STATIC_ROUTES = [
     description: "Google AI Mode now answers \"near me\" questions in Greek and English. Here's what decides which Cyprus business it recommends — and how to become it.",
     // No elPath — this post is intentionally English-only; hreflang will self-reference
   },
+  {
+    path: "/blog/online-shop-cyprus-shopify-vs-woocommerce",
+    title: "Online Shop Cyprus: Shopify vs WooCommerce (2026)",
+    description: "Planning an online shop in Cyprus before Black Friday? Compare Shopify vs WooCommerce costs, Cyprus payments and delivery, then launch in 6 weeks.",
+    // No elPath — this post is intentionally English-only; hreflang will self-reference
+  },
 ];
 
 // ─── Greek Static Routes ──────────────────────────────────────────────────────
