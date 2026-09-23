@@ -1,4 +1,5 @@
 /* D&M LABS - 404 Page (EN/EL/HE route-aware) */
+import StarButton from "@/components/ui/star-button";
 import { useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { ArrowLeft } from "lucide-react";
@@ -45,9 +46,9 @@ export default function NotFound() {
           <p className="text-[#5B6472] mb-8 max-w-sm mx-auto">
             העמוד שחיפשתם אינו קיים. אפשר לחזור לדף הבית ולמצוא את מה שצריך.
           </p>
-          <Link href="/he/" className="btn-primary">
+          <StarButton asChild><Link href="/he/" className="btn-primary">
             <ArrowLeft size={16} /> חזרה לדף הבית
-          </Link>
+          </Link></StarButton>
         </div>
       </div>
     );
@@ -62,9 +63,9 @@ export default function NotFound() {
           <p className="text-[#5B6472] mb-8 max-w-sm mx-auto">
             Η σελίδα που ψάχνετε δεν υπάρχει. Ας σας επαναφέρουμε στη σωστή κατεύθυνση.
           </p>
-          <Link href="/el/" className="btn-primary">
+          <StarButton asChild><Link href="/el/" className="btn-primary">
             <ArrowLeft size={16} /> Επιστροφή στην Αρχική
-          </Link>
+          </Link></StarButton>
         </div>
       </div>
     );
@@ -78,9 +79,9 @@ export default function NotFound() {
         <p className="text-[#5B6472] mb-8 max-w-sm mx-auto">
           The page you're looking for doesn't exist. Let's get you back on track.
         </p>
-        <Link href="/" className="btn-primary">
+        <StarButton asChild><Link href="/" className="btn-primary">
           <ArrowLeft size={16} /> Back to Home
-        </Link>
+        </Link></StarButton>
       </div>
     </div>
   );

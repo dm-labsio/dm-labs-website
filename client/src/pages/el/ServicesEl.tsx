@@ -2,6 +2,7 @@
    D&M LABS - Υπηρεσίες Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #F6F6F4 base
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
@@ -118,7 +119,7 @@ export default function ServicesElPage() {
                       </li>
                     ))}
                   </ul>
-                  <a href="/el/contact/" className="btn-primary w-full justify-center">Δωρεάν Συμβουλευτική</a>
+                  <StarButton asChild><a href="/el/contact/" className="btn-primary w-full justify-center">Δωρεάν Συμβουλευτική</a></StarButton>
                 </div>
               </div>
             </AnimateIn>
@@ -279,10 +280,10 @@ export default function ServicesElPage() {
                   </ul>
                 </div>
               </div>
-              <a href="/el/contact/" className="btn-primary">
+              <StarButton asChild><a href="/el/contact/" className="btn-primary">
                 <MessageCircle size={18} />
                 Ρωτήστε για τη Συντήρηση
-              </a>
+              </a></StarButton>
             </AnimateIn>
             <AnimateIn delay={0.2}>
               <div className="dm-card !bg-[#F6F6F4]">
@@ -309,10 +310,10 @@ export default function ServicesElPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Έτοιμοι να Ξεκινήσετε;</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Στείλτε μας μήνυμα και θα συζητήσουμε ποιο πακέτο ταιριάζει στην επιχείρησή σας.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/el/contact/" className="btn-primary">
+              <StarButton asChild><a href="/el/contact/" className="btn-primary">
                 <MessageCircle size={18} />
                 Συνομιλήστε στο WhatsApp
-              </a>
+              </a></StarButton>
               <Link href="/el/pricing/" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
                 Σύγκριση Τιμών <ArrowRight size={16} />
               </Link>

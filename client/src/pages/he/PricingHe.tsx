@@ -1,3 +1,4 @@
+import StarButton from "@/components/ui/star-button";
 import LocalizedPricingJourney, { PricingSteps } from "@/components/LocalizedPricingJourney";
 import { CheckCircle2, HelpCircle, MessageCircle, ShieldCheck, X } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
@@ -88,7 +89,7 @@ export default function PricingHe() {
         </div>
       </section>
 
-      <section className="pricing-editorial-cta-section section-spacing"><div className="container max-w-3xl text-center"><h2 className="pricing-editorial-cta-heading">לא בטוחים איזו <em>חבילה</em> מתאימה?</h2><p>שתפו אותנו במה שהעסק שלכם צריך, ונמצא יחד את נקודת ההתחלה המדויקת ביותר.</p><a className="btn-primary" href={WA}><MessageCircle size={18} />קובעים שיחה ללא עלות</a></div></section>
+      <section className="pricing-editorial-cta-section section-spacing"><div className="container max-w-3xl text-center"><h2 className="pricing-editorial-cta-heading">לא בטוחים איזו <em>חבילה</em> מתאימה?</h2><p>שתפו אותנו במה שהעסק שלכם צריך, ונמצא יחד את נקודת ההתחלה המדויקת ביותר.</p><StarButton asChild><a className="btn-primary" href={WA}><MessageCircle size={18} />קובעים שיחה ללא עלות</a></StarButton></div></section>
     </main>
   );
 }

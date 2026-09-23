@@ -2,6 +2,7 @@
    D&M LABS - Επικοινωνία Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { useState } from "react";
@@ -194,13 +195,13 @@ export default function ΕπικοινωνίαEl() {
                       className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all resize-none"
                       placeholder="Τι είδους ιστοσελίδα χρειάζεστε; Υπάρχουν συγκεκριμένα χαρακτηριστικά που θέλετε;" />
                   </div>
-                  <button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60">
+                  <StarButton asChild><button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60">
                     {sending ? (
                       <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Αποστολή...</span>
                     ) : (
                       <span className="flex items-center gap-2"><Send size={16} /> Αποστολή Μηνύματος</span>
                     )}
-                  </button>
+                  </button></StarButton>
                   <p className="text-xs text-[#5B6472] text-center">πε μήνυμα απευθείας στο <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline">WhatsApp</a> για πιο γρήγορη απάντηση.</p>
                 </form>
               </div>
@@ -215,9 +216,9 @@ export default function ΕπικοινωνίαEl() {
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">Προτιμάτε μια Σύντομη Συνομιλία;</h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Οι περισσότεροι πελάτες μας ξεκινάνε με ένα απλό μήνυμα WhatsApp. Χωρίς πίεση, χωρίς δεσμεύσεις.</p>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <StarButton asChild><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
               <MessageCircle size={18} /> Συνομιλήστε στο WhatsApp
-            </a>
+            </a></StarButton>
           </AnimateIn>
         </div>
       </section>

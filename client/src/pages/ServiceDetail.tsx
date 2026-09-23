@@ -4,6 +4,7 @@
    Not shown in navigation - linked from homepage service cards
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { Link, useParams } from "wouter";
 import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
@@ -410,10 +411,10 @@ export default function ServiceDetailPage() {
       <div className="container section-spacing text-center">
         <h1 className="text-3xl font-bold text-[#111315] mb-4">Service Not Found</h1>
         <p className="text-[#5B6472] mb-8">The service you're looking for doesn't exist.</p>
-        <Link href="/services/" className="btn-primary">
+        <StarButton asChild><Link href="/services/" className="btn-primary">
           View All Services
           <ArrowRight size={16} />
-        </Link>
+        </Link></StarButton>
       </div>
     );
   }
@@ -501,10 +502,10 @@ export default function ServiceDetailPage() {
               <p className="text-base text-[#5B6472] leading-relaxed mb-8">
                 Every item below is included in your website project. No hidden fees, no optional add-ons that should be standard.
               </p>
-              <Link href="/contact/" className="btn-primary">
+              <StarButton asChild><Link href="/contact/" className="btn-primary">
                 Start Your Project
                 <ArrowRight size={16} />
-              </Link>
+              </Link></StarButton>
             </AnimateIn>
             <AnimateIn delay={0.2}>
               <ul className="space-y-3">
@@ -607,10 +608,10 @@ export default function ServiceDetailPage() {
               No commitment, no pressure. Get in touch and we'll discuss your project within hours.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact/" className="btn-primary !h-14 !text-base !px-8">
+              <StarButton asChild><Link href="/contact/" className="btn-primary !h-14 !text-base !px-8">
                 <MessageCircle size={20} />
                 Get in Touch
-              </Link>
+              </Link></StarButton>
               <Link href="/pricing/" className="inline-flex items-center gap-2 px-8 h-14 rounded-xl border-2 border-white/20 text-white font-semibold hover:border-white/40 transition-all duration-300 text-base">
                 View Pricing
                 <ArrowRight size={18} />

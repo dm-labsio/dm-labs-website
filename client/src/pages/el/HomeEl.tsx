@@ -4,6 +4,7 @@
    Sections: Hero, Trust Strip, Template Showcase + Industries, Υπηρεσίες, Διαδικασία, Testimonials, Τιμές, Stats, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
@@ -204,10 +205,10 @@ export default function HomeElPage() {
           Είμαστε μια εξειδικευμένη εταιρεία web design. Φτιάχνουμε επαγγελματικές, γρήγορες ιστοσελίδες που φέρνουν αποτελέσματα για επιχειρήσεις σαν τη δική σας - από €299.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
-          <Link href="/el/contact/" className="btn-primary">
+          <StarButton asChild><Link href="/el/contact/" className="btn-primary">
             Δωρεάν Συμβουλευτική
             <ArrowRight size={18} />
-          </Link>
+          </Link></StarButton>
           <Link href="/el/templates/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
             Δείτε Παραδείγματα
             <ArrowRight size={18} />
@@ -273,10 +274,10 @@ export default function HomeElPage() {
           </StaggerContainer>
 
           <AnimateIn className="text-center mb-16">
-            <Link href="/el/templates/" className="btn-primary">
+            <StarButton asChild><Link href="/el/templates/" className="btn-primary">
               Δείτε Όλα τα Παραδείγματα
               <ArrowRight size={16} />
-            </Link>
+            </Link></StarButton>
           </AnimateIn>
         </div>
       </section>
@@ -495,9 +496,9 @@ export default function HomeElPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/el/contact/" className="btn-primary w-full justify-center">
+                  <StarButton asChild><Link href="/el/contact/" className="btn-primary w-full justify-center">
                     Δωρεάν Συμβουλευτική
-                  </Link>
+                  </Link></StarButton>
                 </div>
               </div>
             </AnimateIn>
@@ -832,10 +833,10 @@ export default function HomeElPage() {
               Επικοινωνήστε μαζί μας και θα σας απαντήσουμε μέσα σε ώρες. Χωρίς δέσμευση, χωρίς πίεση - απλά μια φιλική συνομιλία για την επιχείρησή σας.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">
+              <StarButton asChild><Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">
                 <MessageCircle size={20} />
                 Δωρεάν Visual Concept
-              </Link>
+              </Link></StarButton>
             </div>
           </AnimateIn>
         </div>

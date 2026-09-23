@@ -1,3 +1,4 @@
+import StarButton from "@/components/ui/star-button";
 import { useState } from "react";
 import { pricingEnquiry } from "@/lib/pricingEnquiry";
 import { useSEO } from "@/hooks/useSEO";
@@ -122,9 +123,9 @@ export default function ContactHe() {
                     <label htmlFor="contact-he-project" className="block text-sm font-medium text-[#111315] mb-1.5 contact-editorial-field-label">ספרו לנו על הפרויקט</label>
                     <textarea id="contact-he-project" required rows={4} value={form.message} onChange={(event) => setForm({ ...form, message: event.target.value })} className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all resize-none contact-editorial-field" placeholder="איזה אתר אתם צריכים, ומה חשוב לכם בו?" />
                   </div>
-                  <button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60 contact-editorial-submit">
+                  <StarButton asChild><button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60 contact-editorial-submit">
                     {sending ? <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> שולחים...</span> : <span className="flex items-center gap-2"><Send size={16} /> שליחת הודעה</span>}
-                  </button>
+                  </button></StarButton>
                   <p className="text-xs text-[#5B6472] text-center contact-editorial-form-note">למענה מהיר אפשר גם לכתוב לנו ישירות ב-<a href={WA} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline">WhatsApp</a>.</p>
                 </form>
               </div>
@@ -138,7 +139,7 @@ export default function ContactHe() {
           <AnimateIn>
             <h2 className="contact-editorial-cta-heading text-3xl sm:text-4xl font-bold text-white mb-5"><span>מעדיפים</span><span><em>שיחה קצרה?</em></span></h2>
             <p className="contact-editorial-cta-copy text-lg mb-8 max-w-xl mx-auto">רבים מתחילים בהודעת WhatsApp קצרה. כתבו לנו מה אתם צריכים, ונמשיך משם.</p>
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary contact-editorial-cta-button"><MessageCircle size={18} /> שיחה ב-WhatsApp</a>
+            <StarButton asChild><a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary contact-editorial-cta-button"><MessageCircle size={18} /> שיחה ב-WhatsApp</a></StarButton>
           </AnimateIn>
         </div>
       </section>

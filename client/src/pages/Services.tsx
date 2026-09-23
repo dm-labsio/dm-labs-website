@@ -2,6 +2,7 @@
    DM-Labs.io - Services Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #F6F6F4 base
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
@@ -90,7 +91,7 @@ export default function Services() {
                   <ul className="space-y-3 mb-6 flex-1">
                     {["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"].map((f) => <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />{f}</li>)}
                   </ul>
-                  <a href="/contact/" className="btn-primary w-full justify-center">Get a Free Consultation</a>
+                  <StarButton asChild><a href="/contact/" className="btn-primary w-full justify-center">Get a Free Consultation</a></StarButton>
                 </div>
               </div>
             </AnimateIn>
@@ -238,10 +239,10 @@ export default function Services() {
                   </ul>
                 </div>
               </div>
-              <a href="/contact/" className="btn-primary">
+              <StarButton asChild><a href="/contact/" className="btn-primary">
                 <MessageCircle size={18} />
                 Ask About Maintenance
-              </a>
+              </a></StarButton>
             </AnimateIn>
           </div>
         </div>
@@ -254,10 +255,10 @@ export default function Services() {
             <h2 className="services-editorial-heading services-editorial-heading-light text-3xl sm:text-4xl font-bold text-white mb-5">Ready to <em className="services-editorial-serif">Get Started?</em></h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">Send us a message and we'll discuss which package is right for your business.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact/" className="btn-primary">
+              <StarButton asChild><a href="/contact/" className="btn-primary">
                 <MessageCircle size={18} />
                 Chat on WhatsApp
-              </a>
+              </a></StarButton>
               <Link href="/pricing/" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
                 Compare Pricing <ArrowRight size={16} />
               </Link>

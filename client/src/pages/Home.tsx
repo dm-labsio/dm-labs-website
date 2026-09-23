@@ -4,6 +4,7 @@
    Sections: Hero, Trust Strip, Template Showcase + Industries, Services, Process, Testimonials, Pricing, Stats, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
@@ -281,10 +282,10 @@ export default function HomePage() {
           We are a dedicated web design agency. We build professional, fast, and conversion-focused websites for businesses like yours - from €299.
         </p>
         <div className="editorial-hero-actions flex flex-wrap gap-4 justify-center">
-          <Link href="/contact/" className="btn-primary">
+          <StarButton asChild><Link href="/contact/" className="btn-primary">
             Get a Free Consultation
             <ArrowRight size={18} />
-          </Link>
+          </Link></StarButton>
           <Link href="/templates/" className="editorial-outline-button">
             Browse Examples
             <ArrowRight size={18} />
@@ -351,10 +352,10 @@ export default function HomePage() {
           </StaggerContainer>
 
           <AnimateIn className="text-center mb-16">
-            <Link href="/templates/" className="btn-primary">
+            <StarButton asChild><Link href="/templates/" className="btn-primary">
               View All Examples
               <ArrowRight size={16} />
-            </Link>
+            </Link></StarButton>
           </AnimateIn>
         </div>
       </section>
@@ -569,7 +570,7 @@ export default function HomePage() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact/" className="btn-primary w-full justify-center">Get a Free Consultation</Link>
+                  <StarButton asChild><Link href="/contact/" className="btn-primary w-full justify-center">Get a Free Consultation</Link></StarButton>
                 </div>
               </div>
             </AnimateIn>
@@ -902,10 +903,10 @@ export default function HomePage() {
               Get in touch and we'll get back to you within hours. No commitment, no pressure - just a friendly conversation about your business.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact/" className="btn-primary !h-14 !text-base !px-8">
+              <StarButton asChild><Link href="/contact/" className="btn-primary !h-14 !text-base !px-8">
                 <MessageCircle size={20} />
                 Get a Free Visual Concept
-              </Link>
+              </Link></StarButton>
             </div>
           </AnimateIn>
         </div>

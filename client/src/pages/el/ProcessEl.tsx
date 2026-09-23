@@ -4,6 +4,7 @@
    Σχεδιασμός: Airy vertical timeline - no step numbers, large icons,
            generous breathing room between each stage
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
@@ -172,9 +173,9 @@ export default function ProcessElPage() {
               Το πρώτο βήμα είναι μια γρήγορη, χωρίς δέσμευση συνομιλία στο WhatsApp. Ας μιλήσουμε για την επιχείρησή σας.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/el/contact/" className="btn-primary">
+              <StarButton asChild><a href="/el/contact/" className="btn-primary">
                 <MessageCircle size={18} /> Ξεκινήστε τη Συζήτηση
-              </a>
+              </a></StarButton>
               <Link href="/el/pricing/" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
                 Δείτε τις Τιμές <ArrowRight size={16} />
               </Link>

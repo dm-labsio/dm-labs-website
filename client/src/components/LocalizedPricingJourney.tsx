@@ -1,3 +1,4 @@
+import StarButton from "@/components/ui/star-button";
 import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
@@ -63,7 +64,7 @@ export default function LocalizedPricingJourney({ locale, plans, custom }: { loc
           <a href="#maintenance" className="journey-recurring">{t.recurring}<ArrowRight size={13} aria-hidden="true" /></a>
           <p className="pricing-editorial-plan-summary">{plan.summary}</p>
           <ul className="pricing-editorial-feature-list flex-1">{plan.features.map(feature => <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="shrink-0 mt-0.5" style={{ color: plan.tone }} />{feature}</li>)}</ul>
-          <button type="button" aria-pressed={buildIndex === i} onClick={() => { setBuildIndex(i); scrollTo("maintenance"); }} className={`${i === 1 ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>{buildIndex === i ? <CheckCircle2 size={16} /> : <ArrowRight size={16} />}{buildIndex === i ? t.selected : `${t.choose} ${plan.name.split(" ")[0]}`}</button>
+          <StarButton asChild><button type="button" aria-pressed={buildIndex === i} onClick={() => { setBuildIndex(i); scrollTo("maintenance"); }} className={`${i === 1 ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>{buildIndex === i ? <CheckCircle2 size={16} /> : <ArrowRight size={16} />}{buildIndex === i ? t.selected : `${t.choose} ${plan.name.split(" ")[0]}`}</button></StarButton>
         </article>
       </AnimateIn>)}</div>
       {custom}
@@ -77,10 +78,10 @@ export default function LocalizedPricingJourney({ locale, plans, custom }: { loc
           <p className="pricing-editorial-plan-label"><bdi>{plan.name}</bdi></p><p className="journey-care-description">{t.descriptions[i]}</p>
           <div className="journey-price-block" aria-live="polite" aria-atomic="true"><div key={String(yearly)} className="journey-price-transition"><div className="pricing-editorial-price-row"><bdi className="pricing-editorial-care-price">{money(yearly ? plan.yearly : plan.monthly)}</bdi><span className="pricing-editorial-price-unit">{yearly ? t.year : t.month}</span></div><p className="journey-billing-detail">{yearly ? <><bdi>{money(plan.yearly / 12)}</bdi> {t.equivalent}</> : t.paidMonthly}</p><p className="journey-saving">{yearly ? <>{t.saving} <bdi>{money(plan.monthly * 12 - plan.yearly)}</bdi> {t.eachYear}</> : t.yearlyAvailable}</p></div></div>
           <ul className="pricing-editorial-feature-list flex-1">{t.features[i].map(feature => <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={15} className="shrink-0 mt-0.5" style={{ color: i === 1 ? "#8B5CFF" : "#5B8CFF" }} />{feature}</li>)}</ul>
-          <button type="button" aria-pressed={careIndex === i} onClick={() => setCareIndex(i)} className={`${i === 1 ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>{careIndex === i ? <CheckCircle2 size={16} /> : <ArrowRight size={16} />}<span>{careIndex === i ? t.selected : t.choose} <bdi>{plan.name}</bdi></span></button>
+          <StarButton asChild><button type="button" aria-pressed={careIndex === i} onClick={() => setCareIndex(i)} className={`${i === 1 ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>{careIndex === i ? <CheckCircle2 size={16} /> : <ArrowRight size={16} />}<span>{careIndex === i ? t.selected : t.choose} <bdi>{plan.name}</bdi></span></button></StarButton>
         </article>
       </AnimateIn>)}</div>
-      <div className="journey-summary" id="your-selection"><div aria-live="polite"><p className="pricing-editorial-label">{t.next}</p><h3>{build && care ? <><bdi>{build.name}</bdi> + <bdi>{care.name}</bdi></> : t.summaryTitle}</h3><p>{build && care ? <><strong><bdi>{build.price}</bdi></strong> {t.buildCost} <span className="journey-summary-plus">+</span> <strong><bdi>{money(yearly ? care.yearly : care.monthly)}</bdi></strong>{yearly ? t.annualPaid : t.monthlyPaid}</> : t.summaryIntro}</p></div><Link href={enquiry} className="btn-primary">{build && care ? t.cta : t.help}<ArrowRight size={16} /></Link></div>
+      <div className="journey-summary" id="your-selection"><div aria-live="polite"><p className="pricing-editorial-label">{t.next}</p><h3>{build && care ? <><bdi>{build.name}</bdi> + <bdi>{care.name}</bdi></> : t.summaryTitle}</h3><p>{build && care ? <><strong><bdi>{build.price}</bdi></strong> {t.buildCost} <span className="journey-summary-plus">+</span> <strong><bdi>{money(yearly ? care.yearly : care.monthly)}</bdi></strong>{yearly ? t.annualPaid : t.monthlyPaid}</> : t.summaryIntro}</p></div><StarButton asChild><Link href={enquiry} className="btn-primary">{build && care ? t.cta : t.help}<ArrowRight size={16} /></Link></StarButton></div>
       <p className="journey-ownership">{t.ownership} <Link href={`/${locale}/terms/`}>{t.terms}</Link><br />{t.tax}</p>
       <div className="pricing-editorial-scope-guardrail flex items-start gap-3 rounded-xl px-5 py-4 mt-8"><ShieldCheck size={19} className="shrink-0 text-[#5B8CFF]" /><p className="text-sm"><strong>{t.scope}</strong> {t.scopeText}</p></div>
     </div></section>

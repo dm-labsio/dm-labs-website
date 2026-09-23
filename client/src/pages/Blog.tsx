@@ -1,6 +1,7 @@
 /* ============================================================
    D&M LABS - Blog Index Page
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
@@ -95,9 +96,9 @@ export default function Blog() {
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto blog-editorial-cta-copy">
               Stop reading and start growing. Get a free consultation and a clear quote within 24 hours.
             </p>
-            <Link href="/contact/" className="btn-primary blog-editorial-cta-button">
+            <StarButton asChild><Link href="/contact/" className="btn-primary blog-editorial-cta-button">
               Get a Free Consultation <ArrowRight size={18} />
-            </Link>
+            </Link></StarButton>
           </AnimateIn>
         </div>
       </section>

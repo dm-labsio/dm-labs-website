@@ -2,6 +2,7 @@
    DM-Labs.io - FAQ Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { useState, useEffect } from "react";
@@ -158,9 +159,9 @@ export default function FAQ() {
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5 faq-editorial-cta-heading"><span>Still have</span><span><em>questions?</em></span></h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto faq-editorial-cta-copy">We are always happy to help. Send us a message and we will get back to you quickly.</p>
-            <a href="/contact/" className="btn-primary faq-editorial-cta-button">
+            <StarButton asChild><a href="/contact/" className="btn-primary faq-editorial-cta-button">
               <MessageCircle size={18} /> Contact Us
-            </a>
+            </a></StarButton>
           </AnimateIn>
         </div>
       </section>

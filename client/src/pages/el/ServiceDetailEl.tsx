@@ -2,6 +2,7 @@
    D&M LABS - Service Detail Page (Greek)
    Route: /el/services/:serviceId
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { Link, useParams } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
@@ -365,10 +366,10 @@ export default function ServiceDetailElPage() {
       <div className="container section-spacing text-center">
         <h1 className="text-3xl font-bold text-[#111315] mb-4">Η υπηρεσία δεν βρέθηκε</h1>
         <p className="text-[#5B6472] mb-8">Η υπηρεσία που αναζητάτε δεν υπάρχει.</p>
-        <Link href="/el/services/" className="btn-primary">
+        <StarButton asChild><Link href="/el/services/" className="btn-primary">
           Δείτε Όλες τις Υπηρεσίες
           <ArrowRight size={16} />
-        </Link>
+        </Link></StarButton>
       </div>
     );
   }
@@ -456,10 +457,10 @@ export default function ServiceDetailElPage() {
               <p className="text-base text-[#5B6472] leading-relaxed mb-8">
                 Κάθε στοιχείο παρακάτω περιλαμβάνεται στο έργο ιστοσελίδας σας. Χωρίς κρυφές χρεώσεις, χωρίς προαιρετικά πρόσθετα που θα έπρεπε να είναι τυπικά.
               </p>
-              <Link href="/el/contact/" className="btn-primary">
+              <StarButton asChild><Link href="/el/contact/" className="btn-primary">
                 Ξεκινήστε το Έργο σας
                 <ArrowRight size={16} />
-              </Link>
+              </Link></StarButton>
             </AnimateIn>
             <AnimateIn delay={0.2}>
               <ul className="space-y-3">
@@ -562,10 +563,10 @@ export default function ServiceDetailElPage() {
               Χωρίς δέσμευση, χωρίς πίεση. Επικοινωνήστε μαζί μας και θα συζητήσουμε το έργο σας εντός ωρών.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">
+              <StarButton asChild><Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">
                 <MessageCircle size={20} />
                 Επικοινωνήστε μαζί μας
-              </Link>
+              </Link></StarButton>
               <Link href="/el/pricing/" className="inline-flex items-center gap-2 px-8 h-14 rounded-xl border-2 border-white/20 text-white font-semibold hover:border-white/40 transition-all duration-300 text-base">
                 Δείτε Τιμές
                 <ArrowRight size={18} />

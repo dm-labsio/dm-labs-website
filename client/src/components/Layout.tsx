@@ -4,6 +4,7 @@
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
    Language toggle: flag-based EN/EL, visible on mobile as floating pill
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, Phone, Mail, MapPin, Instagram, ChevronDown } from "lucide-react";
@@ -401,13 +402,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="hidden lg:flex items-center gap-3">
             <LangToggle />
             {isHebrew ? (
-              <a href={HEBREW_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary !h-11 !text-sm !px-6">
+              <StarButton asChild><a href={HEBREW_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary !h-11 !text-sm !px-6">
                 ייעוץ ללא עלות
-              </a>
+              </a></StarButton>
             ) : (
-              <Link href={isGreek ? "/el/contact/" : "/contact/"} className={`btn-primary !h-11 !text-sm !px-6 ${isEnglishHomepage ? "editorial-home-header-cta" : ""}`}>
+              <StarButton asChild><Link href={isGreek ? "/el/contact/" : "/contact/"} className={`btn-primary !h-11 !text-sm !px-6 ${isEnglishHomepage ? "editorial-home-header-cta" : ""}`}>
                 {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
-              </Link>
+              </Link></StarButton>
             )}
           </div>
 
@@ -451,13 +452,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               ))}
             </nav>
             {isHebrew ? (
-              <a href={HEBREW_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full mt-6">
+              <StarButton asChild><a href={HEBREW_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full mt-6">
                 ייעוץ ללא עלות
-              </a>
+              </a></StarButton>
             ) : (
-              <Link href={isGreek ? "/el/contact/" : "/contact/"} className={`btn-primary w-full mt-6 ${isEnglishHomepage ? "editorial-home-mobile-cta" : ""}`}>
+              <StarButton asChild><Link href={isGreek ? "/el/contact/" : "/contact/"} className={`btn-primary w-full mt-6 ${isEnglishHomepage ? "editorial-home-mobile-cta" : ""}`}>
                 {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
-              </Link>
+              </Link></StarButton>
             )}
           </motion.div>
         )}

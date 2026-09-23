@@ -1,6 +1,7 @@
 /* ============================================================
    D&M LABS - Contact Page
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { useState } from "react";
@@ -223,13 +224,13 @@ export default function Contact() {
                       placeholder="What kind of website do you need? Any specific features?"
                     />
                   </div>
-                  <button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60 contact-editorial-submit">
+                  <StarButton asChild><button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60 contact-editorial-submit">
                     {sending ? (
                       <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending...</span>
                     ) : (
                       <span className="flex items-center gap-2"><Send size={16} /> Send Message</span>
                     )}
-                  </button>
+                  </button></StarButton>
                   <p className="text-xs text-[#5B6472] text-center contact-editorial-form-note">Or message us directly on <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline">WhatsApp</a> for faster response.</p>
                 </form>
               </div>
@@ -243,9 +244,9 @@ export default function Contact() {
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5 contact-editorial-cta-heading"><span>Prefer a</span><span><em>quick chat?</em></span></h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto contact-editorial-cta-copy">Most of our clients start with a simple WhatsApp message. Tell us what you are building and we will point you in the right direction.</p>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary contact-editorial-cta-button">
+            <StarButton asChild><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary contact-editorial-cta-button">
               <MessageCircle size={18} /> Chat on WhatsApp
-            </a>
+            </a></StarButton>
           </AnimateIn>
         </div>
       </section>
