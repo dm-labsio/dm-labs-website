@@ -134,15 +134,20 @@ export default function BlogPost() {
       {/* Hero / Cover */}
       <section className="relative overflow-hidden" style={{ paddingTop: "72px" }}>
         <div className="relative" style={{ height: "clamp(260px, 40vh, 420px)" }}>
-          <img
-            src={post.coverImage}
-            alt={post.imageAlt ?? post.title}
-            width={1672}
-            height={941}
-            loading="eager"
-            fetchPriority="high"
-            className="w-full h-full object-cover"
-          />
+          <picture>
+            {post.coverImageMobile && (
+              <source media="(max-width: 767px)" srcSet={post.coverImageMobile} />
+            )}
+            <img
+              src={post.coverImage}
+              alt={post.imageAlt ?? post.title}
+              width={1672}
+              height={941}
+              loading="eager"
+              fetchPriority="high"
+              className="w-full h-full object-cover"
+            />
+          </picture>
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.7) 100%)" }} />
           <div className="absolute inset-0 flex flex-col justify-end">
             <div className="container pb-10">

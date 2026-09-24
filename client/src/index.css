@@ -738,6 +738,47 @@
   border-radius: 50%;
   background: linear-gradient(135deg, #5B8CFF, #8B5CFF);
 }
+.blog-content ul.blog-punch-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0;
+  counter-reset: punch-item;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.blog-content ul.blog-punch-list li {
+  position: relative;
+  counter-increment: punch-item;
+  padding: 0.95rem 1.1rem 0.95rem 3.35rem;
+  margin-bottom: 0;
+  background: #F6F6F4;
+  border: 1px solid #E8EAF0;
+  border-radius: 14px;
+  line-height: 1.65;
+  transition: border-color 0.2s ease;
+}
+.blog-content ul.blog-punch-list li:hover {
+  border-color: #5B8CFF;
+}
+.blog-content ul.blog-punch-list li::before {
+  content: counter(punch-item);
+  left: 1rem;
+  top: 0.95rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5B8CFF, #8B5CFF);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blog-content ul.blog-punch-list li > strong:first-child {
+  color: #3B5FE0;
+}
 
 /* ============================================================
    ENGLISH SITE BASE TYPOGRAPHY — STEP 2

@@ -15,6 +15,7 @@ export interface BlogPost {
   category: string;
   excerpt: string;
   coverImage: string;
+  coverImageMobile?: string; // Optional mobile-cropped variant of coverImage, swapped in below the 767px breakpoint
   imageAlt?: string; // Optional custom alt text for cover image (defaults to post title)
   content: string; // HTML string
   author?: string; // Optional visible byline, e.g. "DM-Labs.io"
@@ -1456,8 +1457,9 @@ intent.</code></pre>
     readTime: "10 min read",
     category: "Ecommerce",
     excerpt: "Zara, Jumbo, and IKEA already take your customers' money online while you're still relying on Instagram DMs. Here is the straight-talking Shopify vs WooCommerce comparison, the Cyprus payment and delivery setup that actually works, and a 6-week countdown to launch before Black Friday.",
-    coverImage: "/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp",
-    imageAlt: "PLACEHOLDER COVER — abstract gradient background reused temporarily so the build doesn't ship a broken image. Replace before publishing with a real photo: a Cyprus retail shop owner (fashion, gifts, beauty, or homeware) packing an online order box next to a laptop showing a live eshop checkout screen, warm natural light, in-store shelves visible in the background",
+    coverImage: "/media/online-shop-cyprus-hero-desktop.webp",
+    coverImageMobile: "/media/online-shop-cyprus-hero-mobile.webp",
+    imageAlt: "Editorial flat-lay on a dark background showing an online shop homepage design and a mobile checkout screen, styled with glass prism accents",
     author: "Anastacia B.",
     language: "en",
     keywords: [
@@ -1490,7 +1492,6 @@ intent.</code></pre>
       },
     ],
     content: `
-<!-- PLACEHOLDER NOTE FOR DM-LABS.IO: cover image above (coverImage field) currently reuses the site's existing abstract gradient background so the build doesn't ship a broken image. Replace with a real photo before publishing — see imageAlt for the shot we need. -->
 <p class="blog-lead">Let's be honest about what is actually happening to your business right now. Zara has an online shop. Jumbo has an online shop. IKEA has an online shop. They take the sale, the card payment, and the delivery — all before your customer even finishes typing "is this in stock?" into your Instagram DMs. You are not losing to bigger, better products. You are losing to a checkout button you don't have.</p>
 
 <p>Here's the number that should light a fire under you: Black Friday 2026 lands on <strong>Friday, 27 November</strong>. November is the single biggest online shopping month of the year in Cyprus, full stop, every year, no exceptions. Every shop owner with a working <strong>online shop in Cyprus</strong> is about to have the best six weeks of their year. Everyone without one is about to stand there and watch it happen to someone else.</p>
@@ -1517,6 +1518,11 @@ intent.</code></pre>
 
 <p><strong>WooCommerce</strong> is a free plugin that turns a WordPress site into a shop. "Free" is the headline, not the whole story: you still pay for hosting, a theme, and the extensions you actually need (product filters, better checkout, backups, security). A realistic, fully working WooCommerce store commonly costs somewhere between roughly $200 and a few thousand dollars a year, depending on how much you bolt on. See <a href="https://woocommerce.com/pricing/" class="blog-link" target="_blank" rel="noopener noreferrer">WooCommerce's own pricing page</a> for its official extensions and themes.</p>
 
+<figure class="blog-image">
+  <img src="/media/online-shop-cyprus-storefront-mockup.webp" alt="Mockup of an online shop homepage next to a mobile checkout flow, showing what a finished eshop looks like on desktop and phone" loading="lazy" width="1942" height="809" />
+  <figcaption>Whichever platform you pick, this is the end result you're actually paying for: a homepage that sells and a checkout that doesn't lose the sale.</figcaption>
+</figure>
+
 <table class="blog-table">
   <thead>
     <tr><th>Factor</th><th>Shopify</th><th>WooCommerce</th></tr>
@@ -1540,13 +1546,18 @@ intent.</code></pre>
 
 <p>A shop that cannot take a Cypriot customer's preferred payment method is a shop that loses the sale at the last click. Here are the real options, as of September 2026.</p>
 
-<ul>
-  <li><strong>Stripe</strong> — operates in Cyprus and integrates directly with both Shopify and WooCommerce. Widely used, well documented, straightforward for card payments and popular wallets. <a href="https://stripe.com/resources/more/payments-in-cyprus" class="blog-link" target="_blank" rel="noopener noreferrer">See Stripe's own Cyprus payments page</a>.</li>
-  <li><strong>JCC (JCCsmart)</strong> — Cyprus's own long-standing payment infrastructure, owned by local banks including Bank of Cyprus and Hellenic Bank. Worth considering if you want a locally rooted option your customers may already recognise from paying bills. <a href="https://www.jcc.com.cy/jcc-online-solutions/jccsmart/" class="blog-link" target="_blank" rel="noopener noreferrer">JCC's ecommerce page</a>.</li>
-  <li><strong>Viva.com</strong> — a European payment provider active in Cyprus, with published fees starting from around 1.4% per transaction and no monthly charge for its basic service, making it worth comparing directly against Stripe for your specific volumes. <a href="https://www.viva.com/en-cy/pricing" class="blog-link" target="_blank" rel="noopener noreferrer">Viva.com's Cyprus pricing page</a>.</li>
-  <li><strong>PayPal</strong> — still expected by a meaningful slice of online shoppers as a trust signal, even if they end up paying by card anyway. Offering it costs you little and removes a hesitation point at checkout.</li>
-  <li><strong>Apple Pay and Google Pay</strong> — both are available to shoppers in Cyprus, subject to their own bank supporting it. Turning these on inside Shopify or WooCommerce is usually a checkbox, not a project, and they meaningfully speed up mobile checkout — where most of your Instagram traffic is already browsing from.</li>
+<ul class="blog-punch-list">
+  <li><strong>Stripe — the one everyone already trusts.</strong> Operates in Cyprus and integrates directly with both Shopify and WooCommerce. Widely used, well documented, straightforward for card payments and popular wallets. <a href="https://stripe.com/resources/more/payments-in-cyprus" class="blog-link" target="_blank" rel="noopener noreferrer">See Stripe's own Cyprus payments page</a>.</li>
+  <li><strong>JCC — the name your customers already recognise.</strong> Cyprus's own long-standing payment infrastructure, owned by local banks including Bank of Cyprus and Hellenic Bank. Worth considering if you want an option customers already know from paying bills. <a href="https://www.jcc.com.cy/jcc-online-solutions/jccsmart/" class="blog-link" target="_blank" rel="noopener noreferrer">JCC's ecommerce page</a>.</li>
+  <li><strong>Viva.com — the five-minute check that can save you real money.</strong> A European payment provider active in Cyprus, with published fees starting from around 1.4% per transaction and no monthly charge for its basic service. Worth comparing directly against Stripe for your specific volumes. <a href="https://www.viva.com/en-cy/pricing" class="blog-link" target="_blank" rel="noopener noreferrer">Viva.com's Cyprus pricing page</a>.</li>
+  <li><strong>PayPal — costs you nothing to offer, costs you sales to skip.</strong> Still expected by a meaningful slice of online shoppers as a trust signal, even if they end up paying by card anyway. Offering it removes a hesitation point right at checkout.</li>
+  <li><strong>Apple Pay and Google Pay — the tap that stops cart abandonment.</strong> Both are available to shoppers in Cyprus, subject to their own bank supporting it. Turning these on inside Shopify or WooCommerce is usually a checkbox, not a project — and they speed up mobile checkout, where most of your Instagram traffic already lives.</li>
 </ul>
+
+<figure class="blog-image">
+  <img src="/media/online-shop-cyprus-payment-complete.webp" alt="Smartphone showing a completed online payment confirmation screen" loading="lazy" width="1536" height="1024" />
+  <figcaption>This is the screen you want your customer looking at — a payment that clears in seconds, on a phone, with zero friction.</figcaption>
+</figure>
 
 <p>On fees: card processing in Europe typically lands somewhere in the 1.4%–2.9% + a small fixed fee per transaction range, depending on provider, card type, and your negotiated rate. Don't guess — pull the current rate card from whichever provider you're evaluating before you decide, because a half-percent difference matters once volume builds. None of the providers named above are partners of DM-Labs.io; we're naming them because they are real, working options in this market, not because we get anything for mentioning them.</p>
 
@@ -1567,25 +1578,25 @@ intent.</code></pre>
 
 <p>A beautiful shop nobody can find is a beautiful waste of money. Three things matter here, and none of them cost you anything to start.</p>
 
-<ul>
-  <li><strong>Google Merchant Center free listings</strong> — upload a product feed to Google Merchant Center and your products can appear, at no cost, in Google Search, the Shopping tab, Google Images and Google Maps. This is separate from paid Shopping ads and is turned on by default once your feed is approved. It is the closest thing to free advertising Google offers a small shop.</li>
-  <li><strong>Basic product SEO</strong> — every product page needs a real title (not "Item #4521"), a genuine description in both Greek and English if you serve both markets, and an actual price and stock status visible as text, not locked inside an image. This is unglamorous work and it is exactly the work that gets you found.</li>
-  <li><strong>Link your eshop to your Google Business Profile</strong> and keep your <strong>Instagram Shopping</strong> catalogue synced to the same product feed. Customers who already follow you on Instagram are your warmest traffic — make the "buy" step one tap, not a DM negotiation.</li>
+<ul class="blog-punch-list">
+  <li><strong>Free Google traffic you're currently leaving on the table.</strong> Upload a product feed to Google Merchant Center and your products can appear, at no cost, in Google Search, the Shopping tab, Google Images and Google Maps. This is separate from paid Shopping ads and is turned on by default once your feed is approved — it's the closest thing to free advertising Google offers a small shop.</li>
+  <li><strong>The unglamorous work that quietly outsells your best photo.</strong> Every product page needs a real title (not "Item #4521"), a genuine description in both Greek and English if you serve both markets, and an actual price and stock status visible as text, not locked inside an image. Nobody finds this exciting. Everybody who skips it stays invisible.</li>
+  <li><strong>Turn your warmest followers into one-tap buyers.</strong> Link your eshop to your Google Business Profile and keep your <strong>Instagram Shopping</strong> catalogue synced to the same product feed. Customers who already follow you on Instagram are your warmest traffic — make the "buy" step one tap, not a DM negotiation.</li>
 </ul>
 
 <p>For the bigger picture on ranking locally in Cyprus, see our guide on <a href="/blog/how-to-get-found-on-google-cyprus/" class="blog-link">how to get your business found on Google in Cyprus</a> — the same fundamentals apply to a shop, with product pages standing in for service pages.</p>
 
 <h2 id="six-week-plan">The 6-week launch plan to Black Friday</h2>
 
-<p>Black Friday 2026 is Friday, 27 November. Working backwards from that date, here is a realistic week-by-week plan. Start this week and you land with room to breathe. Start in November and you're launching into the rush blind — still possible, just riskier. Every week you wait is a week you don't get back before the biggest shopping day of the year arrives without you.</p>
+<p>Black Friday 2026 is Friday, 27 November. Working backwards from that date, here is a realistic week-by-week plan — each numbered step below is one week, starting this week. Start in November instead and you're launching into the rush blind — still possible, just riskier. Every week you wait is a week you don't get back before the biggest shopping day of the year arrives without you.</p>
 
-<ul>
-  <li><strong>Week 1 — Decide and set up.</strong> Choose Shopify or WooCommerce based on the comparison above. Register your business/VAT status if not already done. Set up your payment provider(s) and confirm payouts land in EUR.</li>
-  <li><strong>Week 2 — Products and pages.</strong> Photograph your top-selling products properly (natural light, consistent background). Write real product descriptions in Greek and English. Set prices, stock levels and your free-delivery threshold.</li>
-  <li><strong>Week 3 — Delivery and checkout.</strong> Set up your courier or Cyprus Post rates, click & collect if you have a physical location, and test the full checkout flow yourself on a phone, start to finish, with a real card.</li>
-  <li><strong>Week 4 — Getting found.</strong> Submit your product feed to Google Merchant Center, connect Instagram Shopping, and link everything back to your Google Business Profile.</li>
-  <li><strong>Week 5 — Soft launch.</strong> Open the shop quietly to your existing customers and Instagram followers. Fix whatever breaks — something always does on the first real orders.</li>
-  <li><strong>Week 6 — Black Friday.</strong> Announce properly, run your promotion, and watch the orders come in on a shop that was actually ready for them.</li>
+<ul class="blog-punch-list">
+  <li><strong>Decide and set up — no more circling.</strong> Choose Shopify or WooCommerce based on the comparison above. Register your business/VAT status if not already done. Set up your payment provider(s) and confirm payouts land in EUR.</li>
+  <li><strong>Products and pages — the part customers actually see.</strong> Photograph your top-selling products properly (natural light, consistent background). Write real product descriptions in Greek and English. Set prices, stock levels and your free-delivery threshold.</li>
+  <li><strong>Delivery and checkout — where lost sales hide.</strong> Set up your courier or Cyprus Post rates, click & collect if you have a physical location, and test the full checkout flow yourself on a phone, start to finish, with a real card.</li>
+  <li><strong>Getting found — so the work doesn't sit unseen.</strong> Submit your product feed to Google Merchant Center, connect Instagram Shopping, and link everything back to your Google Business Profile.</li>
+  <li><strong>Soft launch — break things now, not on Black Friday.</strong> Open the shop quietly to your existing customers and Instagram followers. Fix whatever breaks — something always does on the first real orders.</li>
+  <li><strong>Black Friday — the payoff.</strong> Announce properly, run your promotion, and watch the orders come in on a shop that was actually ready for them.</li>
 </ul>
 
 <p class="blog-soft-cta">Six weeks sounds tight because it is tight. We compress this timeline for a living. <a href="/contact/" class="blog-link">Book a call</a> and tell us your Black Friday deadline — we'll tell you exactly what's realistic.</p>
