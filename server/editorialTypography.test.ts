@@ -49,9 +49,10 @@ describe("English homepage editorial typography", () => {
   });
 
   it("keeps one correctly-cased semantic hero heading and hides the fitted fragments from assistive technology", () => {
-    expect(homeSource).toContain('<h1 className="sr-only">The website agency built to bring you more clients.</h1>');
+    expect(homeSource).toContain('<h1 className="sr-only">Built to impress. Designed to convert.</h1>');
     expect(homeSource).toContain('<div className="editorial-hero-fit" aria-hidden="true">');
-    expect(homeSource).toContain('<em className="editorial-serif">clients.</em>');
+    expect(homeSource).toContain('<em className="editorial-serif">impress.</em>');
+    expect(homeSource).toContain('<em className="editorial-serif">convert.</em>');
   });
 
   it("fits with Anybody's real width axis and refits for loaded fonts and container changes", () => {

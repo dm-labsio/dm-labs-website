@@ -262,12 +262,12 @@ export default function HomePage() {
         <p className="editorial-label mb-5">
           Built for your next level
         </p>
-        <h1 className="sr-only">The website agency built to bring you more clients.</h1>
+        <h1 className="sr-only">Built to impress. Designed to convert.</h1>
         <div className="editorial-hero-fit" aria-hidden="true">
-          <EditorialFitLine maxSizeRatio={0.17}>The website</EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}>agency built</EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}>to bring you</EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}>more <em className="editorial-serif">clients.</em></EditorialFitLine>
+          <EditorialFitLine maxSizeRatio={0.17}>Built to</EditorialFitLine>
+          <EditorialFitLine maxSizeRatio={0.17}><em className="editorial-serif">impress.</em></EditorialFitLine>
+          <EditorialFitLine maxSizeRatio={0.17}>Designed to</EditorialFitLine>
+          <EditorialFitLine maxSizeRatio={0.17}><em className="editorial-serif">convert.</em></EditorialFitLine>
         </div>
         <p className="editorial-lead mb-8 max-w-2xl mx-auto">
           Look established. Earn trust. Make the next enquiry easy. We build sharp, fast websites and handle the technical details, so you can focus on your business. Wherever you do business.

@@ -198,8 +198,8 @@ export default function HomeElPage() {
           Για το επόμενο βήμα σας
         </p>
         <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1] mb-6">
-          Η εταιρεία web design για{" "}
-          <span className="brand-gradient-text">περισσότερους πελάτες.</span>
+          Εντυπωσιάζει με την πρώτη ματιά.{" "}
+          <span className="brand-gradient-text">Μετατρέπει το ενδιαφέρον σε πελάτες.</span>
         </h1>
         <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-2xl mx-auto">
           Δυνατή εικόνα. Εμπιστοσύνη. Περισσότερες επαφές. Γρήγορες, custom ιστοσελίδες με τα τεχνικά στα χέρια μας. Όπου κι αν δραστηριοποιείστε.

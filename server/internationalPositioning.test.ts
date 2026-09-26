@@ -14,6 +14,18 @@ function withoutTechnicalReferences(text: string) {
 }
 
 describe("International positioning", () => {
+  it("uses the selected English headline and its Greek adaptation", () => {
+    const home = readFileSync(resolve(root, "client/src/pages/Home.tsx"), "utf8");
+    const greek = readFileSync(resolve(root, "client/src/pages/el/HomeEl.tsx"), "utf8");
+    expect(home).toContain(">Built to impress. Designed to convert.</h1>");
+    expect(home).toContain(">Built to</EditorialFitLine>");
+    expect(home).toContain(">impress.</em>");
+    expect(home).toContain(">Designed to</EditorialFitLine>");
+    expect(home).toContain(">convert.</em>");
+    expect(greek).toContain("Εντυπωσιάζει με την πρώτη ματιά.");
+    expect(greek).toContain("Μετατρέπει το ενδιαφέρον σε πελάτες.");
+  });
+
   it("uses the approved natural Hebrew homepage headline", () => {
     const home = readFileSync(resolve(root, "client/src/pages/he/HomeHe.tsx"), "utf8");
     expect(home).toContain(">בונים לכם אתר שיביא יותר לקוחות</h1>");
