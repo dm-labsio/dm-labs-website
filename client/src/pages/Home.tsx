@@ -211,7 +211,7 @@ export default function HomePage() {
           "description": "Custom websites built to strengthen your brand and turn interest into enquiries. Fast delivery and personal care for businesses in Cyprus, Greece, Israel and beyond.",
           "url": "https://dm-labs.io/",
           "logo": "https://dm-labs.io/logo.png",
-          "image": "https://dm-labs.io/social/dm-labs-growth-social-card.png",
+          "image": "https://dm-labs.io/social/dm-labs-growth-social-card-centered.png",
           "telephone": "+35797472847",
           "email": "info@dm-labs.io",
           "priceRange": "€299-€1,499",

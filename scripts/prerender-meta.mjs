@@ -19,7 +19,7 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.resolve(__dirname, "../dist/public");
 const BASE_URL = "https://dm-labs.io";
-const DEFAULT_OG_IMAGE = `${BASE_URL}/social/dm-labs-growth-social-card.png`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/social/dm-labs-growth-social-card-centered.png`;
 const DEFAULT_OG_IMAGE_ALT = "We build your website. Built for growth. DM Labs";
 
 // ─── English Blog Posts ───────────────────────────────────────────────────────

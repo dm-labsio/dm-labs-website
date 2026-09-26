@@ -3,16 +3,16 @@ import { resolve } from "path";
 import { describe, expect, it } from "vitest";
 
 const projectRoot = resolve(import.meta.dirname, "..");
-const socialCardPath = resolve(projectRoot, "client/public/social/dm-labs-growth-social-card.png");
+const socialCardPath = resolve(projectRoot, "client/public/social/dm-labs-growth-social-card-centered.png");
 const indexHtml = readFileSync(resolve(projectRoot, "client/index.html"), "utf8");
 const seoHook = readFileSync(resolve(projectRoot, "client/src/hooks/useSEO.ts"), "utf8");
 const prerenderMeta = readFileSync(resolve(projectRoot, "scripts/prerender-meta.mjs"), "utf8");
 
-const socialCardUrl = "https://dm-labs.io/social/dm-labs-growth-social-card.png";
+const socialCardUrl = "https://dm-labs.io/social/dm-labs-growth-social-card-centered.png";
 const socialCardAlt = "We build your website. Built for growth. DM Labs";
 
 describe("social sharing card metadata", () => {
-  it("ships the growth-focused social artwork as a 1200×675 public PNG below 1 MB", () => {
+  it("ships the centered growth-focused social artwork as a 1200×675 public PNG below 1 MB", () => {
     const buffer = readFileSync(socialCardPath);
 
     expect(statSync(socialCardPath).size).toBeLessThan(1_000_000);
@@ -35,7 +35,7 @@ describe("social sharing card metadata", () => {
   it("keeps the browser hook and prerender injector aligned with the static social-card metadata", () => {
     expect(seoHook).toContain(`const DEFAULT_OG_IMAGE = "${socialCardUrl}"`);
     expect(seoHook).toContain(`const DEFAULT_OG_IMAGE_ALT = "${socialCardAlt}"`);
-    expect(prerenderMeta).toContain('const DEFAULT_OG_IMAGE = `${BASE_URL}/social/dm-labs-growth-social-card.png`');
+    expect(prerenderMeta).toContain('const DEFAULT_OG_IMAGE = `${BASE_URL}/social/dm-labs-growth-social-card-centered.png`');
     expect(prerenderMeta).toContain(`const DEFAULT_OG_IMAGE_ALT = "${socialCardAlt}"`);
     expect(prerenderMeta).toContain('og:image:width" content="1200"');
     expect(prerenderMeta).toContain('og:image:height" content="675"');
