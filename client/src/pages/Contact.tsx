@@ -75,7 +75,7 @@ export default function Contact() {
               <span>something <em>great</em></span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto contact-editorial-lead">
-              Ready to get started? Send us a message on WhatsApp for the fastest response, or use the form below.
+              Tell us who you want to reach and what you want your website to achieve. Talk directly with Tom and Anastacia about the scope, timeline, and next steps. WhatsApp is the fastest way to reach us.
             </p>
           </AnimateIn>
         </div>

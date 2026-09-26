@@ -979,7 +979,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Έμπνευση σχεδιασμού - τιμές από €299</span>
+          <span className="text-xs text-gray-400 italic">Σχεδιαστική έμπνευση για το δικό σας brand</span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
             Προεπισκόπηση <ChevronRight size={14} />
           </button>
@@ -1047,7 +1047,7 @@ function CustomBuildCard() {
         </ul>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Τιμές από €299 - προσφορά κατόπιν αιτήματος</span>
+          <span className="text-xs text-gray-400 italic">Σχεδιασμός γύρω από τους στόχους σας</span>
           <a
             href="/el/contact/"
             className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
@@ -1157,7 +1157,7 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 export default function TemplatesEl() {
   useSEO({
     title: "Παραδείγματα Ιστοσελίδων | Δείτε τη Δουλειά μας | DM-Labs.io",
-    description: "Δείτε πραγματικά παραδείγματα ιστοσελίδων από τη DM-Labs.io για εστιατόρια, σαλόνια, οδοντιατρεία, στούντιο yoga και άλλα. Ξεκινώντας από €299.",
+    description: "Εξερευνήστε concept ιστοσελίδες της DM-Labs.io για εστιατόρια, σαλόνια, οδοντιατρεία, στούντιο yoga και άλλα. Δείτε τι μπορεί να πετύχει το δικό σας brand.",
     canonicalPath: "/el/templates/",
   });
   const [location] = useLocation();

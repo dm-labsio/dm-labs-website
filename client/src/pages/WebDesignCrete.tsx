@@ -39,7 +39,7 @@ const schemaMarkup = {
     },
     "geoRadius": "150000"
   },
-  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for small businesses across Crete - Heraklion, Chania, Rethymno, and beyond. Websites from €299, delivered in 5-14 days.",
+  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for small businesses across Crete - Heraklion, Chania, Rethymno, and beyond. Custom websites built to earn trust and enquiries, with delivery in 5-14 business days depending on scope and content readiness.",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Bank Transfer, PayPal",
@@ -123,8 +123,8 @@ const industries = [
 
 export default function WebDesignCrete() {
   useSEO({
-    title: "Web Design Crete | Professional Websites from €299 | DM-Labs.io",
-    description: "Professional web design for small businesses across Crete - Heraklion, Chania, Rethymno and beyond. Custom websites from €299, delivered in 5-14 days. Mobile-first, SEO-ready, no hidden fees.",
+    title: "Web Design Crete | Websites Built for Growth | DM-Labs.io",
+    description: "Professional web design for small businesses across Crete - Heraklion, Chania, Rethymno and beyond. Custom design that builds trust, with fast delivery and direct support. Mobile-first, SEO-ready, no hidden fees.",
     canonicalPath: "/web-design-crete/"
   });
 
@@ -158,7 +158,7 @@ export default function WebDesignCrete() {
             </span>
           </h1>
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-6 leading-relaxed">
-            DM-Labs.io builds professional, fast, and mobile-first websites for small businesses across Crete - from Heraklion and Chania to Rethymno, Agios Nikolaos, and every village in between. Starting from €299, delivered in 5 to 14 days.
+            DM-Labs.io builds professional, fast, and mobile-first websites for small businesses across Crete - from Heraklion and Chania to Rethymno, Agios Nikolaos, and every village in between. Built to earn trust and enquiries, with fast delivery and direct support.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

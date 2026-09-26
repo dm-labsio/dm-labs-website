@@ -1,21 +1,21 @@
 # DM-Labs.io
 
-> DM-Labs.io is a web design agency based in Paphos, Cyprus, building professional, mobile-first websites for small businesses in Cyprus and Greece. Websites start from €299 and are delivered in 5 to 14 days.
+> DM-Labs.io is a web design agency based in Paphos, Cyprus, building professional, mobile-first websites for businesses in Cyprus, Greece, Israel and beyond. Custom design, fast delivery, and direct support help businesses stand out and turn interest into enquiries.
 
 ## About
 
-DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-focused websites for businesses that want to stand out online. Our work is fast, affordable, and built to rank on Google.
+DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-focused websites for businesses that want to stand out online. Our work combines distinctive design, fast delivery, clear paths to enquiry and personal technical care.
 
 - Company: DM-Labs.io
 - Location: Eleftheriou Chandrinou 5, Paphos 8045, Cyprus
 - Phone: +35797472847
 - Email: info@dm-labs.io
 - Website: https://dm-labs.io
-- Languages: English, Greek
+- Languages: English, Greek, Hebrew
 
 ## Services
 
-- Custom website design and development (from €299)
+- Custom website design and development, built around business goals
 - Mobile-first, SEO-optimised websites
 - Bilingual websites (English + Greek)
 - Website maintenance and content updates
@@ -38,6 +38,8 @@ DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-
 
 - Cyprus (Limassol, Nicosia, Paphos, Larnaca, Famagusta)
 - Greece (Athens, Thessaloniki, Crete, and beyond)
+- Israel
+- Other markets served remotely
 
 ## Industries Served
 
@@ -86,7 +88,7 @@ DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-
 Launch Website typically launches in 5 to 7 days. Growth Website typically launches in 7 to 10 days. Pro Website is quoted per project.
 
 **Do you work with clients remotely?**
-Yes. DM-Labs.io works with clients across Cyprus and Greece entirely remotely via WhatsApp, email, and video call.
+Yes. DM-Labs.io works with clients across Cyprus, Greece, Israel and beyond remotely via WhatsApp, email, and video call.
 
 **Do you build websites in Greek?**
 Yes. We build bilingual websites in English and Greek, and Greek-only websites on request.

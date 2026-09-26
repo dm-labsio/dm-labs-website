@@ -981,7 +981,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         <div className="flex items-center justify-between gap-4">
           <span className="text-xs text-gray-400 templates-editorial-card-note">
             <span>Design inspiration</span>
-            <span>Pricing from €299</span>
+            <span>Built around your brand</span>
           </span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors templates-editorial-card-action" style={{ color: "#5B8CFF" }}>
             Preview <ChevronRight size={14} />
@@ -1051,7 +1051,7 @@ function CustomBuildCard() {
 
         <div className="flex items-center justify-between gap-4">
           <span className="text-xs text-gray-400 templates-editorial-card-note">
-            <span>Pricing from €299</span>
+            <span>Built around your brand</span>
             <span>Quote on request</span>
           </span>
           <a
@@ -1163,7 +1163,7 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 export default function Templates() {
   useSEO({
     title: "Website Examples | See Our Work | DM-Labs.io",
-    description: "Browse real website examples built by DM-Labs.io for restaurants, salons, dental clinics, yoga studios, and more. Starting from \u20ac299.",
+    description: "Explore concept website designs by DM-Labs.io for restaurants, salons, dental clinics, yoga studios, and more. Explore the design possibilities for your brand.",
     canonicalPath: "/templates/",
   });
   const [location] = useLocation();

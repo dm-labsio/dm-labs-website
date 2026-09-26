@@ -136,7 +136,7 @@ export default function WebDesignGreeceEl() {
               Είμαστε ένα γραφείο web design που συνεργάζεται με επιχειρήσεις σε όλη την Ελλάδα και την Κύπρο. Κατασκευάζουμε επαγγελματικές, γρήγορες, δίγλωσσες ιστοσελίδες που σχεδιάζονται για να βρίσκονται στη Google και να μετατρέπουν επισκέπτες σε πελάτες.
             </p>
             <p className="leading-relaxed mb-4">
-              Τα <Link href="/el/services/" className="text-[#5B8CFF] hover:underline">πακέτα web design</Link> μας ξεκινούν από €299 για το Launch πακέτο (μονοσέλιδη ιστοσελίδα) και φτάνουν στα €1.499 για το Pro πακέτο (έως 7 σελίδες, custom σχεδιασμός, animations). Κάθε πακέτο περιλαμβάνει δωρεάν συμβουλευτική, mobile-first ανάπτυξη, on-page SEO και SSL. Χωρίς κρυφές χρεώσεις.
+              Τα <Link href="/el/services/" className="text-[#5B8CFF] hover:underline">πακέτα web design</Link> μας συνδυάζουν δυνατή εικόνα, γρήγορη εμπειρία και εύκολη επικοινωνία, με εύρος έργου που ταιριάζει στους στόχους σας. Κάθε πακέτο περιλαμβάνει δωρεάν συμβουλευτική, mobile-first ανάπτυξη, on-page SEO και SSL. Χωρίς κρυφές χρεώσεις.
             </p>
             <p className="leading-relaxed">
               Έχουμε συνεργαστεί με επιχειρήσεις στη <Link href="/el/web-design-thessaloniki/" className="text-[#5B8CFF] hover:underline">Θεσσαλονίκη</Link>, στην Αθήνα και σε όλα τα ελληνικά νησιά, καθώς και στη <Link href="/el/web-design-limassol/" className="text-[#5B8CFF] hover:underline">Λεμεσό</Link> και στη <Link href="/el/web-design-nicosia/" className="text-[#5B8CFF] hover:underline">Λευκωσία</Link> στην Κύπρο.

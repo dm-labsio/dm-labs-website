@@ -425,7 +425,7 @@ export const POSTS: BlogPost[] = [
 
 <h2>The Bottom Line on Web Design Cyprus Pricing</h2>
 <p>If you are a business in Cyprus looking for an affordable website that actually works - one that loads fast, looks professional, and can be found on Google - you do not need to spend thousands. You do need to avoid the cheapest options that cut corners on the things that matter.</p>
-<p>The website cost in Cyprus for a properly built, SEO-ready, mobile-first business site from a professional agency starts at around €299. That is a one-time investment that works for you every day.</p>
+<p>Choose the scope that supports your business goals, then account for hosting and ongoing care as well as the build. The right investment gives customers a clear reason to trust you and a simple way to take action.</p>
 
 <div class="blog-cta">
   <h3>Not sure which package is right for your business?</h3>
@@ -440,7 +440,7 @@ export const POSTS: BlogPost[] = [
     slug: "web-design-nail-salon-beauty-studio-cyprus",
     title: "Web Design for Nail Salons and Beauty Studios in Cyprus: What You Actually Need",
     metaTitle: "Web Design Nail Salon Cyprus | Beauty Studio Websites",
-    metaDescription: "Nail salon or beauty studio in Cyprus? Here is exactly what your website needs to attract clients and show up on Google - from €299.",
+    metaDescription: "Nail salon or beauty studio in Cyprus? Here is exactly what your website needs to attract clients and show up on Google. Make your business the next choice.",
     date: "2026-03-21",
     readTime: "5 min read",
     category: "Beauty & Wellness",
@@ -478,7 +478,7 @@ export const POSTS: BlogPost[] = [
 <p>At DM-Labs.io, we have built website examples specifically designed for beauty businesses. The <strong>Bella Salon</strong> interactive demo on our <a href="/templates/" class="blog-link">Examples page</a> shows exactly what a professional beauty salon website looks like in practice: clean layout, gallery section, service menu, booking CTA, and mobile-first design. These are not generic designs - they are built around how beauty clients actually browse and decide.</p>
 
 <h2>How DM-Labs.io Builds Beauty Salon Websites</h2>
-<p>We build beauty salon and nail salon websites in Cyprus from €299, delivered in 5 to 7 days. Every site includes a mobile-first design, your service menu, a photo gallery, Google Maps integration, a WhatsApp contact button, and on-page SEO setup so Google can find you from day one.</p>
+<p>We build beauty salon and nail salon websites that make your work the reason to book. We agree a clear scope and delivery schedule before starting. Every site includes a mobile-first design, your service menu, a photo gallery, Google Maps integration, a WhatsApp contact button, and on-page SEO setup so Google can find you from day one.</p>
 <p>You do not need to know anything about technology. You send us your photos, your services and prices, and your business details. We handle everything else and deliver a website you are proud to share.</p>
 
 <div class="blog-cta">
@@ -535,7 +535,7 @@ export const POSTS: BlogPost[] = [
 <p>Your clients are searching on their phones, often between other things - on a lunch break, after a run, while waiting for coffee. A wellness business website in Cyprus must load in under three seconds, display beautifully on a small screen, and have a clear call to action that is easy to tap. A slow or cluttered mobile experience loses potential students before they even read your class schedule.</p>
 
 <h2>How DM-Labs.io Builds Wellness Studio Websites</h2>
-<p>We build yoga and Pilates studio websites in Cyprus from €299, delivered in under a week. Every site is mobile-first, SEO-ready from day one, and designed to convert visitors into students. You provide the content - your schedule, photos, bio, and pricing - and we handle the rest.</p>
+<p>We build yoga and Pilates studio websites that make it easy for the right students to discover you and take the next step. We agree a clear scope and delivery schedule before starting. Every site is mobile-first, SEO-ready from day one, and designed to convert visitors into students. You provide the content - your schedule, photos, bio, and pricing - and we handle the rest.</p>
 <p>Our <a href="/services/" class="blog-link">website packages</a> are built specifically for small wellness businesses that want a professional result without a complicated process or a large budget.</p>
 
 <div class="blog-cta">
@@ -589,7 +589,7 @@ export const POSTS: BlogPost[] = [
 
 <h2>How DM-Labs.io Builds Websites That Are Already Optimised for Google</h2>
 <p>Every website we build at DM-Labs.io is SEO-ready from day one. That means proper heading structure, fast loading times, mobile-first design, your location and services clearly stated in the right places, and meta titles and descriptions set up for every page. We also include Google Maps integration and guidance on setting up your Google Business Profile as part of every project.</p>
-<p>You do not need to understand any of this technically. Our job is to make sure your website does the right things so Google can find you and send you customers. Our <a href="/services/" class="blog-link">website packages</a> start from €299 and include everything you need to get found online in Cyprus.</p>
+<p>You do not need to understand any of this technically. Our job is to make sure your website does the right things so Google can find you and send you customers. Our <a href="/services/" class="blog-link">website packages</a> combine strong presentation, technical SEO foundations, and clear paths to enquiry.</p>
 
 <div class="blog-cta">
   <h3>Want to get your business found on Google?</h3>
@@ -655,7 +655,7 @@ export const POSTS: BlogPost[] = [
 
 <h2>How Much Does a Restaurant Website Cost in Cyprus?</h2>
 
-<p>A professional restaurant website in Cyprus does not need to cost thousands of euros. At DM-Labs.io, our <a href="/web-design-restaurants-cyprus/" class="blog-link">restaurant website packages</a> start from <strong>\u20ac299</strong> for the Launch package  -  a fully custom, mobile-first site with your menu, photos, contact form, Google Maps integration, and SEO setup. Most restaurant sites are live within 5 to 7 days.</p>
+<p>Your website should make people want a table at your restaurant. Our <a href="/web-design-restaurants-cyprus/" class="blog-link">restaurant websites</a> put your food, atmosphere, and next step in focus. We agree the scope, features, and delivery schedule before starting, then handle the design and build.</p>
 
 <p>The Growth package at \u20ac749 adds a blog or news section (useful for posting specials and events), a WhatsApp reservation button, and more advanced SEO. For restaurants that want online ordering or a full booking system, the Pro package at \u20ac1,499 covers everything.</p>
 
@@ -747,7 +747,7 @@ export const POSTS: BlogPost[] = [
 
 <h2>What Does It Actually Cost?</h2>
 <p>Wix and Squarespace are not free. Their paid plans - the ones you actually need to run a business - cost between €180 and €360 per year, every year, indefinitely. WordPress requires you to pay for hosting separately, typically €80 to €200 per year, plus the time and cost of setting everything up and keeping it maintained.</p>
-<p>A professionally built website from DM-Labs.io starts at €299 as a one-time investment. We include hosting setup guidance and manage the technical side for you. You own your domain - we always recommend that clients register their own domain name so it is fully theirs, independent of any platform or agency. The website itself is built and delivered to you, and we are here for updates whenever you need them.</p>
+<p>A professionally built website from DM-Labs.io is an investment in how customers see and choose your business. We include hosting setup guidance and manage the technical side for you. You own your domain - we always recommend that clients register their own domain name so it is fully theirs, independent of any platform or agency. The website itself is built and delivered to you, and we are here for updates whenever you need them.</p>
 <p>When you factor in the ongoing annual costs of website builders, the 20 to 40 hours most business owners spend trying to build their own site, and the SEO limitations that quietly cost you customers you never knew you were missing - a professionally built website is often the more economical choice over a two to three year period.</p>
 
 <figure class="blog-image">
@@ -841,7 +841,7 @@ export const POSTS: BlogPost[] = [
 
 <h2>How DM-Labs.io Works With Greek Businesses</h2>
 <p>We are a web design agency that works with businesses across Greece and Cyprus. Our team builds professional, fast, bilingual websites that are designed to be found on Google and to convert visitors into customers.</p>
-<p>Our <a href="/services/" class="blog-link">web design packages</a> start at €299 for the Launch package (single-page site) and go up to €1,499 for the Pro package (up to 7 pages, custom design, animations, and blog setup). Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate. No hidden fees, no surprises.</p>
+<p>Our <a href="/services/" class="blog-link">web design packages</a> give your business a clear, professional presence, with the scope matched to your goals. Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate. No hidden fees, no surprises.</p>
 <p>We have worked with businesses in <a href="/web-design-thessaloniki/" class="blog-link">Thessaloniki</a>, Athens, and across the Greek islands including <a href="/web-design-crete/" class="blog-link">Crete</a>, as well as in <a href="/web-design-limassol/" class="blog-link">Limassol</a> and <a href="/web-design-nicosia/" class="blog-link">Nicosia</a> in Cyprus. If you are looking for a web design partner who understands the Greek market and delivers on time, we would love to hear from you.</p>
 
 <h2>The Bottom Line</h2>
@@ -901,7 +901,7 @@ export const POSTS: BlogPost[] = [
 <h2>What Does a GEO Mention Actually Look Like?</h2>
 <p>When someone asks ChatGPT <em>"who does web design in Limassol?"</em>, a GEO-optimised business might appear like this in the answer:</p>
 <blockquote>
-  <em>"For web design in Limassol, DM-Labs.io (dm-labs.io) is a local agency offering custom websites from €299, with specialisations in restaurant and hospitality websites. They are listed on Clutch with verified reviews and offer a free consultation."</em>
+  <em>"For web design in Limassol, DM-Labs.io (dm-labs.io) is a local agency offering custom websites designed to earn trust and enquiries, with specialisations in restaurant and hospitality websites. They are listed on Clutch with verified reviews and offer a free consultation."</em>
 </blockquote>
 <p>That mention — unprompted, in a direct AI answer — is worth more than most paid ads. The user asked a question. The AI recommended you. The user clicks through with high intent.</p>
 <p>This is what GEO looks like when it works.</p>

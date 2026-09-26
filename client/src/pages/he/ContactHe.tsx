@@ -67,7 +67,7 @@ export default function ContactHe() {
           <AnimateIn>
             <p className="contact-editorial-label mb-3">צרו קשר</p>
             <h1 className="contact-editorial-title mb-5"><span>בואו נדבר</span><span>על האתר <em>הבא</em> שלכם</span></h1>
-            <p className="contact-editorial-lead max-w-2xl mx-auto">יש לכם רעיון, צורך או שאלה? אפשר לפנות אלינו ב-WhatsApp או להשאיר פרטים, ואנחנו נחזור אליכם בתוך יום עסקים.</p>
+            <p className="contact-editorial-lead max-w-2xl mx-auto">ספרו לנו למי אתם רוצים להגיע ומה האתר שלכם צריך להשיג. דברו ישירות עם טום ואנסטסיה על היקף העבודה, לוח הזמנים והצעדים הבאים. WhatsApp הוא הדרך המהירה ליצור קשר.</p>
           </AnimateIn>
         </div>
       </section>

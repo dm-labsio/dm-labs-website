@@ -44,8 +44,8 @@ const schemaMarkup = {
 
 export default function WebDesignLimassol() {
   useSEO({
-    title: "Web Design Limassol | Website Packages from €299 | DM-Labs.io",
-    description: "DM-Labs.io builds professional, mobile-first websites for Limassol businesses. Clear website packages from €299 and custom scope for advanced requirements.",
+    title: "Web Design Limassol | Websites Built for Growth | DM-Labs.io",
+    description: "DM-Labs.io builds professional, mobile-first websites for Limassol businesses. Distinctive design, clear routes to enquiry, and direct support from design to launch.",
     canonicalPath: "/web-design-limassol/",
   });
 
@@ -64,12 +64,12 @@ export default function WebDesignLimassol() {
       <section className="section-spacing bg-gradient-to-br from-[#F0F4FF] via-[#F6F6F4] to-[#FFF0EA]"><div className="container max-w-4xl mx-auto text-center"><AnimateIn>
         <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Web Design · Limassol, Cyprus</span>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F172A] leading-tight mb-6">Web Design for <span className="bg-gradient-to-r from-[#5B8CFF] via-[#6FE3FF] to-[#A855F7] bg-clip-text text-transparent">Limassol Businesses</span></h1>
-        <p className="text-lg md:text-xl text-[#475569] max-w-2xl mx-auto mb-8 leading-relaxed">DM-Labs.io builds clear, professional, mobile-first websites for Limassol businesses. Start with a defined package from €299 or request a custom scope for more complex work.</p>
+        <p className="text-lg md:text-xl text-[#475569] max-w-2xl mx-auto mb-8 leading-relaxed">DM-Labs.io builds clear, professional, mobile-first websites for Limassol businesses. Make your business look established, earn trust, and give customers a clear reason to contact you.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><a href="https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27m%20interested%20in%20a%20website%20for%20my%20Limassol%20business." target="_blank" rel="noopener noreferrer" className="btn-primary">Get a Free Consultation</a></StarButton><Link href="/pricing/" className="btn-secondary">View Pricing</Link></div>
       </AnimateIn></div></section>
 
       <section className="py-10 bg-white border-y border-[#E2E5EA]"><div className="container"><div className="grid grid-cols-2 md:grid-cols-4 gap-6">{[
-        { value: "€299", label: "Package starting point" }, { value: "Limassol", label: "Businesses served" }, { value: "Cyprus", label: "Wider service area" }, { value: "Mobile-first", label: "Every package" },
+        { value: "Custom", label: "Built around your business" }, { value: "Limassol", label: "Businesses served" }, { value: "Cyprus", label: "Wider service area" }, { value: "Mobile-first", label: "Every package" },
       ].map((stat) => <div key={stat.label} className="text-center"><div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#5B8CFF] to-[#A855F7] bg-clip-text text-transparent">{stat.value}</div><div className="text-sm text-[#64748B] mt-1">{stat.label}</div></div>)}</div></div></section>
 
       <section className="section-spacing"><div className="container max-w-3xl mx-auto"><AnimateIn><h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-6">A Clear Website for a Growing Limassol Business</h2><p className="text-[#475569] text-lg leading-relaxed mb-5">Your website should make it easy for potential customers to understand your services, trust your business, and take the next step. That means a useful structure, responsive implementation, practical content, and clear contact paths.</p><p className="text-[#475569] text-lg leading-relaxed">DM-Labs.io is based in Paphos and works with businesses throughout Cyprus, including Limassol. We scope each project around the information and actions your customers need rather than forcing every business into the same layout.</p></AnimateIn></div></section>

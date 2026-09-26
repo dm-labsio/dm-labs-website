@@ -70,7 +70,7 @@ export default function ΕστιατόριοEl() {
             </p>
           </section>
           <div className="bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] rounded-2xl p-8 border border-[#D0DEFF] mt-10">
-            <h3 className="text-xl font-bold text-[#111315] mb-3">Ιστοσελίδα για Εστιατόριο από €299</h3>
+            <h3 className="text-xl font-bold text-[#111315] mb-3">Μια ιστοσελίδα αντάξια του εστιατορίου σας</h3>
             <p className="text-[#5B6472] mb-6">Μενού, κρατήσεις, φωτογραφίες, SEO. Παράδοση σε 7-10 ημέρες.</p>
             <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">

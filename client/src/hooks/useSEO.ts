@@ -16,11 +16,11 @@ import { useLocation } from "wouter";
 import { getHreflangRouteSet, isIndexableHebrewRoute, type HreflangRouteSet, normalizeRoutePath, SEO_BASE_URL, withTrailingSlash } from "@/lib/seoRoutes";
 
 const BASE_URL = SEO_BASE_URL;
-const DEFAULT_TITLE = "DM-Labs.io | Web Design in Paphos & Cyprus from €299";
+const DEFAULT_TITLE = "Best Web Design Agency for Growing Businesses | DM Labs";
 const DEFAULT_DESCRIPTION =
-  "DM-Labs.io builds custom, mobile-first websites for businesses in Paphos and across Cyprus. Clear scope, SEO foundations, and packages from €299.";
-const DEFAULT_OG_IMAGE = "https://dm-labs.io/social/dm-labs-website-social-card.png";
-const DEFAULT_OG_IMAGE_ALT = "We build your website. Unbeatable prices. DM-Labs.io";
+  "Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses in Cyprus, Greece, Israel and beyond.";
+const DEFAULT_OG_IMAGE = "https://dm-labs.io/social/dm-labs-growth-social-card.png";
+const DEFAULT_OG_IMAGE_ALT = "We build your website. Built for growth. DM Labs";
 const DEFAULT_OG_IMAGE_WIDTH = "1200";
 const DEFAULT_OG_IMAGE_HEIGHT = "675";
 

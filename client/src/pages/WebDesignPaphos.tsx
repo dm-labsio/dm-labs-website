@@ -57,8 +57,8 @@ const schemaMarkup = {
 
 export default function WebDesignPaphos() {
   useSEO({
-    title: "Web Design Paphos | Website Packages from €299 | DM-Labs.io",
-    description: "Professional website design in Paphos, Cyprus. Launch websites from €299, Growth from €749, Pro from €1,499, plus custom website projects.",
+    title: "Web Design Paphos | Websites Built for Growth | DM-Labs.io",
+    description: "Professional website design in Paphos, Cyprus. Distinctive design, fast delivery and personal care, built around your business goals.",
     canonicalPath: "/web-design-paphos/",
   });
 
@@ -79,7 +79,7 @@ export default function WebDesignPaphos() {
           <AnimateIn>
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Web Design · Paphos, Cyprus</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F172A] leading-tight mb-6">Web Design in <span className="bg-gradient-to-r from-[#5B8CFF] via-[#6FE3FF] to-[#A855F7] bg-clip-text text-transparent">Paphos</span></h1>
-            <p className="text-lg md:text-xl text-[#475569] max-w-2xl mx-auto mb-8 leading-relaxed">DM-Labs.io builds professional, mobile-first websites for Paphos businesses. Choose a clear package from €299 or request a custom scope for more complex work.</p>
+            <p className="text-lg md:text-xl text-[#475569] max-w-2xl mx-auto mb-8 leading-relaxed">DM-Labs.io builds professional, mobile-first websites for Paphos businesses. Make your business look established, earn trust, and give customers a clear reason to contact you.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><a href="https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27m%20interested%20in%20a%20website%20for%20my%20Paphos%20business." target="_blank" rel="noopener noreferrer" className="btn-primary">Get a Free Consultation</a></StarButton><Link href="/pricing/" className="btn-secondary">View Pricing</Link></div>
           </AnimateIn>
         </div>
@@ -87,7 +87,7 @@ export default function WebDesignPaphos() {
 
       <section className="py-10 bg-white border-y border-[#E2E5EA]">
         <div className="container"><div className="grid grid-cols-2 md:grid-cols-4 gap-6">{[
-          { value: "€299", label: "Package starting point" },
+          { value: "Custom", label: "Built around your business" },
           { value: "Paphos", label: "Local business address" },
           { value: "Cyprus", label: "Businesses served" },
           { value: "Mobile-first", label: "Every package" },

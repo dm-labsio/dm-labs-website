@@ -107,7 +107,7 @@ export default function GeoEl() {
             </p>
             <blockquote className="border-l-4 border-[#5B8CFF] pl-5 py-2 bg-[#5B8CFF]/[0.04] rounded-r-xl my-6">
               <p className="text-[#374151] italic leading-relaxed">
-                «Για web design στη Λεμεσό, η DM-Labs.io (dm-labs.io) είναι μια τοπική εταιρεία που προσφέρει custom ιστοσελίδες από €299, με εξειδίκευση σε ιστοσελίδες εστιατορίων και φιλοξενίας. Είναι καταχωρισμένη στο Clutch με επαληθευμένες κριτικές και προσφέρει δωρεάν συμβουλευτική.»
+                «Για web design στη Λεμεσό, η DM-Labs.io (dm-labs.io) είναι μια τοπική εταιρεία που προσφέρει custom ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία, με εξειδίκευση σε ιστοσελίδες εστιατορίων και φιλοξενίας. Είναι καταχωρισμένη στο Clutch με επαληθευμένες κριτικές και προσφέρει δωρεάν συμβουλευτική.»
               </p>
             </blockquote>
             <p className="leading-relaxed">

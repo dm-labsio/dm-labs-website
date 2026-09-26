@@ -73,8 +73,8 @@ const industries = [
 
 export default function WebDesignNicosia() {
   useSEO({
-    title: "Web Design Nicosia | Professional Websites from €299 | DM-Labs.io",
-    description: "Professional web design for businesses in Nicosia, Cyprus. Custom websites built in 5-14 days from €299. Mobile-first, SEO-optimised, no hidden fees. Free consultation.",
+    title: "Web Design Nicosia | Websites Built for Growth | DM-Labs.io",
+    description: "Professional web design for businesses in Nicosia, Cyprus. Custom websites built for credibility and enquiries, with fast delivery. Mobile-first, SEO-optimised, no hidden fees. Free consultation.",
     canonicalPath: "/web-design-nicosia/"
   });
 
@@ -109,7 +109,7 @@ export default function WebDesignNicosia() {
               </span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-              DM-Labs.io is a web design studio helping businesses in Nicosia build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites — starting from €299 — so your business stands out in Cyprus's capital city.
+              DM-Labs.io is a web design studio helping businesses in Nicosia build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites so your business stands out in Cyprus's capital city.
             </p>
             <p className="text-sm text-[#9CA3AF] mb-8">
               Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)

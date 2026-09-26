@@ -19,8 +19,8 @@ const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27d%20
 
 export default function Services() {
   useSEO({
-    title: "Web Design Services Paphos & Cyprus | DM-Labs.io",
-    description: "Custom website design in Paphos and across Cyprus. Launch, Growth and Pro website packages from €299, plus ongoing care.",
+    title: "Web Design Services for Business Growth | DM Labs",
+    description: "Custom design, fast development, SEO foundations and ongoing care. Websites built to earn trust and help your business win more enquiries.",
   });
   return (
     <>
@@ -41,7 +41,7 @@ export default function Services() {
               Services That <em className="services-editorial-serif brand-gradient-text">Drive Results</em>
             </h1>
             <p className="services-editorial-lead text-lg text-[#5B6472] max-w-2xl mx-auto">
-              We are a small web design agency focused on building professional, high-quality websites. From custom design to SEO optimisation, we handle everything so you don't have to.
+              Your website should make you the obvious choice. We bring together sharp design, fast development, and clear routes to enquiry, then keep the technical side in hand through your care plan.
             </p>
           </AnimateIn>
         </div>
@@ -59,7 +59,7 @@ export default function Services() {
             className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl"
             style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
           >
-            <span className="services-editorial-banner-label text-base sm:text-lg font-bold text-white tracking-widest uppercase">Packages from €299</span>
+            <span className="services-editorial-banner-label text-base sm:text-lg font-bold text-white tracking-widest uppercase">Built around your business</span>
             <span className="hidden sm:block w-px h-5 bg-white/40" />
             <span className="text-sm sm:text-base text-white/90 font-medium">Clear scope, transparent pricing, and a free consultation before you commit.</span>
           </div>

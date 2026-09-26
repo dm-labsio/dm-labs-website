@@ -36,7 +36,7 @@ const schemaMarkup = {
     },
     "geoRadius": "50000"
   },
-  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Thessaloniki and across Greece. Websites from €299, delivered in 5-14 days.",
+  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Thessaloniki and across Greece. Custom websites built to earn trust and enquiries, with delivery in 5-14 business days depending on scope and content readiness.",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Bank Transfer, PayPal",
@@ -67,8 +67,8 @@ const faqs = [
 
 export default function WebDesignThessaloniki() {
   useSEO({
-    title: "Web Design Thessaloniki | Professional Websites from €299 | DM-Labs.io",
-    description: "Professional web design for businesses in Thessaloniki. Custom websites built in 5-14 days from €299. Mobile-first, SEO-optimised, no hidden fees. Get a free consultation.",
+    title: "Web Design Thessaloniki | Websites Built for Growth | DM-Labs.io",
+    description: "Professional web design for businesses in Thessaloniki. Custom websites built for credibility and enquiries, with fast delivery. Mobile-first, SEO-optimised, no hidden fees. Get a free consultation.",
     canonicalPath: "/web-design-thessaloniki/"
   });
 
@@ -125,7 +125,7 @@ export default function WebDesignThessaloniki() {
             </span>
           </h1>
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-            DM-Labs.io is a remote web design studio helping businesses in Thessaloniki build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites - starting from €299 - so your business stands out in Greece's second-largest city.
+            DM-Labs.io is a remote web design studio helping businesses in Thessaloniki build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites so your business stands out in Greece's second-largest city.
           </p>
           <p className="text-sm text-[#9CA3AF] mb-8">
             Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)

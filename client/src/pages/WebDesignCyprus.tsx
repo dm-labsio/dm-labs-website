@@ -52,8 +52,8 @@ const schemaMarkup = {
 
 export default function WebDesignCyprus() {
   useSEO({
-    title: "Web Design Cyprus | Website Packages from €299 | DM-Labs.io",
-    description: "Professional web design for Cyprus businesses. Launch websites from €299, Growth from €749, Pro from €1,499, and custom website projects from DM-Labs.io.",
+    title: "Web Design Cyprus | Websites Built for Growth | DM-Labs.io",
+    description: "Professional web design for Cyprus businesses. Distinctive design, fast delivery and personal care from DM-Labs.io, built around your business goals.",
     canonicalPath: "/web-design-cyprus/",
   });
 
@@ -73,7 +73,7 @@ export default function WebDesignCyprus() {
         <div className="container max-w-4xl mx-auto text-center">
           <AnimateIn>
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Web Design Across Cyprus</span>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">Professional <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">Web Design in Cyprus</span> from €299</h1>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">Professional <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">Web Design in Cyprus</span></h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">DM-Labs.io designs and builds professional websites for businesses across Cyprus. Choose a clear package or request a custom scope for more complex work.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><Link href="/contact/" className="btn-primary">Get a Free Consultation</Link></StarButton><a href="https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27m%20interested%20in%20a%20website%20for%20my%20Cyprus%20business." target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Us</a></div>
           </AnimateIn>

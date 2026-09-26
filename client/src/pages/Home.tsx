@@ -186,8 +186,8 @@ const TESTIMONIALS = [
 
 export default function HomePage() {
   useSEO({
-    title: "DM-Labs.io | Web Design in Paphos & Cyprus from €299",
-    description: "DM-Labs.io builds custom, mobile-first websites for businesses in Paphos and across Cyprus. Clear scope, SEO foundations, and packages from €299.",
+    title: "Best Web Design Agency for Growing Businesses | DM Labs",
+    description: "Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses in Cyprus, Greece, Israel and beyond.",
   });
 
   // This graph is serialized into the prerendered homepage and is the single source of homepage structured data.
@@ -208,10 +208,10 @@ export default function HomePage() {
           "@id": "https://dm-labs.io/#professionalservice",
           "name": "DM-Labs.io",
           "alternateName": "DM-Labs",
-          "description": "DM-Labs.io designs and builds professional, custom websites for businesses in Paphos, across Cyprus, and in Greece. Mobile-first, SEO-ready websites with clear packages from €299.",
+          "description": "Custom websites built to strengthen your brand and turn interest into enquiries. Fast delivery and personal care for businesses in Cyprus, Greece, Israel and beyond.",
           "url": "https://dm-labs.io/",
           "logo": "https://dm-labs.io/logo.png",
-          "image": "https://dm-labs.io/social/dm-labs-website-social-card.png",
+          "image": "https://dm-labs.io/social/dm-labs-growth-social-card.png",
           "telephone": "+35797472847",
           "email": "info@dm-labs.io",
           "priceRange": "€299-€1,499",
@@ -223,7 +223,8 @@ export default function HomePage() {
             { "@type": "City", "name": "Larnaca", "addressCountry": "CY" },
             { "@type": "City", "name": "Famagusta", "addressCountry": "CY" },
             { "@type": "Country", "name": "Cyprus" },
-            { "@type": "Country", "name": "Greece" }
+            { "@type": "Country", "name": "Greece" },
+            { "@type": "Country", "name": "Israel" }
           ],
           "employee": [
             {
@@ -247,9 +248,9 @@ export default function HomePage() {
           "@id": "https://dm-labs.io/#website",
           "url": "https://dm-labs.io/",
           "name": "DM-Labs.io",
-          "description": "Professional web design services in Paphos and across Cyprus",
+          "description": "Web design for growing businesses in Cyprus, Greece, Israel and beyond",
           "publisher": { "@id": "https://dm-labs.io/#professionalservice" },
-          "inLanguage": ["en", "el"]
+          "inLanguage": ["en", "el", "he"]
         }
       ]
     };
@@ -268,18 +269,17 @@ export default function HomePage() {
       <HomeHeroScrub>
         <div className="editorial-hero-copy">
         <p className="editorial-label mb-5">
-          Complete Website Solutions
+          Built for your next level
         </p>
-        <h1 className="sr-only">Your business is great. Your website should make that obvious.</h1>
+        <h1 className="sr-only">The website agency built to bring you more clients.</h1>
         <div className="editorial-hero-fit" aria-hidden="true">
-          <EditorialFitLine maxSizeRatio={0.17}>Your business</EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}>is great.</EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}>Your website</EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}>should make</EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}>that <em className="editorial-serif">obvious.</em></EditorialFitLine>
+          <EditorialFitLine maxSizeRatio={0.17}>The website</EditorialFitLine>
+          <EditorialFitLine maxSizeRatio={0.17}>agency built</EditorialFitLine>
+          <EditorialFitLine maxSizeRatio={0.17}>to bring you</EditorialFitLine>
+          <EditorialFitLine maxSizeRatio={0.17}>more <em className="editorial-serif">clients.</em></EditorialFitLine>
         </div>
         <p className="editorial-lead mb-8 max-w-2xl mx-auto">
-          We are a dedicated web design agency. We build professional, fast, and conversion-focused websites for businesses like yours - from €299.
+          Look established. Earn trust. Make the next enquiry easy. We build sharp, fast websites and handle the technical details, so you can focus on your business. Cyprus, Greece, Israel and beyond.
         </p>
         <div className="editorial-hero-actions flex flex-wrap gap-4 justify-center">
           <StarButton asChild><Link href="/contact/" className="btn-primary">
@@ -301,11 +301,11 @@ export default function HomePage() {
         <div className="container py-6">
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
             {[
-              "No Hidden Fees",
+              "Designed to earn trust",
               "Delivered in Days",
               "Mobile Responsive",
               "SEO Optimised",
-              "European-Based Team",
+              "Direct access to Tom & Anastacia",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
                 <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0" />
@@ -329,10 +329,10 @@ export default function HomePage() {
           <AnimateIn className="text-center mb-10">
             <p className="editorial-label mb-4">Design Inspiration</p>
             <h2 className="editorial-section-heading mb-5">
-              See What We Can <span className="editorial-serif">Create</span> for You
+              Make Your First Impression <span className="editorial-serif">Count</span>
             </h2>
             <p className="editorial-lead max-w-2xl mx-auto">
-              Every website we build is <strong className="text-[#111315]">fully custom</strong> - designed from scratch around your brand, your content, and your customers. These examples show the range of styles and industries we work with. Think of them as inspiration, not off-the-shelf packages.
+              Your website sets the standard before you say a word. Explore these <strong className="text-[#111315]">concept designs</strong> to see the possibilities. Your website will be designed around your brand, your customers, and the action you want them to take.
             </p>
           </AnimateIn>
 
@@ -368,21 +368,21 @@ export default function HomePage() {
           <AnimateIn className="text-center mb-16">
             <p className="editorial-label mb-4">Our Services</p>
             <h2 className="editorial-section-heading mb-5">
-              Expert <span className="editorial-serif">Solutions</span> for Your Online Presence
+              Look the Part. <span className="editorial-serif">Win</span> the Enquiry.
             </h2>
             <p className="editorial-lead max-w-2xl mx-auto">
-              Everything you need to establish a professional web presence, from design to launch and beyond.
+              A confident brand, a fast experience, and a clear path to contact you. Every detail has a job to do.
             </p>
           </AnimateIn>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
-              { icon: Globe, title: "Custom Website Design", desc: "Unique, branded websites tailored to your business identity and goals. No off-the-shelf designs - every site is built from scratch.", anchor: "custom-design" },
-              { icon: Smartphone, title: "Mobile-First Development", desc: "Every website is designed mobile-first, ensuring a flawless experience on phones, tablets, and desktops.", anchor: "mobile-first" },
-              { icon: Search, title: "SEO Optimisation", desc: "Built-in search engine optimisation so your customers can find you on Google from day one.", anchor: "seo" },
-              { icon: Zap, title: "Fast Performance", desc: "Lightning-fast load times with optimised code and assets. Speed matters for conversions and rankings.", anchor: "performance" },
-              { icon: Shield, title: "Secure & Reliable", desc: "SSL certificates, secure hosting, and regular backups to keep your website safe and always online.", anchor: "security" },
-              { icon: Clock, title: "Quick Turnaround", desc: "From concept to launch in 5-14 business days. We move fast without compromising quality.", anchor: "turnaround" },
+              { icon: Globe, title: "Custom Website Design", desc: "A distinctive website that makes your business look as capable as it is. Built around your brand and the customers you want to win.", anchor: "custom-design" },
+              { icon: Smartphone, title: "Mobile-First Development", desc: "Make it easy to choose you from a phone. Clear content, simple navigation, and contact options within reach.", anchor: "mobile-first" },
+              { icon: Search, title: "SEO Optimisation", desc: "Give search engines a clear picture of your business, so the right customers have a stronger path to finding you.", anchor: "seo" },
+              { icon: Zap, title: "Fast Performance", desc: "Keep attention on your offer. Fast pages and optimised media help customers reach the next step without waiting.", anchor: "performance" },
+              { icon: Shield, title: "Secure & Reliable", desc: "Keep the technical work off your desk. Hosting, backups, and fixes are handled through your ongoing care plan.", anchor: "security" },
+              { icon: Clock, title: "Quick Turnaround", desc: "Move from plan to launch with clear milestones. Standard builds typically take 5-14 business days, depending on scope and content readiness.", anchor: "turnaround" },
             ].map((service) => (
               <StaggerItem key={service.title}>
                 <Link href={`/services/${service.anchor}/`}>
@@ -418,7 +418,7 @@ export default function HomePage() {
               From Idea to Launch in 5 Simple Steps
             </h2>
             <p className="editorial-lead max-w-2xl mx-auto">
-              We've streamlined the process so you can focus on running your business.
+              Clear milestones. Direct answers. A website ready for business. We drive the project forward and keep you in control at every step.
             </p>
           </AnimateIn>
 
@@ -512,10 +512,10 @@ export default function HomePage() {
           <AnimateIn className="text-center mb-16">
             <p className="editorial-label mb-4">Transparent Pricing</p>
             <h2 className="editorial-section-heading mb-5">
-              Simple, <span className="editorial-serif">Honest</span> Pricing
+              Invest in Your <span className="editorial-serif">Next Level</span>
             </h2>
             <p className="editorial-lead max-w-2xl mx-auto mb-5">
-              No hidden fees. No surprises. Transparent pricing for every project.
+              Choose the scope that fits your ambition. Know what you are getting before we start.
             </p>
            </AnimateIn>
 
@@ -523,9 +523,9 @@ export default function HomePage() {
             className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl text-center sm:text-left"
             style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
           >
-            <span className="editorial-label !text-white">Packages from €299</span>
+            <span className="editorial-label !text-white">Built around your business</span>
             <span className="hidden sm:block w-px h-5 bg-white/40" />
-            <span className="text-sm sm:text-base text-white/90 font-medium">Clear scope, transparent pricing, and a free consultation before you commit.</span>
+            <span className="text-sm sm:text-base text-white/90 font-medium">Website build + ongoing hosting and care. See full pricing for your complete investment.</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
@@ -897,15 +897,15 @@ export default function HomePage() {
           <AnimateIn>
             <p className="editorial-label !text-[#6FE3FF] mb-5">Ready to Start?</p>
             <h2 className="editorial-section-heading !text-white mb-6 max-w-4xl mx-auto">
-              Let's Build Your Website <span className="editorial-serif">Together</span>
+              Give Customers a Reason to <span className="editorial-serif">Choose You</span>
             </h2>
             <p className="editorial-lead !text-[#D2D8E4] mb-10 max-w-xl mx-auto">
-              Get in touch and we'll get back to you within hours. No commitment, no pressure - just a friendly conversation about your business.
+              Tell us where you want your business to go. We will map out the website, scope, and next steps to help you get there. You work directly with the people building it.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <StarButton asChild><Link href="/contact/" className="btn-primary !h-14 !text-base !px-8">
                 <MessageCircle size={20} />
-                Get a Free Visual Concept
+                Get a Free Consultation
               </Link></StarButton>
             </div>
           </AnimateIn>

@@ -48,7 +48,7 @@ const schemaMarkup = {
 export default function WebDesignRestaurantsCyprus() {
   useSEO({
     title: "Restaurant Website Design Cyprus | DM-Labs.io",
-    description: "DM-Labs.io builds professional, mobile-first restaurant websites in Cyprus. Clear package options from €299 for menus, contact paths, bookings, and search-friendly foundations.",
+    description: "DM-Labs.io builds professional, mobile-first restaurant websites in Cyprus. Make your restaurant the next choice with clear menus, easy contact paths and search-friendly foundations.",
     canonicalPath: "/web-design-restaurants-cyprus/",
   });
 

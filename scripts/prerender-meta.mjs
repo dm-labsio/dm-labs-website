@@ -19,8 +19,8 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.resolve(__dirname, "../dist/public");
 const BASE_URL = "https://dm-labs.io";
-const DEFAULT_OG_IMAGE = `${BASE_URL}/social/dm-labs-website-social-card.png`;
-const DEFAULT_OG_IMAGE_ALT = "We build your website. Unbeatable prices. DM-Labs.io";
+const DEFAULT_OG_IMAGE = `${BASE_URL}/social/dm-labs-growth-social-card.png`;
+const DEFAULT_OG_IMAGE_ALT = "We build your website. Built for growth. DM Labs";
 
 // ─── English Blog Posts ───────────────────────────────────────────────────────
 
@@ -34,7 +34,7 @@ const BLOG_POSTS = [
   {
     slug: "web-design-nail-salon-beauty-studio-cyprus",
     title: "Web Design Nail Salon Cyprus | Beauty Studio Websites",
-    description: "Nail salon or beauty studio in Cyprus? Here is exactly what your website needs to attract clients and show up on Google - from €299.",
+    description: "Nail salon or beauty studio in Cyprus? Here is exactly what your website needs to attract clients and show up on Google. Make your business the next choice.",
     elSlug: "istoselidha-nail-salon-beauty-studio-kypros",
   },
   {
@@ -80,14 +80,14 @@ const BLOG_POSTS = [
 const EN_STATIC_ROUTES = [
   {
     path: "/",
-    title: "DM-Labs.io | Web Design in Paphos & Cyprus from €299",
-    description: "DM-Labs.io builds custom, mobile-first websites for businesses in Paphos and across Cyprus. Clear scope, SEO foundations, and packages from €299.",
+    title: "Best Web Design Agency for Growing Businesses | DM Labs",
+    description: "Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses in Cyprus, Greece, Israel and beyond.",
     elPath: "/el",
   },
   {
     path: "/services",
-    title: "Web Design Services Paphos & Cyprus | DM-Labs.io",
-    description: "Custom website design in Paphos and across Cyprus. Launch, Growth and Pro website packages from €299, plus ongoing care.",
+    title: "Web Design Services for Business Growth | DM Labs",
+    description: "Custom design, fast development, SEO foundations and ongoing care. Websites built to earn trust and help your business win more enquiries.",
     elPath: "/el/services",
   },
   {
@@ -99,7 +99,7 @@ const EN_STATIC_ROUTES = [
   {
     path: "/pricing",
     title: "Website Pricing Cyprus | DM-Labs.io",
-    description: "Website packages for Cyprus businesses: Launch from €299, Growth €749, Pro €1,499, and custom projects with pricing tailored to scope. Clear scope, no hidden fees.",
+    description: "Compare website builds and hosting and care plans. Clear scope, transparent billing and custom options for growing businesses.",
     elPath: "/el/pricing",
   },
   {
@@ -117,7 +117,7 @@ const EN_STATIC_ROUTES = [
   {
     path: "/examples",
     title: "Website Examples | See Our Work | DM-Labs.io",
-    description: "Browse real website examples built by DM-Labs.io for restaurants, salons, dental clinics, yoga studios, and more. Starting from €299.",
+    description: "Explore concept website designs by DM-Labs.io for restaurants, salons, dental clinics, yoga studios, and more. Explore the design possibilities for your brand.",
     elPath: "/el/examples",
   },
   {
@@ -128,43 +128,43 @@ const EN_STATIC_ROUTES = [
   },
   {
     path: "/web-design-limassol",
-    title: "Web Design Limassol | Website Packages from €299 | DM-Labs.io",
-    description: "DM-Labs.io builds professional, mobile-first websites for Limassol businesses. Clear packages from €299 and custom scope for wider requirements.",
+    title: "Web Design Limassol | Websites Built for Growth | DM-Labs.io",
+    description: "DM-Labs.io builds professional, mobile-first websites for Limassol businesses. Distinctive design, clear routes to enquiry, and direct support from design to launch.",
     elPath: "/el/web-design-limassol",
   },
   {
     path: "/web-design-thessaloniki",
-    title: "Web Design Thessaloniki | Website Packages from €299 | DM-Labs.io",
-    description: "DM-Labs.io builds professional, mobile-first websites for Thessaloniki businesses. Clear packages from €299 and custom scope for wider requirements.",
+    title: "Web Design Thessaloniki | Websites Built for Growth | DM-Labs.io",
+    description: "DM-Labs.io builds professional, mobile-first websites for Thessaloniki businesses. Distinctive design, clear routes to enquiry, and direct support from design to launch.",
     elPath: "/el/web-design-thessaloniki",
   },
   {
     path: "/web-design-nicosia",
-    title: "Web Design Nicosia | Website Packages from €299 | DM-Labs.io",
-    description: "DM-Labs.io builds professional, mobile-first websites for Nicosia businesses. Clear packages from €299 and custom scope for wider requirements.",
+    title: "Web Design Nicosia | Websites Built for Growth | DM-Labs.io",
+    description: "DM-Labs.io builds professional, mobile-first websites for Nicosia businesses. Distinctive design, clear routes to enquiry, and direct support from design to launch.",
     elPath: "/el/web-design-nicosia",
   },
   {
     path: "/web-design-cyprus",
-    title: "Web Design Cyprus | Website Packages from €299 | DM-Labs.io",
-    description: "Professional web design for businesses across Cyprus. Launch websites from €299, Growth from €749, Pro from €1,499, and custom website projects.",
+    title: "Web Design Cyprus | Websites Built for Growth | DM-Labs.io",
+    description: "Professional web design for businesses across Cyprus. Distinctive design, fast delivery and personal care, built around your business goals.",
     elPath: "/el/web-design-cyprus",
   },
   {
     path: "/web-design-crete",
-    title: "Web Design Crete | Website Packages from €299 | DM-Labs.io",
-    description: "Professional web design for small businesses across Crete. Clear website packages from €299 and custom scope for wider requirements.",
+    title: "Web Design Crete | Websites Built for Growth | DM-Labs.io",
+    description: "Professional web design for small businesses across Crete. Distinctive design, clear routes to enquiry, and direct support from design to launch.",
     elPath: "/el/web-design-crete",
   },
   {
     path: "/web-design-paphos",
-    title: "Web Design Paphos | Website Packages from €299 | DM-Labs.io",
-    description: "Professional website design in Paphos, Cyprus. Launch websites from €299, Growth from €749, Pro from €1,499, plus custom website projects.",
+    title: "Web Design Paphos | Websites Built for Growth | DM-Labs.io",
+    description: "Professional website design in Paphos, Cyprus. Distinctive design, fast delivery and personal care, built around your business goals.",
   },
   {
     path: "/web-design-restaurants-cyprus",
     title: "Restaurant Website Design Cyprus | DM-Labs.io",
-    description: "Professional website design for restaurants in Cyprus. Online menus, reservations, Google visibility. Starting from €299.",
+    description: "Professional website design for restaurants in Cyprus. Online menus, reservations, Google visibility. Explore the design possibilities for your brand.",
   },
   {
     path: "/privacy",
@@ -217,14 +217,14 @@ const EN_STATIC_ROUTES = [
 const EL_STATIC_ROUTES = [
   {
     path: "/el",
-    title: "DM-Labs.io | Κατασκευή Ιστοσελίδων από €299",
-    description: "Η DM-Labs.io κατασκευάζει custom, mobile-first ιστοσελίδες για επιχειρήσεις. Γρήγορη παράδοση, SEO-ready, από €299.",
+    title: "Η καλύτερη εταιρεία web design για επιχειρήσεις που αναπτύσσονται | DM Labs",
+    description: "Ξεχωρίστε. Κερδίστε εμπιστοσύνη. Προσελκύστε περισσότερες επαφές. Custom ιστοσελίδες, γρήγορη παράδοση και προσωπική φροντίδα σε Κύπρο, Ελλάδα, Ισραήλ και πέρα.",
     enPath: "/",
   },
   {
     path: "/el/services",
     title: "Υπηρεσίες Web Design | DM-Labs.io",
-    description: "Επαγγελματικές υπηρεσίες κατασκευής ιστοσελίδων. Custom ιστοσελίδες, mobile-first ανάπτυξη, SEO βελτιστοποίηση. Από €299.",
+    description: "Επαγγελματικές υπηρεσίες κατασκευής ιστοσελίδων. Custom ιστοσελίδες, mobile-first ανάπτυξη, SEO βελτιστοποίηση. Γρήγορη παράδοση και προσωπική φροντίδα.",
     enPath: "/services",
   },
   {
@@ -236,7 +236,7 @@ const EL_STATIC_ROUTES = [
   {
     path: "/el/pricing",
     title: "Τιμές Κατασκευής Ιστοσελίδας | DM-Labs.io",
-    description: "Διαφανείς τιμές κατασκευής ιστοσελίδας: Launch από €299, Growth από €749, Pro από €1.499 και custom scope από DM-Labs.io.",
+    description: "Συγκρίνετε πακέτα ιστοσελίδας, φιλοξενίας και συντήρησης. Ξεκάθαρο εύρος έργου, διαφανής χρέωση και custom επιλογές από τη DM-Labs.io.",
     enPath: "/pricing",
   },
   {
@@ -259,32 +259,32 @@ const EL_STATIC_ROUTES = [
   },
   {
     path: "/el/web-design-limassol",
-    title: "Κατασκευή Ιστοσελίδας Λεμεσός | Από €299 | DM-Labs.io",
-    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Λεμεσό. Custom σχεδιασμός, SEO και mobile-first ανάπτυξη. Launch από €299, Growth από €749 και Pro από €1.499.",
+    title: "Κατασκευή Ιστοσελίδας Λεμεσός | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
+    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Λεμεσό. Custom σχεδιασμός, SEO και mobile-first ανάπτυξη. Σχεδιασμός που εμπνέει εμπιστοσύνη, γρήγορη παράδοση και προσωπική φροντίδα.",
     enPath: "/web-design-limassol",
   },
   {
     path: "/el/web-design-thessaloniki",
-    title: "Κατασκευή Ιστοσελίδας Θεσσαλονίκη | Από €299 | DM-Labs.io",
-    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Θεσσαλονίκη. Custom σχεδιασμός, SEO, mobile-first. Από €299.",
+    title: "Κατασκευή Ιστοσελίδας Θεσσαλονίκη | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
+    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Θεσσαλονίκη. Custom σχεδιασμός, SEO, mobile-first. Γρήγορη παράδοση και προσωπική φροντίδα.",
     enPath: "/web-design-thessaloniki",
   },
   {
     path: "/el/web-design-nicosia",
-    title: "Κατασκευή Ιστοσελίδας Λευκωσία | Από €299 | DM-Labs.io",
-    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Λευκωσία. Custom σχεδιασμός, SEO, mobile-first. Από €299.",
+    title: "Κατασκευή Ιστοσελίδας Λευκωσία | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
+    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στη Λευκωσία. Custom σχεδιασμός, SEO, mobile-first. Γρήγορη παράδοση και προσωπική φροντίδα.",
     enPath: "/web-design-nicosia",
   },
   {
     path: "/el/web-design-cyprus",
-    title: "Κατασκευή Ιστοσελίδας Κύπρος | Επαγγελματικές Ιστοσελίδες από €299 | DM-Labs.io",
-    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις σε όλη την Κύπρο. Launch από €299, Growth από €749, Pro από €1.499 και custom scope.",
+    title: "Κατασκευή Ιστοσελίδας Κύπρος | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
+    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις σε όλη την Κύπρο. Σχεδιασμός που εμπνέει εμπιστοσύνη, γρήγορη παράδοση και προσωπική φροντίδα.",
     enPath: "/web-design-cyprus",
   },
   {
     path: "/el/web-design-crete",
-    title: "Κατασκευή Ιστοσελίδας Κρήτη | Από €299 | DM-Labs.io",
-    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στην Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο. Custom ιστοσελίδες από €299.",
+    title: "Κατασκευή Ιστοσελίδας Κρήτη | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
+    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις στην Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο. Custom ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία.",
     enPath: "/web-design-crete",
   },
   {
@@ -372,7 +372,7 @@ const ROUTE_FALLBACKS = {
     h1: "Professional Web Design in Paphos & Cyprus",
     paragraphs: [
       "DM-Labs.io designs and builds custom, mobile-first websites for businesses in Paphos and across Cyprus.",
-      "Choose a clear website package from €299 or discuss a custom scope for integrations, multilingual content, booking, CRM, and other complex requirements.",
+      "Choose a website package around your goals or discuss a custom scope for integrations, multilingual content, booking, CRM, and other complex requirements.",
     ],
   },
   "/services": {
@@ -400,28 +400,28 @@ const ROUTE_FALLBACKS = {
     h1: "Web Design in Paphos",
     paragraphs: [
       "DM-Labs.io is based in Paphos and builds professional, mobile-first websites for local businesses and organisations across Cyprus.",
-      "Launch Website packages start at €299, with Growth, Pro, and Enterprise / Custom options for wider requirements.",
+      "Choose Launch, Growth, Pro, or Enterprise / Custom to match your business goals and requirements.",
     ],
   },
   "/web-design-cyprus": {
     h1: "Professional Web Design in Cyprus",
     paragraphs: [
       "DM-Labs.io designs and builds responsive, search-friendly websites for businesses across Cyprus.",
-      "Choose a clear website package from €299 or discuss a custom scope for advanced features and integrations.",
+      "Choose a website package around your goals or discuss a custom scope for advanced features and integrations.",
     ],
   },
   "/web-design-limassol": {
     h1: "Web Design for Limassol Businesses",
     paragraphs: [
       "DM-Labs.io builds professional, responsive websites for businesses in Limassol and across Cyprus.",
-      "Clear website packages start from €299, with custom scope available for more complex projects.",
+      "Website packages are built around your goals, with custom scope available for more complex projects.",
     ],
   },
   "/web-design-restaurants-cyprus": {
     h1: "Restaurant Website Design in Cyprus",
     paragraphs: [
       "DM-Labs.io builds practical restaurant websites with clear menus, contact information, booking paths, and mobile-friendly implementation.",
-      "Choose a clear website package from €299 or discuss a custom scope for booking and integration requirements.",
+      "Choose a website package around your goals or discuss a custom scope for booking and integration requirements.",
     ],
   },
   // NOTE: The three blog-post entries below are STOPGAP only.
@@ -435,7 +435,7 @@ const ROUTE_FALLBACKS = {
     paragraphs: [
       "Over 3,200 restaurants operate in Cyprus. Most rely on Facebook and word of mouth. A Facebook page cannot be found on Google, cannot take a reservation at 11pm, and cannot show up when someone searches \"seafood Limassol\" or \"breakfast café Paphos.\"",
       "When someone searches \"restaurant Nicosia\" or \"breakfast café Paphos,\" Google shows two types of results: the local pack and organic results. Both are driven by your website and your Google Business Profile working together. If your business is based in <a href=\"/web-design-paphos\">Paphos</a>, the local competition is still relatively thin — a well-structured website can rank faster and more affordably than in larger cities.",
-      "A professional restaurant website does not need to cost thousands of euros. Our <a href=\"/web-design-restaurants-cyprus\">restaurant website packages</a> start from €299 for the Launch package — a fully custom, mobile-first site with your menu, photos, contact form, Google Maps integration, and SEO setup. Most restaurant sites are live within 5 to 7 days.",
+      "Your website should make people want a table at your restaurant. Our <a href=\"/web-design-restaurants-cyprus\">restaurant websites</a> put your food, atmosphere, and next step in focus. We agree the scope, features, and delivery schedule before starting.",
     ],
   },
   "/blog/wix-vs-professional-web-designer-cyprus": {
@@ -443,7 +443,7 @@ const ROUTE_FALLBACKS = {
     paragraphs: [
       "Wix is a capable tool that works well for specific situations. For a small business in <a href=\"/web-design-cyprus\">Cyprus</a> that wants to be found on Google, look professional, and not spend hours managing a platform, a professional web designer is the better investment.",
       "The real question is not whether Wix can build a website — it can. The question is whether the result will rank on Google, load fast enough to keep visitors, and represent your business at the level your customers expect. For most Cyprus businesses, the answer points clearly toward professional design.",
-      "Our <a href=\"/pricing\">website packages</a> start from €299 and include everything you need: custom design, mobile-first development, on-page SEO foundations, and a fast turnaround. No subscriptions, no platform lock-in, no hours spent fighting a drag-and-drop editor.",
+      "Our <a href=\"/pricing\">website packages</a> combine custom design, mobile-first development, SEO foundations, and fast delivery. See the full build and ongoing care options to plan your investment.",
     ],
   },
   "/blog/web-design-greece-guide-2026": {
@@ -451,7 +451,7 @@ const ROUTE_FALLBACKS = {
     paragraphs: [
       "Greek businesses face a specific challenge online: most competitors still rely on outdated websites or social media alone. A well-built, search-optimised website is one of the most reliable ways to stand out in any Greek city or island market in 2026.",
       "We have worked with businesses in <a href=\"/web-design-thessaloniki\">Thessaloniki</a>, Athens, and across the Greek islands including <a href=\"/web-design-crete\">Crete</a>, as well as in <a href=\"/web-design-limassol\">Limassol</a> and <a href=\"/web-design-nicosia\">Nicosia</a> in Cyprus. If you are looking for a web design partner who understands the Greek market and delivers on time, we would love to hear from you.",
-      "Our <a href=\"/pricing\">web design packages</a> start at €299 for the Launch package and go up to €1,499 for the Pro package. Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate.",
+      "Our <a href=\"/pricing\">web design packages</a> match your website scope to your business goals. Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate.",
     ],
   },
 };
