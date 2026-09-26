@@ -186,7 +186,7 @@ const TESTIMONIALS = [
 export default function HomeElPage() {
   useSEO({
     title: "Η καλύτερη εταιρεία web design για επιχειρήσεις που αναπτύσσονται | DM Labs",
-    description: "Ξεχωρίστε. Κερδίστε εμπιστοσύνη. Προσελκύστε περισσότερες επαφές. Custom ιστοσελίδες, γρήγορη παράδοση και προσωπική φροντίδα σε Κύπρο, Ελλάδα, Ισραήλ και πέρα.",
+    description: "Ξεχωρίστε. Κερδίστε εμπιστοσύνη. Προσελκύστε περισσότερες επαφές. Custom ιστοσελίδες, γρήγορη παράδοση και προσωπική φροντίδα σε επιχειρήσεις παντού.",
   });
   return (
     <>
@@ -202,7 +202,7 @@ export default function HomeElPage() {
           <span className="brand-gradient-text">περισσότερους πελάτες.</span>
         </h1>
         <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-2xl mx-auto">
-          Δυνατή εικόνα. Εμπιστοσύνη. Περισσότερες επαφές. Γρήγορες, custom ιστοσελίδες με τα τεχνικά στα χέρια μας. Κύπρος, Ελλάδα, Ισραήλ και πέρα.
+          Δυνατή εικόνα. Εμπιστοσύνη. Περισσότερες επαφές. Γρήγορες, custom ιστοσελίδες με τα τεχνικά στα χέρια μας. Όπου κι αν δραστηριοποιείστε.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <StarButton asChild><Link href="/el/contact/" className="btn-primary">

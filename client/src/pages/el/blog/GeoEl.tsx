@@ -5,7 +5,7 @@ import { useSEO } from "@/hooks/useSEO";
 export default function GeoEl() {
   useSEO({
     title: "GEO: Πώς να Εμφανίζεται η Επιχείρησή σας στο ChatGPT | DM-Labs.io",
-    description: "Το GEO (Generative Engine Optimization) είναι το νέο SEO. Μάθετε γιατί οι κυπριακές επιχειρήσεις είναι αόρατες στο ChatGPT και τι χρειάζεται για να αλλάξει αυτό.",
+    description: "Το GEO (Generative Engine Optimization) είναι το νέο SEO. Μάθετε γιατί οι επιχειρήσεις είναι αόρατες στο ChatGPT και τι χρειάζεται για να αλλάξει αυτό.",
     canonicalPath: "/el/blog/geo-vrethite-apo-chatgpt-kypros/",
   });
   return (
@@ -22,16 +22,16 @@ export default function GeoEl() {
             <span className="text-xs font-semibold text-[#5B8CFF] bg-[#5B8CFF]/10 px-2 py-0.5 rounded-full">SEO & GEO</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#111315] leading-tight mb-4">
-            GEO: Πώς να Εμφανίζεται η Κυπριακή Επιχείρησή σας στο ChatGPT και στην AI Αναζήτηση
+            GEO: Πώς να Εμφανίζεται η Επιχείρησή σας στο ChatGPT και στην AI Αναζήτηση
           </h1>
           <p className="text-lg text-[#5B6472] leading-relaxed">
-            Όταν κάποιος ρωτά το ChatGPT «καλύτερη εταιρεία web design στην Κύπρο», η επιχείρησή σας πιθανώς δεν εμφανίζεται. Αυτό είναι πρόβλημα GEO — και έχει λύση.
+            Όταν κάποιος ρωτά το ChatGPT «καλύτερη εταιρεία web design», η επιχείρησή σας πιθανώς δεν εμφανίζεται. Αυτό είναι πρόβλημα GEO — και έχει λύση.
           </p>
         </header>
         <div className="rounded-2xl overflow-hidden mb-10">
           <img
             src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80"
-            alt="GEO Generative Engine Optimization Κύπρος - ChatGPT AI αναζήτηση επιχειρήσεις"
+            alt="GEO Generative Engine Optimization - ChatGPT AI αναζήτηση επιχειρήσεις"
             className="w-full object-cover"
             style={{ maxHeight: "380px" }}
             loading="eager"
@@ -40,13 +40,13 @@ export default function GeoEl() {
         <div className="prose prose-slate max-w-none space-y-8 text-[#374151]">
           <section>
             <p className="leading-relaxed text-lg">
-              Κάποιος στη Λεμεσό ανοίγει το ChatGPT και γράφει: <em>«Ποιος κάνει web design στην Κύπρο;»</em> Ή ρωτά το Perplexity: <em>«Καλύτερο εστιατόριο στην Πάφο;»</em> Ή χρησιμοποιεί το Google AI Overview για να βρει υδραυλικό στη Λευκωσία.
+              Κάποιος στη Λεμεσό ανοίγει το ChatGPT και γράφει: <em>«Ποιος κάνει web design;»</em> Ή ρωτά το Perplexity: <em>«Καλύτερο εστιατόριο στην Πάφο;»</em> Ή χρησιμοποιεί το Google AI Overview για να βρει υδραυλικό στη Λευκωσία.
             </p>
             <p className="leading-relaxed">
               Σε κάθε ένα από αυτά τα σενάρια, η AI δίνει απάντηση. Αναφέρει επιχειρήσεις. Κάνει συστάσεις. Και αν η επιχείρησή σας δεν είναι σε αυτή την απάντηση — δεν υπάρχετε για αυτό το άτομο.
             </p>
             <p className="leading-relaxed">
-              Αυτή είναι η νέα πραγματικότητα της αναζήτησης το 2026. Και οι περισσότερες κυπριακές επιχειρήσεις δεν το γνωρίζουν καν.
+              Αυτή είναι η νέα πραγματικότητα της αναζήτησης το 2026. Και οι περισσότερες επιχειρήσεις δεν το γνωρίζουν καν.
             </p>
           </section>
 
@@ -85,18 +85,18 @@ export default function GeoEl() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#111315] mb-3">Γιατί οι Κυπριακές Επιχειρήσεις Είναι Ιδιαίτερα Εκτεθειμένες</h2>
+            <h2 className="text-2xl font-bold text-[#111315] mb-3">Γιατί οι Επιχειρήσεις Είναι Ιδιαίτερα Εκτεθειμένες</h2>
             <p className="leading-relaxed mb-4">
-              Η κυπριακή αγορά έχει μια συγκεκριμένη ευπάθεια στο κενό GEO. Να γιατί:
+              Μια επιχείρηση μπορεί να δυσκολεύεται να εμφανιστεί στην αναζήτηση AI για τους παρακάτω λόγους:
             </p>
             <p className="leading-relaxed mb-3">
-              <strong>Χαμηλή αυθεντία domain σε όλο τον κλάδο.</strong> Οι περισσότερες κυπριακές ιστοσελίδες επιχειρήσεων είναι σχετικά νέες και έχουν λίγους εξωτερικούς συνδέσμους που να τις δείχνουν. Τα AI μοντέλα δίνουν μεγάλη βαρύτητα σε αξιόπιστες αναφορές τρίτων — καταχωρίσεις σε directories, αναφορές στον τύπο, δημοσιεύσεις του κλάδου. Χωρίς αυτά, ακόμα και μια καλά σχεδιασμένη ιστοσελίδα είναι αόρατη στην AI.
+              <strong>Περιορισμένες εξωτερικές αναφορές.</strong> Μια νέα ιστοσελίδα μπορεί να έχει λίγους εξωτερικούς συνδέσμους. Αξιόπιστες αναφορές τρίτων — καταχωρίσεις σε directories, αναφορές στον τύπο και δημοσιεύσεις του κλάδου — βοηθούν να γίνει πιο ξεκάθαρη η online παρουσία της επιχείρησης.
             </p>
             <p className="leading-relaxed mb-3">
-              <strong>Λεπτή online παρουσία.</strong> Πολλές κυπριακές επιχειρήσεις έχουν ιστοσελίδα αλλά σχεδόν καμία παρουσία στις πλατφόρμες που διαβάζουν πραγματικά τα AI μοντέλα: Clutch, DesignRush, TripAdvisor, Google Business Profile, τοπικά directories. Η AI δεν εφευρίσκει επιχειρήσεις — αναφέρει αυτές που έχει δει να αναφέρονται σε πολλαπλές αξιόπιστες πηγές.
+              <strong>Λεπτή online παρουσία.</strong> Πολλές επιχειρήσεις έχουν ιστοσελίδα αλλά σχεδόν καμία παρουσία στις πλατφόρμες που διαβάζουν πραγματικά τα AI μοντέλα: Clutch, DesignRush, TripAdvisor, Google Business Profile, τοπικά directories. Η AI δεν εφευρίσκει επιχειρήσεις — αναφέρει αυτές που έχει δει να αναφέρονται σε πολλαπλές αξιόπιστες πηγές.
             </p>
             <p className="leading-relaxed">
-              <strong>Απουσία δομημένων δεδομένων.</strong> Τα AI μοντέλα εξάγουν γεγονότα για επιχειρήσεις από δομημένα δεδομένα (JSON-LD schema markup). Οι περισσότερες κυπριακές ιστοσελίδες δεν έχουν κανένα. Αυτό σημαίνει ότι η AI δεν μπορεί αξιόπιστα να εξάγει το όνομά σας, την τοποθεσία, τις υπηρεσίες, τον αριθμό τηλεφώνου ή τις ώρες λειτουργίας — οπότε δεν σας αναφέρει.
+              <strong>Απουσία δομημένων δεδομένων.</strong> Τα δομημένα δεδομένα (JSON-LD schema markup) βοηθούν τα συστήματα αναζήτησης να κατανοήσουν το όνομα, την τοποθεσία, τις υπηρεσίες, το τηλέφωνο και τις ώρες λειτουργίας της επιχείρησής σας. Πρέπει να συμφωνούν με τις πραγματικές πληροφορίες της ιστοσελίδας.
             </p>
           </section>
 
@@ -131,11 +131,11 @@ export default function GeoEl() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#5B8CFF] text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
-                <span><strong>Περιεχόμενο που απαντά σε συγκεκριμένες ερωτήσεις</strong> — Τα AI μοντέλα εκπαιδεύονται σε μοτίβα ερωτήσεων-απαντήσεων. Περιεχόμενο που απαντά άμεσα «πόσο κοστίζει X στην Κύπρο» ή «καλύτερο Y στη Λεμεσό» έχει πολύ μεγαλύτερες πιθανότητες να αναφερθεί.</span>
+                <span><strong>Περιεχόμενο που απαντά σε συγκεκριμένες ερωτήσεις</strong> — Τα AI μοντέλα εκπαιδεύονται σε μοτίβα ερωτήσεων-απαντήσεων. Περιεχόμενο που απαντά άμεσα «πόσο κοστίζει X» ή «καλύτερο Y στη Λεμεσό» έχει πολύ μεγαλύτερες πιθανότητες να αναφερθεί.</span>
               </li>
             </ol>
             <p className="leading-relaxed">
-              Οι επιχειρήσεις που εμφανίζονται ήδη στις απαντήσεις AI για ερωτήσεις σχετικές με την Κύπρο έχουν αυτά τα τρία επίπεδα στη θέση τους — συνήθως χωρίς καν να το συνειδητοποιούν. Έφτασαν εκεί μέσω καλών συνηθειών SEO που τυχαία λειτουργούν και για GEO.
+              Οι επιχειρήσεις που εμφανίζονται ήδη στις απαντήσεις AI για σχετικές ερωτήσεις έχουν αυτά τα τρία επίπεδα στη θέση τους — συνήθως χωρίς καν να το συνειδητοποιούν. Έφτασαν εκεί μέσω καλών συνηθειών SEO που τυχαία λειτουργούν και για GEO.
             </p>
           </section>
 
@@ -152,7 +152,7 @@ export default function GeoEl() {
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι Δεν Καλύπτουμε Εδώ</h2>
             <p className="leading-relaxed mb-4">
-              Αυτό το άρθρο καλύπτει τα βασικά. Το πλήρες playbook GEO — τα συγκεκριμένα directories που έχουν σημασία για κυπριακές επιχειρήσεις, το ακριβές schema markup που δίνουν προτεραιότητα τα AI μοντέλα, οι μορφές περιεχομένου που αναφέρονται πιο συχνά, και η συνεχής συντήρηση που σας κρατά ορατούς καθώς τα AI μοντέλα ενημερώνονται — είναι αυτό που υλοποιούμε για τους πελάτες μας ως μέρος του <Link href="/el/pricing/" className="text-[#5B8CFF] hover:underline">πακέτου SEO + GEO</Link>.
+              Αυτό το άρθρο καλύπτει τα βασικά. Το πλήρες playbook GEO — τα συγκεκριμένα directories που έχουν σημασία για επιχειρήσεις, το ακριβές schema markup που δίνουν προτεραιότητα τα AI μοντέλα, οι μορφές περιεχομένου που αναφέρονται πιο συχνά, και η συνεχής συντήρηση που σας κρατά ορατούς καθώς τα AI μοντέλα ενημερώνονται — είναι αυτό που υλοποιούμε για τους πελάτες μας ως μέρος του <Link href="/el/pricing/" className="text-[#5B8CFF] hover:underline">πακέτου SEO + GEO</Link>.
             </p>
             <p className="leading-relaxed">
               Αν θέλετε να καταλάβετε πού βρίσκεται η επιχείρησή σας αυτή τη στιγμή στην AI αναζήτηση — τι λένε το ChatGPT και το Perplexity για εσάς σήμερα, τι λείπει, και ποια είναι τα συγκεκριμένα κενά — αυτό καλύπτει η δωρεάν συμβουλευτική μας.
@@ -182,24 +182,24 @@ export default function GeoEl() {
             <Link href="/el/blog/pos-na-vretheite-google-kypros/"
               className="group block bg-white rounded-2xl overflow-hidden border border-[#E8EAF0] hover:border-[#5B8CFF] transition-colors shadow-sm">
               <div className="h-36 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=600&q=80" alt="Google SEO Κύπρος"
+                <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=600&q=80" alt="Google SEO "
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
               </div>
               <div className="p-4">
                 <span className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">SEO</span>
-                <h3 className="mt-1 text-sm font-bold text-[#111315] leading-snug group-hover:text-[#5B8CFF] transition-colors">Πώς να Βρεθείτε στη Google ως Τοπική Επιχείρηση στην Κύπρο</h3>
+                <h3 className="mt-1 text-sm font-bold text-[#111315] leading-snug group-hover:text-[#5B8CFF] transition-colors">Πώς να Βρεθείτε στη Google ως Τοπική Επιχείρηση</h3>
                 <p className="mt-1 text-xs text-[#5B6472]">5 λεπτά</p>
               </div>
             </Link>
             <Link href="/el/blog/posso-kostizei-istoselidha-kypros/"
               className="group block bg-white rounded-2xl overflow-hidden border border-[#E8EAF0] hover:border-[#5B8CFF] transition-colors shadow-sm">
               <div className="h-36 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Κόστος ιστοσελίδας Κύπρος"
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Κόστος ιστοσελίδας "
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
               </div>
               <div className="p-4">
                 <span className="text-xs font-semibold text-[#5B8CFF] uppercase tracking-wide">Web Design</span>
-                <h3 className="mt-1 text-sm font-bold text-[#111315] leading-snug group-hover:text-[#5B8CFF] transition-colors">Πόσο Κοστίζει μια Ιστοσελίδα στην Κύπρο;</h3>
+                <h3 className="mt-1 text-sm font-bold text-[#111315] leading-snug group-hover:text-[#5B8CFF] transition-colors">Πόσο Κοστίζει μια Ιστοσελίδα;</h3>
                 <p className="mt-1 text-xs text-[#5B6472]">6 λεπτά</p>
               </div>
             </Link>

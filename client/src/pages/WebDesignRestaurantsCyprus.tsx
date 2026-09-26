@@ -15,7 +15,7 @@ const packages = [
 ];
 
 const faqItems = [
-  { question: "How much does a restaurant website cost in Cyprus?", answer: "DM-Labs.io website packages start at €299 for a Launch Website. Growth Website packages start at €749 and Pro Website packages start at €1,499. Projects outside the standard scope are quoted separately after a free consultation." },
+  { question: "How much does a restaurant website cost?", answer: "DM-Labs.io website packages start at €299 for a Launch Website. Growth Website packages start at €749 and Pro Website packages start at €1,499. Projects outside the standard scope are quoted separately after a free consultation." },
   { question: "Can a restaurant website include a menu and reservation path?", answer: "Yes. Menu, booking and reservation requirements are discussed during scoping. Depending on the package and complexity, the site can include clear menu pages, enquiry forms, external booking links, maps, and contact paths." },
   { question: "Can the website be multilingual?", answer: "Multilingual functionality is available through Enterprise / Custom scope. The final quote depends on language count, content volume, translations, and how you want to manage updates." },
   { question: "What search support is included?", answer: "Every package includes responsive implementation and basic SEO foundations. Growth includes Search Console and Analytics setup, while Pro includes a fuller SEO structure. Advanced SEO work and extra content are scoped separately." },
@@ -28,12 +28,12 @@ const schemaMarkup = {
       "@type": "ProfessionalService",
       "@id": "https://dm-labs.io/web-design-restaurants-cyprus/#professionalservice",
       "name": "DM-Labs.io",
-      "description": "DM-Labs.io designs and builds professional, mobile-first websites for restaurants, tavernas, cafés, and bars across Cyprus.",
+      "description": "DM-Labs.io designs and builds professional, mobile-first websites for restaurants, tavernas, cafés, and bars worldwide.",
       "url": "https://dm-labs.io/web-design-restaurants-cyprus/",
       "telephone": "+35797472847",
       "email": "info@dm-labs.io",
       "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
-      "areaServed": { "@type": "Country", "name": "Cyprus" },
+      "areaServed": "Worldwide",
       "priceRange": "€299-€1,499",
       "currenciesAccepted": "EUR",
       "hasOfferCatalog": { "@type": "OfferCatalog", "name": "DM-Labs.io Website Packages", "itemListElement": packages.map((item) => ({ "@type": "Offer", "name": item.name, "price": item.price.replace(/[€,]/g, ""), "priceCurrency": "EUR" })) }
@@ -47,8 +47,8 @@ const schemaMarkup = {
 
 export default function WebDesignRestaurantsCyprus() {
   useSEO({
-    title: "Restaurant Website Design Cyprus | DM-Labs.io",
-    description: "DM-Labs.io builds professional, mobile-first restaurant websites in Cyprus. Make your restaurant the next choice with clear menus, easy contact paths and search-friendly foundations.",
+    title: "Restaurant Website Design | DM-Labs.io",
+    description: "DM-Labs.io builds professional, mobile-first restaurant websites. Make your restaurant the next choice with clear menus, easy contact paths and search-friendly foundations.",
     canonicalPath: "/web-design-restaurants-cyprus/",
   });
 
@@ -66,8 +66,8 @@ export default function WebDesignRestaurantsCyprus() {
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <section className="section-spacing bg-gradient-to-br from-[#FFF8F0] via-[#F6F6F4] to-[#F0F4FF]">
         <div className="container max-w-4xl mx-auto text-center"><AnimateIn>
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Restaurant Web Design · Cyprus</span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F172A] leading-tight mb-6">Restaurant Website Design in <span className="bg-gradient-to-r from-[#FF6B35] via-[#FF8C42] to-[#5B8CFF] bg-clip-text text-transparent">Cyprus</span></h1>
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Restaurant Web Design</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F172A] leading-tight mb-6">Restaurant Websites <span className="bg-gradient-to-r from-[#FF6B35] via-[#FF8C42] to-[#5B8CFF] bg-clip-text text-transparent">Built for Growth</span></h1>
           <p className="text-lg md:text-xl text-[#475569] max-w-2xl mx-auto mb-8 leading-relaxed">DM-Labs.io builds mobile-first websites for restaurants, tavernas, cafés, and bars. Give diners a clear route to your menu, location, contact details, and booking options.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><a href="https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27m%20interested%20in%20a%20restaurant%20website%20in%20Cyprus." target="_blank" rel="noopener noreferrer" className="btn-primary">Get a Free Consultation</a></StarButton><Link href="/pricing/" className="btn-secondary">View Website Packages</Link></div>
         </AnimateIn></div>

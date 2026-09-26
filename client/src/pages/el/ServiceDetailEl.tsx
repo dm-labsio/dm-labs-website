@@ -358,7 +358,7 @@ export default function ServiceDetailElPage() {
   const service = SERVICES[serviceId];
   useSEO({
     title: service ? `${service.title} | DM-Labs.io` : "Υπηρεσία | DM-Labs.io",
-    description: service ? service.intro : "Επαγγελματικές υπηρεσίες web design στην Κύπρο. Εξατομικευμένες ιστοσελίδες γρήγορα και σωστά.",
+    description: service ? service.intro: "Επαγγελματικές υπηρεσίες web design. Εξατομικευμένες ιστοσελίδες γρήγορα και σωστά.",
   });
 
   if (!service) {

@@ -19,8 +19,8 @@ const WHATSAPP_URL = "https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20
 
 export default function ServicesElPage() {
   useSEO({
-    title: "Υπηρεσίες Web Σχεδιασμός Κύπρος | DM-Labs.io",
-    description: "Επαγγελματικές υπηρεσίες web design στην Κύπρο. Custom ιστοσελίδες, mobile-first ανάπτυξη, SEO βελτιστοποίηση και συντήρηση. Γρήγορη παράδοση και προσωπική φροντίδα.",
+    title: "Υπηρεσίες Web Σχεδιασμός | DM-Labs.io",
+    description: "Επαγγελματικές υπηρεσίες web design. Custom ιστοσελίδες, mobile-first ανάπτυξη, SEO βελτιστοποίηση και συντήρηση. Γρήγορη παράδοση και προσωπική φροντίδα.",
   });
   return (
     <>

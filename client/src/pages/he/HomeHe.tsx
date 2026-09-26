@@ -41,7 +41,7 @@ const pricing = [
 ] as const;
 
 export default function HomeHe() {
-  useSEO({ title: "סוכנות עיצוב האתרים הטובה ביותר לעסקים בצמיחה | DM Labs", description: "נראות בולטת. אמון. יותר פניות. אתרים בהתאמה אישית, מסירה מהירה וליווי אישי לעסקים בקפריסין, יוון, ישראל ומעבר להן.", ogLocale: "he_IL", noindex: true });
+  useSEO({ title: "סוכנות עיצוב האתרים הטובה ביותר לעסקים בצמיחה | DM Labs", description: "נראות בולטת. אמון. יותר פניות. אתרים בהתאמה אישית, מסירה מהירה וליווי אישי לעסקים בכל מקום.", ogLocale: "he_IL", noindex: true });
   useEffect(() => {
     const id = "hebrew-home-webpage-schema";
     const script = document.createElement("script");
@@ -54,8 +54,8 @@ export default function HomeHe() {
     <HomeHeroScrub variant="hebrew">
       <div className="text-center">
         <p className="mb-4 text-sm font-semibold tracking-[0.16em] text-[#5B8CFF]">אתרים מדויקים לעסקים עם שאיפות</p>
-        <h1 className="mx-auto max-w-4xl text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1]">סוכנות האתרים שנבנתה<br />כדי להביא לכם יותר לקוחות.</h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#5B6472]">שדרו הצלחה. בנו אמון. הפכו את הפנייה הבאה לפשוטה. אנחנו בונים אתרים מרשימים ומהירים ומטפלים בפרטים הטכניים, כדי שתוכלו להתמקד בעסק. קפריסין, יוון, ישראל ומעבר להן.</p>
+        <h1 className="mx-auto max-w-4xl text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1]">בונים לכם אתר שיביא יותר לקוחות</h1>
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#5B6472]">שדרו הצלחה. בנו אמון. הפכו את הפנייה הבאה לפשוטה. אנחנו בונים אתרים מרשימים ומהירים ומטפלים בפרטים הטכניים, כדי שתוכלו להתמקד בעסק. בכל מקום שבו העסק שלכם פועל.</p>
         <div className="mt-8 flex flex-wrap justify-center gap-4"><StarButton asChild><a href={WHATSAPP_HEBREW} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">שיחת ייעוץ ללא עלות <MessageCircle size={18} /></a></StarButton><a href="#examples" className="btn-secondary inline-flex items-center gap-2">דוגמאות לעבודה <ArrowLeft size={18} /></a></div>
       </div>
     </HomeHeroScrub>

@@ -187,7 +187,7 @@ const TESTIMONIALS = [
 export default function HomePage() {
   useSEO({
     title: "Best Web Design Agency for Growing Businesses | DM Labs",
-    description: "Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses in Cyprus, Greece, Israel and beyond.",
+    description: "Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses worldwide.",
   });
 
   // This graph is serialized into the prerendered homepage and is the single source of homepage structured data.
@@ -208,7 +208,7 @@ export default function HomePage() {
           "@id": "https://dm-labs.io/#professionalservice",
           "name": "DM-Labs.io",
           "alternateName": "DM-Labs",
-          "description": "Custom websites built to strengthen your brand and turn interest into enquiries. Fast delivery and personal care for businesses in Cyprus, Greece, Israel and beyond.",
+          "description": "Custom websites built to strengthen your brand and turn interest into enquiries. Fast delivery and personal care for businesses worldwide.",
           "url": "https://dm-labs.io/",
           "logo": "https://dm-labs.io/logo.png",
           "image": "https://dm-labs.io/social/dm-labs-growth-social-card-centered.png",
@@ -216,16 +216,7 @@ export default function HomePage() {
           "email": "info@dm-labs.io",
           "priceRange": "€299-€1,499",
           "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
-          "areaServed": [
-            { "@type": "City", "name": "Paphos", "addressCountry": "CY" },
-            { "@type": "City", "name": "Limassol", "addressCountry": "CY" },
-            { "@type": "City", "name": "Nicosia", "addressCountry": "CY" },
-            { "@type": "City", "name": "Larnaca", "addressCountry": "CY" },
-            { "@type": "City", "name": "Famagusta", "addressCountry": "CY" },
-            { "@type": "Country", "name": "Cyprus" },
-            { "@type": "Country", "name": "Greece" },
-            { "@type": "Country", "name": "Israel" }
-          ],
+          "areaServed": "Worldwide",
           "employee": [
             {
               "@type": "Person",
@@ -248,7 +239,7 @@ export default function HomePage() {
           "@id": "https://dm-labs.io/#website",
           "url": "https://dm-labs.io/",
           "name": "DM-Labs.io",
-          "description": "Web design for growing businesses in Cyprus, Greece, Israel and beyond",
+          "description": "Web design for growing businesses worldwide",
           "publisher": { "@id": "https://dm-labs.io/#professionalservice" },
           "inLanguage": ["en", "el", "he"]
         }
@@ -279,7 +270,7 @@ export default function HomePage() {
           <EditorialFitLine maxSizeRatio={0.17}>more <em className="editorial-serif">clients.</em></EditorialFitLine>
         </div>
         <p className="editorial-lead mb-8 max-w-2xl mx-auto">
-          Look established. Earn trust. Make the next enquiry easy. We build sharp, fast websites and handle the technical details, so you can focus on your business. Cyprus, Greece, Israel and beyond.
+          Look established. Earn trust. Make the next enquiry easy. We build sharp, fast websites and handle the technical details, so you can focus on your business. Wherever you do business.
         </p>
         <div className="editorial-hero-actions flex flex-wrap gap-4 justify-center">
           <StarButton asChild><Link href="/contact/" className="btn-primary">

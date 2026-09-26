@@ -13,7 +13,7 @@ const schemaMarkup = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "DM-Labs.io",
-  "description": "DM-Labs.io designs and builds professional websites for businesses in Nicosia and across Cyprus. Mobile-first, SEO-optimised, delivered in 5-14 days.",
+  "description": "DM-Labs.io designs and builds professional websites for businesses in Nicosia and worldwide. Mobile-first, SEO-optimised, delivered in 5-14 days.",
   "url": "https://dm-labs.io/web-design-nicosia/",
   "logo": "https://dm-labs.io/logo.png",
   "image": "https://dm-labs.io/social/dm-labs-website-social-card.png",
@@ -26,14 +26,7 @@ const schemaMarkup = {
     "addressLocality": "Paphos",
     "addressCountry": "CY"
   },
-  "areaServed": [
-    { "@type": "City", "name": "Nicosia" },
-    { "@type": "City", "name": "Strovolos" },
-    { "@type": "City", "name": "Aglandjia" },
-    { "@type": "City", "name": "Latsia" },
-    { "@type": "City", "name": "Lakatamia" },
-    { "@type": "AdministrativeArea", "name": "Nicosia District" }
-  ],
+  "areaServed": "Worldwide",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Bank Transfer, PayPal",
@@ -50,7 +43,7 @@ const faqs = [
   },
   {
     q: "Do you work with businesses in Nicosia remotely?",
-    a: "Yes, entirely. DM-Labs.io works with clients across Cyprus without any need for in-person meetings. The full process — initial brief, design, revisions, and launch — is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits."
+    a: "Yes, entirely. DM-Labs.io works with clients worldwide without any need for in-person meetings. The full process — initial brief, design, revisions, and launch — is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits."
   },
   {
     q: "Can you build a website in Greek and English?",
@@ -63,18 +56,18 @@ const faqs = [
 ];
 
 const industries = [
-  { name: "Law Firms & Legal Services", icon: "⚖️", desc: "Nicosia is Cyprus's legal and financial hub. A professional website builds credibility and attracts high-value clients." },
+  { name: "Law Firms & Legal Services", icon: "⚖️", desc: "Nicosia is the local legal and financial hub. A professional website builds credibility and attracts high-value clients." },
   { name: "Restaurants & Cafés", icon: "🍽️", desc: "From the old city to Engomi, Nicosia's F&B scene is competitive. A fast, menu-rich website drives reservations and walk-ins." },
   { name: "Clinics & Healthcare", icon: "🏥", desc: "Private clinics, dentists, and specialists in Nicosia need a trustworthy online presence to attract and retain patients." },
   { name: "Retail & Boutiques", icon: "🛍️", desc: "Whether in the Makarios Avenue shopping corridor or a neighbourhood side street, a website extends your reach beyond foot traffic." },
-  { name: "Accounting & Finance", icon: "📊", desc: "Cyprus's financial services sector is centred in Nicosia. A polished website signals professionalism to corporate clients." },
+  { name: "Accounting & Finance", icon: "📊", desc: "The local financial services sector is centred in Nicosia. A polished website signals professionalism to corporate clients." },
   { name: "Real Estate Agencies", icon: "🏠", desc: "Property buyers search online first. A clean, fast website with listings and contact forms converts browsers into enquiries." },
 ];
 
 export default function WebDesignNicosia() {
   useSEO({
     title: "Web Design Nicosia | Websites Built for Growth | DM-Labs.io",
-    description: "Professional web design for businesses in Nicosia, Cyprus. Custom websites built for credibility and enquiries, with fast delivery. Mobile-first, SEO-optimised, no hidden fees. Free consultation.",
+    description: "Professional web design for businesses in Nicosia. Custom websites built for credibility and enquiries, with fast delivery. Mobile-first, SEO-optimised, no hidden fees. Free consultation.",
     canonicalPath: "/web-design-nicosia/"
   });
 
@@ -109,7 +102,7 @@ export default function WebDesignNicosia() {
               </span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-              DM-Labs.io is a web design studio helping businesses in Nicosia build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites so your business stands out in Cyprus's capital city.
+              DM-Labs.io is a web design studio helping businesses in Nicosia build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites so your business stands out in a competitive market.
             </p>
             <p className="text-sm text-[#9CA3AF] mb-8">
               Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
@@ -138,7 +131,7 @@ export default function WebDesignNicosia() {
               Why Nicosia Businesses Need a Proper Website in 2026
             </h2>
             <p className="text-[#5B6472] leading-relaxed mb-6">
-              Nicosia is the commercial, legal, and administrative capital of Cyprus. It is home to the island's largest concentration of law firms, financial services companies, government contractors, private clinics, and retail businesses. Competition is intense — and the first place most potential clients look is Google.
+              Nicosia is the commercial, legal, and administrative capital. It is home to the island's largest concentration of law firms, financial services companies, government contractors, private clinics, and retail businesses. Competition is intense — and the first place most potential clients look is Google.
             </p>
             <p className="text-[#5B6472] leading-relaxed mb-6">
               A slow, outdated, or non-existent website is not just a missed opportunity — it actively loses you business. Studies consistently show that over 75% of users judge a company's credibility based on its website design. In a market as professional as Nicosia, first impressions are everything.
@@ -246,7 +239,7 @@ export default function WebDesignNicosia() {
               Why Nicosia Businesses Choose DM-Labs.io
             </h2>
             <p className="text-[#5B6472] leading-relaxed mb-8">
-              DM-Labs.io is a remote web design studio. We work with businesses across Cyprus — from Nicosia and Limassol to smaller towns — entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
+              DM-Labs.io is a remote web design studio. We work with businesses worldwide — from Nicosia and Limassol to smaller towns — entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -280,7 +273,7 @@ export default function WebDesignNicosia() {
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
             <h2 className="text-3xl font-bold text-[#111315] mb-3">
-              Serving Businesses Across Nicosia
+              Working Together, Wherever You AreNicosia
             </h2>
             <p className="text-[#5B6472] mb-8">
               We work with businesses throughout Nicosia — from the old walled city and Makarios Avenue to Strovolos, Aglandjia, Latsia, Lakatamia, and the wider Nicosia District. Distance is not a factor.
@@ -288,7 +281,7 @@ export default function WebDesignNicosia() {
           </AnimateIn>
           <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
             <iframe
-              title="Nicosia, Cyprus"
+              title="Nicosia"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -309,7 +302,7 @@ export default function WebDesignNicosia() {
               Also Serving Other Cities
             </h2>
             <p className="text-[#5B6472] mb-6 leading-relaxed">
-              DM-Labs.io works with businesses across Cyprus and beyond. We also have dedicated pages for other cities we serve:
+              DM-Labs.io works with businesses worldwide. We also have dedicated pages for other cities we serve:
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/web-design-limassol/">

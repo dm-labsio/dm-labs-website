@@ -27,50 +27,50 @@ const DEFAULT_OG_IMAGE_ALT = "We build your website. Built for growth. DM Labs";
 const BLOG_POSTS = [
   {
     slug: "website-cost-cyprus-2026-guide",
-    title: "Website Cost Cyprus 2026 | Honest Pricing Guide",
-    description: "Wondering about website cost in Cyprus? We break down every price range honestly - from DIY builders to agencies - so you know exactly what to expect.",
+    title: "Website Cost 2026 | Honest Pricing Guide",
+    description: "Wondering about website cost? We break down every price range honestly - from DIY builders to agencies - so you know exactly what to expect.",
     elSlug: "posso-kostizei-istoselidha-kypros",
   },
   {
     slug: "web-design-nail-salon-beauty-studio-cyprus",
-    title: "Web Design Nail Salon Cyprus | Beauty Studio Websites",
-    description: "Nail salon or beauty studio in Cyprus? Here is exactly what your website needs to attract clients and show up on Google. Make your business the next choice.",
+    title: "Web Design Nail Salon | Beauty Studio Websites",
+    description: "Nail salon or beauty studio? Here is exactly what your website needs to attract clients and show up on Google. Make your business the next choice.",
     elSlug: "istoselidha-nail-salon-beauty-studio-kypros",
   },
   {
     slug: "yoga-pilates-studio-website-cyprus",
-    title: "Website for Yoga Studio Cyprus | Pilates Web Design",
-    description: "Running a yoga or Pilates studio in Cyprus? Here is why Instagram alone is not enough and what your website needs to fill classes consistently.",
+    title: "Website for Yoga Studio | Pilates Web Design",
+    description: "Running a yoga or Pilates studio? Here is why Instagram alone is not enough and what your website needs to fill classes consistently.",
     elSlug: "istoselidha-yoga-pilates-studio-kypros",
   },
   {
     slug: "how-to-get-found-on-google-cyprus",
-    title: "How to Get Found on Google Cyprus | Local SEO Guide",
-    description: "A plain-English guide to local SEO in Cyprus. Learn how to get your small business on Google Maps and in search results - step by step.",
+    title: "How to Get Found on Google | Local SEO Guide",
+    description: "A plain-English guide to local SEO. Learn how to get your small business on Google Maps and in search results - step by step.",
     elSlug: "pos-na-vretheite-google-kypros",
   },
   {
     slug: "restaurant-website-design-cyprus",
-    title: "Why Cyprus Restaurants Need More Than Facebook | DM-Labs.io",
-    description: "Running a restaurant in Cyprus? Here is why a Facebook page is not enough and what your website needs to attract diners, drive reservations, and beat the competition.",
+    title: "Why Restaurants Need More Than Facebook | DM-Labs.io",
+    description: "Running a restaurant? Here is why a Facebook page is not enough and what your website needs to attract diners, drive reservations, and beat the competition.",
     elSlug: "istoselidha-estiatorio-kypros",
   },
   {
     slug: "wix-vs-professional-web-designer-cyprus",
-    title: "Wix vs Professional Web Designer Cyprus | Honest Comparison",
-    description: "Wix or a professional web designer? We give you an honest, no-jargon answer for small business owners in Cyprus - and explain why the right choice depends on where you are in your business journey.",
+    title: "Wix vs Professional Web Designer | Honest Comparison",
+    description: "Wix or a professional web designer? We give you an honest, no-jargon answer for small business owners - and explain why the right choice depends on where you are in your business journey.",
     elSlug: "wix-vs-epaggelmatias-web-designer-kypros",
   },
   {
     slug: "web-design-greece-guide-2026",
-    title: "Web Design Greece Guide 2026 | DM-Labs.io",
+    title: "Web Design Guide 2026 | DM-Labs.io",
     description: "Everything Greek businesses need to know about professional web design in 2026. Costs, timelines, what to look for, and how to get found on Google.",
     elSlug: "web-design-ellada-odigos-2026",
   },
   {
     slug: "geo-get-found-by-chatgpt-cyprus",
     title: "GEO: How to Get Found by ChatGPT and AI Search | DM-Labs.io",
-    description: "SEO is no longer enough. Learn what Generative Engine Optimization (GEO) is and why Cyprus businesses need it to get found by ChatGPT, Perplexity, and Google AI.",
+    description: "SEO is no longer enough. Learn what Generative Engine Optimization (GEO) is and why businesses need it to get found by ChatGPT, Perplexity, and Google AI.",
     elSlug: "geo-vrethite-apo-chatgpt-kypros",
   },
 ];
@@ -81,7 +81,7 @@ const EN_STATIC_ROUTES = [
   {
     path: "/",
     title: "Best Web Design Agency for Growing Businesses | DM Labs",
-    description: "Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses in Cyprus, Greece, Israel and beyond.",
+    description: "Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses worldwide.",
     elPath: "/el",
   },
   {
@@ -98,7 +98,7 @@ const EN_STATIC_ROUTES = [
   },
   {
     path: "/pricing",
-    title: "Website Pricing Cyprus | DM-Labs.io",
+    title: "Website Pricing | DM-Labs.io",
     description: "Compare website builds and hosting and care plans. Clear scope, transparent billing and custom options for growing businesses.",
     elPath: "/el/pricing",
   },
@@ -123,7 +123,7 @@ const EN_STATIC_ROUTES = [
   {
     path: "/blog",
     title: "Blog | Web Design Tips & Guides | DM-Labs.io",
-    description: "Practical guides, honest advice, and web design insights for businesses in Cyprus and beyond.",
+    description: "Practical guides, honest advice, and web design insights for businesses worldwide.",
     elPath: "/el/blog",
   },
   {
@@ -146,8 +146,8 @@ const EN_STATIC_ROUTES = [
   },
   {
     path: "/web-design-cyprus",
-    title: "Web Design Cyprus | Websites Built for Growth | DM-Labs.io",
-    description: "Professional web design for businesses across Cyprus. Distinctive design, fast delivery and personal care, built around your business goals.",
+    title: "Web Design | Websites Built for Growth | DM-Labs.io",
+    description: "Professional web design for businesses worldwide. Distinctive design, fast delivery and personal care, built around your business goals.",
     elPath: "/el/web-design-cyprus",
   },
   {
@@ -159,12 +159,12 @@ const EN_STATIC_ROUTES = [
   {
     path: "/web-design-paphos",
     title: "Web Design Paphos | Websites Built for Growth | DM-Labs.io",
-    description: "Professional website design in Paphos, Cyprus. Distinctive design, fast delivery and personal care, built around your business goals.",
+    description: "Professional website design in Paphos. Distinctive design, fast delivery and personal care, built around your business goals.",
   },
   {
     path: "/web-design-restaurants-cyprus",
-    title: "Restaurant Website Design Cyprus | DM-Labs.io",
-    description: "Professional website design for restaurants in Cyprus. Online menus, reservations, Google visibility. Explore the design possibilities for your brand.",
+    title: "Restaurant Website Design | DM-Labs.io",
+    description: "Professional website design for restaurants. Online menus, reservations, Google visibility. Explore the design possibilities for your brand.",
   },
   {
     path: "/privacy",
@@ -206,8 +206,8 @@ const EN_STATIC_ROUTES = [
   },
   {
     path: "/blog/google-ai-mode-near-me-cyprus",
-    title: "Google AI Answers \"Near Me\" Searches in Cyprus (2026)",
-    description: "Google AI Mode now answers \"near me\" questions in Greek and English. Here's what decides which Cyprus business it recommends — and how to become it.",
+    title: "Google AI Answers \"Near Me\" Searches (2026)",
+    description: "Google AI Mode now answers \"near me\" questions in Greek and English. Here's what decides which business it recommends — and how to become it.",
     // No elPath — this post is intentionally English-only; hreflang will self-reference
   },
 ];
@@ -218,7 +218,7 @@ const EL_STATIC_ROUTES = [
   {
     path: "/el",
     title: "Η καλύτερη εταιρεία web design για επιχειρήσεις που αναπτύσσονται | DM Labs",
-    description: "Ξεχωρίστε. Κερδίστε εμπιστοσύνη. Προσελκύστε περισσότερες επαφές. Custom ιστοσελίδες, γρήγορη παράδοση και προσωπική φροντίδα σε Κύπρο, Ελλάδα, Ισραήλ και πέρα.",
+    description: "Ξεχωρίστε. Κερδίστε εμπιστοσύνη. Προσελκύστε περισσότερες επαφές. Custom ιστοσελίδες, γρήγορη παράδοση και προσωπική φροντίδα σε επιχειρήσεις παντού.",
     enPath: "/",
   },
   {
@@ -254,7 +254,7 @@ const EL_STATIC_ROUTES = [
   {
     path: "/el/blog",
     title: "Blog | Συμβουλές Κατασκευής Ιστοσελίδας | DM-Labs.io",
-    description: "Άρθρα και συμβουλές για κατασκευή ιστοσελίδας, SEO και online παρουσία για επιχειρήσεις στην Κύπρο και την Ελλάδα.",
+    description: "Άρθρα και συμβουλές για κατασκευή ιστοσελίδας, SEO και online παρουσία για επιχειρήσεις σε κάθε αγορά.",
     enPath: "/blog",
   },
   {
@@ -277,8 +277,8 @@ const EL_STATIC_ROUTES = [
   },
   {
     path: "/el/web-design-cyprus",
-    title: "Κατασκευή Ιστοσελίδας Κύπρος | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
-    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις σε όλη την Κύπρο. Σχεδιασμός που εμπνέει εμπιστοσύνη, γρήγορη παράδοση και προσωπική φροντίδα.",
+    title: "Κατασκευή Ιστοσελίδας | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
+    description: "Επαγγελματική κατασκευή ιστοσελίδας για επιχειρήσεις σε κάθε αγορά. Σχεδιασμός που εμπνέει εμπιστοσύνη, γρήγορη παράδοση και προσωπική φροντίδα.",
     enPath: "/web-design-cyprus",
   },
   {
@@ -309,56 +309,56 @@ const EL_STATIC_ROUTES = [
   // Greek blog posts
   {
     path: "/el/blog/wix-vs-epaggelmatias-web-designer-kypros",
-    title: "Wix ή Επαγγελματίας Web Designer; Τι Συμφέρει στην Κύπρο | DM-Labs.io",
-    description: "Μια ειλικρινής σύγκριση Wix, WordPress και επαγγελματικής κατασκευής ιστοσελίδας για επιχειρήσεις στην Κύπρο.",
+    title: "Wix ή Επαγγελματίας Web Designer; Τι Συμφέρει | DM-Labs.io",
+    description: "Μια ειλικρινής σύγκριση Wix, WordPress και επαγγελματικής κατασκευής ιστοσελίδας για επιχειρήσεις.",
     enPath: "/blog/wix-vs-professional-web-designer-cyprus",
   },
   {
     path: "/el/blog/posso-kostizei-istoselidha-kypros",
-    title: "Πόσο Κοστίζει μια Ιστοσελίδα στην Κύπρο; (Ειλικρινής Οδηγός 2026) | DM-Labs.io",
-    description: "Η αλήθεια για τις τιμές κατασκευής ιστοσελίδας στην Κύπρο το 2026. Τι περιλαμβάνεται και πώς να επιλέξετε σωστά.",
+    title: "Πόσο Κοστίζει μια Ιστοσελίδα; (Ειλικρινής Οδηγός 2026) | DM-Labs.io",
+    description: "Η αλήθεια για τις τιμές κατασκευής ιστοσελίδας το 2026. Τι περιλαμβάνεται και πώς να επιλέξετε σωστά.",
     enPath: "/blog/website-cost-cyprus-2026-guide",
   },
   {
     path: "/el/blog/istoselidha-nail-salon-beauty-studio-kypros",
-    title: "Ιστοσελίδα για Nail Salon και Beauty Studio στην Κύπρο | DM-Labs.io",
-    description: "Τι χρειάζεται η ιστοσελίδα ενός nail salon ή beauty studio στην Κύπρο για να φέρνει νέους πελάτες.",
+    title: "Ιστοσελίδα για Nail Salon και Beauty Studio | DM-Labs.io",
+    description: "Τι χρειάζεται η ιστοσελίδα ενός nail salon ή beauty studio για να φέρνει νέους πελάτες.",
     enPath: "/blog/web-design-nail-salon-beauty-studio-cyprus",
   },
   {
     path: "/el/blog/istoselidha-yoga-pilates-studio-kypros",
-    title: "Ιστοσελίδα για Yoga και Pilates Studio στην Κύπρο | DM-Labs.io",
-    description: "Γιατί το yoga ή pilates studio σας στην Κύπρο χρειάζεται ιστοσελίδα και όχι μόνο Instagram.",
+    title: "Ιστοσελίδα για Yoga και Pilates Studio | DM-Labs.io",
+    description: "Γιατί το yoga ή pilates studio σας χρειάζεται ιστοσελίδα και όχι μόνο Instagram.",
     enPath: "/blog/yoga-pilates-studio-website-cyprus",
   },
   {
     path: "/el/blog/pos-na-vretheite-google-kypros",
-    title: "Πώς να Βρεθεί η Επιχείρησή σας στη Google στην Κύπρο | DM-Labs.io",
-    description: "Απλός οδηγός για να εμφανίζεται η επιχείρησή σας στη Google στην Κύπρο. Χωρίς τεχνικές ορολογίες.",
+    title: "Πώς να Βρεθεί η Επιχείρησή σας στη Google | DM-Labs.io",
+    description: "Απλός οδηγός για να εμφανίζεται η επιχείρησή σας στη Google. Χωρίς τεχνικές ορολογίες.",
     enPath: "/blog/how-to-get-found-on-google-cyprus",
   },
   {
     path: "/el/blog/istoselidha-estiatorio-kypros",
-    title: "Γιατί Κάθε Εστιατόριο στην Κύπρο Χρειάζεται Ιστοσελίδα | DM-Labs.io",
-    description: "Το Facebook δεν αρκεί για εστιατόριο στην Κύπρο. Δείτε τι χάνετε χωρίς επαγγελματική ιστοσελίδα.",
+    title: "Γιατί Κάθε Εστιατόριο Χρειάζεται Ιστοσελίδα | DM-Labs.io",
+    description: "Το Facebook δεν αρκεί για εστιατόριο. Δείτε τι χάνετε χωρίς επαγγελματική ιστοσελίδα.",
     enPath: "/blog/restaurant-website-design-cyprus",
   },
   {
     path: "/el/blog/web-design-ellada-odigos-2026",
-    title: "Οδηγός Web Design Ελλάδα 2026 | DM-Labs.io",
+    title: "Οδηγός Web Design 2026 | DM-Labs.io",
     description: "Όλα όσα πρέπει να γνωρίζουν οι ελληνικές επιχειρήσεις για επαγγελματική κατασκευή ιστοσελίδας το 2026.",
     enPath: "/blog/web-design-greece-guide-2026",
   },
   {
     path: "/el/blog/geo-vrethite-apo-chatgpt-kypros",
     title: "GEO: Πώς να Βρεθείτε από το ChatGPT | DM-Labs.io",
-    description: "Το SEO δεν αρκεί πλέον. Μάθετε τι είναι το GEO και γιατί οι επιχειρήσεις στην Κύπρο χρειάζονται να εμφανίζονται στο ChatGPT και στο Google AI.",
+    description: "Το SEO δεν αρκεί πλέον. Μάθετε τι είναι το GEO και γιατί οι επιχειρήσεις χρειάζονται να εμφανίζονται στο ChatGPT και στο Google AI.",
     enPath: "/blog/geo-get-found-by-chatgpt-cyprus",
   },
   {
     path: "/el/examples",
     title: "Παραδείγματα Ιστοσελίδων | DM-Labs.io",
-    description: "Δείτε το portfolio μας με custom ιστοσελίδες για επιχειρήσεις στην Κύπρο και την Ελλάδα. Κάθε site χτίζεται από μηδέν.",
+    description: "Δείτε το portfolio μας με custom ιστοσελίδες για επιχειρήσεις σε κάθε αγορά. Κάθε site χτίζεται από μηδέν.",
     enPath: "/examples",
   },
 ];
@@ -369,21 +369,21 @@ const EL_STATIC_ROUTES = [
 // route-specific page before the client application starts.
 const ROUTE_FALLBACKS = {
   "/": {
-    h1: "Professional Web Design in Paphos & Cyprus",
+    h1: "Professional Web Design for Growing Businesses",
     paragraphs: [
-      "DM-Labs.io designs and builds custom, mobile-first websites for businesses in Paphos and across Cyprus.",
+      "DM-Labs.io designs and builds custom, mobile-first websites for businesses worldwide.",
       "Choose a website package around your goals or discuss a custom scope for integrations, multilingual content, booking, CRM, and other complex requirements.",
     ],
   },
   "/services": {
-    h1: "Web Design Services for Businesses in Paphos & Cyprus",
+    h1: "Web Design Services for Growing Businesses",
     paragraphs: [
       "DM-Labs.io provides website design, web development, search-friendly foundations, and optional ongoing website care.",
       "Every project is scoped around your business, content, and the actions you want visitors to take.",
     ],
   },
   "/pricing": {
-    h1: "Website Pricing for Cyprus Businesses",
+    h1: "Website Pricing for Businesses",
     paragraphs: [
       "Launch Website packages start at €299, Growth Website packages start at €749, and Pro Website packages start at €1,499.",
       "Enterprise / Custom pricing is tailored to scope. Basic Care is €69 per month with up to 3 small content updates, while Complete Care is €129 per month with unlimited reasonable updates.",
@@ -399,26 +399,26 @@ const ROUTE_FALLBACKS = {
   "/web-design-paphos": {
     h1: "Web Design in Paphos",
     paragraphs: [
-      "DM-Labs.io is based in Paphos and builds professional, mobile-first websites for local businesses and organisations across Cyprus.",
+      "DM-Labs.io is based in Paphos and builds professional, mobile-first websites for local businesses and organisations worldwide.",
       "Choose Launch, Growth, Pro, or Enterprise / Custom to match your business goals and requirements.",
     ],
   },
   "/web-design-cyprus": {
-    h1: "Professional Web Design in Cyprus",
+    h1: "Professional Web Design",
     paragraphs: [
-      "DM-Labs.io designs and builds responsive, search-friendly websites for businesses across Cyprus.",
+      "DM-Labs.io designs and builds responsive, search-friendly websites for businesses worldwide.",
       "Choose a website package around your goals or discuss a custom scope for advanced features and integrations.",
     ],
   },
   "/web-design-limassol": {
     h1: "Web Design for Limassol Businesses",
     paragraphs: [
-      "DM-Labs.io builds professional, responsive websites for businesses in Limassol and across Cyprus.",
+      "DM-Labs.io builds professional, responsive websites for businesses worldwide.",
       "Website packages are built around your goals, with custom scope available for more complex projects.",
     ],
   },
   "/web-design-restaurants-cyprus": {
-    h1: "Restaurant Website Design in Cyprus",
+    h1: "Restaurant Website Design",
     paragraphs: [
       "DM-Labs.io builds practical restaurant websites with clear menus, contact information, booking paths, and mobile-friendly implementation.",
       "Choose a website package around your goals or discuss a custom scope for booking and integration requirements.",
@@ -431,26 +431,26 @@ const ROUTE_FALLBACKS = {
   // Once prerender-full.mjs is confirmed stable in production, delete these
   // three entries and the entire ROUTE_FALLBACKS mechanism.
   "/blog/restaurant-website-design-cyprus": {
-    h1: "Why Cyprus Restaurants Need More Than Facebook",
+    h1: "Why Restaurants Need More Than Facebook",
     paragraphs: [
-      "Over 3,200 restaurants operate in Cyprus. Most rely on Facebook and word of mouth. A Facebook page cannot be found on Google, cannot take a reservation at 11pm, and cannot show up when someone searches \"seafood Limassol\" or \"breakfast café Paphos.\"",
+      "A restaurant needs more than Facebook and word of mouth to build a strong online presence. A Facebook page cannot be found on Google, cannot take a reservation at 11pm, and cannot show up when someone searches \"seafood Limassol\" or \"breakfast café Paphos.\"",
       "When someone searches \"restaurant Nicosia\" or \"breakfast café Paphos,\" Google shows two types of results: the local pack and organic results. Both are driven by your website and your Google Business Profile working together. If your business is based in <a href=\"/web-design-paphos\">Paphos</a>, the local competition is still relatively thin — a well-structured website can rank faster and more affordably than in larger cities.",
       "Your website should make people want a table at your restaurant. Our <a href=\"/web-design-restaurants-cyprus\">restaurant websites</a> put your food, atmosphere, and next step in focus. We agree the scope, features, and delivery schedule before starting.",
     ],
   },
   "/blog/wix-vs-professional-web-designer-cyprus": {
-    h1: "Wix vs Professional Web Designer Cyprus",
+    h1: "Wix vs Professional Web Designer",
     paragraphs: [
-      "Wix is a capable tool that works well for specific situations. For a small business in <a href=\"/web-design-cyprus\">Cyprus</a> that wants to be found on Google, look professional, and not spend hours managing a platform, a professional web designer is the better investment.",
-      "The real question is not whether Wix can build a website — it can. The question is whether the result will rank on Google, load fast enough to keep visitors, and represent your business at the level your customers expect. For most Cyprus businesses, the answer points clearly toward professional design.",
+      "Wix is a capable tool that works well for specific situations. For a small business considering <a href=\"/web-design-cyprus\">professional web design</a> that wants to be found on Google, look professional, and not spend hours managing a platform, a professional web designer is the better investment.",
+      "The real question is not whether Wix can build a website — it can. The question is whether the result will rank on Google, load fast enough to keep visitors, and represent your business at the level your customers expect. For most businesses, the answer points clearly toward professional design.",
       "Our <a href=\"/pricing\">website packages</a> combine custom design, mobile-first development, SEO foundations, and fast delivery. See the full build and ongoing care options to plan your investment.",
     ],
   },
   "/blog/web-design-greece-guide-2026": {
-    h1: "Web Design Greece Guide 2026",
+    h1: "Web Design Guide 2026",
     paragraphs: [
       "Greek businesses face a specific challenge online: most competitors still rely on outdated websites or social media alone. A well-built, search-optimised website is one of the most reliable ways to stand out in any Greek city or island market in 2026.",
-      "We have worked with businesses in <a href=\"/web-design-thessaloniki\">Thessaloniki</a>, Athens, and across the Greek islands including <a href=\"/web-design-crete\">Crete</a>, as well as in <a href=\"/web-design-limassol\">Limassol</a> and <a href=\"/web-design-nicosia\">Nicosia</a> in Cyprus. If you are looking for a web design partner who understands the Greek market and delivers on time, we would love to hear from you.",
+      "We have worked with businesses in <a href=\"/web-design-thessaloniki\">Thessaloniki</a>, Athens, and across the Greek islands including <a href=\"/web-design-crete\">Crete</a>, as well as in <a href=\"/web-design-limassol\">Limassol</a> and <a href=\"/web-design-nicosia\">Nicosia</a>. If you are looking for a web design partner who understands your market and delivers on time, we would love to hear from you.",
       "Our <a href=\"/pricing\">web design packages</a> match your website scope to your business goals. Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate.",
     ],
   },

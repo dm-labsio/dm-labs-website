@@ -22,21 +22,9 @@ const schemaMarkup = {
     "postalCode": "8045",
     "addressCountry": "CY"
   },
-  "areaServed": [
-    "Thessaloniki",
-    "Central Macedonia",
-    "Greece"
-  ],
-  "serviceArea": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 40.6401,
-      "longitude": 22.9444
-    },
-    "geoRadius": "50000"
-  },
-  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Thessaloniki and across Greece. Custom websites built to earn trust and enquiries, with delivery in 5-14 business days depending on scope and content readiness.",
+  "areaServed": "Worldwide",
+  "serviceArea": "Worldwide",
+  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Thessaloniki and worldwide. Custom websites built to earn trust and enquiries, with delivery in 5-14 business days depending on scope and content readiness.",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Bank Transfer, PayPal",
@@ -53,7 +41,7 @@ const faqs = [
   },
   {
     q: "Do you work with businesses in Thessaloniki remotely?",
-    a: "Yes, entirely. DM-Labs.io works with clients across Greece without any need for in-person meetings. The full process - initial brief, design, revisions, and launch - is handled via WhatsApp, email, and video call. Most of our clients find it more convenient than scheduling office visits, and it means we can move faster. Being remote has never been a barrier to delivering a great result."
+    a: "Yes, entirely. DM-Labs.io works with clients worldwide without any need for in-person meetings. The full process - initial brief, design, revisions, and launch - is handled via WhatsApp, email, and video call. Most of our clients find it more convenient than scheduling office visits, and it means we can move faster. Being remote has never been a barrier to delivering a great result."
   },
   {
     q: "Can you build a website in Greek?",
@@ -125,7 +113,7 @@ export default function WebDesignThessaloniki() {
             </span>
           </h1>
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-            DM-Labs.io is a remote web design studio helping businesses in Thessaloniki build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites so your business stands out in Greece's second-largest city.
+            DM-Labs.io is a remote web design studio helping businesses in Thessaloniki build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites so your business stands out in a competitive market.
           </p>
           <p className="text-sm text-[#9CA3AF] mb-8">
             Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
@@ -152,7 +140,7 @@ export default function WebDesignThessaloniki() {
             Why Businesses in Thessaloniki Need a Professional Website
           </h2>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            Thessaloniki is Greece's second-largest city and one of its most commercially active. The business districts along Tsimiski Street and the historic neighbourhood of Ladadika are home to hundreds of restaurants, boutiques, law firms, and professional services all competing for the same local customers. Aristotle University brings over 100,000 students and academics into the city, and the Thessaloniki International Fair - one of the largest trade fairs in Southeast Europe - draws business visitors from across the continent every year.
+            Thessaloniki is a commercially active city. The business districts along Tsimiski Street and the historic neighbourhood of Ladadika are home to hundreds of restaurants, boutiques, law firms, and professional services all competing for the same local customers. Aristotle University brings over 100,000 students and academics into the city, and the Thessaloniki International Fair - one of the largest trade fairs in Southeast Europe - draws business visitors from across the continent every year.
           </p>
           <p className="text-[#5B6472] leading-relaxed mb-5">
             That level of economic activity also means a highly competitive digital landscape. According to Google's own data, over 60% of Greek consumers research a business online before making contact. If your website is slow, outdated, or simply does not exist, you are not just missing out on visibility - you are actively sending potential clients to competitors who do have a professional online presence.
@@ -191,7 +179,7 @@ export default function WebDesignThessaloniki() {
               },
               {
                 title: "Service Pages",
-                desc: "Dedicated pages for each of your core services, optimised for the specific searches your customers are making in Thessaloniki and across Greece."
+                desc: "Dedicated pages for each of your core services, optimised for the specific searches your customers are making in Thessaloniki and worldwide."
               },
               {
                 title: "Blog and SEO Setup",
@@ -273,7 +261,7 @@ export default function WebDesignThessaloniki() {
             Why Thessaloniki Businesses Choose DM-Labs.io
           </h2>
           <p className="text-[#5B6472] leading-relaxed mb-8">
-            DM-Labs.io is a remote web design studio. We work with businesses across Greece - from Thessaloniki and Athens to smaller cities and islands - entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
+            DM-Labs.io is a remote web design studio. We work with businesses worldwide - from Thessaloniki and Athens to smaller cities and islands - entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
@@ -303,14 +291,14 @@ export default function WebDesignThessaloniki() {
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Serving Businesses Across Thessaloniki
+            Working Together, Wherever You AreThessaloniki
           </h2>
           <p className="text-[#5B6472] mb-8">
             We work with businesses throughout Thessaloniki - from the centre and the waterfront to Kalamaria, Stavroupoli, Pylaia, and the wider Central Macedonia region. Distance is not a factor.
           </p>
           <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
             <iframe
-              title="Thessaloniki, Greece"
+              title="Thessaloniki"
               width="100%"
               height="100%"
               style={{ border: 0 }}

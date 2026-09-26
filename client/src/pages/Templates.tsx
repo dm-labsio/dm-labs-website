@@ -336,7 +336,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
         <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Athens - Premium Properties</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Extraordinary<br/>Homes in Greece</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Extraordinary<br/>Homes</div>
         <div style={{ display: "flex", gap: "6px" }}>
           <div style={{ background: "#b8975a", color: "#0a0a0a", fontSize: "8px", padding: "5px 14px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>View Properties</div>
           <div style={{ border: "1px solid rgba(184,151,90,0.4)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Visa Guide</div>

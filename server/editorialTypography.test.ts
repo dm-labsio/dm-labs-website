@@ -362,7 +362,7 @@ describe("Blog index editorial typography", () => {
 
   it("preserves the Blog index metadata and removes the orphan-prone visual meta separator", () => {
     expect(blogSource).toContain('title: "Blog | Web Design Tips & Guides | DM-Labs.io"');
-    expect(blogSource).toContain('description: "Practical guides, honest advice, and web design insights for businesses in Cyprus and beyond."');
+    expect(blogSource).toContain('description: "Practical guides, honest advice, and web design insights for businesses worldwide."');
     expect(blogSource).not.toContain('<span>·</span>');
   });
 });

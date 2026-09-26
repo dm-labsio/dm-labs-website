@@ -22,7 +22,7 @@ function formatDate(dateStr: string) {
 export default function ΆρθραEl() {
   useSEO({
     title: "Άρθρα | Web Σχεδιασμός Tips & Guides | DM-Labs.io",
-    description: "Πρακτικοί οδηγοί, ειλικρινείς συμβουλές και ιδέες web design για επιχειρήσεις στην Κύπρο και παγκοσμίως.",
+    description: "Πρακτικοί οδηγοί, ειλικρινείς συμβουλές και ιδέες web design για επιχειρήσεις παγκοσμίως.",
   });
   return (
     <>
@@ -39,7 +39,7 @@ export default function ΆρθραEl() {
               Το Blog της <span className="brand-gradient-text">DM-Labs.io</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Πρακτικοί οδηγοί, ειλικρινείς συμβουλές και ιδέες web design για επιχειρήσεις στην Κύπρο και παγκοσμίως.
+              Πρακτικοί οδηγοί, ειλικρινείς συμβουλές και ιδέες web design για επιχειρήσεις παγκοσμίως.
             </p>
           </AnimateIn>
         </div>

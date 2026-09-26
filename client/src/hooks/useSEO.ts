@@ -18,7 +18,7 @@ import { getHreflangRouteSet, isIndexableHebrewRoute, type HreflangRouteSet, nor
 const BASE_URL = SEO_BASE_URL;
 const DEFAULT_TITLE = "Best Web Design Agency for Growing Businesses | DM Labs";
 const DEFAULT_DESCRIPTION =
-  "Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses in Cyprus, Greece, Israel and beyond.";
+  "Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses worldwide.";
 const DEFAULT_OG_IMAGE = "https://dm-labs.io/social/dm-labs-growth-social-card-centered.png";
 const DEFAULT_OG_IMAGE_ALT = "We build your website. Built for growth. DM Labs";
 const DEFAULT_OG_IMAGE_WIDTH = "1200";
