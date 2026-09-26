@@ -33,11 +33,10 @@ const mediaFiles = collectFiles(mediaRoot);
 
 describe("GitHub-backed static media migration", () => {
   it("stores every migrated file as a referenced WebP below the one-megabyte checkpoint cap", () => {
-    // Original 117 migrated assets plus Bella's generated campaign portrait.
-    expect(mediaFiles).toHaveLength(118);
+    expect(mediaFiles).toHaveLength(117);
 
     const mediaReferences = new Set(clientSource.match(/\/media\/[A-Za-z0-9._/-]+\.webp/g) ?? []);
-    expect(mediaReferences.size).toBe(118);
+    expect(mediaReferences.size).toBe(117);
 
     for (const mediaFile of mediaFiles) {
       expect(extname(mediaFile)).toBe(".webp");
@@ -58,7 +57,7 @@ describe("GitHub-backed static media migration", () => {
     expect(repositorySource).not.toContain(["/manus", "storage/"].join("-"));
   });
 
-  it("preserves the approved video set and the remaining Unsplash imagery after Bella's editorial redesign", () => {
+  it("uses the four existing and seven approved cinematic Vercel Blob MP4 videos while leaving 79 Unsplash image objects unchanged in scope", () => {
     const blobVideoReferences = new Set(
       clientSource.match(/https:\/\/zcqnftsc7hsxgrnx\.public\.blob\.vercel-storage\.com\/[^\s"'()]+\.mp4/g) ?? [],
     );
@@ -81,7 +80,6 @@ describe("GitHub-backed static media migration", () => {
         match => match[1],
       ),
     );
-    // Bella's concise single-page concept removes nine old gallery/team images.
-    expect(unsplashObjects.size).toBe(70);
+    expect(unsplashObjects.size).toBe(79);
   });
 });

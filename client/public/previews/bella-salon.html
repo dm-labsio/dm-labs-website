@@ -2,248 +2,318 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="canonical" href="https://dm-labs.io/templates" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#571c2c" />
-  <title>Bella — Hair &amp; Beauty Studio · Design Concept</title>
+  <title>Bella Salon - Limassol</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="/media/bella-editorial-portrait.webp" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
-    *,*::before,*::after{box-sizing:border-box}
-    :root{--paper:#f7f3eb;--wine:#571c2c;--ink:#322126;--muted:#725d61;--line:rgba(87,28,44,.2);--blush:#e9d2cd;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Manrope',sans-serif}
-    html{scroll-behavior:smooth;scroll-padding-top:100px}
-    body{margin:0;background:var(--paper);color:var(--wine);font-family:var(--sans);font-size:16px;-webkit-font-smoothing:antialiased}
-    button,a{-webkit-tap-highlight-color:transparent}
-    button,input,select{font:inherit}
-    button,a{touch-action:manipulation}
-    button{cursor:pointer}
-    a{color:inherit;text-decoration:none}
-    img{display:block;width:100%;height:100%;object-fit:cover}
-    h1,h2,h3,p,figure{margin:0}
-    ::selection{background:var(--wine);color:var(--paper)}
-    :focus-visible{outline:2px solid currentColor;outline-offset:6px}
-    .skip{position:fixed;top:-100px;left:20px;background:var(--wine);color:white;padding:15px;z-index:20}.skip:focus{top:10px}
-    .eyebrow{font-size:12px;line-height:1.5;letter-spacing:.19em;text-transform:uppercase;font-weight:600}
-    .arrow{display:inline-block;font-family:Arial,sans-serif;font-weight:400;transition:transform .3s}
-    .button{min-height:54px;display:inline-flex;align-items:center;justify-content:space-between;gap:36px;padding:16px 25px;border:1px solid var(--wine);background:var(--wine);color:var(--paper);font-size:14px;font-weight:500;transition:background .3s,color .3s}
-    .button:hover{background:var(--paper);color:var(--wine)}
-    .button:hover .arrow,.text-link:hover .arrow{transform:translate(3px,-3px)}
-    .text-link{display:inline-flex;align-items:center;gap:25px;font-size:14px;border-bottom:1px solid currentColor;padding:10px 0}
-    .nav{height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 4.5%;background:rgba(247,243,235,.95);border-bottom:1px solid var(--line);position:relative;z-index:5}
-    .brand{font-family:var(--serif);font-size:53px;line-height:1;letter-spacing:-.075em;font-weight:500}
-    .brand i{font-style:normal;font-size:.7em}
-    .nav-links{display:flex;align-items:center;gap:36px;font-size:13px}
-    .nav-links a{position:relative;padding:8px 0}
-    .nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s}
-    .nav-links a:hover::after{transform:scaleX(1)}
-    .nav-book{border:0;border-bottom:1px solid currentColor;background:none;color:var(--wine);padding:8px 0;font-size:13px;display:flex;gap:22px;align-items:center}
-    .hero{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:min(790px,calc(100svh - 132px));border-bottom:1px solid var(--line)}
-    .hero-copy{padding:60px 4vw 40px 7vw;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;position:relative;z-index:2}
-    .hero-copy .eyebrow{display:flex;align-items:center;gap:15px;margin-bottom:30px}
-    .hero-copy .eyebrow::before{content:'';width:30px;height:1px;background:currentColor}
-    h1{font-family:var(--serif);font-weight:400;font-size:clamp(76px,8.8vw,142px);line-height:.87;letter-spacing:-.06em;margin-left:-.045em}
-    h1 span{display:block}
-    h1 em{font-weight:400;display:block;margin-left:.5em;white-space:nowrap}
-    .hero-description{font-size:14px;line-height:1.9;max-width:290px;margin:32px 0 26px;color:var(--muted)}
-    .hero-foot{width:100%;margin-top:48px;display:flex;justify-content:space-between;align-items:center;gap:20px}
-    .hero-foot .eyebrow{font-size:10px;margin:0;line-height:1.8;letter-spacing:.14em;display:block}
-    .hero-foot .eyebrow::before{display:none}
-    .scroll-cue{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center}
-    .hero-visual{position:relative;overflow:hidden;background:#d6caba;min-height:600px}
-    .portrait-drift{height:100%;position:absolute;inset:0;animation:portrait-drift 16s ease-in-out infinite alternate;transform-origin:55% 40%;will-change:transform}
-    .portrait-drift img{object-position:50% 36%;transform:translateY(var(--photo-y,0px)) scale(1.06);height:100%;}
-    .hero-visual::after{content:'';position:absolute;inset:60% 0 0;background:linear-gradient(transparent,rgba(44,13,22,.35));pointer-events:none}
-    .photo-label{position:absolute;top:28px;left:30px;right:30px;display:flex;justify-content:space-between;gap:12px;font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:#442f27;z-index:1}
-    .photo-signature{position:absolute;bottom:29px;left:32px;color:var(--paper);font-family:var(--serif);font-size:31px;font-style:italic;z-index:1}
-    .seal{position:absolute;z-index:3;left:50%;top:67%;transform:translate(-50%,-50%);height:104px;width:104px;border-radius:50%;background:var(--wine);color:var(--paper);display:grid;place-content:center;text-align:center;box-shadow:0 0 0 8px var(--paper)}
-    .seal span{font-size:9px;letter-spacing:.13em;text-transform:uppercase;line-height:2}.seal b{font-family:var(--serif);font-size:36px;font-weight:400;line-height:1.1;font-style:italic}
-    .ticker{overflow:hidden;border-bottom:1px solid var(--line);padding:23px 0;background:var(--wine);color:var(--paper)}
-    .ticker-track{width:max-content;display:flex;animation:ticker 35s linear infinite}
-    .ticker-group{display:flex;align-items:center;gap:45px;padding-right:45px;white-space:nowrap;font-size:12px;letter-spacing:.19em;text-transform:uppercase}
-    .ticker-group i{font-family:var(--serif);font-size:25px;font-weight:400;line-height:1;font-style:normal;color:#d2a49f}
-    .section{padding:100px 7vw}
-    .section-heading{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:52px}
-    h2{font-family:var(--serif);font-size:clamp(48px,5.4vw,82px);line-height:1.02;letter-spacing:-.045em;font-weight:400}
-    h2 em{font-weight:400}
-    .section-heading .eyebrow{margin-bottom:20px}
-    .section-intro{max-width:340px;justify-self:end;font-size:14px;line-height:1.9;color:var(--muted);padding-bottom:5px}
-    .rituals{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .ritual{position:relative;padding:32px 30px 34px;transition:background .35s}.ritual:first-child{padding-left:0}.ritual:last-child{padding-right:0}.ritual+.ritual{border-left:1px solid var(--line)}
-    .ritual:hover{background:#efe5dd}
-    .ritual-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:45px;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
-    .ritual-number{font-family:var(--serif);font-size:28px;letter-spacing:-.04em}
-    .ritual h3{font-family:var(--serif);font-size:36px;font-weight:400;letter-spacing:-.035em;margin-bottom:16px}
-    .ritual p{font-size:14px;line-height:1.85;color:var(--muted);max-width:280px;min-height:78px}
-    .ritual button{color:var(--wine);margin-top:32px;border:0;border-bottom:1px solid var(--line);background:none;padding:0 0 10px;display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;font-size:12px}
-    .ritual button .arrow{font-size:22px}.ritual button:hover .arrow{transform:translate(3px,-3px)}
-    .studio{padding-top:20px;display:grid;grid-template-columns:1.12fr 1fr;gap:8vw;align-items:center;padding-bottom:110px}
-    .studio-photo{position:relative;aspect-ratio:4/4.4;overflow:hidden;background:#d5c8b7}
-    .studio-photo img{transition:transform 1.5s;object-position:48% 50%}.studio-photo:hover img{transform:scale(1.05)}
-    .photo-caption{position:absolute;bottom:20px;left:20px;right:20px;padding:17px 20px;background:var(--paper);display:flex;justify-content:space-between;gap:20px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
-    .studio-copy .eyebrow{margin-bottom:24px}.studio-copy h2{margin-bottom:28px}
-    .studio-copy p:not(.eyebrow){font-size:14px;line-height:1.9;color:var(--muted);max-width:340px;margin-bottom:30px}
-    .studio-note{border-top:1px solid var(--line);padding-top:25px;margin-top:45px;font-family:var(--serif);font-size:28px;font-style:italic;line-height:1.25}
-    .closing{background:var(--wine);color:var(--paper);text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
-    .closing .eyebrow{color:#dec0be;margin-bottom:24px}
-    .closing h2{font-size:clamp(58px,8vw,116px);max-width:1000px;margin:0 auto 36px}
-    .closing .button{background:var(--paper);color:var(--wine);border-color:var(--paper)}.closing .button:hover{background:transparent;color:var(--paper)}
-    .closing-wordmark{font-family:var(--serif);font-weight:400;font-size:clamp(160px,29vw,420px);letter-spacing:-.08em;line-height:.73;margin:70px 0 0;opacity:.16;user-select:none}
-    footer{padding:23px 4.5% 72px;background:var(--wine);color:#e1c8c8;display:flex;justify-content:space-between;gap:18px;border-top:1px solid rgba(247,243,235,.18);font-size:11px;line-height:1.8}
-    .motion-toggle{position:fixed;bottom:14px;right:17px;z-index:8;display:flex;align-items:center;gap:8px;min-height:36px;border:1px solid var(--line);padding:8px 12px;background:var(--paper);color:var(--wine);font-size:11px;box-shadow:0 3px 20px #321c2412}
-    .motion-symbol{font-family:Arial,sans-serif;font-size:14px;width:12px;text-align:center}
-    dialog{border:1px solid var(--line);padding:48px;width:min(520px,calc(100% - 32px));max-height:calc(100svh - 40px);background:var(--paper);color:var(--wine);overflow:auto}
-    dialog::backdrop{background:rgba(35,13,22,.65);backdrop-filter:blur(8px)}
-    .dialog-close{position:absolute;top:12px;right:14px;border:0;background:none;color:var(--wine);font-size:28px;width:40px;height:40px}
-    dialog .eyebrow{margin-bottom:22px}dialog h2{font-size:52px;margin-bottom:18px}dialog p{font-size:14px;line-height:1.8;color:var(--muted)}
-    dialog label{display:block;font-size:13px;margin:30px 0 10px}dialog select{width:100%;padding:15px 12px;border:1px solid var(--line);color:var(--wine);background:transparent;margin-bottom:20px;font-size:16px;border-radius:0}
-    dialog .button{width:100%}.demo-note{font-size:12px!important;margin-top:20px}#booking-result{margin:24px 0 0;padding:20px;border:1px solid var(--line)}
-    [hidden]{display:none!important}
-    @keyframes portrait-drift{from{transform:scale(1)}to{transform:scale(1.045) translateX(-.4%)}}
-    @keyframes ticker{to{transform:translateX(-50%)}}
-    @keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-    @media(prefers-reduced-motion:no-preference){
-      .hero-copy>.eyebrow{animation:rise .9s .1s both}.hero-copy h1{animation:rise 1.15s .2s both}.hero-description{animation:rise 1s .4s both}.hero-copy>.button{animation:rise 1s .55s both}.hero-foot{animation:rise 1s .65s both}
-      .reveal-ready .reveal{opacity:0;transform:translateY(35px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}.reveal-ready .reveal.is-visible{opacity:1;transform:none}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --rose:#C9847A; --rose-light:#F2D9D5; --gold:#B8975A; --cream:#FAF6F1; --dark:#2C1810; --mid:#7A5C54; }
+    body { font-family:'Lato',sans-serif; background:var(--cream); color:var(--dark); overflow-x:hidden; }
+    h1,h2,h3,h4 { font-family:'Cormorant Garamond',serif; }
+    a { text-decoration:none; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:100; background:rgba(250,246,241,0.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(184,151,90,0.2); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:68px; }
+    .nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:600; color:var(--dark); letter-spacing:0.08em; }
+    .nav-logo span { color:var(--gold); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid); transition:color .2s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta { background:var(--rose); color:#fff; border:none; padding:0.6rem 1.4rem; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; font-family:'Lato',sans-serif; transition:background .2s; }
+    .nav-cta:hover { background:var(--gold); }
+    @media(max-width:768px){ .nav-links{display:none;} }
+
+    /* HERO */
+    .hero { min-height:92vh; display:grid; grid-template-columns:1fr 1fr; }
+    .hero-text { display:flex; flex-direction:column; justify-content:center; padding:6% 8% 6% 10%; }
+    .eyebrow { font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; }
+    .hero-title { font-size:clamp(2.8rem,5vw,4.5rem); font-weight:300; line-height:1.1; color:var(--dark); margin-bottom:1.5rem; }
+    .hero-title em { font-style:italic; color:var(--rose); }
+    .hero-sub { font-size:1rem; font-weight:300; color:var(--mid); line-height:1.8; max-width:380px; margin-bottom:2.5rem; }
+    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+    .btn-primary { background:var(--rose); color:#fff; padding:0.85rem 2rem; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; border:none; cursor:pointer; font-family:'Lato',sans-serif; transition:all .2s; }
+    .btn-primary:hover { background:var(--gold); }
+    .btn-outline { background:transparent; color:var(--dark); padding:0.85rem 2rem; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; border:1px solid var(--dark); cursor:pointer; font-family:'Lato',sans-serif; transition:all .2s; }
+    .btn-outline:hover { border-color:var(--gold); color:var(--gold); }
+    .hero-image { position:relative; overflow:hidden; }
+    .hero-image img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+    .hero-badge { position:absolute; bottom:2rem; left:2rem; background:rgba(250,246,241,0.95); padding:1rem 1.5rem; border-left:3px solid var(--gold); }
+    .hero-badge p { font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:0.25rem; }
+    .hero-badge strong { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--dark); }
+    @media(max-width:768px){ .hero{grid-template-columns:1fr;} .hero-image{height:60vw;} .hero-text{padding:3rem 1.5rem;} }
+
+    /* SERVICES */
+    .services { padding:6rem 10%; background:#fff; }
+    .section-label { font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem; }
+    .section-title { font-size:clamp(2rem,3.5vw,3rem); font-weight:300; color:var(--dark); margin-bottom:3rem; }
+    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+    .service-card { background:var(--cream); padding:2.5rem 2rem; transition:background .3s; cursor:default; }
+    .service-card:hover { background:var(--rose-light); }
+    .service-num { font-family:'Cormorant Garamond',serif; font-size:2.5rem; color:var(--rose-light); font-weight:300; margin-bottom:1rem; }
+    .service-card:hover .service-num { color:rgba(201,132,122,0.4); }
+    .service-name { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--dark); margin-bottom:0.75rem; }
+    .service-desc { font-size:0.85rem; color:var(--mid); line-height:1.7; }
+    @media(max-width:768px){ .services-grid{grid-template-columns:1fr;} .services{padding:4rem 1.5rem;} }
+
+    /* GALLERY */
+    .gallery { padding:6rem 10%; }
+    .gallery-grid { display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:280px 280px; gap:8px; margin-top:2rem; }
+    .gallery-grid img { width:100%; height:100%; object-fit:cover; display:block; }
+    .gallery-grid .tall { grid-row:span 2; }
+    @media(max-width:768px){ .gallery-grid{grid-template-columns:1fr 1fr; grid-template-rows:auto;} .gallery-grid .tall{grid-row:span 1;} .gallery-grid img{height:40vw;} .gallery{padding:3rem 1.5rem;} }
+
+    /* ABOUT */
+    .about { padding:6rem 10%; background:var(--dark); display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
+    .about-img img { width:100%; aspect-ratio:3/4; object-fit:cover; }
+    .about-text .section-label { color:var(--rose); }
+    .about-text .section-title { color:#fff; }
+    .about-text p { font-size:0.9rem; color:rgba(255,255,255,0.65); line-height:1.9; margin-bottom:1.5rem; }
+    .about-stats { display:flex; gap:3rem; margin-top:2rem; }
+    .stat-num { font-family:'Cormorant Garamond',serif; font-size:2.5rem; color:var(--gold); display:block; }
+    .stat-label { font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.5); }
+    @media(max-width:768px){ .about{grid-template-columns:1fr; gap:3rem; padding:4rem 1.5rem;} }
+
+    /* TEAM */
+    .team { padding:6rem 10%; background:#fff; }
+    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem; }
+    .team-card img { width:100%; aspect-ratio:3/4; object-fit:cover; object-position:top; margin-bottom:1.25rem; filter:grayscale(20%); transition:filter .3s; }
+    .team-card:hover img { filter:grayscale(0%); }
+    .team-name { font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--dark); margin-bottom:0.25rem; }
+    .team-role { font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); }
+    @media(max-width:768px){ .team-grid{grid-template-columns:1fr 1fr;} .team{padding:4rem 1.5rem;} }
+
+    /* BOOKING */
+    .booking { padding:6rem 10%; background:var(--rose-light); display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .booking-title { font-size:clamp(2rem,3.5vw,3rem); font-weight:300; color:var(--dark); margin-bottom:1rem; }
+    .booking-title em { font-style:italic; color:var(--rose); }
+    .booking-sub { font-size:0.9rem; color:var(--mid); line-height:1.8; margin-bottom:1.5rem; }
+    .booking-addr { font-size:0.8rem; color:var(--mid); }
+    .booking-form { display:flex; flex-direction:column; gap:1rem; }
+    .booking-form input, .booking-form select { padding:0.9rem 1rem; border:1px solid rgba(184,151,90,0.3); background:#fff; font-family:'Lato',sans-serif; font-size:0.85rem; color:var(--dark); outline:none; }
+    .booking-form input:focus, .booking-form select:focus { border-color:var(--rose); }
+    @media(max-width:768px){ .booking{grid-template-columns:1fr; gap:2.5rem; padding:4rem 1.5rem;} }
+
+    /* FOOTER */
+    footer { background:var(--dark); padding:4rem 10% 2rem; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:4rem; margin-bottom:3rem; }
+    .footer-logo { font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#fff; margin-bottom:1rem; }
+    .footer-logo span { color:var(--gold); }
+    .footer-desc { font-size:0.85rem; color:rgba(255,255,255,0.45); line-height:1.8; }
+    .footer-heading { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1.25rem; }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+    .footer-links a { font-size:0.85rem; color:rgba(255,255,255,0.5); transition:color .2s; }
+    .footer-links a:hover { color:var(--rose); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,0.08); padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; }
+    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.3); }
+    @media(max-width:768px){ .footer-top{grid-template-columns:1fr; gap:2rem;} footer{padding:3rem 1.5rem 2rem;} .footer-bottom{flex-direction:column; gap:0.5rem; text-align:center;} }
+  
+    /* === DM Labs: Universal Mobile Safety === */
+    html, body { overflow-x: hidden; max-width: 100%; }
+    img, video, iframe { max-width: 100%; }
+    /* Forced-colors / high-contrast accessibility */
+    @media (forced-colors: active) {
+      * { border-color: ButtonText !important; }
+      a { color: LinkText !important; }
+      button, .btn, [class*="btn"], [class*="cta"] {
+        forced-color-adjust: none;
+        background: ButtonFace !important;
+        color: ButtonText !important;
+        border: 2px solid ButtonText !important;
+      }
     }
-    html.motion-paused{scroll-behavior:auto}
-    .motion-paused *{animation-play-state:paused!important;transition:none!important}
-    .motion-paused .reveal,.motion-paused .hero-copy>*{opacity:1!important;transform:none!important}
-    .motion-paused .portrait-drift img{transform:scale(1.06)!important}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.portrait-drift img{transform:scale(1.06)!important}}
-    @media(min-width:1600px){.hero-copy{padding-left:9vw}.hero{min-height:820px}}
-    @media(max-width:1000px){.nav-links{gap:22px}.hero-copy{padding-left:5vw;padding-right:5vw}.hero-description{max-width:240px}.hero-foot{margin-top:35px}.hero-visual{min-height:630px}.seal{width:82px;height:82px;top:72%}.seal b{font-size:30px}.seal span{font-size:8px}.section{padding:75px 5vw}.studio{padding-top:0;gap:5vw}.ritual{padding:25px 20px}.ritual h3{font-size:30px}.section-heading{gap:30px}.studio-note{font-size:25px}}
-    @media(max-width:680px){
-      html{scroll-padding-top:22px}.nav{height:74px;padding:0 6%}.brand{font-size:44px}.nav-links{display:none}.nav-book{font-size:12px;gap:15px}
-      .hero{grid-template-columns:1fr;min-height:0}.hero-copy{padding:44px 7vw 38px}.hero-copy .eyebrow{font-size:10px;margin-bottom:24px}
-      h1{font-size:clamp(74px,18vw,118px);line-height:.9;max-width:100%}h1 span{display:inline}h1 em{margin-left:.55em}
-      .hero-description{margin:24px 0 21px;max-width:270px;font-size:13px;line-height:1.8}.hero-copy>.button{min-height:50px;padding:13px 21px;font-size:13px;gap:45px}
-      .hero-foot{position:absolute;right:7vw;bottom:40px;width:auto;margin:0}.hero-foot .eyebrow{display:none}.scroll-cue{width:39px;height:39px}
-      .hero-visual{min-height:0;height:112vw;max-height:610px}.portrait-drift img{object-position:50% 33%}.photo-label{top:22px;left:25px;right:25px;font-size:9px}.photo-label span:last-child{display:none}.photo-signature{font-size:27px;left:25px;bottom:24px}
-      .seal{top:auto;bottom:calc(min(112vw,610px) - 39px);left:auto;right:25px;transform:none;box-shadow:0 0 0 6px var(--paper);width:78px;height:78px}
-      .ticker{padding:18px 0}.ticker-group{font-size:10px;gap:28px;padding-right:28px}.ticker-group i{font-size:20px}
-      .section{padding:62px 7vw}.section-heading{grid-template-columns:1fr;gap:24px;margin-bottom:32px}.section-heading .eyebrow{font-size:10px;margin-bottom:17px}h2{font-size:53px}.section-intro{justify-self:start;max-width:300px;font-size:13px}
-      .rituals{grid-template-columns:1fr}.ritual,.ritual:first-child,.ritual:last-child{padding:26px 0}.ritual+.ritual{border-left:0;border-top:1px solid var(--line)}.ritual-meta{margin-bottom:12px}.ritual h3{font-size:35px;margin-bottom:10px}.ritual p{min-height:0;max-width:100%;font-size:13px}.ritual button{margin-top:19px;width:100%;padding-bottom:4px;border-bottom:0}.ritual-number{font-size:23px}
-      .studio{grid-template-columns:1fr;gap:38px;padding-top:0}.studio-photo{aspect-ratio:4/4.5}.studio-copy h2{font-size:56px}.studio-copy p:not(.eyebrow){font-size:13px}.studio-note{margin-top:30px}.photo-caption{left:15px;right:15px;bottom:15px;font-size:9px;padding:14px}
-      .closing{padding:60px 7vw 40px}.closing h2{font-size:63px}.closing .eyebrow{font-size:10px}.closing-wordmark{font-size:37vw;margin-top:55px}footer{padding:22px 7vw 70px;flex-direction:column;gap:7px;font-size:10px}
-      dialog{padding:42px 25px 30px}dialog h2{font-size:44px}
-    }
-    @media(max-width:360px){.hero-foot{display:none}.hero-copy .eyebrow{letter-spacing:.12em}h1{font-size:70px}.photo-caption{font-size:8px;gap:8px}}
-    @media(forced-colors:active){.button,.motion-toggle,.seal{border:1px solid ButtonText}.portrait-drift{animation:none}.reveal{opacity:1!important;transform:none!important}}
+
   </style>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="nav">
-    <a class="brand" href="#main" aria-label="Bella home">bella<i>.</i></a>
-    <nav class="nav-links" aria-label="Main navigation"><a href="#rituals">The rituals</a><a href="#studio">The studio</a><a href="#your-moment">Your moment</a></nav>
-    <button class="nav-book" data-book>Make it your moment <span class="arrow" aria-hidden="true">↗</span></button>
-  </header>
-  <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow">Hair &amp; beauty, made personal</p>
-        <h1 id="hero-title"><span>A little</span> <span>more</span> <em>you.</em></h1>
-        <p class="hero-description">Not a new you. The most confident you.<br>Beautiful hair. Thoughtful rituals.<br>A moment that belongs entirely to you.</p>
-        <button class="button" data-book>Find your Bella moment <span class="arrow" aria-hidden="true">↗</span></button>
-        <div class="hero-foot"><p class="eyebrow">Considered beauty.<br>Unmistakably yours.</p><a class="scroll-cue" href="#rituals" aria-label="Explore our beauty rituals">↓</a></div>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Bella<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Book Now</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Limassol's Premier Hair &amp; Beauty Studio</p>
+      <h1 class="hero-title">Where Beauty <em>Meets</em> Artistry</h1>
+      <p class="hero-sub">Expert hair, skin, and nail treatments in a serene, luxurious environment. Because you deserve to feel extraordinary.</p>
+      <div class="hero-btns">
+        <button class="btn-primary">Book an Appointment</button>
+        <button class="btn-outline">View Services</button>
       </div>
-      <div class="hero-visual">
-        <div class="portrait-drift"><img src="/media/bella-editorial-portrait.webp" alt="Beauty editorial portrait with glossy, flowing brunette waves" width="1122" height="1402" fetchpriority="high" /></div>
-        <div class="photo-label"><span>The Bella edit</span><span>01 / Effortless beauty</span></div>
-        <p class="photo-signature">Good hair. A whole new feeling.</p>
-      </div>
-      <div class="seal" aria-hidden="true"><span>Your time</span><b>only.</b><span>Your beauty</span></div>
-    </section>
-    <div class="ticker" aria-label="Hair design, colour artistry, beauty rituals, the art of feeling good">
-      <div class="ticker-track" aria-hidden="true"><div class="ticker-group"><span>Hair design</span><i>✳</i><span>Colour artistry</span><i>✳</i><span>Beauty rituals</span><i>✳</i><span>The art of feeling good</span><i>✳</i></div><div class="ticker-group"><span>Hair design</span><i>✳</i><span>Colour artistry</span><i>✳</i><span>Beauty rituals</span><i>✳</i><span>The art of feeling good</span><i>✳</i></div></div>
     </div>
-    <section class="section" id="rituals" aria-labelledby="rituals-title">
-      <div class="section-heading reveal"><div><p class="eyebrow">01 — The rituals</p><h2 id="rituals-title">Good looks.<br><em>Even better feelings.</em></h2></div><p class="section-intro">The right cut. The perfect shade. The smallest details, beautifully considered. Find the ritual that feels like you.</p></div>
-      <div class="rituals">
-        <article class="ritual reveal"><div class="ritual-meta"><span class="ritual-number">01</span><span>Shape &amp; movement</span></div><h3>The signature cut</h3><p>Effortless shape, natural movement, and a finish that works just as beautifully beyond the salon.</p><button data-book="The signature cut">Find your shape <span class="arrow" aria-hidden="true">↗</span></button></article>
-        <article class="ritual reveal"><div class="ritual-meta"><span class="ritual-number">02</span><span>Dimension &amp; light</span></div><h3>Your kind of colour</h3><p>Sun-kissed balayage, rich glossy tones, or something a little bolder. Colour with your name on it.</p><button data-book="Your kind of colour">Meet your colour <span class="arrow" aria-hidden="true">↗</span></button></article>
-        <article class="ritual reveal"><div class="ritual-meta"><span class="ritual-number">03</span><span>Care &amp; confidence</span></div><h3>The finishing touch</h3><p>Skin, nails, brows. Thoughtful little rituals that bring everything together, beautifully.</p><button data-book="The finishing touch">Make time for you <span class="arrow" aria-hidden="true">↗</span></button></article>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&q=85" alt="Bella Salon interior" />
+      <div class="hero-badge">
+        <p>Est. 2018</p>
+        <strong>Award-Winning Studio</strong>
       </div>
-    </section>
-    <section class="section studio" id="studio" aria-labelledby="studio-title">
-      <figure class="studio-photo reveal"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" width="1100" height="1210" loading="lazy" alt="A light-filled salon with tall windows, styling mirrors and dark salon chairs" /><figcaption class="photo-caption"><span>A slower kind of beauty</span><span>The studio</span></figcaption></figure>
-      <div class="studio-copy reveal"><p class="eyebrow">02 — The Bella feeling</p><h2 id="studio-title">Come as<br>you are.<br><em>Leave glowing.</em></h2><p>A deep breath. A proper conversation. A stylist who gets it. This is your space to switch off, settle in, and let someone take care of the details.</p><a class="text-link" href="#your-moment">Your chair is waiting <span class="arrow" aria-hidden="true">↗</span></a><div class="studio-note">“Beautiful is a feeling.<br>Let’s find yours.”</div></div>
-    </section>
-    <section class="closing" id="your-moment" aria-labelledby="closing-title"><div class="reveal"><p class="eyebrow">03 — A little time, just for you</p><h2 id="closing-title">Your next good<br>hair day <em>starts here.</em></h2><button class="button" data-book>Let’s make it happen <span class="arrow" aria-hidden="true">↗</span></button></div><div class="closing-wordmark" aria-hidden="true">bella.</div></section>
-  </main>
-  <footer><span>Bella — Hair &amp; Beauty Studio</span><span>A fictional salon concept by DM Labs. No real bookings.</span></footer>
-  <button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause decorative motion"><span class="motion-symbol" aria-hidden="true">Ⅱ</span><span class="motion-label">Pause motion</span></button>
-  <dialog id="booking-dialog" aria-labelledby="booking-title" aria-describedby="booking-description">
-    <button class="dialog-close" aria-label="Close booking preview">×</button><p class="eyebrow">A little time for you · Demo</p><h2 id="booking-title">Your Bella<br><em>moment.</em></h2><p id="booking-description">Start with what feels right. Take a look at how a Bella appointment would begin.</p>
-    <form id="booking-demo"><label for="ritual-select">Choose your ritual</label><select id="ritual-select" name="ritual"><option>The signature cut</option><option>Your kind of colour</option><option>The finishing touch</option></select><button class="button" type="submit">Preview next step <span class="arrow" aria-hidden="true">↗</span></button></form>
-    <p id="booking-result" role="status" hidden></p><p class="demo-note">Design concept only. No appointment is booked and no personal information is collected.</p>
-  </dialog>
-  <script>
-    (() => {
-      const root = document.documentElement;
-      const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const toggle = document.querySelector('.motion-toggle');
-      let paused = preference.matches;
-      const setMotion = value => {
-        paused = value || preference.matches;
-        root.classList.toggle('motion-paused', paused);
-        toggle.disabled = preference.matches;
-        toggle.setAttribute('aria-pressed', String(paused));
-        toggle.setAttribute('aria-label', preference.matches ? 'Reduced motion enabled by your device' : paused ? 'Resume decorative motion' : 'Pause decorative motion');
-        toggle.querySelector('.motion-label').textContent = preference.matches ? 'Reduced motion' : paused ? 'Motion paused' : 'Pause motion';
-        toggle.querySelector('.motion-symbol').textContent = paused ? '▷' : 'Ⅱ';
-      };
-      setMotion(paused);
-      toggle.addEventListener('click', () => setMotion(!paused));
-      preference.addEventListener('change', event => setMotion(event.matches));
+    </div>
+  </section>
 
-      // Progressive enhancement: the whole page stays visible without JavaScript.
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
-        }, { threshold: .12 });
-        document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
-        root.classList.add('reveal-ready');
-      }
-      let ticking = false;
-      const portrait = document.querySelector('.portrait-drift img');
-      window.addEventListener('scroll', () => {
-        if (ticking || paused || preference.matches) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          portrait.style.setProperty('--photo-y', Math.min(window.scrollY * .055, 30) + 'px');
-          ticking = false;
-        });
-      }, { passive: true });
+  <!-- SERVICES -->
+  <section class="services">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Our Signature Services</h2>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-num">01</div><div class="service-name">Hair Design</div><div class="service-desc">Cuts, colour, balayage, and styling by our master stylists. Every appointment is a bespoke experience.</div></div>
+      <div class="service-card"><div class="service-num">02</div><div class="service-name">Skin Treatments</div><div class="service-desc">Facials, peels, and advanced skin therapies tailored to your unique skin type and goals.</div></div>
+      <div class="service-card"><div class="service-num">03</div><div class="service-name">Nail Artistry</div><div class="service-desc">Manicures, pedicures, gel extensions, and nail art that express your personal style.</div></div>
+      <div class="service-card"><div class="service-num">04</div><div class="service-name">Bridal Packages</div><div class="service-desc">Complete bridal beauty packages for your most important day. Trials included.</div></div>
+      <div class="service-card"><div class="service-num">05</div><div class="service-name">Lash &amp; Brow</div><div class="service-desc">Lash lifts, extensions, brow lamination, and tinting for a polished, effortless look.</div></div>
+      <div class="service-card"><div class="service-num">06</div><div class="service-name">Massage &amp; Spa</div><div class="service-desc">Relaxing and therapeutic massages to restore balance and relieve tension.</div></div>
+    </div>
+  </section>
 
-      // No hash navigation: keep the parent preview's back/close behavior intact.
-      document.addEventListener('click', event => {
-        const link = event.target.closest('a[href^="#"]');
-        if (!link) return;
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        const destination = document.getElementById(link.getAttribute('href').slice(1));
-        if (destination) destination.scrollIntoView({ behavior: paused || preference.matches ? 'instant' : 'smooth', block: 'start' });
-      }, true);
+  <!-- GALLERY -->
+  <section class="gallery">
+    <p class="section-label">Our Work</p>
+    <h2 class="section-title">A Glimpse of Bella</h2>
+    <div class="gallery-grid">
+      <img class="tall" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80" alt="Salon work" />
+      <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=500&q=80" alt="Hair styling" />
+      <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=500&q=80" alt="Nail art" />
+      <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&q=80" alt="Skincare" />
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&q=80" alt="Makeup" />
+    </div>
+  </section>
 
-      const dialog = document.getElementById('booking-dialog');
-      const select = document.getElementById('ritual-select');
-      const result = document.getElementById('booking-result');
-      const form = document.getElementById('booking-demo');
-      document.querySelectorAll('[data-book]').forEach(button => button.addEventListener('click', () => {
-        select.value = button.dataset.book || 'The signature cut';
-        result.hidden = true; form.hidden = false; dialog.showModal();
-      }));
-      document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
-      dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
-      form.addEventListener('submit', event => {
-        event.preventDefault();
-        result.textContent = select.value + ' — a lovely choice. On a live salon website, you’d choose your stylist and an available appointment next. This preview hasn’t made a booking.';
-        result.hidden = false;
-      });
-    })();
-  </script>
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=80" alt="About Bella Salon" />
+    </div>
+    <div class="about-text">
+      <p class="section-label">Our Story</p>
+      <h2 class="section-title">Crafted with Passion, Built on Trust</h2>
+      <p>Bella was born from a simple belief: every person deserves to leave feeling more confident than when they arrived. Since 2018, we have been Limassol's trusted destination for beauty that lasts.</p>
+      <p>Our team of 12 specialists brings decades of combined experience from London, Paris, and Athens - now right here.</p>
+      <div class="about-stats">
+        <div><span class="stat-num">2,400+</span><span class="stat-label">Happy Clients</span></div>
+        <div><span class="stat-num">12</span><span class="stat-label">Specialists</span></div>
+        <div><span class="stat-num">6yr</span><span class="stat-label">In Limassol</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team">
+    <p class="section-label">Meet the Team</p>
+    <h2 class="section-title">The Artists Behind Bella</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80" alt="Sofia Andreou" />
+        <div class="team-name">Sofia Andreou</div>
+        <div class="team-role">Creative Director &amp; Senior Stylist</div>
+      </div>
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" alt="Maria Petrou" />
+        <div class="team-name">Maria Petrou</div>
+        <div class="team-role">Skin &amp; Aesthetics Specialist</div>
+      </div>
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80" alt="Elena Stavrou" />
+        <div class="team-name">Elena Stavrou</div>
+        <div class="team-role">Nail Artist &amp; Brow Expert</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="booking">
+    <div>
+      <p class="section-label">Ready to Visit?</p>
+      <h2 class="booking-title">Book Your <em>Experience</em></h2>
+      <p class="booking-sub">Reserve your appointment online in under 2 minutes. We'll confirm within the hour.</p>
+      <p class="booking-addr">25 Anexartisias Street, Limassol &nbsp;|&nbsp; +357 25 000 000</p>
+    </div>
+    <form class="booking-form" onsubmit="return false">
+      <input type="text" placeholder="Your Name" />
+      <input type="tel" placeholder="Phone Number" />
+      <select><option>Select a Service</option><option>Hair Design</option><option>Skin Treatment</option><option>Nails</option><option>Bridal Package</option></select>
+      <input type="date" />
+      <button class="btn-primary" type="submit">Request Appointment</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Bella<span>.</span></div>
+        <p class="footer-desc">Limassol's premier hair and beauty studio. Crafting confidence since 2018.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Services</p>
+        <ul class="footer-links">
+          <li><a href="#">Hair Design</a></li>
+          <li><a href="#">Skin Treatments</a></li>
+          <li><a href="#">Nail Artistry</a></li>
+          <li><a href="#">Bridal Packages</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Visit Us</p>
+        <ul class="footer-links">
+          <li><a href="#">25 Anexartisias St, Limassol</a></li>
+          <li><a href="#">Mon-Sat: 9am - 8pm</a></li>
+          <li><a href="#">+357 25 000 000</a></li>
+          <li><a href="#">hello@bellasalon.cy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Bella Salon. All rights reserved.</span>
+      <span class="footer-copy">Website by DM-Labs.io</span>
+    </div>
+  </footer>
+<script>
+/* DM Labs: prevent hash links from pushing browser history entries.
+   Uses history.replaceState() + scrollIntoView() so iframe nav never
+   adds entries to the parent page's history stack. */
+(function() {
+  function scrollToHash(id) {
+    if (!id) return false;
+    var dest = document.getElementById(id) ||
+               document.querySelector('[name="' + id + '"]');
+    if (!dest) return false;
+    dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Replace instead of push - keeps the URL in sync without adding history
+    try { history.replaceState(null, '', '#' + id); } catch(e) {}
+    return true;
+  }
+
+  document.addEventListener('click', function(e) {
+    var el = e.target;
+    while (el && el.tagName !== 'A') { el = el.parentElement; }
+    if (!el) return;
+    var href = el.getAttribute('href');
+    if (!href || href.charAt(0) !== '#') return;
+    var id = href.slice(1);
+    if (!id) return;
+    if (scrollToHash(id)) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
+
+  // Also handle initial hash on page load (e.g. if URL already has #section)
+  if (window.location.hash) {
+    window.addEventListener('load', function() {
+      scrollToHash(window.location.hash.slice(1));
+    });
+  }
+})();
+</script>
 </body>
 </html>
