@@ -3,8 +3,8 @@ import { useSEO } from "@/hooks/useSEO";
 
 export default function GoogleVisibilityEl() {
   useSEO({
-    title: "Πώς να Βρεθεί η Επιχείρησή σας στη Google στην Κύπρο | DM-Labs.io",
-    description: "Απλός οδηγός για να εμφανίζεται η επιχείρησή σας στη Google στην Κύπρο. Χωρίς τεχνικές ορολογίες.",
+    title: "Πώς να Βρεθεί η Επιχείρησή σας στη Google | DM-Labs.io",
+    description: "Απλός οδηγός για να εμφανίζεται η επιχείρησή σας στη Google. Χωρίς τεχνικές ορολογίες.",
     canonicalPath: "/el/blog/pos-na-vretheite-google-kypros/",
   });
 
@@ -21,23 +21,23 @@ export default function GoogleVisibilityEl() {
             <span className="text-xs text-[#9CA3AF]">6 λεπτά ανάγνωση</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#111315] leading-tight mb-4">
-            Πώς να Βρεθεί η Επιχείρησή σας στη Google στην Κύπρο: Ένας Απλός Οδηγός
+            Πώς να Βρεθεί η Επιχείρησή σας στη Google: Ένας Απλός Οδηγός
           </h1>
           <p className="text-lg text-[#5B6472] leading-relaxed">
-            Χωρίς τεχνικές ορολογίες - τι πρέπει να κάνετε για να εμφανίζεστε στη Google όταν κάποιος ψάχνει για αυτό που προσφέρετε στην Κύπρο.
+            Χωρίς τεχνικές ορολογίες - τι πρέπει να κάνετε για να εμφανίζεστε στη Google όταν κάποιος ψάχνει για αυτό που προσφέρετε.
           </p>
         </header>
         <div className="space-y-8 text-[#374151]">
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Γιατί Είναι Σημαντικό να Βρίσκεστε στη Google</h2>
             <p className="leading-relaxed mb-4">
-              Κάθε μέρα, χιλιάδες άνθρωποι στην Κύπρο ψάχνουν στη Google για επιχειρήσεις όπως η δική σας. "Κομμωτήριο Λεμεσός", "λογιστής Λευκωσία", "εστιατόριο Πάφος". Αν δεν εμφανίζεστε στα αποτελέσματα, αυτοί οι άνθρωποι πηγαίνουν στον ανταγωνισμό σας.
+              Κάθε μέρα, χιλιάδες άνθρωποι ψάχνουν στη Google για επιχειρήσεις όπως η δική σας. "Κομμωτήριο Λεμεσός""λογιστής Λευκωσία""εστιατόριο Πάφος". Αν δεν εμφανίζεστε στα αποτελέσματα, αυτοί οι άνθρωποι πηγαίνουν στον ανταγωνισμό σας.
             </p>
           </section>
           <div className="rounded-2xl overflow-hidden my-8">
             <img
               src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&q=80"
-              alt="Εμφάνιση επιχείρησης στη Google Κύπρος - SEO για μικρές επιχειρήσεις"
+              alt="Εμφάνιση επιχείρησης στη Google - SEO για μικρές επιχειρήσεις"
               className="w-full object-cover"
               style={{ maxHeight: "320px" }}
               loading="lazy"

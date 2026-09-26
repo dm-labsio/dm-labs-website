@@ -30,16 +30,12 @@ const schemaMarkup = {
       "@id": "https://dm-labs.io/web-design-paphos/#professionalservice",
       "name": "DM-Labs.io",
       "alternateName": "DM-Labs",
-      "description": "DM-Labs.io designs and builds professional, mobile-first websites for businesses in Paphos and across Cyprus.",
+      "description": "DM-Labs.io designs and builds professional, mobile-first websites for businesses worldwide.",
       "url": "https://dm-labs.io/web-design-paphos/",
       "telephone": "+35797472847",
       "email": "info@dm-labs.io",
       "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
-      "areaServed": [
-        { "@type": "City", "name": "Paphos", "addressCountry": "CY" },
-        { "@type": "AdministrativeArea", "name": "Paphos District", "addressCountry": "CY" },
-        { "@type": "Country", "name": "Cyprus" }
-      ],
+      "areaServed": "Worldwide",
       "priceRange": "€299-€1,499",
       "currenciesAccepted": "EUR",
       "hasOfferCatalog": {
@@ -57,8 +53,8 @@ const schemaMarkup = {
 
 export default function WebDesignPaphos() {
   useSEO({
-    title: "Web Design Paphos | Website Packages from €299 | DM-Labs.io",
-    description: "Professional website design in Paphos, Cyprus. Launch websites from €299, Growth from €749, Pro from €1,499, plus custom website projects.",
+    title: "Web Design Paphos | Websites Built for Growth | DM-Labs.io",
+    description: "Professional website design in Paphos. Distinctive design, fast delivery and personal care, built around your business goals.",
     canonicalPath: "/web-design-paphos/",
   });
 
@@ -77,9 +73,9 @@ export default function WebDesignPaphos() {
       <section className="section-spacing bg-gradient-to-br from-[#F0F4FF] via-[#F6F6F4] to-[#FFF0EA]">
         <div className="container max-w-4xl mx-auto text-center">
           <AnimateIn>
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Web Design · Paphos, Cyprus</span>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Web Design · Paphos</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F172A] leading-tight mb-6">Web Design in <span className="bg-gradient-to-r from-[#5B8CFF] via-[#6FE3FF] to-[#A855F7] bg-clip-text text-transparent">Paphos</span></h1>
-            <p className="text-lg md:text-xl text-[#475569] max-w-2xl mx-auto mb-8 leading-relaxed">DM-Labs.io builds professional, mobile-first websites for Paphos businesses. Choose a clear package from €299 or request a custom scope for more complex work.</p>
+            <p className="text-lg md:text-xl text-[#475569] max-w-2xl mx-auto mb-8 leading-relaxed">DM-Labs.io builds professional, mobile-first websites for Paphos businesses. Make your business look established, earn trust, and give customers a clear reason to contact you.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><a href="https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27m%20interested%20in%20a%20website%20for%20my%20Paphos%20business." target="_blank" rel="noopener noreferrer" className="btn-primary">Get a Free Consultation</a></StarButton><Link href="/pricing/" className="btn-secondary">View Pricing</Link></div>
           </AnimateIn>
         </div>
@@ -87,16 +83,16 @@ export default function WebDesignPaphos() {
 
       <section className="py-10 bg-white border-y border-[#E2E5EA]">
         <div className="container"><div className="grid grid-cols-2 md:grid-cols-4 gap-6">{[
-          { value: "€299", label: "Package starting point" },
+          { value: "Custom", label: "Built around your business" },
           { value: "Paphos", label: "Local business address" },
-          { value: "Cyprus", label: "Businesses served" },
+          { value: "Worldwide", label: "Businesses served" },
           { value: "Mobile-first", label: "Every package" },
         ].map((stat) => <div key={stat.label} className="text-center"><div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#5B8CFF] to-[#A855F7] bg-clip-text text-transparent">{stat.value}</div><div className="text-sm text-[#64748B] mt-1">{stat.label}</div></div>)}</div></div>
       </section>
 
       <section className="section-spacing">
         <div className="container max-w-3xl mx-auto">
-          <AnimateIn><h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-6">A Website That Represents Your Paphos Business</h2><p className="text-[#475569] text-lg leading-relaxed mb-5">Your website is often the first place a potential customer learns about your business. It should be clear, fast on mobile, easy to navigate, and built around the actions you want people to take, whether that is enquiring, booking, visiting, or calling.</p><p className="text-[#475569] text-lg leading-relaxed">DM-Labs.io is based in Paphos and works with businesses throughout Cyprus. We translate the practical needs of local businesses into a website with a clear structure, a professional visual identity, and search-friendly foundations.</p></AnimateIn>
+          <AnimateIn><h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-6">A Website That Represents Your Paphos Business</h2><p className="text-[#475569] text-lg leading-relaxed mb-5">Your website is often the first place a potential customer learns about your business. It should be clear, fast on mobile, easy to navigate, and built around the actions you want people to take, whether that is enquiring, booking, visiting, or calling.</p><p className="text-[#475569] text-lg leading-relaxed">DM-Labs.io is based in Paphos and works with businesses worldwide. We translate the practical needs of local businesses into a website with a clear structure, a professional visual identity, and search-friendly foundations.</p></AnimateIn>
         </div>
       </section>
 

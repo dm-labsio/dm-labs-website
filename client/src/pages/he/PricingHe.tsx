@@ -36,7 +36,7 @@ function PlanCell({ value, colour }: { value: string; colour: string }) {
 export default function PricingHe() {
   useSEO({
     title: "מחירי עיצוב אתרים | DM-Labs.io",
-    description: "כמה עולה אתר? השוו חבילות אתר ותוכניות תחזוקה שקופות של DM-Labs.io, החל מ-€299.",
+    description: "השוו חבילות אתר ותוכניות אירוח ותחזוקה של DM-Labs.io. היקף ברור, חיוב שקוף ואפשרויות מותאמות לעסקים בצמיחה.",
     ogLocale: "he_IL",
     noindex: true,
   });

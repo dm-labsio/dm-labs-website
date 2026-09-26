@@ -7,13 +7,13 @@ import { getHreflangPair } from "../client/src/lib/seoRoutes";
 const ROOT = resolve(import.meta.dirname, "..");
 const ARTICLE_SLUG = "google-ai-mode-near-me-cyprus";
 
-describe("Google AI Mode Cyprus article", () => {
+describe("Google AI Mode article", () => {
   it("keeps the requested indexable English-only article data, CTA, citations, and FAQ schema source", () => {
     const post = getPostBySlug(ARTICLE_SLUG);
 
     expect(post).toMatchObject({
       slug: ARTICLE_SLUG,
-      metaTitle: 'Google AI Answers "Near Me" Searches in Cyprus (2026)',
+      metaTitle: 'Google AI Answers "Near Me" Searches (2026)',
       date: "2026-09-12",
       dateModified: "2026-09-12",
       category: "SEO & GEO",
@@ -21,12 +21,12 @@ describe("Google AI Mode Cyprus article", () => {
       authorType: "Organization",
       language: "en",
     });
-    expect(post?.content).toContain("checked <strong>12 September 2026 / at the time of writing</strong>");
+    expect(post?.content).not.toContain("geo=CY");
     expect(post?.content).toContain("PPC Land");
     expect(post?.content).toContain("every business-data value in this example must be replaced");
     expect(post?.content).toContain("Request an AI Answer Check");
     expect(post?.content).not.toMatch(/free AI Answer Check|free, no commitment|no sales call/i);
-    expect(post?.content).toContain("Greek-language AI Mode went live in Greece on <strong>8 October 2025</strong>");
+    expect(post?.content).toContain("Google’s October 2025 expansion announcement");
     expect(post?.content).toContain("published in <strong>July 2025</strong> and covering <strong>May 2024 to May 2025</strong>");
     expect(post?.content).toContain("ChatGPT builds its answer from mentions.");
     expect(post?.content).toContain("If you can't select it with your cursor, assume Google can't use it.");

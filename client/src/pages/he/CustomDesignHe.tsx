@@ -72,10 +72,7 @@ export default function CustomDesignHe() {
           serviceType: "עיצוב אתרים בהתאמה אישית",
           url: serviceUrl,
           provider: { "@id": "https://dm-labs.io/#professionalservice" },
-          areaServed: [
-            { "@type": "Country", name: "Cyprus" },
-            { "@type": "Country", name: "Greece" },
-          ],
+          areaServed: "Worldwide",
         },
         {
           "@type": "FAQPage",

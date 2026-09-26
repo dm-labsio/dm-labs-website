@@ -361,7 +361,7 @@ export default function ServiceDetailPage() {
   const service = SERVICES[serviceId];
   useSEO({
     title: service ? `${service.title} | DM-Labs.io` : "Service | DM-Labs.io",
-    description: service ? service.intro : "Professional web design services in Cyprus. Custom websites built fast, built right.",
+    description: service ? service.intro: "Professional web design services. Custom websites built fast, built right.",
   });
 
   useEffect(() => {
@@ -383,10 +383,7 @@ export default function ServiceDetailPage() {
           "serviceType": service.title,
           "url": serviceUrl,
           "provider": { "@id": "https://dm-labs.io/#professionalservice" },
-          "areaServed": [
-            { "@type": "Country", "name": "Cyprus" },
-            { "@type": "Country", "name": "Greece" },
-          ],
+          "areaServed": "Worldwide",
         },
         {
           "@type": "FAQPage",

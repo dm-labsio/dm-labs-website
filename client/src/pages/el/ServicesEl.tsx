@@ -19,8 +19,8 @@ const WHATSAPP_URL = "https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20
 
 export default function ServicesElPage() {
   useSEO({
-    title: "Υπηρεσίες Web Σχεδιασμός Κύπρος | DM-Labs.io",
-    description: "Επαγγελματικές υπηρεσίες web design στην Κύπρο. Custom ιστοσελίδες, mobile-first ανάπτυξη, SEO βελτιστοποίηση και συντήρηση. Από €299.",
+    title: "Υπηρεσίες Web Σχεδιασμός | DM-Labs.io",
+    description: "Επαγγελματικές υπηρεσίες web design. Custom ιστοσελίδες, mobile-first ανάπτυξη, SEO βελτιστοποίηση και συντήρηση. Γρήγορη παράδοση και προσωπική φροντίδα.",
   });
   return (
     <>
@@ -40,7 +40,7 @@ export default function ServicesElPage() {
               Υπηρεσίες που <span className="brand-gradient-text">Φέρνουν Αποτελέσματα</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Είμαστε μια εξειδικευμένη εταιρεία κατασκευής ιστοσελίδων που εστιάζει στη δημιουργία επαγγελματικών, υψηλής ποιότητας ιστοσελίδων. Από τον custom σχεδιασμό έως τη βελτιστοποίηση SEO, αναλαμβάνουμε τα πάντα.
+              Η ιστοσελίδα σας πρέπει να σας κάνει την ξεκάθαρη επιλογή. Συνδυάζουμε δυνατό σχεδιασμό, γρήγορη ανάπτυξη και εύκολη επικοινωνία. Με το πλάνο συντήρησης αναλαμβάνουμε και τη συνεχή τεχνική φροντίδα.
             </p>
           </AnimateIn>
         </div>
@@ -54,15 +54,15 @@ export default function ServicesElPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">Πακέτα Ιστοσελίδων</h2>
           </AnimateIn>
 
-          {/* Τιμές Εκκίνησης Full-Width Banner */}
+          {/* Γύρω από την επιχείρησή σας Full-Width Banner */}
           <div
             className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl"
             style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
           >
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-white animate-pulse opacity-80" />
-            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Τιμές Εκκίνησης</span>
+            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Γύρω από την επιχείρησή σας</span>
             <span className="hidden sm:block w-px h-5 bg-white/40" />
-            <span className="text-sm sm:text-base text-white/90 font-medium">Εισαγωγικές τιμές διαθέσιμες τώρα. <span className="font-bold text-white">Κλείστε τη θέση σας σήμερα.</span></span>
+            <span className="text-sm sm:text-base text-white/90 font-medium">Κατασκευή ιστοσελίδας + φιλοξενία και συντήρηση. <span className="font-bold text-white">Δείτε την πλήρη τιμολόγηση.</span></span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

@@ -3,8 +3,8 @@ import { useSEO } from "@/hooks/useSEO";
 
 export default function NailSalonEl() {
   useSEO({
-    title: "Ιστοσελίδα για Nail Salon και Ομορφιά Studio στην Κύπρο | DM-Labs.io",
-    description: "Τι χρειάζεται η ιστοσελίδα ενός nail salon ή beauty studio στην Κύπρο για να φέρνει νέους πελάτες. Πρακτικός οδηγός.",
+    title: "Ιστοσελίδα για Nail Salon και Ομορφιά Studio | DM-Labs.io",
+    description: "Τι χρειάζεται η ιστοσελίδα ενός nail salon ή beauty studio για να φέρνει νέους πελάτες. Πρακτικός οδηγός.",
     canonicalPath: "/el/blog/istoselidha-nail-salon-beauty-studio-kypros/",
   });
 
@@ -21,10 +21,10 @@ export default function NailSalonEl() {
             <span className="text-xs text-[#9CA3AF]">5 λεπτά ανάγνωση</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#111315] leading-tight mb-4">
-            Ιστοσελίδα για Nail Salon και Ομορφιά Studio στην Κύπρο: Τι Χρειάζεστε Πραγματικά
+            Ιστοσελίδα για Nail Salon και Ομορφιά Studio: Τι Χρειάζεστε Πραγματικά
           </h1>
           <p className="text-lg text-[#5B6472] leading-relaxed">
-            Έχετε nail salon ή beauty studio στην Κύπρο; Δείτε τι πρέπει να έχει η ιστοσελίδα σας για να γεμίζει ραντεβού και να βρίσκεστε στη Google.
+            Έχετε nail salon ή beauty studio; Δείτε τι πρέπει να έχει η ιστοσελίδα σας για να γεμίζει ραντεβού και να βρίσκεστε στη Google.
           </p>
         </header>
         <div className="space-y-8 text-[#374151]">
@@ -40,7 +40,7 @@ export default function NailSalonEl() {
           <div className="rounded-2xl overflow-hidden my-8">
             <img
               src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80"
-              alt="Ιστοσελίδα nail salon και στούντιο ομορφιάς Κύπρος - επαγγελματική online παρουσία"
+              alt="Ιστοσελίδα nail salon και στούντιο ομορφιάς - επαγγελματική online παρουσία"
               className="w-full object-cover"
               style={{ maxHeight: "320px" }}
               loading="lazy"
@@ -66,7 +66,7 @@ export default function NailSalonEl() {
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Πόσο Κοστίζει;</h2>
             <p className="leading-relaxed">
-              Μια επαγγελματική ιστοσελίδα για nail salon ή beauty studio στην Κύπρο κοστίζει από €299 (Launch - 1 σελίδα) μέχρι €749 (Growth - έως 4 σελίδες με γκαλερί, κρατήσεις και reviews). Παράδοση σε 5-10 ημέρες.
+              Μια επαγγελματική ιστοσελίδα για nail salon ή beauty studio κοστίζει από €299 (Launch - 1 σελίδα) μέχρι €749 (Growth - έως 4 σελίδες με γκαλερί, κρατήσεις και reviews). Παράδοση σε 5-10 ημέρες.
             </p>
           </section>
           <div className="bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] rounded-2xl p-8 border border-[#D0DEFF] mt-10">

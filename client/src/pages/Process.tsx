@@ -85,7 +85,7 @@ export default function Process() {
               <span className="process-editorial-hero-heading-emphasis"><em>Launch</em></span>
             </h1>
             <p className="process-editorial-lead">
-              A simple, transparent process designed to get your website live as quickly as possible, without the stress.
+              A clear plan. Fast execution. No technical juggling on your side. We manage the build, keep you involved at the right moments, and get your website ready for business.
             </p>
           </AnimateIn>
         </div>

@@ -479,10 +479,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div style={{ marginBottom: "20px" }}><BrandMark dark /></div>
                 <p className="text-sm text-[#94A3B8] leading-relaxed max-w-xs">
                   {isHebrew
-                    ? "סטודיו קטן ומסור לעיצוב אתרים. אנחנו בונים אתרים מקצועיים וממוקדי המרות לעסקים שרוצים לבלוט אונליין."
+                    ? "בלטו בשוק. בנו אמון. הפכו עניין לפניות. אתרים בהתאמה אישית וליווי אישי מטום ואנסטסיה, לעסקים בכל מקום."
                     : isGreek
-                      ? "Μια μικρή, αφοσιωμένη εταιρεία web design. Κατασκευάζουμε επαγγελματικές ιστοσελίδες για επιχειρήσεις που θέλουν να ξεχωρίζουν online."
-                      : "A small, dedicated web design agency. We build professional, conversion-focused websites for businesses that want to stand out online."
+                      ? "Ξεχωρίστε. Κερδίστε εμπιστοσύνη. Μετατρέψτε το ενδιαφέρον σε επαφές. Custom ιστοσελίδες και προσωπική φροντίδα από τον Tom και την Anastacia, σε επιχειρήσεις παντού."
+                      : "Stand out. Earn trust. Turn interest into enquiries. Custom websites and personal care from Tom and Anastacia, for businesses worldwide."
                   }
                 </p>
               {/* Social Links */}

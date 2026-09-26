@@ -54,7 +54,7 @@ export default function MobileFirstHe() {
     const schema = {
       "@context": "https://schema.org",
       "@graph": [
-        { "@type": "Service", "@id": `${serviceUrl}#service`, name: "פיתוח אתרים בגישת Mobile-First", description: "פיתוח אתרים רספונסיבי בגישת mobile-first עם חוויית מגע נוחה וביצועים מהירים.", serviceType: "פיתוח אתרים בגישת Mobile-First", url: serviceUrl, provider: { "@id": "https://dm-labs.io/#professionalservice" }, areaServed: [{ "@type": "Country", name: "Cyprus" }, { "@type": "Country", name: "Greece" }] },
+        { "@type": "Service", "@id": `${serviceUrl}#service`, name: "פיתוח אתרים בגישת Mobile-First", description: "פיתוח אתרים רספונסיבי בגישת mobile-first עם חוויית מגע נוחה וביצועים מהירים.", serviceType: "פיתוח אתרים בגישת Mobile-First", url: serviceUrl, provider: { "@id": "https://dm-labs.io/#professionalservice" }, areaServed: "Worldwide" },
         { "@type": "FAQPage", mainEntity: FAQS.map((faq) => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })) },
       ],
     };

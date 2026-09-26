@@ -20,7 +20,7 @@ function formatDate(dateStr: string) {
 export default function Blog() {
   useSEO({
     title: "Blog | Web Design Tips & Guides | DM-Labs.io",
-    description: "Practical guides, honest advice, and web design insights for businesses in Cyprus and beyond.",
+    description: "Practical guides, honest advice, and web design insights for businesses worldwide.",
   });
 
   return (
@@ -38,7 +38,7 @@ export default function Blog() {
               <span><em>Blog</em></span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto blog-editorial-lead">
-              Practical guides, honest advice, and web design insights for businesses in Cyprus and beyond.
+              Practical guides, honest advice, and web design insights for businesses worldwide.
             </p>
           </AnimateIn>
         </div>

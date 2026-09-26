@@ -336,7 +336,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
         <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>אתונה, נכסי פרימיום</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>בתים יוצאי דופן<br/>ביוון</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>בתים יוצאי דופן<br/>בשבילכם</div>
         <div style={{ display: "flex", gap: "6px" }}>
           <div style={{ background: "#b8975a", color: "#0a0a0a", fontSize: "8px", padding: "5px 14px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>לנכסים</div>
           <div style={{ border: "1px solid rgba(184,151,90,0.4)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>מדריך ויזה</div>
@@ -979,7 +979,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">השראה לעיצוב, החל מ-€299</span>
+          <span className="text-xs text-gray-400 italic">השראה לעיצוב המותג שלכם</span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
             תצוגה מקדימה <ChevronRight size={14} />
           </button>
@@ -1047,7 +1047,7 @@ function CustomBuildCard() {
         </ul>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">החל מ-€299, לפי הצעת מחיר</span>
+          <span className="text-xs text-gray-400 italic">עיצוב סביב המטרות שלכם</span>
           <a
             href="/he/contact/"
             className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
@@ -1158,7 +1158,7 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 export default function TemplatesHe() {
   useSEO({
     title: "דוגמאות לאתרים | השראה לעסק שלך | DM-Labs.io",
-    description: "גלו דוגמאות אינטראקטיביות לאתרים של DM-Labs.io למסעדות, סלונים, מרפאות, סטודיואים ליוגה ועוד. החל מ-€299.",
+    description: "גלו עיצובי קונספט אינטראקטיביים של DM-Labs.io למסעדות, סלונים, מרפאות, סטודיואים ליוגה ועוד. גלו את אפשרויות העיצוב למותג שלכם.",
     canonicalPath: "/he/templates/",
     ogLocale: "he_IL",
     noindex: true,

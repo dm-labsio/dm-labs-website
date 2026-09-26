@@ -49,9 +49,10 @@ describe("English homepage editorial typography", () => {
   });
 
   it("keeps one correctly-cased semantic hero heading and hides the fitted fragments from assistive technology", () => {
-    expect(homeSource).toContain('<h1 className="sr-only">Your business is great. Your website should make that obvious.</h1>');
+    expect(homeSource).toContain('<h1 className="sr-only">Built to impress. Designed to convert.</h1>');
     expect(homeSource).toContain('<div className="editorial-hero-fit" aria-hidden="true">');
-    expect(homeSource).toContain('<em className="editorial-serif">obvious.</em>');
+    expect(homeSource).toContain('<em className="editorial-serif">impress.</em>');
+    expect(homeSource).toContain('<em className="editorial-serif">convert.</em>');
   });
 
   it("fits with Anybody's real width axis and refits for loaded fonts and container changes", () => {
@@ -108,9 +109,9 @@ describe("Services page editorial typography", () => {
     expect(stylesheet).toContain("@media (max-width: 767px) {");
   });
 
-  it("does not alter the Services SEO metadata declaration", () => {
-    expect(servicesSource).toContain('title: "Web Design Services Paphos & Cyprus | DM-Labs.io"');
-    expect(servicesSource).toContain('description: "Custom website design in Paphos and across Cyprus. Launch, Growth and Pro website packages from €299, plus ongoing care."');
+  it("uses the approved business-growth Services metadata", () => {
+    expect(servicesSource).toContain('title: "Web Design Services for Business Growth | DM Labs"');
+    expect(servicesSource).toContain('description: "Custom design, fast development, SEO foundations and ongoing care. Websites built to earn trust and help your business win more enquiries."');
   });
 
   it("keeps package pricing readable and heading punctuation out of isolated wrap lines", () => {
@@ -228,7 +229,7 @@ describe("Examples index editorial typography", () => {
   it("keeps card surroundings readable and avoids standalone decorative dash copy", () => {
     expect(templatesSource).toContain("templates-editorial-card-note");
     expect(templatesSource).toContain("Design inspiration");
-    expect(templatesSource).toContain("Pricing from €299");
+    expect(templatesSource).toContain("Built around your brand");
     expect(templatesSource).not.toContain("Design inspiration - pricing from €299");
     expect(templatesSource).not.toContain("Pricing from €299 - quote on request");
     expect(templatesSource).toContain("templates-editorial-custom-title");
@@ -362,7 +363,7 @@ describe("Blog index editorial typography", () => {
 
   it("preserves the Blog index metadata and removes the orphan-prone visual meta separator", () => {
     expect(blogSource).toContain('title: "Blog | Web Design Tips & Guides | DM-Labs.io"');
-    expect(blogSource).toContain('description: "Practical guides, honest advice, and web design insights for businesses in Cyprus and beyond."');
+    expect(blogSource).toContain('description: "Practical guides, honest advice, and web design insights for businesses worldwide."');
     expect(blogSource).not.toContain('<span>·</span>');
   });
 });

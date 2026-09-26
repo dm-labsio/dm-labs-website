@@ -6,8 +6,8 @@ import { useSEO } from "@/hooks/useSEO";
 
 export default function WebsiteCostEl() {
   useSEO({
-    title: "Πόσο Κοστίζει μια Ιστοσελίδα στην Κύπρο; (Ειλικρινής Οδηγός 2026) | DM-Labs.io",
-    description: "Η αλήθεια για τις τιμές κατασκευής ιστοσελίδας στην Κύπρο το 2026. Τι περιλαμβάνεται, τι δεν περιλαμβάνεται και πώς να επιλέξετε σωστά.",
+    title: "Πόσο Κοστίζει μια Ιστοσελίδα; (Ειλικρινής Οδηγός 2026) | DM-Labs.io",
+    description: "Η αλήθεια για τις τιμές κατασκευής ιστοσελίδας το 2026. Τι περιλαμβάνεται, τι δεν περιλαμβάνεται και πώς να επιλέξετε σωστά.",
     canonicalPath: "/el/blog/posso-kostizei-istoselidha-kypros/",
   });
 
@@ -26,10 +26,10 @@ export default function WebsiteCostEl() {
             <span className="text-xs text-[#9CA3AF]">6 λεπτά ανάγνωση</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#111315] leading-tight mb-4">
-            Πόσο Κοστίζει μια Ιστοσελίδα στην Κύπρο; (Ειλικρινής Οδηγός 2026)
+            Πόσο Κοστίζει μια Ιστοσελίδα; (Ειλικρινής Οδηγός 2026)
           </h1>
           <p className="text-lg text-[#5B6472] leading-relaxed">
-            Αν ψάχνετε για τιμές κατασκευής ιστοσελίδας στην Κύπρο, θα βρείτε τα πάντα: από €99 μέχρι €5.000+. Εδώ είναι η αλήθεια για το τι πραγματικά κοστίζει και τι παίρνετε για τα χρήματά σας.
+            Αν ψάχνετε για τιμές κατασκευής ιστοσελίδας, θα βρείτε τα πάντα: από €99 μέχρι €5.000+. Εδώ είναι η αλήθεια για το τι πραγματικά κοστίζει και τι παίρνετε για τα χρήματά σας.
           </p>
         </header>
 
@@ -38,7 +38,7 @@ export default function WebsiteCostEl() {
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Γιατί οι Τιμές Ποικίλλουν Τόσο Πολύ</h2>
             <p className="leading-relaxed mb-4">
-              Στην Κύπρο, μπορείτε να βρείτε ιστοσελίδες από €99 (συνήθως από freelancers χωρίς εμπειρία ή από πλατφόρμες όπως Fiverr) μέχρι €5.000+ από μεγάλες εταιρείες web design. Η διαφορά δεν είναι τυχαία.
+              Στην αγορά, μπορείτε να βρείτε ιστοσελίδες από €99 (συνήθως από freelancers χωρίς εμπειρία ή από πλατφόρμες όπως Fiverr) μέχρι €5.000+ από μεγάλες εταιρείες web design. Η διαφορά δεν είναι τυχαία.
             </p>
             <p className="leading-relaxed">
               Αυτό που πληρώνετε είναι: εμπειρία, ποιότητα σχεδιασμού, SEO δομή, ταχύτητα, υποστήριξη μετά το launch και - το πιο σημαντικό - τον χρόνο που αφιερώνει κάποιος για να καταλάβει την επιχείρησή σας.
@@ -48,7 +48,7 @@ export default function WebsiteCostEl() {
           <div className="rounded-2xl overflow-hidden my-8">
             <img
               src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
-              alt="Τιμές κατασκευής ιστοσελίδας Κύπρος - οδηγός pricing 2026"
+              alt="Τιμές κατασκευής ιστοσελίδας - οδηγός pricing 2026"
               className="w-full object-cover"
               style={{ maxHeight: "320px" }}
               loading="lazy"
@@ -56,7 +56,7 @@ export default function WebsiteCostEl() {
           </div>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι Κοστίζει τι στην Κύπρο</h2>
+            <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι Κοστίζει τι</h2>
             <div className="space-y-4">
               <div className="bg-white rounded-2xl p-5 border border-[#E8EAF0]">
                 <h3 className="font-bold text-[#111315] mb-2">€99 - €200: Προσοχή</h3>
@@ -107,14 +107,14 @@ export default function WebsiteCostEl() {
               Αντί να ρωτάτε "πόσο κοστίζει μια ιστοσελίδα", ρωτήστε: "αν η ιστοσελίδα μου φέρει έναν επιπλέον πελάτη τον μήνα, πόσο αξίζει αυτό;"
             </p>
             <p className="leading-relaxed">
-              Για ένα εστιατόριο στη Λεμεσό, ένας επιπλέον πελάτης τον μήνα αξίζει εύκολα €50-100. Για ένα nail salon, μια επιπλέον κράτηση την εβδομάδα αξίζει €200+ τον μήνα. Μια ιστοσελίδα €299 αποσβένεται σε λίγες εβδομάδες.
+              Για ένα εστιατόριο στη Λεμεσό, ένας επιπλέον πελάτης τον μήνα αξίζει εύκολα €50-100. Για ένα nail salon, μια επιπλέον κράτηση την εβδομάδα αξίζει €200+ τον μήνα. Η απόδοση εξαρτάται από την επισκεψιμότητα, τη ζήτηση και το πόσες επαφές γίνονται πελάτες.
             </p>
           </section>
 
           <div className="bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] rounded-2xl p-8 border border-[#D0DEFF] mt-10">
             <h3 className="text-xl font-bold text-[#111315] mb-3">Δείτε τις Αναλυτικές Τιμές μας</h3>
             <p className="text-[#5B6472] mb-6 leading-relaxed">
-              Launch από €299, Growth €749, Pro €1.499. Εφάπαξ τιμές, χωρίς μηνιαίες χρεώσεις.
+              Δείτε τα πακέτα κατασκευής και τα πλάνα φιλοξενίας και συντήρησης, για μια πλήρη εικόνα της επένδυσής σας.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/el/pricing/">

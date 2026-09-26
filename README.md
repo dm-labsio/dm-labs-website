@@ -2,7 +2,7 @@
 
 > **Live site:** [dm-labs.io](https://dm-labs.io)
 
-The production codebase for the DM-Labs.io agency website. D&M Labs designs and builds professional, fast, and conversion-focused websites for businesses across Cyprus, Greece, Israel, and the UK — starting from €299.
+The production codebase for the DM-Labs.io agency website. D&M Labs designs and builds professional, fast, and conversion-focused websites for businesses across Cyprus, Greece, Israel, and the UK — built to strengthen brands and turn interest into enquiries.
 
 This repository serves as a public showcase of the quality and technical approach we bring to every client project.
 
