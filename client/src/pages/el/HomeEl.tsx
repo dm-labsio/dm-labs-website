@@ -1,3 +1,4 @@
+import { HomeServices, HomeProcess, HomeIndustries } from "@/components/home/HomeOverviewSections";
 import TeamProfiles from "@/components/TeamProfiles";
 /* ============================================================
    D&M LABS - Αρχικήpage
@@ -12,13 +13,7 @@ import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import InteractiveExampleCard from "@/components/InteractiveExampleCard";
 import HomeHeroScrub from "@/components/HomeHeroScrub";
-import {
-  Globe, Smartphone, Search, Zap, Shield, Clock,
-  CheckCircle2, ArrowRight, MessageCircle,
-  Utensils, Scissors, Stethoscope, Dumbbell,
-  Palette, Code, Rocket, Headphones, Quote, HelpCircle,
-  Users, CalendarCheck, Languages
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 // ─── Hand-crafted card mockups for homepage template showcase ────
 const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
@@ -231,7 +226,7 @@ export default function HomeElPage() {
               "Άμεση επαφή με Tom & Anastacia",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
-                <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0" />
+
                 <span className="font-medium">{item}</span>
               </div>
             ))}
@@ -286,97 +281,12 @@ export default function HomeElPage() {
       {/* ═══════════════════════════════════════════
           SERVICES OVERVIEW
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing">
-        <div className="container">
-          <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Οι Υπηρεσίες μας</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Δυνατή εικόνα. Περισσότεροι λόγοι να σας επιλέξουν.
-            </h2>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Ένα δυνατό brand, μια γρήγορη εμπειρία και ένας ξεκάθαρος δρόμος προς την επικοινωνία. Κάθε λεπτομέρεια έχει σκοπό.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              { icon: Globe, title: "Custom Σχεδιασμός Ιστοσελίδας", desc: "Μια ξεχωριστή ιστοσελίδα που αναδεικνύει την αξία σας. Σχεδιασμένη γύρω από το brand σας και τους πελάτες που θέλετε να κερδίσετε.", anchor: "custom-design" },
-              { icon: Smartphone, title: "Mobile-First Ανάπτυξη", desc: "Κάντε την επιλογή σας εύκολη από το κινητό. Ξεκάθαρο περιεχόμενο, απλή πλοήγηση και επικοινωνία χωρίς εμπόδια.", anchor: "mobile-first" },
-              { icon: Search, title: "SEO Βελτιστοποίηση", desc: "Σωστή δομή και τεχνικές βάσεις, ώστε οι μηχανές αναζήτησης να κατανοούν την επιχείρησή σας και οι κατάλληλοι πελάτες να μπορούν να σας βρουν.", anchor: "seo" },
-              { icon: Zap, title: "Γρήγορη Απόδοση", desc: "Κρατήστε την προσοχή στην προσφορά σας. Γρήγορες σελίδες και βελτιστοποιημένο υλικό βοηθούν τον επισκέπτη να κάνει το επόμενο βήμα.", anchor: "performance" },
-              { icon: Shield, title: "Ασφαλής και Αξιόπιστη", desc: "Αφήστε τα τεχνικά σε εμάς. Φιλοξενία, αντίγραφα ασφαλείας και διορθώσεις μέσα από το πλάνο συντήρησής σας.", anchor: "security" },
-              { icon: Clock, title: "Γρήγορη Παράδοση", desc: "Από το πλάνο στη δημοσίευση, με ξεκάθαρα ορόσημα. Συνήθως 5-14 εργάσιμες ημέρες για τυπικά έργα, ανάλογα με το εύρος και την ετοιμότητα του περιεχομένου.", anchor: "turnaround" },
-            ].map((service) => (
-              <StaggerItem key={service.title}>
-                <Link href={`/el/services/${service.anchor}/`}>
-                  <div className="dm-card h-full cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
-                    <div className="icon-container-gradient mb-5">
-                      <service.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="text-lg font-semibold text-[#111315] mb-2">{service.title}</h3>
-                    <p className="text-sm text-[#5B6472] leading-relaxed mb-4">{service.desc}</p>
-                    <span className="text-sm font-medium text-[#5B8CFF] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Μάθετε περισσότερα <ArrowRight size={14} />
-                    </span>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      <HomeServices language="el" />
 
       {/* ═══════════════════════════════════════════
           PROCESS OVERVIEW
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 100%)" }}>
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
-
-        <div className="container relative z-10">
-          <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Πώς Λειτουργεί</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Από την ιδέα στην πράξη, σε 5 ξεκάθαρα βήματα
-            </h2>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Έχουμε απλοποιήσει τη διαδικασία ώστε εσείς να εστιάζετε στη διαχείριση της επιχείρησής σας.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-            {[
-              { icon: MessageCircle, step: "01", title: "Αρχική Κλήση", desc: "Γρήγορη συνομιλία μέσω WhatsApp για να κατανοήσουμε την επιχείρησή σας και τους στόχους σας.", time: "~1 μέρα", color: "#5B8CFF" },
-              { icon: Palette, step: "02", title: "Σχεδιασμός", desc: "Δημιουργούμε custom σχεδιασμό βάσει του brand και των προτιμήσεων σας.", time: "2-3 μέρες", color: "#6FE3FF" },
-              { icon: Code, step: "03", title: "Κατασκευή", desc: "Η ιστοσελίδα σας αναπτύσσεται με καθαρό κώδικα, βελτιστοποιημένη για ταχύτητα και SEO.", time: "3-5 μέρες", color: "#8B5CFF" },
-              { icon: Headphones, step: "04", title: "Αναθεωρήσεις", desc: "Βελτιώνουμε τον σχεδιασμό βάσει των σχολίων σας μέχρι να είστε απόλυτα ικανοποιημένοι.", time: "1-2 μέρες", color: "#5B8CFF" },
-              { icon: Rocket, step: "05", title: "Κυκλοφορία", desc: "Δημοσιεύουμε την ιστοσελίδα σας, συνδέουμε το domain σας και βεβαιωνόμαστε ότι όλα λειτουργούν.", time: "~1 μέρα", color: "#6FE3FF" },
-            ].map((item) => (
-              <StaggerItem key={item.step}>
-                <div className="text-center">
-                  <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" style={{ background: `${item.color}12` }}>
-                    <item.icon size={28} style={{ color: item.color }} strokeWidth={1.75} />
-                    <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full brand-gradient text-white text-xs font-bold flex items-center justify-center">
-                      {item.step}
-                    </span>
-                  </div>
-                  <h3 className="text-base font-semibold text-[#111315] mb-1">{item.title}</h3>
-                  <p className="text-xs text-[#8B5CFF] font-medium mb-2">{item.time}</p>
-                  <p className="text-sm text-[#5B6472] leading-relaxed">{item.desc}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <AnimateIn className="text-center mt-12">
-            <Link href="/el/process/" className="btn-secondary">
-              Δείτε Ολόκληρη τη Διαδικασία
-              <ArrowRight size={16} />
-            </Link>
-          </AnimateIn>
-        </div>
-      </section>
+      <HomeProcess language="el" />
 
       {/* ═══════════════════════════════════════════
           TESTIMONIALS
@@ -397,11 +307,7 @@ export default function HomeElPage() {
             {TESTIMONIALS.map((t) => (
               <StaggerItem key={t.name}>
                 <div className="dm-card h-full flex flex-col relative">
-                  {/* Quote icon */}
-                  <div className="absolute top-5 right-5 opacity-10">
-                    <Quote size={40} className="text-[#5B8CFF]" />
-                  </div>
-                
+
                   {/* Quote text */}
                   <p className="text-sm text-[#3D4550] leading-relaxed mb-6 flex-1 italic">
                     "{t.text}"
@@ -467,7 +373,7 @@ export default function HomeElPage() {
                 <ul className="space-y-3 mb-8 flex-1">
                   {["Επώνυμη επαγγελματική σελίδα", "Responsive για κινητά", "Κουμπί WhatsApp", "Σύνδεσμοι social media", "Widget προσβασιμότητας (δωρεάν)", "2 γύροι αναθεωρήσεων", "Παράδοση σε 5-7 μέρες"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                      <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
+
                       {f}
                     </li>
                   ))}
@@ -492,7 +398,7 @@ export default function HomeElPage() {
                   <ul className="space-y-3 mb-8 flex-1">
                     {["Έως 5 σελίδες", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Ενότητα μαρτυριών", "Βασική SEO βελτιστοποίηση", "Βελτιστοποίηση ταχύτητας", "Widget προσβασιμότητας (δωρεάν)", "3 γύροι αναθεωρήσεων", "Παράδοση σε 7-10 μέρες"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                        <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
+
                         {f}
                       </li>
                     ))}
@@ -516,7 +422,7 @@ export default function HomeElPage() {
                 <ul className="space-y-3 mb-8 flex-1">
                   {["Έως 7 σελίδες", "Πλήρως custom σχεδιασμός + animations", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Μαρτυρίες + gallery", "5 SEO blog άρθρα", "Πλήρης meta/SEO δομή", "Pop-up συμπεριλαμβάνεται", "Widget προσβασιμότητας (δωρεάν)", "4 γύροι αναθεωρήσεων", "Παράδοση σε 10-14 μέρες"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                      <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
+
                       {f}
                     </li>
                   ))}
@@ -548,7 +454,7 @@ export default function HomeElPage() {
                     className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"
                     style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}
                   >
-                    <MessageCircle size={16} /> Επικοινωνήστε μαζί μας
+                     Επικοινωνήστε μαζί μας
                   </Link>
                 </div>
 
@@ -558,17 +464,17 @@ export default function HomeElPage() {
                 {/* Right: feature grid */}
                 <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
                   {[
-                    { icon: Globe, label: "Πλήρως custom σχεδιασμός από μηδενική βάση" },
-                    { icon: Zap, label: "Απεριόριστες σελίδες" },
-                    { icon: CalendarCheck, label: "Ενσωματώσεις CRM και κρατήσεων" },
-                    { icon: Languages, label: "Υποστήριξη πολλαπλών γλωσσών" },
-                    { icon: Users, label: "Αποκλειστικός project manager" },
-                    { icon: Headphones, label: "Προτεραιότητα υποστήριξης και παράδοσης" },
-                    { icon: ArrowRight, label: "Επιλογή συνεχούς συνεργασίας" },
-                    { icon: CheckCircle2, label: "Custom SEO και στρατηγική περιεχομένου" },
-                  ].map(({ icon: Icon, label }) => (
+                    { label: "Πλήρως custom σχεδιασμός από μηδενική βάση" },
+                    { label: "Απεριόριστες σελίδες" },
+                    { label: "Ενσωματώσεις CRM και κρατήσεων" },
+                    { label: "Υποστήριξη πολλαπλών γλωσσών" },
+                    { label: "Αποκλειστικός project manager" },
+                    { label: "Προτεραιότητα υποστήριξης και παράδοσης" },
+                    { label: "Επιλογή συνεχούς συνεργασίας" },
+                    { label: "Custom SEO και στρατηγική περιεχομένου" },
+                  ].map(({ label }) => (
                     <div key={label} className="flex items-start gap-2.5">
-                      <Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />
+
                       <span className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>{label}</span>
                     </div>
                   ))}
@@ -592,47 +498,7 @@ export default function HomeElPage() {
       {/* ═══════════════════════════════════════════
           INDUSTRIES WE SERVE
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
-        <div className="container">
-          <AnimateIn className="text-center mb-8">
-            <p className="text-base text-[#5B6472]">Κλάδοι με τους οποίους συνεργαζόμαστε:</p>
-          </AnimateIn>
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { icon: Utensils, label: "Εστιατόρια", industry: "restaurant" },
-              { icon: Scissors, label: "Κομμωτήρια και Σαλόνια Ομορφιάς", industry: "beauty" },
-              { icon: Stethoscope, label: "Κλινικές", industry: "clinic" },
-              { icon: Dumbbell, label: "Fitness και Γυμναστήρια", industry: "fitness" },
-
-            ].map((biz) => (
-              <StaggerItem key={biz.label}>
-                <Link href="/el/templates/">
-                  <div className="dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 hover:border-[#5B8CFF]/40 transition-all duration-300">
-                    <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
-                      <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
-                    </div>
-                    <p className="text-sm font-semibold text-[#111315]">{biz.label}</p>
-                    <p className="text-xs mt-1 text-[#5B8CFF]">Δείτε παραδείγματα →</p>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-          {/* Can't find your industry CTA */}
-          <AnimateIn className="text-center mt-10">
-            <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-[#F8FAFF] border border-[#5B8CFF]/20">
-              <HelpCircle size={18} className="text-[#5B8CFF] shrink-0" />
-              <p className="text-sm text-[#5B6472]">
-                <strong className="text-[#111315]">Δεν βλέπετε τον κλάδο σας;</strong>{" "}
-                Συνεργαζόμαστε με όλους τους τύπους επιχειρήσεων.{" "}
-                <Link href="/el/contact/" className="text-[#5B8CFF] font-medium hover:underline">
-                  Επικοινωνήστε μαζί μας →
-                </Link>
-              </p>
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
+      <HomeIndustries language="el" />
 
       {/* ═══════════════════════════════════════════
           STATS BANNER - vivid gradient, animated on scroll
@@ -720,7 +586,7 @@ export default function HomeElPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <StarButton asChild><Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">
-                <MessageCircle size={20} />
+
                 Δωρεάν Συμβουλευτική
               </Link></StarButton>
             </div>

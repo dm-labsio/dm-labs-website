@@ -1,3 +1,4 @@
+import { HomeServices, HomeProcess, HomeIndustries } from "@/components/home/HomeOverviewSections";
 import TeamProfiles from "@/components/TeamProfiles";
 /* ============================================================
    DM-Labs.io - Homepage
@@ -13,13 +14,7 @@ import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn
 import EditorialFitLine from "@/components/EditorialFitLine";
 import InteractiveExampleCard from "@/components/InteractiveExampleCard";
 import HomeHeroScrub from "@/components/HomeHeroScrub";
-import {
-  Globe, Smartphone, Search, Zap, Shield, Clock,
-  CheckCircle2, ArrowRight, MessageCircle,
-  Utensils, Scissors, Stethoscope, Dumbbell,
-  Palette, Code, Rocket, Headphones, Quote, HelpCircle,
-  Users, CalendarCheck, Languages
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 // ─── Hand-crafted card mockups for homepage template showcase ────
 const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
@@ -300,7 +295,7 @@ export default function HomePage() {
               "Direct access to Tom & Anastacia",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
-                <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0" />
+
                 <span className="font-medium">{item}</span>
               </div>
             ))}
@@ -355,97 +350,12 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           SERVICES OVERVIEW
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing">
-        <div className="container">
-          <AnimateIn className="text-center mb-16">
-            <p className="editorial-label mb-4">Our Services</p>
-            <h2 className="editorial-section-heading mb-5">
-              Look the Part. <span className="editorial-serif">Win</span> the Enquiry.
-            </h2>
-            <p className="editorial-lead max-w-2xl mx-auto">
-              A confident brand, a fast experience, and a clear path to contact you. Every detail has a job to do.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              { icon: Globe, title: "Custom Website Design", desc: "A distinctive website that makes your business look as capable as it is. Built around your brand and the customers you want to win.", anchor: "custom-design" },
-              { icon: Smartphone, title: "Mobile-First Development", desc: "Make it easy to choose you from a phone. Clear content, simple navigation, and contact options within reach.", anchor: "mobile-first" },
-              { icon: Search, title: "SEO Optimisation", desc: "Give search engines a clear picture of your business, so the right customers have a stronger path to finding you.", anchor: "seo" },
-              { icon: Zap, title: "Fast Performance", desc: "Keep attention on your offer. Fast pages and optimised media help customers reach the next step without waiting.", anchor: "performance" },
-              { icon: Shield, title: "Secure & Reliable", desc: "Keep the technical work off your desk. Hosting, backups, and fixes are handled through your ongoing care plan.", anchor: "security" },
-              { icon: Clock, title: "Quick Turnaround", desc: "Move from plan to launch with clear milestones. Standard builds typically take 5-14 business days, depending on scope and content readiness.", anchor: "turnaround" },
-            ].map((service) => (
-              <StaggerItem key={service.title}>
-                <Link href={`/services/${service.anchor}/`}>
-                  <div className="dm-card h-full cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
-                    <div className="icon-container-gradient mb-5">
-                      <service.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="editorial-card-title text-lg mb-2">{service.title}</h3>
-                    <p className="editorial-card-copy text-sm text-[#5B6472] leading-relaxed mb-4">{service.desc}</p>
-                    <span className="text-sm font-medium text-[#5B8CFF] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Read more <ArrowRight size={14} />
-                    </span>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      <HomeServices language="en" />
 
       {/* ═══════════════════════════════════════════
           PROCESS OVERVIEW
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 100%)" }}>
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
-
-        <div className="container relative z-10">
-          <AnimateIn className="text-center mb-16">
-            <p className="editorial-label mb-4">How It Works</p>
-            <h2 className="editorial-section-heading mb-5">
-              From Idea to Launch in 5 Simple Steps
-            </h2>
-            <p className="editorial-lead max-w-2xl mx-auto">
-              Clear milestones. Direct answers. A website ready for business. We drive the project forward and keep you in control at every step.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-            {[
-              { icon: MessageCircle, step: "01", title: "Discovery Call", desc: "Quick WhatsApp chat to understand your business and goals.", time: "~1 day", color: "#5B8CFF" },
-              { icon: Palette, step: "02", title: "Design", desc: "We create a custom design based on your brand and preferences.", time: "2-3 days", color: "#6FE3FF" },
-              { icon: Code, step: "03", title: "Build", desc: "Your website is developed with clean code, optimised for speed and SEO.", time: "3-5 days", color: "#8B5CFF" },
-              { icon: Headphones, step: "04", title: "Revisions", desc: "We refine the design based on your feedback until you're happy.", time: "1-2 days", color: "#5B8CFF" },
-              { icon: Rocket, step: "05", title: "Launch", desc: "We deploy your site, connect your domain, and make sure everything works.", time: "~1 day", color: "#6FE3FF" },
-            ].map((item) => (
-              <StaggerItem key={item.step}>
-                <div className="text-center">
-                  <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" style={{ background: `${item.color}12` }}>
-                    <item.icon size={28} style={{ color: item.color }} strokeWidth={1.75} />
-                    <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full brand-gradient text-white text-xs font-bold flex items-center justify-center">
-                      {item.step}
-                    </span>
-                  </div>
-                  <h3 className="editorial-card-title text-base mb-1">{item.title}</h3>
-                  <p className="text-xs text-[#8B5CFF] font-medium mb-2">{item.time}</p>
-                  <p className="text-sm text-[#5B6472] leading-relaxed">{item.desc}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <AnimateIn className="text-center mt-12">
-            <Link href="/process/" className="btn-secondary">
-              See Full Process
-              <ArrowRight size={16} />
-            </Link>
-          </AnimateIn>
-        </div>
-      </section>
+      <HomeProcess language="en" />
 
       {/* ═══════════════════════════════════════════
           TESTIMONIALS
@@ -466,11 +376,7 @@ export default function HomePage() {
             {TESTIMONIALS.map((t) => (
               <StaggerItem key={t.name}>
                 <div className="dm-card h-full flex flex-col relative">
-                  {/* Quote icon */}
-                  <div className="absolute top-5 right-5 opacity-10">
-                    <Quote size={40} className="text-[#5B8CFF]" />
-                  </div>
-                
+
                   {/* Quote text */}
                   <p className="editorial-quote text-[#3D4550] mb-6 flex-1">
                     "{t.text}"
@@ -534,7 +440,7 @@ export default function HomePage() {
                 <ul className="space-y-3 mb-8 flex-1">
                   {["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                      <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
+
                       {f}
                     </li>
                   ))}
@@ -557,7 +463,7 @@ export default function HomePage() {
                   <ul className="space-y-3 mb-8 flex-1">
                     {["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"].map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                        <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
+
                         {f}
                       </li>
                     ))}
@@ -579,7 +485,7 @@ export default function HomePage() {
                 <ul className="space-y-3 mb-8 flex-1">
                   {["Up to 7 pages", "Gallery or portfolio", "Pop-up and scroll-driven animations", "Full SEO structure", "Blog setup or website visual pack", "4 revision rounds"].map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                      <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
+
                       {f}
                     </li>
                   ))}
@@ -609,7 +515,7 @@ export default function HomePage() {
                     className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"
                     style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}
                   >
-                    <MessageCircle size={16} /> Contact Us
+                     Contact Us
                   </Link>
                 </div>
 
@@ -619,17 +525,17 @@ export default function HomePage() {
                 {/* Right: feature grid */}
                 <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
                   {[
-                    { icon: Globe, label: "Fully custom design from scratch" },
-                    { icon: Zap, label: "Scope designed around your project" },
-                    { icon: CalendarCheck, label: "CRM and booking integrations" },
-                    { icon: Languages, label: "Multi-language support" },
-                    { icon: Users, label: "Dedicated project manager" },
-                    { icon: Headphones, label: "Priority support and delivery" },
-                    { icon: ArrowRight, label: "Ongoing retainer option" },
-                    { icon: CheckCircle2, label: "Custom SEO and content strategy" },
-                  ].map(({ icon: Icon, label }) => (
+                    { label: "Fully custom design from scratch" },
+                    { label: "Scope designed around your project" },
+                    { label: "CRM and booking integrations" },
+                    { label: "Multi-language support" },
+                    { label: "Dedicated project manager" },
+                    { label: "Priority support and delivery" },
+                    { label: "Ongoing retainer option" },
+                    { label: "Custom SEO and content strategy" },
+                  ].map(({ label }) => (
                     <div key={label} className="flex items-start gap-2.5">
-                      <Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />
+
                       <span className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>{label}</span>
                     </div>
                   ))}
@@ -653,47 +559,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           INDUSTRIES WE SERVE
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
-        <div className="container">
-          <AnimateIn className="text-center mb-8">
-            <p className="editorial-label">Industries we work with</p>
-          </AnimateIn>
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { icon: Utensils, label: "Restaurants", industry: "restaurant" },
-              { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
-              { icon: Stethoscope, label: "Clinics", industry: "clinic" },
-              { icon: Dumbbell, label: "Fitness", industry: "fitness" },
-
-            ].map((biz) => (
-              <StaggerItem key={biz.label}>
-                <Link href="/templates/">
-                  <div className="dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 hover:border-[#5B8CFF]/40 transition-all duration-300">
-                    <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
-                      <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
-                    </div>
-                    <p className="editorial-card-title text-sm">{biz.label}</p>
-                    <p className="text-xs mt-1 text-[#5B8CFF]">View examples →</p>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-          {/* Can't find your industry CTA */}
-          <AnimateIn className="text-center mt-10">
-            <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-[#F8FAFF] border border-[#5B8CFF]/20">
-              <HelpCircle size={18} className="text-[#5B8CFF] shrink-0" />
-              <p className="text-sm text-[#5B6472]">
-                <strong className="text-[#111315]">Don't see your industry?</strong>{" "}
-                We work with all types of businesses.{" "}
-                <Link href="/contact/" className="text-[#5B8CFF] font-medium hover:underline">
-                  Get in touch →
-                </Link>
-              </p>
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
+      <HomeIndustries language="en" />
 
       {/* ═══════════════════════════════════════════
           STATS BANNER - vivid gradient, animated on scroll
@@ -781,7 +647,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <StarButton asChild><Link href="/contact/" className="btn-primary !h-14 !text-base !px-8">
-                <MessageCircle size={20} />
+
                 Get a Free Consultation
               </Link></StarButton>
             </div>
