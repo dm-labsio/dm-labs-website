@@ -12,7 +12,7 @@ import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import InteractiveExampleCard from "@/components/InteractiveExampleCard";
-import HomeHeroScrub from "@/components/HomeHeroScrub";
+import HomeHero from "@/components/home/HomeHero";
 import { ArrowRight } from "lucide-react";
 
 // ─── Hand-crafted card mockups for homepage template showcase ────
@@ -189,28 +189,7 @@ export default function HomeElPage() {
       {/* ═══════════════════════════════════════════
           HERO SECTION
           ═══════════════════════════════════════════ */}
-      <HomeHeroScrub>
-        <p className="text-sm font-medium text-[#5B6472] mb-4 tracking-wide uppercase">
-          Για το επόμενο βήμα σας
-        </p>
-        <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1] mb-6">
-          Εντυπωσιάζει με την πρώτη ματιά.{" "}
-          <span className="brand-gradient-text">Μετατρέπει το ενδιαφέρον σε πελάτες.</span>
-        </h1>
-        <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-2xl mx-auto">
-          Δυνατή εικόνα. Εμπιστοσύνη. Περισσότερες επαφές. Γρήγορες, custom ιστοσελίδες με τα τεχνικά στα χέρια μας. Όπου κι αν δραστηριοποιείστε.
-        </p>
-        <div className="flex flex-wrap gap-4 justify-center">
-          <StarButton asChild><Link href="/el/contact/" className="btn-primary">
-            Δωρεάν Συμβουλευτική
-            <ArrowRight size={18} />
-          </Link></StarButton>
-          <Link href="/el/templates/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
-            Δείτε Παραδείγματα
-            <ArrowRight size={18} />
-          </Link>
-        </div>
-      </HomeHeroScrub>
+      <HomeHero language="el" />
 
       {/* ═══════════════════════════════════════════
           TRUST STRIP

@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import InteractiveExampleCard from "@/components/InteractiveExampleCard";
-import HomeHeroScrub from "@/components/HomeHeroScrub";
+import HomeHero from "@/components/home/HomeHero";
 
 const WHATSAPP_HEBREW = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20DM-Labs.io%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%9C%D7%92%D7%91%D7%99%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.";
 const GRADIENT_BG = "/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
@@ -37,14 +37,7 @@ export default function HomeHe() {
   }, []);
 
   return <div className="hebrew-home hebrew-home-refresh" lang="he" dir="rtl">
-    <HomeHeroScrub variant="hebrew">
-      <div className="text-center">
-        <p className="mb-4 text-sm font-semibold tracking-[0.16em] text-[#5B8CFF]">אתרים מדויקים לעסקים עם שאיפות</p>
-        <h1 className="mx-auto max-w-4xl text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1]">בונים לכם אתר שיביא יותר לקוחות</h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#5B6472]">שדרו הצלחה. בנו אמון. הפכו את הפנייה הבאה לפשוטה. אנחנו בונים אתרים מרשימים ומהירים ומטפלים בפרטים הטכניים, כדי שתוכלו להתמקד בעסק. בכל מקום שבו העסק שלכם פועל.</p>
-        <div className="mt-8 flex flex-wrap justify-center gap-4"><StarButton asChild><a href={WHATSAPP_HEBREW} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">שיחת ייעוץ ללא עלות </a></StarButton><a href="#examples" className="btn-secondary inline-flex items-center gap-2">דוגמאות לעבודה <ArrowLeft size={18} /></a></div>
-      </div>
-    </HomeHeroScrub>
+    <HomeHero language="he" />
 
     <section className="bg-white border-y border-[#E2E5EA]"><div className="container py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">{["עיצוב שבונה אמון", "מסירה בתוך ימים", "מותאם למובייל", "מוכן ל-SEO", "קשר ישיר עם טום ואנסטסיה"].map(item => <span key={item} className="flex items-center gap-2 text-sm font-medium text-[#5B6472]">{item}</span>)}</div></section>
 

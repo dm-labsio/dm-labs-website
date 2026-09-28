@@ -78,47 +78,8 @@ export default function CookieBanner() {
     const stored = localStorage.getItem(COOKIE_KEY);
     if (stored) return;
 
-    if (locale !== "he") {
-      const timer = setTimeout(() => setVisible(true), 1200);
-      return () => clearTimeout(timer);
-    }
-
-    if (window.matchMedia("(max-width: 767px)").matches) {
-      const timer = window.setTimeout(() => setVisible(true), 1200);
-      return () => window.clearTimeout(timer);
-    }
-
-    let releaseCheckFrame = 0;
-    let revealTimer = 0;
-    const revealAfterHero = () => {
-      const hero = document.querySelector<HTMLElement>(".hero-scrub-scope--hebrew");
-      if (!hero) {
-        setVisible(true);
-        return;
-      }
-      if (hero.dataset.released === "true") {
-        if (!revealTimer) {
-          revealTimer = window.setTimeout(() => setVisible(true), 650);
-        }
-        return;
-      }
-      if (revealTimer) {
-        window.clearTimeout(revealTimer);
-        revealTimer = 0;
-      }
-      setVisible(false);
-      releaseCheckFrame = window.requestAnimationFrame(revealAfterHero);
-    };
-    const timer = window.setTimeout(() => {
-      revealAfterHero();
-    }, 2000);
-    window.addEventListener("scroll", revealAfterHero, { passive: true });
-    return () => {
-      window.clearTimeout(timer);
-      window.cancelAnimationFrame(releaseCheckFrame);
-      window.clearTimeout(revealTimer);
-      window.removeEventListener("scroll", revealAfterHero);
-    };
+    const timer = window.setTimeout(() => setVisible(true), 1200);
+    return () => window.clearTimeout(timer);
   }, [locale]);
 
   const saveConsent = (analyticsConsent: boolean) => {

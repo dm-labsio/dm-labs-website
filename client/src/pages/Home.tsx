@@ -12,7 +12,7 @@ import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import InteractiveExampleCard from "@/components/InteractiveExampleCard";
-import HomeHeroScrub from "@/components/HomeHeroScrub";
+import HomeHero from "@/components/home/HomeHero";
 import { ArrowRight } from "lucide-react";
 
 // ─── Hand-crafted card mockups for homepage template showcase ────
@@ -252,27 +252,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           HERO SECTION
           ═══════════════════════════════════════════ */}
-      <HomeHeroScrub>
-        <div className="editorial-hero-copy">
-        <p className="editorial-label mb-5">
-          Built for your next level
-        </p>
-        <h1 className="brand-home-title">Built to impress. Designed to convert.</h1>
-        <p className="editorial-lead mb-8 max-w-2xl mx-auto">
-          Look established. Earn trust. Make the next enquiry easy. We build sharp, fast websites and handle the technical details, so you can focus on your business. Wherever you do business.
-        </p>
-        <div className="editorial-hero-actions flex flex-wrap gap-4 justify-center">
-          <StarButton asChild><Link href="/contact/" className="btn-primary">
-            Get a Free Consultation
-            <ArrowRight size={18} />
-          </Link></StarButton>
-          <Link href="/templates/" className="editorial-outline-button">
-            Browse Examples
-            <ArrowRight size={18} />
-          </Link>
-        </div>
-        </div>
-      </HomeHeroScrub>
+      <HomeHero language="en" />
 
       {/* ═══════════════════════════════════════════
           TRUST STRIP

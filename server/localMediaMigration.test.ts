@@ -32,17 +32,23 @@ const repositorySource = [
 const mediaFiles = collectFiles(mediaRoot);
 
 describe("GitHub-backed static media migration", () => {
-  it("stores every migrated file as a referenced WebP below the one-megabyte checkpoint cap", () => {
-    expect(mediaFiles).toHaveLength(129);
+  it("keeps current and retired versioned WebP assets below the one-megabyte checkpoint cap", () => {
+    expect(mediaFiles).toHaveLength(131);
 
     const mediaReferences = new Set(clientSource.match(/\/media\/[A-Za-z0-9._/-]+\.webp/g) ?? []);
-    expect(mediaReferences.size).toBe(129);
+    expect(mediaReferences.size).toBe(127);
+    const retiredHeroAssets = new Set([
+      "/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp",
+      "/media/hero/dm-labs-mobile-hero-opening-poster_6fc35873.webp",
+      "/media/hero/hebrew-mobile-hero-sprite.webp",
+      "/media/hero/hebrew-mobile-hero-static-frame.webp",
+    ]);
 
     for (const mediaFile of mediaFiles) {
       expect(extname(mediaFile)).toBe(".webp");
       expect(statSync(mediaFile).size).toBeLessThan(1_000_000);
       const publicPath = `/${relative(resolve(clientRoot, "public"), mediaFile).replaceAll("\\", "/")}`;
-      expect(mediaReferences.has(publicPath), publicPath).toBe(true);
+      expect(mediaReferences.has(publicPath) || retiredHeroAssets.has(publicPath), publicPath).toBe(true);
     }
 
     for (const mediaReference of mediaReferences) {
@@ -57,13 +63,11 @@ describe("GitHub-backed static media migration", () => {
     expect(repositorySource).not.toContain(["/manus", "storage/"].join("-"));
   });
 
-  it("uses the four existing and seven approved cinematic Vercel Blob MP4 videos while leaving 79 Unsplash image objects unchanged in scope", () => {
+  it("uses the two demo and seven existing cinematic cinematic Vercel Blob MP4 videos while leaving 79 Unsplash image objects unchanged in scope", () => {
     const blobVideoReferences = new Set(
       clientSource.match(/https:\/\/zcqnftsc7hsxgrnx\.public\.blob\.vercel-storage\.com\/[^\s"'()]+\.mp4/g) ?? [],
     );
     expect(blobVideoReferences).toEqual(new Set([
-      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-hero-tunnel-scrub_89732dad.mp4",
-      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4",
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dr-elara-root-canal-treatment_dc985187.mp4",
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/nomad-coffee-scroll-video-all-intra_ab16c684.mp4",
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_futuristic_conversation_animation.mp4",

@@ -52,8 +52,8 @@ body { font-family: var(--font-body); font-size: 1.125rem; font-weight: 400; lin
 [data-brand] h3 { font-size: clamp(1.5rem, 2.2vw, 2rem); }
 [data-brand] :where(h4, h5, h6) { font-size: 1.25rem; }
 [data-brand] :is(h1, h2, h3, h4, h5, h6) :is(em, strong, span, a) { font: inherit; letter-spacing: inherit; line-height: inherit; text-transform: inherit; white-space: normal; }
-[data-brand] .brand-home-title { font-size: clamp(3rem, 6vw, 6rem); max-inline-size: 20ch; margin: 0 auto 1.5rem; }
-:lang(el) [data-brand] .hero-scrub-copy h1 { font-size: clamp(3rem, 5vw, 5rem); }
+[data-brand] .home-hero-title { font-size: clamp(3rem, 5.4vw, 5.5rem); text-wrap: balance; }
+:lang(el) [data-brand] .home-hero-title { font-size: clamp(3rem, 4vw, 3.5rem); }
 [data-brand] :is(.blog-content, .prose) :is(h2, h3) { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.3; }
 [data-brand] article h1 { font-size: clamp(2rem, 4vw, 3.5rem); line-height: var(--title-leading); }
 [data-brand] :is(button, input, select, textarea, label, th),
@@ -86,19 +86,15 @@ body { font-family: var(--font-body); font-size: 1.125rem; font-weight: 400; lin
 .cookie-consent-title { font-family: var(--font-body); font-size: 1rem; font-weight: 700; line-height: 1.4; }
 [role="dialog"], [role="menu"], [data-sonner-toaster] { font-family: var(--font-body); font-synthesis: none; }
 [role="dialog"] :is(button, label), [role="menuitem"] { font-family: var(--font-body); font-weight: 700; }
-/* Mobile already uses a static hero; let longer translated headings grow it. */
-@media (max-width: 767px) {
-  .hero-scrub-scope[data-mobile-hero="static"] .hero-scrub-stage { height: auto; min-height: calc(100svh - 72px); }
-  .hero-scrub-scope[data-mobile-hero="static"] .hero-scrub-copy { position: relative; min-height: calc(100svh - 72px); padding-block: 3rem; }
-}
 /* Existing numeric summaries that predate semantic price classes. */
 [data-brand] p:is(.text-3xl, .text-4xl, .text-5xl, .text-6xl) { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.2; }
 [data-brand] .home-overview h2 { margin-inline: 0; }
 [data-brand] header > .container { max-width: none; gap: 1rem; }
 [data-brand] header nav { gap: 1rem; }
-[data-brand] .hero-scrub-copy h1 .brand-gradient-text { color: #3D52C9; background: none; -webkit-text-fill-color: currentColor; }
+[data-brand] :is(.home-hero-primary, .home-hero-secondary) { font-family: var(--font-body); font-size: 1.0625rem; font-weight: 700; line-height: 1.4; }
+[data-brand] .home-hero-note { font-size: .875rem; }
 /* Greek's wider display glyphs need a smaller floor on narrow phones.
    Preserve the font's proportions and full words instead of compressing type. */
 @media (max-width: 600px) {
-  :lang(el) [data-brand] h1, :lang(el) [data-brand] .hero-scrub-copy h1 { font-size: clamp(2rem, 10vw, 3rem); }
+  :lang(el) [data-brand] h1, :lang(el) [data-brand] .home-hero-title { font-size: clamp(2rem, 10vw, 3rem); }
 }

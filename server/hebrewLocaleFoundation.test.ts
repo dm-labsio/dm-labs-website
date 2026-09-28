@@ -55,16 +55,9 @@ describe("Hebrew locale foundation", () => {
     expect(cookieBanner).toContain('privacyHref: "/he/privacy/"');
     expect(cookieBanner).toContain('w-[min(11.5rem,calc(100vw-1.5rem))]');
     expect(cookieBanner).toContain('left-3 right-auto text-right sm:bottom-5 sm:w-[min(16rem,calc(100vw-2rem))]');
-    expect(cookieBanner).toContain('document.querySelector<HTMLElement>(".hero-scrub-scope--hebrew")');
-    expect(cookieBanner).toContain('hero.dataset.released === "true"');
-    expect(cookieBanner).toContain('let revealTimer = 0');
-    expect(cookieBanner).toContain('hero.dataset.released === "true"');
-    expect(cookieBanner).toContain('window.setTimeout(() => setVisible(true), 650)');
-    expect(cookieBanner).toContain('if (window.matchMedia("(max-width: 767px)").matches)');
     expect(cookieBanner).toContain('const timer = window.setTimeout(() => setVisible(true), 1200);');
-    expect(cookieBanner).toContain('setVisible(false);');
-    expect(cookieBanner).toContain('window.addEventListener("scroll", revealAfterHero, { passive: true })');
-    expect(cookieBanner).toContain('window.requestAnimationFrame(revealAfterHero)');
+    expect(cookieBanner).not.toContain('requestAnimationFrame');
+    expect(cookieBanner).not.toContain('hero.dataset');
     expect(cookieBanner).toContain('flex items-center justify-center');
   });
 
@@ -80,41 +73,18 @@ describe("Hebrew locale foundation", () => {
     expect(pricing).not.toContain('<small> one-time</small>');
     expect(styles).toContain('overflow-wrap: anywhere;');
     expect(readSource("client/src/styles/typography.css")).toContain('overflow-wrap: break-word');
-    expect(styles).toContain('background: #f6f6f4;');
     expect(layout).toContain('border-[#E2E5EA] bg-[#F6F6F4] shadow-sm');
   });
 
-  it("keeps Hebrew within the shared static-mobile Hero contract while preserving desktop media and language isolation", () => {
-    const scrub = readSource("client/src/components/HomeHeroScrub.tsx");
+  it("uses the shared immediate Hebrew hero without changing example artwork or flag geometry", () => {
     const home = readSource("client/src/pages/he/HomeHe.tsx");
-    const cards = readSource("client/src/components/InteractiveExampleCard.tsx");
-    const canvasSequence = readSource("client/src/components/HebrewMobileCanvasSequence.tsx");
     const styles = readSource("client/src/index.css");
     const layout = readSource("client/src/components/Layout.tsx");
-
-    expect(home).toContain('<HomeHeroScrub variant="hebrew">');
-    expect(scrub).toContain('variant?: "default" | "hebrew"');
-    expect(scrub).toContain('const isStaticMobile = isMobileViewport && scope.dataset.mobileHero === "static";');
-    expect(cards).toContain('interactive-example-card');
-    expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew');
-    expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video)');
+    expect(home).toContain('<HomeHero language="he" />');
     expect(styles).toContain('html[dir="rtl"] .hebrew-home .interactive-example-card img');
-    expect(scrub).toContain('data-mobile-hero="static"');
-    expect(scrub).toContain('scope.dataset.video = "none";');
-    expect(scrub).toContain('<source media="(min-width: 768px)" src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />');
-    expect(canvasSequence).toContain('scope.dataset.mobileHero === "static"');
-    expect(canvasSequence).not.toContain('scope.dataset.released = "true"');
-    expect(styles).toContain('html.js .hero-scrub-scope[data-mobile-hero="static"] .hero-scrub-copy');
-    expect(scrub).toContain('<HebrewMobileCanvasSequence />');
-    expect(styles).toContain('.hero-scrub-canvas');
     expect(layout).toContain('src="/media/icons/israel-flag-icon.webp"');
     expect(layout).toContain('width="20"');
     expect(layout).toContain('height="20"');
-    expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-poster');
-    expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-wash');
-    expect(scrub).toContain('HEBREW_STATIC_MOBILE_HERO_ART_URL');
-    expect(scrub).toContain('className="hero-scrub-hebrew-static-art"');
-    expect(styles).toContain('hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-hebrew-static-art');
   });
 
   it("keeps the Hebrew pricing comparison and consent persistence aligned with shared behavior", () => {

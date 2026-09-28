@@ -30,7 +30,8 @@ try {
       assert.equal(await page.locator(".btn-primary:not(.star-button)").count(), 0);
       assert.equal(await page.locator("button button, a button, button a").count(), 0);
       assert.equal(await page.locator("vite-error-overlay").count(), 0);
-      const hero = page.locator(".hero-scrub-copy .star-button").first();
+      // The new homepage hero uses its own solid brand CTA. Check the retained glass CTA below it.
+      const hero = page.locator("main .star-button").first();
       const name = await hero.innerText();
       assert.ok(name.trim().length > 0);
       await page.emulateMedia({ reducedMotion: "no-preference" });

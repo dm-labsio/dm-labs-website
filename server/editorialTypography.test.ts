@@ -21,7 +21,10 @@ const htmlSource = readFileSync(resolve(projectRoot, "client/index.html"), "utf8
 
 describe("Brand typography migration", () => {
   it("uses one visible semantic homepage heading with natural wrapping", () => {
-    expect(homeSource).toContain('<h1 className="brand-home-title">Built to impress. Designed to convert.</h1>');
+    expect(homeSource).toContain('<HomeHero language="en" />');
+    const hero = readFileSync(resolve(projectRoot, "client/src/components/home/HomeHero.tsx"), "utf8");
+    expect(hero).toContain('<h1 id="home-hero-heading"');
+    expect(hero).not.toContain('className="sr-only"');
     expect(homeSource).not.toContain("EditorialFitLine");
     expect(homeSource).not.toContain('className="sr-only"');
     expect(processSource).not.toContain("EditorialFitLine");
