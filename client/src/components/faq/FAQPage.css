@@ -1,0 +1,76 @@
+/* Keep the page viewport as the scroll container so its topic index can stick.
+   Scope to FAQ; native menu scroll locking still wins through its inline style. */
+html:has(.faq-page), body:has(.faq-page) { overflow-x: clip; }
+.faq-page { color: #F6F5F2; background: #101729; color-scheme: dark; }
+.faq-hero { position: relative; isolation: isolate; overflow: clip; }
+.faq-art, .faq-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.faq-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #10172926, #10172988 80%, #101729); pointer-events: none; }
+.faq-hero-copy { position: relative; z-index: 1; text-align: center; padding-block: clamp(3.5rem, 7vw, 7rem) clamp(4rem, 8vw, 8rem); }
+.faq-page .brand-micro { color: #A8B8FF; margin: 0 0 1.25rem; }
+[data-brand] .faq-hero h1 { font-size: clamp(2.5rem, 6.5vw, 6rem); color: #F6F5F2; margin: 0 auto 1.75rem; max-width: 65rem; }
+[data-brand] .faq-hero h1 span { display: block; color: #A8B8FF; }
+[data-brand] .faq-page:lang(el) .faq-hero h1 { font-size: clamp(2rem, 4.8vw, 4.5rem); }
+.faq-intro { max-width: 40rem; margin: 0 auto 1.5rem; color: #D1D7E5; }
+.faq-text-link { display: inline-flex; align-items: center; justify-content: center; gap: .85rem; min-height: 3rem; text-decoration: underline; text-underline-offset: .3em; font-weight: 700; }
+.faq-page a:focus-visible, .faq-question summary:focus-visible { outline: 3px solid #70D7F0; outline-offset: 5px; border-radius: 2px; }
+.faq-reading-layout { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.8fr); gap: clamp(2rem, 6vw, 6rem); padding-block: 3rem 6rem; scroll-margin-top: 7rem; }
+.faq-topic-nav { position: sticky; top: 8rem; align-self: start; }
+.faq-topic-nav ol { padding: 0; margin: 0 0 1.5rem; list-style: none; }
+.faq-topic-nav li { border-bottom: 1px solid #39425A; }
+.faq-topic-nav li a { display: flex; align-items: baseline; gap: 1rem; padding-block: 1rem; text-decoration: none; font-weight: 700; }
+.faq-index { font-family: "Fira Mono", monospace; font-size: .875rem; color: #A8B8FF; direction: ltr; }
+.faq-topic-help { display: inline-block; padding-block: .75rem; color: #A8B8FF; text-decoration: underline; text-underline-offset: .3em; }
+.faq-groups { min-width: 0; }
+.faq-group { scroll-margin-top: 7rem; margin-bottom: 4.5rem; }
+.faq-group:last-child { margin-bottom: 0; }
+.faq-group-header { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+.faq-group-number { font-family: "Rubik", Arial, sans-serif; font-size: 3rem; font-weight: 800; line-height: 1.2; letter-spacing: -.03em; color: #A8B8FF; direction: ltr; }
+[data-brand] .faq-group h2 { font-size: clamp(1.75rem, 3vw, 2.75rem); color: #F6F5F2; margin: 0 0 .65rem; text-wrap: pretty; }
+.faq-group-header p { color: #BFC8DD; }
+.faq-questions { border-top: 1px solid #526079; }
+.faq-question { border-bottom: 1px solid #39425A; }
+.faq-question summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; cursor: pointer; padding: 1.4rem .25rem; list-style: none; }
+.faq-question summary::-webkit-details-marker { display: none; }
+.faq-question summary::marker { content: ""; }
+[data-brand] .faq-question h3 { color: inherit; font-family: var(--font-body); font-size: 1.125rem; font-weight: 700; letter-spacing: 0; line-height: var(--body-leading); text-align: start; text-wrap: pretty; margin: 0; }
+.faq-question[open] summary { color: #A8B8FF; }
+.faq-toggle { flex: 0 0 1.1rem; width: 1.1rem; height: 1.1rem; margin-top: .3rem; position: relative; color: #A8B8FF; }
+.faq-toggle::before, .faq-toggle::after { content: ""; position: absolute; background: currentColor; }
+.faq-toggle::before { width: 100%; height: 2px; top: calc(50% - 1px); inset-inline-start: 0; }
+.faq-toggle::after { height: 100%; width: 2px; left: calc(50% - 1px); top: 0; }
+.faq-question[open] .faq-toggle::after { display: none; }
+.faq-answer { padding: 0 2.85rem 1.6rem .25rem; padding-inline: .25rem 2.85rem; color: #D1D7E5; }
+.faq-answer p { margin: 0; }
+.faq-answer bdi { display: inline-block; max-inline-size: 100%; }
+.faq-answer a { display: inline-flex; align-items: center; gap: .75rem; min-height: 3rem; max-width: 100%; margin-top: .65rem; color: #A8B8FF; font-weight: 700; text-decoration: underline; text-underline-offset: .3em; }
+.faq-answer a span { flex-shrink: 0; }
+.faq-help { position: relative; background: linear-gradient(#101729b3, #101729b3), url('/media/brand-refresh/v1/faq-pearl-arcs-desktop.webp') center/cover no-repeat; border-top: 1px solid #39425A; }
+.faq-help-inner { padding-block: clamp(3rem, 6vw, 6rem); text-align: center; }
+[data-brand] .faq-help h2 { font-size: clamp(1.75rem, 4vw, 3.5rem); max-width: 50rem; margin: 0 auto 1.5rem; }
+.faq-help-copy { color: #D1D7E5; max-width: 38rem; margin: 0 auto 2rem; }
+.faq-help-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem 2rem; }
+[data-brand] .faq-help-note { color: #BFC8DD; font-size: .9375rem; margin-top: 1rem; }
+@media (hover: hover) { .faq-question summary:hover, .faq-page a:not(.brand-button):hover { color: #70D7F0; } }
+@media (prefers-reduced-motion: no-preference) { .faq-question summary, .faq-page a { transition: color 160ms ease; } }
+@media (max-width: 900px) {
+  .faq-reading-layout { grid-template-columns: minmax(0, 1fr); gap: 3rem; padding-block: 1rem 4rem; }
+  .faq-topic-nav { position: static; }
+  .faq-topic-nav ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.5rem; }
+  .faq-topic-help { display: none; }
+  .faq-group-header { gap: 1rem; }
+}
+@media (max-width: 600px) {
+  .faq-hero-copy { padding-block: 3rem 4.5rem; text-align: start; }
+  [data-brand] .faq-hero h1 { font-size: clamp(2rem, 10vw, 3.5rem); }
+  [data-brand] .faq-page:lang(el) .faq-hero h1 { font-size: clamp(1.75rem, 8.7vw, 3rem); }
+  .faq-hero::after { background: linear-gradient(180deg, #10172966, #101729b3 45%, #101729); }
+  .faq-topic-nav ol { display: block; }
+  .faq-group-header { grid-template-columns: 2.5rem minmax(0, 1fr); }
+  .faq-group-number { font-size: 2rem; }
+  .faq-answer { padding-inline: .25rem; }
+  .faq-question summary { gap: 1rem; }
+  .faq-help { background-image: linear-gradient(#101729b3, #101729b3), url('/media/brand-refresh/v1/faq-pearl-arcs-mobile.webp'); }
+  .faq-help-actions { display: grid; }
+  .faq-help .brand-button { width: 100%; }
+}
+@media (forced-colors: active) { .faq-toggle::before, .faq-toggle::after { background: ButtonText; } .faq-question { border-color: CanvasText; } }

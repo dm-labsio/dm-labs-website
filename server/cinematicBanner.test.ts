@@ -42,12 +42,12 @@ describe("cinematic banner delivery", () => {
     expect(layout).toContain('normalizedLocation.replace(/^\\/(?:el|he)(?=\\/|$)/, "") || "/"');
   });
 
-  it("keeps protected video on the remaining routes and shares the new static Contact hero", () => {
-    const heroKinds = ["services", "process", "templates", "pricing", "faq"] as const;
+  it("keeps protected video on the remaining routes and shares static Contact and FAQ heroes", () => {
+    const heroKinds = ["services", "process", "templates", "pricing"] as const;
     const pagesByLocale = [
-      ["Services.tsx", "Process.tsx", "Templates.tsx", "Pricing.tsx", "FAQ.tsx"],
-      ["el/ServicesEl.tsx", "el/ProcessEl.tsx", "el/TemplatesEl.tsx", "el/PricingEl.tsx", "el/FAQEl.tsx"],
-      ["he/ServicesHe.tsx", "he/ProcessHe.tsx", "he/TemplatesHe.tsx", "he/PricingHe.tsx", "he/FAQHe.tsx"],
+      ["Services.tsx", "Process.tsx", "Templates.tsx", "Pricing.tsx"],
+      ["el/ServicesEl.tsx", "el/ProcessEl.tsx", "el/TemplatesEl.tsx", "el/PricingEl.tsx"],
+      ["he/ServicesHe.tsx", "he/ProcessHe.tsx", "he/TemplatesHe.tsx", "he/PricingHe.tsx"],
     ];
 
     pagesByLocale.forEach((pages) => pages.forEach((page, index) => {
@@ -60,6 +60,10 @@ describe("cinematic banner delivery", () => {
     ["Contact.tsx", "el/ContactEl.tsx", "he/ContactHe.tsx"].forEach((page) => {
       const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");
       expect(source).toContain("<ContactPage locale=");
+    });
+    ["FAQ.tsx", "el/FAQEl.tsx", "he/FAQHe.tsx"].forEach(page => {
+      const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");
+      expect(source).toContain("<FAQPage key=");
     });
     ["Blog.tsx", "el/BlogEl.tsx"].forEach((page) => {
       const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");

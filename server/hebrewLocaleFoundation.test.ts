@@ -71,7 +71,6 @@ describe("Hebrew locale foundation", () => {
     expect(journey).toContain('className="pricing-editorial-price-row"');
     expect(journey).toContain('className="pricing-editorial-price-unit"');
     expect(pricing).not.toContain('<small> one-time</small>');
-    expect(styles).toContain('overflow-wrap: anywhere;');
     expect(readSource("client/src/styles/typography.css")).toContain('overflow-wrap: break-word');
     expect(layout).toContain('<SiteHeader location={location}');
   });

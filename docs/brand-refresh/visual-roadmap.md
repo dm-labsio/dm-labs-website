@@ -19,3 +19,10 @@ The user specifically prefers the English pricing typography. Use it as the refe
 Add a complete-section comparison to every page-family typography gate: hero, section headings, price figures, English product names, localized micro-labels, body/feature text, billing qualifiers, buttons and mixed-direction content. A correct H1 font and absence of overflow are insufficient evidence that the whole page is visually aligned. Check actual loaded fonts and stable screenshots at matching viewport sizes, both after direct navigation and language switching.
 
 The pricing layout pass must make the options more distinctive and easier to compare. Explore clearer recommended/selected emphasis, stronger price-versus-qualifier hierarchy, more deliberate spacing and an engaging composition instead of three visually interchangeable boxes. Preserve the English typography the user likes, all prices/scope/terms and the working selection-to-enquiry flow. This layout exploration remains a later stage, separate from the typography correction.
+
+
+## User direction after checkpoint 06 — dark throughout, typography still open
+
+Use supplied dark/navy imagery or suitable dark video backgrounds throughout DM Labs marketing pages, including reading sections and form/CTA surfaces, not only hero banners. The neon cursor should remain visible against the page. FAQ checkpoint 07 applies this to the entire page; earlier light contact panels and remaining light page families need their own staged dark-background pass. Preserve readability and distinct section hierarchy with contrast, spacing and the supplied art. Do not indiscriminately darken independent example/demo designs.
+
+The user still observes incorrect typography when switching languages elsewhere. Keep the full-site multilingual typography finishing pass explicitly open; verify whole sections after direct entry and language switching, loaded fonts, weights, UI roles, numerals and English names in Hebrew/Greek. This concern is deferred by the user, not resolved by FAQ-only checks. Continue the roadmap in bounded Preview-only phases.

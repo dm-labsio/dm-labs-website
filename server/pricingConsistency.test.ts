@@ -11,6 +11,7 @@ function source(path: string) {
 }
 
 const commercialSources = [
+  "client/src/components/faq/faqContent.ts",
   "client/src/pages/Pricing.tsx",
   "client/src/pages/Services.tsx",
   "client/src/pages/FAQ.tsx",
@@ -34,6 +35,7 @@ const commercialSources = [
 
 const termsSource = source("client/src/pages/Terms.tsx");
 const enterprisePricingSources = [
+  "client/src/components/faq/faqContent.ts",
   "client/public/llms.txt",
   "client/src/pages/Home.tsx",
   "client/src/pages/Pricing.tsx",

@@ -30,7 +30,8 @@ const LANGUAGES = [
 function LanguageMenu({ language, getLanguageHref, onLanguageNavigate }: Pick<HeaderProps, "getLanguageHref" | "onLanguageNavigate"> & { language: SiteLanguage }) {
   const [open, setOpen] = useState(false);
   const current = LANGUAGES.find(option => option.target === language)!;
-  return <DropdownMenu open={open} onOpenChange={setOpen} dir={language === "he" ? "rtl" : "ltr"}>
+  // A language picker must not lock body scrolling: that moves sticky headers offscreen.
+  return <DropdownMenu modal={false} open={open} onOpenChange={setOpen} dir={language === "he" ? "rtl" : "ltr"}>
     <DropdownMenuTrigger asChild>
       <button type="button" className="site-language-trigger" aria-label={`${NAV_COPY[language].language}: ${current.name}`}>
         <span>{current.code}</span><ChevronDown size={14} aria-hidden="true" />
