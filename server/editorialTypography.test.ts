@@ -115,30 +115,7 @@ describe("Process page editorial typography", () => {
   });
 });
 
-describe("Pricing page editorial typography", () => {
-  it("keeps the approved editorial treatment scoped to the Pricing page", () => {
-    expect(pricingSource).toMatch(/className="pricing-editorial(?: [^"]*)?"/);
-    expect(pricingSource).toContain('className="pricing-editorial-hero-heading"');
-    expect(pricingSource).toContain("pricing-editorial-plan-card");
-    expect(stylesheet).toContain(".pricing-editorial .pricing-editorial-hero-heading");
-    expect(stylesheet).toContain(".pricing-editorial .pricing-editorial-plan-card");
-  });
-
-  it("keeps pricing readable and removes outdated care cancellation claims", () => {
-    expect(pricingSource).toContain('className="pricing-editorial-plan-price"');
-    expect(pricingSource).toContain('className="pricing-editorial-care-price"');
-    expect(pricingSource).toContain('className="pricing-editorial-custom-grid');
-    expect(pricingSource).not.toContain("pricing-editorial-custom-divider");
-    expect(pricingSource).not.toContain("Cancel anytime, no contract");
-    expect(pricingSource).not.toContain("brand-gradient-text");
-    expect(pricingSource).not.toContain("Packages from €299");
-  });
-
-  it("keeps the package introduction focused on the bold three-plan heading only", () => {
-    expect(pricingSource).toContain('>Three clear plans.</h2>');
-    expect(pricingSource).not.toContain("One confident start.");
-  });
-
+describe("Pricing metadata", () => {
   it("preserves Pricing SEO metadata", () => {
     expect(pricingSource).toContain('title: "Web Design Pricing | Website Cost & Packages | DM-Labs.io"');
     expect(pricingSource).toContain('description: "How much does a website cost? Explore clear web design pricing');

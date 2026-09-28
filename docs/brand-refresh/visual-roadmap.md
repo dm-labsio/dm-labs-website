@@ -26,3 +26,8 @@ The pricing layout pass must make the options more distinctive and easier to com
 Use supplied dark/navy imagery or suitable dark video backgrounds throughout DM Labs marketing pages, including reading sections and form/CTA surfaces, not only hero banners. The neon cursor should remain visible against the page. FAQ checkpoint 07 applies this to the entire page; earlier light contact panels and remaining light page families need their own staged dark-background pass. Preserve readability and distinct section hierarchy with contrast, spacing and the supplied art. Do not indiscriminately darken independent example/demo designs.
 
 The user still observes incorrect typography when switching languages elsewhere. Keep the full-site multilingual typography finishing pass explicitly open; verify whole sections after direct entry and language switching, loaded fonts, weights, UI roles, numerals and English names in Hebrew/Greek. This concern is deferred by the user, not resolved by FAQ-only checks. Continue the roadmap in bounded Preview-only phases.
+
+
+## Checkpoint 08 follow-through
+
+The user approved FAQ structure and dark backgrounds and reaffirmed dark treatment across the entire website. Pricing now uses dark surfaces throughout, distinct package rows and responsive comparison. This does not close the remaining site-wide dark or multilingual typography passes. Next bounded visual stage: the queued hero/motion research and desktop/mobile concept work before further page-family layouts. Preserve native scrolling and the user’s reference libraries/buttons as candidates to adapt, not defaults to copy.

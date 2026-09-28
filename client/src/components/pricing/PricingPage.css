@@ -1,0 +1,150 @@
+/* Let the viewport scroll so the shared header remains sticky on this page. */
+html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
+.pricing-page { background: #101729; color: #F6F5F2; color-scheme: dark; --button-ink: #F6F5F2; --button-focus: #70D7F0; }
+.pricing-page .brand-micro, .pricing-page .pricing-editorial-plan-label { color: #A8B8FF; }
+.pricing-inline-amount { display: inline-block; max-inline-size: 100%; }
+.pricing-page bdi { display: inline-block; max-inline-size: 100%; }
+.pricing-page :is(a, button, input, summary, [tabindex="0"]):focus-visible { outline: 3px solid #70D7F0; outline-offset: 5px; }
+.pricing-page :is(section, #your-selection) { scroll-margin-top: 7rem; }
+.pricing-page a:not(.brand-button) { text-underline-offset: .3em; }
+.pricing-hero { position: relative; isolation: isolate; overflow: clip; }
+.pricing-art, .pricing-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.pricing-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg,#101729e6,#10172940),linear-gradient(0deg,#101729,transparent 60%); pointer-events: none; }
+.pricing-page[dir="rtl"] .pricing-hero::after { background: linear-gradient(270deg,#101729e6,#10172940),linear-gradient(0deg,#101729,transparent 60%); }
+.pricing-hero-inner { position: relative; z-index: 1; padding-block: clamp(4rem,8vw,7rem); }
+.pricing-hero h1 { margin-block: 1rem 1.5rem; max-width: 52rem; }
+.pricing-hero h1 > span { display: block; color: #A8B8FF; }
+.pricing-lead { color: #D1D7E5; max-width: 36rem; }
+.pricing-steps { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; margin-top: 2rem; }
+.pricing-steps a { display: flex; gap: .75rem; align-items: baseline; padding-block: .65rem; text-decoration: underline; }
+.pricing-steps .brand-latin-code { color: #A8B8FF; }
+.pricing-assurance { padding-block: 1.4rem; border-block: 1px solid #39425A; color: #D1D7E5; }
+.pricing-section { padding-block: clamp(3.5rem,7vw,7rem); }
+.pricing-section-intro { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 3rem; }
+.pricing-section-intro > div:first-child { max-width: 43rem; }
+.pricing-section-intro h2 { margin-block: .8rem 1.25rem; }
+.pricing-section-intro p:not(.brand-micro) { color: #D1D7E5; }
+.pricing-text-link { display: inline-flex; align-items: center; min-height: 3rem; font-weight: 700; text-decoration: underline; color: #A8B8FF; }
+.pricing-build { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.4fr); gap: clamp(2rem,5vw,5rem); padding: 3rem 2rem; border-block-start: 1px solid #526079; border-inline-start: 4px solid transparent; }
+.pricing-build:last-child { border-block-end: 1px solid #526079; }
+.pricing-build.is-recommended { background: linear-gradient(105deg,#243056f2,#172238e6),url('/media/brand-refresh/v1/pricing-glass-arcs-desktop.webp') center/cover; border-color: #A8B8FF; }
+.pricing-build.is-selected, .pricing-care.is-selected { border-inline-start-color: #70D7F0; box-shadow: inset 0 0 0 1px #70D7F0; }
+.pricing-plan-status { margin-bottom: 1rem; }
+.pricing-build .pricing-editorial-plan-label { margin-bottom: .7rem; }
+.pricing-editorial-price-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem 1rem; margin-block: .5rem 1rem; }
+.pricing-page :is(.pricing-editorial-plan-price,.pricing-editorial-care-price) { color: #F6F5F2; }
+.pricing-price-unit { color: #BBC5D8; }
+.pricing-recurring { display: block; color: #A8B8FF; font-size: 1rem; text-decoration: underline; margin-block: .5rem 1.75rem; max-width: 24rem; }
+[data-brand] .pricing-fit { font-family: var(--font-display); font-size: clamp(1.5rem,2.2vw,2rem); font-weight: 800; line-height: var(--title-leading); margin-bottom: 1rem; }
+.pricing-build-summary { color: #D1D7E5; margin-bottom: 1.75rem; max-width: 39rem; }
+.pricing-features-label { margin-bottom: .8rem; }
+.pricing-features { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem 2rem; }
+.pricing-features li { border-top: 1px solid #39425A; padding-top: .75rem; color: #D1D7E5; }
+.pricing-custom { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 4rem; padding-top: 4rem; }
+.pricing-custom h3 { margin-block: 1rem; max-width: 30rem; }
+.pricing-custom .pricing-editorial-plan-label { margin-top: 1rem; }
+.pricing-custom-note { color: #A8B8FF; margin-bottom: 1.25rem; }
+.pricing-custom p:not(.brand-micro,.pricing-editorial-plan-label,.pricing-custom-note) { color: #BBC5D8; }
+.pricing-custom .pricing-text-link { margin-top: 1.25rem; }
+.pricing-custom-features { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.25rem 2rem; align-content: start; }
+.pricing-custom-features li { border-top: 1px solid #39425A; padding-top: 1rem; color: #D1D7E5; }
+.pricing-care-section { background: #131D32; border-block: 1px solid #39425A; }
+.pricing-build-context { max-width: 24rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; color: #A8B8FF; }
+.pricing-build-context a { text-decoration: underline; min-height: 2.75rem; }
+.pricing-billing { border: 0; padding: 0; margin-bottom: 2.5rem; }
+.pricing-billing legend { font-weight: 700; margin-bottom: .8rem; }
+.pricing-billing > div { display: inline-flex; flex-wrap: wrap; gap: .75rem; }
+.pricing-billing label { display: inline-flex; align-items: center; gap: .6rem; padding: .85rem 1.1rem; border: 1px solid #BBC5D8; border-radius: 8px; cursor: pointer; }
+.pricing-billing label.is-active { background: #A8B8FF; color: #101729; border-color: #A8B8FF; }
+.pricing-billing input { accent-color: #101729; width: 1.15rem; height: 1.15rem; }
+.pricing-billing small { font: 400 .875rem/1.4 var(--font-body); }
+.pricing-billing > p { margin-top: 1rem; color: #BBC5D8; }
+.pricing-care-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+.pricing-care { padding: 2rem; border: 1px solid #526079; border-inline-start: 4px solid #526079; display: flex; flex-direction: column; background: #101729; }
+.pricing-care.is-featured { background: #202C49; border-top: 3px solid #A8B8FF; padding-top: calc(2rem - 2px); }
+.pricing-care-heading { display: flex; align-items: baseline; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; margin-bottom: 1rem; }
+.pricing-care-description { color: #D1D7E5; min-height: 3.5rem; margin-bottom: 1.5rem; }
+.pricing-care-amount { min-height: 12rem; }
+.pricing-billing-detail { color: #BBC5D8; }
+.pricing-saving { margin-block: .8rem 1.8rem; color: #A8B8FF; }
+.pricing-care .pricing-features { grid-template-columns: 1fr; margin-bottom: 2rem; }
+.pricing-care .brand-button { margin-top: auto; align-self: start; }
+.pricing-selection { margin-top: 3rem; padding: 2.5rem; border: 1px solid #A8B8FF; background: #101729; }
+.pricing-selection h3 { margin-block: .75rem 1rem; }
+.pricing-selection > p:not(.brand-micro) { color: #BBC5D8; }
+.pricing-selection-items { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; margin-block: 2rem; }
+.pricing-selection-items > div { border-top: 1px solid #526079; padding-top: 1rem; }
+.pricing-selection-name { margin-block: .6rem; }
+.pricing-selection-cost { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem 1rem; color: #BBC5D8; }
+[data-brand] .pricing-selection-cost strong { font-family: "Rubik",Arial,sans-serif; font-weight: 800; font-size: 2rem; color: #F6F5F2; }
+.pricing-selection-items a { color: #A8B8FF; text-decoration: underline; display: inline-block; min-height: 2.75rem; margin-top: .75rem; }
+.pricing-selection-action { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+.pricing-selection-action p { color: #BBC5D8; max-width: 25rem; }
+.pricing-terms { margin-block: 2rem; max-width: 56rem; color: #BBC5D8; }
+.pricing-terms p + p { margin-top: .75rem; }
+.pricing-terms a { text-decoration: underline; color: #A8B8FF; }
+.pricing-scope { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; padding-top: 2rem; border-top: 1px solid #526079; }
+[data-brand] .pricing-scope h3 { font-size: 1.5rem; }
+.pricing-scope p { color: #BBC5D8; }
+.pricing-mobile-comparison { display: none; }
+.pricing-table-scroll { overflow-x: auto; contain: paint; max-width: 100%; }
+.pricing-table { width: 100%; min-width: 660px; border-collapse: collapse; text-align: start; }
+.pricing-table th, .pricing-table td { padding: 1.15rem 1.25rem; border-bottom: 1px solid #39425A; text-align: center; }
+.pricing-table th:first-child { text-align: start; width: 40%; }
+.pricing-table thead th { color: #A8B8FF; }
+.pricing-table thead th span { display: block; color: #BBC5D8; font-size: 1rem; margin-top: .5rem; font-weight: 400; }
+.pricing-table th:nth-child(3), .pricing-table td:nth-child(3) { background: #202C49; }
+.pricing-table tbody th { font-size: 1.0625rem; font-weight: 400; color: #D1D7E5; }
+.pricing-included { color: #70D7F0; font-size: 1.25rem; }
+.pricing-excluded { color: #BBC5D8; }
+.pricing-questions { padding-top: 0; }
+:is(.pricing-questions,.pricing-mobile-comparison) details { border-top: 1px solid #526079; }
+:is(.pricing-questions,.pricing-mobile-comparison) details:last-child { border-bottom: 1px solid #526079; }
+:is(.pricing-questions,.pricing-mobile-comparison) summary { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; padding-block: 1.5rem; cursor: pointer; list-style: none; }
+:is(.pricing-questions,.pricing-mobile-comparison) summary::-webkit-details-marker { display: none; }
+[data-brand] :is(.pricing-questions,.pricing-mobile-comparison) summary h3 { font-family: var(--font-body); font-size: 1.125rem; font-weight: 700; line-height: var(--body-leading); }
+:is(.pricing-questions,.pricing-mobile-comparison) details[open] summary { color: #A8B8FF; }
+:is(.pricing-questions,.pricing-mobile-comparison) details > p { padding-bottom: 1.75rem; max-width: 55rem; color: #D1D7E5; }
+.pricing-disclosure-mark { width: 1rem; height: 1rem; position: relative; flex: 0 0 1rem; color: #A8B8FF; }
+.pricing-disclosure-mark::before, .pricing-disclosure-mark::after { content: ""; position: absolute; background: currentColor; top: 50%; left: 0; width: 100%; height: 2px; }
+.pricing-disclosure-mark::after { transform: rotate(90deg); }
+[open] .pricing-disclosure-mark::after { display: none; }
+.pricing-help { background: linear-gradient(#101729ce,#101729ce),url('/media/brand-refresh/v1/pricing-glass-arcs-desktop.webp') center/cover; border-top: 1px solid #39425A; }
+.pricing-help h2 { max-width: 49rem; margin-bottom: 1.5rem; }
+.pricing-help p { max-width: 40rem; color: #D1D7E5; }
+.pricing-help .container > div { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; margin-top: 2rem; }
+@media (hover: hover) { .pricing-page a:not(.brand-button):hover { color: #70D7F0; } :is(.pricing-questions,.pricing-mobile-comparison) summary:hover { color: #70D7F0; } }
+@media (prefers-reduced-motion: no-preference) { .pricing-build,.pricing-care { transition: border-color 180ms ease,box-shadow 180ms ease; } }
+@media (max-width: 900px) {
+  .pricing-section-intro { flex-direction: column; align-items: start; }
+  .pricing-build { gap: 2rem; padding-inline: 1.5rem; grid-template-columns: minmax(0,.8fr) minmax(0,1fr); }
+  .pricing-build .pricing-features { grid-template-columns: 1fr; }
+  .pricing-custom { gap: 2rem; }
+  .pricing-custom-features { grid-template-columns: 1fr; }
+  .pricing-care { padding-inline: 1.5rem; }
+}
+@media (max-width: 700px) {
+  .pricing-build,.pricing-custom,.pricing-care-grid,.pricing-selection-items,.pricing-scope { grid-template-columns: 1fr; }
+  .pricing-build.is-recommended { background-image: linear-gradient(105deg,#243056f2,#172238e6),url('/media/brand-refresh/v1/pricing-glass-arcs-mobile.webp'); }
+  .pricing-build { padding: 2rem 1.25rem; gap: 2rem; }
+  .pricing-plan-status { margin-bottom: .65rem; }
+  .pricing-build .brand-button { width: 100%; }
+  .pricing-care-amount,.pricing-care-description { min-height: 0; }
+  .pricing-care { padding: 1.75rem 1.25rem; }
+  .pricing-selection { padding: 1.75rem 1.25rem; }
+  .pricing-selection-action,.pricing-help .container > div { align-items: stretch; flex-direction: column; }
+  .pricing-selection-action .brand-button { width: 100%; }
+  .pricing-table-scroll { display: none; }
+  .pricing-mobile-comparison { display: block; }
+  .pricing-mobile-values { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .75rem; margin-block: 0 1.5rem; }
+  .pricing-mobile-values > div { text-align: center; padding-block: .75rem; background: #172238; }
+  .pricing-mobile-values > div:nth-child(2) { background: #202C49; }
+  [data-brand] .pricing-mobile-values dt { font-family: "Fira Mono",monospace; font-size: .875rem; color: #A8B8FF; }
+  .pricing-mobile-values dd { margin-top: .5rem; }
+
+  .pricing-table th,.pricing-table td { padding-inline: .85rem; }
+  .pricing-hero::after,.pricing-page[dir="rtl"] .pricing-hero::after { background: linear-gradient(180deg,#10172980,#101729db 70%,#101729); }
+  .pricing-art img { object-position: 65% center; }
+  .pricing-help { background-image: linear-gradient(#101729ce,#101729ce),url('/media/brand-refresh/v1/pricing-glass-arcs-mobile.webp'); }
+}
+@media (forced-colors: active) { .pricing-build.is-selected,.pricing-care.is-selected { border: 3px solid Highlight; } }

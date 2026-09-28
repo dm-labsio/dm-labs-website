@@ -66,10 +66,10 @@ describe("Hebrew locale foundation", () => {
     const layout = readSource("client/src/components/Layout.tsx");
     const styles = readSource("client/src/index.css");
 
-    const journey = readSource("client/src/components/LocalizedPricingJourney.tsx");
-    expect(pricing).toContain('<LocalizedPricingJourney locale="he"');
+    const journey = readSource("client/src/components/pricing/PricingPage.tsx");
+    expect(pricing).toContain('<PricingPage key="he" locale="he"');
     expect(journey).toContain('className="pricing-editorial-price-row"');
-    expect(journey).toContain('className="pricing-editorial-price-unit"');
+    expect(journey).toContain('className="pricing-price-unit"');
     expect(pricing).not.toContain('<small> one-time</small>');
     expect(readSource("client/src/styles/typography.css")).toContain('overflow-wrap: break-word');
     expect(layout).toContain('<SiteHeader location={location}');
@@ -90,10 +90,10 @@ describe("Hebrew locale foundation", () => {
     const pricing = readSource("client/src/pages/he/PricingHe.tsx");
     const cookieBanner = readSource("client/src/components/CookieBanner.tsx");
 
-    expect(pricing).toContain('className="border-b border-[#E8EAF0]"');
-    expect(pricing).toContain('bg-[#8B5CFF]/[0.03]');
-    expect(pricing).toContain('<PlanCell value={row[1]} colour="#5B8CFF" />');
-    expect(pricing).toContain('pricing-editorial-custom-grid');
+    expect(pricing).toContain('<PricingPage key="he" locale="he"');
+    const sharedPricing = readSource("client/src/components/pricing/PricingPage.tsx");
+    expect(sharedPricing).toContain('<th scope="row">');
+    expect(sharedPricing).toContain('t.included : t.excluded');
     expect(cookieBanner).toContain('const COOKIE_KEY = "dm_cookie_consent"');
     expect(cookieBanner).toContain('const stored = localStorage.getItem(COOKIE_KEY)');
   });
