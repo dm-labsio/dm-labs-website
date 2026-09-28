@@ -11,7 +11,6 @@ import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
-import EditorialFitLine from "@/components/EditorialFitLine";
 import InteractiveExampleCard from "@/components/InteractiveExampleCard";
 import HomeHeroScrub from "@/components/HomeHeroScrub";
 import { ArrowRight } from "lucide-react";
@@ -258,13 +257,7 @@ export default function HomePage() {
         <p className="editorial-label mb-5">
           Built for your next level
         </p>
-        <h1 className="sr-only">Built to impress. Designed to convert.</h1>
-        <div className="editorial-hero-fit" aria-hidden="true">
-          <EditorialFitLine maxSizeRatio={0.17}>Built to</EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}><em className="editorial-serif">impress.</em></EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}>Designed to</EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}><em className="editorial-serif">convert.</em></EditorialFitLine>
-        </div>
+        <h1 className="brand-home-title">Built to impress. Designed to convert.</h1>
         <p className="editorial-lead mb-8 max-w-2xl mx-auto">
           Look established. Earn trust. Make the next enquiry easy. We build sharp, fast websites and handle the technical details, so you can focus on your business. Wherever you do business.
         </p>

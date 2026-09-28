@@ -66,16 +66,6 @@ const EN_NAV_LINKS = [
   { label: "Contact", href: "/contact/" },
 ];
 
-const EXCLUDED_ENGLISH_LOCATION_ROUTES = new Set([
-  "/web-design-paphos",
-  "/web-design-limassol",
-  "/web-design-cyprus",
-  "/web-design-crete",
-  "/web-design-nicosia",
-  "/web-design-thessaloniki",
-  "/web-design-restaurants-cyprus",
-]);
-
 const EL_NAV_LINKS = [
   { label: "Αρχική", href: "/el/" },
   { label: "Υπηρεσίες", href: "/el/services/" },
@@ -191,7 +181,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const isStandalonePreview = normalizedLocation.startsWith("/preview/");
   const isEnglishHomepage = normalizedLocation === "/";
   const isTemplatesIndex = normalizedLocation === "/templates";
-  const isEnglishTypographyRoute = !isGreek && !isHebrew && !isStandalonePreview && !EXCLUDED_ENGLISH_LOCATION_ROUTES.has(normalizedLocation);
   const NAV_LINKS = isHebrew ? HE_NAV_LINKS : isGreek ? EL_NAV_LINKS : EN_NAV_LINKS;
   const languageNeutralPath = normalizedLocation.replace(/^\/(?:el|he)(?=\/|$)/, "") || "/";
   const cinematicBanner = isStandalonePreview ? null : CINEMATIC_BANNERS[languageNeutralPath] ?? null;
@@ -363,7 +352,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col ${isEnglishTypographyRoute ? "english-commissioner-base" : ""} ${isEnglishHomepage ? "editorial-home-shell" : ""} ${isTemplatesIndex ? "templates-editorial-shell" : ""} ${isHebrew ? "hebrew-shell" : ""}`} dir={isHebrew ? "rtl" : undefined}>
+    <div data-brand="dm-labs" className={`min-h-screen flex flex-col ${isEnglishHomepage ? "editorial-home-shell" : ""} ${isTemplatesIndex ? "templates-editorial-shell" : ""} ${isHebrew ? "hebrew-shell" : ""}`} dir={isHebrew ? "rtl" : undefined}>
       {/* ── NAVIGATION ── */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${isEnglishHomepage ? "editorial-home-header" : ""} ${
@@ -382,7 +371,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden min-[1440px]:flex items-center gap-6">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -399,7 +388,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           {/* Desktop right: lang toggle + CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden min-[1440px]:flex items-center gap-3">
             <LangToggle />
             {isHebrew ? (
               <StarButton asChild><a href={HEBREW_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary !h-11 !text-sm !px-6">
@@ -413,7 +402,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           {/* Mobile: lang toggle pill + hamburger */}
-          <div className="lg:hidden flex items-center gap-2">
+          <div className="min-[1440px]:hidden flex items-center gap-2">
             <LangToggle size="sm" />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -434,7 +423,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             animate={{ x: 0 }}
             exit={{ x: isHebrew ? "-100%" : "100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className={`fixed inset-0 z-40 bg-[#F6F6F4] pt-20 px-6 lg:hidden ${isEnglishHomepage ? "editorial-home-mobile-menu" : ""}`}
+            className={`fixed inset-0 z-40 overflow-y-auto bg-[#F6F6F4] pt-20 px-6 pb-8 min-[1440px]:hidden ${isEnglishHomepage ? "editorial-home-mobile-menu" : ""}`}
           >
             <nav className="flex flex-col gap-1">
               {NAV_LINKS.map((link) => (

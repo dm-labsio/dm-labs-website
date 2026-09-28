@@ -33,44 +33,16 @@ describe("Hebrew locale foundation", () => {
     expect(getHebrewLanguageTogglePath("/el/blog/")).toBe("/he");
   });
 
-  it("prepares Hebrew document language, RTL direction, and a Hebrew-native font", () => {
+  it("uses route-derived language and the shared brand roles for Hebrew", () => {
     const context = readSource("client/src/contexts/LanguageContext.tsx");
-    const shell = readSource("client/index.html");
-    const styles = readSource("client/src/index.css");
-
-    expect(context).toContain('type Lang = "en" | "el" | "he"');
+    const styles = readSource("client/src/styles/typography.css");
+    expect(context).toContain("const lang = getRouteLanguage(location)");
     expect(context).toContain('document.documentElement.dir = lang === "he" ? "rtl" : "ltr"');
-    expect(shell).toContain("family=Heebo");
-    expect(styles).toContain('html[dir="rtl"] body');
-  });
-
-  it("keeps the approved Hebrew type hierarchy scoped to RTL routes", () => {
-    const shell = readSource("client/index.html");
-    const styles = readSource("client/src/index.css");
-
-    expect(shell).toContain("family=Google+Sans");
-    expect(shell).toContain("family=Heebo:wght@100..900");
-    expect(shell).toContain("family=Huninn");
-    expect(styles).toContain('--hebrew-body-font: "Google Sans", "Heebo"');
-    expect(styles).toContain('--hebrew-display-font: "Heebo"');
-    expect(styles).toContain('--hebrew-accent-font: "Huninn"');
-    expect(styles).toContain('html[dir="rtl"] .editorial-home-shell');
-    expect(styles).toContain('--pricing-sans: var(--hebrew-body-font)');
-    expect(styles).toContain('--pricing-display: var(--hebrew-display-font)');
-    expect(styles).toContain('--faq-display: var(--hebrew-display-font)');
-    expect(styles).toContain('.hebrew-home :not(.hebrew-template-preview-mockup):not(.hebrew-template-preview-mockup *)');
-    expect(styles).toContain('.hebrew-home :is(h1, h2, h3, h4, h5, h6, .font-bold, .font-extrabold, [class*="heading"], [class*="title"], [class*="price"])');
-    expect(styles).toContain('html[dir="rtl"] .font-mono');
-    expect(styles).toContain('html[dir="rtl"] h1');
-    expect(styles).toContain('font-weight: 900');
-    expect(styles).toContain('HEBREW HOMEPAGE TOKEN SYSTEM');
-    expect(styles).toContain('--hebrew-token-lead-size: 18px');
-    expect(styles).toContain('--hebrew-token-body-size: 14px');
-    expect(styles).toContain('font-size: 42.9px !important;');
-    expect(styles).toContain('font-size: 30px !important;');
-    expect(styles).toContain('font-size: 36px !important;');
-    expect(styles).toContain('font-weight: 700 !important;');
-    expect(styles).not.toContain("-webkit-text-stroke");
+    expect(styles).toContain(':lang(he)');
+    expect(styles).toContain('--font-display: "Rubik"');
+    expect(styles).toContain('--font-micro: "Open Sans"');
+    expect(styles).toContain('--hero-tracking: 0');
+    expect(styles).not.toContain("!important");
   });
 
   it("keeps Hebrew cookie consent compact at the side, with a simple mobile-entry delay", () => {
@@ -107,7 +79,7 @@ describe("Hebrew locale foundation", () => {
     expect(journey).toContain('className="pricing-editorial-price-unit"');
     expect(pricing).not.toContain('<small> one-time</small>');
     expect(styles).toContain('overflow-wrap: anywhere;');
-    expect(styles).toContain('.faq-editorial .faq-editorial-title em { white-space: normal; }');
+    expect(readSource("client/src/styles/typography.css")).toContain('overflow-wrap: break-word');
     expect(styles).toContain('background: #f6f6f4;');
     expect(layout).toContain('border-[#E2E5EA] bg-[#F6F6F4] shadow-sm');
   });

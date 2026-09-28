@@ -31,20 +31,15 @@
 }
 .team-profile-heading h3 {
   margin: 0 0 0.25rem;
-  font-size: 1.125rem;
   color: #111315;
 }
 .team-profile-role {
-  font-size: 0.875rem;
-  font-weight: 600;
   color: #5b8cff;
 }
 .team-profile-copy {
   grid-column: 1 / -1;
   min-width: 0;
   padding: 1.25rem;
-  font-size: 0.875rem;
-  line-height: 1.75;
   color: #5b6472;
   overflow-wrap: break-word;
 }
@@ -60,8 +55,6 @@
   min-height: 44px;
   margin-top: 0.5rem;
   color: #345dc6;
-  font-size: 0.875rem;
-  font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 4px;
   cursor: pointer;
@@ -83,9 +76,6 @@
   [dir="rtl"] .team-profile-heading {
     padding: 1.5rem 1.75rem 0;
     align-self: start;
-  }
-  .team-profile-heading h3 {
-    font-size: 1.25rem;
   }
   .team-profile-copy {
     grid-column: 2;

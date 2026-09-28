@@ -9,7 +9,6 @@ import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
 import AnimateIn from "@/components/AnimateIn";
-import EditorialFitLine from "@/components/EditorialFitLine";
 import { MessageCircle, Palette, Code, Rocket, ArrowRight, CheckCircle2, CreditCard } from "lucide-react";
 import type { CSSProperties } from "react";
 
@@ -81,7 +80,7 @@ export default function Process() {
           <AnimateIn>
             <p className="process-editorial-label">How It Works</p>
             <h1 className="process-editorial-hero-heading" aria-label="From Idea to Launch">
-              <EditorialFitLine className="process-editorial-fit-line" maxSizeRatio={0.15}>From Idea to</EditorialFitLine>
+              <span>From Idea to</span>
               <span className="process-editorial-hero-heading-emphasis"><em>Launch</em></span>
             </h1>
             <p className="process-editorial-lead">

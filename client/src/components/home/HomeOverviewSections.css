@@ -1,5 +1,5 @@
 /* First refresh increment: open, text-led sections with brand still lifes.
-   Typography inherits the page until the separate site-wide type migration. */
+   Type roles come from styles/typography.css. */
 .home-overview {
   --overview-ink: #101729;
   --overview-body: #4a5570;
@@ -11,24 +11,24 @@
 .home-overview-services, .home-overview-industries { background: #f6f5f2; }
 .home-overview-process { background: #e8ecff; }
 .home-overview .home-overview-intro { max-width: 54rem; margin-block-end: clamp(2.5rem, 5vw, 4rem); }
-.home-overview .home-overview-label { color: var(--overview-accent); font-size: .875rem; font-weight: 700; margin-block-end: 1rem; }
-.home-overview h2 { font-size: clamp(2rem, 4.2vw, 3.5rem); font-weight: 800; line-height: 1.14; text-wrap: balance; margin: 0; }
-.home-overview .home-overview-lead { color: var(--overview-body); font-size: 1.125rem; line-height: 1.65; max-width: 44rem; margin-block-start: 1.5rem; }
-.home-overview h3 { font-size: 1.25rem; font-weight: 700; line-height: 1.35; overflow-wrap: break-word; }
+.home-overview .home-overview-label { color: var(--overview-accent); margin-block-end: 1rem; }
+.home-overview h2 { text-wrap: balance; margin: 0; }
+.home-overview .home-overview-lead { color: var(--overview-body); max-width: 44rem; margin-block-start: 1.5rem; }
+.home-overview h3 { overflow-wrap: break-word; }
 .home-overview a { border-radius: 0; }
 .home-overview a:focus-visible { outline: 3px solid var(--overview-accent); outline-offset: 6px; }
-.home-overview .home-overview-link { color: var(--overview-accent); font-size: .9375rem; font-weight: 700; text-decoration: underline; text-underline-offset: .3em; text-decoration-thickness: 1px; line-height: 1.6; }
+.home-overview .home-overview-link { color: var(--overview-accent); text-decoration: underline; text-underline-offset: .3em; text-decoration-thickness: 1px; }
 .home-overview a:hover { color: var(--overview-accent); }
 .home-service-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 6vw, 6rem); }
 .home-service-list article { border-block-start: 1px solid #bbc5d8; padding-block: 1.75rem 2.5rem; min-width: 0; }
-.home-service-list article > p { color: var(--overview-body); line-height: 1.7; margin-block: 1rem 1.25rem; max-width: 48ch; }
+.home-service-list article > p { color: var(--overview-body); margin-block: 1rem 1.25rem; max-width: 48ch; }
 .home-service-list .home-overview-link { display: inline-flex; align-items: center; min-height: 44px; }
 .home-process-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.75rem; list-style: none; padding: 0; margin: 0; }
 .home-process-list li { border-block-start: 1px solid #a8b8ff; padding-block-start: 1.25rem; min-width: 0; }
-.home-step-number { display: block; color: var(--overview-accent); font-size: clamp(2.75rem, 5vw, 4.5rem); font-weight: 700; letter-spacing: -.06em; line-height: 1; margin-block-end: 1.5rem; text-align: start; }
+.home-step-number { display: block; color: var(--overview-accent); margin-block-end: 1.5rem; text-align: start; }
 [dir="rtl"] .home-step-number { text-align: right; }
-.home-process-list p { color: var(--overview-body); font-size: .9375rem; line-height: 1.7; }
-.home-process-list .home-step-time { color: var(--overview-accent); font-size: .875rem; font-weight: 600; margin-block: .75rem; }
+.home-process-list p { color: var(--overview-body); }
+.home-process-list .home-step-time { color: var(--overview-accent); margin-block: .75rem; }
 .home-overview-endlink { display: inline-flex; align-items: center; min-height: 44px; margin-block-start: 2.5rem; }
 .home-industry-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; }
 .home-industry { display: block; min-width: 0; }
@@ -36,10 +36,8 @@
 .home-industry h3 { margin-block: 1.25rem .5rem; }
 .home-industry-footer { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; margin-block-start: 3rem; border-block-start: 1px solid #bbc5d8; padding-block-start: 1.5rem; }
 .home-industry-footer > .home-overview-link { display: inline-flex; align-items: center; min-height: 44px; }
-.home-industry-footer p { color: var(--overview-body); line-height: 2; }
+.home-industry-footer p { color: var(--overview-body); }
 .home-industry-footer p a { display: inline-block; margin-inline-start: .5rem; min-height: 44px; }
-/* Keep legacy Hebrew heading rules from centering this deliberately aligned layout. */
-html[dir="rtl"] #root .hebrew-home-refresh .home-overview h2 { margin-inline: 0; max-width: none; letter-spacing: 0 !important; }
 @media (max-width: 1099px) {
   .home-process-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; }
   .home-industry-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.5rem; }

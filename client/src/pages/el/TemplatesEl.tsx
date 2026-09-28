@@ -1239,7 +1239,7 @@ export default function TemplatesEl() {
         <div className="relative container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>Παραδείγματα Ιστοσελίδων</p>
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
               Βρείτε το Ιδανικό
               <span className="block" style={{ background: "linear-gradient(135deg, #5B8CFF, #6FE3FF, #8B5CFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 Στυλ Ιστοσελίδας
@@ -1303,7 +1303,7 @@ export default function TemplatesEl() {
       <section className="py-20" style={{ borderTop: "1px solid rgba(226,229,234,0.8)" }}>
         <div className="container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Δεν βρίσκετε αυτό που ψάχνετε;</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Δεν βρίσκετε αυτό που ψάχνετε;</h2>
             <p className="text-gray-500 mb-8 max-w-lg mx-auto">
               Κάθε ιστοσελίδα που φτιάχνουμε είναι πλήρως προσαρμοσμένη. Πείτε μας για την επιχείρησή σας και θα σχεδιάσουμε κάτι μοναδικό - αποκλειστικά για εσάς.
             </p>

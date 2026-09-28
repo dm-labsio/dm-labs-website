@@ -1,0 +1,55 @@
+{
+  "source": "Official Google Fonts files from the reviewed brand typography proof; Latin, Greek, Hebrew and punctuation subset. Unused axes pinned at their defaults.",
+  "faces": [
+    {
+      "family": "Rubik",
+      "weight": "800 900",
+      "file": "rubik-800-900.woff2",
+      "bytes": 52780,
+      "sha256": "3d11e04ea7f7f95fa00bfa78ff6f971c7fa1d14b74ad40e65426ea75f0b450b3",
+      "glyphCount": 426,
+      "sample": "Built to impress. שלום עולם אתר מדויק",
+      "missingGlyphs": []
+    },
+    {
+      "family": "Open Sans",
+      "weight": "400 700",
+      "file": "open-sans-400-700.woff2",
+      "bytes": 62380,
+      "sha256": "654ec8322a429cfe97d0237bd46ee1fe2ca39be21e3de20de73026fa8b01dfe3",
+      "glyphCount": 623,
+      "sample": "Read clearly. Γεια σας. שלום עולם 0123456789 €",
+      "missingGlyphs": []
+    },
+    {
+      "family": "M PLUS Rounded 1c",
+      "weight": "800",
+      "file": "m-plus-rounded-1c-800.woff2",
+      "bytes": 55956,
+      "sha256": "b33a593d28df4741815ae25d684ea3d47812705e83249ceddf7084ac497c0ff1",
+      "glyphCount": 1381,
+      "sample": "ΆΈΉΊΌΎΏΐΰαβγδεζηθικλμνξοπρσςτυφχψω Ελληνικά",
+      "missingGlyphs": []
+    },
+    {
+      "family": "M PLUS Rounded 1c",
+      "weight": "900",
+      "file": "m-plus-rounded-1c-900.woff2",
+      "bytes": 52232,
+      "sha256": "fae1aa66502ae105e69dfa373cc019fc70cb7943f83c91f09c03298c03297e44",
+      "glyphCount": 1381,
+      "sample": "ΆΈΉΊΌΎΏΐΰαβγδεζηθικλμνξοπρσςτυφχψω Ελληνικά",
+      "missingGlyphs": []
+    },
+    {
+      "family": "Fira Mono",
+      "weight": "400",
+      "file": "fira-mono-400.woff2",
+      "bytes": 32272,
+      "sha256": "bcfa1d16515ab789f8f4ce5bb0a9e67fc50c043e1aaba2dbc909ff582df285fe",
+      "glyphCount": 742,
+      "sample": "Details Λεπτομέρειες 0123456789",
+      "missingGlyphs": []
+    }
+  ]
+}
