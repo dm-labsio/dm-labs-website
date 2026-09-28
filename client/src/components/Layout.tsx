@@ -1,6 +1,6 @@
 /* Shared marketing shell. Navigation and CTA styling live in shared components. */
 import { useEffect, useRef } from "react";
-import { Link, useLocation } from "wouter";
+import { Link, useLocation, useSearch } from "wouter";
 import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 import NeonCursorTrail from "@/components/NeonCursorTrail";
@@ -8,6 +8,7 @@ import CinematicBanner, { type CinematicBannerProps } from "@/components/Cinemat
 import BrandLogo from "./BrandLogo";
 import SiteHeader from "./SiteHeader";
 import { getNavigation } from "./siteNavigation";
+import { pricingEnquiryQuery } from "@/lib/pricingEnquiry";
 import { getRouteLanguage } from "@/lib/routeLanguage";
 import { getGreekLanguageTogglePath, getHebrewLanguageTogglePath, getHreflangRouteSet, normalizeRoutePath, withTrailingSlash } from "@/lib/seoRoutes";
 
@@ -51,6 +52,7 @@ const CINEMATIC_BANNERS: Record<string, CinematicBannerProps> = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location, navigate] = useLocation();
+  const search = useSearch();
   const languageSwitchScrollRef = useRef<number | null | undefined>(undefined);
 
   const normalizedLocation = normalizeRoutePath(location);
@@ -78,13 +80,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   // Derive the alternate-language URL for the current page
   function getAltLangHref(targetLang: "en" | "el" | "he"): string {
     const routes = getHreflangRouteSet(normalizedLocation);
-    if (targetLang === "en") return withTrailingSlash(routes.en);
-    if (targetLang === "el") return withTrailingSlash(getGreekLanguageTogglePath(normalizedLocation));
-    return withTrailingSlash(getHebrewLanguageTogglePath(normalizedLocation));
+    const targetPath = targetLang === "en" ? routes.en : targetLang === "el"
+      ? getGreekLanguageTogglePath(normalizedLocation) : getHebrewLanguageTogglePath(normalizedLocation);
+    const selection = languageNeutralPath === "/contact" ? pricingEnquiryQuery(search) : "";
+    return withTrailingSlash(targetPath) + selection;
   }
 
   function navigateLanguage(targetLang: "en" | "el" | "he", href: string) {
-    if (href === withTrailingSlash(normalizedLocation)) return;
+    if (targetLang === getRouteLanguage(location)) return;
     const routes = getHreflangRouteSet(normalizedLocation);
     const hasDirectTranslation = targetLang === "en" || (targetLang === "el" ? routes.el !== null : routes.he !== null);
     languageSwitchScrollRef.current = hasDirectTranslation ? window.scrollY : null;

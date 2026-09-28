@@ -122,12 +122,8 @@ describe("Hebrew locale foundation", () => {
     const contact = readSource("client/src/pages/he/ContactHe.tsx");
 
     expect(contact).toContain('canonicalPath: "/he/contact/"');
-    expect(contact).toContain("WEB3FORMS_URL");
-    expect(contact).toContain("contact-editorial-form-card");
-    expect(contact).toContain("contact-editorial-field-label");
-    expect(contact).toContain("contact-editorial-submit");
-    expect(contact).toContain('id="contact-he-email"');
-    expect(contact).toContain('dir="ltr"');
+    expect(contact).toContain('<ContactPage locale="he" />');
+    expect(contact).toContain("noindex: true");
   });
 
   it("exposes only reviewed Hebrew routes and no invented child routes", () => {
