@@ -11,3 +11,11 @@ Add these bounded checkpoints after the shared controls, before the correspondin
 5. **Page-by-page visual engagement QA:** apply chosen directions in small EN/EL/HE batches. Verify content retention, reading hierarchy, image relevance, interaction cues, keyboard/touch/reduced-motion behavior, mobile performance and no regressions after each batch. Interesting movement must not block reading or delay the offer. Preview only throughout.
 
 These additions supplement the existing consultation, services/process, examples, editorial/legal and final-regression packages; they do not replace their copy or functional gates.
+
+## Pricing feedback and multilingual typography follow-up
+
+The user specifically prefers the English pricing typography. Use it as the reference for hierarchy and visual weight across languages, while retaining the approved Greek and Hebrew display faces. The initial correction is documented in `pricing-typography-followup.md`.
+
+Add a complete-section comparison to every page-family typography gate: hero, section headings, price figures, English product names, localized micro-labels, body/feature text, billing qualifiers, buttons and mixed-direction content. A correct H1 font and absence of overflow are insufficient evidence that the whole page is visually aligned. Check actual loaded fonts and stable screenshots at matching viewport sizes, both after direct navigation and language switching.
+
+The pricing layout pass must make the options more distinctive and easier to compare. Explore clearer recommended/selected emphasis, stronger price-versus-qualifier hierarchy, more deliberate spacing and an engaging composition instead of three visually interchangeable boxes. Preserve the English typography the user likes, all prices/scope/terms and the working selection-to-enquiry flow. This layout exploration remains a later stage, separate from the typography correction.

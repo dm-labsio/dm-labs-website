@@ -6,7 +6,7 @@ import AnimateIn from "@/components/AnimateIn";
 
 type BuildPlan = { name: string; price: string; tone: string; summary: string; features: readonly string[] };
 export function PricingSteps({ locale }: { locale: "el" | "he" }) {
-  return <div className="journey-steps"><a href="#website-packages"><span>01</span>{copy[locale].steps[0]}</a><ArrowRight size={16} aria-hidden="true" /><a href="#maintenance"><span>02</span>{copy[locale].steps[1]}</a></div>;
+  return <div className="journey-steps"><a href="#website-packages"><span className="brand-latin-code" lang="en" dir="ltr">01</span>{copy[locale].steps[0]}</a><ArrowRight size={16} aria-hidden="true" /><a href="#maintenance"><span className="brand-latin-code" lang="en" dir="ltr">02</span>{copy[locale].steps[1]}</a></div>;
 }
 const copy = {
   el: {
@@ -55,12 +55,12 @@ export default function LocalizedPricingJourney({ locale, plans, custom }: { loc
   return <>
     <section className="pricing-editorial-assurance bg-[#EEF3FF] border-y border-[#5B8CFF]/20 py-4"><div className="container text-center"><p>{t.assurance}</p></div></section>
     <section id="website-packages" className="pricing-editorial-plans section-spacing bg-white"><div className="container">
-      <AnimateIn className="pricing-editorial-section-intro text-center"><p className="pricing-editorial-label">01 / {t.steps[0]}</p><h2 className="pricing-editorial-section-heading">{t.buildTitle}</h2><p>{t.buildIntro}</p></AnimateIn>
+      <AnimateIn className="pricing-editorial-section-intro text-center"><p className="pricing-editorial-label"><bdi className="brand-latin-code" lang="en" dir="ltr">01 /</bdi> {t.steps[0]}</p><h2 className="pricing-editorial-section-heading">{t.buildTitle}</h2><p>{t.buildIntro}</p></AnimateIn>
       <div className="journey-build-grid grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">{plans.map((plan, i) => <AnimateIn key={plan.name}>
         <article className={`pricing-editorial-plan-card dm-card h-full flex flex-col relative${buildIndex === i ? " journey-selected" : ""}`}>
           {i === 1 && <span className="pricing-editorial-recommended">{t.recommended}</span>}
-          <p className="pricing-editorial-plan-label" style={{ color: plan.tone }}><bdi>{plan.name}</bdi></p>
-          <div className="pricing-editorial-price-row"><bdi className="pricing-editorial-plan-price">{plan.price}</bdi><span className="pricing-editorial-price-unit">{t.once}</span></div>
+          <p lang="en" className="pricing-editorial-plan-label" style={{ color: plan.tone }}><bdi lang="en" dir="ltr">{plan.name}</bdi></p>
+          <div className="pricing-editorial-price-row"><bdi dir="ltr" className="pricing-editorial-plan-price">{plan.price}</bdi><span className="pricing-editorial-price-unit">{t.once}</span></div>
           <a href="#maintenance" className="journey-recurring">{t.recurring}<ArrowRight size={13} aria-hidden="true" /></a>
           <p className="pricing-editorial-plan-summary">{plan.summary}</p>
           <ul className="pricing-editorial-feature-list flex-1">{plan.features.map(feature => <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={16} className="shrink-0 mt-0.5" style={{ color: plan.tone }} />{feature}</li>)}</ul>
@@ -70,15 +70,15 @@ export default function LocalizedPricingJourney({ locale, plans, custom }: { loc
       {custom}
     </div></section>
     <section id="maintenance" className="pricing-editorial-care section-spacing bg-white"><div className="container max-w-4xl">
-      <AnimateIn className="pricing-editorial-section-intro text-center"><p className="pricing-editorial-label">02 / {t.steps[1]}</p><h2 className="pricing-editorial-section-heading">{t.careTitle}<br /><em>{t.careEm}</em></h2><p>{t.careIntro}</p><div className="journey-build-context">{build ? <><CheckCircle2 size={16} /><bdi>{build.name}</bdi> — {t.selected}<button type="button" onClick={() => scrollTo("website-packages")}>{t.change}</button></> : t.all}</div></AnimateIn>
+      <AnimateIn className="pricing-editorial-section-intro text-center"><p className="pricing-editorial-label"><bdi className="brand-latin-code" lang="en" dir="ltr">02 /</bdi> {t.steps[1]}</p><h2 className="pricing-editorial-section-heading">{t.careTitle}<br /><em>{t.careEm}</em></h2><p>{t.careIntro}</p><div className="journey-build-context">{build ? <><CheckCircle2 size={16} /><bdi>{build.name}</bdi> — {t.selected}<button type="button" onClick={() => scrollTo("website-packages")}>{t.change}</button></> : t.all}</div></AnimateIn>
       <div className="journey-billing" role="group" aria-label={t.frequency}><div className={`journey-billing-track${yearly ? " is-yearly" : ""}`}><span className="journey-billing-thumb" aria-hidden="true" /><button type="button" aria-pressed={!yearly} onClick={() => setYearly(false)}>{t.monthly}</button><button type="button" aria-pressed={yearly} onClick={() => setYearly(true)}>{t.yearly}<span>{t.discount}</span></button></div><p>{t.billingNote}</p></div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">{carePlans.map((plan, i) => <AnimateIn key={plan.name}>
         <article className={`pricing-editorial-care-card dm-card h-full flex flex-col relative${i === 1 ? " journey-care-featured" : ""}${careIndex === i ? " journey-selected" : ""}`}>
           {i === 1 && <span className="pricing-editorial-recommended">{t.badge}</span>}
-          <p className="pricing-editorial-plan-label"><bdi>{plan.name}</bdi></p><p className="journey-care-description">{t.descriptions[i]}</p>
-          <div className="journey-price-block" aria-live="polite" aria-atomic="true"><div key={String(yearly)} className="journey-price-transition"><div className="pricing-editorial-price-row"><bdi className="pricing-editorial-care-price">{money(yearly ? plan.yearly : plan.monthly)}</bdi><span className="pricing-editorial-price-unit">{yearly ? t.year : t.month}</span></div><p className="journey-billing-detail">{yearly ? <><bdi>{money(plan.yearly / 12)}</bdi> {t.equivalent}</> : t.paidMonthly}</p><p className="journey-saving">{yearly ? <>{t.saving} <bdi>{money(plan.monthly * 12 - plan.yearly)}</bdi> {t.eachYear}</> : t.yearlyAvailable}</p></div></div>
+          <p lang="en" className="pricing-editorial-plan-label"><bdi lang="en" dir="ltr">{plan.name}</bdi></p><p className="journey-care-description">{t.descriptions[i]}</p>
+          <div className="journey-price-block" aria-live="polite" aria-atomic="true"><div key={String(yearly)} className="journey-price-transition"><div className="pricing-editorial-price-row"><bdi dir="ltr" className="pricing-editorial-care-price">{money(yearly ? plan.yearly : plan.monthly)}</bdi><span className="pricing-editorial-price-unit">{yearly ? t.year : t.month}</span></div><p className="journey-billing-detail">{yearly ? <><bdi>{money(plan.yearly / 12)}</bdi> {t.equivalent}</> : t.paidMonthly}</p><p className="journey-saving">{yearly ? <>{t.saving} <bdi>{money(plan.monthly * 12 - plan.yearly)}</bdi> {t.eachYear}</> : t.yearlyAvailable}</p></div></div>
           <ul className="pricing-editorial-feature-list flex-1">{t.features[i].map(feature => <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={15} className="shrink-0 mt-0.5" style={{ color: i === 1 ? "#8B5CFF" : "#5B8CFF" }} />{feature}</li>)}</ul>
-          <StarButton asChild><button type="button" aria-pressed={careIndex === i} onClick={() => setCareIndex(i)} className={`${i === 1 ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>{careIndex === i ? <CheckCircle2 size={16} /> : <ArrowRight size={16} />}<span>{careIndex === i ? t.selected : t.choose} <bdi>{plan.name}</bdi></span></button></StarButton>
+          <StarButton asChild><button type="button" aria-pressed={careIndex === i} onClick={() => setCareIndex(i)} className={`${i === 1 ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>{careIndex === i ? <CheckCircle2 size={16} /> : <ArrowRight size={16} />}<span>{careIndex === i ? t.selected : t.choose} <bdi lang="en" dir="ltr">{plan.name}</bdi></span></button></StarButton>
         </article>
       </AnimateIn>)}</div>
       <div className="journey-summary" id="your-selection"><div aria-live="polite"><p className="pricing-editorial-label">{t.next}</p><h3>{build && care ? <><bdi>{build.name}</bdi> + <bdi>{care.name}</bdi></> : t.summaryTitle}</h3><p>{build && care ? <><strong><bdi>{build.price}</bdi></strong> {t.buildCost} <span className="journey-summary-plus">+</span> <strong><bdi>{money(yearly ? care.yearly : care.monthly)}</bdi></strong>{yearly ? t.annualPaid : t.monthlyPaid}</> : t.summaryIntro}</p></div><StarButton asChild><Link href={enquiry} className="btn-primary">{build && care ? t.cta : t.help}<ArrowRight size={16} /></Link></StarButton></div>

@@ -156,25 +156,6 @@
   html[dir="rtl"] select {
     text-align: start;
   }
-  html[dir="rtl"] .pricing-editorial .pricing-editorial-price-row {
-    direction: ltr;
-    justify-content: flex-start;
-    max-width: 100%;
-    min-width: 0;
-  }
-  html[dir="rtl"] .pricing-editorial .pricing-editorial-plan-price,
-  html[dir="rtl"] .pricing-editorial .pricing-editorial-care-price,
-  html[dir="rtl"] .pricing-editorial .pricing-editorial-custom-price {
-    max-width: 100%;
-    overflow-wrap: anywhere;
-    text-align: left;
-  }
-  html[dir="rtl"] .pricing-editorial .pricing-editorial-price-unit {
-    direction: ltr;
-  }
-  html[dir="rtl"] .pricing-editorial .pricing-editorial-custom-price {
-    text-align: right;
-  }
   /* Align the previously simplified Hebrew service-detail Heroes with the
      established editorial spacing and mesh texture used by the richer pages. */
   html[dir="rtl"] main.hebrew-home > section:first-child:has(> .container.max-w-4xl) {
