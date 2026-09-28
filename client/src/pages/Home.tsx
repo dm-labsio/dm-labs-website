@@ -1,3 +1,4 @@
+import TeamProfiles from "@/components/TeamProfiles";
 /* ============================================================
    DM-Labs.io - Homepage
    Hero with gradient atmosphere + floating devices
@@ -748,122 +749,7 @@ export default function HomePage() {
             <h2 className="editorial-section-heading">Who We Are</h2>
           </AnimateIn>
 
-          {/* Two stacked cards - horizontal on desktop, photo-top on mobile */}
-          <div className="flex flex-col gap-8 max-w-3xl mx-auto">
-
-            {/* Anastacia Card */}
-            <AnimateIn delay={0.1}>
-              <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 overflow-hidden">
-                {/* MOBILE: compact horizontal - square photo left, text right */}
-                <div className="flex md:hidden flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
-                    <img
-                      src="/media/manus/AtkkCmVLLZyIDtDx.webp"
-                      alt="Anastacia B. - Creative Director and AI Specialist at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover"
-                      style={{ objectPosition: 'center top' }}
-                    />
-                    <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
-                    <div>
-                      <h3 className="editorial-card-title text-base mb-0.5">Anastacia B.</h3>
-                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Creative Director &amp; AI Specialist</p>
-                      <p className="text-xs text-[#5B6472] leading-relaxed">
-                        I worked with global tech companies on digital products and AI implementation. I know how to use the best AI tools available today - not to replace craft, but to deliver sharper results, faster, for every client.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-3 pt-2">
-                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;Your website should work as hard as you do.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* DESKTOP: horizontal flex - photo left, content right */}
-                <div className="hidden md:flex flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px', minHeight: '240px', maxHeight: '280px' }}>
-                    <img
-                      src="/media/manus/AtkkCmVLLZyIDtDx.webp"
-                      alt="Anastacia B. - Creative Director and AI Specialist at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={{ objectPosition: 'center top' }}
-                    />
-                    <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-7 flex-1">
-                    <div>
-                      <h3 className="editorial-card-title text-xl mb-0.5">Anastacia B.</h3>
-                      <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Creative Director &amp; AI Specialist</p>
-                      <p className="text-sm text-[#5B6472] leading-relaxed">
-                        I worked with global tech companies on digital products and AI implementation. I understand how to use the best AI tools available today - not to replace craft or human judgment, but to deliver sharper, more effective results for every client we work with.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-5 pt-4">
-                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;Your website should work as hard as you do.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </AnimateIn>
-
-            {/* Tom Card */}
-            <AnimateIn delay={0.2}>
-              <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 overflow-hidden">
-                {/* MOBILE: compact horizontal - square photo left, text right */}
-                <div className="flex md:hidden flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
-                    <img
-                      src="/media/manus/DVIoYisVQvzbqoiR.webp"
-                      alt="Tom B. - Technical Director and SEO Expert at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover object-top"
-                    />
-                    <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
-                    <div>
-                      <h3 className="editorial-card-title text-base mb-0.5">Tom B.</h3>
-                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Technical Director &amp; SEO Expert</p>
-                      <p className="text-xs text-[#5B6472] leading-relaxed">
-                        My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side so you never have to think about it.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-3 pt-2">
-                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;First, solve the problem. Then, write the code.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* DESKTOP: horizontal flex */}
-                <div className="hidden md:flex flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px' }}>
-                    <img
-                      src="/media/manus/DVIoYisVQvzbqoiR.webp"
-                      alt="Tom B. - Technical Director & SEO Expert at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-7 flex-1">
-                    <div>
-                      <h3 className="editorial-card-title text-xl mb-0.5">Tom B.</h3>
-                      <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Technical Director &amp; SEO Expert</p>
-                      <p className="text-sm text-[#5B6472] leading-relaxed">
-                        My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side of things so you never have to think about it - what you get is a site that is solid, fast, and built to last.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-5 pt-4">
-                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;First, solve the problem. Then, write the code.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </AnimateIn>
-
-          </div>
+          <TeamProfiles language="en" />
         </div>
       </section>
 

@@ -1,3 +1,4 @@
+import TeamProfiles from "@/components/TeamProfiles";
 /* ============================================================
    D&M LABS - Αρχικήpage
    Hero with gradient atmosphere + floating devices
@@ -687,122 +688,7 @@ export default function HomeElPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">Ποιοι Είμαστε</h2>
           </AnimateIn>
 
-          {/* Two stacked cards - horizontal on desktop, photo-top on mobile */}
-          <div className="flex flex-col gap-8 max-w-3xl mx-auto">
-
-            {/* Anastacia Card */}
-            <AnimateIn delay={0.1}>
-              <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 overflow-hidden">
-                {/* MOBILE: compact horizontal - square photo left, text right */}
-                <div className="flex md:hidden flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
-                    <img
-                      src="/media/manus/AtkkCmVLLZyIDtDx.webp"
-                      alt="Anastacia B. - Creative Director and AI Specialist at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover"
-                      style={{ objectPosition: 'center top' }}
-                    />
-                    <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
-                    <div>
-                      <h3 className="text-base font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
-                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Creative Director &amp; AI Specialist</p>
-                      <p className="text-xs text-[#5B6472] leading-relaxed">
-                        Εργάστηκα με παγκόσμιες εταιρείες τεχνολογίας σε ψηφιακά προϊόντα και εφαρμογές τεχνητής νοημοσύνης. Ξέρω πώς να χρησιμοποιώ τα καλύτερα AI εργαλεία που υπάρχουν σήμερα - όχι για να αντικαταστήσουν τη δημιουργικότητα, αλλά για να παραδίδουμε πιο αποτελεσματικά αποτελέσματα, πιο γρήγορα, για κάθε πελάτη.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-3 pt-2">
-                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;Η ιστοσελίδα σας πρέπει να δουλεύει τόσο σκληρά όσο εσείς.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* DESKTOP: horizontal flex - photo left, content right */}
-                <div className="hidden md:flex flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px', minHeight: '240px', maxHeight: '280px' }}>
-                    <img
-                      src="/media/manus/AtkkCmVLLZyIDtDx.webp"
-                      alt="Anastacia B. - Creative Director and AI Specialist at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={{ objectPosition: 'top center' }}
-                    />
-                    <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-7 flex-1">
-                    <div>
-                      <h3 className="text-xl font-bold text-[#111315] mb-0.5">Anastacia B.</h3>
-                      <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Creative Director &amp; AI Specialist</p>
-                      <p className="text-sm text-[#5B6472] leading-relaxed">
-                        Εργάστηκα με παγκόσμιες εταιρείες τεχνολογίας σε ψηφιακά προϊόντα και εφαρμογές τεχνητής νοημοσύνης. Καταλαβαίνω πώς να χρησιμοποιώ τα καλύτερα AI εργαλεία που υπάρχουν σήμερα - όχι για να αντικαταστήσουν τη δημιουργικότητα ή την ανθρώπινη κρίση, αλλά για να παραδίδουμε πιο αποτελεσματικά αποτελέσματα.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-5 pt-4">
-                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;Η ιστοσελίδα σας πρέπει να δουλεύει τόσο σκληρά όσο εσείς.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </AnimateIn>
-
-            {/* Tom Card */}
-            <AnimateIn delay={0.2}>
-              <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 overflow-hidden">
-                {/* MOBILE: compact horizontal - square photo left, text right */}
-                <div className="flex md:hidden flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
-                    <img
-                      src="/media/manus/DVIoYisVQvzbqoiR.webp"
-                      alt="Tom B. - Technical Director and SEO Expert at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover object-top"
-                    />
-                    <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
-                    <div>
-                      <h3 className="text-base font-bold text-[#111315] mb-0.5">Tom B.</h3>
-                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Technical Director &amp; SEO Expert</p>
-                      <p className="text-xs text-[#5B6472] leading-relaxed">
-                        Το υπόβαθρό μου είναι στην αυτοματοποίηση, την ανάπτυξη και την ενσωμάτωση πολύπλοκων συστημάτων για παγκόσμιους οργανισμούς. Λατρεύω να λύνω το τεχνικό κομμάτι ώστε εσείς να μην χρειάζεται να το σκέφτεστε.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-3 pt-2">
-                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;Πρώτα λύσε το πρόβλημα. Μετά γράψε τον κώδικα.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* DESKTOP: horizontal flex */}
-                <div className="hidden md:flex flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px', maxHeight: '280px' }}>
-                    <img
-                      src="/media/manus/DVIoYisVQvzbqoiR.webp"
-                      alt="Tom B. - Technical Director & SEO Expert at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-7 flex-1">
-                    <div>
-                      <h3 className="text-xl font-bold text-[#111315] mb-0.5">Tom B.</h3>
-                      <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Technical Director &amp; SEO Expert</p>
-                      <p className="text-sm text-[#5B6472] leading-relaxed">
-                        Το υπόβαθρό μου είναι στην αυτοματοποίηση, την ανάπτυξη και την ενσωμάτωση πολύπλοκων συστημάτων για παγκόσμιους οργανισμούς. Λατρεύω να λύνω το τεχνικό κομμάτι ώστε εσείς να μην χρειάζεται να το σκέφτεστε - αυτό που παίρνετε είναι μια ιστοσελίδα γερή, γρήγορη και χτισμένη για να αντέξει.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-5 pt-4">
-                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;Πρώτα λύσε το πρόβλημα. Μετά γράψε τον κώδικα.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </AnimateIn>
-
-          </div>
+          <TeamProfiles language="el" />
         </div>
       </section>
 

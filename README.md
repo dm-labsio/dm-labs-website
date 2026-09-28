@@ -17,7 +17,7 @@ This repository serves as a public showcase of the quality and technical approac
 | Build tool | Vite |
 | Routing | Wouter |
 | Animations | Framer Motion |
-| Deployment | Manus (custom domain: dm-labs.io) |
+| Deployment | Vercel (custom domain: dm-labs.io) |
 
 ---
 
@@ -54,7 +54,10 @@ client/
 
 ```bash
 # Install dependencies
-pnpm install
+pnpm install --frozen-lockfile
+
+# Install the browser used by the local prerender build (once)
+pnpm exec playwright install chromium --only-shell
 
 # Start development server
 pnpm dev
@@ -63,7 +66,13 @@ pnpm dev
 pnpm build
 ```
 
-Requires Node.js 18+ and pnpm.
+Requires Node.js 24.x (`.nvmrc`) and pnpm 10.4.1, pinned in `package.json`.
+The build generates static pages locally; it does not deploy them.
+
+The brand refresh is developed on `codex/brand-refresh` and may be deployed only
+to Vercel Preview. Do not merge it into `main`, promote a deployment, or change
+production configuration as part of the refresh. See
+[the refresh checkpoint](docs/brand-refresh/checkpoint-01.md) for status and QA.
 
 ---
 

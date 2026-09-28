@@ -1,3 +1,5 @@
+import TeamProfiles from "@/components/TeamProfiles";
+import "./HomeHe.css";
 import StarButton from "@/components/ui/star-button";
 import { useEffect } from "react";
 import { ArrowLeft, CalendarCheck, CheckCircle2, Clock, Code, Dumbbell, Globe, Headphones, HelpCircle, Languages, MessageCircle, Palette, Rocket, Scissors, Search, Shield, Smartphone, Stethoscope, Users, Utensils, Zap } from "lucide-react";
@@ -50,7 +52,7 @@ export default function HomeHe() {
     document.head.appendChild(script); return () => document.getElementById(id)?.remove();
   }, []);
 
-  return <div className="hebrew-home" dir="rtl">
+  return <div className="hebrew-home hebrew-home-refresh" lang="he" dir="rtl">
     <HomeHeroScrub variant="hebrew">
       <div className="text-center">
         <p className="mb-4 text-sm font-semibold tracking-[0.16em] text-[#5B8CFF]">אתרים מדויקים לעסקים עם שאיפות</p>
@@ -74,7 +76,7 @@ export default function HomeHe() {
 
     <section className="relative overflow-hidden py-16 sm:py-20 bg-[#0F172A]"><div className="container"><StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8">{[["5-14","ימים עד להשקה","מהשיחה הראשונה"],["5★","שביעות רצון","הסטנדרט שלנו"],["100%","מותאם למובייל","בכל פרויקט"],["∞","ליווי מתמשך","אנחנו כאן בשבילכם"]].map(([value,label,sub]) => <StaggerItem key={label}><div className="text-center"><p className="text-4xl sm:text-5xl font-bold text-[#6FE3FF]" dir="ltr">{value}</p><p className="text-base font-semibold text-white mt-2">{label}</p><p className="text-xs text-[#94A3B8]">{sub}</p></div></StaggerItem>)}</StaggerContainer></div></section>
 
-    <section className="section-spacing bg-white"><div className="container"><AnimateIn className="text-center mb-14"><p className="text-xs font-semibold tracking-[0.2em] text-[#5B8CFF] mb-3">האנשים שמאחורי העבודה</p><h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">מי אנחנו</h2></AnimateIn><div className="flex flex-col gap-8 max-w-3xl mx-auto">{[["Anastacia B.","מנהלת קריאייטיב ומומחית AI","/media/manus/AtkkCmVLLZyIDtDx.webp","עבדתי עם חברות טכנולוגיה גלובליות על מוצרים דיגיטליים והטמעת AI. אני משתמשת בכלים מתקדמים כדי לדייק תוצאות ולספק עבודה טובה יותר, בלי לוותר על יצירתיות ושיקול דעת אנושי.","האתר שלכם צריך לעבוד קשה בדיוק כמוכם."],["Tom B.","מנהל טכנולוגי ומומחה SEO","/media/manus/DVIoYisVQvzbqoiR.webp","הרקע שלי הוא באוטומציה, פיתוח ושילוב מערכות מורכבות. אני דואג לצד הטכני כדי שתקבלו אתר יציב, מהיר ובנוי לטווח ארוך.","קודם פותרים את הבעיה. אחר כך כותבים את הקוד."]].map(([name,role,image,body,quote]) => <AnimateIn key={name}><article className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] overflow-hidden md:flex"><div className="relative aspect-[3/4] shrink-0 bg-[#E2E5EA] md:h-auto md:w-[200px] md:aspect-auto"><img src={image} alt={`${name}, ${role} ב-DM-Labs.io`} className="absolute inset-0 w-full h-full object-contain object-top md:object-cover" /></div><div className="p-7 flex flex-col justify-between"><div><h3 className="text-xl font-bold text-[#111315]" dir="ltr">{name}</h3><p className="text-sm font-semibold text-[#5B8CFF] mb-4">{role}</p><p className="text-sm text-[#5B6472] leading-relaxed">{body}</p></div><p className="border-t border-[#E2E5EA] mt-5 pt-4 text-sm italic text-[#111315] font-medium">״{quote}״</p></div></article></AnimateIn>)}</div></div></section>
+    <TeamProfiles language="he" />
 
     <section className="relative overflow-hidden"><div className="absolute inset-0 bg-[#0F172A]"><img src={DARK_CTA_BG} alt="" role="presentation" className="absolute inset-0 h-full w-full object-cover opacity-40" /></div><div className="container relative z-10 section-spacing text-center"><AnimateIn><p className="text-sm font-medium text-[#6FE3FF] mb-4">מוכנים להתחיל?</p><h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">תנו ללקוחות סיבה לבחור בכם</h2><p className="mx-auto mt-6 mb-10 max-w-xl text-lg text-[#94A3B8]">ספרו לנו לאן אתם רוצים לקחת את העסק. נגדיר יחד את האתר, היקף העבודה והצעדים הבאים. אתם בקשר ישיר עם מי שבונה אותו.</p><StarButton asChild><a href={WHATSAPP_HEBREW} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2"><MessageCircle size={20} />שיחת ייעוץ ללא עלות</a></StarButton></AnimateIn></div></section>
   </div>;
