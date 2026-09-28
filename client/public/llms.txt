@@ -1,21 +1,21 @@
 # DM-Labs.io
 
-> DM-Labs.io is a web design agency based in Paphos, Cyprus, building professional, mobile-first websites for small businesses in Cyprus and Greece. Websites start from €299 and are delivered in 5 to 14 days.
+> DM-Labs.io is a web design agency working remotely, building professional, mobile-first websites for businesses worldwide. Custom design, fast delivery, and direct support help businesses stand out and turn interest into enquiries.
 
 ## About
 
-DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-focused websites for businesses that want to stand out online. Our work is fast, affordable, and built to rank on Google.
+DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-focused websites for businesses that want to stand out online. Our work combines distinctive design, fast delivery, clear paths to enquiry and personal technical care.
 
 - Company: DM-Labs.io
-- Location: Eleftheriou Chandrinou 5, Paphos 8045, Cyprus
+- Location: Eleftheriou Chandrinou 5, Paphos 8045
 - Phone: +35797472847
 - Email: info@dm-labs.io
 - Website: https://dm-labs.io
-- Languages: English, Greek
+- Languages: English, Greek, Hebrew
 
 ## Services
 
-- Custom website design and development (from €299)
+- Custom website design and development, built around business goals
 - Mobile-first, SEO-optimised websites
 - Bilingual websites (English + Greek)
 - Website maintenance and content updates
@@ -34,10 +34,10 @@ DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-
 - Complete Care: €129/mo — unlimited reasonable updates
 - SEO + GEO retainer: from €149/mo
 
-## Target Markets
+## Working Together
 
-- Cyprus (Limassol, Nicosia, Paphos, Larnaca, Famagusta)
-- Greece (Athens, Thessaloniki, Crete, and beyond)
+- We work remotely with businesses worldwide.
+- Communication, project scope, content, and delivery are agreed before work starts.
 
 ## Industries Served
 
@@ -61,24 +61,24 @@ DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-
 
 ## Location Pages
 
-- Web Design Cyprus: https://dm-labs.io/web-design-cyprus
+- Web Design: https://dm-labs.io/web-design-cyprus
 - Web Design Limassol: https://dm-labs.io/web-design-limassol
 - Web Design Nicosia: https://dm-labs.io/web-design-nicosia
 - Web Design Paphos: https://dm-labs.io/web-design-paphos
 - Web Design Crete: https://dm-labs.io/web-design-crete
 - Web Design Thessaloniki: https://dm-labs.io/web-design-thessaloniki
-- Restaurant Websites Cyprus: https://dm-labs.io/web-design-restaurants-cyprus
+- Restaurant Websites: https://dm-labs.io/web-design-restaurants-cyprus
 
 ## Blog Articles
 
-- How much does a website cost in Cyprus (2026): https://dm-labs.io/blog/website-cost-cyprus-2026-guide
-- How to get found on Google in Cyprus: https://dm-labs.io/blog/how-to-get-found-on-google-cyprus
+- How much does a website cost (2026): https://dm-labs.io/blog/website-cost-cyprus-2026-guide
+- How to get found on Google: https://dm-labs.io/blog/how-to-get-found-on-google-cyprus
 - GEO: How to get found by ChatGPT and AI search: https://dm-labs.io/blog/geo-get-found-by-chatgpt-cyprus
-- Web design for restaurants in Cyprus: https://dm-labs.io/blog/restaurant-website-design-cyprus
+- Web design for restaurants: https://dm-labs.io/blog/restaurant-website-design-cyprus
 - Web design for nail salons and beauty studios: https://dm-labs.io/blog/web-design-nail-salon-beauty-studio-cyprus
 - Web design for yoga and pilates studios: https://dm-labs.io/blog/yoga-pilates-studio-website-cyprus
-- Wix vs professional web designer in Cyprus: https://dm-labs.io/blog/wix-vs-professional-web-designer-cyprus
-- Web design guide for Greece 2026: https://dm-labs.io/blog/web-design-greece-guide-2026
+- Wix vs professional web designer: https://dm-labs.io/blog/wix-vs-professional-web-designer-cyprus
+- Web design guide 2026: https://dm-labs.io/blog/web-design-greece-guide-2026
 
 ## Frequently Asked Questions
 
@@ -86,7 +86,7 @@ DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-
 Launch Website typically launches in 5 to 7 days. Growth Website typically launches in 7 to 10 days. Pro Website is quoted per project.
 
 **Do you work with clients remotely?**
-Yes. DM-Labs.io works with clients across Cyprus and Greece entirely remotely via WhatsApp, email, and video call.
+Yes. DM-Labs.io works with clients worldwide remotely via WhatsApp, email, and video call.
 
 **Do you build websites in Greek?**
 Yes. We build bilingual websites in English and Greek, and Greek-only websites on request.

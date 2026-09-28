@@ -1,4 +1,5 @@
 /* D&M LABS - GDPR Cookie Consent Banner — EN/EL/HE */
+import StarButton from "@/components/ui/star-button";
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 
@@ -156,7 +157,7 @@ export default function CookieBanner() {
         <>
           <p className={`text-xs text-[#5B6472] leading-relaxed ${isHebrew ? "mb-1.5 text-[10px] leading-[1.35] sm:mb-3 sm:text-xs sm:leading-relaxed" : "mb-4"}`}>{t.body}</p>
           <div className={`flex flex-col gap-2 ${isHebrew ? "gap-1.5 sm:gap-2" : ""}`}>
-            <button onClick={accept} className={`w-full ${isHebrew ? "min-h-7 py-1 text-[11px] sm:min-h-10 sm:py-2 sm:text-sm" : "min-h-11 py-2.5 text-sm"} rounded-xl brand-gradient text-white font-semibold hover:opacity-90 transition-opacity flex items-center justify-center`} style={{ textAlign: "center" }}>{t.acceptAll}</button>
+            <StarButton asChild><button onClick={accept} className={`w-full ${isHebrew ? "min-h-7 py-1 text-[11px] sm:min-h-10 sm:py-2 sm:text-sm" : "min-h-11 py-2.5 text-sm"} rounded-xl brand-gradient text-white font-semibold hover:opacity-90 transition-opacity flex items-center justify-center`} style={{ textAlign: "center" }}>{t.acceptAll}</button></StarButton>
             <div className="flex gap-2">
             <button onClick={reject} className={`flex-1 ${isHebrew ? "min-h-7 py-1 text-[11px] sm:min-h-10 sm:py-2 sm:text-sm" : "min-h-11 py-2.5 text-sm"} rounded-xl border border-[#E2E5EA] font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center`}>{t.reject}</button>
             <button onClick={() => setShowPrefs(true)} className={`flex-1 ${isHebrew ? "min-h-7 py-1 text-[11px] sm:min-h-10 sm:py-2 sm:text-sm" : "min-h-11 py-2.5 text-sm"} rounded-xl border border-[#E2E5EA] font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center`}>{t.manage}</button>
@@ -195,7 +196,7 @@ export default function CookieBanner() {
               </button>
             </div>
           </div>
-          <button onClick={savePrefs} className="w-full min-h-11 py-2.5 rounded-xl brand-gradient text-white text-sm font-semibold hover:opacity-90 transition-opacity flex items-center justify-center" style={{ textAlign: "center" }}>{t.savePrefs}</button>
+          <StarButton asChild><button onClick={savePrefs} className="w-full min-h-11 py-2.5 rounded-xl brand-gradient text-white text-sm font-semibold hover:opacity-90 transition-opacity flex items-center justify-center" style={{ textAlign: "center" }}>{t.savePrefs}</button></StarButton>
           <button onClick={() => setShowPrefs(false)} className="w-full mt-2 py-2 text-xs text-[#5B6472] hover:text-[#111315] transition-colors">{t.back}</button>
         </>
       )}

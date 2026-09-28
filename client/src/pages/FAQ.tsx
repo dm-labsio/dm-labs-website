@@ -2,6 +2,7 @@
    DM-Labs.io - FAQ Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { useState, useEffect } from "react";
@@ -17,7 +18,7 @@ const faqs = [
       { q: "How do I get started?", a: "Send us a message on WhatsApp or use the contact form. We will ask about your business, audience, content, and goals, then recommend the right website scope." },
       { q: "What information do I need to provide?", a: "Your business name, a brief description of what you do, and any existing logo, photos, text, or examples you want us to consider. We confirm the practical content requirements before work begins." },
       { q: "Do I need technical knowledge?", a: "No. We guide the website process and explain the decisions in straightforward terms. You focus on your business and approve the direction and content." },
-      { q: "Do you work with clients outside Paphos?", a: "Yes. DM-Labs.io works with businesses across Cyprus and can also work remotely with clients in Greece and elsewhere, subject to agreed project scope." },
+      { q: "Do you work with clients remotely?", a: "Yes. We work with businesses worldwide via WhatsApp, email and video calls. We agree the project scope, communication and delivery schedule before starting." },
       { q: "Can I see a design direction before development?", a: "Yes. We share a design direction for your approval before development proceeds, then keep you informed as the project moves through the agreed stages." },
       { q: "Can I add more pages or features later?", a: "Yes. New pages, new functionality, or additional content are quoted according to the work required. We will explain the scope before making changes." },
     ],
@@ -158,9 +159,9 @@ export default function FAQ() {
           <AnimateIn>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5 faq-editorial-cta-heading"><span>Still have</span><span><em>questions?</em></span></h2>
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto faq-editorial-cta-copy">We are always happy to help. Send us a message and we will get back to you quickly.</p>
-            <a href="/contact/" className="btn-primary faq-editorial-cta-button">
+            <StarButton asChild><a href="/contact/" className="btn-primary faq-editorial-cta-button">
               <MessageCircle size={18} /> Contact Us
-            </a>
+            </a></StarButton>
           </AnimateIn>
         </div>
       </section>

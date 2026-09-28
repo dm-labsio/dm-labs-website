@@ -336,7 +336,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
         <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Athens - Premium Properties</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Extraordinary<br/>Homes in Greece</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Extraordinary<br/>Homes</div>
         <div style={{ display: "flex", gap: "6px" }}>
           <div style={{ background: "#b8975a", color: "#0a0a0a", fontSize: "8px", padding: "5px 14px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>View Properties</div>
           <div style={{ border: "1px solid rgba(184,151,90,0.4)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Visa Guide</div>
@@ -981,7 +981,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         <div className="flex items-center justify-between gap-4">
           <span className="text-xs text-gray-400 templates-editorial-card-note">
             <span>Design inspiration</span>
-            <span>Pricing from €299</span>
+            <span>Built around your brand</span>
           </span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors templates-editorial-card-action" style={{ color: "#5B8CFF" }}>
             Preview <ChevronRight size={14} />
@@ -1051,7 +1051,7 @@ function CustomBuildCard() {
 
         <div className="flex items-center justify-between gap-4">
           <span className="text-xs text-gray-400 templates-editorial-card-note">
-            <span>Pricing from €299</span>
+            <span>Built around your brand</span>
             <span>Quote on request</span>
           </span>
           <a
@@ -1163,7 +1163,7 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 export default function Templates() {
   useSEO({
     title: "Website Examples | See Our Work | DM-Labs.io",
-    description: "Browse real website examples built by DM-Labs.io for restaurants, salons, dental clinics, yoga studios, and more. Starting from \u20ac299.",
+    description: "Explore concept website designs by DM-Labs.io for restaurants, salons, dental clinics, yoga studios, and more. Explore the design possibilities for your brand.",
     canonicalPath: "/templates/",
   });
   const [location] = useLocation();

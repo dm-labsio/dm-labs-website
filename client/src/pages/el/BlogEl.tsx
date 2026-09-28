@@ -3,6 +3,7 @@
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
    Clean editorial layout, card grid, category filters
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
@@ -21,7 +22,7 @@ function formatDate(dateStr: string) {
 export default function ΆρθραEl() {
   useSEO({
     title: "Άρθρα | Web Σχεδιασμός Tips & Guides | DM-Labs.io",
-    description: "Πρακτικοί οδηγοί, ειλικρινείς συμβουλές και ιδέες web design για επιχειρήσεις στην Κύπρο και παγκοσμίως.",
+    description: "Πρακτικοί οδηγοί, ειλικρινείς συμβουλές και ιδέες web design για επιχειρήσεις παγκοσμίως.",
   });
   return (
     <>
@@ -38,7 +39,7 @@ export default function ΆρθραEl() {
               Το Blog της <span className="brand-gradient-text">DM-Labs.io</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Πρακτικοί οδηγοί, ειλικρινείς συμβουλές και ιδέες web design για επιχειρήσεις στην Κύπρο και παγκοσμίως.
+              Πρακτικοί οδηγοί, ειλικρινείς συμβουλές και ιδέες web design για επιχειρήσεις παγκοσμίως.
             </p>
           </AnimateIn>
         </div>
@@ -102,9 +103,9 @@ export default function ΆρθραEl() {
             <p className="text-lg text-[#94A3B8] mb-8 max-w-xl mx-auto">
               Σταματήστε να διαβάζετε και ξεκινήστε να αναπτύσσεστε. Λάβετε δωρεάν συμβουλευτική και μια σαφή προσφορά εντός 24 ωρών.
             </p>
-            <Link href="/el/contact/" className="btn-primary">
+            <StarButton asChild><Link href="/el/contact/" className="btn-primary">
               Δωρεάν Συμβουλευτική <ArrowRight size={18} />
-            </Link>
+            </Link></StarButton>
           </AnimateIn>
         </div>
       </section>

@@ -4,6 +4,7 @@
    Σχεδιασμός: Airy vertical timeline - no step numbers, large icons,
            generous breathing room between each stage
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
@@ -81,7 +82,7 @@ export default function ProcessElPage() {
               Από την Ιδέα στην <span className="brand-gradient-text">Κυκλοφορία</span>
             </h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Μια απλή, διαφανής διαδικασία σχεδιασμένη για να δημοσιεύσει την ιστοσελίδα σας όσο πιο γρήγορα γίνεται - χωρίς άγχος.
+              Ξεκάθαρο πλάνο. Γρήγορη υλοποίηση. Εμείς αναλαμβάνουμε τα τεχνικά και σας κρατάμε ενήμερους σε κάθε ουσιαστικό βήμα, μέχρι η ιστοσελίδα σας να είναι έτοιμη για δουλειά.
             </p>
           </AnimateIn>
         </div>
@@ -172,9 +173,9 @@ export default function ProcessElPage() {
               Το πρώτο βήμα είναι μια γρήγορη, χωρίς δέσμευση συνομιλία στο WhatsApp. Ας μιλήσουμε για την επιχείρησή σας.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/el/contact/" className="btn-primary">
+              <StarButton asChild><a href="/el/contact/" className="btn-primary">
                 <MessageCircle size={18} /> Ξεκινήστε τη Συζήτηση
-              </a>
+              </a></StarButton>
               <Link href="/el/pricing/" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
                 Δείτε τις Τιμές <ArrowRight size={16} />
               </Link>

@@ -336,7 +336,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
         <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Αθήνα - Premium Ακίνητα</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Εξαιρετικές<br/>Κατοικίες στην Ελλάδα</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Εξαιρετικές<br/>Κατοικίες</div>
         <div style={{ display: "flex", gap: "6px" }}>
           <div style={{ background: "#b8975a", color: "#0a0a0a", fontSize: "8px", padding: "5px 14px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Δείτε Ακίνητα</div>
           <div style={{ border: "1px solid rgba(184,151,90,0.4)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Οδηγός Visa</div>
@@ -979,7 +979,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Έμπνευση σχεδιασμού - τιμές από €299</span>
+          <span className="text-xs text-gray-400 italic">Σχεδιαστική έμπνευση για το δικό σας brand</span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
             Προεπισκόπηση <ChevronRight size={14} />
           </button>
@@ -1047,7 +1047,7 @@ function CustomBuildCard() {
         </ul>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Τιμές από €299 - προσφορά κατόπιν αιτήματος</span>
+          <span className="text-xs text-gray-400 italic">Σχεδιασμός γύρω από τους στόχους σας</span>
           <a
             href="/el/contact/"
             className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
@@ -1157,7 +1157,7 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 export default function TemplatesEl() {
   useSEO({
     title: "Παραδείγματα Ιστοσελίδων | Δείτε τη Δουλειά μας | DM-Labs.io",
-    description: "Δείτε πραγματικά παραδείγματα ιστοσελίδων από τη DM-Labs.io για εστιατόρια, σαλόνια, οδοντιατρεία, στούντιο yoga και άλλα. Ξεκινώντας από €299.",
+    description: "Εξερευνήστε concept ιστοσελίδες της DM-Labs.io για εστιατόρια, σαλόνια, οδοντιατρεία, στούντιο yoga και άλλα. Δείτε τι μπορεί να πετύχει το δικό σας brand.",
     canonicalPath: "/el/templates/",
   });
   const [location] = useLocation();

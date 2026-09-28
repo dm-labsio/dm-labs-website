@@ -1,0 +1,111 @@
+/* Shared primary CTA treatment. Secondary and selected controls stay distinct. */
+.star-button {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.star-button:not(.btn-secondary) {
+  color: #17264e;
+  border: 1px solid rgba(255, 255, 255, .8);
+  background:
+    linear-gradient(160deg, #ffffff70, #ffffff08 48%, #ffffff40),
+    linear-gradient(115deg, #5b8cffb8, #6fe3ffad 46%, #8b5cffad),
+    #f4f8ffe6;
+  box-shadow: inset 0 1px 0 #ffffffd9, inset 0 -1px 0 #5365bb24, 0 4px 14px #4459a31a;
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  text-shadow: 0 1px 0 #ffffff40;
+  transition: background-color 300ms ease, box-shadow 300ms ease, border-color 300ms ease, transform 300ms ease;
+}
+
+.star-button__label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  max-width: 100%;
+}
+
+.star-button__stars {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.star-button__star {
+  position: absolute;
+  width: var(--star-size);
+  height: var(--star-size);
+  color: var(--star-color);
+  opacity: 0;
+  transform: translate(0, 0) scale(.25) rotate(-25deg);
+  transition: transform var(--star-time) cubic-bezier(.05,.83,.43,.96), opacity 250ms ease;
+  filter: drop-shadow(0 0 5px var(--star-color));
+}
+
+.star-button__star > svg { display: block; width: 100%; height: 100%; fill: currentColor; }
+.star-button__star--1 { --star-size: 21px; --star-time: 1000ms; --star-color: #5b8cff; top: 16%; left: 10%; --star-x: -12px; --star-y: -31px; }
+.star-button__star--2 { --star-size: 13px; --star-time: 1000ms; --star-color: #8b5cff; top: 20%; left: 38%; --star-x: -7px; --star-y: -24px; }
+.star-button__star--3 { --star-size: 6px; --star-time: 1000ms; --star-color: #5b8cff; top: 64%; left: 24%; --star-x: -4px; --star-y: 16px; }
+.star-button__star--4 { --star-size: 9px; --star-time: 800ms; --star-color: #8b5cff; top: 64%; left: 76%; --star-x: 9px; --star-y: 16px; }
+.star-button__star--5 { --star-size: 15px; --star-time: 600ms; --star-color: #6fe3ff; top: 22%; left: 88%; --star-x: 8px; --star-y: -23px; }
+.star-button__star--6 { --star-size: 6px; --star-time: 800ms; --star-color: #6fe3ff; top: 5%; left: 61%; --star-x: 3px; --star-y: -12px; }
+
+/* Leave room above a compact sticky-header CTA, even at scroll position zero. */
+header .star-button__star--1 { --star-size: 17px; --star-y: -14px; }
+header .star-button__star--2 { --star-y: -11px; }
+header .star-button__star--5 { --star-y: -10px; }
+header .star-button__star--6 { --star-y: -5px; }
+
+/* Touch gets press feedback, not a hover effect that sticks after tapping. */
+@media (hover: hover) and (pointer: fine) {
+  .star-button:not(.btn-secondary):not(:disabled):not([aria-disabled="true"]):not([aria-pressed="true"]):hover {
+    color: #17264e;
+    border-color: #b4a0ff;
+    background-color: #fff;
+    box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 #8b5cff33, 0 8px 24px #5b8cff30, 0 0 25px #8b5cff24;
+    transform: translateY(-2px);
+    filter: none;
+    opacity: 1;
+  }
+  .star-button:not(.btn-secondary):not(:disabled):not([aria-disabled="true"]):not([aria-pressed="true"]):hover .star-button__star {
+    opacity: 1;
+    transform: translate(var(--star-x), var(--star-y)) scale(1) rotate(0deg);
+  }
+}
+
+.star-button:focus-visible { outline: 3px solid #5532a8; outline-offset: 4px; }
+.star-button:not(.btn-secondary):not([aria-pressed="true"]):focus-visible .star-button__star {
+  opacity: 1;
+  transform: translate(var(--star-x), var(--star-y)) scale(1) rotate(0deg);
+}
+.star-button:not(:disabled):not([aria-disabled="true"]):active { transform: scale(.97); }
+.star-button:disabled, .star-button[aria-disabled="true"] { cursor: not-allowed; opacity: .55; transform: none; }
+.star-button:is(:disabled, [aria-disabled="true"], [aria-pressed="true"], .btn-secondary) .star-button__stars { display: none; }
+
+/* Preserve the deliberately solid, checked pricing selection from the last QA. */
+.pricing-journey .star-button.pricing-editorial-card-cta[aria-pressed="true"] {
+  background: #5532a8;
+  color: #fff;
+  border-color: #5532a8;
+  text-shadow: none;
+  box-shadow: inset 0 1px 0 #ffffff24;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star-button, .star-button__star { transition: none; }
+  .star-button .star-button__stars { display: none; }
+  .star-button.star-button:is(:hover, :active) { transform: none; }
+}
+
+@media (forced-colors: active) {
+  .star-button.star-button { background: ButtonFace !important; color: ButtonText !important; border: 2px solid ButtonText !important; box-shadow: none; text-shadow: none; }
+  .star-button__stars { display: none; }
+  .star-button:focus-visible { outline-color: Highlight; }
+}

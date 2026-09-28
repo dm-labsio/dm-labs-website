@@ -4,6 +4,7 @@
    Design: Airy vertical timeline - no step numbers, large icons,
            generous breathing room between each stage
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
@@ -84,7 +85,7 @@ export default function Process() {
               <span className="process-editorial-hero-heading-emphasis"><em>Launch</em></span>
             </h1>
             <p className="process-editorial-lead">
-              A simple, transparent process designed to get your website live as quickly as possible, without the stress.
+              A clear plan. Fast execution. No technical juggling on your side. We manage the build, keep you involved at the right moments, and get your website ready for business.
             </p>
           </AnimateIn>
         </div>
@@ -176,9 +177,9 @@ export default function Process() {
               The first step is a quick, no-pressure WhatsApp chat. Let's talk about your business.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact/" className="btn-primary">
+              <StarButton asChild><a href="/contact/" className="btn-primary">
                 <MessageCircle size={18} /> Start the Conversation
-              </a>
+              </a></StarButton>
               <Link href="/pricing/" className="btn-secondary !border-white/20 !text-white hover:!border-white/40">
                 View Pricing <ArrowRight size={16} />
               </Link>

@@ -2,6 +2,7 @@
    DM-Labs.io - Pricing Page
    Public website and maintenance packages.
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { Link } from "wouter";
@@ -181,7 +182,7 @@ export default function Pricing() {
                       </li>
                     ))}
                   </ul>
-                  <button type="button" aria-pressed={selectedBuild === index} onClick={() => { setSelectedBuild(index); scrollTo("maintenance"); }} className={`${selectedBuild === index || plan.recommended ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>{selectedBuild === index ? <CheckCircle2 size={16} /> : <ArrowRight size={16} />} {selectedBuild === index ? "Selected" : `Choose ${plan.name.split(" ")[0]}`}</button>
+                  <StarButton asChild><button type="button" aria-pressed={selectedBuild === index} onClick={() => { setSelectedBuild(index); scrollTo("maintenance"); }} className={`${selectedBuild === index || plan.recommended ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>{selectedBuild === index ? <CheckCircle2 size={16} /> : <ArrowRight size={16} />} {selectedBuild === index ? "Selected" : `Choose ${plan.name.split(" ")[0]}`}</button></StarButton>
                 </div>
               );
               return <AnimateIn delay={0.1 + index * 0.1} key={plan.name}>{card}</AnimateIn>;
@@ -242,7 +243,7 @@ export default function Pricing() {
                   <ul className="pricing-editorial-feature-list flex-1">
                     {plan.features.map((feature) => <li key={feature} className="flex items-start gap-2.5 text-sm text-[#111315]"><CheckCircle2 size={15} className="shrink-0 mt-0.5" style={{ color: plan.colour }} />{feature}</li>)}
                   </ul>
-                  <button type="button" aria-pressed={selectedCare === index} onClick={() => setSelectedCare(index)} className={`${plan.recommended || selectedCare === index ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>{selectedCare === index ? <CheckCircle2 size={16} /> : <ArrowRight size={16} />}{selectedCare === index ? `${plan.name} selected` : `Choose ${plan.name}`}</button>
+                  <StarButton asChild><button type="button" aria-pressed={selectedCare === index} onClick={() => setSelectedCare(index)} className={`${plan.recommended || selectedCare === index ? "btn-primary" : "btn-secondary"} pricing-editorial-card-cta w-full justify-center`}>{selectedCare === index ? <CheckCircle2 size={16} /> : <ArrowRight size={16} />}{selectedCare === index ? `${plan.name} selected` : `Choose ${plan.name}`}</button></StarButton>
                 </div>
               );
               return <AnimateIn delay={0.1 + index * 0.1} key={plan.name}>{card}</AnimateIn>;
@@ -250,7 +251,7 @@ export default function Pricing() {
           </div>
           <div className="journey-summary" id="your-selection">
             <div aria-live="polite"><p className="pricing-editorial-label">Made for your next chapter</p><h3>{build && care ? `${build.name} + ${care.name}` : "Your website. Our ongoing care."}</h3><p>{build && care ? <><strong>{build.price}</strong> one-time build <span className="journey-summary-plus">+</span> <strong>{yearly ? euro(care.yearlyPrice) : care.price}</strong>{yearly ? "/year, paid yearly" : "/month"}</> : "Choose a website and care plan above, or let’s find your fit together."}</p></div>
-            <Link href={enquiry} className="btn-primary">{build && care ? "Let’s build your website" : "Help me choose"}<ArrowRight size={16} /></Link>
+            <StarButton asChild><Link href={enquiry} className="btn-primary">{build && care ? "Let’s build your website" : "Help me choose"}<ArrowRight size={16} /></Link></StarButton>
           </div>
           <p className="journey-ownership">Your paid-for website belongs to you. Hosting & care continues while we manage it. <Link href="/terms/">View terms</Link><br />Prices exclude applicable taxes. Domain and third-party costs are agreed separately.</p>
           <AnimateIn delay={0.35} className="mt-8 max-w-2xl mx-auto">
@@ -298,7 +299,7 @@ export default function Pricing() {
           <AnimateIn>
             <h2 className="pricing-editorial-cta-heading">Not sure which <em>package</em> fits?</h2>
             <p>Tell us what your business needs and we will recommend the right starting scope.</p>
-            <div className="pricing-editorial-cta-actions flex flex-col sm:flex-row gap-4 justify-center"><Link href="/contact/" className="btn-primary"><MessageCircle size={18} /> Book Free Consultation</Link><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Us <ArrowRight size={16} /></a></div>
+            <div className="pricing-editorial-cta-actions flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><Link href="/contact/" className="btn-primary"><MessageCircle size={18} /> Book Free Consultation</Link></StarButton><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Us <ArrowRight size={16} /></a></div>
           </AnimateIn>
         </div>
       </section>

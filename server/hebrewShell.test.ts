@@ -8,7 +8,7 @@ describe("Hebrew shared shell and staged entry route", () => {
   it("exposes a substantive Hebrew homepage with self-canonical staging metadata", () => {
     const home = readSource("client/src/pages/he/HomeHe.tsx");
 
-    expect(home).toContain('title: "DM-Labs.io | עיצוב אתרים מקצועי לעסקים"');
+    expect(home).toContain('title: "סוכנות עיצוב האתרים הטובה ביותר לעסקים בצמיחה | DM Labs"');
     const seoRoutes = readSource("client/src/lib/seoRoutes.ts");
     const seoHook = readSource("client/src/hooks/useSEO.ts");
     expect(seoRoutes).toContain("INDEXABLE_HEBREW_PATHS");

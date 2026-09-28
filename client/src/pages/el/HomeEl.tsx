@@ -4,6 +4,7 @@
    Sections: Hero, Trust Strip, Template Showcase + Industries, Υπηρεσίες, Διαδικασία, Testimonials, Τιμές, Stats, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
+import StarButton from "@/components/ui/star-button";
 import { } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
@@ -184,8 +185,8 @@ const TESTIMONIALS = [
 
 export default function HomeElPage() {
   useSEO({
-    title: "DM-Labs.io | Επαγγελματικός Σχεδιασμός Ιστοσελίδων από €299",
-    description: "Η DM-Labs.io κατασκευάζει custom, mobile-first ιστοσελίδες για επιχειρήσεις. Γρήγορη παράδοση, έτοιμες για SEO, από €299.",
+    title: "Η καλύτερη εταιρεία web design για επιχειρήσεις που αναπτύσσονται | DM Labs",
+    description: "Ξεχωρίστε. Κερδίστε εμπιστοσύνη. Προσελκύστε περισσότερες επαφές. Custom ιστοσελίδες, γρήγορη παράδοση και προσωπική φροντίδα σε επιχειρήσεις παντού.",
   });
   return (
     <>
@@ -194,20 +195,20 @@ export default function HomeElPage() {
           ═══════════════════════════════════════════ */}
       <HomeHeroScrub>
         <p className="text-sm font-medium text-[#5B6472] mb-4 tracking-wide uppercase">
-          Ολοκληρωμένες Λύσεις Ιστοσελίδας
+          Για το επόμενο βήμα σας
         </p>
         <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#111315] leading-[1.1] mb-6">
-          Η επιχείρησή σας είναι σπουδαία.{" "}
-          <span className="brand-gradient-text">Η ιστοσελίδα σας πρέπει να το δείχνει.</span>
+          Εντυπωσιάζει με την πρώτη ματιά.{" "}
+          <span className="brand-gradient-text">Μετατρέπει το ενδιαφέρον σε πελάτες.</span>
         </h1>
         <p className="text-lg text-[#5B6472] leading-relaxed mb-8 max-w-2xl mx-auto">
-          Είμαστε μια εξειδικευμένη εταιρεία web design. Φτιάχνουμε επαγγελματικές, γρήγορες ιστοσελίδες που φέρνουν αποτελέσματα για επιχειρήσεις σαν τη δική σας - από €299.
+          Δυνατή εικόνα. Εμπιστοσύνη. Περισσότερες επαφές. Γρήγορες, custom ιστοσελίδες με τα τεχνικά στα χέρια μας. Όπου κι αν δραστηριοποιείστε.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
-          <Link href="/el/contact/" className="btn-primary">
+          <StarButton asChild><Link href="/el/contact/" className="btn-primary">
             Δωρεάν Συμβουλευτική
             <ArrowRight size={18} />
-          </Link>
+          </Link></StarButton>
           <Link href="/el/templates/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#5B8CFF] text-[#5B8CFF] font-semibold hover:bg-[#5B8CFF] hover:text-white transition-all duration-300">
             Δείτε Παραδείγματα
             <ArrowRight size={18} />
@@ -222,11 +223,11 @@ export default function HomeElPage() {
         <div className="container py-6">
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
             {[
-              "Χωρίς Κρυφές Χρεώσεις",
+              "Σχεδιασμός που εμπνέει εμπιστοσύνη",
               "Παράδοση σε Μέρες",
               "Mobile Responsive",
               "SEO Βελτιστοποιημένο",
-              "Ευρωπαϊκή Ομάδα",
+              "Άμεση επαφή με Tom & Anastacia",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
                 <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0" />
@@ -250,10 +251,10 @@ export default function HomeElPage() {
           <AnimateIn className="text-center mb-10">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Έμπνευση Σχεδιασμού</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">
-              Δείτε Τι Μπορούμε να Δημιουργήσουμε για Εσάς
+              Η πρώτη εντύπωση ανοίγει πόρτες
             </h2>
             <p className="text-base text-[#5B6472] max-w-2xl mx-auto">
-              Κάθε ιστοσελίδα που φτιάχνουμε είναι <strong className="text-[#111315]">εντελώς custom</strong> - σχεδιασμένη από μηδενική βάση γύρω από το brand σας, το περιεχόμενό σας και τους πελάτες σας. Αυτά τα παραδείγματα δείχνουν το εύρος στυλ και κλάδων με τους οποίους δουλεύουμε. Σκεφτείτε τα ως έμπνευση, όχι ως έτοιμα πακέτα.
+              Η ιστοσελίδα σας δείχνει την αξία σας πριν από την πρώτη συζήτηση. Εξερευνήστε αυτά τα <strong className="text-[#111315]">concept σχέδια</strong> για έμπνευση. Το δικό σας site θα σχεδιαστεί γύρω από το brand, τους πελάτες και τους στόχους σας.
             </p>
           </AnimateIn>
 
@@ -273,10 +274,10 @@ export default function HomeElPage() {
           </StaggerContainer>
 
           <AnimateIn className="text-center mb-16">
-            <Link href="/el/templates/" className="btn-primary">
+            <StarButton asChild><Link href="/el/templates/" className="btn-primary">
               Δείτε Όλα τα Παραδείγματα
               <ArrowRight size={16} />
-            </Link>
+            </Link></StarButton>
           </AnimateIn>
         </div>
       </section>
@@ -289,21 +290,21 @@ export default function HomeElPage() {
           <AnimateIn className="text-center mb-16">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Οι Υπηρεσίες μας</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Εξειδικευμένες Λύσεις για την Online Παρουσία σας
+              Δυνατή εικόνα. Περισσότεροι λόγοι να σας επιλέξουν.
             </h2>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
-              Ό,τι χρειάζεστε για να αποκτήσετε επαγγελματική παρουσία στο διαδίκτυο, από τον σχεδιασμό μέχρι την κυκλοφορία και πέρα από αυτή.
+              Ένα δυνατό brand, μια γρήγορη εμπειρία και ένας ξεκάθαρος δρόμος προς την επικοινωνία. Κάθε λεπτομέρεια έχει σκοπό.
             </p>
           </AnimateIn>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
-              { icon: Globe, title: "Custom Σχεδιασμός Ιστοσελίδας", desc: "Μοναδικές, branded ιστοσελίδες προσαρμοσμένες στην ταυτότητα και τους στόχους της επιχείρησής σας. Κανένα έτοιμο πρότυπο - κάθε ιστοσελίδα φτιάχνεται από μηδενική βάση.", anchor: "custom-design" },
-              { icon: Smartphone, title: "Mobile-First Ανάπτυξη", desc: "Κάθε ιστοσελίδα σχεδιάζεται mobile-first, εξασφαλίζοντας άψογη εμπειρία σε κινητά, tablet και desktop.", anchor: "mobile-first" },
-              { icon: Search, title: "SEO Βελτιστοποίηση", desc: "Ενσωματωμένη βελτιστοποίηση μηχανών αναζήτησης ώστε οι πελάτες σας να σας βρίσκουν στο Google από την πρώτη μέρα.", anchor: "seo" },
-              { icon: Zap, title: "Γρήγορη Απόδοση", desc: "Εξαιρετικά γρήγοροι χρόνοι φόρτωσης με βελτιστοποιημένο κώδικα. Η ταχύτητα έχει σημασία για τις μετατροπές και τις κατατάξεις.", anchor: "performance" },
-              { icon: Shield, title: "Ασφαλής και Αξιόπιστη", desc: "Πιστοποιητικά SSL, ασφαλής φιλοξενία και τακτικά αντίγραφα ασφαλείας για να παραμένει η ιστοσελίδα σας ασφαλής και πάντα διαθέσιμη.", anchor: "security" },
-              { icon: Clock, title: "Γρήγορη Παράδοση", desc: "Από την ιδέα στην κυκλοφορία σε 5-14 εργάσιμες μέρες. Κινούμαστε γρήγορα χωρίς να θυσιάζουμε την ποιότητα.", anchor: "turnaround" },
+              { icon: Globe, title: "Custom Σχεδιασμός Ιστοσελίδας", desc: "Μια ξεχωριστή ιστοσελίδα που αναδεικνύει την αξία σας. Σχεδιασμένη γύρω από το brand σας και τους πελάτες που θέλετε να κερδίσετε.", anchor: "custom-design" },
+              { icon: Smartphone, title: "Mobile-First Ανάπτυξη", desc: "Κάντε την επιλογή σας εύκολη από το κινητό. Ξεκάθαρο περιεχόμενο, απλή πλοήγηση και επικοινωνία χωρίς εμπόδια.", anchor: "mobile-first" },
+              { icon: Search, title: "SEO Βελτιστοποίηση", desc: "Σωστή δομή και τεχνικές βάσεις, ώστε οι μηχανές αναζήτησης να κατανοούν την επιχείρησή σας και οι κατάλληλοι πελάτες να μπορούν να σας βρουν.", anchor: "seo" },
+              { icon: Zap, title: "Γρήγορη Απόδοση", desc: "Κρατήστε την προσοχή στην προσφορά σας. Γρήγορες σελίδες και βελτιστοποιημένο υλικό βοηθούν τον επισκέπτη να κάνει το επόμενο βήμα.", anchor: "performance" },
+              { icon: Shield, title: "Ασφαλής και Αξιόπιστη", desc: "Αφήστε τα τεχνικά σε εμάς. Φιλοξενία, αντίγραφα ασφαλείας και διορθώσεις μέσα από το πλάνο συντήρησής σας.", anchor: "security" },
+              { icon: Clock, title: "Γρήγορη Παράδοση", desc: "Από το πλάνο στη δημοσίευση, με ξεκάθαρα ορόσημα. Συνήθως 5-14 εργάσιμες ημέρες για τυπικά έργα, ανάλογα με το εύρος και την ετοιμότητα του περιεχομένου.", anchor: "turnaround" },
             ].map((service) => (
               <StaggerItem key={service.title}>
                 <Link href={`/el/services/${service.anchor}/`}>
@@ -336,7 +337,7 @@ export default function HomeElPage() {
           <AnimateIn className="text-center mb-16">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Πώς Λειτουργεί</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Από την Ιδέα στο Κυκλοφορία σε 5 Απλά Βήματα
+              Από την ιδέα στην πράξη, σε 5 ξεκάθαρα βήματα
             </h2>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto">
               Έχουμε απλοποιήσει τη διαδικασία ώστε εσείς να εστιάζετε στη διαχείριση της επιχείρησής σας.
@@ -433,22 +434,22 @@ export default function HomeElPage() {
           <AnimateIn className="text-center mb-16">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Διαφανείς Τιμές</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
-              Απλές, Ειλικρινείς Τιμές
+              Επενδύστε στο επόμενο βήμα σας
             </h2>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-5">
-              Χωρίς κρυφές χρεώσεις. Χωρίς εκπλήξεις. Διαφανείς τιμές για κάθε project.
+              Επιλέξτε το εύρος έργου που ταιριάζει στους στόχους σας. Ξέρετε τι περιλαμβάνεται πριν ξεκινήσουμε.
             </p>
            </AnimateIn>
 
-          {/* Τιμές Εκκίνησης Full-Width Banner */}
+          {/* Γύρω από την επιχείρησή σας Full-Width Banner */}
           <div
             className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl text-center sm:text-left"
             style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
           >
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-white animate-pulse opacity-80" />
-            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Τιμές Εκκίνησης</span>
+            <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Γύρω από την επιχείρησή σας</span>
             <span className="hidden sm:block w-px h-5 bg-white/40" />
-            <span className="text-sm sm:text-base text-white/90 font-medium">Εισαγωγικές τιμές διαθέσιμες τώρα. <span className="font-bold text-white">Κλείστε τη θέση σας σήμερα.</span></span>
+            <span className="text-sm sm:text-base text-white/90 font-medium">Κατασκευή ιστοσελίδας + φιλοξενία και συντήρηση. <span className="font-bold text-white">Δείτε την πλήρη τιμολόγηση.</span></span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
@@ -495,9 +496,9 @@ export default function HomeElPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/el/contact/" className="btn-primary w-full justify-center">
+                  <StarButton asChild><Link href="/el/contact/" className="btn-primary w-full justify-center">
                     Δωρεάν Συμβουλευτική
-                  </Link>
+                  </Link></StarButton>
                 </div>
               </div>
             </AnimateIn>
@@ -826,16 +827,16 @@ export default function HomeElPage() {
           <AnimateIn>
             <p className="text-sm font-medium text-[#6FE3FF] mb-4 tracking-wide uppercase">Έτοιμοι να Ξεκινήσετε;</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-3xl mx-auto leading-tight">
-              Ας Χτίσουμε την Ιστοσελίδα σας Μαζί
+              Δώστε στους πελάτες λόγο να σας επιλέξουν
             </h2>
             <p className="text-lg text-[#94A3B8] mb-10 max-w-xl mx-auto">
-              Επικοινωνήστε μαζί μας και θα σας απαντήσουμε μέσα σε ώρες. Χωρίς δέσμευση, χωρίς πίεση - απλά μια φιλική συνομιλία για την επιχείρησή σας.
+              Πείτε μας πού θέλετε να φτάσει η επιχείρησή σας. Θα σχεδιάσουμε την ιστοσελίδα, το εύρος του έργου και τα επόμενα βήματα μαζί σας. Μιλάτε απευθείας με τους ανθρώπους που την κατασκευάζουν.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">
+              <StarButton asChild><Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">
                 <MessageCircle size={20} />
-                Δωρεάν Visual Concept
-              </Link>
+                Δωρεάν Συμβουλευτική
+              </Link></StarButton>
             </div>
           </AnimateIn>
         </div>
