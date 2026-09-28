@@ -212,8 +212,8 @@ const EN_STATIC_ROUTES = [
   },
   {
     path: "/blog/online-shop-cyprus-shopify-vs-woocommerce",
-    title: "Online Shop Cyprus: Shopify vs WooCommerce (2026)",
-    description: "Planning an online shop in Cyprus before Black Friday? Compare Shopify vs WooCommerce costs, Cyprus payments and delivery, then launch in 6 weeks.",
+    title: "Shopify vs WooCommerce: Costs, Fees & Setup (2026)",
+    description: "Comparing Shopify vs WooCommerce for your online shop? See real costs, payment options and a 6-week plan to launch before Black Friday.",
     // No elPath — this post is intentionally English-only; hreflang will self-reference
   },
 ];
