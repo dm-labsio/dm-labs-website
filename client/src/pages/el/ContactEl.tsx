@@ -195,7 +195,7 @@ export default function ΕπικοινωνίαEl() {
                       className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all resize-none"
                       placeholder="Τι είδους ιστοσελίδα χρειάζεστε; Υπάρχουν συγκεκριμένα χαρακτηριστικά που θέλετε;" />
                   </div>
-                  <StarButton asChild><button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60">
+                  <StarButton asChild><button type="submit" disabled={sending} aria-busy={sending} className="btn-primary w-full justify-center disabled:opacity-60">
                     {sending ? (
                       <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Αποστολή...</span>
                     ) : (

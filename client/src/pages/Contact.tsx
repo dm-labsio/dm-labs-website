@@ -224,7 +224,7 @@ export default function Contact() {
                       placeholder="What kind of website do you need? Any specific features?"
                     />
                   </div>
-                  <StarButton asChild><button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60 contact-editorial-submit">
+                  <StarButton asChild><button type="submit" disabled={sending} aria-busy={sending} className="btn-primary w-full justify-center disabled:opacity-60 contact-editorial-submit">
                     {sending ? (
                       <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending...</span>
                     ) : (

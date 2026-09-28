@@ -123,7 +123,7 @@ export default function ContactHe() {
                     <label htmlFor="contact-he-project" className="block text-sm font-medium text-[#111315] mb-1.5 contact-editorial-field-label">ספרו לנו על הפרויקט</label>
                     <textarea id="contact-he-project" required rows={4} value={form.message} onChange={(event) => setForm({ ...form, message: event.target.value })} className="w-full px-4 py-3 rounded-xl border border-[#E2E5EA] bg-[#F6F6F4] text-[#111315] text-sm focus:outline-none focus:ring-2 focus:ring-[#5B8CFF]/30 focus:border-[#5B8CFF] transition-all resize-none contact-editorial-field" placeholder="איזה אתר אתם צריכים, ומה חשוב לכם בו?" />
                   </div>
-                  <StarButton asChild><button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60 contact-editorial-submit">
+                  <StarButton asChild><button type="submit" disabled={sending} aria-busy={sending} className="btn-primary w-full justify-center disabled:opacity-60 contact-editorial-submit">
                     {sending ? <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> שולחים...</span> : <span className="flex items-center gap-2"><Send size={16} /> שליחת הודעה</span>}
                   </button></StarButton>
                   <p className="text-xs text-[#5B6472] text-center contact-editorial-form-note">למענה מהיר אפשר גם לכתוב לנו ישירות ב-<a href={WA} target="_blank" rel="noopener noreferrer" className="text-[#5B8CFF] font-medium hover:underline">WhatsApp</a>.</p>

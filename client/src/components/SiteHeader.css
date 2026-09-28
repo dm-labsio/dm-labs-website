@@ -1,0 +1,46 @@
+.brand-logo { display: block; width: 200px; height: auto; max-width: 100%; direction: ltr; }
+.site-header { position: sticky; top: 0; z-index: 50; background: #101729; color: #F6F5F2; border-bottom: 1px solid #BBC5D833; }
+.site-header-inner { width: 100%; max-width: 1600px; min-height: 80px; margin-inline: auto; padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.site-brand-link { flex-shrink: 0; display: inline-flex; align-items: center; min-height: 44px; }
+.site-header-actions { display: flex; align-items: center; gap: 16px; }
+.site-desktop-nav { display: flex; align-items: center; gap: 24px; }
+.site-desktop-nav a { padding-block: 12px; color: #F6F5F2; text-decoration: none; text-underline-offset: 10px; text-decoration-thickness: 2px; }
+.site-desktop-nav a:is(:hover, [aria-current]) { color: #A8B8FF; text-decoration-line: underline; }
+.site-language-trigger, .site-menu-trigger { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 44px; min-width: 44px; background: transparent; color: #F6F5F2; cursor: pointer; }
+.site-language-trigger { padding-inline: 8px; }
+.site-menu-trigger { display: none; }
+.site-header :is(a, button):focus-visible, .site-menu-panel :is(a, button):focus-visible { outline: 3px solid #70D7F0; outline-offset: 4px; border-radius: 4px; }
+.site-skip-link { position: fixed; top: 8px; inset-inline-start: 16px; z-index: 10001; padding: 12px 20px; background: #F6F5F2; color: #101729; transform: translateY(-150%); }
+.site-skip-link:focus { transform: none; outline: 3px solid #3D52C9; }
+#main-content { scroll-margin-top: 96px; }
+.site-language-menu { min-width: 224px; padding: 8px; background: #172238; color: #F6F5F2; border: 1px solid #BBC5D866; border-radius: 8px; box-shadow: 0 12px 32px #1017294d; }
+.site-language-menu a { display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 48px; padding: 10px 12px; font: 700 1rem/1.4 var(--font-body); border-radius: 4px; cursor: pointer; }
+.site-language-menu a[data-highlighted] { background: #263453; color: #F6F5F2; outline: 2px solid #70D7F0; outline-offset: -2px; }
+.site-language-menu a[aria-current] { color: #A8B8FF; }
+.site-language-name { display: inline-flex; align-items: center; gap: 12px; }
+.site-language-code { font: 400 .875rem/1.4 "Fira Mono", monospace; direction: ltr; }
+.site-menu-panel { width: min(100%, 34rem); max-width: none; height: 100dvh; max-height: 100dvh; padding: 28px 24px; gap: 28px; overflow-y: auto; overscroll-behavior: contain; border-color: #BBC5D833; background: #101729; color: #F6F5F2; }
+.site-menu-brand { display: block; width: 200px; padding-block: 4px; }
+.site-menu-panel > button[data-slot="sheet-close"] { top: 20px; inset-inline-end: 16px; inset-inline-start: auto; display: grid; place-items: center; width: 44px; height: 44px; color: #F6F5F2; opacity: 1; border-radius: 4px; }
+.site-menu-panel > button[data-slot="sheet-close"] svg { width: 24px; height: 24px; }
+.site-menu-panel nav { display: grid; }
+.site-menu-panel .site-menu-link { display: flex; align-items: center; gap: 24px; min-height: 60px; padding-block: 12px; border-bottom: 1px solid #BBC5D833; color: #F6F5F2; font-size: 1rem; }
+.site-menu-link:is(:hover, [aria-current]) { color: #A8B8FF; }
+.site-menu-index { min-width: 24px; font: 400 .875rem/1.4 "Fira Mono", monospace; color: #A8B8FF; }
+.site-menu-panel .site-menu-offer { margin-top: auto; padding-block: 8px max(8px, env(safe-area-inset-bottom)); }
+.site-menu-offer p { color: #BBC5D8; font-size: 1rem; margin-bottom: 16px; }
+.site-menu-offer .brand-button { width: 100%; }
+@media (max-width: 1439px) {
+  .site-desktop-nav, .site-header-cta { display: none; }
+  .site-menu-trigger { display: inline-flex; }
+}
+@media (max-width: 767px) {
+  .site-header-inner { min-height: 72px; gap: 8px; padding: 12px 16px; }
+  .site-header .brand-logo { width: 160px; }
+  .site-header-actions { gap: 4px; }
+  .site-menu-panel { padding-inline: 20px; }
+  .site-menu-brand { width: 180px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-menu-panel, .site-language-menu, [data-slot="sheet-overlay"] { animation: none; transition: none; }
+}

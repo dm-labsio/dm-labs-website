@@ -73,18 +73,18 @@ describe("Hebrew locale foundation", () => {
     expect(pricing).not.toContain('<small> one-time</small>');
     expect(styles).toContain('overflow-wrap: anywhere;');
     expect(readSource("client/src/styles/typography.css")).toContain('overflow-wrap: break-word');
-    expect(layout).toContain('border-[#E2E5EA] bg-[#F6F6F4] shadow-sm');
+    expect(layout).toContain('<SiteHeader location={location}');
   });
 
   it("uses the shared immediate Hebrew hero without changing example artwork or flag geometry", () => {
     const home = readSource("client/src/pages/he/HomeHe.tsx");
     const styles = readSource("client/src/index.css");
-    const layout = readSource("client/src/components/Layout.tsx");
+    const header = readSource("client/src/components/SiteHeader.tsx");
     expect(home).toContain('<HomeHero language="he" />');
     expect(styles).toContain('html[dir="rtl"] .hebrew-home .interactive-example-card img');
-    expect(layout).toContain('src="/media/icons/israel-flag-icon.webp"');
-    expect(layout).toContain('width="20"');
-    expect(layout).toContain('height="20"');
+    expect(header).toContain('src="/media/icons/israel-flag-icon.webp"');
+    expect(header).toContain('width="20"');
+    expect(header).toContain('height="20"');
   });
 
   it("keeps the Hebrew pricing comparison and consent persistence aligned with shared behavior", () => {
@@ -111,11 +111,11 @@ describe("Hebrew locale foundation", () => {
   it("keeps the active language state exclusive and preserves reading position only for direct translations", () => {
     const layout = readSource("client/src/components/Layout.tsx");
 
-    expect(layout).toContain("const isEnglish = !isGreek && !isHebrew;");
-    expect(layout).toContain('aria-current={language.isActive ? "true" : undefined}');
+    const header = readSource("client/src/components/SiteHeader.tsx");
+    expect(header).toContain('aria-current={language === option.target ? "true" : undefined}');
     expect(layout).toContain("languageSwitchScrollRef");
     expect(layout).toContain("targetLang === \"el\" ? routes.el !== null : routes.he !== null");
-    expect(layout).toContain("navigateLanguage(language.target, language.href)");
+    expect(header).toContain("onLanguageNavigate(option.target, getLanguageHref(option.target))");
   });
 
   it("keeps the Hebrew Contact form structurally aligned with the shared contact contract", () => {

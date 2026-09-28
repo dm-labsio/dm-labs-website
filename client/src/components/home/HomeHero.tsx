@@ -1,4 +1,5 @@
 import React from "react";
+import BrandButton from "../ui/brand-button";
 import type { SiteLanguage } from "@/lib/routeLanguage";
 import { HOME_HERO_COPY } from "./homeHeroContent";
 import "./HomeHero.css";
@@ -16,7 +17,7 @@ export default function HomeHero({ language }: { language: SiteLanguage }) {
           </h1>
           <p className="home-hero-description">{copy.body}</p>
           <div className="home-hero-actions">
-            <a href={copy.contactHref} className="home-hero-primary">{copy.consultation}<span aria-hidden="true">{language === "he" ? "←" : "→"}</span></a>
+            <BrandButton asChild><a href={copy.contactHref} className="home-hero-primary">{copy.consultation}<span aria-hidden="true">{language === "he" ? "←" : "→"}</span></a></BrandButton>
             <a href={copy.examplesHref} className="home-hero-secondary">{copy.examples}</a>
           </div>
           <p className="home-hero-note">{copy.note}</p>

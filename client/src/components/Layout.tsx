@@ -1,93 +1,15 @@
-/* ============================================================
-   DM-Labs.io - Layout Component
-   Glassmorphism nav, mobile hamburger, dark footer
-   Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
-   Language toggle: flag-based EN/EL, visible on mobile as floating pill
-   ============================================================ */
-import StarButton from "@/components/ui/star-button";
-import { useState, useEffect, useRef } from "react";
+/* Shared marketing shell. Navigation and CTA styling live in shared components. */
+import { useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone, Mail, MapPin, Instagram, ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 import NeonCursorTrail from "@/components/NeonCursorTrail";
 import CinematicBanner, { type CinematicBannerProps } from "@/components/CinematicBanner";
-import dmLabsLogo from "@/assets/dmLabsLogo";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  getGreekLanguageTogglePath,
-  getHebrewLanguageTogglePath,
-  getHreflangRouteSet,
-  normalizeRoutePath,
-  withTrailingSlash,
-} from "@/lib/seoRoutes";
-
-
-const BrandMark = ({ dark = false }: { dark?: boolean }) => (
-  <span
-    className={`text-xl sm:text-2xl font-bold tracking-tight whitespace-nowrap ${dark ? "text-white" : "text-[#111315]"}`}
-    aria-label="DM-Labs.io"
-  >
-    <span className="brand-gradient-text">DM</span><span>-Labs.io</span>
-  </span>
-);
-
-const HeaderBrandMark = () => (
-  <img
-    src={dmLabsLogo}
-    alt="DM-Labs.io"
-    className="block h-7 w-auto max-w-[7.75rem] object-contain sm:h-8 sm:max-w-[9rem]"
-  />
-);
-
-const WHATSAPP_URL = "https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27d%20like%20to%20discuss%20a%20website%20project.";
-
-const EN_NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services/" },
-  { label: "Process", href: "/process/" },
-  { label: "Examples", href: "/templates/" },
-  { label: "Pricing", href: "/pricing/" },
-  { label: "Blog", href: "/blog/" },
-  { label: "FAQ", href: "/faq/" },
-  { label: "Contact", href: "/contact/" },
-];
-
-const EL_NAV_LINKS = [
-  { label: "Αρχική", href: "/el/" },
-  { label: "Υπηρεσίες", href: "/el/services/" },
-  { label: "Διαδικασία", href: "/el/process/" },
-  { label: "Παραδείγματα", href: "/el/templates/" },
-  { label: "Τιμές", href: "/el/pricing/" },
-  { label: "Άρθρα", href: "/el/blog/" },
-  { label: "FAQ", href: "/el/faq/" },
-  { label: "Επικοινωνία", href: "/el/contact/" },
-];
-
-const HE_NAV_LINKS = [
-  { label: "דף הבית", href: "/he/" },
-  { label: "שירותים", href: "/he/services/" },
-  { label: "תהליך", href: "/he/process/" },
-  { label: "דוגמאות", href: "/he/templates/" },
-  { label: "תמחור", href: "/he/pricing/" },
-  { label: "שאלות נפוצות", href: "/he/faq/" },
-  { label: "יצירת קשר", href: "/he/contact/" },
-];
-
-const HEBREW_WHATSAPP_URL = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20DM-Labs.io%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%9C%D7%92%D7%91%D7%99%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.";
+import BrandLogo from "./BrandLogo";
+import SiteHeader from "./SiteHeader";
+import { getNavigation } from "./siteNavigation";
+import { getRouteLanguage } from "@/lib/routeLanguage";
+import { getGreekLanguageTogglePath, getHebrewLanguageTogglePath, getHreflangRouteSet, normalizeRoutePath, withTrailingSlash } from "@/lib/seoRoutes";
 
 const CINEMATIC_BANNERS: Record<string, CinematicBannerProps> = {
   "/": {
@@ -127,74 +49,22 @@ const CINEMATIC_BANNERS: Record<string, CinematicBannerProps> = {
   },
 };
 
-/* ── Flag marks ── */
-const FlagUK = () => (
-  <svg width="20" height="14" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ borderRadius: "2px", display: "block" }}>
-    <rect width="60" height="40" fill="#012169"/>
-    <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" strokeWidth="8"/>
-    <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" strokeWidth="5"/>
-    <path d="M30,0 V40 M0,20 H60" stroke="#fff" strokeWidth="12"/>
-    <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" strokeWidth="7"/>
-  </svg>
-);
-
-const FlagGR = () => (
-  <svg width="20" height="14" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ borderRadius: "2px", display: "block" }}>
-    <rect width="60" height="40" fill="#0D5EAF"/>
-    <rect y="0"  width="60" height="4.44" fill="#0D5EAF"/>
-    <rect y="4.44"  width="60" height="4.44" fill="#fff"/>
-    <rect y="8.88"  width="60" height="4.44" fill="#0D5EAF"/>
-    <rect y="13.32" width="60" height="4.44" fill="#fff"/>
-    <rect y="17.76" width="60" height="4.44" fill="#0D5EAF"/>
-    <rect y="22.2"  width="60" height="4.44" fill="#fff"/>
-    <rect y="26.64" width="60" height="4.44" fill="#0D5EAF"/>
-    <rect y="31.08" width="60" height="4.44" fill="#fff"/>
-    <rect y="35.52" width="60" height="4.44" fill="#0D5EAF"/>
-    <rect width="24" height="22.2" fill="#0D5EAF"/>
-    <rect x="8.88" y="0" width="6.24" height="22.2" fill="#fff"/>
-    <rect y="8.88" width="24" height="4.44" fill="#fff"/>
-  </svg>
-);
-
-const FlagIL = () => (
-  <img
-    src="/media/icons/israel-flag-icon.webp"
-    alt=""
-    aria-hidden="true"
-    width="20"
-    height="20"
-    className="block h-5 w-5 shrink-0 object-contain"
-  />
-);
-
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location, navigate] = useLocation();
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [languageSheetOpen, setLanguageSheetOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const languageSwitchScrollRef = useRef<number | null | undefined>(undefined);
 
   const normalizedLocation = normalizeRoutePath(location);
   const isGreek = normalizedLocation === "/el" || normalizedLocation.startsWith("/el/");
   const isHebrew = normalizedLocation === "/he" || normalizedLocation.startsWith("/he/");
-  const isEnglish = !isGreek && !isHebrew;
   const isStandalonePreview = normalizedLocation.startsWith("/preview/");
   const isEnglishHomepage = normalizedLocation === "/";
   const isTemplatesIndex = normalizedLocation === "/templates";
-  const NAV_LINKS = isHebrew ? HE_NAV_LINKS : isGreek ? EL_NAV_LINKS : EN_NAV_LINKS;
+  const NAV_LINKS = getNavigation(getRouteLanguage(location));
   const languageNeutralPath = normalizedLocation.replace(/^\/(?:el|he)(?=\/|$)/, "") || "/";
   const cinematicBanner = isStandalonePreview ? null : CINEMATIC_BANNERS[languageNeutralPath] ?? null;
   const cinematicInterlude = languageNeutralPath === "/" || languageNeutralPath === "/contact" ? cinematicBanner : null;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    setMobileOpen(false);
-    setLanguageSheetOpen(false);
     // Preserve reading position only for direct translations. A fallback such
     // as Blog -> Hebrew home deliberately starts at the top.
     const languageSwitchScroll = languageSwitchScrollRef.current;
@@ -204,11 +74,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     });
     return () => cancelAnimationFrame(raf);
   }, [location]);
-
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
 
   // Derive the alternate-language URL for the current page
   function getAltLangHref(targetLang: "en" | "el" | "he"): string {
@@ -227,6 +92,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }
 
   function handleBrandClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const homeHref = isHebrew ? "/he/" : isGreek ? "/el/" : "/";
     if (withTrailingSlash(normalizedLocation) !== homeHref) return;
     event.preventDefault();
@@ -235,227 +101,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     window.requestAnimationFrame(scrollToTop);
   }
 
-  // The Hebrew option safely falls back to the completed Hebrew home until the
-  // matching child route has been translated. Hreflang never uses that fallback.
-  const LangToggle = ({ className = "", size = "md" }: { className?: string; size?: "sm" | "md" }) => {
-    const isSmall = size === "sm";
-    const enHref = isGreek || isHebrew ? getAltLangHref("en") : withTrailingSlash(normalizedLocation);
-    const elHref = isGreek ? withTrailingSlash(normalizedLocation) : getAltLangHref("el");
-    const heHref = isHebrew ? withTrailingSlash(normalizedLocation) : getAltLangHref("he");
-
-    const currentLanguage = isHebrew
-      ? { code: "HE", name: "עברית", flag: <FlagIL /> }
-      : isGreek
-        ? { code: "EL", name: "Ελληνικά", flag: <FlagGR /> }
-        : { code: "EN", name: "English", flag: <FlagUK /> };
-    const sheetTitle = isHebrew ? "בחירת שפה" : isGreek ? "Επιλογή γλώσσας" : "Choose language";
-
-    const languageOptions = [
-      { code: "EN", name: "English", href: enHref, isActive: isEnglish, flag: <FlagUK />, target: "en" as const },
-      { code: "EL", name: "Ελληνικά", href: elHref, isActive: isGreek, flag: <FlagGR />, target: "el" as const },
-      { code: "HE", name: "עברית", href: heHref, isActive: isHebrew, flag: <FlagIL />, target: "he" as const },
-    ];
-
-    const trigger = (
-      <button
-        type="button"
-        aria-label={`${sheetTitle}: ${currentLanguage.name}`}
-        className={`inline-flex h-9 items-center gap-1.5 rounded-full border border-[#E2E5EA] bg-white px-2.5 text-xs font-semibold text-[#334155] shadow-sm transition-colors hover:border-[#B8C9FF] hover:bg-[#F6F8FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8CFF] focus-visible:ring-offset-2 ${className}`}
-      >
-        {currentLanguage.flag}
-        <span>{currentLanguage.code}</span>
-        <ChevronDown size={14} strokeWidth={2.25} aria-hidden="true" />
-      </button>
-    );
-
-    if (isSmall) {
-
-      return (
-        <Sheet open={languageSheetOpen} onOpenChange={setLanguageSheetOpen}>
-          <SheetTrigger asChild>
-            {trigger}
-          </SheetTrigger>
-          <SheetContent
-            side="bottom"
-            dir={isHebrew ? "rtl" : "ltr"}
-            className="rounded-t-[1.5rem] border-[#E2E5EA] bg-[#F6F6F4] px-4 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-3"
-          >
-            <SheetHeader className={isHebrew ? "px-1 pb-2 text-right" : "px-1 pb-2 text-left"}>
-              <SheetTitle className="text-base font-semibold text-[#111315]">{sheetTitle}</SheetTitle>
-            </SheetHeader>
-            <div className="grid gap-2 px-1 pb-1">
-              {languageOptions.map((language) => (
-                <SheetClose asChild key={language.code}>
-                  <a
-                    href={language.href}
-                    lang={language.target}
-                    aria-current={language.isActive ? "true" : undefined}
-                    className={`flex min-h-14 items-center justify-between rounded-2xl border px-4 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8CFF] focus-visible:ring-offset-2 ${
-                      language.isActive
-                        ? "border-[#AFC5FF] bg-[#EAF0FF] text-[#285EDB]"
-                        : "border-[#E2E5EA] bg-white text-[#334155] hover:border-[#B8C9FF] hover:bg-[#F6F8FF]"
-                    }`}
-                    onClick={(event) => {
-                      event.preventDefault();
-                      setLanguageSheetOpen(false);
-                      navigateLanguage(language.target, language.href);
-                    }}
-                  >
-                    <span className="flex items-center gap-3">
-                      {language.flag}
-                      <span>{language.name}</span>
-                    </span>
-                    <span className="text-xs font-bold tracking-[0.08em] text-current">{language.code}</span>
-                  </a>
-                </SheetClose>
-              ))}
-            </div>
-          </SheetContent>
-        </Sheet>
-      );
-    }
-
-    return (
-      <DropdownMenu dir={isHebrew ? "rtl" : "ltr"}>
-        <DropdownMenuTrigger asChild>{trigger}</DropdownMenuTrigger>
-        <DropdownMenuContent
-          align="end"
-          className="min-w-44 rounded-2xl border-[#E2E5EA] bg-[#F6F6F4] p-2 shadow-xl"
-        >
-          {languageOptions.map((language) => (
-            <DropdownMenuItem key={language.code} asChild>
-              <a
-                href={language.href}
-                lang={language.target}
-                aria-current={language.isActive ? "true" : undefined}
-                className={`flex min-h-11 items-center justify-between rounded-xl px-3 text-sm font-semibold outline-none transition-colors ${
-                  language.isActive
-                    ? "bg-[#EAF0FF] text-[#285EDB]"
-                    : "text-[#334155] hover:bg-white hover:text-[#285EDB]"
-                }`}
-                onClick={(event) => {
-                  event.preventDefault();
-                  navigateLanguage(language.target, language.href);
-                }}
-              >
-                <span className="flex items-center gap-3">
-                  {language.flag}
-                  <span>{language.name}</span>
-                </span>
-                <span className="text-xs font-bold tracking-[0.08em] text-current">{language.code}</span>
-              </a>
-            </DropdownMenuItem>
-          ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
-    );
-  };
-
   return (
     <div data-brand="dm-labs" className={`min-h-screen flex flex-col ${isEnglishHomepage ? "editorial-home-shell" : ""} ${isTemplatesIndex ? "templates-editorial-shell" : ""} ${isHebrew ? "hebrew-shell" : ""}`} dir={isHebrew ? "rtl" : undefined}>
-      {/* ── NAVIGATION ── */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${isEnglishHomepage ? "editorial-home-header" : ""} ${
-          isHebrew
-            ? "border-b border-[#E2E5EA] bg-[#F6F6F4] shadow-sm"
-            : scrolled
-              ? "glass-nav shadow-sm"
-              : "bg-transparent"
-        }`}
-        dir={isHebrew ? "rtl" : undefined}
-      >
-        <div className="container flex items-center justify-between" style={{ height: "72px" }}>
-          {/* Logo */}
-          <Link href={isHebrew ? "/he/" : isGreek ? "/el/" : "/"} onClick={handleBrandClick} className="flex items-center gap-2 shrink-0" aria-label="DM-Labs.io home">
-            <HeaderBrandMark />
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden min-[1440px]:flex items-center gap-6">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors duration-150 ${isEnglishHomepage ? "editorial-home-nav-link" : ""} ${
-                  location === link.href
-                    ? "text-[#5B8CFF]"
-                    : "text-[#111315] hover:text-[#5B8CFF]"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Desktop right: lang toggle + CTA */}
-          <div className="hidden min-[1440px]:flex items-center gap-3">
-            <LangToggle />
-            {isHebrew ? (
-              <StarButton asChild><a href={HEBREW_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary !h-11 !text-sm !px-6">
-                ייעוץ ללא עלות
-              </a></StarButton>
-            ) : (
-              <StarButton asChild><Link href={isGreek ? "/el/contact/" : "/contact/"} className={`btn-primary !h-11 !text-sm !px-6 ${isEnglishHomepage ? "editorial-home-header-cta" : ""}`}>
-                {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
-              </Link></StarButton>
-            )}
-          </div>
-
-          {/* Mobile: lang toggle pill + hamburger */}
-          <div className="min-[1440px]:hidden flex items-center gap-2">
-            <LangToggle size="sm" />
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 text-[#111315]"
-              aria-label="Toggle menu"
-            >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* ── MOBILE MENU ── */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ x: isHebrew ? "-100%" : "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: isHebrew ? "-100%" : "100%" }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className={`fixed inset-0 z-40 overflow-y-auto bg-[#F6F6F4] pt-20 px-6 pb-8 min-[1440px]:hidden ${isEnglishHomepage ? "editorial-home-mobile-menu" : ""}`}
-          >
-            <nav className="flex flex-col gap-1">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`py-4 text-lg font-medium border-b border-[#E2E5EA] transition-colors ${isEnglishHomepage ? "editorial-home-mobile-link" : ""} ${
-                    location === link.href
-                      ? "text-[#5B8CFF]"
-                      : "text-[#111315]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-            {isHebrew ? (
-              <StarButton asChild><a href={HEBREW_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full mt-6">
-                ייעוץ ללא עלות
-              </a></StarButton>
-            ) : (
-              <StarButton asChild><Link href={isGreek ? "/el/contact/" : "/contact/"} className={`btn-primary w-full mt-6 ${isEnglishHomepage ? "editorial-home-mobile-cta" : ""}`}>
-                {isGreek ? "Δωρεάν Συμβουλευτική" : "Free Consultation"}
-              </Link></StarButton>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <SiteHeader location={location} getLanguageHref={getAltLangHref} onLanguageNavigate={navigateLanguage} onBrandClick={handleBrandClick} />
 
       {/* PAGE CONTENT (wrapped for contrast filter - does NOT include fixed elements) */}
       <div id="a11y-content-wrapper" className="flex-1 flex flex-col">
-      <main className="flex-1 pt-[72px]">{children}</main>
+      <main id="main-content" className="flex-1" tabIndex={-1}>{children}</main>
 
       {cinematicInterlude ? <CinematicBanner {...cinematicInterlude} tall={languageNeutralPath === "/contact"} /> : null}
 
@@ -465,7 +117,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             {/* Brand */}
             <div className="lg:col-span-1">
-              <div style={{ marginBottom: "20px" }}><BrandMark dark /></div>
+              <div style={{ marginBottom: "20px" }}><BrandLogo full /></div>
                 <p className="text-sm text-[#94A3B8] leading-relaxed max-w-xs">
                   {isHebrew
                     ? "בלטו בשוק. בנו אמון. הפכו עניין לפניות. אתרים בהתאמה אישית וליווי אישי מטום ואנסטסיה, לעסקים בכל מקום."

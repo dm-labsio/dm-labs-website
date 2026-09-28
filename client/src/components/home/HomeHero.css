@@ -29,10 +29,6 @@
   text-align: center;
   text-decoration: none;
 }
-.home-hero-primary { padding: .875rem 1.5rem; border-radius: .5rem; background: #A8B8FF; color: #101729; }
-.home-hero-primary span { flex-shrink: 0; }
-.home-hero-primary:hover { background: #BBC8FF; }
-.home-hero-primary:active { background: #96A8F2; }
 .home-hero .home-hero-secondary { padding-block: .875rem; color: #F6F5F2; text-decoration: underline; text-underline-offset: .35em; text-decoration-thickness: 1px; }
 .home-hero-secondary:hover { color: #A8B8FF; }
 .home-hero-actions a:focus-visible { outline: 3px solid #70D7F0; outline-offset: 5px; }
@@ -43,8 +39,6 @@
 /* A single quiet pass over the artwork. Copy and links never wait for it. */
 @media (prefers-reduced-motion: no-preference) {
   .home-hero-light { animation: home-hero-light-pass 2600ms ease-in-out 200ms 1 both; }
-  .home-hero-primary { transition: background-color 140ms ease, box-shadow 140ms ease; }
-  .home-hero-primary:hover { box-shadow: 0 0 1.5rem #A8B8FF24; }
 }
 @keyframes home-hero-light-pass {
   0% { opacity: 0; transform: translateX(-18%); }

@@ -13,35 +13,35 @@ try {
       await page.goto(`${base}/${prefix}contact/`, { waitUntil: "networkidle" });
       const banner = page.getByRole("dialog", { name: "Cookie consent" });
       await banner.waitFor();
-      const accept = banner.locator("button.star-button").first();
-      assert.equal(await accept.locator(".star-button__star").count(), 6);
+      const accept = banner.locator("button.brand-button").first();
+      assert.equal(await accept.locator(".brand-button__label").count(), 1);
       assert.equal(await accept.evaluate(el => el.tagName), "BUTTON");
       await accept.click();
       assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem("dm_cookie_consent")).analytics), true);
       const submit = page.locator('form button[type="submit"]');
       assert.equal(await submit.count(), 1);
-      assert.ok(await submit.getAttribute("class").then(c => c.includes("star-button")));
+      assert.ok(await submit.getAttribute("class").then(c => c.includes("brand-button")));
       await submit.click();
       assert.ok(await page.locator("form :invalid").count() > 0, "native validation still prevents empty submission");
 
       await page.goto(`${base}/${prefix}`, { waitUntil: "networkidle" });
       await page.evaluate(() => document.fonts.ready);
       assert.equal(await page.locator(".home-starfield").count(), 0);
-      assert.equal(await page.locator(".btn-primary:not(.star-button)").count(), 0);
+      assert.equal(await page.locator(".btn-primary:not(.brand-button)").count(), 0);
       assert.equal(await page.locator("button button, a button, button a").count(), 0);
       assert.equal(await page.locator("vite-error-overlay").count(), 0);
-      // The new homepage hero uses its own solid brand CTA. Check the retained glass CTA below it.
-      const hero = page.locator("main .star-button").first();
+      // All primary CTAs, including the hero, share one label-preserving treatment.
+      const hero = page.locator("main .brand-button").first();
       const name = await hero.innerText();
       assert.ok(name.trim().length > 0);
       await page.emulateMedia({ reducedMotion: "no-preference" });
 
       if (width === 1440) {
-        const header = page.locator("header .star-button").first();
+        const header = page.locator("header .brand-button").first();
         await header.hover();
         await page.waitForTimeout(1100);
-        assert.equal(await header.locator(".star-button__star").first().evaluate(el => getComputedStyle(el).opacity), "1");
-        assert.ok(await header.locator(".star-button__star").evaluateAll(stars => stars.every(el => el.getBoundingClientRect().top >= 0)), "header stars fit viewport");
+        assert.equal(await header.evaluate(el => getComputedStyle(el).transform), "none");
+        assert.equal(await header.evaluate(el => getComputedStyle(el, "::before").opacity), "1");
         await page.mouse.move(1, 500);
         await page.keyboard.press("Tab");
         await header.focus();
@@ -50,14 +50,14 @@ try {
         await hero.hover();
         await page.waitForTimeout(1100);
       } else {
-        assert.equal(await hero.locator(".star-button__star").first().evaluate(el => getComputedStyle(el).opacity), "0");
+        assert.equal(await hero.evaluate(el => getComputedStyle(el).transform), "none");
       }
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
-      await page.screenshot({ path: `/tmp/dm-glass-${locale}-${width}.png` });
+      await page.screenshot({ path: `/tmp/dm-brand-${locale}-${width}.png` });
       await page.emulateMedia({ reducedMotion: "reduce" });
-      assert.equal(await hero.locator(".star-button__stars").evaluate(el => getComputedStyle(el).display), "none");
+      assert.equal(await hero.evaluate(el => getComputedStyle(el, "::after").display), "none");
       assert.deepEqual(errors, []);
-      console.log(`PASS ${locale} ${width}px: glass CTAs, no starfield, semantics, consent, form validation, hover/focus or touch, reduced motion, no overflow/errors`);
+      console.log(`PASS ${locale} ${width}px: brand CTAs, no starfield, semantics, consent, form validation, hover/focus or touch, reduced motion, no overflow/errors`);
       await page.close();
     }
   }

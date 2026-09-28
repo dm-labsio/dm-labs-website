@@ -1,0 +1,84 @@
+/* Shared CTA system. Native controls and demo documents keep their own scope. */
+.brand-button,
+.brand-button.btn-primary,
+.brand-button.btn-secondary {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  min-height: 3.5rem;
+  height: auto;
+  max-inline-size: 100%;
+  padding: .875rem 1.5rem;
+  overflow: hidden;
+  border: 1px solid #A8B8FF;
+  border-radius: .5rem;
+  background: #A8B8FF;
+  color: #101729;
+  font: 700 1.0625rem/1.4 var(--font-body, "Open Sans", sans-serif);
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  white-space: normal;
+  cursor: pointer;
+  transform: none;
+  filter: none;
+  box-shadow: inset 0 1px 0 #ffffff80, inset 0 -1px 0 #5268E840;
+}
+.brand-button__label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  min-width: 0;
+  max-width: 100%;
+  font: 700 1.0625rem/1.4 var(--font-body, "Open Sans", sans-serif);
+  letter-spacing: 0;
+}
+.brand-button__label > svg { flex-shrink: 0; }
+.brand-button::before,
+.brand-button::after { content: ""; position: absolute; pointer-events: none; opacity: 0; }
+.brand-button::before { inset: 0; background: radial-gradient(ellipse at 15% 0%, #70D7F0B3, transparent 60%), radial-gradient(ellipse at 100% 100%, #A68CE880, transparent 65%); }
+.brand-button::after { inset: -60% -20%; background: linear-gradient(110deg, transparent 35%, #ffffff70 50%, transparent 65%); transform: translateX(-100%); }
+.brand-button.btn-secondary { border: 2px solid var(--button-ink, #101729); background: transparent; color: var(--button-ink, #101729); box-shadow: none; }
+.brand-button.btn-secondary::before,
+.brand-button.btn-secondary::after { display: none; }
+.brand-button:focus-visible { outline: 3px solid var(--button-focus, #3D52C9); outline-offset: 4px; }
+.brand-button:not(:disabled):not([aria-disabled="true"]):not([aria-pressed="true"]):focus-visible::before { opacity: 1; }
+.brand-button:not(:disabled):not([aria-disabled="true"]):not([aria-pressed="true"]):active { background: #96A8F2; color: #101729; box-shadow: inset 0 2px 4px #10172926; transform: none; }
+.brand-button.btn-secondary:not(:disabled):not([aria-pressed="true"]):active { background: var(--button-ink, #101729); color: var(--button-paper, #F6F5F2); }
+.brand-button:is(:disabled, [aria-disabled="true"]) { background: #4A5570; color: #BBC5D8; border-color: #4A5570; box-shadow: none; opacity: 1; cursor: not-allowed; }
+.brand-button:is(:disabled, [aria-disabled="true"], [aria-busy="true"], [aria-pressed="true"])::before,
+.brand-button:is(:disabled, [aria-disabled="true"], [aria-busy="true"], [aria-pressed="true"])::after { display: none; }
+.brand-button[aria-busy="true"] { cursor: wait; }
+/* Keep selected pricing controls unequivocally distinct from available choices. */
+.pricing-journey .brand-button[aria-pressed="true"] { background: #3D52C9; color: #F6F5F2; border-color: #3D52C9; box-shadow: none; }
+:where(.dark-section, .home-hero, .site-header, .site-menu-panel, [data-button-surface="dark"]) { --button-ink: #F6F5F2; --button-paper: #101729; --button-focus: #70D7F0; }
+@media (hover: hover) and (pointer: fine) {
+  .brand-button:not(:disabled):not([aria-disabled="true"]):not([aria-pressed="true"]):hover { background: #BBC8FF; color: #101729; transform: none; filter: none; opacity: 1; box-shadow: inset 0 1px 0 #ffffffb3, 0 0 1.25rem #A8B8FF26; }
+  .brand-button:not(:disabled):not([aria-disabled="true"]):not([aria-pressed="true"]):hover::before { opacity: 1; }
+  .brand-button.btn-secondary:not(:disabled):not([aria-pressed="true"]):hover { background: var(--button-ink, #101729); color: var(--button-paper, #F6F5F2); box-shadow: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .brand-button:not(:disabled):not([aria-disabled="true"]):not([aria-pressed="true"]):hover::after { animation: brand-button-light 650ms ease-out both; }
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .brand-button { transition: background-color 140ms ease, box-shadow 140ms ease; }
+  .brand-button::before { transition: opacity 180ms ease; }
+}
+@keyframes brand-button-light { 0% { transform: translateX(-100%); opacity: 0; } 30% { opacity: .8; } 100% { transform: translateX(100%); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .brand-button { transition: none; }
+  .brand-button::after { display: none; }
+}
+@media (forced-colors: active) {
+  .brand-button.brand-button { background: ButtonFace; color: ButtonText; border: 2px solid ButtonText; box-shadow: none; }
+  .brand-button::before, .brand-button::after { display: none; }
+  .brand-button:focus-visible { outline-color: Highlight; }
+  .brand-button.brand-button:disabled { color: GrayText; border-color: GrayText; }
+}

@@ -89,8 +89,6 @@ body { font-family: var(--font-body); font-size: 1.125rem; font-weight: 400; lin
 /* Existing numeric summaries that predate semantic price classes. */
 [data-brand] p:is(.text-3xl, .text-4xl, .text-5xl, .text-6xl) { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.2; }
 [data-brand] .home-overview h2 { margin-inline: 0; }
-[data-brand] header > .container { max-width: none; gap: 1rem; }
-[data-brand] header nav { gap: 1rem; }
 [data-brand] :is(.home-hero-primary, .home-hero-secondary) { font-family: var(--font-body); font-size: 1.0625rem; font-weight: 700; line-height: 1.4; }
 [data-brand] .home-hero-note { font-size: .875rem; }
 /* Greek's wider display glyphs need a smaller floor on narrow phones.
