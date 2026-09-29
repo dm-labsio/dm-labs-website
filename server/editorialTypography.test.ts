@@ -35,83 +35,12 @@ describe("Brand typography migration", () => {
   });
 });
 
-describe("Services page editorial typography", () => {
-  it("keeps the Services page as the only non-home route with the approved accent treatment", () => {
-    expect(servicesSource).toContain('className="services-editorial"');
-    expect(servicesSource).toContain('className="services-editorial-title');
-    expect(servicesSource).toContain('className="services-editorial-heading');
-    expect(servicesSource).toContain('className="services-editorial-label');
-    expect(servicesSource).toContain('className="services-editorial-price');
-    expect(servicesSource).toContain('className="services-editorial-serif');
-  });
-
-  it("scopes the Services display, mono label, serif emphasis, and mobile safeguards to that page", () => {
-    expect(stylesheet).toContain(".services-editorial {");
-    expect(brandStyles).toContain(".services-editorial-label");
-    expect(stylesheet).toContain(".services-editorial .services-editorial-title");
-    expect(stylesheet).toContain(".services-editorial .services-editorial-heading");
-    expect(stylesheet).toContain(".services-editorial .services-editorial-serif");
-    expect(brandStyles).toContain(".services-editorial-price");
-    expect(stylesheet).toContain("@media (max-width: 767px) {");
-  });
-
-  it("uses the approved business-growth Services metadata", () => {
+describe("Services and process metadata", () => {
+  it("retains Services metadata and qualifies Process timing", () => {
     expect(servicesSource).toContain('title: "Web Design Services for Business Growth | DM Labs"');
-    expect(servicesSource).toContain('description: "Custom design, fast development, SEO foundations and ongoing care. Websites built to earn trust and help your business win more enquiries."');
-  });
-
-  it("keeps package pricing readable and heading punctuation out of isolated wrap lines", () => {
-    expect(servicesSource).toContain("services-editorial-package-card");
-    expect(servicesSource).toContain('className="services-editorial-package-meta"');
-    expect(servicesSource).toContain('className="services-editorial-package-copy');
-    expect(servicesSource).toContain('className="services-editorial-heading-line"');
-    expect(servicesSource).not.toContain('Need</em>, Nothing');
-    expect(stylesheet).toContain(".services-editorial .services-editorial-package-meta .services-editorial-label");
-    expect(stylesheet).toContain(".services-editorial .services-editorial-heading-line");
-  });
-
-  it("keeps care-plan pricing within its two plan cards and removes inaccurate cancellation claims", () => {
-    expect(servicesSource).toContain('className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8"');
-    expect(servicesSource).toContain('services-editorial-care-price text-[#111315] mb-4">€69');
-    expect(servicesSource).toContain('services-editorial-care-price text-[#111315] mb-4">€129');
-    expect(servicesSource).not.toContain("Cancel anytime");
-    expect(servicesSource).not.toContain("No contracts");
-    expect(servicesSource).not.toContain("No commitments");
-    expect(servicesSource).not.toContain('className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"');
-    expect(servicesSource).toContain('className="max-w-4xl mx-auto"');
-    expect(stylesheet).toContain(".services-editorial .services-editorial-care-price");
-  });
-
-  it("keeps the care heading free of a redundant price line or orphan-prone decorative dash", () => {
-    expect(servicesSource).toContain('Website <em className="services-editorial-serif">Care</em> Plans');
-    expect(servicesSource).not.toContain("from €49/mo");
-    expect(servicesSource).not.toContain("Plans - <span");
-  });
-});
-
-describe("Process page editorial typography", () => {
-  it("keeps the approved editorial treatment scoped to the Process page", () => {
-    expect(processSource).toContain('className="process-editorial"');
-    expect(processSource).toContain('className="process-editorial-hero-heading"');
-    expect(stylesheet).toContain(".process-editorial .process-editorial-hero-heading");
-  });
-
-  it("uses authored display structure and reduced-motion-safe motion for the process journey", () => {
-    expect(processSource).toContain("From Idea to");
-    expect(processSource).toContain('className="process-editorial-hero-heading-emphasis"');
-    expect(processSource).toContain('className="process-editorial-rail');
-    expect(processSource).toContain('style={{ zIndex: 0 }}');
-    expect(processSource).not.toContain("as quickly as possible - without");
-    expect(processSource).not.toContain('Plans - <span');
-    expect(stylesheet).toContain("@media (prefers-reduced-motion: no-preference)");
-    expect(stylesheet).toContain("@media (prefers-reduced-motion: reduce)");
-    expect(stylesheet).toContain("process-editorial-rail-flow");
-    expect(stylesheet).toContain(".process-editorial .process-editorial-step-list");
-  });
-
-  it("preserves Process SEO metadata", () => {
+    expect(servicesSource).toContain('Custom design, fast development, SEO foundations and ongoing care.');
     expect(processSource).toContain('title: "Our Process | How We Build Websites | DM-Labs.io"');
-    expect(processSource).toContain('description: "From discovery call to launch in 5-14 days. See exactly how DM-Labs.io designs and builds your website, step by step."');
+    expect(processSource).toContain('typical build estimates of 5–14 business days');
   });
 });
 

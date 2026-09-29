@@ -43,11 +43,11 @@ describe("cinematic banner delivery", () => {
   });
 
   it("keeps protected video on the remaining routes and shares static Contact and FAQ heroes", () => {
-    const heroKinds = ["services", "process", "templates"] as const;
+    const heroKinds = ["templates"] as const;
     const pagesByLocale = [
-      ["Services.tsx", "Process.tsx", "Templates.tsx"],
-      ["el/ServicesEl.tsx", "el/ProcessEl.tsx", "el/TemplatesEl.tsx"],
-      ["he/ServicesHe.tsx", "he/ProcessHe.tsx", "he/TemplatesHe.tsx"],
+      ["Templates.tsx"],
+      ["el/TemplatesEl.tsx"],
+      ["he/TemplatesHe.tsx"],
     ];
 
     pagesByLocale.forEach((pages) => pages.forEach((page, index) => {
@@ -56,7 +56,7 @@ describe("cinematic banner delivery", () => {
       expect(source).toContain(`<CinematicHeroBackground kind="${heroKinds[index]}" />`);
     }));
 
-    [...heroKinds, "contact", "blog"].forEach((kind) => expect(heroComponent).toContain(`${kind}: "https://`));
+    [...heroKinds, "services", "process", "contact", "blog"].forEach((kind) => expect(heroComponent).toContain(`${kind}: "https://`));
     ["Contact.tsx", "el/ContactEl.tsx", "he/ContactHe.tsx"].forEach((page) => {
       const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");
       expect(source).toContain("<ContactPage locale=");
