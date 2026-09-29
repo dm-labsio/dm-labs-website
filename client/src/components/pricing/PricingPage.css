@@ -47,13 +47,7 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
 .pricing-price-unit { display: block; color: #D2DDF2; margin-top: .6rem; font-size: .9rem; }
 .pricing-build-content { padding: .75rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
 [data-brand] .pricing-fit { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.25rem,1.8vw,1.55rem); line-height: 1.3; min-height: 2.6em; color: var(--pricing-accent); }
-.pricing-plan-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; border-block: 1px solid #4B5776; margin-block: 1.5rem; padding-block: 1.25rem; }
-.pricing-plan-facts > div { display: flex; flex-direction: column; min-width: 0; }
-.pricing-plan-facts dt { font-size: .8rem; color: #C4D0E6; }
-.pricing-plan-facts dd { display: flex; flex-direction: column; margin-top: .5rem; }
-.pricing-plan-facts dd bdi { font: 800 2.25rem/1.1 "Rubik",sans-serif; color: #F6F5F2; }
-.pricing-plan-facts dd span { font-size: .75rem; line-height: 1.5; color: #CFD6E7; margin-top: .35rem; }
-.pricing-build-detail { margin-bottom: 1.5rem; flex: 1; }
+.pricing-build-detail { margin-block: 1.5rem; flex: 1; }
 .pricing-inherits { font-size: .85rem; line-height: 1.5; color: var(--pricing-accent); padding-bottom: .85rem; }
 .pricing-features { list-style: none; padding: 0; margin: 0; display: grid; gap: .65rem; font-size: .9375rem; line-height: 1.6; color: #D4DEF0; }
 .pricing-features li { position: relative; padding-inline-start: 1rem; }
@@ -64,7 +58,7 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
 .pricing-choice-arrow { flex: 0 0 36px; display: grid; place-items: center; align-self: stretch; min-height: 36px; font: 400 1.5rem/1 "Rubik",sans-serif; border-inline-start: 1px solid currentColor; padding-inline-start: .4rem; }
 .pricing-choice::before { content: ""; position: absolute; inset: 0; background: #F6F5F2; transform: translateY(105%); }
 .pricing-choice[aria-pressed="true"] { background: #F6F5F2; color: #101729; border-color: #F6F5F2; }
-.pricing-recurring { display: block; font-size: .8rem; line-height: 1.5; color: #CCD7EF; margin-top: 1rem; text-align: center; text-decoration: underline; }
+[data-brand] .pricing-recurring { display: block; font-size: .8rem; line-height: 1.5; color: #CCD7EF; margin-top: 1rem; text-align: center; }
 .pricing-build.is-selected,.pricing-care.is-selected { border-color: var(--pricing-accent); background: #303D72; box-shadow: 0 0 0 3px var(--pricing-accent),0 15px 65px #7D8EFF42; }
 .pricing-build.is-selected .pricing-choice-stamp,.pricing-care.is-selected .pricing-choice-stamp { color: #101729; background: var(--pricing-accent); width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; }
 .pricing-build.is-selected .pricing-build-stage { box-shadow: inset 0 -6px var(--pricing-accent); }
@@ -103,9 +97,6 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
 .pricing-care-amount { margin-bottom: 1.5rem; }
 .pricing-billing-detail { color: #BFCCE5; font-size: .85rem; margin-top: .75rem; }
 .pricing-saving { color: #83DEEF; font-size: .85rem; margin-top: .5rem; }
-.pricing-update-allowance { display: flex; align-items: center; gap: 1.5rem; padding-block: 1.25rem; border-block: 1px solid #526080; margin-bottom: 1.5rem; }
-.pricing-update-number { font: 800 clamp(2.5rem,9cqi,4rem)/1 "Rubik",sans-serif; color: var(--pricing-accent); }
-.pricing-update-allowance p { font-weight: 700; max-width: 20rem; }
 .pricing-care .pricing-features { margin-bottom: 2rem; flex: 1; }
 .pricing-total-section { background: #101729; }
 .pricing-receipt { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.2fr); border: 1px solid #8291C1; border-radius: 20px; overflow: hidden; }
@@ -186,7 +177,6 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
 @media (max-width: 1000px) {
  .pricing-build-stage { padding-inline: 1.1rem; min-height: 240px; }
  .pricing-build-content { padding-inline: 1.1rem; }
- .pricing-plan-facts { gap: .75rem; }
  .pricing-care { padding: 1.5rem; }
  .pricing-custom { gap: 2rem; }
 }
@@ -197,7 +187,6 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
  .pricing-page[dir="rtl"] .pricing-build-stage { border-radius: 0 19px 19px 0; }
  .pricing-build-content { padding: 1.75rem; }
  [data-brand] .pricing-fit { min-height: 0; }
- .pricing-plan-facts { margin-block: 1rem; padding-block: .75rem; }
  .pricing-build-detail { margin-bottom: 1.25rem; }
  .pricing-custom { grid-template-columns: 1fr 1.2fr; }
 }
@@ -260,7 +249,6 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
 [data-brand] .pricing-features li { font-size: .9375rem; line-height: 1.6; }
 [data-brand] .pricing-progress a { font-size: 1rem; font-weight: 400; }
 [data-brand] .pricing-progress [aria-current] { font-weight: 700; }
-.pricing-plan-facts dd span { min-height: 3em; }
 @media (max-width: 767px) { [data-brand] .pricing-progress a { font-size: .8rem; } }
 .pricing-care.is-featured.is-selected { background: #263F5B; }
 @media (max-width: 767px) {
@@ -269,17 +257,27 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
 }
 /* Selecting a plan changes the whole surface, not just a fine outline. */
 .pricing-build.is-selected .pricing-build-content { background: var(--pricing-accent); color: #101729; border-radius: 0 0 19px 19px; }
-.pricing-build.is-selected :is(.pricing-fit,.pricing-inherits,.pricing-features,.pricing-plan-facts dt,.pricing-plan-facts dd bdi,.pricing-plan-facts dd span,.pricing-recurring) { color: #101729; }
-.pricing-build.is-selected .pricing-plan-facts { border-color: #10172950; }
+.pricing-build.is-selected :is(.pricing-fit,.pricing-inherits,.pricing-features,.pricing-recurring) { color: #101729; }
 .pricing-build.is-selected .pricing-features li::before { background: #101729; }
 .pricing-choice[aria-pressed="true"] { color: #F6F5F2; background: #101729; border-color: #101729; }
 .pricing-choice[aria-pressed="true"]::before { display: none; }
 .pricing-care.is-selected,.pricing-care.is-featured.is-selected { background: var(--pricing-accent); color: #101729; }
-.pricing-care.is-selected :is(.pricing-care-description,.pricing-display-price,.pricing-price-unit,.pricing-billing-detail,.pricing-saving,.pricing-update-number,.pricing-features) { color: #101729; }
-.pricing-care.is-selected .pricing-update-allowance { border-color: #10172950; }
+.pricing-care.is-selected :is(.pricing-care-description,.pricing-display-price,.pricing-price-unit,.pricing-billing-detail,.pricing-saving,.pricing-features) { color: #101729; }
 .pricing-care.is-selected .pricing-features li::before { background: #101729; }
 .pricing-care.is-selected .pricing-choice-stamp { color: #F6F5F2; background: #101729; }
 @media (min-width: 701px) and (max-width: 900px) {
  .pricing-build.is-selected .pricing-build-content { border-radius: 0 19px 19px 0; }
  .pricing-page[dir="rtl"] .pricing-build.is-selected .pricing-build-content { border-radius: 19px 0 0 19px; }
+}
+
+/* The complete cards activate their existing native button or enquiry link. */
+.pricing-build,.pricing-care,.pricing-custom { cursor: pointer; }
+.pricing-page :is(.pricing-build,.pricing-care,.pricing-custom):has(:focus-visible) { outline: 3px solid #70D7F0; outline-offset: 5px; }
+.pricing-estimate-monthly { padding-top: 1.25rem; border-top: 1px solid #10172940; }
+[data-brand] .pricing-estimate-monthly .pricing-monthly-amount { display: flex; align-items: baseline; flex-wrap: wrap; gap: .4rem .75rem; margin-block: .75rem; font: 800 clamp(2.5rem,12cqi,4rem)/1.1 "Rubik",Arial,sans-serif; letter-spacing: -.035em; }
+.pricing-monthly-amount > span { font: 400 1rem/1.5 var(--font-body); letter-spacing: 0; }
+[data-brand] .pricing-estimate-monthly .pricing-monthly-start { font-size: 1rem; line-height: 1.6; max-width: 36rem; }
+@media (hover: hover) {
+ .pricing-build:hover .pricing-choice::before,.pricing-care:hover .pricing-choice::before { transform: translateY(0); }
+ .pricing-care:hover,.pricing-custom:hover { border-color: #A8B8FF; }
 }

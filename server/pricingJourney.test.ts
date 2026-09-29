@@ -52,6 +52,12 @@ describe("shared pricing comparison and enquiry", () => {
     expect(html.match(/<details open=""/g)).toHaveLength(20);
     expect(html).not.toContain('id="finder-title"');
     expect(html).not.toContain("pricing-price-guide");
+    expect(html).not.toContain("pricing-plan-facts");
+    expect(html).not.toContain("pricing-update-allowance");
+    for (const plan of BUILD_PLANS[locale]) {
+      expect(html).toContain(`<li>${plan.features[0]}</li>`);
+      expect(html).toContain(`<li>${plan.features.at(-1)}</li>`);
+    }
     expect(html).toContain('aria-current="step"');
     expect(html).toContain('id="your-selection" tabindex="-1"');
     expect(html).toContain('type="checkbox"');

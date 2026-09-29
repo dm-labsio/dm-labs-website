@@ -26,6 +26,12 @@ function PricingText({ text }: { text: string }) {
   })}</>;
 }
 
+/** Expand the native control's pointer target without nesting interactive elements. */
+function activateCard(event: React.MouseEvent<HTMLElement>) {
+  if (!(event.target instanceof Element) || event.target.closest("a, button, input, summary")) return;
+  event.currentTarget.querySelector<HTMLElement>(".pricing-choice, a.pricing-action")?.click();
+}
+
 export default function PricingPage({ locale }: { locale: SiteLanguage }) {
   const t = PRICING_COPY[locale];
   const plans = BUILD_PLANS[locale];
@@ -48,7 +54,7 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
   const route = (path: string) => `${locale === "en" ? "" : `/${locale}`}/${path}/`;
   const faq = FAQ_CONTENT[locale];
   const questions = [
-    { q: t.careQuestion, a: t.careIntro },
+    { q: t.careQuestion, a: `${t.careIntro} ${x.monthlyExplanation}` },
     faq.design, faq.extend, faq["extra-costs"], faq["care-exclusions"], faq.ownership,
     { q: t.customQuestion, a: t.customCopy },
   ];
@@ -72,7 +78,7 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
 
     <section id="website-packages" tabIndex={-1} className="pricing-section pricing-build-section container" aria-labelledby="website-packages-title">
       <div className="pricing-section-intro"><h2 id="website-packages-title">{t.chooseBuild}</h2><a className="pricing-text-link" href="#comparison">{t.compareLink}<span aria-hidden="true"> ↓</span></a></div>
-      <div className="pricing-builds" ref={artwork.root}>{plans.map((plan, i) => <article key={plan.name} data-plan={i} className={`pricing-build${buildIndex === i ? " is-selected" : ""}`} aria-labelledby={`build-${i}`}>
+      <div className="pricing-builds" ref={artwork.root}>{plans.map((plan, i) => <article key={plan.name} data-plan={i} onClick={activateCard} className={`pricing-build${buildIndex === i ? " is-selected" : ""}`} aria-labelledby={`build-${i}`}>
         <div className="pricing-build-stage">
           <div className="pricing-card-art" aria-hidden="true"><img data-motion-piece src={`/media/brand-refresh/v1/${art[i]}`} width="840" height="560" alt="" /></div>
           <div className="pricing-plan-top"><h3 id={`build-${i}`} lang="en"><Latin>{plan.name.split(" ")[0]}</Latin><span className="pricing-plan-category">Website</span></h3><span className="pricing-choice-stamp" aria-hidden="true">{buildIndex === i ? "✓" : `0${i + 1}`}</span></div>
@@ -80,13 +86,12 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
         </div>
         <div className="pricing-build-content">
           <p className="pricing-fit">{x.fit[i]}</p>
-          <dl className="pricing-plan-facts"><div><dt>{x.pages}{i > 0 && ` · ${x.upTo}`}</dt><dd><Latin>{i === 0 ? "1–2" : i === 1 ? "4" : "7"}</Latin><span>{i === 0 ? x.simplePages : ""}</span></dd></div><div><dt>{x.revisions}</dt><dd><Latin>{i + 2}</Latin></dd></div></dl>
-          <div className="pricing-build-detail">{x.inherits[i] && <p className="pricing-inherits"><PricingText text={x.inherits[i]} /></p>}<ul className="pricing-features">{plan.features.slice(1,-1).map(feature => <li key={feature}><PricingText text={feature} /></li>)}</ul></div>
+          <div className="pricing-build-detail">{x.inherits[i] && <p className="pricing-inherits"><PricingText text={x.inherits[i]} /></p>}<ul className="pricing-features">{plan.features.map(feature => <li key={feature}><PricingText text={feature} /></li>)}</ul></div>
           <button type="button" className="pricing-choice" aria-pressed={buildIndex === i} aria-label={`${buildIndex === i ? t.selected : t.choose} ${plan.name}`} onClick={() => {setBuildIndex(i);advanceTo("maintenance");}}><span>{buildIndex === i ? t.selected : t.choose} <Latin>{plan.name.split(" ")[0]}</Latin></span>{choiceArrow}</button>
-          <a href="#maintenance" className="pricing-recurring"><PricingText text={t.recurring} /></a>
+          <p className="pricing-recurring"><PricingText text={t.recurring} /></p>
         </div>
       </article>)}</div>
-      <aside id="custom-project" className="pricing-custom" aria-labelledby="custom-title">
+      <aside id="custom-project" onClick={activateCard} className="pricing-custom" aria-labelledby="custom-title">
         <div className="pricing-custom-art" aria-hidden="true"><img src="/media/brand-refresh/v1/contact-folded-glass-desktop.webp" width="1680" height="938" alt="" loading="lazy" /></div>
         <div className="pricing-custom-name"><p className="brand-micro">{t.customLabel}</p><h3 id="custom-title"><Latin>Enterprise<span> / Custom</span></Latin></h3><p className="pricing-custom-note">{t.customNote}</p></div>
         <div className="pricing-custom-content"><p>{x.customShort}</p><p className="pricing-custom-capabilities">{x.customExamples}</p><BrandButton asChild className="pricing-action"><a href={route("contact")}>{t.quote}{choiceArrow}</a></BrandButton></div>
@@ -96,23 +101,22 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
     <section id="maintenance" tabIndex={-1} className="pricing-care-section" aria-labelledby="care-title"><div className="container pricing-section">
       <div className="pricing-section-intro"><div><p className="brand-micro"><Latin>02 /</Latin> {x.flowSteps[1]}</p><h2 id="care-title">{t.careTitle}</h2><p>{x.careIntro}</p></div>{build && <div className="pricing-build-context"><span>{t.selected}</span><strong><Latin>{build.name}</Latin></strong><a href="#website-packages">{t.change}</a></div>}</div>
       <fieldset className="pricing-billing"><legend>{t.frequency}</legend><div>{[false, true].map(annual => <label key={String(annual)} className={yearly === annual ? "is-active" : ""}><input type="radio" name="care-billing" value={annual ? "yearly" : "monthly"} checked={yearly === annual} onChange={() => setYearly(annual)} /><span>{annual ? t.yearly : t.monthly}</span>{annual && <small>{t.discount}</small>}</label>)}</div></fieldset>
-      <div className="pricing-care-grid">{CARE_PLANS.map((plan, i) => <article key={plan.name} aria-labelledby={`care-${i}`} className={`pricing-care${i === 1 ? " is-featured" : ""}${careIndex === i ? " is-selected" : ""}`}>
+      <div className="pricing-care-grid">{CARE_PLANS.map((plan, i) => <article key={plan.name} onClick={activateCard} aria-labelledby={`care-${i}`} className={`pricing-care${i === 1 ? " is-featured" : ""}${careIndex === i ? " is-selected" : ""}`}>
         <div className="pricing-care-top"><h3 id={`care-${i}`} lang="en"><Latin>{plan.name}</Latin></h3><span className="pricing-choice-stamp" aria-hidden="true">{careIndex === i ? "✓" : `0${i + 1}`}</span></div>
         <p className="pricing-care-description">{x.careFit[i]}</p>
         <div className="pricing-care-amount" aria-live="polite" aria-atomic="true"><div className="pricing-care-price-row"><bdi dir="ltr" className="pricing-display-price" key={yearly ? "year" : "month"}>{money(yearly ? plan.yearly : plan.monthly)}</bdi><span className="pricing-price-unit">{yearly ? t.year : t.month}</span></div><p className="pricing-billing-detail">{yearly ? <><Latin>{money(plan.yearly / 12)}</Latin> {t.equivalent}</> : t.paidMonthly}</p>{yearly && <p className="pricing-saving">{t.saving} <Latin>{money(plan.monthly * 12 - plan.yearly)}</Latin> {t.eachYear}</p>}</div>
-        <div className="pricing-update-allowance"><span className="pricing-update-number" aria-hidden="true">{i === 0 ? "03" : "∞"}</span><p>{x.careHeadline[i]}</p></div>
-        <ul className="pricing-features">{CARE_FEATURES[locale][i].filter((_, n) => i === 0 ? n !== 4 : n !== 1).map(feature => <li key={feature}><PricingText text={feature} /></li>)}</ul>
+        <ul className="pricing-features">{CARE_FEATURES[locale][i].map(feature => <li key={feature}><PricingText text={feature} /></li>)}</ul>
         <button type="button" className="pricing-choice" aria-pressed={careIndex === i} onClick={() => {setCareIndex(i);advanceTo(buildIndex === null ? "website-packages" : "your-selection");}}><span>{careIndex === i ? t.selected : t.choose} <Latin>{plan.name}</Latin></span>{choiceArrow}</button>
       </article>)}</div>
     </div></section>
 
     <section className={`pricing-total-section${build && care ? " is-complete" : ""}`} id="your-selection" tabIndex={-1} aria-labelledby="selection-title"><div className="container pricing-section">
-      <div className="pricing-section-intro"><div><p className="brand-micro"><Latin>03 /</Latin> {x.flowSteps[2]}</p><h2 id="selection-title">{x.estimateTitle}</h2></div>{(build || care) && <button type="button" className="pricing-reset" onClick={() => {setBuildIndex(null);setCareIndex(null);setYearly(false);moveTo("website-packages");}}>{x.clear}</button>}</div>
+      <div className="pricing-section-intro"><div><p className="brand-micro"><Latin>03 /</Latin> {x.flowSteps[2]}</p><h2 id="selection-title">{yearly ? x.estimateTitle : x.paymentTitle}</h2></div>{(build || care) && <button type="button" className="pricing-reset" onClick={() => {setBuildIndex(null);setCareIndex(null);setYearly(false);moveTo("website-packages");}}>{x.clear}</button>}</div>
       <div className="pricing-receipt">
         <div className="pricing-selection-items">
           <div><p className="brand-micro">{t.steps[0]}</p>{build && buildIndex !== null ? <><p className="pricing-selection-name"><Latin>{build.name}</Latin></p><p className="pricing-selection-cost"><strong><Latin>{money(BUILD_PRICES[buildIndex])}</Latin></strong><span>{t.buildCost}</span></p></> : <a href="#website-packages">{t.chooseBuild}</a>}{build && <a className="pricing-change" href="#website-packages">{t.change}</a>}</div>
-          <span className="pricing-receipt-plus" aria-hidden="true">+</span>
-          <div><p className="brand-micro">{t.steps[1]}</p>{care ? <><p className="pricing-selection-name"><Latin>{care.name}</Latin></p><p className="pricing-selection-cost"><strong><Latin>{money(yearly ? care.yearly : care.monthly * 12)}</Latin></strong><span>{yearly ? t.annualPaid : x.twelvePayments}</span></p></> : <a href="#maintenance">{t.chooseCare}</a>}{care && <a className="pricing-change" href="#maintenance">{t.change}</a>}</div>
+          <span className="pricing-receipt-plus" aria-hidden="true">{yearly ? "+" : "↓"}</span>
+          <div><p className="brand-micro">{t.steps[1]}</p>{care ? <><p className="pricing-selection-name"><Latin>{care.name}</Latin></p><p className="pricing-selection-cost"><strong><Latin>{money(yearly ? care.yearly : care.monthly)}</Latin></strong><span>{yearly ? t.annualPaid : t.monthlyPaid}</span></p></> : <a href="#maintenance">{t.chooseCare}</a>}{care && <a className="pricing-change" href="#maintenance">{t.change}</a>}</div>
         </div>
         <PricingEstimate locale={locale} build={buildIndex} care={careIndex} yearly={yearly} />
       </div>
