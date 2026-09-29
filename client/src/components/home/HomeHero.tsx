@@ -2,6 +2,7 @@ import React from "react";
 import BrandButton from "../ui/brand-button";
 import type { SiteLanguage } from "@/lib/routeLanguage";
 import { HOME_HERO_COPY } from "./homeHeroContent";
+import HomeHeroScene from "./HomeHeroScene";
 import "./HomeHero.css";
 
 /** Normal document flow and complete HTML content, independent of media or motion. */
@@ -22,15 +23,7 @@ export default function HomeHero({ language }: { language: SiteLanguage }) {
           </div>
           <p className="home-hero-note">{copy.note}</p>
         </div>
-        <div className="home-hero-art" aria-hidden="true">
-          <img
-            src="/media/brand-v1/home-glass-sculpture-960.webp"
-            srcSet="/media/brand-v1/home-glass-sculpture-480.webp 480w, /media/brand-v1/home-glass-sculpture-960.webp 960w"
-            sizes="(max-width: 767px) 280px, (max-width: 1023px) 380px, 44vw"
-            alt="" width="960" height="1091" fetchPriority="high" decoding="async"
-          />
-          <div className="home-hero-light" />
-        </div>
+        <HomeHeroScene language={language} />
       </div>
     </section>
   );

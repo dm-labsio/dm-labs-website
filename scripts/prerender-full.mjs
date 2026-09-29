@@ -290,6 +290,11 @@ async function main() {
     for (const route of ROUTES) {
       const url = `http://127.0.0.1:${port}${route}`;
       const page = await context.newPage();
+      // Persist the complete still composition, never a halfway-drawn hero or
+      // a playback button that cannot work until JavaScript loads.
+      if (["/", "/el/", "/he/"].includes(route)) {
+        await page.emulateMedia({ reducedMotion: "reduce" });
+      }
 
       try {
         // Vercel Analytics intentionally keeps a request open, so wait for the
