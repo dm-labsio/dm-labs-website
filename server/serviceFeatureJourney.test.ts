@@ -6,9 +6,8 @@ import { describe, expect, it } from "vitest";
 import { ServiceFeatureContent } from "../client/src/components/services/ServiceFeaturePage";
 import { REFRESHED_SERVICES, SERVICE_FEATURES, SERVICE_RELATED, isFoundationService, isRefreshedService, serviceFeatureRoute, serviceFeatureSchema } from "../client/src/components/services/serviceFeatureContent";
 import { SERVICE_UI } from "../client/src/components/services/serviceFeatureUI";
-import { FOUNDATION_VISUALS } from "../client/src/components/services/serviceFoundationVisuals";
+import { FOUNDATION_COPY } from "../client/src/components/services/serviceFoundationCopy";
 import { SERVICE_VISUAL_COPY } from "../client/src/components/services/serviceVisualCopy";
-import { FoundationComposition } from "../client/src/components/services/ServiceFoundationShowcase";
 import { getHreflangRouteSet } from "../client/src/lib/seoRoutes";
 
 const locales = ["en", "el", "he"] as const;
@@ -17,7 +16,7 @@ const cases = locales.flatMap(locale => REFRESHED_SERVICES.map(serviceId => ({ l
 
 describe("shared service-detail refresh batches", () => {
   it("removes the rejected room metaphors from shared copy in every language", () => {
-    const copy = JSON.stringify([SERVICE_FEATURES, SERVICE_VISUAL_COPY, SERVICE_UI, FOUNDATION_VISUALS]);
+    const copy = JSON.stringify([SERVICE_FEATURES, SERVICE_VISUAL_COPY, SERVICE_UI, FOUNDATION_COPY]);
     expect(copy).not.toMatch(/\brooms?\b|Χώρος για|Προσεγμένοι χώροι|מקום ל|חללים/i);
   });
   it.each(cases)("preserves the full content and localized journey for $locale/$serviceId", ({locale, serviceId}) => {
@@ -47,7 +46,8 @@ describe("shared service-detail refresh batches", () => {
       expect(html).toContain('data-reading-layout=');
       expect(html).not.toContain('class="service-principles"');
       expect(html).not.toContain('class="service-image-break"');
-      expect(html.match(/data-scene=/g)).toHaveLength(1);
+      expect(html).toContain("service-feature--text");
+      expect(html).not.toMatch(/<img|<figure|<button|aria-pressed|data-scene|service-motion-replay|service-foundation-study/);
     } else {
       expect(html.match(/aria-expanded="true"/g)).toHaveLength(1);
       expect(html.match(/aria-expanded="false"/g)).toHaveLength(2);
@@ -78,39 +78,6 @@ describe("shared service-detail refresh batches", () => {
       expect(source).toContain("<LegacyServiceDetailPage />");
       for (const id of ["maps", "forms", "social"]) expect(source).toContain(`"${id}": {`);
     }
-  });
-
-  it.each(locales)("keeps the new %s illustrations selectable without pretending to be live data", locale => {
-    for (const serviceId of ["seo", "security", "turnaround"] as const) {
-      const html = renderToStaticMarkup(React.createElement(ServiceFeatureContent, { locale, serviceId }));
-      expect(html.match(/aria-pressed="true"/g)).toHaveLength(1);
-      expect(html.match(/aria-pressed="false"/g)).toHaveLength(2);
-      expect(html.match(/id="foundation-hero-scene"/g)).toHaveLength(1);
-      expect(html).toContain('aria-controls="foundation-hero-scene"');
-      expect(html).toContain('aria-live="polite" aria-atomic="true"');
-      expect(html).toContain(escaped(FOUNDATION_VISUALS[locale].note));
-      expect(html).not.toMatch(/99\.9%|24\/7|100% secure|daily backups|live dashboard/);
-    }
-  });
-
-  it.each(locales)("replaces the %s artwork for each selection and removes the repeated SEO tiles", locale => {
-    const copy = FOUNDATION_VISUALS[locale];
-    const render = (serviceId: "seo" | "security" | "turnaround", chapter: number) => renderToStaticMarkup(React.createElement(FoundationComposition, { locale, serviceId, chapter }));
-    expect(render("security", 0)).toContain("HTTPS");
-    expect(render("security", 1)).not.toContain("HTTPS");
-    expect(render("security", 1)).toContain(escaped(copy.care[0]));
-    expect(render("security", 2)).not.toContain(escaped(copy.care[0]));
-    expect(render("security", 2)).toContain(escaped(copy.restore));
-    expect(render("seo", 0)).toContain(escaped(copy.search));
-    expect(render("seo", 1)).not.toContain(escaped(copy.search));
-    expect(render("seo", 1)).toContain(escaped(copy.page));
-    expect(render("seo", 2)).not.toContain(escaped(copy.page));
-    expect(render("seo", 2)).toContain(escaped(copy.path[0]));
-    expect(render("turnaround", 0)).not.toContain("<img");
-    expect(render("turnaround", 1)).toContain("<img");
-    expect(render("turnaround", 2)).not.toContain("<img");
-    const seo = renderToStaticMarkup(React.createElement(ServiceFeatureContent, { locale, serviceId: "seo" }));
-    expect(seo).not.toMatch(/service-architecture|Room to live|Χώρος για ζωή|מקום לחיות|search-page|service-image-break/);
   });
 
   it("removes unsupported statistics and score guarantees while retaining commercial scope", () => {

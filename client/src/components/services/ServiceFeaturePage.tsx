@@ -10,7 +10,7 @@ import { isFoundationService, SERVICE_FEATURES, SERVICE_NAMES, SERVICE_RELATED, 
 import { SERVICE_UI } from "./serviceFeatureUI";
 import ServiceShowcase from "./ServiceShowcase";
 import ServiceFoundationStory from "./ServiceFoundationStory";
-import { FOUNDATION_VISUALS } from "./serviceFoundationVisuals";
+import { FOUNDATION_COPY } from "./serviceFoundationCopy";
 import "./ServiceFeaturePage.css";
 
 export default function ServiceFeaturePage({ locale, serviceId }: { locale: SiteLanguage; serviceId: RefreshedService }) {
@@ -34,15 +34,15 @@ export function ServiceFeatureContent({ locale, serviceId }: { locale: SiteLangu
   const ui = SERVICE_UI[locale];
   const visual = SERVICE_VISUAL_COPY[locale];
   const route = (path: string) => studioRoute(locale, path);
-  return <div className={`studio-page service-feature service-feature--${serviceId}`} lang={locale} dir={locale === "he" ? "rtl" : "ltr"} data-button-surface="dark">
+  return <div className={`studio-page service-feature service-feature--${serviceId}${isFoundationService(serviceId) ? " service-feature--text" : ""}`} lang={locale} dir={locale === "he" ? "rtl" : "ltr"} data-button-surface="dark">
     <section className="service-feature-hero" aria-labelledby="service-feature-title"><div className="container">
       <a className="service-feature-back" href={route("services")}><span aria-hidden="true">←</span>{ui.back}</a>
-      <div className="service-hero-grid"><div><p className="brand-micro">{t.name}</p><h1 id="service-feature-title">{t.title[0]} <span>{t.title[1]}</span></h1><p className="service-feature-lead">{t.lead}</p><div className="service-feature-actions"><BrandButton asChild><a href={route("contact")}>{ui.consultation}</a></BrandButton><a className="service-text-link" href="#service-story">{visual.explore}</a></div></div><ServiceShowcase locale={locale} serviceId={serviceId} /></div>
+      <div className={isFoundationService(serviceId) ? "service-hero-text" : "service-hero-grid"}><div><p className="brand-micro">{t.name}</p><h1 id="service-feature-title">{t.title[0]} <span>{t.title[1]}</span></h1><p className="service-feature-lead">{t.lead}</p><div className="service-feature-actions"><BrandButton asChild><a href={route("contact")}>{ui.consultation}</a></BrandButton><a className="service-text-link" href="#service-story">{visual.explore}</a></div></div>{!isFoundationService(serviceId) && <ServiceShowcase locale={locale} serviceId={serviceId} />}</div>
 
     </div></section>
     <div id="service-story" tabIndex={-1}>{isFoundationService(serviceId) ? <ServiceFoundationStory locale={locale} serviceId={serviceId} /> : <><ServiceVisualStory key={`${locale}-${serviceId}`} locale={locale} serviceId={serviceId} /><ServiceImageBreak locale={locale} serviceId={serviceId} /></>}</div>
     <section className="container studio-section service-scope-section" id="service-deliverables" tabIndex={-1} aria-labelledby="service-deliver-title">
-      <div className="service-scope-intro"><div><p className="brand-micro">{ui.deliver}</p><h2 id="service-deliver-title">{isFoundationService(serviceId) ? FOUNDATION_VISUALS[locale].scope[serviceId] : visual.scopeShort}</h2></div><p>{t.intro}</p></div>
+      <div className="service-scope-intro"><div><p className="brand-micro">{ui.deliver}</p><h2 id="service-deliver-title">{isFoundationService(serviceId) ? FOUNDATION_COPY[locale].scope[serviceId] : visual.scopeShort}</h2></div><p>{t.intro}</p></div>
       <details className="service-scope-disclosure" open><summary><span>{visual.scope}</span><bdi aria-hidden="true" dir="ltr">01 — {String(t.deliverables.length).padStart(2, "0")}<span className="service-disclosure-symbol" /></bdi></summary><div className="service-deliver-grid"><div><p>{ui.scope}</p><a className="service-text-link" href={route("pricing")}>{ui.pricing}</a><br /><a className="service-text-link" href={route("process")}>{ui.processLink}</a></div><ul role="list">{t.deliverables.map((item, i) => <li key={item}><span className="brand-latin-code" aria-hidden="true"><bdi dir="ltr">{String(i + 1).padStart(2, "0")}</bdi></span><span>{item}</span></li>)}</ul></div></details>
     </section>
     <section className="service-faq"><div className="container studio-section service-faq-grid"><h2 id="service-faq-title">{ui.questions}</h2><div aria-labelledby="service-faq-title">{t.faqs.map(faq => <details key={faq.q} open><summary><h3>{faq.q}</h3><span className="service-disclosure-symbol" aria-hidden="true" /></summary><p>{faq.a}</p></details>)}</div></div></section>

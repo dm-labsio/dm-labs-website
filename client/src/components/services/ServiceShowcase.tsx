@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import type { SiteLanguage } from "@/lib/routeLanguage";
-import { isFoundationService, type RefreshedService } from "./serviceFeatureContent";
-import ServiceFoundationShowcase from "./ServiceFoundationShowcase";
+import type { DesignService } from "./serviceFeatureContent";
 import { SERVICE_UI } from "./serviceFeatureUI";
 import { SERVICE_VISUAL_COPY } from "./serviceVisualCopy";
 import { useServiceMotion } from "./useServiceMotion";
@@ -78,8 +77,7 @@ function DesignStudy({ locale }: { locale: SiteLanguage }) {
   return <div className="service-design-study" ref={root}><DesignComposition locale={locale} /><p className="service-study-note">{t.studyNote}</p><button className="service-motion-replay" onClick={replay} type="button">{SERVICE_VISUAL_COPY[locale].replay}<span aria-hidden="true">↻</span></button></div>;
 }
 
-export default function ServiceShowcase({ locale, serviceId }: { locale: SiteLanguage; serviceId: RefreshedService }) {
-  if (isFoundationService(serviceId)) return <ServiceFoundationShowcase key={`${locale}-${serviceId}`} locale={locale} serviceId={serviceId} />;
+export default function ServiceShowcase({ locale, serviceId }: { locale: SiteLanguage; serviceId: DesignService }) {
   if (serviceId === "mobile-first") return <ResponsiveStudy key={locale} locale={locale} />;
   if (serviceId === "custom-design") return <DesignStudy locale={locale} />;
   return <PerformanceStudy locale={locale} />;
