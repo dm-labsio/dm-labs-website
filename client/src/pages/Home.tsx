@@ -1,3 +1,5 @@
+import HomeIntroductionVideo from "@/components/home/HomeIntroductionVideo";
+import "@/components/home/HomePageDark.css";
 import { HomeServices, HomeProcess, HomeIndustries } from "@/components/home/HomeOverviewSections";
 import TeamProfiles from "@/components/TeamProfiles";
 /* ============================================================
@@ -103,9 +105,8 @@ function HomepageCardPreview({ tplId, category }: { tplId: string; category: str
   );
 }
 
-const GRADIENT_BG = "/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
 const TRIANGLE_GEO = "/media/cloudfront/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
-const DARK_CTA_BG = "/media/cloudfront/dark-cta-bg-LgZ8epcpi9XDGLof5Q9KgS.webp";
+const DARK_CTA_BG = "/media/brand-refresh/v1/faq-pearl-arcs-desktop.webp";
 
 // Featured live-preview mini-sites for the homepage showcase
 // Using the same mini-site HTML files as the Templates page
@@ -248,7 +249,7 @@ export default function HomePage() {
     return () => { document.getElementById("home-jsonld-schema")?.remove(); };
   }, []);
   return (
-    <div className="editorial-home">
+    <div className="editorial-home home-page--dark" lang="en" data-button-surface="dark">
       {/* ═══════════════════════════════════════════
           HERO SECTION
           ═══════════════════════════════════════════ */}
@@ -257,7 +258,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           TRUST STRIP
           ═══════════════════════════════════════════ */}
-      <section className="bg-white border-y border-[#E2E5EA]">
+      <section className="home-trust-strip border-y border-[#34435f]">
         <div className="container py-6">
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
             {[
@@ -267,7 +268,7 @@ export default function HomePage() {
               "SEO Optimised",
               "Direct access to Tom & Anastacia",
             ].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
+              <div key={item} className="flex items-center gap-2 text-sm text-[#bdc9df]">
 
                 <span className="font-medium">{item}</span>
               </div>
@@ -276,14 +277,14 @@ export default function HomePage() {
         </div>
       </section>
 
+      <HomeIntroductionVideo language="en" />
+
       {/* ═══════════════════════════════════════════
           TEMPLATE SHOWCASE + INDUSTRY GRID
           (moved directly after trust strip)
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
+      <section className="home-examples section-spacing relative overflow-hidden">
+
         <div className="container relative z-10">
           {/* -- Template Showcase Grid -- */}
           <AnimateIn className="text-center mb-10">
@@ -292,7 +293,7 @@ export default function HomePage() {
               Make Your First Impression <span className="editorial-serif">Count</span>
             </h2>
             <p className="editorial-lead max-w-2xl mx-auto">
-              Your website sets the standard before you say a word. Explore these <strong className="text-[#111315]">concept designs</strong> to see the possibilities. Your website will be designed around your brand, your customers, and the action you want them to take.
+              Your website sets the standard before you say a word. Explore these <strong className="text-[#edf2ff]">concept designs</strong> to see the possibilities. Your website will be designed around your brand, your customers, and the action you want them to take.
             </p>
           </AnimateIn>
 
@@ -333,7 +334,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           TESTIMONIALS
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
+      <section className="home-stories section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-14">
               <p className="editorial-label mb-4">Client Stories</p>
@@ -351,17 +352,17 @@ export default function HomePage() {
                 <div className="dm-card h-full flex flex-col relative">
 
                   {/* Quote text */}
-                  <p className="editorial-quote text-[#3D4550] mb-6 flex-1">
+                  <p className="editorial-quote text-[#d5dff0] mb-6 flex-1">
                     "{t.text}"
                   </p>
                   {/* Author */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-[#E2E5EA]">
+                  <div className="flex items-center gap-3 pt-4 border-t border-[#34435f]">
                     <div className="w-10 h-10 rounded-full brand-gradient flex items-center justify-center text-white text-sm font-bold shrink-0">
                       {t.initial}
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-[#111315]">{t.name}</p>
-                      <p className="text-xs text-[#5B6472]">{t.role}</p>
+                      <p className="text-sm font-semibold text-[#edf2ff]">{t.name}</p>
+                      <p className="text-xs text-[#bdc9df]">{t.role}</p>
                     </div>
                   </div>
                 </div>
@@ -374,10 +375,8 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           PRICING PREVIEW
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 100%)" }}>
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
+      <section className="home-pricing section-spacing relative overflow-hidden">
+
 
         <div className="container relative z-10">
           <AnimateIn className="text-center mb-16">
@@ -392,7 +391,7 @@ export default function HomePage() {
 
           <div
             className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl text-center sm:text-left"
-            style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
+            style={{ background: "#1b2946", border: "1px solid #465a82" }}
           >
             <span className="editorial-label !text-white">Built around your business</span>
             <span className="hidden sm:block w-px h-5 bg-white/40" />
@@ -407,12 +406,12 @@ export default function HomePage() {
                 <p className="editorial-label !text-[#5B8CFF] mb-3">Launch Website</p>
                 <div className="flex items-baseline gap-1 mb-4">
                   <span className="editorial-price">€299</span>
-                  <span className="text-sm text-[#5B6472]">one-time</span>
+                  <span className="text-sm text-[#bdc9df]">one-time</span>
                 </div>
-                <p className="text-sm text-[#5B6472] mb-6">A lean online presence for a new business that needs to launch clearly and professionally.</p>
+                <p className="text-sm text-[#bdc9df] mb-6">A lean online presence for a new business that needs to launch clearly and professionally.</p>
                 <ul className="space-y-3 mb-8 flex-1">
                   {["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#edf2ff]">
 
                       {f}
                     </li>
@@ -430,12 +429,12 @@ export default function HomePage() {
                   <p className="editorial-label !text-[#8B5CFF] mb-3">Growth Website</p>
                   <div className="flex items-baseline gap-1 mb-4">
                     <span className="editorial-price">€749</span>
-                    <span className="text-sm text-[#5B6472]">one-time</span>
+                    <span className="text-sm text-[#bdc9df]">one-time</span>
                   </div>
-                  <p className="text-sm text-[#5B6472] mb-6">A conversion-focused site for a business ready to be found, trusted, and contacted online.</p>
+                  <p className="text-sm text-[#bdc9df] mb-6">A conversion-focused site for a business ready to be found, trusted, and contacted online.</p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"].map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-[#edf2ff]">
 
                         {f}
                       </li>
@@ -452,12 +451,12 @@ export default function HomePage() {
                 <p className="editorial-label !text-[#3D9CBB] mb-3">Pro Website</p>
                 <div className="flex items-baseline gap-1 mb-4">
                   <span className="editorial-price">€1,499</span>
-                  <span className="text-sm text-[#5B6472]">one-time</span>
+                  <span className="text-sm text-[#bdc9df]">one-time</span>
                 </div>
-                <p className="text-sm text-[#5B6472] mb-6">For a more complete digital presence with richer content, motion, and stronger search foundations.</p>
+                <p className="text-sm text-[#bdc9df] mb-6">For a more complete digital presence with richer content, motion, and stronger search foundations.</p>
                 <ul className="space-y-3 mb-8 flex-1">
                   {["Up to 7 pages", "Gallery or portfolio", "Pop-up and scroll-driven animations", "Full SEO structure", "Blog setup or website visual pack", "4 revision rounds"].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#edf2ff]">
 
                       {f}
                     </li>
@@ -519,8 +518,8 @@ export default function HomePage() {
           </AnimateIn>
 
           <AnimateIn className="text-center mt-10">
-            <p className="text-sm text-[#5B6472] mb-3">
-              All plans include a <span className="font-semibold text-[#111315]">free consultation</span> - no commitment, no pressure.
+            <p className="text-sm text-[#bdc9df] mb-3">
+              All plans include a <span className="font-semibold text-[#edf2ff]">free consultation</span> - no commitment, no pressure.
             </p>
             <Link href="/pricing/" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
               See full pricing &amp; add-ons <ArrowRight size={14} />
@@ -581,7 +580,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           WHO WE ARE - Team Section
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
+      <section className="home-team section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-14">
             <p className="editorial-label !text-[#5B8CFF] mb-4">The people behind the work</p>

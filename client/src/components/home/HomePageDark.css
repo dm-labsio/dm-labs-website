@@ -1,0 +1,28 @@
+/* Homepage-only surfaces: supplied navy artwork, original image colours. */
+.home-page--dark { background: #080f20; color: #edf2ff; }
+.home-page--dark .home-trust-strip { background: #10192d; }
+.home-page--dark .home-examples { background: linear-gradient(#080f20cc, #080f20ed), url('/media/brand-refresh/v1/faq-pearl-arcs-desktop.webp') center/cover; }
+.home-page--dark .home-stories { background: #0d1629; }
+.home-page--dark .home-pricing { background: linear-gradient(#0a1428e0, #0a1428e8), url('/media/brand-refresh/v1/pricing-glass-arcs-desktop.webp') center/cover; }
+.home-page--dark .home-team { background: linear-gradient(#10192de6, #10192de0), url('/media/brand-refresh/v1/contact-folded-glass-desktop.webp') center/cover; }
+.home-page--dark .home-overview { --overview-ink: #edf2ff; --overview-body: #bdc9df; --overview-accent: #b7c3ff; }
+.home-page--dark .home-overview-services { background: #0b1427; }
+.home-page--dark .home-overview-process { background: linear-gradient(#111b30db, #111b30e8), url('/media/brand-refresh/v1/studio-glass-right.webp') center/cover; }
+.home-page--dark .home-overview-industries { background: #0b1427; }
+.home-page--dark :is(.home-service-list article, .home-process-list li, .home-industry-footer) { border-color: #3a4d6c; }
+.home-page--dark :is(.editorial-section-heading, .editorial-card-title, .editorial-price) { color: #edf2ff; }
+.home-page--dark :is(.editorial-lead, .editorial-quote, .he-home-note) { color: #bdc9df; }
+.home-page--dark .editorial-label { color: #b7c3ff; }
+.home-page--dark :is(.dm-card, .team-profile) { background: #142039; border: 1px solid #3a4b6c; box-shadow: none; }
+.home-page--dark .team-profile-heading h3 { color: #edf2ff; }
+.home-page--dark .team-profile-copy { color: #bdc9df; }
+.home-page--dark :is(.team-profile-role, .team-profile-toggle) { color: #b7c3ff; }
+.home-page--dark .btn-secondary { color: #d8e2ff; }
+.home-page--dark .home-pricing :is(.editorial-price, p[dir="ltr"].text-4xl) { font-family: "Rubik", Arial, sans-serif; }
+.home-page--dark :is(a, button):focus-visible { outline: 3px solid #6fe3ff; outline-offset: 5px; }
+@media (max-width: 767px) {
+  .home-page--dark .home-examples { background-image: linear-gradient(#080f20cc, #080f20ed), url('/media/brand-refresh/v1/faq-pearl-arcs-mobile.webp'); }
+  .home-page--dark .home-pricing { background-image: linear-gradient(#0a1428e0, #0a1428e8), url('/media/brand-refresh/v1/pricing-glass-arcs-mobile.webp'); }
+  .home-page--dark .home-team { background-image: linear-gradient(#10192de6, #10192de0), url('/media/brand-refresh/v1/contact-folded-glass-mobile.webp'); }
+  .home-page--dark .home-overview-process { background-image: linear-gradient(#111b30db, #111b30e8), url('/media/brand-refresh/v1/studio-glass-mobile.webp'); }
+}

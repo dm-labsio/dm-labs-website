@@ -1,0 +1,24 @@
+.home-film { background: #080f20; color: #edf2ff; padding-block: clamp(4rem, 7vw, 6.5rem); scroll-margin-top: 6rem; }
+.home-film-heading { display: grid; grid-template-columns: 1.2fr 1fr; align-items: end; gap: 3rem; margin-bottom: 2.5rem; }
+.home-film-heading .brand-micro { color: #b9c2ff; margin-bottom: 1rem; }
+.home-film-heading h2 { max-width: 19ch; }
+.home-film-heading > p { color: #bdc9df; max-width: 44ch; }
+.home-film-player { position: relative; aspect-ratio: 16 / 9; background: #101729; border: 1px solid #435170; }
+.home-film-player video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.home-film-play { position: absolute; inset: 0; display: flex; align-items: end; justify-content: start; padding: clamp(1rem, 3vw, 2.5rem); background: linear-gradient(transparent 60%, #080f2055); cursor: pointer; }
+.home-film-play-label { display: inline-flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: #b4bdff; color: #101729; border: 1px solid #d5d9ff; }
+.home-film-play-label > bdi { padding-inline-start: 1rem; border-inline-start: 1px solid #657298; font-size: .875rem; }
+.home-film-play:hover .home-film-play-label { background: #d4daff; }
+.home-film-play:focus-visible { outline: 3px solid #6fe3ff; outline-offset: 6px; }
+.home-film-description { display: flex; justify-content: space-between; gap: 1rem 2rem; margin-top: 1.25rem; color: #bdc9df; }
+.home-film-description p { max-width: 62ch; margin: 0; font-size: 1rem; }
+.home-film-description > span { flex-shrink: 0; font-size: .875rem; }
+.home-film-error { margin-top: 1rem; color: #edf2ff; }
+.home-film-error :is(a, button) { display: inline-flex; min-height: 44px; align-items: center; margin-inline-end: 1.5rem; color: #bdcaff; text-decoration: underline; text-underline-offset: .25em; }
+@media (max-width: 767px) {
+  .home-film-heading { grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 2rem; }
+  .home-film-description { flex-direction: column; }
+  .home-film-play { padding: .75rem; }
+  .home-film-play-label { padding: .75rem; gap: .6rem; font-size: .875rem; }
+  .home-film-play-label > bdi { padding-inline-start: .6rem; }
+}

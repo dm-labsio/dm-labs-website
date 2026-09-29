@@ -1,3 +1,5 @@
+import HomeIntroductionVideo from "@/components/home/HomeIntroductionVideo";
+import "@/components/home/HomePageDark.css";
 import { HomeServices, HomeProcess, HomeIndustries } from "@/components/home/HomeOverviewSections";
 import TeamProfiles from "@/components/TeamProfiles";
 /* ============================================================
@@ -103,9 +105,8 @@ function HomeElCardPreview({ tplId, category }: { tplId: string; category: strin
   );
 }
 
-const GRADIENT_BG = "/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
 const TRIANGLE_GEO = "/media/cloudfront/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
-const DARK_CTA_BG = "/media/cloudfront/dark-cta-bg-LgZ8epcpi9XDGLof5Q9KgS.webp";
+const DARK_CTA_BG = "/media/brand-refresh/v1/faq-pearl-arcs-desktop.webp";
 
 // Featured live-preview mini-sites for the homepage showcase
 // Using the same mini-site HTML files as the Templates page
@@ -185,7 +186,7 @@ export default function HomeElPage() {
     description: "Ξεχωρίστε. Κερδίστε εμπιστοσύνη. Προσελκύστε περισσότερες επαφές. Custom ιστοσελίδες, γρήγορη παράδοση και προσωπική φροντίδα σε επιχειρήσεις παντού.",
   });
   return (
-    <>
+    <div className="home-page--dark" lang="el" data-button-surface="dark">
       {/* ═══════════════════════════════════════════
           HERO SECTION
           ═══════════════════════════════════════════ */}
@@ -194,7 +195,7 @@ export default function HomeElPage() {
       {/* ═══════════════════════════════════════════
           TRUST STRIP
           ═══════════════════════════════════════════ */}
-      <section className="bg-white border-y border-[#E2E5EA]">
+      <section className="home-trust-strip border-y border-[#34435f]">
         <div className="container py-6">
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
             {[
@@ -204,7 +205,7 @@ export default function HomeElPage() {
               "SEO Βελτιστοποιημένο",
               "Άμεση επαφή με Tom & Anastacia",
             ].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
+              <div key={item} className="flex items-center gap-2 text-sm text-[#bdc9df]">
 
                 <span className="font-medium">{item}</span>
               </div>
@@ -213,23 +214,23 @@ export default function HomeElPage() {
         </div>
       </section>
 
+      <HomeIntroductionVideo language="el" />
+
       {/* ═══════════════════════════════════════════
           TEMPLATE SHOWCASE + INDUSTRY GRID
           (moved directly after trust strip)
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
+      <section className="home-examples section-spacing relative overflow-hidden">
+
         <div className="container relative z-10">
           {/* -- Template Showcase Grid -- */}
           <AnimateIn className="text-center mb-10">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Έμπνευση Σχεδιασμού</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#111315] mb-3">
+            <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Έμπνευση Σχεδιασμού</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#edf2ff] mb-3">
               Η πρώτη εντύπωση ανοίγει πόρτες
             </h2>
-            <p className="text-base text-[#5B6472] max-w-2xl mx-auto">
-              Η ιστοσελίδα σας δείχνει την αξία σας πριν από την πρώτη συζήτηση. Εξερευνήστε αυτά τα <strong className="text-[#111315]">concept σχέδια</strong> για έμπνευση. Το δικό σας site θα σχεδιαστεί γύρω από το brand, τους πελάτες και τους στόχους σας.
+            <p className="text-base text-[#bdc9df] max-w-2xl mx-auto">
+              Η ιστοσελίδα σας δείχνει την αξία σας πριν από την πρώτη συζήτηση. Εξερευνήστε αυτά τα <strong className="text-[#edf2ff]">concept σχέδια</strong> για έμπνευση. Το δικό σας site θα σχεδιαστεί γύρω από το brand, τους πελάτες και τους στόχους σας.
             </p>
           </AnimateIn>
 
@@ -270,14 +271,14 @@ export default function HomeElPage() {
       {/* ═══════════════════════════════════════════
           TESTIMONIALS
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
+      <section className="home-stories section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-14">
-              <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Ιστορίες Πελατών</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
+              <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Ιστορίες Πελατών</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#edf2ff] mb-4">
               Τι Λένε οι Πελάτες μας
             </h2>
-            <p className="text-lg text-[#5B6472] max-w-xl mx-auto">
+            <p className="text-lg text-[#bdc9df] max-w-xl mx-auto">
               Πρώτες εντυπώσεις από τις επιχειρήσεις με τις οποίες έχουμε συνεργαστεί.
             </p>
           </AnimateIn>
@@ -288,17 +289,17 @@ export default function HomeElPage() {
                 <div className="dm-card h-full flex flex-col relative">
 
                   {/* Quote text */}
-                  <p className="text-sm text-[#3D4550] leading-relaxed mb-6 flex-1 italic">
+                  <p className="text-sm text-[#d5dff0] leading-relaxed mb-6 flex-1 italic">
                     "{t.text}"
                   </p>
                   {/* Author */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-[#E2E5EA]">
+                  <div className="flex items-center gap-3 pt-4 border-t border-[#34435f]">
                     <div className="w-10 h-10 rounded-full brand-gradient flex items-center justify-center text-white text-sm font-bold shrink-0">
                       {t.initial}
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-[#111315]">{t.name}</p>
-                      <p className="text-xs text-[#5B6472]">{t.role}</p>
+                      <p className="text-sm font-semibold text-[#edf2ff]">{t.name}</p>
+                      <p className="text-xs text-[#bdc9df]">{t.role}</p>
                     </div>
                   </div>
                 </div>
@@ -311,18 +312,16 @@ export default function HomeElPage() {
       {/* ═══════════════════════════════════════════
           PRICING PREVIEW
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 100%)" }}>
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
+      <section className="home-pricing section-spacing relative overflow-hidden">
+
 
         <div className="container relative z-10">
           <AnimateIn className="text-center mb-16">
-            <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Διαφανείς Τιμές</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315] mb-4">
+            <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Διαφανείς Τιμές</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#edf2ff] mb-4">
               Επενδύστε στο επόμενο βήμα σας
             </h2>
-            <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-5">
+            <p className="text-lg text-[#bdc9df] max-w-2xl mx-auto mb-5">
               Επιλέξτε το εύρος έργου που ταιριάζει στους στόχους σας. Ξέρετε τι περιλαμβάνεται πριν ξεκινήσουμε.
             </p>
            </AnimateIn>
@@ -330,7 +329,7 @@ export default function HomeElPage() {
           {/* Γύρω από την επιχείρησή σας Full-Width Banner */}
           <div
             className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl text-center sm:text-left"
-            style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
+            style={{ background: "#1b2946", border: "1px solid #465a82" }}
           >
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-white animate-pulse opacity-80" />
             <span className="text-base sm:text-lg font-bold text-white tracking-widest uppercase">Γύρω από την επιχείρησή σας</span>
@@ -345,13 +344,13 @@ export default function HomeElPage() {
               <div className="dm-card h-full flex flex-col">
                 <p className="text-sm font-semibold text-[#5B8CFF] uppercase tracking-wide mb-2">Launch Website</p>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold text-[#111315]">€299</span>
-                  <span className="text-sm text-[#5B6472]">εφάπαξ</span>
+                  <span className="text-4xl font-bold text-[#edf2ff]">€299</span>
+                  <span className="text-sm text-[#bdc9df]">εφάπαξ</span>
                 </div>
-                <p className="text-sm text-[#5B6472] mb-6">Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική παρουσία στο διαδίκτυο.</p>
+                <p className="text-sm text-[#bdc9df] mb-6">Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική παρουσία στο διαδίκτυο.</p>
                 <ul className="space-y-3 mb-8 flex-1">
                   {["Επώνυμη επαγγελματική σελίδα", "Responsive για κινητά", "Κουμπί WhatsApp", "Σύνδεσμοι social media", "Widget προσβασιμότητας (δωρεάν)", "2 γύροι αναθεωρήσεων", "Παράδοση σε 5-7 μέρες"].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#edf2ff]">
 
                       {f}
                     </li>
@@ -370,13 +369,13 @@ export default function HomeElPage() {
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Προτεινόμενο</span>
                   <p className="text-sm font-semibold text-[#8B5CFF] uppercase tracking-wide mb-2">Growth Website</p>
                   <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-4xl font-bold text-[#111315]">€749</span>
-                    <span className="text-sm text-[#5B6472]">εφάπαξ</span>
+                    <span className="text-4xl font-bold text-[#edf2ff]">€749</span>
+                    <span className="text-sm text-[#bdc9df]">εφάπαξ</span>
                   </div>
-                  <p className="text-sm text-[#5B6472] mb-6">Για εδραιωμένες επιχειρήσεις που χρειάζονται μια ολοκληρωμένη ιστοσελίδα με έμφαση στις μετατροπές.</p>
+                  <p className="text-sm text-[#bdc9df] mb-6">Για εδραιωμένες επιχειρήσεις που χρειάζονται μια ολοκληρωμένη ιστοσελίδα με έμφαση στις μετατροπές.</p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {["Έως 5 σελίδες", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Ενότητα μαρτυριών", "Βασική SEO βελτιστοποίηση", "Βελτιστοποίηση ταχύτητας", "Widget προσβασιμότητας (δωρεάν)", "3 γύροι αναθεωρήσεων", "Παράδοση σε 7-10 μέρες"].map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-[#edf2ff]">
 
                         {f}
                       </li>
@@ -394,13 +393,13 @@ export default function HomeElPage() {
               <div className="dm-card h-full flex flex-col">
                 <p className="text-sm font-semibold text-[#6FE3FF] uppercase tracking-wide mb-2">Pro Website</p>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-bold text-[#111315]">€1,499</span>
-                  <span className="text-sm text-[#5B6472]">εφάπαξ</span>
+                  <span className="text-4xl font-bold text-[#edf2ff]">€1,499</span>
+                  <span className="text-sm text-[#bdc9df]">εφάπαξ</span>
                 </div>
-                <p className="text-sm text-[#5B6472] mb-6">Για επιχειρήσεις που θέλουν μια εντελώς custom, πλούσια σε λειτουργίες ιστοσελίδα με τα πάντα συμπεριλαμβανόμενα.</p>
+                <p className="text-sm text-[#bdc9df] mb-6">Για επιχειρήσεις που θέλουν μια εντελώς custom, πλούσια σε λειτουργίες ιστοσελίδα με τα πάντα συμπεριλαμβανόμενα.</p>
                 <ul className="space-y-3 mb-8 flex-1">
                   {["Έως 7 σελίδες", "Πλήρως custom σχεδιασμός + animations", "Responsive για κινητά", "Κουμπί WhatsApp + social media", "Φόρμα επικοινωνίας + κρατήσεων", "Google Maps + Reviews widget", "Μαρτυρίες + gallery", "5 SEO blog άρθρα", "Πλήρης meta/SEO δομή", "Pop-up συμπεριλαμβάνεται", "Widget προσβασιμότητας (δωρεάν)", "4 γύροι αναθεωρήσεων", "Παράδοση σε 10-14 μέρες"].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#edf2ff]">
 
                       {f}
                     </li>
@@ -464,8 +463,8 @@ export default function HomeElPage() {
           </AnimateIn>
 
           <AnimateIn className="text-center mt-10">
-            <p className="text-sm text-[#5B6472] mb-3">
-              Όλα τα πλάνα περιλαμβάνουν <span className="font-semibold text-[#111315]">δωρεάν συμβουλευτική</span> - χωρίς δέσμευση, χωρίς πίεση.
+            <p className="text-sm text-[#bdc9df] mb-3">
+              Όλα τα πλάνα περιλαμβάνουν <span className="font-semibold text-[#edf2ff]">δωρεάν συμβουλευτική</span> - χωρίς δέσμευση, χωρίς πίεση.
             </p>
             <Link href="/el/pricing/" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
               Δείτε πλήρεις τιμές και πρόσθετα <ArrowRight size={14} />
@@ -526,11 +525,11 @@ export default function HomeElPage() {
       {/* ═══════════════════════════════════════════
           WHO WE ARE - Team Section
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
+      <section className="home-team section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-14">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#5B8CFF] mb-3">Οι άνθρωποι πίσω από τη δουλειά</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111315]">Ποιοι Είμαστε</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#edf2ff]">Ποιοι Είμαστε</h2>
           </AnimateIn>
 
           <TeamProfiles language="el" />
@@ -572,6 +571,6 @@ export default function HomeElPage() {
           </AnimateIn>
         </div>
       </section>
-    </>
+    </div>
   );
 }

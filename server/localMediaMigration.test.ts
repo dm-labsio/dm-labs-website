@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { extname, relative, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import { HOME_INTRODUCTION_MEDIA } from "../client/src/components/home/homeIntroductionContent";
 
 const projectRoot = resolve(import.meta.dirname, "..");
 const clientRoot = resolve(projectRoot, "client");
@@ -29,14 +30,35 @@ const repositorySource = [
   ),
   readFileSync(resolve(projectRoot, "vite.config.ts"), "utf8"),
 ].join("\n");
-const mediaFiles = collectFiles(mediaRoot);
+const allMediaFiles = collectFiles(mediaRoot);
+const mediaFiles = allMediaFiles.filter(path => extname(path) === ".webp");
 
 describe("GitHub-backed static media migration", () => {
+  it("keeps only the two compressed introduction videos within their playback budgets", () => {
+    const videos = allMediaFiles.filter(path => extname(path) !== ".webp");
+    const expected = [HOME_INTRODUCTION_MEDIA.desktop, HOME_INTRODUCTION_MEDIA.mobile];
+    expect(videos.map(path => `/${relative(resolve(clientRoot, "public"), path)}`).sort()).toEqual([...expected].sort());
+    for (const [path, budget] of [[expected[0], 7_000_000], [expected[1], 3_500_000]] as const) {
+      const file = readFileSync(resolve(clientRoot, "public", path.slice(1)));
+      expect(file.length).toBeLessThan(budget);
+      const atoms: string[] = [];
+      for (let offset = 0; offset + 8 <= file.length;) {
+        const size = file.readUInt32BE(offset);
+        atoms.push(file.toString("ascii", offset + 4, offset + 8));
+        if (!size) break;
+        offset += size;
+      }
+      expect(atoms).toContain("moov");
+      expect(atoms).toContain("mdat");
+      expect(atoms.indexOf("moov")).toBeLessThan(atoms.indexOf("mdat"));
+    }
+  });
+
   it("keeps current and retired versioned WebP assets below the one-megabyte checkpoint cap", () => {
-    expect(mediaFiles).toHaveLength(146);
+    expect(mediaFiles).toHaveLength(147);
 
     const mediaReferences = new Set(clientSource.match(/\/media\/[A-Za-z0-9._/-]+\.webp/g) ?? []);
-    expect(mediaReferences.size).toBe(141);
+    expect(mediaReferences.size).toBe(142);
     const retiredHeroAssets = new Set([
       "/media/cloudfront/services-hero-bg-bfPgb525LqzgdU7JVYn89M.webp",
       "/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp",
