@@ -260,7 +260,7 @@ export const POSTS: BlogPost[] = [
 
 <p>Give each property a detailed page that helps a buyer decide whether to arrange a viewing.</p>
 
-<p>Include its location, price, size, bedrooms, key features, floor plan, current availability, and clear photographs. Explain relevant details such as parking, outdoor space, property condition, and nearby amenities.</p>
+<p>Include its location, price, size, layout, key features, floor plan, current availability, and clear photographs. Explain relevant details such as parking, gardens or terraces, property condition, and nearby amenities.</p>
 
 <p>Answer the questions people would otherwise need to send you:</p>
 <ul>
@@ -695,7 +695,7 @@ export const POSTS: BlogPost[] = [
 <h2>The Real Limitations of Wix and Website Builders</h2>
 
 <h3>You Are Building on Someone Else's Platform</h3>
-<p>When you build on Wix, you do not own your website. You rent space on Wix's platform. If Wix changes its pricing, changes its features, or shuts down a tool you rely on, you have no control. If you ever want to move your website to a different platform, you cannot simply export it. You start from scratch. For a business that is serious about its long-term online presence, this is a significant risk.</p>
+<p>When you build on Wix, you do not own your website. Your site runs on Wix's platform. If Wix changes its pricing, changes its features, or shuts down a tool you rely on, you have no control. If you ever want to move your website to a different platform, you cannot simply export it. You start from scratch. For a business that is serious about its long-term online presence, this is a significant risk.</p>
 
 <h3>SEO Has Real Limitations</h3>
 <p>Search engine optimisation - getting your business to appear on Google - is one of the most important things a website does for a local business. Wix has improved its SEO tools considerably, but it still has structural limitations that professional developers do not have. Page loading speed, code quality, schema markup, and the ability to fully customise technical SEO elements are all restricted on Wix. For a business that wants to rank for searches like "web design Limassol" or "hair salon Nicosia", these limitations matter.</p>
@@ -1485,7 +1485,7 @@ intent.</code></pre>
       },
       {
         question: "How long does it take to launch an online shop before Black Friday?",
-        answer: "Realistically, 4 to 6 weeks from a standing start, covering platform setup, product pages, payment and delivery configuration, and testing. Black Friday 2026 falls on Friday, 27 November. Starting in the second half of October gives you breathing room; starting in September gives you a proper buffer for photography, copy and a dry run before the rush.",
+        answer: "Realistically, 4 to 6 weeks from a standing start, covering platform setup, product pages, payment and delivery configuration, and testing. Black Friday 2026 falls on Friday, 27 November. Starting in the second half of October gives you more preparation time; starting in September gives you a proper buffer for photography, copy and a dry run before the rush.",
       },
     ],
     content: `

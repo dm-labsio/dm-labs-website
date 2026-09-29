@@ -6,9 +6,11 @@ import "@/components/studio/StudioPage.css";
 import { ServiceVisualStory, ServiceImageBreak } from "./ServiceVisualStory";
 import { SERVICE_VISUAL_COPY } from "./serviceVisualCopy";
 import { studioRoute } from "@/components/studio/studioCopy";
-import { SERVICE_FEATURES, SERVICE_NAMES, SERVICE_RELATED, serviceFeatureRoute, serviceFeatureSchema, type RefreshedService } from "./serviceFeatureContent";
+import { isFoundationService, SERVICE_FEATURES, SERVICE_NAMES, SERVICE_RELATED, serviceFeatureRoute, serviceFeatureSchema, type RefreshedService } from "./serviceFeatureContent";
 import { SERVICE_UI } from "./serviceFeatureUI";
 import ServiceShowcase from "./ServiceShowcase";
+import ServiceFoundationStory from "./ServiceFoundationStory";
+import { FOUNDATION_VISUALS } from "./serviceFoundationVisuals";
 import "./ServiceFeaturePage.css";
 
 export default function ServiceFeaturePage({ locale, serviceId }: { locale: SiteLanguage; serviceId: RefreshedService }) {
@@ -38,14 +40,12 @@ export function ServiceFeatureContent({ locale, serviceId }: { locale: SiteLangu
       <div className="service-hero-grid"><div><p className="brand-micro">{t.name}</p><h1 id="service-feature-title">{t.title[0]} <span>{t.title[1]}</span></h1><p className="service-feature-lead">{t.lead}</p><div className="service-feature-actions"><BrandButton asChild><a href={route("contact")}>{ui.consultation}</a></BrandButton><a className="service-text-link" href="#service-story">{visual.explore}</a></div></div><ServiceShowcase locale={locale} serviceId={serviceId} /></div>
 
     </div></section>
-    <div id="service-story" tabIndex={-1}><ServiceVisualStory key={`${locale}-${serviceId}`} locale={locale} serviceId={serviceId} /></div>
-    <ServiceImageBreak locale={locale} serviceId={serviceId} />
+    <div id="service-story" tabIndex={-1}>{isFoundationService(serviceId) ? <ServiceFoundationStory locale={locale} serviceId={serviceId} /> : <><ServiceVisualStory key={`${locale}-${serviceId}`} locale={locale} serviceId={serviceId} /><ServiceImageBreak locale={locale} serviceId={serviceId} /></>}</div>
     <section className="container studio-section service-scope-section" id="service-deliverables" tabIndex={-1} aria-labelledby="service-deliver-title">
-      <div className="service-scope-intro"><div><p className="brand-micro">{ui.deliver}</p><h2 id="service-deliver-title">{visual.scopeShort}</h2></div><p>{t.intro}</p></div>
-      <details className="service-scope-disclosure"><summary><span>{visual.scope}</span><bdi aria-hidden="true" dir="ltr">01 — {String(t.deliverables.length).padStart(2, "0")}<span> +</span></bdi></summary><div className="service-deliver-grid"><div><p>{ui.scope}</p><a className="service-text-link" href={route("pricing")}>{ui.pricing}</a></div><ul role="list">{t.deliverables.map((item, i) => <li key={item}><span className="brand-latin-code" aria-hidden="true"><bdi dir="ltr">{String(i + 1).padStart(2, "0")}</bdi></span><span>{item}</span></li>)}</ul></div></details>
+      <div className="service-scope-intro"><div><p className="brand-micro">{ui.deliver}</p><h2 id="service-deliver-title">{isFoundationService(serviceId) ? FOUNDATION_VISUALS[locale].scope[serviceId] : visual.scopeShort}</h2></div><p>{t.intro}</p></div>
+      <details className="service-scope-disclosure" open><summary><span>{visual.scope}</span><bdi aria-hidden="true" dir="ltr">01 — {String(t.deliverables.length).padStart(2, "0")}<span className="service-disclosure-symbol" /></bdi></summary><div className="service-deliver-grid"><div><p>{ui.scope}</p><a className="service-text-link" href={route("pricing")}>{ui.pricing}</a><br /><a className="service-text-link" href={route("process")}>{ui.processLink}</a></div><ul role="list">{t.deliverables.map((item, i) => <li key={item}><span className="brand-latin-code" aria-hidden="true"><bdi dir="ltr">{String(i + 1).padStart(2, "0")}</bdi></span><span>{item}</span></li>)}</ul></div></details>
     </section>
-    <section className="service-journey"><div className="container studio-section"><div className="service-section-heading"><div><p className="brand-micro">{ui.process}</p><h2 id="service-process-title">{visual.journey}</h2></div><a className="service-text-link" href={route("process")}>{ui.processLink}</a></div><ol className="service-steps" role="list">{t.steps.map(([heading, body], i) => <li key={heading}><details><summary><bdi className="service-step-number" dir="ltr" aria-hidden="true">0{i + 1}</bdi><h3>{heading}</h3><span aria-hidden="true">+</span></summary><p>{body}</p></details></li>)}</ol></div></section>
-    <section className="service-faq"><div className="container studio-section service-faq-grid"><h2 id="service-faq-title">{ui.questions}</h2><div aria-labelledby="service-faq-title">{t.faqs.map(faq => <details key={faq.q}><summary><h3>{faq.q}</h3><span aria-hidden="true">+</span></summary><p>{faq.a}</p></details>)}</div></div></section>
+    <section className="service-faq"><div className="container studio-section service-faq-grid"><h2 id="service-faq-title">{ui.questions}</h2><div aria-labelledby="service-faq-title">{t.faqs.map(faq => <details key={faq.q} open><summary><h3>{faq.q}</h3><span className="service-disclosure-symbol" aria-hidden="true" /></summary><p>{faq.a}</p></details>)}</div></div></section>
     <section className="container studio-section service-related" aria-labelledby="service-related-title"><h2 id="service-related-title">{ui.related}</h2><div>{SERVICE_RELATED[serviceId].map(id => <a href={serviceFeatureRoute(locale, id)} key={id}><span>{SERVICE_NAMES[locale][id]}</span><span aria-hidden="true">↗</span></a>)}</div></section>
     <section className="service-feature-closing"><div className="container studio-section"><p className="brand-micro">{ui.consultation}</p><h2>{ui.closing}</h2><p>{ui.closingCopy}</p><div className="service-feature-actions"><BrandButton asChild><a href={route("contact")}>{ui.consultation}</a></BrandButton><a className="service-text-link" href={route("pricing")}>{ui.pricing}</a></div></div></section>
   </div>;

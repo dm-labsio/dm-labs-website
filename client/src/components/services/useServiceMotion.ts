@@ -21,6 +21,8 @@ export function attachServiceMotion(element: HTMLElement, loadAnime: () => Promi
           const lines = element.querySelectorAll<HTMLElement>("[data-motion-line]");
           const loads = element.querySelectorAll<HTMLElement>("[data-motion-load]");
           const taps = element.querySelectorAll<HTMLElement>("[data-motion-tap]");
+          const cards = element.querySelectorAll<HTMLElement>("[data-motion-card]");
+          if (cards.length) animate(cards, { x: [12, 0], opacity: [.85, 1], duration: 350, ease: "out(3)" });
           if (pieces.length) animate(pieces, { y: [26, 0], scale: [.97, 1], opacity: [.6, 1], duration: 900, delay: stagger(90), ease: "out(4)" });
           if (lines.length) animate(lines, { scaleX: [0, 1], duration: 1200, delay: stagger(100), ease: "inOut(3)" });
           if (loads.length) animate(loads, { clipPath: ["inset(0 100% 0 0)", "inset(0 0% 0 0)"], duration: 1100, delay: stagger(160), ease: "out(3)" });

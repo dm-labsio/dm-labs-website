@@ -12,7 +12,6 @@ export type ServiceFeature = {
   name: string; title: [string, string]; lead: string; intro: string;
   principles: readonly [string, string][];
   deliverables: readonly string[];
-  steps: readonly [string, string][];
   faqs: readonly { q: string; a: string }[];
 };
 
@@ -26,7 +25,6 @@ const en: Record<DesignService, ServiceFeature> = {
       ["Give every page a purpose.", "A useful reading order and clear calls to action help visitors find what they need and take the next step."],
     ],
     deliverables: ["A visual direction applied across the agreed pages", "Layouts shaped around your content", "Brand-matched colour and typography", "Hero, service, testimonial and enquiry sections where included in your scope", "Placement of your imagery, with custom illustration quoted where needed", "A consistent design language on mobile and desktop", "2 revision rounds for Launch, 3 for Growth and 4 for Pro"],
-    steps: [["Listen", "A short conversation about your business, audience and priorities."], ["Set the direction", "Review the palette, typography and layout direction before development."], ["Design & build", "The approved direction becomes a working preview you can explore."], ["Refine & launch", "Work through your included revisions, check the details and approve the launch."]],
     faqs: [
       { q: "Do you use page builders?", a: "Our standard builds use React and modern web technologies. We agree any CMS or editing requirements before starting, including licences and handover arrangements." },
       { q: "Can I provide my own design or branding?", a: "Yes. Share your brand book, logo and references. We can apply an existing identity or agree a new visual direction. A full branding project is scoped and quoted separately." },
@@ -38,14 +36,13 @@ const en: Record<DesignService, ServiceFeature> = {
     name: "Mobile-First Development", title: ["Small screen.", "Full experience."], lead: "Your message should feel just as clear in someone’s hand as it does on a desktop.",
     intro: "We start with the essentials on a small screen: what to read, where to go and how to get in touch. Then we adapt the composition for tablets and larger displays.",
     principles: [
-      ["Make room for what matters.", "Prioritise the content people need. Readable text and clear navigation help them find their way on a smaller screen."],
+      ["Focus on what matters.", "Prioritise the content people need. Readable text and clear navigation help them find their way on a smaller screen."],
       ["Keep the same useful content.", "Google uses the mobile version of your content for indexing and ranking. We keep important content and search information available across screen sizes."],
       ["Design for a tap.", "Considered touch targets, navigation and mobile keyboards make everyday actions easier. Your site should work without relying on a hover."],
     ],
     deliverables: ["Layouts planned for small screens first", "Responsive compositions for phones, tablets and desktop", "Touch-friendly navigation and buttons", "Mobile-friendly forms when included in your package", "Images sized for the screen and loading context", "Checks across agreed browsers and representative screen sizes", "Checks for overflow, readable type and usable controls"],
-    steps: [["Start small", "Set the reading order, navigation and primary action on a phone-sized layout."], ["Expand thoughtfully", "Use extra screen space for richer compositions without losing the message."], ["Check the journey", "Review navigation, forms and content at representative sizes and in agreed browsers."], ["Check the load", "Review mobile loading and interaction, then address the issues that matter most."]],
     faqs: [
-      { q: "Will the desktop version feel less considered?", a: "No. Desktop gets its own composition, using the available space. The content and brand stay consistent while the layout adapts." },
+      { q: "Will the desktop version feel less considered?", a: "No. Desktop gets its own composition, for larger screens. The content and brand stay consistent while the layout adapts." },
       { q: "Which devices and browsers do you support?", a: "We agree a testing scope for your project, covering current mobile and desktop browsers such as Safari and Chrome, plus other browsers your audience needs. Responsive browser checks and physical-device checks are distinct parts of that scope." },
       { q: "What about older phones?", a: "Tell us if older devices are important to your audience. We agree supported browsers and practical fallbacks before building, and keep the core content accessible when optional effects are unavailable." },
     ],
@@ -56,10 +53,9 @@ const en: Record<DesignService, ServiceFeature> = {
     principles: [
       ["Show the important parts first.", "Give the main content priority. Responsive images and considered loading help people reach the page sooner."],
       ["Respond when people act.", "Keep interactions responsive by reviewing the code and third-party tools that run on the page."],
-      ["Keep the page steady.", "Reserve space for media and consider font loading so content is less likely to jump while someone is reading or tapping."],
+      ["Keep the page steady.", "Set dimensions for media and consider font loading so content is less likely to jump while someone is reading or tapping."],
     ],
     deliverables: ["Compressed, appropriately sized images in modern formats such as WebP", "Deferred loading for suitable offscreen media", "Review of CSS, JavaScript and unused dependencies", "Code splitting where it benefits the experience", "CDN and caching suited to the content", "Lighthouse and PageSpeed checks with documented findings", "Review of loading, responsiveness and layout stability: LCP, INP and CLS", "Review of server response and third-party loading"],
-    steps: [["Lighten the assets", "Size and compress images; choose suitable video delivery and loading behaviour."], ["Focus the code", "Review scripts and dependencies, and defer non-critical work where appropriate."], ["Deliver efficiently", "Set caching and asset delivery to suit the site and its update needs."], ["Measure & refine", "Use lab checks to find issues and real-user data when available to understand the live experience."]],
     faqs: [
       { q: "What Lighthouse score do you target?", a: "We aim for strong results and address the most useful improvements. A specific score is not guaranteed: content, third-party services, device and test conditions all matter. Lab scores and real-user experience are different measures." },
       { q: "Can performance change after launch?", a: "Yes. New images, content and integrations can affect it. Complete Care includes a monthly performance check. Larger optimisation work is agreed separately; see the care plans for their full scope." },
