@@ -1,0 +1,113 @@
+.service-feature { --service-accent: #afbcff; }
+.service-feature--mobile-first { --service-accent: #85dded; }
+.service-feature--performance { --service-accent: #c5b1ff; }
+.service-feature .service-text-link { display: inline-block; padding-block: .75rem; color: #bfd0ff; font-size: 1.0625rem; font-weight: 700; text-decoration: underline; text-underline-offset: .3em; }
+.service-feature .service-text-link:hover { color: #6fe3ff; }
+.service-feature-hero { background: linear-gradient(90deg,#080f20f5,#080f20af),url('/media/brand-refresh/v1/contact-folded-glass-desktop.webp') center/cover; padding-block: 2.5rem 3rem; }
+.service-feature--performance .service-feature-hero { background-image: linear-gradient(90deg,#080f20f5,#080f20af),url('/media/brand-refresh/v1/pricing-glass-arcs-desktop.webp'); }
+.service-feature-back { display: inline-flex; gap: .75rem; align-items: center; min-height: 2.75rem; font-size: 1rem; color: #c2cee7; margin-bottom: 2.5rem; }
+[dir="rtl"] .service-feature-back > span { transform: scaleX(-1); }
+.service-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+[data-brand] .service-feature h1 { font-size: clamp(2.75rem,4.6vw,4.5rem); max-width: 12ch; margin-bottom: 1.5rem; }
+[data-brand] .service-feature:lang(el) h1 { font-size: clamp(2.4rem,4vw,3.9rem); max-width: 16ch; }
+.service-feature h1 span { display: block; color: var(--service-accent); }
+.service-feature .service-feature-lead { max-width: 32rem; color: #e0e7f6; }
+.service-feature-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; margin-top: 2rem; }
+.service-feature .service-feature-intro { border-top: 1px solid var(--studio-line); padding-top: 2rem; margin-top: 3rem; max-width: 64rem; }
+.service-design-study { margin: 0; background: #0c182b; }
+.service-design-study img { width: 100%; height: auto; }
+.service-design-study figcaption { padding: 1.5rem; border-top: 1px solid var(--studio-line); }
+.service-design-study figcaption p { color: #eff3ff; margin-bottom: .4rem; }
+.service-design-study figcaption span, .service-feature .service-study-note { font-size: .875rem; color: #c3cde2; }
+.service-responsive-study { min-width: 0; border-block: 1px solid #39516c; padding-block: 1.5rem; }
+.service-view-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.service-view-controls button { border-bottom: 2px solid #52627d; color: #dae4f7; padding: .6rem .75rem; min-height: 2.75rem; background: #102037; }
+.service-view-controls button[aria-pressed="true"] { color: #0b1827; background: #85dded; border-color: #85dded; }
+.service-view-controls button:hover { border-color: #85dded; }
+.service-feature .service-view-controls button:focus-visible { outline: 3px solid #6fe3ff; outline-offset: 4px; }
+.service-layout-study { margin-top: 1.5rem; }
+.service-demo-canvas { width: min(100%,16rem); margin-inline: auto; border: 1px solid #6e85a7; border-radius: .8rem; padding: 1.25rem; background: #13283e; min-height: 22rem; }
+.service-layout-study[data-view="tablet"] .service-demo-canvas { width: min(100%,24rem); }
+.service-layout-study[data-view="desktop"] .service-demo-canvas { width: 100%; }
+.service-demo-brand { border-bottom: 1px solid #3a536e; padding-bottom: .75rem; font-weight: 700; font-size: .875rem; color: #dce7ff; }
+.service-demo-content { display: grid; gap: .75rem; margin-top: 1rem; align-items: center; }
+.service-demo-content img { max-height: 9rem; object-fit: contain; width: 100%; }
+.service-feature .service-demo-heading { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; line-height: 1.2; color: #f4f7ff; margin-bottom: .75rem; }
+.service-feature .service-demo-content p:not(.service-demo-heading) { font-size: 1rem; }
+.service-demo-action { display: inline-block; margin-top: 1rem; color: #b3f0fa; border-bottom: 1px solid #b3f0fa; font-weight: 700; }
+.service-layout-study[data-view="desktop"] .service-demo-content { grid-template-columns: 1.25fr 1fr; }
+.service-layout-study figcaption { font-size: .875rem; color: #c3cde2; margin-top: 1rem; text-align: center; }
+.service-performance-study { background: #132039d9; padding: 2rem; border-block: 1px solid #8078a8; }
+.service-performance-study dl { margin-top: 1.5rem; }
+.service-performance-study dl > div { padding-block: 1.5rem; border-top: 1px solid #405070; }
+.service-performance-study dt { display: flex; gap: 1.25rem; align-items: baseline; }
+.service-performance-study dt bdi { font-family: "Fira Mono",monospace; font-size: .875rem; color: #d1c0ff; }
+.service-performance-study dt span { font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; line-height: 1.2; }
+.service-performance-study dd { color: #c3cde2; margin-top: .6rem; }
+.service-section-title { max-width: 23ch; }
+.service-principles { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 3rem; margin-top: 3rem; }
+.service-principles article { border-top: 1px solid var(--studio-line); padding-top: 1.75rem; }
+.service-feature .service-open-number { font: 800 clamp(3rem,5vw,4rem)/1 "Rubik",Arial,sans-serif; color: var(--service-accent); margin-bottom: 2rem; }
+.service-principles h3 { font-size: clamp(1.5rem,2vw,1.8rem); }
+.service-deliverables { background: #0e1c31; }
+.service-deliver-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 5rem; align-items: start; }
+.service-deliver-grid > div { position: sticky; top: 8rem; }
+.service-deliver-grid h2 { max-width: 15ch; }
+.service-deliver-grid .service-text-link { margin-top: 1rem; }
+.service-deliver-grid ul { margin: 0; padding: 0; list-style: none; }
+.service-deliver-grid li { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; border-top: 1px solid #354760; padding-block: 1.25rem; }
+.service-deliver-grid li > span:first-child { color: var(--service-accent); margin-top: .3rem; }
+.service-section-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem 2rem; margin-bottom: 2rem; }
+.service-steps { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 2rem; list-style: none; padding: 0; margin: 2rem 0 0; }
+.service-steps > li > bdi { display: block; color: var(--service-accent); margin-bottom: 1.5rem; }
+.service-steps h3 { font-size: 1.5rem; }
+.service-faq { background: #0c172b; }
+.service-faq-grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 4rem; }
+.service-faq details { border-top: 1px solid var(--studio-line); }
+.service-faq details:last-child { border-bottom: 1px solid var(--studio-line); }
+.service-faq summary { list-style: none; display: flex; align-items: baseline; gap: 1.5rem; justify-content: space-between; cursor: pointer; padding-block: 1.5rem; }
+.service-faq summary::-webkit-details-marker { display: none; }
+.service-faq summary h3 { font-family: var(--font-body); font-size: 1.125rem; font-weight: 700; line-height: 1.5; text-wrap: wrap; margin: 0; }
+.service-faq summary > span { font-size: 1.5rem; flex-shrink: 0; color: #baceff; }
+.service-faq details[open] summary > span { transform: rotate(45deg); }
+.service-faq details > p { padding-bottom: 1.75rem; }
+.service-related > div { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2rem; margin-top: 2rem; }
+.service-related a { display: flex; justify-content: space-between; gap: 1rem; border-block: 1px solid var(--studio-line); padding-block: 1.5rem; align-items: center; font-weight: 700; color: #dce6ff; }
+.service-related a:hover { color: #6fe3ff; }
+.service-related a > span:last-child { color: #6fe3ff; }
+[dir="rtl"] .service-related a > span:last-child { transform: scaleX(-1); }
+.service-feature-closing { background: linear-gradient(90deg,#080f20ee,#080f20bb),url('/media/brand-refresh/v1/faq-pearl-arcs-desktop.webp') center/cover; }
+.service-feature-closing h2 { max-width: 23ch; }
+.service-feature-closing p { max-width: 42rem; }
+@media (prefers-reduced-motion: no-preference) { .service-demo-canvas { transition: width .25s ease; } }
+@media (max-width: 1100px) { .service-hero-grid { gap: 2rem; } .service-deliver-grid { gap: 3rem; } .service-steps { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2.5rem; } }
+@media (max-width: 900px) {
+  .service-hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  [data-brand] .service-feature h1 { max-width: 17ch; }
+  .service-design-study, .service-responsive-study, .service-performance-study { width: 100%; max-width: 40rem; margin-inline: auto; }
+  .service-principles { gap: 1.5rem; }
+  .service-faq-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+@media (max-width: 767px) {
+  .service-feature-hero { background-image: linear-gradient(0deg,#080f20e8,#080f20ca),url('/media/brand-refresh/v1/contact-folded-glass-mobile.webp'); }
+  .service-feature--performance .service-feature-hero { background-image: linear-gradient(0deg,#080f20e8,#080f20ca),url('/media/brand-refresh/v1/studio-glass-mobile.webp'); }
+  .service-feature-back { margin-bottom: 2rem; }
+  .service-principles, .service-deliver-grid, .service-related > div { grid-template-columns: 1fr; gap: 2rem; }
+  .service-deliver-grid > div { position: static; }
+  .service-feature .service-open-number { margin-bottom: 1rem; }
+  .service-related > div { gap: 0; }
+  .service-related a + a { border-top: 0; }
+  .service-feature-closing { background-image: linear-gradient(0deg,#080f20e8,#080f20ca),url('/media/brand-refresh/v1/faq-pearl-arcs-mobile.webp'); }
+}
+@media (max-width: 540px) {
+  [data-brand] .service-feature h1 { font-size: clamp(2.5rem,10vw,3.5rem); }
+  [data-brand] .service-feature:lang(el) h1 { font-size: clamp(2rem,8vw,2.75rem); }
+  .service-steps { grid-template-columns: 1fr; }
+  .service-performance-study { padding: 1.5rem 1.25rem; }
+  .service-demo-canvas { padding: 1rem; min-height: 22rem; }
+  .service-layout-study[data-view="phone"] .service-demo-canvas { width: 84%; }
+  .service-layout-study[data-view="tablet"] .service-demo-canvas { width: 92%; }
+  .service-layout-study[data-view="desktop"] .service-demo-content { grid-template-columns: 1fr; }
+  .service-view-controls button { font-size: .9375rem; padding-inline: .5rem; }
+  .service-deliver-grid li { grid-template-columns: 1.5rem 1fr; gap: .75rem; }
+}

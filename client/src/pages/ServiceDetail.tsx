@@ -1,3 +1,5 @@
+import ServiceFeaturePage from "@/components/services/ServiceFeaturePage";
+import { isRefreshedService } from "@/components/services/serviceFeatureContent";
 /* ============================================================
    D&M LABS - Service Detail Page
    Route: /services/:serviceId
@@ -32,75 +34,6 @@ const SERVICES: Record<string, {
   faqs: { q: string; a: string }[];
   relatedServices: string[];
 }> = {
-  "custom-design": {
-    id: "custom-design",
-    icon: Globe,
-    accentColor: "#5B8CFF",
-    title: "Custom Website Design",
-    subtitle: "A website that looks and feels like your brand - not a generic design.",
-    intro: "Every business is different. Your website should reflect that. We design every site from scratch, starting with your brand identity, your audience, and your goals. No page builders, no recycled layouts - just a thoughtfully crafted digital presence built specifically for you.",
-    why: [
-      { heading: "First impressions matter", body: "Visitors form an opinion about your business within 50 milliseconds of landing on your site. A generic design signals that you don't care about the details. A custom design signals professionalism, trust, and attention to quality." },
-      { heading: "Your brand, not ours", body: "We study your logo, your colours, your tone of voice, and your competitors before writing a single line of code. The result is a website that feels like an extension of your business - not a website that could belong to anyone." },
-      { heading: "Designed to convert", body: "Beautiful design is only half the job. We structure every page with conversion in mind - clear calls to action, logical information hierarchy, and friction-free paths to contact or purchase." },
-    ],
-    whatWeDeliver: [
-      "Custom visual identity applied across all pages",
-      "Unique layout designed around your content",
-      "Brand-matched colour palette, typography, and iconography",
-      "Hero sections, service cards, testimonials, and CTAs",
-      "Custom illustrations or photography integration",
-      "Consistent design language across desktop and mobile",
-      "2 revision rounds included (Launch) / 3 rounds (Growth) / 4 rounds (Pro)",
-    ],
-    howItWorks: [
-      { step: "01", title: "Discovery", desc: "We start with a brief conversation to understand your business, your audience, and what you want visitors to do on your site." },
-      { step: "02", title: "Moodboard & Direction", desc: "We present a visual direction - colour palette, typography, and layout style - for your approval before any code is written." },
-      { step: "03", title: "Design & Build", desc: "We design and develop simultaneously, so you see a real working website, not a static mockup." },
-      { step: "04", title: "Review & Refine", desc: "You review the site and request changes. We refine until you're happy, then launch." },
-    ],
-    faqs: [
-      { q: "Do you use page builders like Wix or Squarespace?", a: "No. We write clean, hand-crafted code using React and modern web technologies. This gives you better performance, more flexibility, and no platform lock-in." },
-      { q: "Can I provide my own design or branding?", a: "Absolutely. If you have an existing brand guide, logo, or design preferences, we'll work within those guidelines. If you don't, we'll help you develop a visual identity." },
-      { q: "How many pages are included?", a: "The Launch plan includes a Branded Business Page. The Growth plan includes up to 4 pages, and the Pro plan includes up to 7 pages. Additional pages can be added for a small fee." },
-      { q: "What if I want changes after launch?", a: "Minor updates are included in our maintenance plans. Larger redesigns are quoted separately." },
-    ],
-    relatedServices: ["mobile-first", "seo", "performance"],
-  },
-  "mobile-first": {
-    id: "mobile-first",
-    icon: Smartphone,
-    accentColor: "#6FE3FF",
-    title: "Mobile-First Development",
-    subtitle: "Over 60% of web traffic is mobile. Your site needs to be perfect on every screen.",
-    intro: "Mobile-first is not a feature we add at the end - it's how we build from the very beginning. Every layout, every button, every image is designed for a small screen first, then enhanced for larger displays. The result is a website that works flawlessly whether your customer is on a phone, a tablet, or a desktop.",
-    why: [
-      { heading: "Most of your visitors are on mobile", body: "Across most industries, 60-70% of website visitors arrive on a smartphone. If your site is slow, hard to navigate, or broken on mobile, you're losing the majority of your potential customers before they even read a word." },
-      { heading: "Google ranks mobile-friendly sites higher", body: "Google uses mobile-first indexing, meaning it evaluates the mobile version of your site when deciding where to rank you in search results. A poor mobile experience directly hurts your SEO." },
-      { heading: "Touch-friendly interactions", body: "Mobile users interact differently from desktop users. We design with touch in mind - larger tap targets, swipeable galleries, sticky navigation, and forms that work with mobile keyboards." },
-    ],
-    whatWeDeliver: [
-      "Mobile-first layout architecture",
-      "Responsive design across all screen sizes (320px to 2560px)",
-      "Touch-optimised navigation and buttons",
-      "Mobile-friendly forms and input fields",
-      "Optimised images for fast mobile loading",
-      "Tested on iOS Safari, Android Chrome, and major browsers",
-      "No horizontal scrolling or layout breakage on any device",
-    ],
-    howItWorks: [
-      { step: "01", title: "Mobile Layout First", desc: "We design the mobile layout before anything else, ensuring the core experience is perfect on the smallest screens." },
-      { step: "02", title: "Progressive Enhancement", desc: "We then enhance the layout for tablets and desktops, adding more visual complexity where screen space allows." },
-      { step: "03", title: "Cross-Device Testing", desc: "We test on real devices and emulators across iOS and Android to catch any layout issues before launch." },
-      { step: "04", title: "Performance Validation", desc: "We run Lighthouse and PageSpeed tests on mobile to ensure fast load times on 4G and 5G connections." },
-    ],
-    faqs: [
-      { q: "Does mobile-first mean it looks worse on desktop?", a: "Not at all. Mobile-first is a development methodology, not a design constraint. Desktop layouts are fully designed and often more visually rich than their mobile counterparts." },
-      { q: "Which devices do you test on?", a: "We test on iPhone (Safari), Android (Chrome), iPad, and a range of desktop browsers including Chrome, Firefox, and Edge." },
-      { q: "What about very old phones?", a: "We target devices running iOS 14+ and Android 8+, which covers over 95% of active mobile users." },
-    ],
-    relatedServices: ["custom-design", "performance", "seo"],
-  },
   "seo": {
     id: "seo",
     icon: Search,
@@ -136,41 +69,6 @@ const SERVICES: Record<string, {
       { q: "Will my site rank on Google immediately after launch?", a: "Google needs time to crawl and index your site. We submit your sitemap to Google Search Console at launch to speed up the process, but ranking takes time and depends on competition in your industry." },
     ],
     relatedServices: ["performance", "custom-design", "mobile-first"],
-  },
-  "performance": {
-    id: "performance",
-    icon: Zap,
-    accentColor: "#8B5CFF",
-    title: "Fast Performance",
-    subtitle: "Every second of load time costs you customers. We make your site lightning fast.",
-    intro: "Website speed is not just a technical metric - it directly affects how many visitors stay on your site, how many convert to customers, and how high you rank on Google. We obsess over performance at every stage of development, from how images are compressed to how JavaScript is loaded.",
-    why: [
-      { heading: "Speed affects conversions", body: "Research by Google shows that a 1-second delay in mobile load time can reduce conversions by up to 20%. A site that loads in under 2 seconds keeps visitors engaged. A site that takes 5 seconds loses most of them before the page even appears." },
-      { heading: "Core Web Vitals and Google ranking", body: "Google uses Core Web Vitals - a set of speed and user experience metrics - as a ranking factor. A fast site ranks higher. A slow site is penalised, regardless of how good the content is." },
-      { heading: "Better experience for everyone", body: "Fast sites feel professional. Slow sites feel broken. Performance is part of the brand experience, and we treat it that way." },
-    ],
-    whatWeDeliver: [
-      "Optimised and compressed images (WebP format)",
-      "Lazy loading for images and heavy components",
-      "Minified CSS and JavaScript bundles",
-      "Efficient code splitting and tree shaking",
-      "CDN delivery for static assets",
-      "Google Lighthouse score 90+ on performance",
-      "Core Web Vitals passing (LCP, FID, CLS)",
-      "Fast Time to First Byte (TTFB)",
-    ],
-    howItWorks: [
-      { step: "01", title: "Asset Optimisation", desc: "All images are compressed and converted to modern formats (WebP). Videos are streamed, not embedded." },
-      { step: "02", title: "Code Efficiency", desc: "We write lean, efficient code and remove any unused libraries or dependencies." },
-      { step: "03", title: "Caching & CDN", desc: "Static assets are served from a CDN with aggressive caching to minimise load times globally." },
-      { step: "04", title: "Performance Audit", desc: "Before launch, we run a full Lighthouse audit and fix any issues until scores are in the green." },
-    ],
-    faqs: [
-      { q: "What Lighthouse scores do you target?", a: "We aim for 90+ on Performance, Accessibility, Best Practices, and SEO. Most of our sites score above 95 on desktop." },
-      { q: "Does performance degrade over time?", a: "It can if new content is added carelessly. Our maintenance plans include monthly performance checks to ensure your site stays fast." },
-      { q: "What about third-party scripts like chat widgets?", a: "Third-party scripts (chat, analytics, booking widgets) can slow down a site. We load them asynchronously and defer non-critical scripts to minimise their impact." },
-    ],
-    relatedServices: ["seo", "mobile-first", "security"],
   },
   "security": {
     id: "security",
@@ -356,6 +254,13 @@ const SERVICE_LABELS: Record<string, string> = {
 };
 
 export default function ServiceDetailPage() {
+  const { serviceId = "" } = useParams<{ serviceId: string }>();
+  return isRefreshedService(serviceId)
+    ? <ServiceFeaturePage key={serviceId} locale="en" serviceId={serviceId} />
+    : <LegacyServiceDetailPage />;
+}
+
+function LegacyServiceDetailPage() {
   const params = useParams<{ serviceId: string }>();
   const serviceId = params.serviceId || "";
   const service = SERVICES[serviceId];

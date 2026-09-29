@@ -202,31 +202,12 @@ describe("Hebrew locale foundation", () => {
     expect(terms).not.toContain("AnimateIn");
   });
 
-  it("keeps Hebrew custom design as a complete, indexable RTL service counterpart", () => {
-    const customDesign = readSource("client/src/pages/he/CustomDesignHe.tsx");
+  it("routes Hebrew custom design and mobile-first to shared localized service pages", () => {
     const seoRoutes = readSource("client/src/lib/seoRoutes.ts");
-
-    expect(customDesign).toContain('canonicalPath: "/he/services/custom-design/"');
-    expect(seoRoutes).toContain('"/services/custom-design": "/he/services/custom-design"');
-    expect(customDesign).toContain("עיצוב אתרים בהתאמה אישית");
-    expect(customDesign).toContain("FAQPage");
-    expect(customDesign).toContain('href="/he/contact/"');
-    expect(customDesign).toContain('href="/he/pricing/"');
-    expect(customDesign).toContain('dir="rtl"');
-  });
-
-  it("keeps Hebrew mobile-first as a complete, indexable RTL service counterpart", () => {
-    const mobileFirst = readSource("client/src/pages/he/MobileFirstHe.tsx");
-    const seoRoutes = readSource("client/src/lib/seoRoutes.ts");
-
-    expect(mobileFirst).toContain('canonicalPath: "/he/services/mobile-first/"');
-    expect(seoRoutes).toContain('"/services/mobile-first": "/he/services/mobile-first"');
-    expect(mobileFirst).toContain("פיתוח עם מובייל");
-    expect(mobileFirst).toContain("פיתוח אתרים בגישת Mobile-First");
-    expect(mobileFirst).toContain("FAQPage");
-    expect(mobileFirst).toContain('href="/he/contact/"');
-    expect(mobileFirst).toContain('href="/he/pricing/"');
-    expect(mobileFirst).toContain('dir="rtl"');
+    for (const [name, id] of [["CustomDesignHe", "custom-design"], ["MobileFirstHe", "mobile-first"]]) {
+      expect(readSource(`client/src/pages/he/${name}.tsx`)).toContain(`locale="he" serviceId="${id}"`);
+      expect(seoRoutes).toContain(`"/services/${id}": "/he/services/${id}"`);
+    }
   });
 
   it("keeps Hebrew SEO as a complete, indexable RTL service counterpart", () => {

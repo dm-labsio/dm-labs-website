@@ -33,10 +33,10 @@ const mediaFiles = collectFiles(mediaRoot);
 
 describe("GitHub-backed static media migration", () => {
   it("keeps current and retired versioned WebP assets below the one-megabyte checkpoint cap", () => {
-    expect(mediaFiles).toHaveLength(141);
+    expect(mediaFiles).toHaveLength(142);
 
     const mediaReferences = new Set(clientSource.match(/\/media\/[A-Za-z0-9._/-]+\.webp/g) ?? []);
-    expect(mediaReferences.size).toBe(136);
+    expect(mediaReferences.size).toBe(137);
     const retiredHeroAssets = new Set([
       "/media/cloudfront/services-hero-bg-bfPgb525LqzgdU7JVYn89M.webp",
       "/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp",

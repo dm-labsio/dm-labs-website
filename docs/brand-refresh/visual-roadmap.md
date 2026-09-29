@@ -31,3 +31,10 @@ The user still observes incorrect typography when switching languages elsewhere.
 ## Checkpoint 08 follow-through
 
 The user approved FAQ structure and dark backgrounds and reaffirmed dark treatment across the entire website. Pricing now uses dark surfaces throughout, distinct package rows and responsive comparison. This does not close the remaining site-wide dark or multilingual typography passes. Next bounded visual stage: the queued hero/motion research and desktop/mobile concept work before further page-family layouts. Preserve native scrolling and the user’s reference libraries/buttons as candidates to adapt, not defaults to copy.
+
+
+## User feedback after checkpoint 10 — deferred by request
+
+- Align the package/plan panels along their bottom edge, including CTA placement. Revisit the staggered services layout and apply a consistent treatment to pricing in EN/EL/HE. Keep prices, scope and working selection flows intact. This is requested follow-up, not approved as visually final.
+- Explore reusing the supplied light hero videos above otherwise dark page sections. This is an open art-direction question, not a decision to restore them now. Compare desktop/mobile crops, contrast, motion controls and still/reduced-motion fallbacks before selecting a treatment. Preserve the all-dark baseline for this service-detail batch.
+- Continue individual service pages in small batches. Checkpoint 11 covers custom-design, mobile-first and performance in all three languages; remaining six topics stay queued.
