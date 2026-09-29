@@ -47,7 +47,9 @@ describe("shared service-detail refresh batches", () => {
       expect(html).not.toContain('class="service-principles"');
       expect(html).not.toContain('class="service-image-break"');
       expect(html).toContain("service-feature--text");
-      expect(html).not.toMatch(/<img|<figure|<button|aria-pressed|data-scene|service-motion-replay|service-foundation-study/);
+      // The service explanation stays text-only; the shared package preview has its own artwork.
+      const serviceContent = html.split('<section id="pricing"')[0];
+      expect(serviceContent).not.toMatch(/<img|<figure|<button|aria-pressed|data-scene|service-motion-replay|service-foundation-study/);
     } else {
       expect(html.match(/aria-expanded="true"/g)).toHaveLength(1);
       expect(html.match(/aria-expanded="false"/g)).toHaveLength(2);

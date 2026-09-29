@@ -1,0 +1,36 @@
+.industry-gallery { background: #0B1427; color: #EDF2FF; padding-block: clamp(3rem,7vw,7rem); }
+.industry-gallery-heading { max-width: 48rem; margin-bottom: 3rem; }
+.industry-gallery-heading .brand-micro { color: #B5BAFF; }
+.industry-gallery-heading h2 { margin-block: .8rem 1.25rem; }
+.industry-gallery-heading > p:last-child { color: #C1CDE2; }
+.industry-gallery-list { display: grid; gap: 1rem; }
+.industry-gallery-item { border: 1px solid #415374; border-radius: 16px; overflow: clip; background: #16223A; scroll-margin-top: 7rem; }
+.industry-gallery-item summary { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.4fr) auto; align-items: center; gap: 2rem; padding-inline-end: 2rem; cursor: pointer; list-style: none; }
+.industry-gallery-item summary::-webkit-details-marker { display: none; }
+.industry-gallery-image { overflow: hidden; height: 240px; background: #BFC7DB; }
+.industry-gallery-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.industry-gallery-copy { padding-block: 1.5rem; min-width: 0; }
+.industry-gallery-number { color: #A8B8FF; }
+[data-brand] .industry-gallery h3 { color: #EDF2FF; font-size: clamp(1.5rem,2.5vw,2.35rem); line-height: 1.2; margin-block: .65rem; }
+.industry-gallery-copy p { color: #C1CDE2; }
+.industry-gallery-prompt { display: block; font-size: .9rem; font-weight: 700; color: #B8C8FF; margin-top: 1rem; }
+.industry-gallery-toggle { width: 22px; height: 22px; position: relative; color: #A8B8FF; }
+.industry-gallery-toggle::before,.industry-gallery-toggle::after { content: ""; height: 2px; width: 100%; position: absolute; top: 50%; background: currentColor; }
+.industry-gallery-toggle::after { transform: rotate(90deg); }
+.industry-gallery-item[open] { border-color: #A8B8FF; background: #1B2B46; }
+.industry-gallery-item[open] .industry-gallery-toggle::after { transform: rotate(0deg); }
+.industry-gallery-close-label,.industry-gallery-item[open] .industry-gallery-open-label { display: none; }
+.industry-gallery-item[open] .industry-gallery-close-label { display: inline; }
+.industry-gallery-detail { padding: 2rem; border-top: 1px solid #415374; }
+.industry-gallery-detail ul { list-style: none; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2rem; margin: 0 0 1.5rem; padding: 0; }
+[data-brand] .industry-gallery-detail li { color: #D5DEEF; font-size: 1rem; padding-inline-start: 1rem; border-inline-start: 2px solid #8A9BD6; }
+.industry-gallery a { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 48px; font-size: 1rem; font-weight: 700; color: #B8C8FF; text-decoration: underline; text-underline-offset: .3em; }
+.industry-gallery :is(summary,a):focus-visible { outline: 3px solid #83DEEF; outline-offset: -4px; }
+[data-brand] .industry-gallery-note { color: #AEBED9; font-size: .85rem; margin-block: 1.5rem 2rem; max-width: 55rem; }
+.industry-gallery-other { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem 4rem; padding: 2.5rem; border: 1px solid #7E91C7; border-radius: 16px; background: linear-gradient(100deg,#172441eb,#172441d6),url('/media/brand-refresh/v1/studio-glass-right.webp') center/cover; }
+.industry-gallery-other p { max-width: 44rem; color: #C1CDE2; }
+.industry-gallery-other a { border: 1px solid #B5BAFF; border-radius: 8px; padding: .75rem 1.25rem; background: #B5BAFF; color: #101729; text-decoration: none; }
+@media (hover:hover) { .industry-gallery-item:hover { border-color: #A8B8FF; } .industry-gallery-item:hover img { transform: scale(1.035); } .industry-gallery a:hover { color: #83DEEF; } .industry-gallery-other a:hover { color: #101729; background: #83DEEF; } }
+@media (prefers-reduced-motion:no-preference) { .industry-gallery-image img { transition: transform 600ms ease; } .industry-gallery-toggle::after { transition: transform 240ms ease; } .industry-gallery-item[open] .industry-gallery-detail { animation: industry-detail-in 250ms ease both; } @keyframes industry-detail-in { from { opacity: .4; transform: translateY(6px); } to { opacity: 1; transform: none; } } }
+@media (max-width:900px) { .industry-gallery-item summary { gap: 1.25rem; padding-inline-end: 1.25rem; grid-template-columns: minmax(0,.9fr) minmax(0,1.2fr) auto; } .industry-gallery-detail ul { grid-template-columns: 1fr; gap: 1.25rem; } .industry-gallery-other { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.75rem; } .industry-gallery-other a { justify-self: start; } }
+@media (max-width:599px) { .industry-gallery-item summary { grid-template-columns: minmax(0,1fr) auto; gap: 0 1rem; padding-inline-end: 0; } .industry-gallery-image { grid-column: 1 / -1; height: 190px; } .industry-gallery-copy { padding: 1.25rem; padding-inline-end: 0; } .industry-gallery-toggle { margin-inline-end: 1.25rem; } .industry-gallery-detail { padding: 1.5rem 1.25rem; } [data-brand] .industry-gallery h3 { font-size: 1.6rem; } .industry-gallery-other { padding: 1.5rem 1.25rem; } }

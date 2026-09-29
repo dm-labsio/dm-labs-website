@@ -1,3 +1,4 @@
+import PackageOverview from "@/components/pricing/PackageOverview";
 import ServiceFeaturePage from "@/components/services/ServiceFeaturePage";
 import { isRefreshedService } from "@/components/services/serviceFeatureContent";
 /* ============================================================
@@ -389,6 +390,7 @@ function LegacyServiceDetailPage() {
         </section>
       )}
 
+      <PackageOverview locale="en" context="service" />
       {/* ── CTA ── */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 z-0" style={{ background: "#0F172A" }}>

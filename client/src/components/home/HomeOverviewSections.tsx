@@ -36,13 +36,6 @@ const labels = {
   },
 } as const;
 
-const industries = [
-  { image: "restaurant", src: "/media/brand-v1/restaurant-800.webp", small: "/media/brand-v1/restaurant-480.webp", demo: "verde-restaurant" },
-  { image: "beauty", src: "/media/brand-v1/beauty-800.webp", small: "/media/brand-v1/beauty-480.webp", demo: "bella-salon" },
-  { image: "clinic", src: "/media/brand-v1/clinic-800.webp", small: "/media/brand-v1/clinic-480.webp", demo: "dr-elara-dental" },
-  { image: "fitness", src: "/media/brand-v1/fitness-800.webp", small: "/media/brand-v1/fitness-480.webp", demo: "pulse-gym" },
-] as const;
-
 type Props = { language: HomeLocale };
 const localeRoot = (language: HomeLocale) => language === "en" ? "/" : `/${language}/`;
 
@@ -81,24 +74,4 @@ export function HomeProcess({ language }: Props) {
   </section>;
 }
 
-export function HomeIndustries({ language }: Props) {
-  const copy = labels[language];
-  const root = localeRoot(language);
-  return <section id="industries" className="home-overview home-overview-industries" lang={language} dir={language === "he" ? "rtl" : "ltr"}>
-    <div className="container">
-      <SectionIntro label={copy.industries} title={copy.industryTitle} body={copy.industryIntro} />
-      <div className="home-industry-list">
-        {industries.map((item, index) => <a className="home-industry" key={item.image} href={`/preview/${item.demo}/?from=${encodeURIComponent(root)}`}>
-          {/* Illustrative still lifes; the visible caption names each linked concept. */}
-          <img src={item.src} srcSet={`${item.small} 480w, ${item.src} 800w`} sizes="(max-width: 599px) calc(100vw - 48px), (max-width: 1099px) calc((100vw - 72px) / 2), 300px" width={800} height={600} loading="lazy" decoding="async" alt="" />
-          <h3>{copy.categories[index]}</h3>
-          <span className="home-overview-link">{copy.example}</span>
-        </a>)}
-      </div>
-      <div className="home-industry-footer">
-        <Link className="home-overview-link" href={`${root}templates/`}>{copy.allExamples}</Link>
-        <p>{copy.other} <Link className="home-overview-link" href={`${root}contact/`}>{copy.contact}</Link></p>
-      </div>
-    </div>
-  </section>;
-}
+export { default as HomeIndustries } from "./HomeIndustryGallery";

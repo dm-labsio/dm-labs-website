@@ -1,3 +1,4 @@
+import { BUILD_ANCHORS, CARE_ANCHORS, PACKAGE_ART } from "./packageVisuals";
 import React, { useEffect, useRef, useState } from "react";
 import BrandButton from "@/components/ui/brand-button";
 import { contactWhatsApp } from "@/components/contact/contactCopy";
@@ -61,7 +62,7 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
 
   const step = buildIndex === null ? 0 : careIndex === null ? 1 : 2;
   const stepTargets = ["website-packages", "maintenance", "your-selection"];
-  const art = ["studio-glass-left.webp", "service-performance-glass.webp", "pricing-glass-arcs-desktop.webp"];
+  const art = PACKAGE_ART;
   const choiceArrow = <span className="pricing-choice-arrow" aria-hidden="true">{locale === "he" ? "←" : "→"}</span>;
 
   return <div className="pricing-page pricing-journey" lang={locale} dir={locale === "he" ? "rtl" : "ltr"} data-button-surface="dark" onClickCapture={() => cancelAdvance.current()}>
@@ -78,7 +79,7 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
 
     <section id="website-packages" tabIndex={-1} className="pricing-section pricing-build-section container" aria-labelledby="website-packages-title">
       <div className="pricing-section-intro"><h2 id="website-packages-title">{t.chooseBuild}</h2><a className="pricing-text-link" href="#comparison">{t.compareLink}<span aria-hidden="true"> ↓</span></a></div>
-      <div className="pricing-builds" ref={artwork.root}>{plans.map((plan, i) => <article key={plan.name} data-plan={i} onClick={activateCard} className={`pricing-build${buildIndex === i ? " is-selected" : ""}`} aria-labelledby={`build-${i}`}>
+      <div className="pricing-builds" ref={artwork.root}>{plans.map((plan, i) => <article key={plan.name} id={BUILD_ANCHORS[i]} tabIndex={-1} data-plan={i} onClick={activateCard} className={`pricing-build${buildIndex === i ? " is-selected" : ""}`} aria-labelledby={`build-${i}`}>
         <div className="pricing-build-stage">
           <div className="pricing-card-art" aria-hidden="true"><img data-motion-piece src={`/media/brand-refresh/v1/${art[i]}`} width="840" height="560" alt="" /></div>
           <div className="pricing-plan-top"><h3 id={`build-${i}`} lang="en"><Latin>{plan.name.split(" ")[0]}</Latin><span className="pricing-plan-category">Website</span></h3><span className="pricing-choice-stamp" aria-hidden="true">{buildIndex === i ? "✓" : `0${i + 1}`}</span></div>
@@ -101,7 +102,7 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
     <section id="maintenance" tabIndex={-1} className="pricing-care-section" aria-labelledby="care-title"><div className="container pricing-section">
       <div className="pricing-section-intro"><div><p className="brand-micro"><Latin>02 /</Latin> {x.flowSteps[1]}</p><h2 id="care-title">{t.careTitle}</h2><p>{x.careIntro}</p></div>{build && <div className="pricing-build-context"><span>{t.selected}</span><strong><Latin>{build.name}</Latin></strong><a href="#website-packages">{t.change}</a></div>}</div>
       <fieldset className="pricing-billing"><legend>{t.frequency}</legend><div>{[false, true].map(annual => <label key={String(annual)} className={yearly === annual ? "is-active" : ""}><input type="radio" name="care-billing" value={annual ? "yearly" : "monthly"} checked={yearly === annual} onChange={() => setYearly(annual)} /><span>{annual ? t.yearly : t.monthly}</span>{annual && <small>{t.discount}</small>}</label>)}</div></fieldset>
-      <div className="pricing-care-grid">{CARE_PLANS.map((plan, i) => <article key={plan.name} onClick={activateCard} aria-labelledby={`care-${i}`} className={`pricing-care${i === 1 ? " is-featured" : ""}${careIndex === i ? " is-selected" : ""}`}>
+      <div className="pricing-care-grid">{CARE_PLANS.map((plan, i) => <article key={plan.name} id={CARE_ANCHORS[i]} tabIndex={-1} onClick={activateCard} aria-labelledby={`care-${i}`} className={`pricing-care${i === 1 ? " is-featured" : ""}${careIndex === i ? " is-selected" : ""}`}>
         <div className="pricing-care-top"><h3 id={`care-${i}`} lang="en"><Latin>{plan.name}</Latin></h3><span className="pricing-choice-stamp" aria-hidden="true">{careIndex === i ? "✓" : `0${i + 1}`}</span></div>
         <p className="pricing-care-description">{x.careFit[i]}</p>
         <div className="pricing-care-amount" aria-live="polite" aria-atomic="true"><div className="pricing-care-price-row"><bdi dir="ltr" className="pricing-display-price" key={yearly ? "year" : "month"}>{money(yearly ? plan.yearly : plan.monthly)}</bdi><span className="pricing-price-unit">{yearly ? t.year : t.month}</span></div><p className="pricing-billing-detail">{yearly ? <><Latin>{money(plan.yearly / 12)}</Latin> {t.equivalent}</> : t.paidMonthly}</p>{yearly && <p className="pricing-saving">{t.saving} <Latin>{money(plan.monthly * 12 - plan.yearly)}</Latin> {t.eachYear}</p>}</div>

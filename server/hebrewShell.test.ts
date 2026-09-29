@@ -16,9 +16,8 @@ describe("Hebrew shared shell and staged entry route", () => {
     expect(seoHook).toContain("isIndexableHebrewRoute(cleanPath) ? false : noindex");
     expect(home).toContain('url: "https://dm-labs.io/he/"');
     expect(home).toContain('inLanguage: "he"');
-    expect(home).toContain("€299");
-    expect(home).toContain("€749");
-    expect(home).toContain("€1,499");
+    expect(home).toContain('<PackageOverview locale="he" />');
+    // Exact localized amounts and deep links are covered by packageOverview.test.ts.
   });
 
   it("adds an accessible Hebrew selector and localized shared controls", () => {

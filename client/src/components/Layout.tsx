@@ -72,7 +72,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     const languageSwitchScroll = languageSwitchScrollRef.current;
     languageSwitchScrollRef.current = undefined;
     const raf = requestAnimationFrame(() => {
-      window.scrollTo({ top: languageSwitchScroll ?? 0, left: 0, behavior: "auto" });
+      const hash = window.location.hash.slice(1);
+      let target: HTMLElement | null = null;
+      try { target = hash ? document.getElementById(decodeURIComponent(hash)) : null; } catch { /* Ignore malformed fragments. */ }
+      if (languageSwitchScroll === undefined && target) {
+        target.scrollIntoView({ block: "start", behavior: "instant" });
+        target.focus({ preventScroll: true });
+      } else {
+        window.scrollTo({ top: languageSwitchScroll ?? 0, left: 0, behavior: "instant" });
+      }
     });
     return () => cancelAnimationFrame(raf);
   }, [location]);

@@ -1,0 +1,81 @@
+/* The same price stages and buttons as Pricing, presented as whole-card links. */
+.pricing-catalog { --pricing-accent: #B5BAFF; color: #F6F5F2; }
+.pricing-catalog bdi { display: inline-block; max-inline-size: 100%; }
+.pricing-catalog .package-card { --package-body: #131D33; --package-text: #D4DEF0; --package-heading: var(--pricing-accent); --package-button: var(--pricing-accent); --package-button-ink: #101729; --package-border: #677098; min-width: 0; border-color: var(--package-border); }
+.pricing-catalog .pricing-build-content { background: var(--package-body); border-radius: 0 0 19px 19px; }
+.pricing-catalog .pricing-features { color: var(--package-text); }
+[data-brand] .pricing-catalog :is(.pricing-fit,.pricing-inherits,.pricing-care-description) { color: var(--package-heading); }
+.pricing-catalog .pricing-features li::before { background: var(--package-heading); }
+.pricing-catalog .pricing-plan-top h3 { color: #F6F5F2; margin: 0; }
+.pricing-catalog .pricing-choice { position: static; color: var(--package-button-ink,#101729); background: var(--package-button,var(--pricing-accent)); border-color: var(--package-button,var(--pricing-accent)); text-decoration: none; margin-top: auto; }
+.pricing-catalog .pricing-choice::before { display: none; }
+.pricing-catalog .pricing-choice::after { content: ""; position: absolute; inset: 0; border-radius: 20px; z-index: 2; }
+.pricing-catalog .pricing-choice > span { z-index: auto; }
+.pricing-catalog .pricing-choice:focus-visible { outline: none; }
+.pricing-catalog .package-card:has(:focus-visible),.package-custom:has(:focus-visible) { outline: 3px solid #70D7F0; outline-offset: 5px; }
+.pricing-catalog .package-card:is(:focus-within,:active) { --package-body: var(--pricing-accent); --package-heading: #101729; --package-text: #101729; --package-button: #101729; --package-button-ink: #F6F5F2; --package-border: var(--pricing-accent); box-shadow: 0 0 0 2px var(--pricing-accent); }
+.pricing-catalog .pricing-care { position: relative; background: var(--package-body); }
+[data-brand] .pricing-catalog .pricing-care :is(h3,.pricing-display-price,.pricing-price-unit,.pricing-billing-detail) { color: var(--package-text); }
+.pricing-catalog .pricing-care .pricing-display-price { color: var(--package-heading); }
+.pricing-catalog .pricing-care .pricing-choice { margin-top: auto; }
+.pricing-catalog .pricing-billing-detail { font-size: .875rem; }
+.package-custom { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem 3rem; border: 1px solid #8C9ACE; border-radius: 20px; padding: 2.25rem; margin-top: 2rem; background: linear-gradient(90deg,#10172999,#101729e8),url('/media/brand-refresh/v1/contact-folded-glass-desktop.webp') center/cover; }
+[data-brand] .package-custom h3 { font: 800 clamp(1.7rem,3vw,2.8rem)/1.2 "Rubik",sans-serif; color: #F6F5F2; margin-block: .5rem 1rem; }
+.package-custom p { color: #D4DEF0; }
+.package-custom .brand-micro { color: #B5BAFF; margin: 0; }
+.package-custom .pricing-choice { max-width: 24rem; grid-column: 1 / -1; }
+.package-custom--compact { grid-template-columns: minmax(0,1fr) minmax(12rem,auto); padding: 1.5rem 1.75rem; gap: 1rem 2rem; align-items: center; }
+[data-brand] .package-custom--compact h3 { font-size: 1.5rem; margin-block: .4rem; }
+[data-brand] .package-custom--compact p { font-size: .9rem; }
+.package-custom--compact .pricing-choice { grid-column: auto; margin: 0; max-width: 22rem; }
+.package-overview { background: #0D1426; color: #F6F5F2; padding-block: clamp(3rem,6vw,6rem); }
+.package-overview-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }
+.package-overview-heading > div { max-width: 46rem; }
+.package-overview-heading h2 { margin-block: .75rem 1rem; color: #F6F5F2; }
+.package-overview-heading p { color: #C6D3EB; }
+.package-overview-heading .brand-micro { color: #B5BAFF; }
+.package-overview-heading > a { flex-shrink: 0; }
+.pricing-catalog--compact .pricing-builds { gap: 1rem; }
+.pricing-catalog--compact .pricing-build-stage { min-height: 180px; padding: 1.25rem; }
+[data-brand] .pricing-catalog--compact .pricing-plan-top h3 { font-size: 1.75rem; }
+.pricing-catalog--compact .pricing-build-amount { padding-top: 1.5rem; }
+[data-brand] .pricing-catalog--compact .pricing-display-price { font-size: clamp(2.5rem,15cqi,3.5rem); }
+.pricing-catalog--compact .pricing-build-content { padding: 1rem 1.25rem 1.25rem; }
+[data-brand] .pricing-catalog--compact .pricing-fit { font-size: 1.15rem; margin-bottom: 1.25rem; min-height: 2.6em; }
+.pricing-catalog--compact .pricing-choice { min-height: 48px; font-size: .95rem; padding: .55rem .65rem .55rem 1rem; }
+.pricing-catalog--compact .pricing-choice-arrow { min-height: 30px; flex-basis: 30px; }
+[data-brand] .package-overview .package-overview-note { margin-top: 1.5rem; max-width: 60rem; color: #C6D3EB; font-size: .9375rem; }
+.package-overview-note a { color: #B5BAFF; text-decoration: underline; text-underline-offset: .25em; display: inline-flex; align-items: center; min-height: 44px; }
+[data-brand] .package-overview .package-overview-tax { font-size: .8rem; color: #AFBED9; margin-top: .5rem; }
+@media (hover: hover) {
+ .pricing-catalog .package-card:hover { --package-body: var(--pricing-accent); --package-heading: #101729; --package-text: #101729; --package-button: #101729; --package-button-ink: #F6F5F2; --package-border: var(--pricing-accent); box-shadow: 0 0 0 2px var(--pricing-accent); }
+ .pricing-catalog .package-card:hover .pricing-choice-arrow { transform: translateX(3px); }
+ .pricing-catalog[dir="rtl"] .package-card:hover .pricing-choice-arrow { transform: translateX(-3px); }
+ .package-custom:hover { border-color: #83DEEF; box-shadow: 0 0 0 2px #83DEEF; }
+}
+@media (prefers-reduced-motion: no-preference) { .pricing-catalog :is(.pricing-build-content,.pricing-choice) { transition: background-color 240ms ease,color 240ms ease; } }
+@media (min-width: 701px) and (max-width: 900px) {
+ .pricing-catalog .pricing-build-content { border-radius: 0 19px 19px 0; }
+ .pricing-catalog[dir="rtl"] .pricing-build-content { border-radius: 19px 0 0 19px; }
+ .pricing-catalog[dir="rtl"] .pricing-build-stage { border-radius: 0 19px 19px 0; }
+ .pricing-catalog--compact .pricing-builds { grid-template-columns: repeat(3,minmax(0,1fr)); }
+ .pricing-catalog--compact .pricing-build { display: flex; }
+ .pricing-catalog--compact .pricing-build-stage { min-height: 180px; border-radius: 19px 19px 0 0; }
+ .pricing-catalog--compact .pricing-build-content { border-radius: 0 0 19px 19px; }
+}
+@media (max-width: 900px) { .package-overview-heading { display: block; } .package-overview-heading > a { margin-top: .75rem; } }
+@media (max-width: 700px) {
+ .package-custom,.package-custom--compact { grid-template-columns: 1fr; padding: 1.5rem 1.25rem; gap: 1.25rem; }
+ .package-custom .pricing-choice { max-width: none; }
+ .pricing-catalog--compact .pricing-build { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); }
+ .pricing-catalog--compact .pricing-build-stage { min-height: 190px; padding: 1rem; border-radius: 19px 0 0 19px; }
+ .pricing-catalog--compact[dir="rtl"] .pricing-build-stage { border-radius: 0 19px 19px 0; }
+ .pricing-catalog--compact .pricing-build-content { padding: 1rem; border-radius: 0 19px 19px 0; }
+ .pricing-catalog--compact[dir="rtl"] .pricing-build-content { border-radius: 19px 0 0 19px; }
+ .pricing-catalog--compact .pricing-choice-stamp { display: none; }
+ [data-brand] .pricing-catalog--compact .pricing-plan-top h3 { font-size: 1.4rem; }
+ [data-brand] .pricing-catalog--compact .pricing-display-price { font-size: clamp(1.375rem,27cqi,3rem); }
+ [data-brand] .pricing-catalog--compact .pricing-fit { font-size: 1rem; min-height: 0; }
+ .pricing-catalog--compact .pricing-choice { font-size: .85rem; padding: .5rem; gap: .4rem; }
+ .pricing-catalog--compact .pricing-choice-arrow { flex-basis: 22px; font-size: 1.15rem; }
+}

@@ -4,7 +4,7 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
 .pricing-page .brand-micro { color: #A8B8FF; }
 .pricing-page bdi,.pricing-inline-amount { display: inline-block; max-inline-size: 100%; }
 .pricing-page :is(a,button,input,summary,[tabindex="0"]):focus-visible { outline: 3px solid #70D7F0; outline-offset: 5px; }
-.pricing-page :is(section,#custom-project) { scroll-margin-top: 11rem; }
+.pricing-page :is(section,#custom-project,article[id]) { scroll-margin-top: 11rem; }
 .pricing-page a:not(.brand-button) { text-underline-offset: .3em; }
 .pricing-heading { padding-block: clamp(2rem,4vw,3.5rem) 2rem; }
 [data-brand] .pricing-heading h1 { font-size: clamp(2.75rem,5.8vw,5.5rem); line-height: 1.08; margin-block: .5rem 1.25rem; }
@@ -197,7 +197,7 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
  .pricing-progress .brand-latin-code { font-size: .7rem; }
  .pricing-step-check { display: none; }
  .pricing-section-intro { flex-direction: column; align-items: start; gap: .65rem; }
- .pricing-page :is(section,#custom-project) { scroll-margin-top: 10.5rem; }
+ .pricing-page :is(section,#custom-project,article[id]) { scroll-margin-top: 10.5rem; }
  .pricing-receipt { grid-template-columns: 1fr; }
  .pricing-selection-items { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; padding: 1.5rem; }
  .pricing-receipt-plus { padding: 0; }
@@ -235,7 +235,7 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
  .pricing-progress a { flex-direction: column; align-items: start; justify-content: center; gap: .15rem; }
  .pricing-estimate { padding: 1.25rem; }
 }
-@media (max-height: 600px) { .pricing-progress { position: static; } .pricing-page :is(section,#custom-project) { scroll-margin-top: 6rem; } }
+@media (max-height: 600px) { .pricing-progress { position: static; } .pricing-page :is(section,#custom-project,article[id]) { scroll-margin-top: 6rem; } }
 @media (prefers-reduced-motion: reduce) { .pricing-build:hover .pricing-card-art { transform: none; } }
 @media (forced-colors: active) {
  .pricing-build.is-selected,.pricing-care.is-selected { border: 3px solid Highlight; box-shadow: none; }

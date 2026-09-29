@@ -1,3 +1,4 @@
+import PackageOverview from "@/components/pricing/PackageOverview";
 import HomeIntroductionVideo from "@/components/home/HomeIntroductionVideo";
 import "@/components/home/HomePageDark.css";
 import { HomeServices, HomeProcess, HomeIndustries } from "@/components/home/HomeOverviewSections";
@@ -21,11 +22,7 @@ const examples = [
   ["verde-restaurant", "Verde Restaurant", "ים תיכוני ורענן", "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80", "דוגמה לאתר Verde Restaurant"],
 ] as const;
 
-const pricing = [
-  ["Launch Website", "€299", "מתאים לעסק חדש שצריך נוכחות דיגיטלית נקייה ומקצועית במהירות.", ["עמוד עסקי ממותג", "מותאם למובייל", "כפתור WhatsApp", "קישורים לרשתות חברתיות", "וידג׳ט נגישות", "2 סבבי תיקונים", "מסירה בתוך 5 עד 7 ימים"]],
-  ["Growth Website", "€749", "לעסק מבוסס שזקוק לאתר שלם יותר וממוקד המרות.", ["עד 5 עמודים", "מותאם למובייל", "WhatsApp ורשתות חברתיות", "טופס יצירת קשר והזמנות", "Google Maps", "SEO בסיסי", "אופטימיזציית מהירות", "3 סבבי תיקונים", "מסירה בתוך 7 עד 10 ימים"]],
-  ["Pro Website", "€1,499", "לעסק שרוצה אתר מותאם אישית, עשיר בפונקציונליות ובנוי לצמיחה.", ["עד 7 עמודים", "עיצוב מותאם אישית ואנימציות", "טופס יצירת קשר והזמנות", "גלריה ותוכן", "מבנה SEO מלא", "4 סבבי תיקונים", "מסירה בתוך 10 עד 14 ימים"]],
-] as const;
+
 
 export default function HomeHe() {
   useSEO({ title: "סוכנות עיצוב האתרים הטובה ביותר לעסקים בצמיחה | DM Labs", description: "נראות בולטת. אמון. יותר פניות. אתרים בהתאמה אישית, מסירה מהירה וליווי אישי לעסקים בכל מקום.", ogLocale: "he_IL", noindex: true });
@@ -50,7 +47,7 @@ export default function HomeHe() {
 
     <HomeProcess language="he" />
 
-    <section id="pricing" className="home-pricing section-spacing relative overflow-hidden"><div className="container relative z-10"><AnimateIn className="text-center mb-12"><p className="text-sm font-medium text-[#b8bfff] mb-3">תמחור שקוף</p><h2 className="text-3xl sm:text-4xl font-bold text-[#edf2ff]">השקעה בשלב הבא של העסק</h2><p className="mt-4 text-lg text-[#bdc9df]">בוחרים את היקף האתר ואת תוכנית האירוח והתחזוקה. כל מה שכלול ברור מראש.</p></AnimateIn><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">{pricing.map(([name, price, intro, features], index) => <AnimateIn key={name}><article className={index === 1 ? "brand-gradient-border h-full" : "h-full"}><div className="dm-card h-full flex flex-col"><p className="text-sm font-semibold text-[#5B8CFF] tracking-wide mb-2" dir="ltr">{name}</p><p className="text-4xl font-bold text-[#edf2ff]" dir="ltr">{price}</p><p className="text-sm text-[#bdc9df]">תשלום חד פעמי</p><p className="text-sm text-[#bdc9df] my-6">{intro}</p><ul className="space-y-3 flex-1">{features.map(feature => <li key={feature} className="flex gap-2 text-sm text-[#edf2ff]">{feature}</li>)}</ul><StarButton asChild><a href={WHATSAPP_HEBREW} target="_blank" rel="noopener noreferrer" className="btn-primary mt-7 w-full justify-center">שיחת ייעוץ ללא עלות</a></StarButton></div></article></AnimateIn>)}</div><AnimateIn className="mt-8 max-w-5xl mx-auto"><div className="rounded-2xl p-8 bg-[#0F172A] text-white flex flex-col lg:flex-row gap-8 items-start"><div className="lg:w-72 lg:order-2"><span className="text-xs px-3 py-1 rounded-full bg-[#5B8CFF]">מותאם במיוחד לכם</span><p className="mt-4 font-semibold" dir="ltr">Enterprise / Custom</p><p className="text-3xl font-bold mt-1 enterprise-scope-title" dir="rtl">מחיר מותאם להיקף הפרויקט</p><p className="text-sm text-white/65 mt-3">לארגונים ולעסקים שזקוקים לפתרון שנבנה סביב היעדים שלהם.</p></div><div className="grid grid-cols-2 sm:grid-cols-4 gap-4 flex-1">{[{ label: "עיצוב מלא מהיסוד" }, { label: "עמודים ללא הגבלה" }, { label: "CRM והזמנות" }, { label: "תמיכה רב לשונית" }, { label: "מנהל פרויקט" }, { label: "תמיכה בעדיפות" }, { label: "ליווי מתמשך" }, { label: "אסטרטגיית SEO" }].map(({ label }) => <span key={label} className="flex gap-2 text-sm text-white/80">{label}</span>)}</div></div></AnimateIn></div></section>
+      <PackageOverview locale="he" />
 
     <HomeIndustries language="he" />
 

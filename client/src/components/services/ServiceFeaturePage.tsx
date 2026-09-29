@@ -1,3 +1,4 @@
+import PackageOverview from "@/components/pricing/PackageOverview";
 import React, { useEffect } from "react";
 import BrandButton from "@/components/ui/brand-button";
 import type { SiteLanguage } from "@/lib/routeLanguage";
@@ -47,6 +48,7 @@ export function ServiceFeatureContent({ locale, serviceId }: { locale: SiteLangu
     </section>
     <section className="service-faq"><div className="container studio-section service-faq-grid"><h2 id="service-faq-title">{ui.questions}</h2><div aria-labelledby="service-faq-title">{t.faqs.map(faq => <details key={faq.q} open><summary><h3>{faq.q}</h3><span className="service-disclosure-symbol" aria-hidden="true" /></summary><p>{faq.a}</p></details>)}</div></div></section>
     <section className="container studio-section service-related" aria-labelledby="service-related-title"><h2 id="service-related-title">{ui.related}</h2><div>{SERVICE_RELATED[serviceId].map(id => <a href={serviceFeatureRoute(locale, id)} key={id}><span>{SERVICE_NAMES[locale][id]}</span><span aria-hidden="true">↗</span></a>)}</div></section>
+    <PackageOverview locale={locale} context="service" />
     <section className="service-feature-closing"><div className="container studio-section"><p className="brand-micro">{ui.consultation}</p><h2>{ui.closing}</h2><p>{ui.closingCopy}</p><div className="service-feature-actions"><BrandButton asChild><a href={route("contact")}>{ui.consultation}</a></BrandButton><a className="service-text-link" href={route("pricing")}>{ui.pricing}</a></div></div></section>
   </div>;
 }
