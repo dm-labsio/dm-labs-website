@@ -70,8 +70,7 @@ describe("cinematic banner delivery", () => {
     });
     ["Blog.tsx", "el/BlogEl.tsx"].forEach((page) => {
       const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");
-      expect(source).toContain('className="cinematic-hero-surface');
-      expect(source).toContain('<CinematicHeroBackground kind="blog" />');
+      expect(source).toContain("<BlogIndex locale=");
     });
     expect(heroComponent).toContain("network.connection?.saveData");
     expect(heroComponent).toContain("(min-width: 768px)");

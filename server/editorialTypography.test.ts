@@ -91,40 +91,10 @@ describe("Examples index editorial typography", () => {
   });
 });
 
-describe("Blog index editorial typography", () => {
-  it("keeps the editorial layer isolated to the English Blog index for straightforward future replacement", () => {
-    expect(blogSource).toContain('className="blog-editorial"');
-    expect(blogSource).toContain("blog-editorial-title");
-    expect(blogSource).toContain("blog-editorial-card");
-    expect(blogSource).toContain("blog-editorial-cta-heading");
-    expect(stylesheet).toContain("BLOG INDEX — MODULAR EDITORIAL LAYER");
-    expect(stylesheet).toContain("This scope is deliberately isolated for replacement by the future Blog redesign.");
-    expect(stylesheet).toContain(".blog-editorial {");
-    expect(stylesheet).toContain(".blog-editorial .blog-editorial-card");
-    expect(stylesheet).toContain(".blog-editorial .blog-editorial-cta-heading");
-  });
-
-  it("uses the approved semantic display and label roles without hero gradient text", () => {
-    expect(blogSource).toContain("Resources and insights");
-    expect(blogSource).toContain("The DM-Labs.io");
-    expect(blogSource).toContain("<em>Blog</em>");
-    expect(blogSource).not.toContain("brand-gradient-text");
-    expect(stylesheet).toContain(".blog-editorial .blog-editorial-label");
-    expect(brandStyles).toContain("overflow-wrap: break-word");
-  });
-
-  it("preserves post data, article destinations, images, and the existing contact CTA route", () => {
-    expect(blogSource).toContain('import { POSTS } from "@/data/blogPosts"');
-    expect(blogSource).toContain("POSTS.map((post, i) =>");
-    expect(blogSource).toContain("href={`/blog/${post.slug}/`}");
-    expect(blogSource).toContain("src={post.coverImage}");
-    expect(blogSource).toContain("alt={post.title}");
-    expect(blogSource).toContain('href="/contact/"');
-  });
-
-  it("preserves the Blog index metadata and removes the orphan-prone visual meta separator", () => {
+describe("Blog index metadata", () => {
+  it("preserves the existing search metadata while sharing the compact index", () => {
     expect(blogSource).toContain('title: "Blog | Web Design Tips & Guides | DM-Labs.io"');
     expect(blogSource).toContain('description: "Practical guides, honest advice, and web design insights for businesses worldwide."');
-    expect(blogSource).not.toContain('<span>·</span>');
+    expect(blogSource).toContain('<BlogIndex locale="en"');
   });
 });

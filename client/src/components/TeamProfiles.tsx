@@ -72,14 +72,14 @@ function ProfileCard({
   const [name, role, background, approach] = profile;
   return (
     <article className="team-profile">
-      <img
+      <div className="team-profile-photo-frame"><img
         className="team-profile-photo"
         src={image}
         alt={name}
         width={image === images[0] ? 859 : 880}
         height={1280}
         loading="lazy"
-      />
+      /></div>
       <header className="team-profile-heading">
         <h3 className={language === "en" ? "editorial-card-title" : undefined}>
           {name}
