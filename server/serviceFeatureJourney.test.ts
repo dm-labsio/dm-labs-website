@@ -22,7 +22,7 @@ describe("first service-detail refresh batch", () => {
     expect(t.principles).toHaveLength(3);
     expect(t.steps).toHaveLength(4);
     expect(t.deliverables).toHaveLength(serviceId === "performance" ? 8 : 7);
-    expect(html.match(/<details\b/g)).toHaveLength(serviceId === "custom-design" ? 4 : 3);
+    expect(html.match(/<details\b/g)).toHaveLength(serviceId === "custom-design" ? 9 : 8);
     for (const text of [t.name, ...t.title, t.lead, t.intro, ...t.principles.flat(), ...t.deliverables, ...t.steps.flat(), ...t.faqs.flatMap(faq => [faq.q, faq.a])]) expect(html).toContain(escaped(text));
     for (const path of ["contact", "pricing", "services", "process"]) expect(html).toContain(`href="${locale === "en" ? "" : `/${locale}`}/${path}/"`);
     for (const id of SERVICE_RELATED[serviceId]) {
@@ -30,10 +30,16 @@ describe("first service-detail refresh batch", () => {
       expect(html).toContain(`href="${route}"`);
       expect(getHreflangRouteSet(route)[locale]).toBe(route.slice(0, -1));
     }
-    expect(html).toContain('href="#service-deliverables"');
+    expect(html).toContain('href="#service-story"');
     expect(html).toContain('id="service-deliverables" tabindex="-1"');
     expect(html).toContain(escaped(SERVICE_UI[locale].scope));
     expect(html).not.toMatch(/<svg|<video|opacity:0|icon-container/);
+    expect(html).toContain('<details class="service-scope-disclosure">');
+    expect(html.match(/aria-expanded="true"/g)).toHaveLength(1);
+    expect(html.match(/aria-expanded="false"/g)).toHaveLength(2);
+    expect(html).toContain('id="service-chapter-1" hidden=""');
+    expect(html).toContain('id="service-chapter-2" hidden=""');
+    expect(html).not.toContain("home-glass-sculpture-480.webp");
     if (serviceId === "mobile-first") {
       expect(html.match(/aria-pressed="true"/g)).toHaveLength(1);
       expect(html.match(/aria-pressed="false"/g)).toHaveLength(2);
