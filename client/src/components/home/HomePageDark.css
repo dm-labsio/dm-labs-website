@@ -9,7 +9,7 @@
 .home-page--dark .home-overview-services { background: #0b1427; }
 .home-page--dark .home-overview-process { background: linear-gradient(#111b30db, #111b30e8), url('/media/brand-refresh/v1/studio-glass-right.webp') center/cover; }
 .home-page--dark .home-overview-industries { background: #0b1427; }
-.home-page--dark :is(.home-service-list article, .home-process-list li, .home-industry-footer) { border-color: #3a4d6c; }
+.home-page--dark :is(.home-process-list li, .home-industry-footer) { border-color: #3a4d6c; }
 .home-page--dark :is(.editorial-section-heading, .editorial-card-title, .editorial-price) { color: #edf2ff; }
 .home-page--dark :is(.editorial-lead, .editorial-quote, .he-home-note) { color: #bdc9df; }
 .home-page--dark .editorial-label { color: #b7c3ff; }

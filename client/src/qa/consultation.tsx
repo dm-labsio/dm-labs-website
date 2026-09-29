@@ -20,7 +20,7 @@ function Fixture() {
     signal.addEventListener("abort", aborted, { once: true });
   });
   return <main data-brand style={{ maxWidth: 720, margin: "auto", padding: 24 }}>
-    <p>LOCAL QA — no requests are sent</p>
+    <p>LOCAL QA, no requests are sent</p>
     <label>QA language <select disabled={pending} value={locale} onChange={e => { setLocale(e.target.value as SiteLanguage); setCalls(0); }}><option value="en">English</option><option value="el">Greek</option><option value="he">Hebrew</option></select></label>
     <p>Simulated requests: {calls}</p>
     <button disabled={!pending} onClick={() => settle.current?.resolve()}>Confirm simulated request</button>{" · "}

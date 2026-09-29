@@ -1,3 +1,4 @@
+import HomeServiceCards from "./HomeServiceCards";
 import { Link } from "wouter";
 import { overviewContent, type HomeLocale } from "./overviewContent";
 import "./HomeOverviewSections.css";
@@ -58,13 +59,7 @@ export function HomeServices({ language }: Props) {
   return <section id="services" className="home-overview home-overview-services" lang={language} dir={language === "he" ? "rtl" : "ltr"}>
     <div className="container">
       <SectionIntro label={copy.services} title={copy.serviceTitle} body={copy.serviceIntro} />
-      <div className="home-service-list">
-        {overviewContent[language].services.map(item => <article key={item.slug}>
-          <h3><Link href={`${localeRoot(language)}services/${item.slug}/`}>{item.title}</Link></h3>
-          <p>{item.body}</p>
-          <Link className="home-overview-link" href={`${localeRoot(language)}services/${item.slug}/`} aria-label={`${copy.more}: ${item.title}`}>{copy.more}</Link>
-        </article>)}
-      </div>
+      <HomeServiceCards language={language} />
     </div>
   </section>;
 }
@@ -72,8 +67,8 @@ export function HomeServices({ language }: Props) {
 export function HomeProcess({ language }: Props) {
   const copy = labels[language];
   return <section id="process" className="home-overview home-overview-process" lang={language} dir={language === "he" ? "rtl" : "ltr"}>
-    <div className="container">
-      <SectionIntro label={copy.process} title={copy.processTitle} body={copy.processIntro} />
+    <div className="container home-process-layout">
+      <div className="home-process-introduction"><SectionIntro label={copy.process} title={copy.processTitle} body={copy.processIntro} /><Link className="home-overview-link home-overview-endlink" href={`${localeRoot(language)}process/`}>{copy.fullProcess}</Link></div>
       <ol className="home-process-list" role="list">
         {overviewContent[language].steps.map(step => <li key={step.number}>
           <span className="home-step-number" aria-hidden="true" lang="en" dir="ltr">{step.number}</span>
@@ -82,7 +77,6 @@ export function HomeProcess({ language }: Props) {
           <p>{step.body}</p>
         </li>)}
       </ol>
-      <Link className="home-overview-link home-overview-endlink" href={`${localeRoot(language)}process/`}>{copy.fullProcess}</Link>
     </div>
   </section>;
 }

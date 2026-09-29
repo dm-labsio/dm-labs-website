@@ -8,7 +8,7 @@ export const CONTACT_COPY = {
     intro: "A new website, a better one, or a question you can’t quite put into words. Tell us what’s on your mind. We’ll work out the next step together.",
     cta: "Get a free consultation", whatsapp: "Ask us on WhatsApp", reassurance: "Free. No obligation.",
     asideTitle: "Your idea.\nOur full attention.", asideCopy: "You’ll speak directly with Tom and Anastacia. We’ll listen to what your business needs and help you find a useful starting point.",
-    nextLabel: "What happens next", next: ["Tell us a little about your business—or just ask a question.", "We’ll reply to understand what you need and discuss the next step.", "If we’re a good fit, we’ll agree the scope before any work begins."],
+    nextLabel: "What happens next", next: ["Tell us a little about your business or just ask a question.", "We’ll reply to understand what you need and discuss the next step.", "If we’re a good fit, we’ll agree the scope before any work begins."],
     directLabel: "Prefer to talk directly?", email: "Email", instagram: "Follow our work", hours: "Monday–Friday · 09:00–18:00 EET", location: "Based in Europe. Working worldwide.",
     formLabel: "Your next step", formTitle: "Ask us anything.", formIntro: "Only your name and email are required. Add as much or as little detail as you like.",
     name: "Your name", emailField: "Email address", business: "Business name", message: "Your question or idea", optional: "optional",

@@ -37,7 +37,7 @@ const schemaMarkup = {
 const faqs = [
   {
     q: "How much does a website cost for a business in Crete?",
-    a: "Our packages start from €299 for a Launch Website — a fully custom, mobile-responsive website with SEO setup, a contact form, and everything your business needs to go live. The Growth Website is €749 and includes up to 4 pages, contact form, Google Maps, and basic SEO. The Pro Website is €1,499 and includes up to 7 pages, full SEO structure, and blog setup. All prices are one-time fees with no monthly charges."
+    a: "Our packages start from €299 for a Launch Website, a fully custom, mobile-responsive website with SEO setup, a contact form, and everything your business needs to go live. The Growth Website is €749 and includes up to 4 pages, contact form, Google Maps, and basic SEO. The Pro Website is €1,499 and includes up to 7 pages, full SEO structure, and blog setup. All prices are one-time fees with no monthly charges."
   },
   {
     q: "Do you work with businesses in Crete remotely?",

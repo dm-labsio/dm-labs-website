@@ -14,7 +14,7 @@ export function WebsiteComposition({ locale }: { locale: SiteLanguage }) {
       <img src="/media/brand-refresh/v1/service-architecture.webp" alt="" aria-hidden="true" width="960" height="720" />
       <div className="concept-cover-copy"><p>{t.siteEyebrow}</p><p className="concept-title">{t.siteTitle}</p><span className="concept-action">{t.siteAction}<span aria-hidden="true">↗</span></span></div>
     </div>
-    <div className="concept-editorial"><span className="concept-edition" aria-hidden="true">01 — 03</span><div><p>{t.siteBottom}</p><span>{t.siteBody}</span></div><div className="concept-mini-art" aria-hidden="true"><i /><i /><i /></div></div>
+    <div className="concept-editorial"><span className="concept-edition" aria-hidden="true">01 / 03</span><div><p>{t.siteBottom}</p><span>{t.siteBody}</span></div><div className="concept-mini-art" aria-hidden="true"><i /><i /><i /></div></div>
     <div className="concept-footnote"><span>{t.siteCollection}</span><span aria-hidden="true">↗</span></div>
   </div>;
 }

@@ -11,7 +11,7 @@ export const STUDIO_COPY: Record<SiteLanguage, StudioCopy> = {
   en: {
     services: {
       label: "Design. Build. Care.", title: ["Your business.", "An unmistakable presence."],
-      lead: "A website should make it easy to understand what you do — and why you’re the right choice. We bring the design, the build and the care to make that happen.",
+      lead: "A website should make it easy to understand what you do and why you’re the right choice. We bring the design, the build and the care to make that happen.",
       nav: ["Website packages", "Our capabilities", "Ongoing care"], buildTitle: "The right starting point.", buildLead: "Three clear scopes, built around your brand. Choose what your business needs today, with the option to add more later.",
       capabilitiesTitle: "Good design goes deeper.", capabilitiesLead: "From the first impression to the next enquiry, every detail has a job. These are the capabilities we bring to a project; what’s included depends on your package and agreed scope.",
       capabilities: [

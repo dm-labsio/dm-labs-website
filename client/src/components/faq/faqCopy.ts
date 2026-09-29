@@ -17,7 +17,7 @@ export const FAQ_COPY: Record<SiteLanguage, Copy> = {
     topics: {
       "getting-started": { title: "Getting started", intro: "From your first idea to an agreed direction." },
       "packages-payment": { title: "Packages & payment", intro: "Know the scope, the cost and what belongs to you." },
-      "features-seo": { title: "Your website", intro: "Design that works for your business—and your visitors." },
+      "features-seo": { title: "Your website", intro: "Design that works for your business and your visitors." },
       "website-care": { title: "Life after launch", intro: "What keeps your website running, supported and up to date." },
     },
   },

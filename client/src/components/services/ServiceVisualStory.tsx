@@ -35,5 +35,5 @@ export function ServiceImageBreak({ locale, serviceId }: { locale: SiteLanguage;
     "mobile-first": { image: "/media/brand-refresh/v1/service-mobile-inhand.webp", title: t.mobileTitle },
     performance: { image: "/media/brand-refresh/v1/service-performance-glass.webp", title: t.performanceTitle },
   }[serviceId];
-  return <div className="service-image-break" ref={root}><div className="container service-image-grid"><figure data-motion-piece><img src={data.image} alt="" width="1200" height="800" loading="lazy" /><figcaption>{t.filmCaption}</figcaption></figure><div className="service-image-statement"><p className="brand-micro">{t.before}<span aria-hidden="true"> — </span>{t.after}</p><p>{data.title[0]}<span>{data.title[1]}</span></p><div className="service-image-line" data-motion-line aria-hidden="true" /></div></div></div>;
+  return <div className="service-image-break" ref={root}><div className="container service-image-grid"><figure data-motion-piece><img src={data.image} alt="" width="1200" height="800" loading="lazy" /><figcaption>{t.filmCaption}</figcaption></figure><div className="service-image-statement"><p className="brand-micro">{t.before}<span aria-hidden="true"> / </span>{t.after}</p><p>{data.title[0]}<span>{data.title[1]}</span></p><div className="service-image-line" data-motion-line aria-hidden="true" /></div></div></div>;
 }

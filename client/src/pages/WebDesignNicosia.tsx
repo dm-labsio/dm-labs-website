@@ -39,11 +39,11 @@ const schemaMarkup = {
 const faqs = [
   {
     q: "How much does a website cost for a Nicosia business?",
-    a: "Our packages start from €299 for a Launch Website — a fully custom, mobile-responsive website with SEO setup and everything needed to go live. The Growth Website is €749 and the Pro Website €1,499. We always recommend a free consultation first so you get an accurate quote with no surprises."
+    a: "Our packages start from €299 for a Launch Website, a fully custom, mobile-responsive website with SEO setup and everything needed to go live. The Growth Website is €749 and the Pro Website €1,499. We always recommend a free consultation first so you get an accurate quote with no surprises."
   },
   {
     q: "Do you work with businesses in Nicosia remotely?",
-    a: "Yes, entirely. DM-Labs.io works with clients worldwide without any need for in-person meetings. The full process — initial brief, design, revisions, and launch — is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits."
+    a: "Yes, entirely. DM-Labs.io works with clients worldwide without any need for in-person meetings. The full process, initial brief, design, revisions, and launch, is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits."
   },
   {
     q: "Can you build a website in Greek and English?",
@@ -131,10 +131,10 @@ export default function WebDesignNicosia() {
               Why Nicosia Businesses Need a Proper Website in 2026
             </h2>
             <p className="text-[#5B6472] leading-relaxed mb-6">
-              Nicosia is the commercial, legal, and administrative capital. It is home to the island's largest concentration of law firms, financial services companies, government contractors, private clinics, and retail businesses. Competition is intense — and the first place most potential clients look is Google.
+              Nicosia is the commercial, legal, and administrative capital. It is home to the island's largest concentration of law firms, financial services companies, government contractors, private clinics, and retail businesses. Competition is intense and the first place most potential clients look is Google.
             </p>
             <p className="text-[#5B6472] leading-relaxed mb-6">
-              A slow, outdated, or non-existent website is not just a missed opportunity — it actively loses you business. Studies consistently show that over 75% of users judge a company's credibility based on its website design. In a market as professional as Nicosia, first impressions are everything.
+              A slow, outdated, or non-existent website is not just a missed opportunity; it actively loses you business. Studies consistently show that over 75% of users judge a company's credibility based on its website design. In a market as professional as Nicosia, first impressions are everything.
             </p>
             <p className="text-[#5B6472] leading-relaxed">
               DM-Labs.io builds websites that are fast, mobile-first, and optimised for Google from day one. Whether you are a law firm on Makarios Avenue, a restaurant in the old city, or a clinic in Strovolos, we build the kind of website that converts visitors into clients.
@@ -151,7 +151,7 @@ export default function WebDesignNicosia() {
               Industries We Serve in Nicosia
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              We work with a wide range of businesses across Nicosia. Every website is built to the specific needs of your industry — not a generic template.
+              We work with a wide range of businesses across Nicosia. Every website is built to the specific needs of your industry, not a generic template.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -239,7 +239,7 @@ export default function WebDesignNicosia() {
               Why Nicosia Businesses Choose DM-Labs.io
             </h2>
             <p className="text-[#5B6472] leading-relaxed mb-8">
-              DM-Labs.io is a remote web design studio. We work with businesses worldwide — from Nicosia and Limassol to smaller towns — entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
+              DM-Labs.io is a remote web design studio. We work with businesses worldwide, from Nicosia and Limassol to smaller towns, entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -254,7 +254,7 @@ export default function WebDesignNicosia() {
               },
               {
                 title: "Built to convert",
-                desc: "Every page is designed with one goal in mind — turning visitors into enquiries. Good design is only useful if it drives results."
+                desc: "Every page is designed with one goal in mind: turning visitors into enquiries. Good design is only useful if it drives results."
               }
             ].map((w) => (
               <AnimateIn key={w.title}>
@@ -276,7 +276,7 @@ export default function WebDesignNicosia() {
               Working Together, Wherever You AreNicosia
             </h2>
             <p className="text-[#5B6472] mb-8">
-              We work with businesses throughout Nicosia — from the old walled city and Makarios Avenue to Strovolos, Aglandjia, Latsia, Lakatamia, and the wider Nicosia District. Distance is not a factor.
+              We work with businesses throughout Nicosia, from the old walled city and Makarios Avenue to Strovolos, Aglandjia, Latsia, Lakatamia, and the wider Nicosia District. Distance is not a factor.
             </p>
           </AnimateIn>
           <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
@@ -349,7 +349,7 @@ export default function WebDesignNicosia() {
               Ready to get your Nicosia business online?
             </h2>
             <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-              Tell us about your business and we will send you a free proposal within 24 hours. No commitment, no pressure. You can also reach us directly on WhatsApp — we are quick to respond.
+              Tell us about your business and we will send you a free proposal within 24 hours. No commitment, no pressure. You can also reach us directly on WhatsApp. We are quick to respond.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact/">
