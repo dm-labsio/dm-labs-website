@@ -23,3 +23,7 @@ Motion is limited to choice feedback, a short recommendation entrance and the ch
 ## Practical limits
 
 Browser verification can confirm calculations, layout, keyboard behavior and the consultation flow. It does not establish a conversion improvement or replace testing with real prospective customers. After the direction is approved, useful follow-up measures would be successful package selection, consultation starts and where visitors hesitate. No analytics changes or experiments were deployed in this checkpoint.
+
+## Checkpoint 19 supersedes the initial composition
+
+The user's review rejected the hero range panel and goal finder as clutter. Both are removed. Direct plan selection now explicitly advances through website, care and total. The next iteration prioritizes large prices, supplied glass artwork, strong full-card feedback, simpler summaries and a distinct Enterprise option. Detailed comparison stays available below the choice flow.

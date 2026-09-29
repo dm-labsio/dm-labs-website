@@ -68,7 +68,7 @@ describe("Hebrew locale foundation", () => {
 
     const journey = readSource("client/src/components/pricing/PricingPage.tsx");
     expect(pricing).toContain('<PricingPage key="he" locale="he"');
-    expect(journey).toContain('className="pricing-editorial-price-row"');
+    expect(journey).toContain('className="pricing-build-amount"');
     expect(journey).toContain('className="pricing-price-unit"');
     expect(pricing).not.toContain('<small> one-time</small>');
     expect(readSource("client/src/styles/typography.css")).toContain('overflow-wrap: break-word');

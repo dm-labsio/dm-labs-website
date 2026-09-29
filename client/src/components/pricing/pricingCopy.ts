@@ -21,7 +21,7 @@ export const PRICING_COPY: Record<SiteLanguage, PricingCopy> = {
     label: "Transparent pricing", title: ["Web Design", "Pricing"],
     lead: "Built for you. Cared for by us. Choose your website, then the hosting & care that keeps it running.",
     steps: ["Your website", "Your ongoing care"],
-    assurance: "A one-time website build + required hosting & care from €69/month. Clear from the start.",
+    assurance: "One-time website build + required hosting & care from €69/month.",
     buildTitle: "Three clear plans.", buildIntro: "Start with what your business needs today. Each package has a clear scope, with the option to add more later.",
     bestFor: ["A confident first step.", "Turn interest into enquiries.", "A fuller story."],
     recommended: "Recommended", once: "one-time", recurring: "+ hosting & care from €69/month", choose: "Choose", selected: "Selected", compareLink: "Compare every feature",
@@ -41,7 +41,7 @@ export const PRICING_COPY: Record<SiteLanguage, PricingCopy> = {
   el: {
     label: "Διαφανείς τιμές", title: ["Τιμές", "Ιστοσελίδας"],
     lead: "Φτιαγμένη για εσάς. Με τη δική μας φροντίδα. Επιλέξτε ιστοσελίδα και μετά τη φιλοξενία και συντήρησή της.", steps: ["Η ιστοσελίδα σας", "Η συνεχής φροντίδα σας"],
-    assurance: "Εφάπαξ κατασκευή ιστοσελίδας + υποχρεωτική φιλοξενία & φροντίδα από €69/μήνα. Ξεκάθαρα από την αρχή.",
+    assurance: "Εφάπαξ κατασκευή + υποχρεωτική φιλοξενία & φροντίδα από €69/μήνα.",
     buildTitle: "Τρία ξεκάθαρα πακέτα.", buildIntro: "Ξεκινήστε με όσα χρειάζεται η επιχείρησή σας σήμερα. Κάθε πακέτο έχει σαφές εύρος, με δυνατότητα να προσθέσουμε περισσότερα αργότερα.",
     bestFor: ["Ένα σίγουρο πρώτο βήμα.", "Από το ενδιαφέρον στην επικοινωνία.", "Μια πιο ολοκληρωμένη ιστορία."],
     recommended: "Προτείνεται", once: "εφάπαξ", recurring: "+ φιλοξενία & φροντίδα από €69/μήνα", choose: "Επιλογή", selected: "Επιλέχθηκε", compareLink: "Σύγκριση όλων των λειτουργιών",
@@ -60,7 +60,7 @@ export const PRICING_COPY: Record<SiteLanguage, PricingCopy> = {
   },
   he: {
     label: "מחירים שקופים", title: ["מחירי", "עיצוב אתרים"], lead: "נבנה בשבילכם. מטופל על ידינו. בחרו את האתר שלכם, ואז את האירוח והתחזוקה שלו.", steps: ["האתר שלכם", "התחזוקה השוטפת שלכם"],
-    assurance: "בניית אתר בתשלום חד־פעמי + אירוח ותחזוקה חובה החל מ־€69 לחודש. ברור מההתחלה.",
+    assurance: "בניית אתר בתשלום חד־פעמי + אירוח ותחזוקה חובה החל מ־€69 לחודש.",
     buildTitle: "שלוש חבילות ברורות.", buildIntro: "מתחילים במה שהעסק שלכם צריך היום. לכל חבילה יש היקף ברור, עם אפשרות להוסיף בהמשך.", bestFor: ["צעד ראשון בביטחון.", "מהתעניינות לפניות חדשות.", "תוכן עשיר יותר."],
     recommended: "מומלץ", once: "חד־פעמי", recurring: "+ אירוח ותחזוקה החל מ־€69 לחודש", choose: "בחירת", selected: "נבחר", compareLink: "להשוואת כל האפשרויות",
     customLabel: "נבנה לפי ההיקף שלכם", customTitle: "מחיר מותאם להיקף הפרויקט", customNote: "הצעת מחיר לפי היקף", customCopy: "לאינטגרציות, אתרים רב־לשוניים, CMS, AI, צ׳אטבוטים, CRM, הזמנות, אנימציות מורכבות או נפח תוכן חריג.",
