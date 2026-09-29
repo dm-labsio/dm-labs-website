@@ -1,6 +1,6 @@
-import type { RefreshedService, ServiceFeature } from "./serviceFeatureContent";
+import type { DesignService, ServiceFeature } from "./serviceFeatureContent";
 
-export const SERVICE_FEATURE_EL: Record<RefreshedService, ServiceFeature> = {
+export const SERVICE_FEATURE_EL: Record<DesignService, ServiceFeature> = {
   "custom-design": {
     name: "Εξατομικευμένος Σχεδιασμός Ιστοσελίδων", title: ["Με επίκεντρο", "την επιχείρησή σας."], lead: "Ξεκάθαρη φωνή. Προσεγμένη εικόνα. Μια ιστοσελίδα που σας εκφράζει από την πρώτη ματιά.",
     intro: "Το brand, το κοινό και οι στόχοι σας δίνουν την κατεύθυνση. Τα μετατρέπουμε σε σχεδιασμό και λειτουργική ιστοσελίδα, με ξεκάθαρα σημεία για να δείτε και να σχολιάσετε τη δουλειά.",
@@ -52,7 +52,7 @@ export const SERVICE_FEATURE_EL: Record<RefreshedService, ServiceFeature> = {
   },
 };
 
-export const SERVICE_FEATURE_HE: Record<RefreshedService, ServiceFeature> = {
+export const SERVICE_FEATURE_HE: Record<DesignService, ServiceFeature> = {
   "custom-design": {
     name: "עיצוב אתרים בהתאמה אישית", title: ["נבנה סביב", "העסק שלכם."], lead: "קול ברור. מראה מוקפד. אתר שמרגיש כמוכם מהרגע הראשון.",
     intro: "המותג, הקהל והמטרות שלכם נותנים את הכיוון. אנחנו הופכים אותם לשפה ויזואלית ולאתר עובד, עם נקודות ברורות שבהן תוכלו לראות את העבודה ולתת משוב.",

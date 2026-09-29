@@ -1,8 +1,12 @@
 import type { SiteLanguage } from "@/lib/routeLanguage";
 import { SERVICE_FEATURE_EL, SERVICE_FEATURE_HE } from "./serviceFeatureLocales";
+import { FOUNDATION_FEATURES } from "./serviceFoundationContent";
 
-export const REFRESHED_SERVICES = ["custom-design", "mobile-first", "performance"] as const;
+export const REFRESHED_SERVICES = ["custom-design", "mobile-first", "performance", "seo", "security", "turnaround"] as const;
 export type RefreshedService = typeof REFRESHED_SERVICES[number];
+export type FoundationService = "seo" | "security" | "turnaround";
+export type DesignService = Exclude<RefreshedService, FoundationService>;
+export const isFoundationService = (id: RefreshedService): id is FoundationService => id === "seo" || id === "security" || id === "turnaround";
 export const isRefreshedService = (id: string): id is RefreshedService => REFRESHED_SERVICES.some(value => value === id);
 export type ServiceFeature = {
   name: string; title: [string, string]; lead: string; intro: string;
@@ -12,7 +16,7 @@ export type ServiceFeature = {
   faqs: readonly { q: string; a: string }[];
 };
 
-const en: Record<RefreshedService, ServiceFeature> = {
+const en: Record<DesignService, ServiceFeature> = {
   "custom-design": {
     name: "Custom Website Design", title: ["Built around", "your business."], lead: "A clear voice. A considered look. A website that feels like you from the first scroll.",
     intro: "Your brand, your audience and your goals shape the design. We turn them into a visual direction and a working website, with clear opportunities for you to review the work.",
@@ -64,8 +68,8 @@ const en: Record<RefreshedService, ServiceFeature> = {
   },
 };
 
-export const SERVICE_FEATURES: Record<SiteLanguage, Record<RefreshedService, ServiceFeature>> = { en, el: SERVICE_FEATURE_EL, he: SERVICE_FEATURE_HE };
-export const SERVICE_RELATED: Record<RefreshedService, readonly string[]> = { "custom-design": ["mobile-first", "seo", "performance"], "mobile-first": ["custom-design", "performance", "seo"], performance: ["seo", "mobile-first", "security"] };
+export const SERVICE_FEATURES: Record<SiteLanguage, Record<RefreshedService, ServiceFeature>> = { en: { ...en, ...FOUNDATION_FEATURES.en }, el: { ...SERVICE_FEATURE_EL, ...FOUNDATION_FEATURES.el }, he: { ...SERVICE_FEATURE_HE, ...FOUNDATION_FEATURES.he } };
+export const SERVICE_RELATED: Record<RefreshedService, readonly string[]> = { "custom-design": ["mobile-first", "seo", "performance"], "mobile-first": ["custom-design", "performance", "seo"], performance: ["seo", "mobile-first", "security"], seo: ["performance", "custom-design", "mobile-first"], security: ["performance", "turnaround", "custom-design"], turnaround: ["custom-design", "security", "mobile-first"] };
 export const SERVICE_NAMES: Record<SiteLanguage, Record<string, string>> = {
   en: { "custom-design": "Custom design", "mobile-first": "Mobile-first", seo: "Search foundations", performance: "Performance", security: "Security", turnaround: "Delivery", maps: "Maps", forms: "Contact forms", social: "Social connections" },
   el: { "custom-design": "Εξατομικευμένος σχεδιασμός", "mobile-first": "Σχεδιασμός για κινητά", seo: "Βάσεις SEO", performance: "Απόδοση", security: "Ασφάλεια", turnaround: "Παράδοση", maps: "Χάρτες", forms: "Φόρμες επικοινωνίας", social: "Σύνδεση με social media" },

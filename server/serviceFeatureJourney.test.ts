@@ -6,13 +6,14 @@ import { describe, expect, it } from "vitest";
 import { ServiceFeatureContent } from "../client/src/components/services/ServiceFeaturePage";
 import { REFRESHED_SERVICES, SERVICE_FEATURES, SERVICE_RELATED, isRefreshedService, serviceFeatureRoute, serviceFeatureSchema } from "../client/src/components/services/serviceFeatureContent";
 import { SERVICE_UI } from "../client/src/components/services/serviceFeatureUI";
+import { FOUNDATION_VISUALS } from "../client/src/components/services/serviceFoundationVisuals";
 import { getHreflangRouteSet } from "../client/src/lib/seoRoutes";
 
 const locales = ["en", "el", "he"] as const;
 const escaped = (text: string) => renderToStaticMarkup(React.createElement(React.Fragment, null, text));
 const cases = locales.flatMap(locale => REFRESHED_SERVICES.map(serviceId => ({ locale, serviceId })));
 
-describe("first service-detail refresh batch", () => {
+describe("shared service-detail refresh batches", () => {
   it.each(cases)("preserves the full content and localized journey for $locale/$serviceId", ({locale, serviceId}) => {
     const t = SERVICE_FEATURES[locale][serviceId];
     const html = renderToStaticMarkup(React.createElement(ServiceFeatureContent, { locale, serviceId }));
@@ -21,8 +22,8 @@ describe("first service-detail refresh batch", () => {
     expect(html).toContain(`lang="${locale}" dir="${locale === "he" ? "rtl" : "ltr"}"`);
     expect(t.principles).toHaveLength(3);
     expect(t.steps).toHaveLength(4);
-    expect(t.deliverables).toHaveLength(serviceId === "performance" ? 8 : 7);
-    expect(html.match(/<details\b/g)).toHaveLength(serviceId === "custom-design" ? 9 : 8);
+    expect(t.deliverables).toHaveLength(serviceId === "seo" ? 9 : ["performance", "security"].includes(serviceId) ? 8 : 7);
+    expect(html.match(/<details\b/g)).toHaveLength(["custom-design", "turnaround"].includes(serviceId) ? 9 : 8);
     for (const text of [t.name, ...t.title, t.lead, t.intro, ...t.principles.flat(), ...t.deliverables, ...t.steps.flat(), ...t.faqs.flatMap(faq => [faq.q, faq.a])]) expect(html).toContain(escaped(text));
     for (const path of ["contact", "pricing", "services", "process"]) expect(html).toContain(`href="${locale === "en" ? "" : `/${locale}`}/${path}/"`);
     for (const id of SERVICE_RELATED[serviceId]) {
@@ -57,13 +58,26 @@ describe("first service-detail refresh batch", () => {
     expect(JSON.stringify(schema)).not.toMatch(/AggregateRating|reviewRating|"Review"/);
   });
 
-  it("keeps the six later service topics on their legacy pages", () => {
-    for (const id of ["seo", "security", "turnaround", "maps", "forms", "social", "unknown"]) expect(isRefreshedService(id)).toBe(false);
+  it("keeps the three later service topics on their legacy pages", () => {
+    for (const id of ["maps", "forms", "social", "unknown"]) expect(isRefreshedService(id)).toBe(false);
     for (const page of ["ServiceDetail.tsx", "el/ServiceDetailEl.tsx"]) {
       const source = readFileSync(resolve(import.meta.dirname, "../client/src/pages", page), "utf8");
       expect(source).toContain("isRefreshedService(serviceId)");
       expect(source).toContain("<LegacyServiceDetailPage />");
-      for (const id of ["seo", "security", "turnaround", "maps", "forms", "social"]) expect(source).toContain(`"${id}": {`);
+      for (const id of ["maps", "forms", "social"]) expect(source).toContain(`"${id}": {`);
+    }
+  });
+
+  it.each(locales)("keeps the new %s illustrations selectable without pretending to be live data", locale => {
+    for (const serviceId of ["seo", "security", "turnaround"] as const) {
+      const html = renderToStaticMarkup(React.createElement(ServiceFeatureContent, { locale, serviceId }));
+      expect(html.match(/aria-pressed="true"/g)).toHaveLength(1);
+      expect(html.match(/aria-pressed="false"/g)).toHaveLength(2);
+      expect(html.match(/id="foundation-hero-scene"/g)).toHaveLength(1);
+      expect(html).toContain('aria-controls="foundation-hero-scene"');
+      expect(html).toContain('aria-live="polite" aria-atomic="true"');
+      expect(html).toContain(escaped(FOUNDATION_VISUALS[locale].note));
+      expect(html).not.toMatch(/99\.9%|24\/7|100% secure|daily backups|live dashboard/);
     }
   });
 

@@ -210,15 +210,11 @@ describe("Hebrew locale foundation", () => {
     }
   });
 
-  it("keeps Hebrew SEO as a complete, indexable RTL service counterpart", () => {
-    const seo = readSource("client/src/pages/he/SeoHe.tsx");
+  it("routes Hebrew SEO, security and delivery through the shared RTL service renderer", () => {
     const seoRoutes = readSource("client/src/lib/seoRoutes.ts");
-    expect(seo).toContain('canonicalPath: "/he/services/seo/"');
-    expect(seoRoutes).toContain('"/services/seo": "/he/services/seo"');
-    expect(seo).toContain("אופטימיזציית SEO");
-    expect(seo).toContain("FAQPage");
-    expect(seo).toContain('href="/he/contact/"');
-    expect(seo).toContain('href="/he/pricing/"');
-    expect(seo).toContain('dir="rtl"');
+    for (const [name, id] of [["SeoHe", "seo"], ["SecurityHe", "security"], ["TurnaroundHe", "turnaround"]]) {
+      expect(readSource(`client/src/pages/he/${name}.tsx`)).toContain(`locale="he" serviceId="${id}"`);
+      expect(seoRoutes).toContain(`"/services/${id}": "/he/services/${id}"`);
+    }
   });
 });

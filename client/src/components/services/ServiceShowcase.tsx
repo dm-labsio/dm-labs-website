@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import type { SiteLanguage } from "@/lib/routeLanguage";
-import type { RefreshedService } from "./serviceFeatureContent";
+import { isFoundationService, type RefreshedService } from "./serviceFeatureContent";
+import ServiceFoundationShowcase from "./ServiceFoundationShowcase";
 import { SERVICE_UI } from "./serviceFeatureUI";
 import { SERVICE_VISUAL_COPY } from "./serviceVisualCopy";
 import { useServiceMotion } from "./useServiceMotion";
@@ -78,6 +79,7 @@ function DesignStudy({ locale }: { locale: SiteLanguage }) {
 }
 
 export default function ServiceShowcase({ locale, serviceId }: { locale: SiteLanguage; serviceId: RefreshedService }) {
+  if (isFoundationService(serviceId)) return <ServiceFoundationShowcase key={`${locale}-${serviceId}`} locale={locale} serviceId={serviceId} />;
   if (serviceId === "mobile-first") return <ResponsiveStudy key={locale} locale={locale} />;
   if (serviceId === "custom-design") return <DesignStudy locale={locale} />;
   return <PerformanceStudy locale={locale} />;
