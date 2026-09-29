@@ -307,12 +307,12 @@ export default function WebDesignNicosia() {
             <div className="flex flex-wrap gap-4">
               <Link href="/web-design-limassol/">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-sm hover:bg-[#EEF3FF] transition-colors cursor-pointer">
-                  Web Design Limassol →
+                  Web Design Limassol
                 </span>
               </Link>
               <Link href="/web-design-thessaloniki/">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#8B5CFF] text-[#8B5CFF] font-semibold text-sm hover:bg-[#F3EEFF] transition-colors cursor-pointer">
-                  Web Design Thessaloniki →
+                  Web Design Thessaloniki
                 </span>
               </Link>
             </div>

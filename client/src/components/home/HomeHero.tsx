@@ -18,10 +18,9 @@ export default function HomeHero({ language }: { language: SiteLanguage }) {
           </h1>
           <p className="home-hero-description">{copy.body}</p>
           <div className="home-hero-actions">
-            <BrandButton asChild><a href={copy.contactHref} className="home-hero-primary">{copy.consultation}<span aria-hidden="true">{language === "he" ? "←" : "→"}</span></a></BrandButton>
+            <BrandButton asChild><a href={copy.contactHref} className="home-hero-primary">{copy.consultation}</a></BrandButton>
             <a href={copy.examplesHref} className="home-hero-secondary">{copy.examples}</a>
           </div>
-          <p className="home-hero-note">{copy.note}</p>
         </div>
         <HomeHeroScene language={language} />
       </div>

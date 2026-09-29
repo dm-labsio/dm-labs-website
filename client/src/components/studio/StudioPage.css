@@ -56,8 +56,6 @@ html:has(.studio-page), body:has(.studio-page) { overflow-x: clip; }
 .studio-capabilities-grid h3 { font-size: clamp(1.4rem, 2vw, 1.75rem); }
 .studio-capabilities-grid h3 a { display: flex; gap: .75rem; justify-content: space-between; }
 .studio-capabilities-grid h3 a:hover { color: #baceff; }
-[data-brand] .studio-page .studio-link-arrow { font-family: var(--font-body); font-size: 1.5rem; flex-shrink: 0; color: #6fe3ff; }
-[dir="rtl"] .studio-link-arrow { transform: scaleX(-1); }
 .studio-care-plans { border-top: 1px solid var(--studio-line); margin-bottom: 2rem; }
 .studio-care-plans article { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; padding-block: 2.5rem; border-bottom: 1px solid var(--studio-line); }
 .studio-care-meta > p { max-width: 24rem; }

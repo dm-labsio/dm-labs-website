@@ -7,7 +7,6 @@ export const HOME_HERO_COPY: Record<SiteLanguage, {
   body: string;
   consultation: string;
   examples: string;
-  note: string;
   contactHref: string;
   examplesHref: string;
 }> = {
@@ -18,7 +17,6 @@ export const HOME_HERO_COPY: Record<SiteLanguage, {
     body: "Distinctive, fast websites that earn trust and turn interest into enquiries. We handle the technical details. You focus on your business.",
     consultation: "Get a Free Consultation",
     examples: "Browse Examples",
-    note: "No pressure. Just a conversation.",
     contactHref: "/contact/",
     examplesHref: "/templates/",
   },
@@ -29,7 +27,6 @@ export const HOME_HERO_COPY: Record<SiteLanguage, {
     body: "Ξεχωριστές, γρήγορες ιστοσελίδες που εμπνέουν εμπιστοσύνη και φέρνουν περισσότερες επαφές. Εμείς αναλαμβάνουμε τα τεχνικά. Εσείς εστιάζετε στην επιχείρησή σας.",
     consultation: "Δωρεάν Συμβουλευτική",
     examples: "Δείτε Παραδείγματα",
-    note: "Χωρίς πίεση. Ας μιλήσουμε.",
     contactHref: "/el/contact/",
     examplesHref: "/el/templates/",
   },
@@ -40,7 +37,6 @@ export const HOME_HERO_COPY: Record<SiteLanguage, {
     body: "אתרים מרשימים ומהירים שבונים אמון והופכים עניין לפניות. אנחנו מטפלים בפרטים הטכניים, כדי שתוכלו להתמקד בעסק שלכם.",
     consultation: "שיחת ייעוץ ללא עלות",
     examples: "דוגמאות לעבודה",
-    note: "בלי לחץ. מתחילים בשיחה.",
     contactHref: "/he/contact/",
     examplesHref: "/he/templates/",
   },

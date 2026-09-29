@@ -15,7 +15,6 @@ const COPY = {
 
 const route = (locale: SiteLanguage, path: string) => `${locale === "en" ? "" : `/${locale}`}/${path}/`;
 const Latin = ({ children }: { children: React.ReactNode }) => <bdi lang="en" dir="ltr">{children}</bdi>;
-const Arrow = ({ locale }: { locale: SiteLanguage }) => <span className="pricing-choice-arrow" aria-hidden="true">{locale === "he" ? "←" : "→"}</span>;
 
 /** Shared pricing visuals, with ordinary links. No selection state or automatic progression. */
 export function PackageCards({ locale, compact = false }: { locale: SiteLanguage; compact?: boolean }) {
@@ -31,7 +30,7 @@ export function PackageCards({ locale, compact = false }: { locale: SiteLanguage
       <div className="pricing-build-content">
         <p className="pricing-fit">{x.fit[i]}</p>
         {!compact && <div className="pricing-build-detail">{x.inherits[i] && <p className="pricing-inherits">{x.inherits[i]}</p>}<ul className="pricing-features">{plan.features.map(feature => <li key={feature}>{feature}</li>)}</ul></div>}
-        <a className="pricing-choice" href={`${route(locale, "pricing")}#${BUILD_ANCHORS[i]}`}><span>{COPY[locale].view} <Latin>{plan.name.split(" ")[0]}</Latin></span><Arrow locale={locale} /></a>
+        <a className="pricing-choice" href={`${route(locale, "pricing")}#${BUILD_ANCHORS[i]}`}><span>{COPY[locale].view} <Latin>{plan.name.split(" ")[0]}</Latin></span></a>
       </div>
     </article>)}</div>
   </div>;
@@ -42,7 +41,7 @@ export function CustomPackage({ locale, compact = false }: { locale: SiteLanguag
   return <aside className={`pricing-catalog package-custom${compact ? " package-custom--compact" : ""}`} lang={locale} dir={locale === "he" ? "rtl" : "ltr"}>
     <div><p className="brand-micro">{COPY[locale].custom}</p><h3><Latin>Enterprise / Custom</Latin></h3><p>{t.customNote}</p></div>
     {!compact && <ul className="pricing-features">{t.customFeatures.map(feature => <li key={feature}>{feature}</li>)}</ul>}
-    <a className="pricing-choice" href={`${route(locale, "pricing")}#custom-project`}><span>{t.quote}</span><Arrow locale={locale} /></a>
+    <a className="pricing-choice" href={`${route(locale, "pricing")}#custom-project`}><span>{t.quote}</span></a>
   </aside>;
 }
 
@@ -53,14 +52,14 @@ export function CarePackageCards({ locale }: { locale: SiteLanguage }) {
     <p className="pricing-care-description">{PRICING_EXPERIENCE[locale].careFit[i]}</p>
     <div className="pricing-care-amount"><div className="pricing-care-price-row"><bdi dir="ltr" className="pricing-display-price">{pricingMoney(locale, plan.monthly)}</bdi><span className="pricing-price-unit">{t.month}</span></div><p className="pricing-billing-detail">{t.paidMonthly}</p></div>
     <ul className="pricing-features">{CARE_FEATURES[locale][i].map(feature => <li key={feature}>{feature}</li>)}</ul>
-    <a className="pricing-choice" href={`${route(locale, "pricing")}#${CARE_ANCHORS[i]}`}><span>{COPY[locale].care}<span className="sr-only">: {plan.name}</span></span><Arrow locale={locale} /></a>
+    <a className="pricing-choice" href={`${route(locale, "pricing")}#${CARE_ANCHORS[i]}`}><span>{COPY[locale].care}<span className="sr-only">: {plan.name}</span></span></a>
   </article>)}</div>;
 }
 
 export default function PackageOverview({ locale, context = "home" }: { locale: SiteLanguage; context?: "home" | "service" }) {
   const t = COPY[locale];
   return <section id="pricing" tabIndex={-1} className="package-overview" lang={locale} dir={locale === "he" ? "rtl" : "ltr"} aria-labelledby="package-overview-title">
-    <div className="container"><header className="package-overview-heading"><div><p className="brand-micro">{t.label}</p><h2 id="package-overview-title">{t.title}</h2><p>{context === "home" ? t.intro : t.serviceIntro}</p></div><a className="pricing-text-link" href={route(locale, "pricing")}>{t.compare}<span aria-hidden="true">{locale === "he" ? " ←" : " →"}</span></a></header>
+    <div className="container"><header className="package-overview-heading"><div><p className="brand-micro">{t.label}</p><h2 id="package-overview-title">{t.title}</h2><p>{context === "home" ? t.intro : t.serviceIntro}</p></div><a className="pricing-text-link" href={route(locale, "pricing")}>{t.compare}</a></header>
       <PackageCards locale={locale} compact />
       <CustomPackage locale={locale} compact />
       <p className="package-overview-note">{t.careNote} <a href={`${route(locale, "pricing")}#maintenance`}>{t.care}</a></p>

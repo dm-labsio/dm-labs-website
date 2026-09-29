@@ -41,7 +41,6 @@ html:has(.home-hero), body:has(.home-hero) { overflow-x: clip; }
 .home-hero .home-hero-secondary { padding-block: .875rem; color: #F6F5F2; text-decoration: underline; text-underline-offset: .35em; text-decoration-thickness: 1px; }
 .home-hero-secondary:hover { color: #A8B8FF; }
 .home-hero :is(a, button):focus-visible { outline: 3px solid #70D7F0; outline-offset: 5px; }
-.home-hero .home-hero-note { color: #BBC5D8; margin: 1rem 0 0; }
 .home-hero-scene { position: relative; min-width: 0; padding-bottom: 3rem; }
 .home-hero-art { position: relative; aspect-ratio: 1; direction: ltr; }
 .home-hero-depth { position: absolute; inset: 0; }

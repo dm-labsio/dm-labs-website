@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "wouter";
-import { Menu, ChevronDown } from "lucide-react";
+import { Menu } from "lucide-react";
 import BrandLogo from "./BrandLogo";
 import BrandButton from "./ui/brand-button";
 import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
@@ -34,7 +34,7 @@ function LanguageMenu({ language, getLanguageHref, onLanguageNavigate }: Pick<He
   return <DropdownMenu modal={false} open={open} onOpenChange={setOpen} dir={language === "he" ? "rtl" : "ltr"}>
     <DropdownMenuTrigger asChild>
       <button type="button" className="site-language-trigger" aria-label={`${NAV_COPY[language].language}: ${current.name}`}>
-        <span>{current.code}</span><ChevronDown size={14} aria-hidden="true" />
+        <span>{current.code}</span>
       </button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end" sideOffset={12} className="site-language-menu" lang={language}>

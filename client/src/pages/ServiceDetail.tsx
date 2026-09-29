@@ -12,11 +12,7 @@ import { Link, useParams } from "wouter";
 import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
-import {
-  Globe, Smartphone, Search, Zap, Shield, Clock,
-  CheckCircle2, ArrowRight, ChevronLeft, MessageCircle,
-  Monitor, BarChart2, Lock, MapPin, Gauge, Layers, FileText, Share2
-} from "lucide-react";
+import { Globe, Smartphone, Search, Zap, Shield, Clock, CheckCircle2, MessageCircle, Monitor, BarChart2, Lock, MapPin, Gauge, Layers, FileText, Share2 } from "lucide-react";
 
 const GRADIENT_BG = "/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
 const TRIANGLE_GEO = "/media/cloudfront/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
@@ -210,7 +206,7 @@ function LegacyServiceDetailPage() {
         <p className="text-[#5B6472] mb-8">The service you're looking for doesn't exist.</p>
         <StarButton asChild><Link href="/services/" className="btn-primary">
           View All Services
-          <ArrowRight size={16} />
+
         </Link></StarButton>
       </div>
     );
@@ -237,7 +233,7 @@ function LegacyServiceDetailPage() {
           {/* Breadcrumb */}
           <AnimateIn variant="fade-up" delay={0.05}>
             <Link href="/services/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
-              <ChevronLeft size={16} />
+
               Back to Services
             </Link>
           </AnimateIn>
@@ -301,7 +297,7 @@ function LegacyServiceDetailPage() {
               </p>
               <StarButton asChild><Link href="/contact/" className="btn-primary">
                 Start Your Project
-                <ArrowRight size={16} />
+
               </Link></StarButton>
             </AnimateIn>
             <AnimateIn delay={0.2}>
@@ -379,7 +375,7 @@ function LegacyServiceDetailPage() {
                     <div className="dm-card text-center cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
                       <p className="text-sm font-semibold text-[#111315] mb-1">{rel.label}</p>
                       <span className="text-xs text-[#5B8CFF] inline-flex items-center gap-1 justify-center">
-                        Learn more <ArrowRight size={12} />
+                        Learn more
                       </span>
                     </div>
                   </Link>
@@ -412,7 +408,7 @@ function LegacyServiceDetailPage() {
               </Link></StarButton>
               <Link href="/pricing/" className="inline-flex items-center gap-2 px-8 h-14 rounded-xl border-2 border-white/20 text-white font-semibold hover:border-white/40 transition-all duration-300 text-base">
                 View Pricing
-                <ArrowRight size={18} />
+
               </Link>
             </div>
           </AnimateIn>

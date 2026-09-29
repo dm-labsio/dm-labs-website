@@ -1,3 +1,4 @@
+import { newestFirst } from "@/lib/blogOrder";
 /* ============================================================
    D&M LABS - Blog Post Detail Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
@@ -7,7 +8,7 @@ import { useEffect } from "react";
 import { Link, useParams, useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { getPostBySlug, POSTS } from "@/data/blogPosts";
-import { ArrowLeft, Clock, Tag, Calendar } from "lucide-react";
+import { Clock, Tag, Calendar } from "lucide-react";
 import AnimateIn from "@/components/AnimateIn";
 
 function formatDate(dateStr: string) {
@@ -181,7 +182,7 @@ export default function BlogPost() {
           <div className="max-w-2xl mx-auto">
             {/* Back link */}
             <Link href="/blog/" className="inline-flex items-center gap-2 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-10 font-medium">
-              <ArrowLeft size={15} /> Back to Blog
+               Back to Blog
             </Link>
 
             {/* Article content */}
@@ -218,7 +219,7 @@ export default function BlogPost() {
             {/* Bottom back link */}
             <div className="mt-14 pt-8 border-t border-[#E2E5EA]">
               <Link href="/blog/" className="inline-flex items-center gap-2 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors font-medium">
-                <ArrowLeft size={15} /> More articles
+                 More articles
               </Link>
             </div>
           </div>
@@ -227,13 +228,13 @@ export default function BlogPost() {
 
       {/* Related Articles */}
       {(() => {
-        const related = POSTS.filter(
+        const related = newestFirst(POSTS).filter(
           (p) => p.slug !== post.slug && p.category === post.category
         ).slice(0, 2);
         const fallback = related.length < 2
-          ? POSTS.filter((p) => p.slug !== post.slug && !related.includes(p)).slice(0, 2 - related.length)
+          ? newestFirst(POSTS).filter((p) => p.slug !== post.slug && !related.includes(p)).slice(0, 2 - related.length)
           : [];
-        const shown = [...related, ...fallback].slice(0, 2);
+        const shown = newestFirst([...related, ...fallback]).slice(0, 2);
         if (shown.length === 0) return null;
         return (
           <section className="bg-[#F6F6F4] py-12 sm:py-16">

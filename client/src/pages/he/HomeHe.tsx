@@ -6,7 +6,7 @@ import TeamProfiles from "@/components/TeamProfiles";
 import "./HomeHe.css";
 import StarButton from "@/components/ui/star-button";
 import { useEffect } from "react";
-import { ArrowLeft } from "lucide-react";
+
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import InteractiveExampleCard from "@/components/InteractiveExampleCard";
@@ -51,7 +51,6 @@ export default function HomeHe() {
 
     <HomeIndustries language="he" />
 
-    <section className="relative overflow-hidden py-16 sm:py-20 bg-[#0F172A]"><div className="container"><StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8">{[["5-14","ימים עד להשקה","מהשיחה הראשונה"],["5★","שביעות רצון","הסטנדרט שלנו"],["100%","מותאם למובייל","בכל פרויקט"],["∞","ליווי מתמשך","אנחנו כאן בשבילכם"]].map(([value,label,sub]) => <StaggerItem key={label}><div className="text-center"><p className="text-4xl sm:text-5xl font-bold text-[#6FE3FF]" dir="ltr">{value}</p><p className="text-base font-semibold text-white mt-2">{label}</p><p className="text-xs text-[#94A3B8]">{sub}</p></div></StaggerItem>)}</StaggerContainer></div></section>
 
     <section className="home-team section-spacing"><div className="container"><TeamProfiles language="he" /></div></section>
 

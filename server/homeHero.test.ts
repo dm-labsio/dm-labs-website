@@ -16,7 +16,7 @@ describe("Homepage entry without JavaScript or media playback", () => {
     expect(html).toContain(`href="${copy.contactHref}"`);
     expect(html).toContain(`href="${copy.examplesHref}"`);
     expect(html).toContain(copy.consultation);
-    expect(html).toContain(copy.note);
+    expect(html).not.toContain("home-hero-note");
     expect(html).toContain('alt=""');
     expect(html).not.toMatch(/<video|<canvas|hidden=""|aria-hidden="true"[^>]*>[^<]*<h1/);
   });

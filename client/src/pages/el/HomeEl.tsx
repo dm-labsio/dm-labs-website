@@ -6,7 +6,7 @@ import TeamProfiles from "@/components/TeamProfiles";
 /* ============================================================
    D&M LABS - Αρχικήpage
    Hero with gradient atmosphere + floating devices
-   Sections: Hero, Trust Strip, Template Showcase + Industries, Υπηρεσίες, Διαδικασία, Testimonials, Τιμές, Stats, CTA
+   Sections: Hero, Trust Strip, Template Showcase + Industries, Υπηρεσίες, Διαδικασία, Testimonials, Τιμές, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import StarButton from "@/components/ui/star-button";
@@ -16,7 +16,7 @@ import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
 import InteractiveExampleCard from "@/components/InteractiveExampleCard";
 import HomeHero from "@/components/home/HomeHero";
-import { ArrowRight } from "lucide-react";
+
 
 // ─── Hand-crafted card mockups for homepage template showcase ────
 const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
@@ -253,7 +253,7 @@ export default function HomeElPage() {
           <AnimateIn className="text-center mb-16">
             <StarButton asChild><Link href="/el/templates/" className="btn-primary">
               Δείτε Όλα τα Παραδείγματα
-              <ArrowRight size={16} />
+
             </Link></StarButton>
           </AnimateIn>
         </div>
@@ -319,50 +319,6 @@ export default function HomeElPage() {
           INDUSTRIES WE SERVE
           ═══════════════════════════════════════════ */}
       <HomeIndustries language="el" />
-
-      {/* ═══════════════════════════════════════════
-          STATS BANNER - vivid gradient, animated on scroll
-          ═══════════════════════════════════════════ */}
-      <section className="relative overflow-hidden py-16 sm:py-20"
-        style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E2A4A 50%, #0F172A 100%)" }}
-      >
-        {/* Ambient glows */}
-        <div className="absolute top-0 left-1/4 w-72 h-72 bg-[#5B8CFF] rounded-full blur-[100px] opacity-20 pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-[#8B5CFF] rounded-full blur-[100px] opacity-15 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-32 bg-[#6FE3FF] rounded-full blur-[80px] opacity-10 pointer-events-none" />
-        <div className="container relative z-10">
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {[
-              { value: "5-14", label: "Μέρες έως Κυκλοφορία", sub: "από την πρώτη κλήση" },
-              { value: "5★", label: "Ικανοποίηση Πελατών", sub: "το πρότυπό μας" },
-              { value: "100%", label: "Mobile Βελτιστοποιημένο", sub: "κάθε project" },
-              { value: "∞", label: "Συνεχής Υποστήριξη", sub: "είμαστε πάντα εδώ" },
-            ].map((stat, i) => (
-              <StaggerItem key={stat.label}>
-                <div className="text-center group">
-                  {/* Divider line on desktop */}
-                  <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 w-px h-12 bg-white/10" />
-                  <p
-                    className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 transition-transform duration-300 group-hover:scale-110"
-                    style={{
-                      background: i % 2 === 0
-                        ? "linear-gradient(135deg, #6FE3FF 0%, #5B8CFF 100%)"
-                        : "linear-gradient(135deg, #A78BFF 0%, #6FE3FF 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
-                    {stat.value}
-                  </p>
-                  <p className="text-base font-semibold text-white mb-1">{stat.label}</p>
-                  <p className="text-xs text-[#94A3B8]">{stat.sub}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════════════
           WHO WE ARE - Team Section

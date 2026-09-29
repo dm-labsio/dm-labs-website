@@ -377,13 +377,13 @@ export default function WebDesignCyprusEl() {
                   {city.slug ? (
                     <Link href={city.slug}>
                       <span style={{ color: city.color }} className="text-sm font-semibold hover:underline cursor-pointer">
-                        Δείτε τη σελίδα {city.name} →
+                        Δείτε τη σελίδα {city.name}
                       </span>
                     </Link>
                   ) : (
                     <Link href="/el/contact/">
                       <span style={{ color: city.color }} className="text-sm font-semibold hover:underline cursor-pointer">
-                        Ζητήστε προσφορά για {city.name} →
+                        Ζητήστε προσφορά για {city.name}
                       </span>
                     </Link>
                   )}

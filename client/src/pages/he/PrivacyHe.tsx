@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ChevronLeft } from "lucide-react";
+
 import { useSEO } from "@/hooks/useSEO";
 
 const sectionTitle = "text-xl font-semibold text-[#111315] mb-3";
@@ -21,7 +21,7 @@ export default function PrivacyHe() {
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
           <Link href="/he/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
-            <ChevronLeft size={16} className="rotate-180" /> חזרה לדף הבית
+             חזרה לדף הבית
           </Link>
           <div className="text-center">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">משפטי</p>

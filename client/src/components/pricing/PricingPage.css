@@ -52,10 +52,8 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
 .pricing-features { list-style: none; padding: 0; margin: 0; display: grid; gap: .65rem; font-size: .9375rem; line-height: 1.6; color: #D4DEF0; }
 .pricing-features li { position: relative; padding-inline-start: 1rem; }
 .pricing-features li::before { content: ""; position: absolute; inset-inline-start: 0; top: .7em; width: 4px; height: 4px; background: var(--pricing-accent); }
-.pricing-choice { position: relative; isolation: isolate; display: flex; align-items: center; justify-content: space-between; gap: .75rem; width: 100%; min-height: 60px; padding: .75rem .75rem .75rem 1.1rem; border: 1px solid var(--pricing-accent); border-radius: 8px; overflow: hidden; color: #101729; background: var(--pricing-accent); text-align: start; font: 700 1rem/1.4 var(--font-body); cursor: pointer; }
-.pricing-page[dir="rtl"] .pricing-choice { padding: .75rem 1.1rem .75rem .75rem; }
+.pricing-choice { position: relative; isolation: isolate; display: flex; align-items: center; justify-content: center; gap: .75rem; width: 100%; min-height: 60px; padding: .75rem 1.1rem; border: 1px solid var(--pricing-accent); border-radius: 8px; overflow: hidden; color: #101729; background: var(--pricing-accent); text-align: start; font: 700 1rem/1.4 var(--font-body); cursor: pointer; }
 .pricing-choice > span { position: relative; z-index: 1; }
-.pricing-choice-arrow { flex: 0 0 36px; display: grid; place-items: center; align-self: stretch; min-height: 36px; font: 400 1.5rem/1 "Rubik",sans-serif; border-inline-start: 1px solid currentColor; padding-inline-start: .4rem; }
 .pricing-choice::before { content: ""; position: absolute; inset: 0; background: #F6F5F2; transform: translateY(105%); }
 .pricing-choice[aria-pressed="true"] { background: #F6F5F2; color: #101729; border-color: #F6F5F2; }
 [data-brand] .pricing-recurring { display: block; font-size: .8rem; line-height: 1.5; color: #CCD7EF; margin-top: 1rem; text-align: center; }
@@ -158,8 +156,6 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
 
 @media (hover: hover) {
  .pricing-choice:hover::before { transform: translateY(0); }
- .pricing-choice:hover .pricing-choice-arrow { transform: translateX(3px); }
- .pricing-page[dir="rtl"] .pricing-choice:hover .pricing-choice-arrow { transform: translateX(-3px); }
  .pricing-build:hover { border-color: var(--pricing-accent); }
  .pricing-build:hover .pricing-card-art { transform: scale(1.055); }
  .pricing-page a:not(.brand-button):hover { color: #83DEEF; }
@@ -167,7 +163,7 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
 @media (prefers-reduced-motion: no-preference) {
  .pricing-build,.pricing-care { transition: background-color 250ms ease,box-shadow 250ms ease,border-color 250ms ease; }
  .pricing-build.is-selected,.pricing-care.is-selected { animation: pricing-confirm 360ms ease-out; }
- .pricing-choice::before,.pricing-choice-arrow,.pricing-progress li::after { transition: transform 260ms ease; }
+ .pricing-choice::before,.pricing-progress li::after { transition: transform 260ms ease; }
  .pricing-card-art { transition: transform 700ms cubic-bezier(.2,.7,.2,1); }
  .pricing-estimate-total,.pricing-care-price-row .pricing-display-price { animation: pricing-reveal 350ms ease-out both; }
  .is-complete .pricing-estimate { animation: pricing-reveal 450ms ease-out both; }

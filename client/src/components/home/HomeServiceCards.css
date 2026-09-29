@@ -48,10 +48,10 @@
 .home-service-carousel { min-width: 0; }
 .home-service-carousel-controls { display: none; }
 @media (max-width: 767px) {
-  .home-service-carousel-controls { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .8rem; }
+  .home-service-carousel-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .8rem; }
   [data-brand] .home-service-carousel-controls p { color: #bac7df; font-size: .8rem; line-height: 1.5; }
-  .home-service-carousel-controls > div { display: flex; flex-shrink: 0; gap: .5rem; }
-  .home-service-carousel-controls button { width: 44px; height: 44px; border: 1px solid #8095c3; color: #e8edfa; font-size: 1.25rem; cursor: pointer; }
+  .home-service-carousel-controls > div { display: flex; flex-shrink: 0; gap: .5rem; margin-inline-start: auto; }
+  .home-service-carousel-controls button { min-width: 44px; min-height: 44px; padding: .5rem .75rem; border: 1px solid #8095c3; color: #e8edfa; font-size: .85rem; cursor: pointer; }
   .home-service-carousel-controls button:disabled { opacity: .35; cursor: default; }
   .home-service-carousel-controls button:focus-visible { outline: 2px solid #83deef; outline-offset: 2px; }
   .home-service-cards { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; padding: 2px 2px 1rem; scrollbar-width: thin; scrollbar-color: #8095c3 #17233b; }

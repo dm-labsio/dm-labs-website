@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 import type { MouseEvent } from "react";
 
@@ -75,9 +75,6 @@ export default function InteractiveExampleCard({
               <span>
                 <span className="block text-xl font-bold leading-tight tracking-tight sm:text-2xl">{title}</span>
                 <span className="mt-1 block text-sm font-medium text-white/80">{subtitle}</span>
-              </span>
-              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-md ring-1 ring-inset ring-white/35 transition-colors group-hover:bg-white/25" aria-hidden="true">
-                <ArrowUpRight size={19} strokeWidth={2} />
               </span>
             </span>
 

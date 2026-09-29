@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ChevronLeft } from "lucide-react";
+
 import { useSEO } from "@/hooks/useSEO";
 
 const heading = "text-xl font-semibold text-[#111315] mb-3";
@@ -9,7 +9,7 @@ export default function TermsHe() {
   useSEO({ title: "תנאי שירות | DM-Labs.io", description: "תנאי השירות של DM-Labs.io לעיצוב, פיתוח, אירוח ותחזוקת אתרים.", canonicalPath: "/he/terms/", ogLocale: "he_IL", noindex: true });
   return <>
     <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}><div className="container relative z-10">
-      <Link href="/he/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8"><ChevronLeft size={16} className="rotate-180" /> חזרה לדף הבית</Link>
+      <Link href="/he/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8"> חזרה לדף הבית</Link>
       <div className="text-center"><p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">משפטי</p><h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">תנאי שירות</h1><p className="text-sm text-[#5B6472]">עודכנו לאחרונה: 19 באוגוסט 2026</p></div>
     </div></section>
     <section className="section-spacing bg-white"><div className="container max-w-3xl"><div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">

@@ -25,6 +25,16 @@ describe("Compact multilingual blog index", () => {
     expect(html).toContain(`href="${locale === "el" ? "/el" : ""}/contact/"`);
     expect(html).not.toMatch(/<video|opacity:0|—/);
   });
+  it.each([["en", "2026-09-22"], ["el", "2026-06-25"]] as const)("shows the latest %s publication first without changing the source data", (locale, latestDate) => {
+    const source = locale === "en" ? POSTS : POSTS_EL;
+    const originalOrder = source.map(post => post.slug);
+    const articles = blogArticles(locale);
+    expect(articles[0].date).toBe(latestDate);
+    expect(articles.every((post, index) => index === 0 || post.date <= articles[index - 1].date)).toBe(true);
+    expect(source.map(post => post.slug)).toEqual(originalOrder);
+    const filtered = filterArticles(articles, "SEO");
+    expect(filtered.every((post, index) => index === 0 || post.date <= filtered[index - 1].date)).toBe(true);
+  });
   it("supports Greek searches without accents and searches across title, topic and excerpt", () => {
     const greek = blogArticles("el");
     expect(filterArticles(greek, "ΙΣΤΟΣΕΛΙΔΑ")).toEqual(filterArticles(greek, "ιστοσελίδα"));

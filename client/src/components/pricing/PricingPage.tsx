@@ -63,7 +63,6 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
   const step = buildIndex === null ? 0 : careIndex === null ? 1 : 2;
   const stepTargets = ["website-packages", "maintenance", "your-selection"];
   const art = PACKAGE_ART;
-  const choiceArrow = <span className="pricing-choice-arrow" aria-hidden="true">{locale === "he" ? "←" : "→"}</span>;
 
   return <div className="pricing-page pricing-journey" lang={locale} dir={locale === "he" ? "rtl" : "ltr"} data-button-surface="dark" onClickCapture={() => cancelAdvance.current()}>
     <header className="pricing-heading container">
@@ -78,7 +77,7 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
     <p className="sr-only" role="status">{build ? `${t.selected}: ${build.name}.` : ""} {care ? `${t.selected}: ${care.name}.` : ""}</p>
 
     <section id="website-packages" tabIndex={-1} className="pricing-section pricing-build-section container" aria-labelledby="website-packages-title">
-      <div className="pricing-section-intro"><h2 id="website-packages-title">{t.chooseBuild}</h2><a className="pricing-text-link" href="#comparison">{t.compareLink}<span aria-hidden="true"> ↓</span></a></div>
+      <div className="pricing-section-intro"><h2 id="website-packages-title">{t.chooseBuild}</h2><a className="pricing-text-link" href="#comparison">{t.compareLink}</a></div>
       <div className="pricing-builds" ref={artwork.root}>{plans.map((plan, i) => <article key={plan.name} id={BUILD_ANCHORS[i]} tabIndex={-1} data-plan={i} onClick={activateCard} className={`pricing-build${buildIndex === i ? " is-selected" : ""}`} aria-labelledby={`build-${i}`}>
         <div className="pricing-build-stage">
           <div className="pricing-card-art" aria-hidden="true"><img data-motion-piece src={`/media/brand-refresh/v1/${art[i]}`} width="840" height="560" alt="" /></div>
@@ -88,14 +87,14 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
         <div className="pricing-build-content">
           <p className="pricing-fit">{x.fit[i]}</p>
           <div className="pricing-build-detail">{x.inherits[i] && <p className="pricing-inherits"><PricingText text={x.inherits[i]} /></p>}<ul className="pricing-features">{plan.features.map(feature => <li key={feature}><PricingText text={feature} /></li>)}</ul></div>
-          <button type="button" className="pricing-choice" aria-pressed={buildIndex === i} aria-label={`${buildIndex === i ? t.selected : t.choose} ${plan.name}`} onClick={() => {setBuildIndex(i);advanceTo("maintenance");}}><span>{buildIndex === i ? t.selected : t.choose} <Latin>{plan.name.split(" ")[0]}</Latin></span>{choiceArrow}</button>
+          <button type="button" className="pricing-choice" aria-pressed={buildIndex === i} aria-label={`${buildIndex === i ? t.selected : t.choose} ${plan.name}`} onClick={() => {setBuildIndex(i);advanceTo("maintenance");}}><span>{buildIndex === i ? t.selected : t.choose} <Latin>{plan.name.split(" ")[0]}</Latin></span></button>
           <p className="pricing-recurring"><PricingText text={t.recurring} /></p>
         </div>
       </article>)}</div>
       <aside id="custom-project" onClick={activateCard} className="pricing-custom" aria-labelledby="custom-title">
         <div className="pricing-custom-art" aria-hidden="true"><img src="/media/brand-refresh/v1/contact-folded-glass-desktop.webp" width="1680" height="938" alt="" loading="lazy" /></div>
         <div className="pricing-custom-name"><p className="brand-micro">{t.customLabel}</p><h3 id="custom-title"><Latin>Enterprise<span> / Custom</span></Latin></h3><p className="pricing-custom-note">{t.customNote}</p></div>
-        <div className="pricing-custom-content"><p>{x.customShort}</p><p className="pricing-custom-capabilities">{x.customExamples}</p><BrandButton asChild className="pricing-action"><a href={route("contact")}>{t.quote}{choiceArrow}</a></BrandButton></div>
+        <div className="pricing-custom-content"><p>{x.customShort}</p><p className="pricing-custom-capabilities">{x.customExamples}</p><BrandButton asChild className="pricing-action"><a href={route("contact")}>{t.quote}</a></BrandButton></div>
       </aside>
     </section>
 
@@ -107,7 +106,7 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
         <p className="pricing-care-description">{x.careFit[i]}</p>
         <div className="pricing-care-amount" aria-live="polite" aria-atomic="true"><div className="pricing-care-price-row"><bdi dir="ltr" className="pricing-display-price" key={yearly ? "year" : "month"}>{money(yearly ? plan.yearly : plan.monthly)}</bdi><span className="pricing-price-unit">{yearly ? t.year : t.month}</span></div><p className="pricing-billing-detail">{yearly ? <><Latin>{money(plan.yearly / 12)}</Latin> {t.equivalent}</> : t.paidMonthly}</p>{yearly && <p className="pricing-saving">{t.saving} <Latin>{money(plan.monthly * 12 - plan.yearly)}</Latin> {t.eachYear}</p>}</div>
         <ul className="pricing-features">{CARE_FEATURES[locale][i].map(feature => <li key={feature}><PricingText text={feature} /></li>)}</ul>
-        <button type="button" className="pricing-choice" aria-pressed={careIndex === i} onClick={() => {setCareIndex(i);advanceTo(buildIndex === null ? "website-packages" : "your-selection");}}><span>{careIndex === i ? t.selected : t.choose} <Latin>{plan.name}</Latin></span>{choiceArrow}</button>
+        <button type="button" className="pricing-choice" aria-pressed={careIndex === i} onClick={() => {setCareIndex(i);advanceTo(buildIndex === null ? "website-packages" : "your-selection");}}><span>{careIndex === i ? t.selected : t.choose} <Latin>{plan.name}</Latin></span></button>
       </article>)}</div>
     </div></section>
 
@@ -121,7 +120,7 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
         </div>
         <PricingEstimate locale={locale} build={buildIndex} care={careIndex} yearly={yearly} />
       </div>
-      <div className="pricing-selection-action"><BrandButton asChild className="pricing-action"><a href={pricingContactUrl(locale, buildIndex, careIndex, yearly)}>{build && care ? t.cta : t.help}{choiceArrow}</a></BrandButton><p>{t.reassurance}</p></div>
+      <div className="pricing-selection-action"><BrandButton asChild className="pricing-action"><a href={pricingContactUrl(locale, buildIndex, careIndex, yearly)}>{build && care ? t.cta : t.help}</a></BrandButton><p>{t.reassurance}</p></div>
       <div className="pricing-terms"><p>{t.ownership} <a href={route("terms")}>{t.terms}</a></p></div>
       <aside className="pricing-scope"><h3>{t.scope}</h3><p>{t.scopeText}</p></aside>
     </div></section>

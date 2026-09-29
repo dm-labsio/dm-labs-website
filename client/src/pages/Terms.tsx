@@ -1,6 +1,6 @@
 /* D&M LABS - Terms of Service */
 import { Link } from "wouter";
-import { ChevronLeft } from "lucide-react";
+
 import { useSEO } from "@/hooks/useSEO";
 
 export default function Terms() {
@@ -15,7 +15,7 @@ export default function Terms() {
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
           <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
-            <ChevronLeft size={16} />
+
             Back to Home
           </Link>
           <div className="text-center">

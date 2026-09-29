@@ -46,7 +46,7 @@ export default function HomeIntroductionVideo({ language }: { language: HomeLoca
           {!started && <button className="home-film-play" type="button" onClick={play}><span className="home-film-play-symbol" aria-hidden="true">▶</span><span className="home-film-play-label">{copy.play}</span></button>}
         </div>
       </div>
-      {failed && <div className="home-film-error" role="alert"><p>{copy.error}</p><button type="button" onClick={play}>{copy.retry}</button><a href={HOME_INTRODUCTION_MEDIA.desktop} target="_blank" rel="noreferrer">{copy.open}<span aria-hidden="true"> ↗</span></a></div>}
+      {failed && <div className="home-film-error" role="alert"><p>{copy.error}</p><button type="button" onClick={play}>{copy.retry}</button><a href={HOME_INTRODUCTION_MEDIA.desktop} target="_blank" rel="noreferrer">{copy.open}</a></div>}
     </div>
   </section>;
 }

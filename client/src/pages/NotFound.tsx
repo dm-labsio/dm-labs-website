@@ -2,7 +2,7 @@
 import StarButton from "@/components/ui/star-button";
 import { useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { ArrowLeft } from "lucide-react";
+
 
 export default function NotFound() {
   const [location] = useLocation();
@@ -47,7 +47,7 @@ export default function NotFound() {
             העמוד שחיפשתם אינו קיים. אפשר לחזור לדף הבית ולמצוא את מה שצריך.
           </p>
           <StarButton asChild><Link href="/he/" className="btn-primary">
-            <ArrowLeft size={16} /> חזרה לדף הבית
+             חזרה לדף הבית
           </Link></StarButton>
         </div>
       </div>
@@ -64,7 +64,7 @@ export default function NotFound() {
             Η σελίδα που ψάχνετε δεν υπάρχει. Ας σας επαναφέρουμε στη σωστή κατεύθυνση.
           </p>
           <StarButton asChild><Link href="/el/" className="btn-primary">
-            <ArrowLeft size={16} /> Επιστροφή στην Αρχική
+             Επιστροφή στην Αρχική
           </Link></StarButton>
         </div>
       </div>
@@ -80,7 +80,7 @@ export default function NotFound() {
           The page you're looking for doesn't exist. Let's get you back on track.
         </p>
         <StarButton asChild><Link href="/" className="btn-primary">
-          <ArrowLeft size={16} /> Back to Home
+           Back to Home
         </Link></StarButton>
       </div>
     </div>

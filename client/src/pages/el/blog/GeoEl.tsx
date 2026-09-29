@@ -12,7 +12,7 @@ export default function GeoEl() {
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
         <div className="mb-8">
-          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στα Άρθρα</Link>
+          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">Πίσω στα Άρθρα</Link>
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
@@ -57,11 +57,11 @@ export default function GeoEl() {
             </p>
             <p className="leading-relaxed mb-3">Οι AI μηχανές που έχουν σημασία αυτή τη στιγμή:</p>
             <ul className="space-y-2 mb-4">
-              <li className="flex items-start gap-2"><span className="text-[#5B8CFF] font-bold mt-0.5">→</span><span><strong>ChatGPT</strong> (OpenAI): πάνω από 100 εκατομμύρια ημερήσιους χρήστες</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#5B8CFF] font-bold mt-0.5">→</span><span><strong>Google AI Overviews</strong>: εμφανίζεται πλέον στο 30–40% όλων των αναζητήσεων Google</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#5B8CFF] font-bold mt-0.5">→</span><span><strong>Perplexity</strong>: η ταχύτερα αναπτυσσόμενη AI μηχανή αναζήτησης</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#5B8CFF] font-bold mt-0.5">→</span><span><strong>Microsoft Copilot</strong>: ενσωματωμένο στα Windows και το Bing</span></li>
-              <li className="flex items-start gap-2"><span className="text-[#5B8CFF] font-bold mt-0.5">→</span><span><strong>Claude</strong> (Anthropic): χρησιμοποιείται όλο και περισσότερο για ερευνητικές ερωτήσεις</span></li>
+              <li className="flex items-start gap-2"><span><strong>ChatGPT</strong> (OpenAI): πάνω από 100 εκατομμύρια ημερήσιους χρήστες</span></li>
+              <li className="flex items-start gap-2"><span><strong>Google AI Overviews</strong>: εμφανίζεται πλέον στο 30–40% όλων των αναζητήσεων Google</span></li>
+              <li className="flex items-start gap-2"><span><strong>Perplexity</strong>: η ταχύτερα αναπτυσσόμενη AI μηχανή αναζήτησης</span></li>
+              <li className="flex items-start gap-2"><span><strong>Microsoft Copilot</strong>: ενσωματωμένο στα Windows και το Bing</span></li>
+              <li className="flex items-start gap-2"><span><strong>Claude</strong> (Anthropic): χρησιμοποιείται όλο και περισσότερο για ερευνητικές ερωτήσεις</span></li>
             </ul>
             <p className="leading-relaxed">
               Κάθε ένα από αυτά τα εργαλεία AI διαβάζει το web, συνθέτει πληροφορίες και παράγει μια απάντηση. Οι επιχειρήσεις που αναφέρει είναι αυτές που έχουν βελτιστοποιηθεί για αυτό το νέο είδος αναζήτησης. Οι υπόλοιπες είναι αόρατες.
@@ -168,7 +168,7 @@ export default function GeoEl() {
               href="/el/contact/"
               className="inline-block bg-white text-[#5B8CFF] font-bold px-6 py-3 rounded-xl hover:bg-white/90 transition-colors"
             >
-              Δωρεάν GEO Audit →
+              Δωρεάν GEO Audit
             </Link>
           </div>
         </div>

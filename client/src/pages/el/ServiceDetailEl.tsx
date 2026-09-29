@@ -9,11 +9,7 @@ import StarButton from "@/components/ui/star-button";
 import { Link, useParams } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
-import {
-  Globe, Smartphone, Search, Zap, Shield, Clock,
-  CheckCircle2, ArrowRight, ChevronLeft, MessageCircle,
-  MapPin, FileText, Share2,
-} from "lucide-react";
+import { Globe, Smartphone, Search, Zap, Shield, Clock, CheckCircle2, MessageCircle, MapPin, FileText, Share2 } from "lucide-react";
 
 const GRADIENT_BG = "/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
 const TRIANGLE_GEO = "/media/cloudfront/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
@@ -168,7 +164,7 @@ function LegacyServiceDetailPage() {
         <p className="text-[#5B6472] mb-8">Η υπηρεσία που αναζητάτε δεν υπάρχει.</p>
         <StarButton asChild><Link href="/el/services/" className="btn-primary">
           Δείτε Όλες τις Υπηρεσίες
-          <ArrowRight size={16} />
+
         </Link></StarButton>
       </div>
     );
@@ -195,7 +191,7 @@ function LegacyServiceDetailPage() {
           {/* Breadcrumb */}
           <AnimateIn variant="fade-up" delay={0.05}>
             <Link href="/el/services/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
-              <ChevronLeft size={16} />
+
               Πίσω στις Υπηρεσίες
             </Link>
           </AnimateIn>
@@ -259,7 +255,7 @@ function LegacyServiceDetailPage() {
               </p>
               <StarButton asChild><Link href="/el/contact/" className="btn-primary">
                 Ξεκινήστε το Έργο σας
-                <ArrowRight size={16} />
+
               </Link></StarButton>
             </AnimateIn>
             <AnimateIn delay={0.2}>
@@ -337,7 +333,7 @@ function LegacyServiceDetailPage() {
                     <div className="dm-card text-center cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
                       <p className="text-sm font-semibold text-[#111315] mb-1">{rel.label}</p>
                       <span className="text-xs text-[#5B8CFF] inline-flex items-center gap-1 justify-center">
-                        Μάθετε περισσότερα <ArrowRight size={12} />
+                        Μάθετε περισσότερα
                       </span>
                     </div>
                   </Link>
@@ -370,7 +366,7 @@ function LegacyServiceDetailPage() {
               </Link></StarButton>
               <Link href="/el/pricing/" className="inline-flex items-center gap-2 px-8 h-14 rounded-xl border-2 border-white/20 text-white font-semibold hover:border-white/40 transition-all duration-300 text-base">
                 Δείτε Τιμές
-                <ArrowRight size={18} />
+
               </Link>
             </div>
           </AnimateIn>

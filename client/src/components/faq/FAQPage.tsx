@@ -35,7 +35,7 @@ export default function FAQPage({ locale }: { locale: SiteLanguage }) {
         <p className="brand-micro">{t.label}</p>
         <h1>{t.opening}<span>{t.payoff}</span></h1>
         <p className="faq-intro">{t.intro}</p>
-        <a className="faq-text-link" href="#faq-topics">{t.browse}<span aria-hidden="true">↓</span></a>
+        <a className="faq-text-link" href="#faq-topics">{t.browse}</a>
       </div>
     </section>
     <div className="container faq-reading-layout" id="faq-topics" tabIndex={-1}>
@@ -51,7 +51,7 @@ export default function FAQPage({ locale }: { locale: SiteLanguage }) {
             const item = answers[id];
             return <details key={id} className="faq-question" open={id === "start"}>
               <summary><h3>{item.q}</h3><span className="faq-toggle" aria-hidden="true" /></summary>
-              <div className="faq-answer"><p><AnswerText text={item.a} /></p>{item.link && <a href={faqRoute(locale, item.link.path)}>{item.link.label}<span aria-hidden="true">{locale === "he" ? "←" : "→"}</span></a>}</div>
+              <div className="faq-answer"><p><AnswerText text={item.a} /></p>{item.link && <a href={faqRoute(locale, item.link.path)}>{item.link.label}</a>}</div>
             </details>;
           })}</div>
         </section>)}

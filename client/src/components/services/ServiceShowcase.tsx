@@ -12,10 +12,10 @@ export function WebsiteComposition({ locale }: { locale: SiteLanguage }) {
     <div className="concept-masthead"><bdi dir="ltr" lang="en">{t.project}</bdi><span aria-hidden="true">≡</span></div>
     <div className="concept-cover">
       <img src="/media/brand-refresh/v1/service-architecture.webp" alt="" aria-hidden="true" width="960" height="720" />
-      <div className="concept-cover-copy"><p>{t.siteEyebrow}</p><p className="concept-title">{t.siteTitle}</p><span className="concept-action">{t.siteAction}<span aria-hidden="true">↗</span></span></div>
+      <div className="concept-cover-copy"><p>{t.siteEyebrow}</p><p className="concept-title">{t.siteTitle}</p><span className="concept-action">{t.siteAction}</span></div>
     </div>
     <div className="concept-editorial"><span className="concept-edition" aria-hidden="true">01 / 03</span><div><p>{t.siteBottom}</p><span>{t.siteBody}</span></div><div className="concept-mini-art" aria-hidden="true"><i /><i /><i /></div></div>
-    <div className="concept-footnote"><span>{t.siteCollection}</span><span aria-hidden="true">↗</span></div>
+    <div className="concept-footnote"><span>{t.siteCollection}</span></div>
   </div>;
 }
 
@@ -50,7 +50,7 @@ export function PerformanceComposition({ locale, phase = 0 }: { locale: SiteLang
   const t = SERVICE_VISUAL_COPY[locale];
   return <div className="performance-composition" data-phase={phase} aria-hidden="true">
     <div className="performance-orbit" /><div className="flow-path" data-motion-line />
-    <div className="flow-browser" data-motion-piece><div className="flow-browser-top"><i /><i /><i /></div><div className="flow-browser-content"><div className="flow-picture" data-motion-load={phase === 0 ? "" : undefined} /><div className="flow-type" data-motion-load={phase === 0 ? "" : undefined}><i /><i /><i /></div><div className="flow-button">{t.siteAction}<span>↗</span></div><div className="flow-bottom"><i /><i /><i /></div></div></div>
+    <div className="flow-browser" data-motion-piece><div className="flow-browser-top"><i /><i /><i /></div><div className="flow-browser-content"><div className="flow-picture" data-motion-load={phase === 0 ? "" : undefined} /><div className="flow-type" data-motion-load={phase === 0 ? "" : undefined}><i /><i /><i /></div><div className="flow-button">{t.siteAction}</div><div className="flow-bottom"><i /><i /><i /></div></div></div>
     <div className="flow-label"><bdi dir="ltr" lang="en">{["LCP", "INP", "CLS"][phase]}</bdi><span>{t.performance[phase]}</span></div>
     <div className="flow-signal" data-motion-piece><i /><i /><i /><i /><i /></div>
     <div className="flow-point" data-motion-tap={phase === 1 ? "" : undefined} />
@@ -66,7 +66,7 @@ function PerformanceStudy({ locale }: { locale: SiteLanguage }) {
     <div className="service-view-controls" role="group" aria-label={ui.experience}>{t.performance.map((label, i) => <button key={label} type="button" onClick={() => setPhase(i)} aria-pressed={phase === i} aria-controls="performance-scene">{label}</button>)}</div>
     <div id="performance-scene"><PerformanceComposition locale={locale} phase={phase} /></div>
     <div className="performance-feedback" aria-live="polite"><p>{ui.metrics[phase][1]}</p></div>
-    <button className="service-motion-replay" type="button" onClick={replay}>{t.replay}<span aria-hidden="true">↻</span></button>
+    <button className="service-motion-replay" type="button" onClick={replay}>{t.replay}</button>
     <p className="service-study-note">{t.flowNote}</p>
   </div>;
 }
@@ -74,7 +74,7 @@ function PerformanceStudy({ locale }: { locale: SiteLanguage }) {
 function DesignStudy({ locale }: { locale: SiteLanguage }) {
   const { root, replay } = useServiceMotion(locale);
   const t = SERVICE_UI[locale];
-  return <div className="service-design-study" ref={root}><DesignComposition locale={locale} /><p className="service-study-note">{t.studyNote}</p><button className="service-motion-replay" onClick={replay} type="button">{SERVICE_VISUAL_COPY[locale].replay}<span aria-hidden="true">↻</span></button></div>;
+  return <div className="service-design-study" ref={root}><DesignComposition locale={locale} /><p className="service-study-note">{t.studyNote}</p><button className="service-motion-replay" onClick={replay} type="button">{SERVICE_VISUAL_COPY[locale].replay}</button></div>;
 }
 
 export default function ServiceShowcase({ locale, serviceId }: { locale: SiteLanguage; serviceId: DesignService }) {

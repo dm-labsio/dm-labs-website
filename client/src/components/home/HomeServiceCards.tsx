@@ -34,7 +34,7 @@ export function HomeServiceCard({ language, index, open, onOpen, onToggle }: {
       {!open && <p className="home-service-card-summary">{copy.summaries[index]}</p>}
       <div id={`${id}-detail`} className="home-service-card-detail" hidden={!open}>
         <p>{item.body}</p>
-        <Link href={`${language === "en" ? "" : `/${language}`}/services/${item.slug}/`} className="home-service-card-link">{copy.more}<span aria-hidden="true">{language === "he" ? "←" : "→"}</span></Link>
+        <Link href={`${language === "en" ? "" : `/${language}`}/services/${item.slug}/`} className="home-service-card-link">{copy.more}</Link>
       </div>
     </div>
   </article>;
@@ -47,9 +47,9 @@ export default function HomeServiceCards({ language }: { language: HomeLocale })
   const frame = useRef<number | null>(null);
   const [current, setCurrent] = useState(0);
   const controls = {
-    en: { hint: "Swipe to explore our services", previous: "Previous service", next: "Next service" },
-    el: { hint: "Σύρετε για να δείτε τις υπηρεσίες", previous: "Προηγούμενη υπηρεσία", next: "Επόμενη υπηρεσία" },
-    he: { hint: "החליקו כדי לגלות את השירותים", previous: "השירות הקודם", next: "השירות הבא" },
+    en: { hint: "Swipe to explore our services", previous: "Previous service", next: "Next service", previousText: "Previous", nextText: "Next" },
+    el: { hint: "Σύρετε για να δείτε τις υπηρεσίες", previous: "Προηγούμενη υπηρεσία", next: "Επόμενη υπηρεσία", previousText: "Πίσω", nextText: "Επόμενο" },
+    he: { hint: "החליקו כדי לגלות את השירותים", previous: "השירות הקודם", next: "השירות הבא", previousText: "הקודם", nextText: "הבא" },
   }[language];
   useEffect(() => () => { if (frame.current !== null) cancelAnimationFrame(frame.current); }, []);
   function updateCurrent() {
@@ -78,7 +78,7 @@ export default function HomeServiceCards({ language }: { language: HomeLocale })
     root.scrollBy({ left: language === "he" ? box.right - bounds.right : box.left - bounds.left, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
   }
   return <div className="home-service-carousel">
-    <div className="home-service-carousel-controls"><p>{controls.hint}</p><div><button type="button" aria-label={controls.previous} disabled={current === 0} onClick={() => moveTo(current - 1)}>{language === "he" ? "→" : "←"}</button><button type="button" aria-label={controls.next} disabled={current === 5} onClick={() => moveTo(current + 1)}>{language === "he" ? "←" : "→"}</button></div></div>
+    <div className="home-service-carousel-controls"><p>{controls.hint}</p><div><button type="button" aria-label={controls.previous} disabled={current === 0} onClick={() => moveTo(current - 1)}>{controls.previousText}</button><button type="button" aria-label={controls.next} disabled={current === 5} onClick={() => moveTo(current + 1)}>{controls.nextText}</button></div></div>
     <div className="home-service-cards" ref={track} onScroll={updateCurrent} onKeyDown={event => { if (event.key === "Escape") { setActive(null); setPinned(false); } }}>
     {[0, 3].map(start => <div className="home-service-row" key={start} data-active={active !== null && active >= start && active < start + 3 ? active - start : "none"}>
       {[start, start + 1, start + 2].map(index => <HomeServiceCard key={index} language={language} index={index} open={active === index} onOpen={() => {
