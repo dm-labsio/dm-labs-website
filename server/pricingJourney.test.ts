@@ -45,10 +45,13 @@ describe("shared pricing comparison and enquiry", () => {
   });
   it.each(locales)("renders meaningful controls, comparable features and localized support links in %s", locale => {
     const html=renderToStaticMarkup(React.createElement(PricingPage,{locale}));
-    expect(html.match(/aria-pressed="false"/g)).toHaveLength(5);
+    expect(html.match(/aria-pressed="false"/g)).toHaveLength(8);
     expect(html.match(/type="radio"/g)).toHaveLength(2);
     expect(html.match(/<th scope="row"/g)).toHaveLength(13);
     expect(html.match(/<details\b/g)).toHaveLength(20);
+    expect(html.match(/<details open=""/g)).toHaveLength(20);
+    expect(html).toContain('id="finder-title"');
+    expect(html).toContain('type="checkbox"');
     expect(html).toContain(PRICING_COPY[locale].included);
     expect(html).toContain(PRICING_COPY[locale].excluded);
     expect(html).toContain(`lang="${locale}" dir="${locale==="he"?"rtl":"ltr"}"`);

@@ -8,7 +8,7 @@ export const BUILD_PLANS: Record<SiteLanguage, readonly { name: string; summary:
       "name": "Launch Website",
       "summary": "A lean online presence for a new business that needs to launch clearly and professionally.",
       "features": [
-        "Small one-page or light two-page site",
+        "One page, or two simple pages",
         "Responsive build",
         "Basic SEO foundations",
         "WhatsApp and social links",
@@ -45,7 +45,7 @@ export const BUILD_PLANS: Record<SiteLanguage, readonly { name: string; summary:
       "name": "Launch Website",
       "summary": "Μια καθαρή, επαγγελματική online παρουσία για μια νέα επιχείρηση που θέλει να ξεκινήσει σωστά.",
       "features": [
-        "Μικρή ιστοσελίδα μίας ή ελαφριάς δύο σελίδων",
+        "Μία σελίδα ή δύο απλές σελίδες",
         "Responsive κατασκευή",
         "Βασικές SEO βάσεις",
         "WhatsApp και σύνδεσμοι social media",
@@ -82,7 +82,7 @@ export const BUILD_PLANS: Record<SiteLanguage, readonly { name: string; summary:
       "name": "Launch Website",
       "summary": "נקודת פתיחה מקצועית ומזמינה לעסק בתחילת הדרך.",
       "features": [
-        "עמוד אחד או שניים קלים",
+        "עמוד אחד או שניים פשוטים",
         "מותאם למובייל",
         "יסודות SEO",
         "WhatsApp ורשתות חברתיות",
@@ -171,7 +171,7 @@ export const COMPARISON: Record<SiteLanguage, readonly { feature: string; launch
   "en": [
     {
       "feature": "Pages",
-      "launch": "1 or light 2",
+      "launch": "1–2 simple",
       "growth": "Up to 4",
       "pro": "Up to 7"
     },
@@ -251,7 +251,7 @@ export const COMPARISON: Record<SiteLanguage, readonly { feature: string; launch
   "el": [
     {
       "feature": "Σελίδες",
-      "launch": "1 ή ελαφριές 2",
+      "launch": "1–2 απλές",
       "growth": "Έως 4",
       "pro": "Έως 7"
     },
@@ -331,7 +331,7 @@ export const COMPARISON: Record<SiteLanguage, readonly { feature: string; launch
   "he": [
     {
       "feature": "עמודים",
-      "launch": "1 או 2 קלים",
+      "launch": "1–2 פשוטים",
       "growth": "עד 4",
       "pro": "עד 7"
     },
