@@ -6,32 +6,31 @@ import { describe, expect, it } from "vitest";
 import ServicesPage from "../client/src/components/studio/ServicesPage";
 import ProcessPage from "../client/src/components/studio/ProcessPage";
 import { CAPABILITY_IDS, STUDIO_COPY, studioRoute } from "../client/src/components/studio/studioCopy";
-import { BUILD_PLANS, BUILD_PRICES, CARE_FEATURES, CARE_PLANS, pricingMoney } from "../client/src/components/pricing/pricingContent";
-import { PRICING_COPY } from "../client/src/components/pricing/pricingCopy";
 
 const locales = ["en", "el", "he"] as const;
 const escaped = (value: string) => renderToStaticMarkup(React.createElement(React.Fragment, null, value));
 
 describe("Services and process multilingual journey", () => {
-  it.each(locales)("preserves package scope, care and nine detail destinations in %s", locale => {
+  it.each(locales)("offers nine fully clickable service destinations without plans or prices in %s", locale => {
     const html = renderToStaticMarkup(React.createElement(ServicesPage, { locale }));
     expect(html.match(/<h1\b/g)).toHaveLength(1);
     expect(html).not.toContain("<main");
-    for (const plan of BUILD_PLANS[locale]) {
-      expect(html).toContain(plan.name);
-      for (const feature of plan.features) expect(html).toContain(escaped(feature));
-    }
-    for (const amount of [...BUILD_PRICES, ...CARE_PLANS.map(plan => plan.monthly)]) expect(html).toContain(escaped(pricingMoney(locale, amount)));
-    for (const feature of CARE_FEATURES[locale].flat()) expect(html).toContain(escaped(feature));
-    for (const feature of PRICING_COPY[locale].customFeatures) expect(html).toContain(escaped(feature));
-    expect(html).toContain(escaped(PRICING_COPY[locale].careIntro));
-    expect(html).toContain(escaped(PRICING_COPY[locale].scopeText));
+    expect(html).not.toMatch(/€|pricing-catalog|website-packages|id="maintenance"|studio-jump-links|Enterprise/);
+    expect(html).not.toContain(`href="${studioRoute(locale, "pricing")}`);
     expect(STUDIO_COPY[locale].services.capabilities).toHaveLength(9);
     for (const id of CAPABILITY_IDS) {
       expect(html).toContain(`id="${id}" tabindex="-1"`);
       expect(html).toContain(`href="${studioRoute(locale, `services/${id}`)}"`);
+      expect(html).toContain(`aria-labelledby="${id}-title" aria-describedby="${id}-description"`);
     }
-    for (const path of ["contact", "pricing", "process", "terms"]) expect(html).toContain(`href="${studioRoute(locale, path)}"`);
+    const cards = [...html.matchAll(/<a class="studio-service-link"[^>]*>(.*?)<\/a>/g)];
+    expect(cards).toHaveLength(9);
+    for (const [index, card] of cards.entries()) {
+      for (const text of STUDIO_COPY[locale].services.capabilities[index]) expect(card[1]).toContain(escaped(text));
+      expect(card[1]).toContain('aria-hidden="true" focusable="false"');
+      expect(card[1]).not.toMatch(/<button|tabindex|<a\b/);
+    }
+    for (const path of ["contact", "process"]) expect(html).toContain(`href="${studioRoute(locale, path)}"`);
   });
 
   it.each(locales)("renders five complete process chapters without fixed delivery promises in %s", locale => {
@@ -51,7 +50,7 @@ describe("Services and process multilingual journey", () => {
     for (const component of [ServicesPage, ProcessPage]) {
       const html = renderToStaticMarkup(React.createElement(component, { locale }));
       expect(html).toContain(`lang="${locale}" dir="${locale === "he" ? "rtl" : "ltr"}"`);
-      expect(html).not.toMatch(/<svg|<video|opacity:0|icon-container/);
+      expect(html).not.toMatch(/<video|opacity:0|icon-container/);
       for (const [, anchor] of html.matchAll(/href="#([^"]+)"/g)) expect(html).toContain(`id="${anchor}" tabindex="-1"`);
       expect(html).toContain(escaped(STUDIO_COPY[locale].consultation));
     }
@@ -70,7 +69,6 @@ describe("Services and process multilingual journey", () => {
     expect(styles).toContain(".studio-rule[data-visible=\"true\"] span");
     expect(styles).toContain('font-family: "Rubik", Arial, sans-serif; font-weight: 800');
     expect(styles).not.toContain("infinite");
-    expect(STUDIO_COPY.en.services.capabilitiesLead).toContain("depends on your package and agreed scope");
     expect(STUDIO_COPY.en.process.steps[1].copy).toContain("paid in full before work begins");
     expect(STUDIO_COPY.en.process.steps[3].copy).toContain("Launch includes 2 revision rounds, Growth includes 3 and Pro includes 4");
   });

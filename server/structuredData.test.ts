@@ -19,6 +19,7 @@ describe("structured content and SEO release checks", () => {
     expect(organization).not.toHaveProperty("address");
     expect(graph[2]).toMatchObject({ url: `https://dm-labs.io${prefix}/pricing/`, inLanguage: locale });
     expect(pageSchema(`https://dm-labs.io${prefix}/privacy/`, ...args)["@graph"][0]).not.toHaveProperty("hasOfferCatalog");
+    expect(pageSchema(`https://dm-labs.io${prefix}/services/`, ...args)["@graph"][0]).not.toHaveProperty("hasOfferCatalog");
   });
 
   it("describes a regional service without inventing a city office, and preserves its actual FAQ text", () => {

@@ -7,7 +7,7 @@ export const absoluteImageUrl = (image: string) => new URL(image, `${SEO_BASE_UR
 
 export function pageSchema(url: string, title: string, description: string, locale: SiteLocale, image: string, imageAlt: string) {
   const path = new URL(url).pathname;
-  const hasPackages = ["/", "/el/", "/he/", "/pricing/", "/el/pricing/", "/he/pricing/", "/services/", "/el/services/", "/he/services/"].includes(path);
+  const hasPackages = ["/", "/el/", "/he/", "/pricing/", "/el/pricing/", "/he/pricing/"].includes(path);
   return { "@context": "https://schema.org", "@graph": [
     {
       "@type": "Organization", "@id": ORGANIZATION_ID, name: "DM-Labs.io", alternateName: "DM-Labs",

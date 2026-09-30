@@ -14,7 +14,6 @@ export function StudioRule() {
 export function StudioHero({ locale, family }: { locale: SiteLanguage; family: "services" | "process" }) {
   const t = STUDIO_COPY[locale];
   const copy = t[family];
-  const links = family === "services" ? ["website-packages", "capabilities", "maintenance"] : ["journey"];
   return <section className={`studio-hero studio-hero--${family}`} aria-labelledby="studio-title">
     <picture className="studio-hero-art" aria-hidden="true">
       <source media="(max-width: 767px)" srcSet="/media/brand-refresh/v1/studio-glass-mobile.webp" width="760" height="1352" />
@@ -24,8 +23,8 @@ export function StudioHero({ locale, family }: { locale: SiteLanguage; family: "
       <p className="brand-micro">{copy.label}</p>
       <h1 id="studio-title">{copy.title[0]} <span>{copy.title[1]}</span></h1>
       <p className="studio-lead">{copy.lead}</p>
-      <BrandButton asChild><a href={studioRoute(locale, "contact")}>{t.consultation}</a></BrandButton>
-      <nav className="studio-jump-links" aria-label={copy.label}>{copy.nav.slice(0, links.length).map((label, i) => <a href={`#${links[i]}`} key={label}>{label}</a>)}</nav>
+      <BrandButton asChild><a href={family === "services" ? "#capabilities" : studioRoute(locale, "contact")}>{family === "services" ? t.servicesLink : t.consultation}</a></BrandButton>
+      {family === "process" && <nav className="studio-jump-links" aria-label={copy.label}><a href="#journey">{t.process.nav[0]}</a></nav>}
     </div>
   </section>;
 }
