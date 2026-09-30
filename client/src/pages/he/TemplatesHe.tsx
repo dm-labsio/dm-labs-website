@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Star, ArrowRight, Check, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { X, Star, Check } from "lucide-react";
 
 // ─── CDN URLs - all fresh uploads Expires=1804155913+ ───────────────────────
 const CDN = {
@@ -528,7 +528,7 @@ const TEMPLATES = [
       { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
     ],
     style: "אסתטיקה נשית יוקרתית בגוני שזיף וורוד, טיפוגרפיית serif אלגנטית ותחושה חמה ומזמינה. מתאימה לסלונים, סטודיואים ליופי וברים לציפורניים.",
-    waMessage: "שלום! אני מתעניין/ת בעיצוב האתר של Bella Salon.",
+    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Bella Salon.",
     price: "€350",
     images: { card: "" },
   },
@@ -559,7 +559,7 @@ const TEMPLATES = [
       { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
     ],
     style: "אסתטיקה ים-תיכונית נושמת בגוני ירוק עמוקים, רקעי קרם חמים וטיפוגרפיה אלגנטית. מתאימה למסעדות עם חומרי גלם טריים ומטבח ים-תיכוני.",
-    waMessage: "שלום! אני מתעניין/ת בעיצוב האתר של מסעדת Verde.",
+    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של מסעדת Verde.",
     price: "€350",
     images: { card: "" },
   },
@@ -590,7 +590,7 @@ const TEMPLATES = [
       { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
     ],
     style: "אסתטיקה מלאת אנרגיה עם רקע שחור ונגיעות כתומות, טיפוגרפיה עוצמתית ופריסות דינמיות. מתאימה לחדרי כושר, CrossFit וסטודיואים לכוח.",
-    waMessage: "שלום! אני מתעניין/ת בעיצוב האתר של PulseGym.",
+    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של PulseGym.",
     price: "€350",
     images: { card: "" },
   },
@@ -621,7 +621,7 @@ const TEMPLATES = [
       { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
     ],
     style: "אסתטיקה נקייה ומקצועית עם נגיעות נייבי וכחול על רקע לבן. מתאימה למרפאות שיניים, קליניקות ושירותי בריאות.",
-    waMessage: "שלום! אני מתעניין/ת בעיצוב האתר של Dr. Elara Dental.",
+    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Dr. Elara Dental.",
     price: "€350",
     images: { card: "" },
   },
@@ -652,7 +652,7 @@ const TEMPLATES = [
       { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
     ],
     style: "אסתטיקה אומנותית ומינימליסטית בגוני אספרסו וזהב, טיפוגרפיה נקייה ותחושה חמה. מתאימה לבתי קפה מיוחדים ולקפה-ברים.",
-    waMessage: "שלום! אני מתעניין/ת בעיצוב האתר של Nomad Coffee.",
+    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Nomad Coffee.",
     price: "€250",
     images: { card: "" },
   },
@@ -683,7 +683,7 @@ const TEMPLATES = [
       { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
     ],
     style: "אסתטיקה רגועה ומאוזנת בגוני מרווה עמוקים, מרקמים טבעיים וטיפוגרפיה נקייה. מתאימה לסטודיואים ליוגה, פילאטיס ורווחה.",
-    waMessage: "שלום! אני מתעניין/ת בעיצוב האתר של Serenity Yoga.",
+    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Serenity Yoga.",
     price: "€250",
     images: { card: "" },
   },
@@ -710,7 +710,7 @@ const TEMPLATES = [
       { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
     ],
     style: "יוקרה editorial כהה עם Cormorant Garamond, נגיעות שמפניה זהובות וצילום קולנועי במסך מלא. מתאימה למשרדי נדל״ן פרימיום.",
-    waMessage: "שלום! אני מתעניין/ת בעיצוב האתר של Luxe Realty.",
+    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Luxe Realty.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -737,7 +737,7 @@ const TEMPLATES = [
       { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
     ],
     style: "טיפוגרפיית Nunito חמה עם נגיעות קורל ותכלת על בסיס קרם. עיצוב ידידותי עם צורות אורגניות, מתאים לגנים ולמסגרות לילדים.",
-    waMessage: "שלום! אני מתעניין/ת בעיצוב האתר של Little Stars Nursery.",
+    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Little Stars Nursery.",
     price: "€299",
     images: { card: "" },
     livePreview: true,
@@ -764,7 +764,7 @@ const TEMPLATES = [
       { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
     ],
     style: "ברוטליזם מינימליסטי עם Syne, גוני נייר ונגיעות טרקוטה. פריסות מפוצלות ואסימטריות, מתאימות למשרדי אדריכלות.",
-    waMessage: "שלום! אני מתעניין/ת בעיצוב האתר של Arcos Architecture.",
+    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Arcos Architecture.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -791,7 +791,7 @@ const TEMPLATES = [
       { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
     ],
     style: "ים תיכוני חם עם Playfair Display, ירוק זית עמוק וגווני זהב. מתאימה למעדניות, חנויות מזון ובוטיקים קולינריים.",
-    waMessage: "שלום! אני מתעניין/ת בעיצוב האתר של Olio Deli.",
+    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Olio Deli.",
     price: "€299",
     images: { card: "" },
     livePreview: true,
@@ -818,7 +818,7 @@ const TEMPLATES = [
       { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
     ],
     style: "סגנון סמכותי וכהה עם EB Garamond, נייבי עמוק וזהב חם. מתאים למשרדי עורכי דין, ייעוץ משפטי ושירותים מקצועיים.",
-    waMessage: "שלום! אני מתעניין/ת בעיצוב האתר של Horizon Law.",
+    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Horizon Law.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -883,7 +883,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
             style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
           >
-            <ExternalLink size={16} />
+
             פתחו תצוגה מלאה
           </a>
 
@@ -956,7 +956,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
             className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white text-gray-900 px-5 py-2.5 rounded-full font-semibold text-sm shadow-xl flex items-center gap-2"
             style={{ transform: "translateY(8px)" }}
           >
-            דוגמה אינטראקטיבית <ArrowRight size={14} />
+            דוגמה אינטראקטיבית
           </motion.div>
         </div>
       </div>
@@ -981,7 +981,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         <div className="flex items-center justify-between">
           <span className="text-xs text-gray-400 italic">השראה לעיצוב המותג שלכם</span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
-            תצוגה מקדימה <ChevronRight size={14} />
+            תצוגה מקדימה
           </button>
         </div>
       </div>
@@ -1054,7 +1054,7 @@ function CustomBuildCard() {
             style={{ color: "#5B8CFF" }}
             onClick={e => e.stopPropagation()}
           >
-            בקשו הצעת מחיר <ChevronRight size={14} />
+            בקשו הצעת מחיר
           </a>
         </div>
       </div>
@@ -1093,30 +1093,30 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 
   return (
     <div className="relative">
-      {/* Left fade + arrow */}
+      {/* Left fade + navigation */}
       {canScrollLeft && (
         <>
           <div className="absolute left-0 top-0 bottom-0 w-12 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(246,246,244,0.95), transparent)" }} />
           <button
             onClick={() => scroll("left")}
-            className="absolute left-1 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
+            className="absolute left-1 top-1/2 -translate-y-1/2 z-20 min-w-11 h-11 px-3 rounded-md bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
             aria-label="גלילה שמאלה"
           >
-            <ChevronLeft size={16} className="text-gray-600" />
+            <span>שמאלה</span>
           </button>
         </>
       )}
 
-      {/* Right fade + arrow */}
+      {/* Right fade + navigation */}
       {canScrollRight && (
         <>
           <div className="absolute right-0 top-0 bottom-0 w-12 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, rgba(246,246,244,0.95), transparent)" }} />
           <button
             onClick={() => scroll("right")}
-            className="absolute right-1 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
+            className="absolute right-1 top-1/2 -translate-y-1/2 z-20 min-w-11 h-11 px-3 rounded-md bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
             aria-label="גלילה ימינה"
           >
-            <ChevronRight size={16} className="text-gray-600" />
+            <span>ימינה</span>
           </button>
         </>
       )}
@@ -1310,7 +1310,7 @@ export default function TemplatesHe() {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >
-              בואו נדבר <ArrowRight size={18} />
+              בואו נדבר
             </a>
           </motion.div>
         </div>

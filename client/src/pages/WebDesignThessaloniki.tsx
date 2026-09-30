@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -8,36 +10,12 @@ import { useSEO } from "@/hooks/useSEO";
 // Tertiary (GR, price-intent): "κατασκευή ιστοσελίδας Θεσσαλονίκη τιμές"
 // Design: matches DM-Labs.io site style - light bg, brand gradient accents, clean typography
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "DM-Labs.io",
-  "url": "https://dm-labs.io",
-  "telephone": "+35797472847",
-  "email": "info@dm-labs.io",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Eleftheriou Chandrinou",
-    "addressLocality": "Paphos",
-    "postalCode": "8045",
-    "addressCountry": "CY"
-  },
-  "areaServed": "Worldwide",
-  "serviceArea": "Worldwide",
-  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Thessaloniki and worldwide. Custom websites built to earn trust and enquiries, with delivery in 5-14 business days depending on scope and content readiness.",
-  "priceRange": "€€",
-  "currenciesAccepted": "EUR",
-  "paymentAccepted": "Bank Transfer, PayPal",
-  "openingHours": "Mo-Fr 09:00-18:00",
-  "sameAs": [
-    "https://www.instagram.com/dmlabs.io"
-  ]
-};
+
 
 const faqs = [
   {
     q: "How much does web design cost in Thessaloniki?",
-    a: "Our packages for businesses in Thessaloniki start from €299 for a Launch Website. That includes a fully custom design, mobile-responsive layout, SEO setup, a contact form, and everything you need to go live. The Growth Website is €749 and the Pro Website €1,499. Pricing depends on the scope of the project, so we always recommend a free consultation first - that way you get an accurate quote with no surprises."
+    a: BUILD_PRICE_SUMMARY.en
   },
   {
     q: "Do you work with businesses in Thessaloniki remotely?",
@@ -49,7 +27,7 @@ const faqs = [
   },
   {
     q: "How long does it take to build a website for a Thessaloniki business?",
-    a: "The Launch Website typically goes live within 5 to 7 days from the moment we have your content and feedback. The Growth and Pro packages take 7 to 14 days depending on the number of pages and any custom features involved. We keep you updated throughout and do not disappear between milestones."
+    a: "We agree your project schedule before work begins, based on the scope and the materials needed. We keep you updated throughout. Changes to scope, content or feedback may affect the schedule; any revised dates are agreed with you."
   }
 ];
 
@@ -60,43 +38,7 @@ export default function WebDesignThessaloniki() {
     canonicalPath: "/web-design-thessaloniki/"
   });
 
-  useEffect(() => {
-    // Inject LocalBusiness schema
-    const existing = document.getElementById("schema-thessaloniki");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.id = "schema-thessaloniki";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-
-    // Inject FAQPage schema
-    const existingFaq = document.getElementById("schema-thessaloniki-faq");
-    if (existingFaq) existingFaq.remove();
-    const faqScript = document.createElement("script");
-    faqScript.id = "schema-thessaloniki-faq";
-    faqScript.type = "application/ld+json";
-    faqScript.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    });
-    document.head.appendChild(faqScript);
-
-    return () => {
-      const s = document.getElementById("schema-thessaloniki");
-      if (s) s.remove();
-      const sf = document.getElementById("schema-thessaloniki-faq");
-      if (sf) sf.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/web-design-thessaloniki/", "en", "Web Design Thessaloniki", "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Thessaloniki and worldwide. Custom websites built to earn trust and enquiries, with a project schedule agreed around your scope and content readiness.", faqs));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
@@ -146,7 +88,7 @@ export default function WebDesignThessaloniki() {
             That level of economic activity also means a highly competitive digital landscape. According to Google's own data, over 60% of Greek consumers research a business online before making contact. If your website is slow, outdated, or simply does not exist, you are not just missing out on visibility - you are actively sending potential clients to competitors who do have a professional online presence.
           </p>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            A well-built website does more than look good. It ranks on Google for the searches your customers are already making, loads quickly on mobile, and turns visitors into enquiries without requiring any ongoing effort from you. For a business in Thessaloniki - where the market is dense and digital expectations are rising - that kind of presence is no longer a nice-to-have.
+            A well-built website does more than look good. It can help search engines understand your business for relevant searches, loads quickly on mobile, and turns visitors into enquiries without requiring any ongoing effort from you. For a business in Thessaloniki - where the market is dense and digital expectations are rising - that kind of presence is no longer a nice-to-have.
           </p>
           <p className="text-[#5B6472] leading-relaxed">
             The businesses that invest in a quality website now, before their sector becomes fully saturated online, are the ones that capture the most valuable search traffic and build lasting credibility with both local and international clients.
@@ -209,26 +151,7 @@ export default function WebDesignThessaloniki() {
             .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Launch Website",
-                price: "€299",
-                desc: "Ideal for new businesses that need a clean, professional online presence fast. Everything you need to go live with confidence.",
-                highlight: false
-              },
-              {
-                name: "Growth Website",
-                price: "€749",
-                desc: "For established businesses that need a full, conversion-focused website with more pages, stronger SEO, and a polished design.",
-                highlight: true
-              },
-              {
-                name: "Pro Website",
-                price: "€1,499",
-                desc: "For businesses that want a fully custom, feature-rich website with everything included - from custom functionality to priority support.",
-                highlight: false
-              }
-            ].map((p) => (
+            {BUILD_PLANS.en.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((p) => (
               <div
                 key={p.name}
                 className={`rounded-2xl p-6 border ${
@@ -249,7 +172,7 @@ export default function WebDesignThessaloniki() {
             ))}
           </div>
           <p className="text-xs text-[#9CA3AF] mt-4">
-            All prices are one-time fees. No monthly charges, no hidden costs.
+            Build prices are one-time fees. Hosting and care are charged separately, from €69/month while we manage your website. Prices exclude applicable taxes and separately agreed third-party costs.
           </p>
         </div>
       </section>
@@ -267,7 +190,7 @@ export default function WebDesignThessaloniki() {
             {[
               {
                 title: "Fast delivery",
-                desc: "Most websites are live within 5 to 14 days. We work quickly, communicate clearly, and do not leave you waiting."
+                desc: "We work quickly, communicate clearly, and do not leave you waiting."
               },
               {
                 title: "No technical knowledge needed",
@@ -291,7 +214,7 @@ export default function WebDesignThessaloniki() {
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Working Together, Wherever You AreThessaloniki
+            Working Together, Wherever You Are
           </h2>
           <p className="text-[#5B6472] mb-8">
             We work with businesses throughout Thessaloniki - from the centre and the waterfront to Kalamaria, Stavroupoli, Pylaia, and the wider Central Macedonia region. Distance is not a factor.
@@ -335,7 +258,7 @@ export default function WebDesignThessaloniki() {
             Ready to get your Thessaloniki business online?
           </h2>
           <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-            Tell us about your business and we will send you a free proposal within 24 hours. No commitment, no pressure. You can also reach us directly on WhatsApp - we are quick to respond.
+            Tell us about your business and we will send you a free proposal after we understand your requirements. No commitment, no pressure. You can also reach us directly on WhatsApp - we are quick to respond.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact/">
@@ -344,7 +267,7 @@ export default function WebDesignThessaloniki() {
               </button>
             </Link>
             <a
-              href="https://wa.me/35797472847?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Thessaloniki"
+              href="https://wa.me/35797472847?text=Hello%20DM-Labs%20team%21%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Thessaloniki"
               target="_blank"
               rel="noopener noreferrer"
             >

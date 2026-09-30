@@ -1,6 +1,9 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { extname, relative, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import { SERVICE_CARD_MEDIA } from "../client/src/components/home/serviceCardContent";
+import { HOME_INTRODUCTION_MEDIA } from "../client/src/components/home/homeIntroductionContent";
+import { CAPABILITY_IDS } from "../client/src/components/studio/studioCopy";
 
 const projectRoot = resolve(import.meta.dirname, "..");
 const clientRoot = resolve(projectRoot, "client");
@@ -29,24 +32,58 @@ const repositorySource = [
   ),
   readFileSync(resolve(projectRoot, "vite.config.ts"), "utf8"),
 ].join("\n");
-const mediaFiles = collectFiles(mediaRoot);
+const allMediaFiles = collectFiles(mediaRoot);
+const mediaFiles = allMediaFiles.filter(path => extname(path) === ".webp");
+const serviceMarkAssets = CAPABILITY_IDS.flatMap(id => [160, 320].map(size => `/media/brand-refresh/v2/service-${id}-${size}.webp`));
 
 describe("GitHub-backed static media migration", () => {
-  it("stores every migrated file as a referenced WebP below the one-megabyte checkpoint cap", () => {
-    expect(mediaFiles).toHaveLength(121);
+  it("keeps compressed introduction and service-card videos within their playback budgets", () => {
+    const videos = allMediaFiles.filter(path => extname(path) !== ".webp");
+    const expected = [HOME_INTRODUCTION_MEDIA.desktop, HOME_INTRODUCTION_MEDIA.mobile, ...SERVICE_CARD_MEDIA.map(media => media.video)];
+    expect(videos.map(path => `/${relative(resolve(clientRoot, "public"), path)}`).sort()).toEqual([...expected].sort());
+    for (const [path, budget] of [[expected[0], 7_000_000], [expected[1], 3_500_000], ...SERVICE_CARD_MEDIA.map(media => [media.video, 450_000] as const)] as const) {
+      const file = readFileSync(resolve(clientRoot, "public", path.slice(1)));
+      expect(file.length).toBeLessThan(budget);
+      const atoms: string[] = [];
+      for (let offset = 0; offset + 8 <= file.length;) {
+        const size = file.readUInt32BE(offset);
+        atoms.push(file.toString("ascii", offset + 4, offset + 8));
+        if (!size) break;
+        offset += size;
+      }
+      expect(atoms).toContain("moov");
+      expect(atoms).toContain("mdat");
+      expect(atoms.indexOf("moov")).toBeLessThan(atoms.indexOf("mdat"));
+    }
+  });
 
-    const mediaReferences = new Set(clientSource.match(/\/media\/[A-Za-z0-9._/-]+\.webp/g) ?? []);
-    expect(mediaReferences.size).toBe(121);
+  it("keeps current and retired versioned WebP assets below the one-megabyte checkpoint cap", () => {
+    expect(mediaFiles).toHaveLength(163 + serviceMarkAssets.length);
+
+    const mediaReferences = new Set([...(clientSource.match(/\/media\/[A-Za-z0-9._/-]+\.webp/g) ?? []), ...serviceMarkAssets]);
+    expect(mediaReferences.size).toBe(158 + serviceMarkAssets.length);
+    const retiredHeroAssets = new Set([
+      "/media/cloudfront/services-hero-bg-bfPgb525LqzgdU7JVYn89M.webp",
+      "/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp",
+      "/media/hero/dm-labs-mobile-hero-opening-poster_6fc35873.webp",
+      "/media/hero/hebrew-mobile-hero-sprite.webp",
+      "/media/hero/hebrew-mobile-hero-static-frame.webp",
+    ]);
 
     for (const mediaFile of mediaFiles) {
       expect(extname(mediaFile)).toBe(".webp");
       expect(statSync(mediaFile).size).toBeLessThan(1_000_000);
       const publicPath = `/${relative(resolve(clientRoot, "public"), mediaFile).replaceAll("\\", "/")}`;
-      expect(mediaReferences.has(publicPath), publicPath).toBe(true);
+      expect(mediaReferences.has(publicPath) || retiredHeroAssets.has(publicPath), publicPath).toBe(true);
     }
 
     for (const mediaReference of mediaReferences) {
       expect(existsSync(resolve(clientRoot, "public", mediaReference.slice(1))), mediaReference).toBe(true);
+    }
+    for (const size of [160, 320]) {
+      const bytes = serviceMarkAssets.filter(path => path.endsWith(`-${size}.webp`))
+        .reduce((total, path) => total + statSync(resolve(clientRoot, "public", path.slice(1))).size, 0);
+      expect(bytes).toBeLessThan(size === 160 ? 120_000 : 330_000);
     }
   });
 
@@ -57,13 +94,11 @@ describe("GitHub-backed static media migration", () => {
     expect(repositorySource).not.toContain(["/manus", "storage/"].join("-"));
   });
 
-  it("uses the four existing and seven approved cinematic Vercel Blob MP4 videos while leaving 79 Unsplash image objects unchanged in scope", () => {
+  it("uses the two demo and seven existing cinematic cinematic Vercel Blob MP4 videos while leaving 79 Unsplash image objects unchanged in scope", () => {
     const blobVideoReferences = new Set(
       clientSource.match(/https:\/\/zcqnftsc7hsxgrnx\.public\.blob\.vercel-storage\.com\/[^\s"'()]+\.mp4/g) ?? [],
     );
     expect(blobVideoReferences).toEqual(new Set([
-      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-hero-tunnel-scrub_89732dad.mp4",
-      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm-labs-mobile-hero-scrub-fluid_658e00fd.mp4",
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dr-elara-root-canal-treatment_dc985187.mp4",
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/nomad-coffee-scroll-video-all-intra_ab16c684.mp4",
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_futuristic_conversation_animation.mp4",

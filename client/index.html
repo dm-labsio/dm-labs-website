@@ -6,11 +6,11 @@
     <meta name="theme-color" content="#F6F6F4" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary Meta: route-specific tags are injected at build time by scripts/prerender-meta.mjs -->
+    <!-- Primary Meta: route-specific tags are injected at build time by scripts/prerender-full.mjs -->
     <title>Best Web Design Agency for Growing Businesses | DM Labs</title>
     <meta name="description" content="Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses worldwide." />
     <meta name="author" content="DM-Labs.io" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://dm-labs.io/" />
 
     <!-- Open Graph / Social Sharing -->
@@ -29,7 +29,6 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@dmlabs_io" />
     <meta name="twitter:title" content="Best Web Design Agency for Growing Businesses | DM Labs" />
     <meta name="twitter:description" content="Stand out. Build trust. Win more enquiries. Custom websites, fast delivery and personal care for businesses worldwide." />
     <meta name="twitter:image" content="https://dm-labs.io/social/dm-labs-growth-social-card-centered.png" />
@@ -43,12 +42,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="msapplication-TileImage" content="/apple-touch-icon.png" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@80..132,750..800&amp;family=Commissioner:wght@150..650&amp;family=DM+Mono:wght@400&amp;family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&amp;family=Heebo:wght@100..900&amp;family=Huninn&amp;family=Instrument+Serif:ital@1&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
-    <link rel="preload" as="image" href="/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp" fetchpriority="high" />
-    <link rel="preload" as="image" href="/media/hero/dm-labs-mobile-hero-opening-poster_6fc35873.webp" media="(max-width: 767px)" fetchpriority="high" />
+    <!-- Resolve the route locale before fonts and React render. URL always wins. -->
+    <script src="/brand-locale.js"></script>
+    <link rel="preload" href="/fonts/brand-v1/open-sans-400-700.woff2" as="font" type="font/woff2" crossorigin />
     <script>document.documentElement.classList.add("js");</script>
 
   </head>

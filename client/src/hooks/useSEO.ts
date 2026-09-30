@@ -15,6 +15,9 @@ import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { getHreflangRouteSet, isIndexableHebrewRoute, type HreflangRouteSet, normalizeRoutePath, SEO_BASE_URL, withTrailingSlash } from "@/lib/seoRoutes";
 
+import { getRouteLanguage } from "@/lib/routeLanguage";
+import { absoluteImageUrl, pageSchema } from "@/lib/structuredData";
+
 const BASE_URL = SEO_BASE_URL;
 const DEFAULT_TITLE = "Best Web Design Agency for Growing Businesses | DM Labs";
 const DEFAULT_DESCRIPTION =
@@ -137,7 +140,7 @@ function setBreadcrumbSchema(cleanPath: string, finalPath: string, title: string
   items.push({
     "@type": "ListItem",
     position: items.length + 1,
-    name: title.replace(/\s*\|\s*DM-Labs\.io.*$/i, "").trim(),
+    name: title.replace(/\s*\|\s*DM[ -]?Labs(?:\.io)?.*$/i, "").trim(),
     item: `${BASE_URL}${finalPath}`,
   });
 
@@ -178,7 +181,7 @@ export function useSEO(options: SEOOptions = {}) {
     // safely supersedes their temporary per-page staging flag while leaving
     // preview demos and genuine 404 behavior untouched.
     const shouldNoindex = isIndexableHebrewRoute(cleanPath) ? false : noindex;
-    setMetaTag("robots", shouldNoindex ? "noindex, follow" : "index, follow");
+    setMetaTag("robots", shouldNoindex ? "noindex, follow" : "index, follow, max-image-preview:large");
 
     // Update <title>
     document.title = title;
@@ -193,8 +196,9 @@ export function useSEO(options: SEOOptions = {}) {
     setOgTag("og:title", title);
     setOgTag("og:description", description);
     setOgTag("og:url", canonicalUrl);
-    const resolvedOgImageAlt = ogImageAlt ?? (ogImage === DEFAULT_OG_IMAGE ? DEFAULT_OG_IMAGE_ALT : undefined);
-    setOgTag("og:image", ogImage);
+    const resolvedOgImageAlt = ogImageAlt ?? (ogImage === DEFAULT_OG_IMAGE ? DEFAULT_OG_IMAGE_ALT : title);
+    const imageUrl = absoluteImageUrl(ogImage);
+    setOgTag("og:image", imageUrl);
     if (resolvedOgImageAlt) setOgTag("og:image:alt", resolvedOgImageAlt);
     else removeOgTag("og:image:alt");
     if (ogImage === DEFAULT_OG_IMAGE) {
@@ -207,19 +211,29 @@ export function useSEO(options: SEOOptions = {}) {
     }
     setOgTag("og:type", ogType);
     setOgTag("og:site_name", "DM-Labs.io");
-    if (ogLocale) setOgTag("og:locale", ogLocale);
-    else removeOgTag("og:locale");
+    const locale = getRouteLanguage(cleanPath);
+    setOgTag("og:locale", ogLocale ?? { en: "en_GB", el: "el_GR", he: "he_IL" }[locale]);
 
     // Update Twitter tags
     setMetaTag("twitter:title", title);
     setMetaTag("twitter:description", description);
-    setMetaTag("twitter:image", ogImage);
+    setMetaTag("twitter:image", imageUrl);
     if (resolvedOgImageAlt) setMetaTag("twitter:image:alt", resolvedOgImageAlt);
 
     // Emit only reciprocal, real translation targets. Completed Hebrew routes
     // participate through the explicit route map; Hebrew blog URLs remain absent.
     setHreflangTags(getHreflangRouteSet(cleanPath));
     setBreadcrumbSchema(cleanPath, finalPath, title);
+    const schema = document.getElementById("page-jsonld-schema") ?? document.createElement("script");
+    schema.id = "page-jsonld-schema";
+    schema.setAttribute("type", "application/ld+json");
+    schema.textContent = JSON.stringify(pageSchema(canonicalUrl, title, description, locale, imageUrl, resolvedOgImageAlt)).replace(/</g, "\\u003c");
+    if (!schema.parentNode) document.head.appendChild(schema);
+    return () => {
+      schema.remove();
+      document.getElementById("route-breadcrumb-jsonld")?.remove();
+      document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
+    };
   }, [location, options.title, options.description, options.ogImage, options.ogImageAlt, options.ogType, options.canonicalPath, options.noindex, options.ogLocale]);
 }
 

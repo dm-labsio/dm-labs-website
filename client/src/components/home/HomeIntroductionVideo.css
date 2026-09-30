@@ -1,0 +1,30 @@
+.home-film { background: linear-gradient(#101729, #080f20 9rem); color: #edf2ff; padding-block: clamp(4rem, 7vw, 6.5rem); scroll-margin-top: 6rem; }
+.home-film-heading { margin-bottom: 2.5rem; }
+.home-film-heading .brand-micro { color: #b9c2ff; margin-bottom: 1rem; }
+.home-film-heading h2 { max-width: 19ch; }
+.home-film-frame { position: relative; padding: 3px; border-radius: 18px; background: linear-gradient(125deg,#d7dfff,#9b9dff 45%,#6fe3ff); box-shadow: 0 0 0 8px #b3bdff0d, 0 12px 70px #6981ff30; overflow: hidden; isolation: isolate; }
+.home-film-frame::before { content: ""; position: absolute; width: 200%; height: 200%; inset: -50%; background: conic-gradient(from 40deg, transparent 60%, #fff 75%, #74e4ff 82%, transparent 90%); z-index: -1; }
+.home-film-frame[data-revealed="true"]::before { animation: film-frame-light 3.5s ease-out both; }
+.home-film-frame[data-started="true"]::before { display: none; }
+.home-film-player { position: relative; aspect-ratio: 16 / 9; background: #101729; border-radius: 15px; overflow: hidden; }
+.home-film-player video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.home-film-play { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: #080f204a; cursor: pointer; }
+.home-film-play-symbol { display: grid; place-items: center; width: clamp(64px, 8vw, 112px); aspect-ratio: 1; padding-inline-start: 5px; border-radius: 50%; background: #c1c9ff; color: #101729; border: 1px solid #eff7ff; box-shadow: 0 0 0 10px #c1c9ff26,0 0 45px #080f20a0; font-size: clamp(1.4rem,3vw,2.4rem); transition: transform 220ms ease,background 220ms ease; }
+.home-film-play-label { display: block; padding: .6rem 1.25rem; background: #101729ed; color: #f1f5ff; border: 1px solid #b5c7ff80; font-weight: 600; font-size: 1.0625rem; }
+.home-film-play:hover .home-film-play-symbol { transform: scale(1.08); background: #e0e5ff; }
+.home-film-play:focus-visible { outline: 3px solid #6fe3ff; outline-offset: -6px; }
+.home-film-error { margin-top: 1rem; color: #edf2ff; }
+.home-film-error :is(a, button) { display: inline-flex; min-height: 44px; align-items: center; margin-inline-end: 1.5rem; color: #bdcaff; text-decoration: underline; text-underline-offset: .25em; }
+@keyframes film-frame-light { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@media (max-width: 767px) {
+  .home-film-heading { margin-bottom: 2rem; }
+  .home-film-frame { padding: 2px; border-radius: 12px; }
+  .home-film-player { border-radius: 10px; }
+  .home-film-play { gap: .75rem; }
+  .home-film-play-symbol { width: 56px; }
+  .home-film-play-label { font-size: .875rem; padding: .45rem .8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-film-frame[data-revealed="true"]::before { animation: none; }
+  .home-film-play-symbol { transition: none; }
+}

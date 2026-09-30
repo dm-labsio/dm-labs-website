@@ -1,7 +1,8 @@
+import "@/styles/legal.css";
 /* D&M LABS - Privacy Policy (GDPR Compliant) */
 import { Link } from "wouter";
-import AnimateIn from "@/components/AnimateIn";
-import { ChevronLeft } from "lucide-react";
+
+
 import { useSEO } from "@/hooks/useSEO";
 
 export default function Privacy() {
@@ -12,25 +13,25 @@ export default function Privacy() {
   });
 
   return (
-    <>
+    <div className="legal-document">
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
           <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
-            <ChevronLeft size={16} />
+
             Back to Home
           </Link>
           <div className="text-center">
-            <AnimateIn>
+            <div>
               <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Legal</p>
               <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Privacy Policy</h1>
-              <p className="text-sm text-[#5B6472]">Last updated: March 2026</p>
-            </AnimateIn>
+              <p className="text-sm text-[#5B6472]">Last updated: 30 September 2026</p>
+            </div>
           </div>
         </div>
       </section>
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl">
-          <AnimateIn>
+          <div>
             <div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">
 
               <div>
@@ -44,7 +45,7 @@ export default function Privacy() {
                 <ul className="list-disc pl-5 space-y-2">
                   <li><strong className="text-[#111315]">Contact information:</strong> Name, email address, phone number, and business name - provided when you fill in our contact form or message us on WhatsApp.</li>
                   <li><strong className="text-[#111315]">Project information:</strong> Details about your business, design preferences, and website requirements - provided during consultations.</li>
-                  <li><strong className="text-[#111315]">Technical data:</strong> IP address, browser type, device type, and pages visited - collected automatically through essential and analytics cookies (with your consent).</li>
+                  <li><strong className="text-[#111315]">Technical data:</strong> Hosting providers receive technical connection data, including your IP address, to deliver and protect the site. With analytics consent, we also collect browser, device and page-use information. PostHog IP-address capture is disabled in our site configuration.</li>
                   <li><strong className="text-[#111315]">Payment information:</strong> Billing details processed securely through third-party payment providers. We do not store credit card numbers.</li>
                 </ul>
               </div>
@@ -67,7 +68,7 @@ export default function Privacy() {
                   <li>To communicate project updates and timelines</li>
                   <li>To process payments for our services</li>
                   <li>To provide post-launch maintenance and support</li>
-                  <li>To improve our website and services through anonymised analytics</li>
+                  <li>To understand site usage and diagnose errors through consent-based analytics and session replay. Form inputs are masked in replay; analytics identifiers are pseudonymous, not fully anonymous.</li>
                 </ul>
               </div>
 
@@ -77,7 +78,7 @@ export default function Privacy() {
                 <ul className="list-disc pl-5 space-y-2">
                   <li><strong className="text-[#111315]">Hosting providers:</strong> To host and serve your website.</li>
                   <li><strong className="text-[#111315]">Payment processors:</strong> To securely process payments.</li>
-                  <li><strong className="text-[#111315]">Analytics providers:</strong> Privacy-friendly analytics (with your consent) that do not track you across other websites.</li>
+                  <li><strong className="text-[#111315]">Analytics providers:</strong> PostHog (EU) for analytics, session replay and error tracking, and Vercel Web Analytics for site usage. Both are enabled only with analytics consent.</li>
                   <li><strong className="text-[#111315]">Form processors:</strong> Web3Forms, to deliver contact form submissions to our email.</li>
                 </ul>
               </div>
@@ -89,7 +90,7 @@ export default function Privacy() {
                   <li>Contact form submissions: 12 months after last communication</li>
                   <li>Client project data: Duration of the project plus 24 months</li>
                   <li>Payment records: As required by applicable tax and accounting laws</li>
-                  <li>Analytics data: 26 months (anonymised)</li>
+                  <li>Session replay: 30 days under the current project setting. Analytics and error records are retained for usage analysis and fault diagnosis, subject to the provider’s retention settings and the need for those records.</li>
                 </ul>
               </div>
 
@@ -138,9 +139,9 @@ export default function Privacy() {
               <Link href="/cookies/" className="text-sm text-[#5B8CFF] hover:underline">Cookie Policy</Link>
               <Link href="/terms/" className="text-sm text-[#5B8CFF] hover:underline">Terms of Service</Link>
             </div>
-          </AnimateIn>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

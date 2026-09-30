@@ -42,12 +42,12 @@ describe("cinematic banner delivery", () => {
     expect(layout).toContain('normalizedLocation.replace(/^\\/(?:el|he)(?=\\/|$)/, "") || "/"');
   });
 
-  it("uses the five shared routes, matched Contact routes, and English/Greek Blog as protected Hero media", () => {
-    const heroKinds = ["services", "process", "templates", "pricing", "faq"] as const;
+  it("keeps protected video on the remaining routes and shares static Contact and FAQ heroes", () => {
+    const heroKinds = ["templates"] as const;
     const pagesByLocale = [
-      ["Services.tsx", "Process.tsx", "Templates.tsx", "Pricing.tsx", "FAQ.tsx"],
-      ["el/ServicesEl.tsx", "el/ProcessEl.tsx", "el/TemplatesEl.tsx", "el/PricingEl.tsx", "el/FAQEl.tsx"],
-      ["he/ServicesHe.tsx", "he/ProcessHe.tsx", "he/TemplatesHe.tsx", "he/PricingHe.tsx", "he/FAQHe.tsx"],
+      ["Templates.tsx"],
+      ["el/TemplatesEl.tsx"],
+      ["he/TemplatesHe.tsx"],
     ];
 
     pagesByLocale.forEach((pages) => pages.forEach((page, index) => {
@@ -56,16 +56,21 @@ describe("cinematic banner delivery", () => {
       expect(source).toContain(`<CinematicHeroBackground kind="${heroKinds[index]}" />`);
     }));
 
-    [...heroKinds, "contact", "blog"].forEach((kind) => expect(heroComponent).toContain(`${kind}: "https://`));
+    [...heroKinds, "services", "process", "contact", "blog"].forEach((kind) => expect(heroComponent).toContain(`${kind}: "https://`));
     ["Contact.tsx", "el/ContactEl.tsx", "he/ContactHe.tsx"].forEach((page) => {
       const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");
-      expect(source).toContain('className="cinematic-hero-surface');
-      expect(source).toContain('<CinematicHeroBackground kind="contact" />');
+      expect(source).toContain("<ContactPage locale=");
+    });
+    ["Pricing.tsx", "el/PricingEl.tsx", "he/PricingHe.tsx"].forEach(page => {
+      expect(readFileSync(resolve(root, "client/src/pages", page), "utf8")).toContain("<PricingPage key=");
+    });
+    ["FAQ.tsx", "el/FAQEl.tsx", "he/FAQHe.tsx"].forEach(page => {
+      const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");
+      expect(source).toContain("<FAQPage key=");
     });
     ["Blog.tsx", "el/BlogEl.tsx"].forEach((page) => {
       const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");
-      expect(source).toContain('className="cinematic-hero-surface');
-      expect(source).toContain('<CinematicHeroBackground kind="blog" />');
+      expect(source).toContain("<BlogIndex locale=");
     });
     expect(heroComponent).toContain("network.connection?.saveData");
     expect(heroComponent).toContain("(min-width: 768px)");

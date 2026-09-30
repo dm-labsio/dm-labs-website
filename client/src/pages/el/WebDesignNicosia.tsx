@@ -5,43 +5,22 @@
    LocalBusiness schema injected on mount
    ============================================================ */
 import { Link } from "wouter";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
+import { BUILD_PLANS, BUILD_PRICES, BUILD_PRICE_SUMMARY } from "@/components/pricing/pricingContent";
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "DM-Labs.io",
-  "description": "Η DM-Labs.io σχεδιάζει και κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λευκωσία και σε κάθε αγορά. Mobile-first, βελτιστοποιημένες για SEO, με παράδοση σε 5-14 ημέρες.",
-  "url": "https://dm-labs.io/el/web-design-nicosia/",
-  "logo": "https://dm-labs.io/logo.png",
-  "image": "https://dm-labs.io/social/dm-labs-website-social-card.png",
-  "telephone": "+35797472847",
-  "email": "info@dm-labs.io",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Λευκωσία",
-    "addressCountry": "CY"
-  },
-  "areaServed": "Worldwide",
-  "priceRange": "€€",
-  "currenciesAccepted": "EUR",
-  "paymentAccepted": "Τραπεζική Μεταφορά, PayPal",
-  "openingHours": "Δε-Πα 09:00-18:00",
-  "sameAs": [
-    "https://www.instagram.com/dmlabs.io"
-  ]
-};
+
 
 const faqs = [
   {
     q: "Πόσο κοστίζει μια ιστοσελίδα για μια επιχείρηση στη Λευκωσία;",
-    a: "Τα πακέτα μας ξεκινούν από €299 για μια ιστοσελίδα Launch Website — μια πλήρως προσαρμοσμένη, responsive για κινητά ιστοσελίδα με εγκατάσταση SEO, φόρμα επικοινωνίας και όλα όσα χρειάζεστε για να βγείτε live. Το πακέτο Growth Website ξεκινά από €749 και το Pro Website από €1,499. Η τιμή για Enterprise / Custom έργα προσαρμόζεται στο εύρος του έργου σας. Πάντα προτείνουμε μια δωρεάν συμβουλευτική συνάντηση πρώτα, ώστε να λάβετε μια ακριβή προσφορά χωρίς εκπλήξεις."
+    a: BUILD_PRICE_SUMMARY.el
   },
   {
     q: "Συνεργάζεστε με επιχειρήσεις στη Λευκωσία εξ αποστάσεως;",
-    a: "Ναι, αποκλειστικά. Η DM-Labs.io συνεργάζεται με πελάτες σε κάθε αγορά χωρίς να απαιτούνται συναντήσεις από κοντά. Η όλη διαδικασία — αρχική ενημέρωση, σχεδιασμός, αναθεωρήσεις και έναρξη — διεκπεραιώνεται μέσω WhatsApp, email και βιντεοκλήσεων. Οι περισσότεροι πελάτες το βρίσκουν ταχύτερο και πιο βολικό από τον προγραμματισμό επισκέψεων στο γραφείο."
+    a: "Ναι, αποκλειστικά. Η DM-Labs.io συνεργάζεται με πελάτες σε κάθε αγορά χωρίς να απαιτούνται συναντήσεις από κοντά. Η όλη διαδικασία, αρχική ενημέρωση, σχεδιασμός, αναθεωρήσεις και έναρξη, διεκπεραιώνεται μέσω WhatsApp, email και βιντεοκλήσεων. Οι περισσότεροι πελάτες το βρίσκουν ταχύτερο και πιο βολικό από τον προγραμματισμό επισκέψεων στο γραφείο."
   },
   {
     q: "Μπορείτε να φτιάξετε μια ιστοσελίδα στα ελληνικά και στα αγγλικά;",
@@ -49,7 +28,7 @@ const faqs = [
   },
   {
     q: "Πόσος χρόνος χρειάζεται για την κατασκευή μιας ιστοσελίδας για μια επιχείρηση στη Λευκωσία;",
-    a: "Το πακέτο Launch Website συνήθως παραδίδεται εντός 5 έως 7 ημερών από τη στιγμή που έχουμε το περιεχόμενο και τα σχόλιά σας. Τα πακέτα Growth Website και Pro Website χρειάζονται 10 έως 14 ημέρες, ανάλογα με τον αριθμό των σελίδων και τυχόν προσαρμοσμένες λειτουργίες. Σας κρατάμε ενήμερους καθ' όλη τη διάρκεια και δεν εξαφανιζόμαστε μεταξύ των οροσήμων."
+    a: "Συμφωνούμε το χρονοδιάγραμμα πριν ξεκινήσουμε, με βάση το εύρος και τα απαραίτητα υλικά. Σας ενημερώνουμε σε κάθε στάδιο. Αλλαγές στο έργο, στο περιεχόμενο ή στα σχόλια μπορεί να επηρεάσουν το πρόγραμμα· συμφωνούμε μαζί σας κάθε αναθεώρηση."
   }
 ];
 
@@ -69,19 +48,7 @@ export default function WebDesignNicosiaEl() {
     canonicalPath: "/el/web-design-nicosia/"
   });
 
-  useEffect(() => {
-    const existing = document.getElementById("schema-nicosia");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.id = "schema-nicosia";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById("schema-nicosia");
-      if (s) s.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/el/web-design-nicosia/", "el", "Κατασκευή Ιστοσελίδας Λευκωσία", "Η DM-Labs.io σχεδιάζει και κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λευκωσία και σε κάθε αγορά. Mobile-first, βελτιστοποιημένες για SEO, με συμφωνημένο χρονοδιάγραμμα.", faqs));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
@@ -129,10 +96,10 @@ export default function WebDesignNicosiaEl() {
               Γιατί οι Επιχειρήσεις της Λευκωσίας Χρειάζονται μια Σωστή Ιστοσελίδα το 2026
             </h2>
             <p className="text-[#5B6472] leading-relaxed mb-6">
-              Η Λευκωσία είναι η εμπορική, νομική και διοικητική πρωτεύουσα της περιοχής. Φιλοξενεί τη μεγαλύτερη συγκέντρωση δικηγορικών γραφείων, εταιρειών χρηματοοικονομικών υπηρεσιών, κυβερνητικών αναδόχων, ιδιωτικών κλινικών και επιχειρήσεων λιανικής. Ο ανταγωνισμός είναι έντονος — και το πρώτο μέρος που οι περισσότεροι πιθανοί πελάτες ψάχνουν είναι το Google.
+              Η Λευκωσία είναι η εμπορική, νομική και διοικητική πρωτεύουσα της περιοχής. Φιλοξενεί τη μεγαλύτερη συγκέντρωση δικηγορικών γραφείων, εταιρειών χρηματοοικονομικών υπηρεσιών, κυβερνητικών αναδόχων, ιδιωτικών κλινικών και επιχειρήσεων λιανικής. Ο ανταγωνισμός είναι έντονος, και το πρώτο μέρος που οι περισσότεροι πιθανοί πελάτες ψάχνουν είναι το Google.
             </p>
             <p className="text-[#5B6472] leading-relaxed mb-6">
-              Μια αργή, ξεπερασμένη ή ανύπαρκτη ιστοσελίδα δεν είναι απλώς μια χαμένη ευκαιρία — σας κοστίζει ενεργά πελάτες. Μελέτες δείχνουν σταθερά ότι πάνω από το 75% των χρηστών κρίνουν την αξιοπιστία μιας εταιρείας με βάση το design της ιστοσελίδας της. Σε μια τόσο επαγγελματική αγορά όπως η Λευκωσία, οι πρώτες εντυπώσεις είναι το παν.
+              Μια αργή, ξεπερασμένη ή ανύπαρκτη ιστοσελίδα δεν είναι απλώς μια χαμένη ευκαιρία, σας κοστίζει ενεργά πελάτες. Μελέτες δείχνουν σταθερά ότι πάνω από το 75% των χρηστών κρίνουν την αξιοπιστία μιας εταιρείας με βάση το design της ιστοσελίδας της. Σε μια τόσο επαγγελματική αγορά όπως η Λευκωσία, οι πρώτες εντυπώσεις είναι το παν.
             </p>
             <p className="text-[#5B6472] leading-relaxed">
               Η DM-Labs.io κατασκευάζει ιστοσελίδες που είναι γρήγορες, mobile-first και βελτιστοποιημένες για το Google από την πρώτη μέρα. Είτε είστε δικηγορικό γραφείο στη λεωφόρο Μακαρίου, εστιατόριο στην παλιά πόλη ή κλινική στον Στρόβολο, χτίζουμε το είδος της ιστοσελίδας που μετατρέπει τους επισκέπτες σε πελάτες.
@@ -149,7 +116,7 @@ export default function WebDesignNicosiaEl() {
               Κλάδοι που Εξυπηρετούμε στη Λευκωσία
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              Συνεργαζόμαστε με ένα ευρύ φάσμα επιχειρήσεων σε όλη τη Λευκωσία. Κάθε ιστοσελίδα κατασκευάζεται σύμφωνα με τις συγκεκριμένες ανάγκες του κλάδου σας — όχι με ένα γενικό πρότυπο.
+              Συνεργαζόμαστε με ένα ευρύ φάσμα επιχειρήσεων σε όλη τη Λευκωσία. Κάθε ιστοσελίδα κατασκευάζεται σύμφωνα με τις συγκεκριμένες ανάγκες του κλάδου σας, όχι με ένα γενικό πρότυπο.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -174,33 +141,11 @@ export default function WebDesignNicosiaEl() {
               Τιμές Κατασκευής Ιστοσελίδας για Επιχειρήσεις στη Λευκωσία
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              Διαφανής, σταθερή τιμολόγηση. Χωρίς κρυφές χρεώσεις, χωρίς εκπλήξεις με ωριαία χρέωση. Κάθε πακέτο περιλαμβάνει προσαρμοσμένο σχεδιασμό, mobile-first κατασκευή, εγκατάσταση SEO και φόρμα επικοινωνίας.
+              Διαφανής, σταθερή τιμολόγηση. Χωρίς κρυφές χρεώσεις, χωρίς εκπλήξεις με ωριαία χρέωση. Κάθε πακέτο περιλαμβάνει προσαρμοσμένο σχεδιασμό, responsive κατασκευή και βασικές SEO βάσεις. Φόρμες επικοινωνίας περιλαμβάνονται στα Growth και Pro.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Launch Website",
-                price: "€299",
-                desc: "Ιδανικό για αυτοαπασχολούμενους, freelancers και μικρές επιχειρήσεις που χρειάζονται μια καθαρή, επαγγελματική online παρουσία.",
-                features: ["Έως 5 σελίδες", "Responsive για κινητά", "Φόρμα επικοινωνίας", "Βασική εγκατάσταση SEO", "Ενσωμάτωση Google Maps", "Παράδοση σε 5-7 ημέρες"],
-                highlight: false
-              },
-              {
-                name: "Growth Website",
-                price: "€749",
-                desc: "Ιδανικό για καθιερωμένες επιχειρήσεις στη Λευκωσία που χρειάζονται περισσότερο περιεχόμενο, περισσότερες σελίδες και ισχυρότερα θεμέλια SEO.",
-                features: ["Έως 10 σελίδες", "Προηγμένη εγκατάσταση SEO", "Ενότητα άρθρων ή νέων", "Κουμπί συνομιλίας WhatsApp", "Ενσωμάτωση Analytics", "Παράδοση σε 7-10 ημέρες"],
-                highlight: true
-              },
-              {
-                name: "Pro Website",
-                price: "€1,499",
-                desc: "Για επιχειρήσεις που θέλουν μια πλήρως προσαρμοσμένη ιστοσελίδα με πλούσια χαρακτηριστικά, όπως συστήματα κρατήσεων, πολυγλωσσικό περιεχόμενο ή e-commerce.",
-                features: ["Απεριόριστες σελίδες", "Σύστημα κρατήσεων / ερωτήσεων", "Δίγλωσσο (Ελληνικά + Αγγλικά)", "Προσαρμοσμένα animations", "Υποστήριξη κατά προτεραιότητα", "Παράδοση σε 10-14 ημέρες"],
-                highlight: false
-              }
-            ].map((pkg) => (
+            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((pkg) => (
               <AnimateIn key={pkg.name}>
                 <div className={`rounded-2xl p-6 border h-full flex flex-col ${pkg.highlight ? "border-[#5B8CFF] shadow-lg bg-gradient-to-b from-[#EEF3FF] to-white" : "border-[#E8EAF0] shadow-sm bg-white"}`}>
                   {pkg.highlight && (
@@ -237,14 +182,14 @@ export default function WebDesignNicosiaEl() {
               Γιατί οι Επιχειρήσεις της Λευκωσίας Επιλέγουν τη DM-Labs.io
             </h2>
             <p className="text-[#5B6472] leading-relaxed mb-8">
-              Η DM-Labs.io είναι ένα απομακρυσμένο στούντιο σχεδιασμού ιστοσελίδων. Συνεργαζόμαστε με επιχειρήσεις σε κάθε αγορά — από τη Λευκωσία και τη Λεμεσό μέχρι μικρότερες πόλεις — εξ ολοκλήρου online. Χωρίς επισκέψεις στο γραφείο, χωρίς καθυστερήσεις για συναντήσεις από κοντά. Την πλήρη διαδικασία, από την πρώτη κλήση μέχρι την έναρξη, τη διαχειριζόμαστε εμείς, ώστε να μπορείτε να εστιάσετε στη λειτουργία της επιχείρησής σας.
+              Η DM-Labs.io είναι ένα απομακρυσμένο στούντιο σχεδιασμού ιστοσελίδων. Συνεργαζόμαστε με επιχειρήσεις σε κάθε αγορά, από τη Λευκωσία και τη Λεμεσό μέχρι μικρότερες πόλεις, εξ ολοκλήρου online. Χωρίς επισκέψεις στο γραφείο, χωρίς καθυστερήσεις για συναντήσεις από κοντά. Την πλήρη διαδικασία, από την πρώτη κλήση μέχρι την έναρξη, τη διαχειριζόμαστε εμείς, ώστε να μπορείτε να εστιάσετε στη λειτουργία της επιχείρησής σας.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               {
                 title: "Γρήγορη παράδοση",
-                desc: "Οι περισσότερες ιστοσελίδες είναι online εντός 5 έως 14 ημερών. Δουλεύουμε γρήγορα, επικοινωνούμε ξεκάθαρα και δεν σας αφήνουμε να περιμένετε."
+                desc: "Δουλεύουμε γρήγορα, επικοινωνούμε ξεκάθαρα και δεν σας αφήνουμε να περιμένετε."
               },
               {
                 title: "Δεν απαιτούνται τεχνικές γνώσεις",
@@ -274,7 +219,7 @@ export default function WebDesignNicosiaEl() {
               Εξυπηρετούμε Επιχειρήσεις σε όλη τη Λευκωσία
             </h2>
             <p className="text-[#5B6472] mb-8">
-              Συνεργαζόμαστε με επιχειρήσεις σε όλη τη Λευκωσία — από την παλιά περιτειχισμένη πόλη και τη λεωφόρο Μακαρίου μέχρι τον Στρόβολο, την Αγλαντζιά, τα Λατσιά, τη Λακατάμια και την ευρύτερη Επαρχία Λευκωσίας. Η απόσταση δεν αποτελεί εμπόδιο.
+              Συνεργαζόμαστε με επιχειρήσεις σε όλη τη Λευκωσία, από την παλιά περιτειχισμένη πόλη και τη λεωφόρο Μακαρίου μέχρι τον Στρόβολο, την Αγλαντζιά, τα Λατσιά, τη Λακατάμια και την ευρύτερη Επαρχία Λευκωσίας. Η απόσταση δεν αποτελεί εμπόδιο.
             </p>
           </AnimateIn>
           <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
@@ -305,12 +250,12 @@ export default function WebDesignNicosiaEl() {
             <div className="flex flex-wrap gap-4">
               <Link href="/el/web-design-limassol/">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-sm hover:bg-[#EEF3FF] transition-colors cursor-pointer">
-                  Κατασκευή Ιστοσελίδας Λεμεσός →
+                  Κατασκευή Ιστοσελίδας Λεμεσός
                 </span>
               </Link>
               <Link href="/el/web-design-thessaloniki/">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#8B5CFF] text-[#8B5CFF] font-semibold text-sm hover:bg-[#F3EEFF] transition-colors cursor-pointer">
-                  Κατασκευή Ιστοσελίδας Θεσσαλονίκη →
+                  Κατασκευή Ιστοσελίδας Θεσσαλονίκη
                 </span>
               </Link>
             </div>
@@ -347,7 +292,7 @@ export default function WebDesignNicosiaEl() {
               Είστε έτοιμοι να βάλετε την επιχείρησή σας στη Λευκωσία online;
             </h2>
             <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-              Πείτε μας για την επιχείρησή σας και θα σας στείλουμε μια δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. Μπορείτε επίσης να επικοινωνήσετε μαζί μας απευθείας στο WhatsApp — απαντάμε γρήγορα.
+              Πείτε μας για την επιχείρησή σας και θα σας στείλουμε μια δωρεάν πρόταση αφού κατανοήσουμε τις ανάγκες σας. Χωρίς δέσμευση. Μπορείτε επίσης να επικοινωνήσετε μαζί μας απευθείας στο WhatsApp, απαντάμε γρήγορα.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/el/contact/">
@@ -356,7 +301,7 @@ export default function WebDesignNicosiaEl() {
                 </button>
               </Link>
               <a
-                href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%B7%CE%BD%20%CE%B5%CF%80%CE%B9%CF%87%CE%B5%CE%AF%CF%81%CE%B7%CF%83%CE%AE%20%CE%BC%CE%BF%CF%85%20%CF%83%CF%84%CE%B7%20%CE%9B%CE%B5%CF%85%CE%BA%CF%89%CF%83ία."
+                href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BF%CE%BC%CE%AC%CE%B4%CE%B1%20DM-Labs%21%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%B7%CE%BD%20%CE%B5%CF%80%CE%B9%CF%87%CE%B5%CE%AF%CF%81%CE%B7%CF%83%CE%AE%20%CE%BC%CE%BF%CF%85%20%CF%83%CF%84%CE%B7%20%CE%9B%CE%B5%CF%85%CE%BA%CF%89%CF%83%CE%AF%CE%B1."
                 target="_blank"
                 rel="noopener noreferrer"
               >

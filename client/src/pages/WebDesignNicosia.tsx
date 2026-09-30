@@ -5,45 +5,22 @@
    LocalBusiness schema injected on mount
    ============================================================ */
 import { Link } from "wouter";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
+import { BUILD_PLANS, BUILD_PRICES, BUILD_PRICE_SUMMARY } from "@/components/pricing/pricingContent";
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "DM-Labs.io",
-  "description": "DM-Labs.io designs and builds professional websites for businesses in Nicosia and worldwide. Mobile-first, SEO-optimised, delivered in 5-14 days.",
-  "url": "https://dm-labs.io/web-design-nicosia/",
-  "logo": "https://dm-labs.io/logo.png",
-  "image": "https://dm-labs.io/social/dm-labs-website-social-card.png",
-  "telephone": "+35797472847",
-  "email": "info@dm-labs.io",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Eleftheriou Chandrinou",
-    "postalCode": "8045",
-    "addressLocality": "Paphos",
-    "addressCountry": "CY"
-  },
-  "areaServed": "Worldwide",
-  "priceRange": "€€",
-  "currenciesAccepted": "EUR",
-  "paymentAccepted": "Bank Transfer, PayPal",
-  "openingHours": "Mo-Fr 09:00-18:00",
-  "sameAs": [
-    "https://www.instagram.com/dmlabs.io"
-  ]
-};
+
 
 const faqs = [
   {
     q: "How much does a website cost for a Nicosia business?",
-    a: "Our packages start from €299 for a Launch Website — a fully custom, mobile-responsive website with SEO setup and everything needed to go live. The Growth Website is €749 and the Pro Website €1,499. We always recommend a free consultation first so you get an accurate quote with no surprises."
+    a: BUILD_PRICE_SUMMARY.en
   },
   {
     q: "Do you work with businesses in Nicosia remotely?",
-    a: "Yes, entirely. DM-Labs.io works with clients worldwide without any need for in-person meetings. The full process — initial brief, design, revisions, and launch — is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits."
+    a: "Yes, entirely. DM-Labs.io works with clients worldwide without any need for in-person meetings. The full process, initial brief, design, revisions, and launch, is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits."
   },
   {
     q: "Can you build a website in Greek and English?",
@@ -51,7 +28,7 @@ const faqs = [
   },
   {
     q: "How long does it take to build a website for a Nicosia business?",
-    a: "The Launch Website typically goes live within 5 to 7 days from the moment we have your content and feedback. The Growth and Pro packages take 7 to 14 days depending on the number of pages and any custom features involved. We keep you updated throughout and do not disappear between milestones."
+    a: "We agree your project schedule before work begins, based on the scope and the materials needed. We keep you updated throughout. Changes to scope, content or feedback may affect the schedule; any revised dates are agreed with you."
   }
 ];
 
@@ -71,19 +48,7 @@ export default function WebDesignNicosia() {
     canonicalPath: "/web-design-nicosia/"
   });
 
-  useEffect(() => {
-    const existing = document.getElementById("schema-nicosia");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.id = "schema-nicosia";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById("schema-nicosia");
-      if (s) s.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/web-design-nicosia/", "en", "Web Design Nicosia", "DM-Labs.io designs and builds professional websites for businesses in Nicosia and worldwide. Mobile-first, SEO-optimised, with a clear, agreed project schedule.", faqs));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
@@ -131,10 +96,10 @@ export default function WebDesignNicosia() {
               Why Nicosia Businesses Need a Proper Website in 2026
             </h2>
             <p className="text-[#5B6472] leading-relaxed mb-6">
-              Nicosia is the commercial, legal, and administrative capital. It is home to the island's largest concentration of law firms, financial services companies, government contractors, private clinics, and retail businesses. Competition is intense — and the first place most potential clients look is Google.
+              Nicosia is the commercial, legal, and administrative capital. It is home to the island's largest concentration of law firms, financial services companies, government contractors, private clinics, and retail businesses. Competition is intense and the first place most potential clients look is Google.
             </p>
             <p className="text-[#5B6472] leading-relaxed mb-6">
-              A slow, outdated, or non-existent website is not just a missed opportunity — it actively loses you business. Studies consistently show that over 75% of users judge a company's credibility based on its website design. In a market as professional as Nicosia, first impressions are everything.
+              A slow, outdated, or non-existent website is not just a missed opportunity; it actively loses you business. Studies consistently show that over 75% of users judge a company's credibility based on its website design. In a market as professional as Nicosia, first impressions are everything.
             </p>
             <p className="text-[#5B6472] leading-relaxed">
               DM-Labs.io builds websites that are fast, mobile-first, and optimised for Google from day one. Whether you are a law firm on Makarios Avenue, a restaurant in the old city, or a clinic in Strovolos, we build the kind of website that converts visitors into clients.
@@ -151,7 +116,7 @@ export default function WebDesignNicosia() {
               Industries We Serve in Nicosia
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              We work with a wide range of businesses across Nicosia. Every website is built to the specific needs of your industry — not a generic template.
+              We work with a wide range of businesses across Nicosia. Every website is built to the specific needs of your industry, not a generic template.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -176,33 +141,11 @@ export default function WebDesignNicosia() {
               Web Design Pricing for Nicosia Businesses
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              Transparent, fixed pricing. No hidden fees, no hourly billing surprises. Every package includes custom design, mobile-first build, SEO setup, and a contact form.
+              Transparent, fixed pricing. No hidden fees, no hourly billing surprises. Every package includes custom design, a responsive build and basic SEO foundations. Contact forms are included with Growth and Pro.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Launch Website",
-                price: "€299",
-                desc: "A lean online presence for a new business that needs to launch clearly and professionally.",
-                features: ["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"],
-                highlight: false
-              },
-              {
-                name: "Growth Website",
-                price: "€749",
-                desc: "A conversion-focused site for a business ready to be found, trusted, and contacted online.",
-                features: ["Up to 4 pages", "Contact form", "Google Maps and reviews", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"],
-                highlight: true
-              },
-              {
-                name: "Pro Website",
-                price: "€1,499",
-                desc: "For a more complete digital presence with richer content, motion, and stronger search foundations.",
-                features: ["Up to 7 pages", "Gallery or portfolio", "Full SEO structure", "Blog setup or visual pack", "4 revision rounds"],
-                highlight: false
-              }
-            ].map((pkg) => (
+            {BUILD_PLANS.en.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((pkg) => (
               <AnimateIn key={pkg.name}>
                 <div className={`rounded-2xl p-6 border h-full flex flex-col ${pkg.highlight ? "border-[#5B8CFF] shadow-lg bg-gradient-to-b from-[#EEF3FF] to-white" : "border-[#E8EAF0] shadow-sm bg-white"}`}>
                   {pkg.highlight && (
@@ -239,14 +182,14 @@ export default function WebDesignNicosia() {
               Why Nicosia Businesses Choose DM-Labs.io
             </h2>
             <p className="text-[#5B6472] leading-relaxed mb-8">
-              DM-Labs.io is a remote web design studio. We work with businesses worldwide — from Nicosia and Limassol to smaller towns — entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
+              DM-Labs.io is a remote web design studio. We work with businesses worldwide, from Nicosia and Limassol to smaller towns, entirely online. No office visits, no delays waiting for in-person meetings. The full process, from first call to launch, is managed by us so you can focus on running your business.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               {
                 title: "Fast delivery",
-                desc: "Most websites are live within 5 to 14 days. We work quickly, communicate clearly, and do not leave you waiting."
+                desc: "We work quickly, communicate clearly, and do not leave you waiting."
               },
               {
                 title: "No technical knowledge needed",
@@ -254,7 +197,7 @@ export default function WebDesignNicosia() {
               },
               {
                 title: "Built to convert",
-                desc: "Every page is designed with one goal in mind — turning visitors into enquiries. Good design is only useful if it drives results."
+                desc: "Every page is designed with one goal in mind: turning visitors into enquiries. Good design is only useful if it drives results."
               }
             ].map((w) => (
               <AnimateIn key={w.title}>
@@ -273,10 +216,10 @@ export default function WebDesignNicosia() {
         <div className="container max-w-4xl mx-auto">
           <AnimateIn>
             <h2 className="text-3xl font-bold text-[#111315] mb-3">
-              Working Together, Wherever You AreNicosia
+              Working Together, Wherever You Are
             </h2>
             <p className="text-[#5B6472] mb-8">
-              We work with businesses throughout Nicosia — from the old walled city and Makarios Avenue to Strovolos, Aglandjia, Latsia, Lakatamia, and the wider Nicosia District. Distance is not a factor.
+              We work with businesses throughout Nicosia, from the old walled city and Makarios Avenue to Strovolos, Aglandjia, Latsia, Lakatamia, and the wider Nicosia District. Distance is not a factor.
             </p>
           </AnimateIn>
           <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
@@ -307,12 +250,12 @@ export default function WebDesignNicosia() {
             <div className="flex flex-wrap gap-4">
               <Link href="/web-design-limassol/">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-sm hover:bg-[#EEF3FF] transition-colors cursor-pointer">
-                  Web Design Limassol →
+                  Web Design Limassol
                 </span>
               </Link>
               <Link href="/web-design-thessaloniki/">
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-[#8B5CFF] text-[#8B5CFF] font-semibold text-sm hover:bg-[#F3EEFF] transition-colors cursor-pointer">
-                  Web Design Thessaloniki →
+                  Web Design Thessaloniki
                 </span>
               </Link>
             </div>
@@ -349,7 +292,7 @@ export default function WebDesignNicosia() {
               Ready to get your Nicosia business online?
             </h2>
             <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-              Tell us about your business and we will send you a free proposal within 24 hours. No commitment, no pressure. You can also reach us directly on WhatsApp — we are quick to respond.
+              Tell us about your business and we will send you a free proposal after we understand your requirements. No commitment, no pressure. You can also reach us directly on WhatsApp. We are quick to respond.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact/">
@@ -358,7 +301,7 @@ export default function WebDesignNicosia() {
                 </button>
               </Link>
               <a
-                href="https://wa.me/35797472847?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Nicosia"
+                href="https://wa.me/35797472847?text=Hello%20DM-Labs%20team%21%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Nicosia"
                 target="_blank"
                 rel="noopener noreferrer"
               >

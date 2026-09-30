@@ -3,7 +3,8 @@
    Target: web design Limassol and website design Limassol.
    ============================================================ */
 import StarButton from "@/components/ui/star-button";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
@@ -21,26 +22,7 @@ const faqItems = [
   { question: "Can you add booking, a CRM, or multilingual content?", answer: "Yes, those requirements are available through Enterprise / Custom scope. The quote depends on the tools, content volume, languages, and implementation requirements." },
 ];
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://dm-labs.io/web-design-limassol/#professionalservice",
-      "name": "DM-Labs.io",
-      "description": "DM-Labs.io designs and builds professional, mobile-first websites for businesses worldwide.",
-      "url": "https://dm-labs.io/web-design-limassol/",
-      "telephone": "+35797472847",
-      "email": "info@dm-labs.io",
-      "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
-      "areaServed": "Worldwide",
-      "priceRange": "€299-€1,499",
-      "currenciesAccepted": "EUR",
-      "hasOfferCatalog": { "@type": "OfferCatalog", "name": "DM-Labs.io Website Packages", "itemListElement": packages.map((item) => ({ "@type": "Offer", "name": item.name, "price": item.price.replace(/[€,]/g, ""), "priceCurrency": "EUR" })) }
-    },
-    { "@type": "FAQPage", "mainEntity": faqItems.map((item) => ({ "@type": "Question", "name": item.question, "acceptedAnswer": { "@type": "Answer", "text": item.answer } })) }
-  ]
-};
+
 
 export default function WebDesignLimassol() {
   useSEO({
@@ -49,15 +31,7 @@ export default function WebDesignLimassol() {
     canonicalPath: "/web-design-limassol/",
   });
 
-  useEffect(() => {
-    document.getElementById("schema-limassol")?.remove();
-    const script = document.createElement("script");
-    script.id = "schema-limassol";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => { document.getElementById("schema-limassol")?.remove(); };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/web-design-limassol/", "en", "Web Design Limassol", "DM-Labs.io designs and builds professional, mobile-first websites for businesses worldwide.", faqItems.map(item => ({ q: item.question, a: item.answer }))));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
@@ -65,7 +39,7 @@ export default function WebDesignLimassol() {
         <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Web Design · Limassol</span>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F172A] leading-tight mb-6">Web Design for <span className="bg-gradient-to-r from-[#5B8CFF] via-[#6FE3FF] to-[#A855F7] bg-clip-text text-transparent">Limassol Businesses</span></h1>
         <p className="text-lg md:text-xl text-[#475569] max-w-2xl mx-auto mb-8 leading-relaxed">DM-Labs.io builds clear, professional, mobile-first websites for Limassol businesses. Make your business look established, earn trust, and give customers a clear reason to contact you.</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><a href="https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27m%20interested%20in%20a%20website%20for%20my%20Limassol%20business." target="_blank" rel="noopener noreferrer" className="btn-primary">Get a Free Consultation</a></StarButton><Link href="/pricing/" className="btn-secondary">View Pricing</Link></div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><a href="https://wa.me/35797472847?text=Hello%20DM-Labs%20team%21%20I%27m%20interested%20in%20a%20website%20for%20my%20Limassol%20business." target="_blank" rel="noopener noreferrer" className="btn-primary">Get a Free Consultation</a></StarButton><Link href="/pricing/" className="btn-secondary">View Pricing</Link></div>
       </AnimateIn></div></section>
 
       <section className="py-10 bg-white border-y border-[#E2E5EA]"><div className="container"><div className="grid grid-cols-2 md:grid-cols-4 gap-6">{[
@@ -82,7 +56,7 @@ export default function WebDesignLimassol() {
 
       <section className="section-spacing bg-white"><div className="container max-w-3xl mx-auto"><AnimateIn><h2 className="text-3xl font-bold text-[#0F172A] mb-8 text-center">Limassol Web Design FAQs</h2></AnimateIn><div className="space-y-4">{faqItems.map((item) => <AnimateIn key={item.question}><article className="bg-[#F8FAFF] rounded-xl p-6 border border-[#E2E5EA]"><h3 className="font-semibold text-[#0F172A] mb-2">{item.question}</h3><p className="text-sm text-[#64748B] leading-relaxed">{item.answer}</p></article></AnimateIn>)}</div></div></section>
 
-      <section className="section-spacing bg-[#0F172A] text-center"><div className="container max-w-3xl"><AnimateIn><h2 className="text-3xl md:text-4xl font-bold text-white mb-5">Ready to Improve Your Limassol Website?</h2><p className="text-white/70 text-lg mb-8">Tell DM-Labs.io about your business and we will recommend a practical starting scope.</p><div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><a href="https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27d%20like%20a%20free%20consultation%20for%20my%20Limassol%20business." target="_blank" rel="noopener noreferrer" className="btn-primary">Get a Free Consultation</a></StarButton><Link href="/pricing/" className="btn-secondary !border-white/30 !text-white hover:!bg-white/10">View All Packages</Link></div></AnimateIn></div></section>
+      <section className="section-spacing bg-[#0F172A] text-center"><div className="container max-w-3xl"><AnimateIn><h2 className="text-3xl md:text-4xl font-bold text-white mb-5">Ready to Improve Your Limassol Website?</h2><p className="text-white/70 text-lg mb-8">Tell DM-Labs.io about your business and we will recommend a practical starting scope.</p><div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><a href="https://wa.me/35797472847?text=Hello%20DM-Labs%20team%21%20I%27d%20like%20a%20free%20consultation%20for%20my%20Limassol%20business." target="_blank" rel="noopener noreferrer" className="btn-primary">Get a Free Consultation</a></StarButton><Link href="/pricing/" className="btn-secondary !border-white/30 !text-white hover:!bg-white/10">View All Packages</Link></div></AnimateIn></div></section>
     </main>
   );
 }

@@ -11,18 +11,23 @@
  */
 
 import { useState, useEffect, useRef } from "react";
+import { useLocation } from "wouter";
 import { Accessibility, X, Plus, Minus, Sun } from "lucide-react";
 
 type FontSize = "normal" | "large" | "xlarge";
 type Contrast = "normal" | "high";
 
 export default function AccessibilityWidget() {
+  const [location] = useLocation();
   const [open, setOpen] = useState(false);
   const [fontSize, setFontSize] = useState<FontSize>("normal");
   const [contrast, setContrast] = useState<Contrast>("normal");
-  const isHebrew = typeof window !== "undefined" && window.location.pathname.startsWith("/he");
+  const isHebrew = location === "/he" || location.startsWith("/he/");
+  const isGreek = location === "/el" || location.startsWith("/el/");
   const labels = isHebrew ? {
     trigger: "אפשרויות נגישות", dialog: "הגדרות נגישות", title: "נגישות", close: "סגירת חלונית נגישות", size: "גודל טקסט", decrease: "הקטנת גודל הטקסט", increase: "הגדלת גודל הטקסט", normal: "ברירת מחדל", large: "גדול", xlarge: "גדול מאוד", contrast: "ניגודיות", contrastOn: "ניגודיות גבוהה: פעילה", contrastOff: "ניגודיות גבוהה: כבויה", reset: "איפוס לברירת מחדל",
+  } : isGreek ? {
+    trigger: "Επιλογές προσβασιμότητας", dialog: "Ρυθμίσεις προσβασιμότητας", title: "Προσβασιμότητα", close: "Κλείσιμο ρυθμίσεων προσβασιμότητας", size: "Μέγεθος κειμένου", decrease: "Μείωση μεγέθους κειμένου", increase: "Αύξηση μεγέθους κειμένου", normal: "Κανονικό", large: "Μεγάλο", xlarge: "Πολύ μεγάλο", contrast: "Αντίθεση", contrastOn: "Υψηλή αντίθεση: ενεργή", contrastOff: "Υψηλή αντίθεση: ανενεργή", reset: "Επαναφορά προεπιλογών",
   } : {
     trigger: "Accessibility options", dialog: "Accessibility settings", title: "Accessibility", close: "Close accessibility panel", size: "Text Size", decrease: "Decrease text size", increase: "Increase text size", normal: "Default", large: "Large", xlarge: "X-Large", contrast: "Contrast", contrastOn: "High Contrast: On", contrastOff: "High Contrast: Off", reset: "Reset to default",
   };

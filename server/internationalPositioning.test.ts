@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { resolve, join } from "node:path";
 import ts from "typescript";
+import { HOME_HERO_COPY } from "../client/src/components/home/homeHeroContent";
 import { describe, expect, it } from "vitest";
 
 const root = resolve(import.meta.dirname, "..");
@@ -15,21 +16,12 @@ function withoutTechnicalReferences(text: string) {
 
 describe("International positioning", () => {
   it("uses the selected English headline and its Greek adaptation", () => {
-    const home = readFileSync(resolve(root, "client/src/pages/Home.tsx"), "utf8");
-    const greek = readFileSync(resolve(root, "client/src/pages/el/HomeEl.tsx"), "utf8");
-    expect(home).toContain(">Built to impress. Designed to convert.</h1>");
-    expect(home).toContain(">Built to</EditorialFitLine>");
-    expect(home).toContain(">impress.</em>");
-    expect(home).toContain(">Designed to</EditorialFitLine>");
-    expect(home).toContain(">convert.</em>");
-    expect(greek).toContain("Εντυπωσιάζει με την πρώτη ματιά.");
-    expect(greek).toContain("Μετατρέπει το ενδιαφέρον σε πελάτες.");
+    expect(`${HOME_HERO_COPY.en.opening} ${HOME_HERO_COPY.en.payoff}`).toBe("Built to impress. Designed to convert.");
+    expect(`${HOME_HERO_COPY.el.opening} ${HOME_HERO_COPY.el.payoff}`).toBe("Εντυπωσιάζει με την πρώτη ματιά. Μετατρέπει το ενδιαφέρον σε πελάτες.");
   });
 
   it("uses the approved natural Hebrew homepage headline", () => {
-    const home = readFileSync(resolve(root, "client/src/pages/he/HomeHe.tsx"), "utf8");
-    expect(home).toContain(">בונים לכם אתר שיביא יותר לקוחות</h1>");
-    expect(home).not.toContain("סוכנות האתרים שנבנתה");
+    expect(`${HOME_HERO_COPY.he.opening} ${HOME_HERO_COPY.he.payoff}`).toBe("בונים לכם אתר שיביא יותר לקוחות");
   });
 
   it("keeps countries out of customer-facing copy and metadata in every locale", () => {

@@ -1,3 +1,5 @@
+import { absoluteImageUrl, ORGANIZATION_ID } from "@/lib/structuredData";
+import { newestFirst } from "@/lib/blogOrder";
 /* ============================================================
    D&M LABS - Blog Post Detail Page
    Brand: #5B8CFF→#6FE3FF→#8B5CFF gradient, #0F172A dark
@@ -7,8 +9,9 @@ import { useEffect } from "react";
 import { Link, useParams, useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { getPostBySlug, POSTS } from "@/data/blogPosts";
-import { ArrowLeft, Clock, Tag, Calendar } from "lucide-react";
+import { Clock, Tag, Calendar } from "lucide-react";
 import AnimateIn from "@/components/AnimateIn";
+import "@/components/blog/BlogArticle.css";
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-GB", {
@@ -27,7 +30,7 @@ export default function BlogPost() {
     title: post ? post.metaTitle : "Article | DM-Labs.io",
     description: post ? post.metaDescription : "Read the latest web design insights from DM-Labs.io.",
     ogImage: post ? post.coverImage : undefined,
-    ogImageAlt: post?.imageAlt,
+    ogImageAlt: post?.imageAlt ?? post?.title,
     ogType: "article",
     canonicalPath: post ? `/blog/${post.slug}/` : undefined,
   });
@@ -42,9 +45,10 @@ export default function BlogPost() {
       const schema = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": post.metaTitle,
+        "headline": post.title,
+        "@id": `https://dm-labs.io/blog/${post.slug}/#article`,
         "description": post.metaDescription,
-        "image": post.coverImage,
+        "image": absoluteImageUrl(post.coverImage),
         "datePublished": post.date,
         "dateModified": post.dateModified ?? post.date,
         "author": {
@@ -56,6 +60,7 @@ export default function BlogPost() {
           } : {})
         },
         "publisher": {
+          "@id": ORGANIZATION_ID,
           "@type": "Organization",
           "name": "DM-Labs.io",
           "logo": {
@@ -67,7 +72,7 @@ export default function BlogPost() {
           "@type": "WebPage",
           "@id": `https://dm-labs.io/blog/${post.slug}/`
         },
-        ...(post.language ? { "inLanguage": post.language } : {}),
+        "inLanguage": post.language ?? "en",
         ...(post.keywords?.length ? { "keywords": post.keywords.join(", ") } : {})
       };
 
@@ -132,9 +137,9 @@ export default function BlogPost() {
   return (
     <>
       {/* Hero / Cover */}
-      <section className="relative overflow-hidden" style={{ paddingTop: "72px" }}>
-        <div className="relative" style={{ height: "clamp(260px, 40vh, 420px)" }}>
-          <picture>
+      <section className="blog-article-hero">
+        <div className="blog-article-cover">
+          <picture className="blog-article-image">
             {post.coverImageMobile && (
               <source media="(max-width: 767px)" srcSet={post.coverImageMobile} />
             )}
@@ -149,9 +154,9 @@ export default function BlogPost() {
             />
           </picture>
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.7) 100%)" }} />
-          <div className="absolute inset-0 flex flex-col justify-end">
-            <div className="container pb-10">
-              <AnimateIn>
+          <div className="blog-article-heading">
+            <div className="container">
+              <div>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-white mb-4"
                   style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}>
                   <Tag size={10} />
@@ -161,15 +166,15 @@ export default function BlogPost() {
                   {post.title}
                 </h1>
                 <div className="flex flex-wrap items-center gap-4 text-sm text-white/80">
-                  <span className="flex items-center gap-1.5"><Calendar size={13} />{formatDate(post.date)}</span>
+                  <span className="flex items-center gap-1.5"><Calendar size={13} /><time dateTime={post.date}>{formatDate(post.date)}</time></span>
                   <span className="flex items-center gap-1.5"><Clock size={13} />{post.readTime}</span>
-                  {post.author && (
+                  {(
                     <span className="flex items-center gap-1.5 font-medium text-white/90">
-                      By {post.author}
+                      By {post.author ?? "Anastacia B."}
                     </span>
                   )}
                 </div>
-              </AnimateIn>
+              </div>
             </div>
           </div>
         </div>
@@ -181,7 +186,7 @@ export default function BlogPost() {
           <div className="max-w-2xl mx-auto">
             {/* Back link */}
             <Link href="/blog/" className="inline-flex items-center gap-2 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-10 font-medium">
-              <ArrowLeft size={15} /> Back to Blog
+               Back to Blog
             </Link>
 
             {/* Article content */}
@@ -218,7 +223,7 @@ export default function BlogPost() {
             {/* Bottom back link */}
             <div className="mt-14 pt-8 border-t border-[#E2E5EA]">
               <Link href="/blog/" className="inline-flex items-center gap-2 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors font-medium">
-                <ArrowLeft size={15} /> More articles
+                 More articles
               </Link>
             </div>
           </div>
@@ -227,13 +232,13 @@ export default function BlogPost() {
 
       {/* Related Articles */}
       {(() => {
-        const related = POSTS.filter(
+        const related = newestFirst(POSTS).filter(
           (p) => p.slug !== post.slug && p.category === post.category
         ).slice(0, 2);
         const fallback = related.length < 2
-          ? POSTS.filter((p) => p.slug !== post.slug && !related.includes(p)).slice(0, 2 - related.length)
+          ? newestFirst(POSTS).filter((p) => p.slug !== post.slug && !related.includes(p)).slice(0, 2 - related.length)
           : [];
-        const shown = [...related, ...fallback].slice(0, 2);
+        const shown = newestFirst([...related, ...fallback]).slice(0, 2);
         if (shown.length === 0) return null;
         return (
           <section className="bg-[#F6F6F4] py-12 sm:py-16">

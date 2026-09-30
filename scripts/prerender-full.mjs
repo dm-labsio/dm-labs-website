@@ -37,6 +37,7 @@ import { existsSync, mkdirSync, writeFileSync, readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { createServer } from "net";
+import { inspectSeoDocument, validateSeoCollection } from "./seo-document-audit.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -286,10 +287,16 @@ async function main() {
 
     let ok = 0;
     let errors = 0;
+    const seoPages = [];
 
     for (const route of ROUTES) {
       const url = `http://127.0.0.1:${port}${route}`;
       const page = await context.newPage();
+      // Persist the complete still composition, never a halfway-drawn hero or
+      // a playback button that cannot work until JavaScript loads.
+      if (["/", "/el/", "/he/"].includes(route)) {
+        await page.emulateMedia({ reducedMotion: "reduce" });
+      }
 
       try {
         // Vercel Analytics intentionally keeps a request open, so wait for the
@@ -310,6 +317,11 @@ async function main() {
 
         // Small extra wait for any deferred content (images, lazy components)
         await page.waitForTimeout(200);
+
+        await page.waitForFunction(expectedUrl =>
+          document.querySelector('link[rel="canonical"]')?.getAttribute("href") === expectedUrl &&
+          !!document.getElementById("page-jsonld-schema"), `${BASE_URL}${route}`, { timeout: 15_000 });
+        seoPages.push(await page.evaluate(inspectSeoDocument, `${BASE_URL}${route}`));
 
         // Hero videos attach only after client-side viewport observation. Remove
         // any headless-browser attachment before persisting the static snapshot
@@ -419,6 +431,21 @@ async function main() {
     }
 
     await browser.close();
+    const sitemap = readFileSync(join(DIST_DIR, "sitemap.xml"), "utf8");
+    const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
+    const seoErrors = validateSeoCollection(seoPages, sitemapUrls);
+    for (const page of seoPages) {
+      const block = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].find(match => match[1].includes(`<loc>${page.url}</loc>`))?.[1] ?? "";
+      const sitemapAlternates = [...block.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].map(match => [match[1], match[2]]);
+      if (JSON.stringify(sitemapAlternates.sort()) !== JSON.stringify([...page.alternates].sort())) seoErrors.push(`${page.url}: sitemap/head hreflang mismatch`);
+      for (const asset of page.assets) {
+        const url = new URL(asset, page.url);
+        if (url.origin === BASE_URL && !existsSync(join(DIST_DIR, decodeURIComponent(url.pathname)))) seoErrors.push(`${page.url}: missing SEO/image asset ${asset}`);
+      }
+    }
+    writeFileSync(join(ROOT, "dist", "seo-audit.json"), JSON.stringify({ pages: seoPages, errors: seoErrors }, null, 2));
+    console.log(`SEO audit: ${seoPages.length} pages, ${seoErrors.length} issues`);
+    if (seoErrors.length) { console.error(seoErrors.join("\n")); errors += seoErrors.length; }
     console.log(`\nPrerender complete: ${ok} canonical OK, ${previewOk} preview OK, ${errors} errors`);
 
     if (errors > 0) {

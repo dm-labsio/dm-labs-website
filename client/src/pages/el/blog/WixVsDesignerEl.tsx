@@ -1,27 +1,30 @@
+import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
-import { useSEO } from "@/hooks/useSEO";
+import { useGreekArticleSEO } from "@/hooks/useGreekArticleSEO";
 
 // Greek blog: Wix vs professional web designer — /el/blog/wix-vs-epaggelmatias-web-designer-kypros
 // Primary keyword: "Wix ή επαγγελματίας web designer Κύπρος"
 
 export default function WixVsDesignerEl() {
-  useSEO({
+  const article = useGreekArticleSEO("wix-vs-epaggelmatias-web-designer-kypros", {
     title: "Wix ή Επαγγελματίας Κατασκευή Ιστοσελίδας; Τι Συμφέρει | DM-Labs.io",
     description: "Μια ειλικρινής σύγκριση Wix, WordPress και επαγγελματικής κατασκευής ιστοσελίδας για επιχειρήσεις. Πότε συμφέρει το καθένα.",
-    canonicalPath: "/el/blog/wix-vs-epaggelmatias-web-designer-kypros/",
+    headline: "Wix ή Επαγγελματίας Κατασκευή Ιστοσελίδας; Τι Συμφέρει την Επιχείρησή σου",
+    ogImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    ogImageAlt: "Επιχειρηματίας που σχεδιάζει ιστοσελίδα - Wix vs επαγγελματίας web designer",
   });
 
   return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
+    <main className="blog-article-page bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
 
         <div className="mb-8">
-          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Άρθρα</Link>
+          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">Πίσω στο Άρθρα</Link>
         </div>
 
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs text-[#9CA3AF]">Απρίλιος 2026</span>
+            <time className="text-xs text-[#9CA3AF]" dateTime={article.date}>{new Date(`${article.date}T12:00:00Z`).toLocaleDateString("el-GR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>
             <span className="text-xs text-[#9CA3AF]">-</span>
             <span className="text-xs text-[#9CA3AF]">7 λεπτά ανάγνωση</span>
           </div>
@@ -31,6 +34,7 @@ export default function WixVsDesignerEl() {
           <p className="text-lg text-[#5B6472] leading-relaxed">
             Αν ψάχνετε να φτιάξετε ιστοσελίδα για την επιχείρησή σας, σίγουρα έχετε αναρωτηθεί: να πάω σε Wix ή να πληρώσω κάποιον επαγγελματία; Εδώ είναι η ειλικρινής απάντηση.
           </p>
+          <p className="text-sm text-[#5B6472] mt-4">Από την ομάδα DM-Labs.io</p>
         </header>
 
         <div className="prose prose-slate max-w-none space-y-8 text-[#374151]">

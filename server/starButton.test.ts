@@ -3,12 +3,12 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import StarButton from "../client/src/components/ui/star-button";
 
-describe("glass star button", () => {
-  it("defaults to a non-submitting native button with decorative stars", () => {
+describe("shared brand button", () => {
+  it("defaults to a non-submitting native button with an intact label", () => {
     const html = renderToStaticMarkup(createElement(StarButton, null, "Consultation"));
     expect(html).toContain('type="button"');
-    expect(html).toContain('aria-hidden="true"');
-    expect(html.match(/viewBox=/g)).toHaveLength(6);
+    expect(html.match(/<button/g)).toHaveLength(1);
+    expect(html).not.toContain('<svg');
     expect(html).toContain("Consultation");
   });
 
@@ -18,12 +18,12 @@ describe("glass star button", () => {
     expect(html).toContain('disabled=""');
   });
 
-  it("decorates links without creating a nested button", () => {
+  it("styles links without creating a nested button", () => {
     const html = renderToStaticMarkup(createElement(StarButton, { asChild: true },
       createElement("a", { href: "/el/contact/", className: "btn-primary", target: "_blank", rel: "noopener noreferrer" }, "Επικοινωνία")));
     expect(html).toContain('href="/el/contact/"');
     expect(html).toContain('target="_blank"');
-    expect(html).toContain("star-button btn-primary");
+    expect(html).toContain("brand-button btn-primary");
     expect(html).not.toContain("<button");
     expect(html).toContain("Επικοινωνία");
   });

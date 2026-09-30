@@ -1,0 +1,15 @@
+.blog-article-hero { background: #101729; color: #f6f5f2; }
+.blog-article-cover { position: relative; min-height: 23rem; display: flex; align-items: end; }
+.blog-article-image { position: absolute; inset: 0; }
+.blog-article-image img { width: 100%; height: 100%; object-fit: cover; }
+.blog-article-heading { position: relative; width: 100%; padding-block: clamp(3rem, 7vw, 5rem) 2.5rem; }
+[data-brand] .blog-article-heading h1 { font-size: clamp(1.8rem, 3.6vw, 3rem); line-height: 1.16; max-width: 55rem; text-wrap: pretty; overflow-wrap: anywhere; }
+[data-brand] .blog-article-heading .text-sm { font-size: .9rem; }
+@media (max-width: 600px) {
+  .blog-article-cover { min-height: 20rem; }
+  .blog-article-heading { padding-block: 2.5rem 2rem; }
+  [data-brand] .blog-article-heading h1 { font-size: clamp(1.7rem, 6.7vw, 2.25rem); }
+}
+
+[data-brand] main.blog-article-page h1 { font-size: clamp(1.8rem, 3.6vw, 3rem); line-height: 1.25; text-wrap: pretty; overflow-wrap: anywhere; }
+@media (max-width: 600px) { [data-brand] main.blog-article-page h1 { font-size: clamp(1.6rem, 6.4vw, 2rem); } }

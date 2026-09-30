@@ -1,7 +1,8 @@
+import "@/styles/legal.css";
 /* D&M LABS - Πολιτική Απορρήτου (Συμμόρφωση GDPR) */
 import { Link } from "wouter";
-import AnimateIn from "@/components/AnimateIn";
-import { ChevronLeft } from "lucide-react";
+
+
 import { useSEO } from "@/hooks/useSEO";
 
 export default function PrivacyEl() {
@@ -12,25 +13,25 @@ export default function PrivacyEl() {
   });
 
   return (
-    <>
+    <div className="legal-document">
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
           <Link href="/el/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
-            <ChevronLeft size={16} />
+
             Επιστροφή στην Αρχική
           </Link>
           <div className="text-center">
-            <AnimateIn>
+            <div>
               <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Νομικά</p>
               <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Πολιτική Απορρήτου</h1>
-              <p className="text-sm text-[#5B6472]">Τελευταία ενημέρωση: Μάρτιος 2026</p>
-            </AnimateIn>
+              <p className="text-sm text-[#5B6472]">Τελευταία ενημέρωση: 30 Σεπτεμβρίου 2026</p>
+            </div>
           </div>
         </div>
       </section>
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl">
-          <AnimateIn>
+          <div>
             <div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">
 
               <div>
@@ -42,9 +43,9 @@ export default function PrivacyEl() {
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">2. Πληροφορίες που Συλλέγουμε</h2>
                 <p className="mb-3">Συλλέγουμε τις ακόλουθες κατηγορίες προσωπικών δεδομένων:</p>
                 <ul className="list-disc pl-5 space-y-2">
-                  <li><strong className="text-[#111315]">Στοιχεία επικοινωνίας:</strong> Όνομα, διεύθυνση email, αριθμός τηλεφώνου και επωνυμία επιχείρησης — παρέχονται όταν συμπληρώνετε τη φόρμα επικοινωνίας ή μας στέλνετε μήνυμα στο WhatsApp.</li>
-                  <li><strong className="text-[#111315]">Πληροφορίες έργου:</strong> Λεπτομέρειες σχετικά με την επιχείρησή σας, τις προτιμήσεις σχεδιασμού και τις απαιτήσεις ιστοσελίδας — παρέχονται κατά τις συνεδρίες διαβούλευσης.</li>
-                  <li><strong className="text-[#111315]">Τεχνικά δεδομένα:</strong> Διεύθυνση IP, τύπος προγράμματος περιήγησης, τύπος συσκευής και σελίδες που επισκεφθήκατε — συλλέγονται αυτόματα μέσω απαραίτητων cookies και cookies ανάλυσης (με τη συγκατάθεσή σας).</li>
+                  <li><strong className="text-[#111315]">Στοιχεία επικοινωνίας:</strong> Όνομα, διεύθυνση email, αριθμός τηλεφώνου και επωνυμία επιχείρησης, παρέχονται όταν συμπληρώνετε τη φόρμα επικοινωνίας ή μας στέλνετε μήνυμα στο WhatsApp.</li>
+                  <li><strong className="text-[#111315]">Πληροφορίες έργου:</strong> Λεπτομέρειες σχετικά με την επιχείρησή σας, τις προτιμήσεις σχεδιασμού και τις απαιτήσεις ιστοσελίδας, παρέχονται κατά τις συνεδρίες διαβούλευσης.</li>
+                  <li><strong className="text-[#111315]">Τεχνικά δεδομένα:</strong> Οι πάροχοι φιλοξενίας λαμβάνουν τεχνικά στοιχεία σύνδεσης, όπως τη διεύθυνση IP, για την παράδοση και προστασία του site. Με συγκατάθεση analytics συλλέγουμε επίσης στοιχεία browser, συσκευής και χρήσης σελίδων. Η καταγραφή IP στο PostHog είναι απενεργοποιημένη στις ρυθμίσεις του site.</li>
                   <li><strong className="text-[#111315]">Πληροφορίες πληρωμής:</strong> Στοιχεία χρέωσης που επεξεργάζονται με ασφάλεια μέσω τρίτων παρόχων πληρωμών. Δεν αποθηκεύουμε αριθμούς πιστωτικών καρτών.</li>
                 </ul>
               </div>
@@ -67,7 +68,7 @@ export default function PrivacyEl() {
                   <li>Για να επικοινωνούμε ενημερώσεις και χρονοδιαγράμματα έργου</li>
                   <li>Για να επεξεργαζόμαστε πληρωμές για τις υπηρεσίες μας</li>
                   <li>Για να παρέχουμε συντήρηση και υποστήριξη μετά την έναρξη λειτουργίας</li>
-                  <li>Για να βελτιώνουμε την ιστοσελίδα και τις υπηρεσίες μας μέσω ανωνυμοποιημένης ανάλυσης</li>
+                  <li>Για να κατανοούμε τη χρήση του site και να εντοπίζουμε σφάλματα μέσω analytics και καταγραφής συνεδριών με συγκατάθεση. Τα πεδία φορμών καλύπτονται. Τα αναγνωριστικά analytics είναι ψευδωνυμοποιημένα, όχι πλήρως ανώνυμα.</li>
                 </ul>
               </div>
 
@@ -77,7 +78,7 @@ export default function PrivacyEl() {
                 <ul className="list-disc pl-5 space-y-2">
                   <li><strong className="text-[#111315]">Πάροχοι φιλοξενίας:</strong> Για τη φιλοξενία και εξυπηρέτηση της ιστοσελίδας σας.</li>
                   <li><strong className="text-[#111315]">Επεξεργαστές πληρωμών:</strong> Για την ασφαλή επεξεργασία πληρωμών.</li>
-                  <li><strong className="text-[#111315]">Πάροχοι ανάλυσης:</strong> Φιλικά προς την ιδιωτικότητα αναλυτικά στοιχεία (με τη συγκατάθεσή σας) που δεν σας παρακολουθούν σε άλλες ιστοσελίδες.</li>
+                  <li><strong className="text-[#111315]">Πάροχοι ανάλυσης:</strong> PostHog (EU) για analytics, καταγραφή συνεδριών και σφαλμάτων, και Vercel Web Analytics για χρήση του site. Ενεργοποιούνται μόνο με συγκατάθεση analytics.</li>
                   <li><strong className="text-[#111315]">Επεξεργαστές φορμών:</strong> Web3Forms, για την παράδοση υποβολών φόρμας επικοινωνίας στο email μας.</li>
                 </ul>
               </div>
@@ -89,7 +90,7 @@ export default function PrivacyEl() {
                   <li>Υποβολές φόρμας επικοινωνίας: 12 μήνες μετά την τελευταία επικοινωνία</li>
                   <li>Δεδομένα έργου πελάτη: Διάρκεια του έργου συν 24 μήνες</li>
                   <li>Αρχεία πληρωμών: Όπως απαιτείται από την ισχύουσα φορολογική και λογιστική νομοθεσία</li>
-                  <li>Δεδομένα ανάλυσης: 26 μήνες (ανωνυμοποιημένα)</li>
+                  <li>Καταγραφή συνεδριών: 30 ημέρες με την τρέχουσα ρύθμιση του έργου. Τα δεδομένα analytics και σφαλμάτων διατηρούνται για ανάλυση χρήσης και διάγνωση προβλημάτων, σύμφωνα με τις ρυθμίσεις διατήρησης του παρόχου και την ανάγκη των δεδομένων.</li>
                 </ul>
               </div>
 
@@ -138,9 +139,9 @@ export default function PrivacyEl() {
               <Link href="/el/cookies/" className="text-sm text-[#5B8CFF] hover:underline">Πολιτική Cookies</Link>
               <Link href="/el/terms/" className="text-sm text-[#5B8CFF] hover:underline">Όροι Χρήσης</Link>
             </div>
-          </AnimateIn>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

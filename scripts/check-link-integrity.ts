@@ -82,10 +82,10 @@ function checkHref(file: string, rawHref: string, isTemplate: boolean, findings:
   }
 
   if (isTemplate) {
-    // For a template literal, validate the STATIC suffix after the last
-    // interpolation — that's the part guaranteed not to depend on runtime data.
-    const lastInterpolationEnd = rawHref.lastIndexOf("}");
-    const suffix = lastInterpolationEnd === -1 ? rawHref : rawHref.slice(lastInterpolationEnd + 1);
+    // Check the path independently of query values, which may also interpolate.
+    const templatePath = stripQueryAndHash(rawHref);
+    const lastInterpolationEnd = templatePath.lastIndexOf("}");
+    const suffix = lastInterpolationEnd === -1 ? templatePath : templatePath.slice(lastInterpolationEnd + 1);
     const suffixPath = stripQueryAndHash(suffix);
     if (suffixPath !== "" && !suffixPath.startsWith("/")) {
       findings.push({ file, href: rawHref, reason: "dynamic href is missing a trailing slash before its query/hash" });

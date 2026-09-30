@@ -14,11 +14,10 @@ describe("Hebrew shared shell and staged entry route", () => {
     expect(seoRoutes).toContain("INDEXABLE_HEBREW_PATHS");
     expect(seoRoutes).toContain("isIndexableHebrewRoute");
     expect(seoHook).toContain("isIndexableHebrewRoute(cleanPath) ? false : noindex");
-    expect(home).toContain('url: "https://dm-labs.io/he/"');
-    expect(home).toContain('inLanguage: "he"');
-    expect(home).toContain("€299");
-    expect(home).toContain("€749");
-    expect(home).toContain("€1,499");
+    expect(readSource("client/src/lib/structuredData.ts")).toContain('"@type": "WebPage"');
+    expect(readSource("client/src/lib/structuredData.ts")).toContain('inLanguage: locale');
+    expect(home).toContain('<PackageOverview locale="he" />');
+    // Exact localized amounts and deep links are covered by packageOverview.test.ts.
   });
 
   it("adds an accessible Hebrew selector and localized shared controls", () => {
@@ -27,18 +26,19 @@ describe("Hebrew shared shell and staged entry route", () => {
     const whatsapp = readSource("client/src/components/WhatsAppFloat.tsx");
     const accessibility = readSource("client/src/components/AccessibilityWidget.tsx");
 
-    expect(layout).toContain("const FlagIL");
-    expect(layout).toContain('src="/media/icons/israel-flag-icon.webp"');
-    expect(layout).toContain("const HE_NAV_LINKS");
-    expect(layout).toContain('aria-label={`${sheetTitle}: ${currentLanguage.name}`}');
+    const header = readSource("client/src/components/SiteHeader.tsx");
+    const navigation = readSource("client/src/components/siteNavigation.ts");
+    expect(header).toContain("const FlagIL");
+    expect(header).toContain('src="/media/icons/israel-flag-icon.webp"');
+    expect(navigation).toContain("const HE_NAV_LINKS");
+    expect(header).toContain('aria-label={`${NAV_COPY[language].language}: ${current.name}`}');
     expect(layout).toContain("getHebrewLanguageTogglePath");
-    expect(layout).toContain('SheetContent');
-    expect(layout).toContain('side="bottom"');
-    expect(layout).toContain('DropdownMenuContent');
-    expect(layout).toContain('DropdownMenuTrigger asChild');
-    expect(layout).toContain('dir={isHebrew ? "rtl" : "ltr"}');
-    expect(layout).toContain('const currentLanguage = isHebrew');
-    expect(layout).toContain('code: "HE"');
+    expect(header).toContain('SheetContent');
+    expect(header).toContain('side={language === "he" ? "left" : "right"}');
+    expect(header).toContain('DropdownMenuContent');
+    expect(header).toContain('DropdownMenuTrigger asChild');
+    expect(header).toContain('dir={language === "he" ? "rtl" : "ltr"}');
+    expect(header).toContain('code: "HE"');
     expect(cookieBanner).toContain("he: {");
     expect(whatsapp).toContain("const WA_HE");
     expect(whatsapp).toContain('className="whatsapp-float fixed bottom-6 right-5');

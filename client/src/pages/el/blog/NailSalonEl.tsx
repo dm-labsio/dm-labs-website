@@ -1,22 +1,25 @@
+import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
-import { useSEO } from "@/hooks/useSEO";
+import { useGreekArticleSEO } from "@/hooks/useGreekArticleSEO";
 
 export default function NailSalonEl() {
-  useSEO({
+  const article = useGreekArticleSEO("istoselidha-nail-salon-beauty-studio-kypros", {
     title: "Ιστοσελίδα για Nail Salon και Ομορφιά Studio | DM-Labs.io",
     description: "Τι χρειάζεται η ιστοσελίδα ενός nail salon ή beauty studio για να φέρνει νέους πελάτες. Πρακτικός οδηγός.",
-    canonicalPath: "/el/blog/istoselidha-nail-salon-beauty-studio-kypros/",
+    headline: "Ιστοσελίδα για Nail Salon και Ομορφιά Studio: Τι Χρειάζεστε Πραγματικά",
+    ogImage: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80",
+    ogImageAlt: "Ιστοσελίδα nail salon και στούντιο ομορφιάς - επαγγελματική online παρουσία",
   });
 
   return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
+    <main className="blog-article-page bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
         <div className="mb-8">
-          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στο Άρθρα</Link>
+          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">Πίσω στο Άρθρα</Link>
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs text-[#9CA3AF]">Φεβρουάριος 2026</span>
+            <time className="text-xs text-[#9CA3AF]" dateTime={article.date}>{new Date(`${article.date}T12:00:00Z`).toLocaleDateString("el-GR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>
             <span className="text-xs text-[#9CA3AF]">-</span>
             <span className="text-xs text-[#9CA3AF]">5 λεπτά ανάγνωση</span>
           </div>
@@ -26,6 +29,7 @@ export default function NailSalonEl() {
           <p className="text-lg text-[#5B6472] leading-relaxed">
             Έχετε nail salon ή beauty studio; Δείτε τι πρέπει να έχει η ιστοσελίδα σας για να γεμίζει ραντεβού και να βρίσκεστε στη Google.
           </p>
+          <p className="text-sm text-[#5B6472] mt-4">Από την ομάδα DM-Labs.io</p>
         </header>
         <div className="space-y-8 text-[#374151]">
           <section>
@@ -66,12 +70,12 @@ export default function NailSalonEl() {
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Πόσο Κοστίζει;</h2>
             <p className="leading-relaxed">
-              Μια επαγγελματική ιστοσελίδα για nail salon ή beauty studio κοστίζει από €299 (Launch - 1 σελίδα) μέχρι €749 (Growth - έως 4 σελίδες με γκαλερί, κρατήσεις και reviews). Παράδοση σε 5-10 ημέρες.
+              Μια επαγγελματική ιστοσελίδα για nail salon ή beauty studio κοστίζει από €299 (Launch - 1 σελίδα) μέχρι €749 (Growth - έως 4 σελίδες με γκαλερί, κρατήσεις και reviews). Το χρονοδιάγραμμα συμφωνείται πριν ξεκινήσουμε.
             </p>
           </section>
           <div className="bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] rounded-2xl p-8 border border-[#D0DEFF] mt-10">
             <h3 className="text-xl font-bold text-[#111315] mb-3">Ζητήστε Δωρεάν Πρόταση</h3>
-            <p className="text-[#5B6472] mb-6">Πείτε μας για το studio σας και θα σας στείλουμε πρόταση μέσα σε 24 ώρες.</p>
+            <p className="text-[#5B6472] mb-6">Πείτε μας για το studio σας και θα σας στείλουμε πρόταση αφού κατανοήσουμε τις ανάγκες σας.</p>
             <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Επικοινωνήστε μαζί μας

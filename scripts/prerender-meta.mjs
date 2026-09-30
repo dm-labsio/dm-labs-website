@@ -207,7 +207,7 @@ const EN_STATIC_ROUTES = [
   {
     path: "/blog/google-ai-mode-near-me-cyprus",
     title: "Google AI Answers \"Near Me\" Searches (2026)",
-    description: "Google AI Mode now answers \"near me\" questions in Greek and English. Here's what decides which business it recommends — and how to become it.",
+    description: "Google AI Mode now answers \"near me\" questions in Greek and English. Here's what decides which business it recommends and how to become it.",
     // No elPath — this post is intentionally English-only; hreflang will self-reference
   },
   {
@@ -440,7 +440,7 @@ const ROUTE_FALLBACKS = {
     h1: "Why Restaurants Need More Than Facebook",
     paragraphs: [
       "A restaurant needs more than Facebook and word of mouth to build a strong online presence. A Facebook page cannot be found on Google, cannot take a reservation at 11pm, and cannot show up when someone searches \"seafood Limassol\" or \"breakfast café Paphos.\"",
-      "When someone searches \"restaurant Nicosia\" or \"breakfast café Paphos,\" Google shows two types of results: the local pack and organic results. Both are driven by your website and your Google Business Profile working together. If your business is based in <a href=\"/web-design-paphos\">Paphos</a>, the local competition is still relatively thin — a well-structured website can rank faster and more affordably than in larger cities.",
+      "When someone searches \"restaurant Nicosia\" or \"breakfast café Paphos,\" Google shows two types of results: the local pack and organic results. Both are driven by your website and your Google Business Profile working together. If your business is based in <a href=\"/web-design-paphos\">Paphos</a>, the local competition is still relatively thin; a well-structured website can rank faster and more affordably than in larger cities.",
       "Your website should make people want a table at your restaurant. Our <a href=\"/web-design-restaurants-cyprus\">restaurant websites</a> put your food, atmosphere, and next step in focus. We agree the scope, features, and delivery schedule before starting.",
     ],
   },
@@ -448,7 +448,7 @@ const ROUTE_FALLBACKS = {
     h1: "Wix vs Professional Web Designer",
     paragraphs: [
       "Wix is a capable tool that works well for specific situations. For a small business considering <a href=\"/web-design-cyprus\">professional web design</a> that wants to be found on Google, look professional, and not spend hours managing a platform, a professional web designer is the better investment.",
-      "The real question is not whether Wix can build a website — it can. The question is whether the result will rank on Google, load fast enough to keep visitors, and represent your business at the level your customers expect. For most businesses, the answer points clearly toward professional design.",
+      "The real question is not whether Wix can build a website; it can. The question is whether the result will rank on Google, load fast enough to keep visitors, and represent your business at the level your customers expect. For most businesses, the answer points clearly toward professional design.",
       "Our <a href=\"/pricing\">website packages</a> combine custom design, mobile-first development, SEO foundations, and fast delivery. See the full build and ongoing care options to plan your investment.",
     ],
   },

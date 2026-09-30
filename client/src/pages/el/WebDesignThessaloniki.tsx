@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -8,36 +10,12 @@ import { useSEO } from "@/hooks/useSEO";
 // Tertiary (GR, price-intent): "κατασκευή ιστοσελίδας Θεσσαλονίκη τιμές"
 // Design: matches DM-Labs.io site style - light bg, brand gradient accents, clean typography
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "DM-Labs.io",
-  url: "https://dm-labs.io",
-  telephone: "+35797472847",
-  email: "info@dm-labs.io",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Eleftheriou Chandrinou 5",
-    addressLocality: "Paphos",
-    postalCode: "8045",
-    addressCountry: "CY",
-  },
-  areaServed: "Worldwide",
-  serviceArea: "Worldwide",
-  description:
-    "Η DM-Labs.io είναι ένα απομακρυσμένο στούντιο web design που δημιουργεί επαγγελματικές, mobile-first, βελτιστοποιημένες για SEO ιστοσελίδες για επιχειρήσεις στη Θεσσαλονίκη και σε κάθε αγορά. Ιστοσελίδες που χτίζουν εμπιστοσύνη, με γρήγορη παράδοση και προσωπική υποστήριξη.",
-  priceRange: "€€",
-  currenciesAccepted: "EUR",
-  paymentAccepted: "Τραπεζική Μεταφορά, PayPal",
-  openingHours: "Δε-Πα 09:00-18:00",
-  sameAs: ["https://www.instagram.com/dmlabs.io"],
-};
+
 
 const faqs = [
   {
     q: "Πόσο κοστίζει η κατασκευή ιστοσελίδας στη Θεσσαλονίκη;",
-    a: "Τα πακέτα μας για επιχειρήσεις στη Θεσσαλονίκη ξεκινούν από €299 για το πακέτο Launch Website. Αυτό περιλαμβάνει πλήρως προσαρμοσμένο σχεδιασμό, responsive για κινητά, αρχική ρύθμιση SEO, φόρμα επικοινωνίας και όλα όσα χρειάζεστε για να βγείτε online. Το πακέτο Growth Website ξεκινά από €749 και το Pro Website από €1,499. Η τιμή για Enterprise / Custom έργα προσαρμόζεται στο εύρος του έργου σας. Οι τιμές εξαρτώνται από τις απαιτήσεις του έργου, γι\
-' αυτό συνιστούμε πάντα μια δωρεάν συμβουλευτική συνάντηση πρώτα - με αυτόν τον τρόπο λαμβάνετε μια ακριβή προσφορά χωρίς εκπλήξεις.",
+    a: BUILD_PRICE_SUMMARY.el,
   },
   {
     q: "Εργάζεστε με επιχειρήσεις στη Θεσσαλονίκη απομακρυσμένα;",
@@ -49,7 +27,7 @@ const faqs = [
   },
   {
     q: "Πόσος χρόνος χρειάζεται για την κατασκευή μιας ιστοσελίδας για μια επιχείρηση στη Θεσσαλονίκη;",
-    a: "Το πακέτο Launch Website συνήθως παραδίδεται εντός 5 έως 7 ημερών από τη στιγμή που έχουμε το περιεχόμενο και την ανατροφοδότησή σας. Τα πακέτα Growth Website και Pro Website χρειάζονται 10 έως 14 ημέρες, ανάλογα με τον αριθμό των σελίδων και τυχόν προσαρμοσμένες λειτουργίες. Σας κρατάμε ενήμερους καθ' όλη τη διάρκεια και δεν εξαφανιζόμαστε μεταξύ των οροσήμων.",
+    a: "Συμφωνούμε το χρονοδιάγραμμα πριν ξεκινήσουμε, με βάση το εύρος και τα απαραίτητα υλικά. Σας ενημερώνουμε σε κάθε στάδιο. Αλλαγές στο έργο, στο περιεχόμενο ή στα σχόλια μπορεί να επηρεάσουν το πρόγραμμα· συμφωνούμε μαζί σας κάθε αναθεώρηση.",
   },
 ];
 
@@ -61,20 +39,7 @@ export default function WebDesignThessalonikiEl() {
     canonicalPath: "/el/web-design-thessaloniki/",
   });
 
-  useEffect(() => {
-    // Inject LocalBusiness schema
-    const existing = document.getElementById("schema-thessaloniki");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.id = "schema-thessaloniki";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById("schema-thessaloniki");
-      if (s) s.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/el/web-design-thessaloniki/", "el", "Κατασκευή Ιστοσελίδας Θεσσαλονίκη", "Η DM-Labs.io είναι ένα απομακρυσμένο στούντιο web design που δημιουργεί επαγγελματικές, mobile-first, βελτιστοποιημένες για SEO ιστοσελίδες για επιχειρήσεις στη Θεσσαλονίκη και σε κάθε αγορά. Ιστοσελίδες που χτίζουν εμπιστοσύνη, με γρήγορη παράδοση και προσωπική υποστήριξη.", faqs));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
@@ -187,26 +152,7 @@ export default function WebDesignThessalonikiEl() {
             .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Launch Website",
-                price: "από €299",
-                desc: "Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική online παρουσία. Ό,τι χρειάζεστε για να ξεκινήσετε με σιγουριά.",
-                highlight: false,
-              },
-              {
-                name: "Growth Website",
-                price: "από €749",
-                desc: "Για καθιερωμένες επιχειρήσεις που χρειάζονται ολοκληρωμένη ιστοσελίδα με περισσότερες σελίδες, ισχυρότερο SEO και κομψό σχεδιασμό.",
-                highlight: true,
-              },
-              {
-                name: "Pro Website",
-                price: "από €1,499",
-                desc: "Για επιχειρήσεις που θέλουν μια πλήρως προσαρμοσμένη ιστοσελίδα πλούσια σε χαρακτηριστικά, με τα πάντα να περιλαμβάνονται - από προσαρμοσμένη λειτουργικότητα έως υποστήριξη κατά προτεραιότητα.",
-                highlight: false,
-              },
-            ].map((p) => (
+            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((p) => (
               <div
                 key={p.name}
                 className={`rounded-2xl p-6 border ${
@@ -227,7 +173,7 @@ export default function WebDesignThessalonikiEl() {
             ))}
           </div>
           <p className="text-xs text-[#9CA3AF] mt-4">
-            Όλες οι τιμές είναι εφάπαξ. Χωρίς μηνιαίες χρεώσεις, χωρίς κρυφά κόστη.
+            Η κατασκευή χρεώνεται εφάπαξ. Φιλοξενία και συντήρηση χρεώνονται χωριστά, από €69/μήνα όσο διαχειριζόμαστε την ιστοσελίδα σας. Δεν περιλαμβάνονται τυχόν φόροι και χωριστά συμφωνημένες χρεώσεις τρίτων.
           </p>
         </div>
       </section>
@@ -245,7 +191,7 @@ export default function WebDesignThessalonikiEl() {
             {[
               {
                 title: "Γρήγορη παράδοση",
-                desc: "Οι περισσότερες ιστοσελίδες παραδίδονται εντός 5 έως 14 ημερών. Δουλεύουμε γρήγορα, επικοινωνούμε με σαφήνεια και δεν σας αφήνουμε να περιμένετε.",
+                desc: "Δουλεύουμε γρήγορα, επικοινωνούμε με σαφήνεια και δεν σας αφήνουμε να περιμένετε.",
               },
               {
                 title: "Δεν απαιτείται τεχνική γνώση",
@@ -313,7 +259,7 @@ export default function WebDesignThessalonikiEl() {
             Είστε έτοιμοι να βάλετε την επιχείρησή σας στη Θεσσαλονίκη online;
           </h2>
           <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-            Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. Μπορείτε επίσης να επικοινωνήσετε μαζί μας απευθείας στο WhatsApp - απαντάμε γρήγορα.
+            Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση αφού κατανοήσουμε τις ανάγκες σας. Χωρίς δέσμευση. Μπορείτε επίσης να επικοινωνήσετε μαζί μας απευθείας στο WhatsApp - απαντάμε γρήγορα.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/el/contact/">
@@ -322,7 +268,7 @@ export default function WebDesignThessalonikiEl() {
               </button>
             </Link>
             <a
-              href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%B7%CE%BD%20%CE%B5%CF%80%CE%B9%CF%87%CE%B5%CE%AF%CF%81%CE%B7%CF%83%CE%AE%20%CE%BC%CE%BF%CF%85%20%CF%83%CF%84%CE%B7%20%CE%98%CE%B5%CF%83%CF%83%CE%B1%CE%BB%CE%BF%CE%BD%CE%AF%CE%BA%CE%B7."
+              href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BF%CE%BC%CE%AC%CE%B4%CE%B1%20DM-Labs%21%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%B7%CE%BD%20%CE%B5%CF%80%CE%B9%CF%87%CE%B5%CE%AF%CF%81%CE%B7%CF%83%CE%AE%20%CE%BC%CE%BF%CF%85%20%CF%83%CF%84%CE%B7%20%CE%98%CE%B5%CF%83%CF%83%CE%B1%CE%BB%CE%BF%CE%BD%CE%AF%CE%BA%CE%B7."
               target="_blank"
               rel="noopener noreferrer"
             >

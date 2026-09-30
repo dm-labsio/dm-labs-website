@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Star, ArrowRight, Check, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { X, Star, Check } from "lucide-react";
 
 // ─── CDN URLs - all fresh uploads Expires=1804155913+ ───────────────────────
 const CDN = {
@@ -528,7 +528,7 @@ const TEMPLATES = [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
     style: "Πολυτελές θηλυκή αισθητική με βαθύ δαμάσκηνο και ροζ τόνους, κομψή serif τυπογραφία και ζεστή, φιλόξενη αίσθηση. Ιδανική για κομμωτήρια, beauty studios και nail bars.",
-    waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Bella Salon.",
+    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Bella Salon.",
     price: "€350",
     images: { card: "" },
   },
@@ -559,7 +559,7 @@ const TEMPLATES = [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
     style: "Αναπνευστική μεσογειακή αισθητική με βαθείς πράσινες αποχρώσεις, ζεστά κρεμ φόντα και κομψή τυπογραφία. Ιδανική για εστιατόρια με φρέσκα υλικά, μεσογειακή κουζίνα και υγιεινή διατροφή.",
-    waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Verde Εστιατόριο.",
+    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Verde Εστιατόριο.",
     price: "€350",
     images: { card: "" },
   },
@@ -590,7 +590,7 @@ const TEMPLATES = [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
     style: "Αισθητική υψηλής ενέργειας με μαύρο φόντο και πορτοκαλί ακσεσουάρ, έντονη τυπογραφία και δυναμικές διαταξεις. Ιδανική για γυμναστήρια, CrossFit και studios δύναμης.",
-    waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας PulseGym.",
+    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας PulseGym.",
     price: "€350",
     images: { card: "" },
   },
@@ -621,7 +621,7 @@ const TEMPLATES = [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
     style: "Καθαρή, επαγγελματική αισθητική με ναυτικό και μπλε ακσεσουάρ σε λευκό φόντο. Ιδανική για οδοντιατρεία, ιατρεία και παροχής υγειονομικών υπηρεσιών.",
-    waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Dr. Elara Dental.",
+    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Dr. Elara Dental.",
     price: "€350",
     images: { card: "" },
   },
@@ -652,7 +652,7 @@ const TEMPLATES = [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
     style: "Χειροτεχνική minimal αισθητική με τόνους εσπρέσο και χρυσού, καθαρή τυπογραφία και ζεστή, φιλόξενη αίσθηση. Ιδανική για specialty coffee shops, χειροτεχνίτες καφές και καφέ-μπαρ.",
-    waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Nomad Coffee.",
+    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Nomad Coffee.",
     price: "€250",
     images: { card: "" },
   },
@@ -683,7 +683,7 @@ const TEMPLATES = [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
     style: "Ήρεμη, ισορροπημένη αισθητική με βαθείς τόνους φασκομιλιάς, φυσικές υφές και καθαρή τυπογραφία. Ιδανική για studios yoga, pilates και χώρους ευεξίας.",
-    waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Serenity Yoga.",
+    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Serenity Yoga.",
     price: "€250",
     images: { card: "" },
   },
@@ -710,7 +710,7 @@ const TEMPLATES = [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
     style: "Σκούρα editorial πολυτέλεια με Cormorant Garamond serif, χρυσά ακσεσουάρ σαμπάνιας και κινηματογραφική φωτογραφία πλήρους οθόνης. Ιδανική για premium γραφεία ακινήτων.",
-    waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Luxe Realty.",
+    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Luxe Realty.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -737,7 +737,7 @@ const TEMPLATES = [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
     style: "Ζεστή Nunito τυπογραφία με κοραλί και ουράνια ακσεσουάρ σε κρεμ βάση. Φιλικός σχεδιασμός με οργανικά σχήματα. Ιδανικός για παιδικούς σταθμούς και παιδική μέριμνα.",
-    waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Little Stars Nursery.",
+    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Little Stars Nursery.",
     price: "€299",
     images: { card: "" },
     livePreview: true,
@@ -764,7 +764,7 @@ const TEMPLATES = [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
     style: "Βρουταλιστικό minimal με Syne display font, αποχρώσεις χαρτιού και τερακότα ακσεσουάρ. Ασύμμετρες διαιρετές διαταξεις. Ιδανικό για αρχιτεκτονικά γραφεία.",
-    waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Arcos Architecture.",
+    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Arcos Architecture.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -791,7 +791,7 @@ const TEMPLATES = [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
     style: "Ζεστή Μεσόγειος με Playfair Display serif, βαθειά ελιά και χρυσά χρώματα. Ιδανική για χειροτεχνικά ντελικατέσεν, τρόφιμα καταστήματα και specialty παντοπωλεία.",
-    waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Olio Deli.",
+    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Olio Deli.",
     price: "€299",
     images: { card: "" },
     livePreview: true,
@@ -818,7 +818,7 @@ const TEMPLATES = [
       { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
     ],
     style: "Αυθεντικό σκούρο με EB Garamond serif, βαθύ ναυτικό και ζεστό χρυσό. Ιδανικό για δικηγορικά γραφεία, νομικές συμβουλευτικές και επαγγελματικές υπηρεσίες.",
-    waMessage: "Γεια σας! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Horizon Law.",
+    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Horizon Law.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -883,7 +883,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
             style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
           >
-            <ExternalLink size={16} />
+
             Άνοιγμα Πλήρους Προεπισκόπησης
           </a>
 
@@ -956,7 +956,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
             className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white text-gray-900 px-5 py-2.5 rounded-full font-semibold text-sm shadow-xl flex items-center gap-2"
             style={{ transform: "translateY(8px)" }}
           >
-            Διαδραστικό Demo <ArrowRight size={14} />
+            Διαδραστικό Demo
           </motion.div>
         </div>
       </div>
@@ -981,7 +981,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         <div className="flex items-center justify-between">
           <span className="text-xs text-gray-400 italic">Σχεδιαστική έμπνευση για το δικό σας brand</span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
-            Προεπισκόπηση <ChevronRight size={14} />
+            Προεπισκόπηση
           </button>
         </div>
       </div>
@@ -1027,7 +1027,7 @@ function CustomBuildCard() {
       {/* Card body */}
       <div className="p-5 flex flex-col flex-1">
         <p className="text-gray-600 text-sm leading-relaxed mb-4">
-          Κανένα από αυτά δεν ταιριάζει στο όραμά σας; Σχεδιάζουμε την ιστοσελίδα σας εξ ολοκλήρου από μηδενική βάση — μοναδική διάταξη, προσαρμοσμένα γραφικά και ταυτότητα brand φτιαγμένη αποκλειστικά για εσάς.
+          Κανένα από αυτά δεν ταιριάζει στο όραμά σας; Σχεδιάζουμε την ιστοσελίδα σας εξ ολοκλήρου από μηδενική βάση, μοναδική διάταξη, προσαρμοσμένα γραφικά και ταυτότητα brand φτιαγμένη αποκλειστικά για εσάς.
         </p>
 
         {/* Feature list */}
@@ -1054,7 +1054,7 @@ function CustomBuildCard() {
             style={{ color: "#5B8CFF" }}
             onClick={e => e.stopPropagation()}
           >
-            Ζητήστε Προσφορά <ChevronRight size={14} />
+            Ζητήστε Προσφορά
           </a>
         </div>
       </div>
@@ -1093,30 +1093,30 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 
   return (
     <div className="relative">
-      {/* Left fade + arrow */}
+      {/* Left fade + navigation */}
       {canScrollLeft && (
         <>
           <div className="absolute left-0 top-0 bottom-0 w-12 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(246,246,244,0.95), transparent)" }} />
           <button
             onClick={() => scroll("left")}
-            className="absolute left-1 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
+            className="absolute left-1 top-1/2 -translate-y-1/2 z-20 min-w-11 h-11 px-3 rounded-md bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
             aria-label="Scroll left"
           >
-            <ChevronLeft size={16} className="text-gray-600" />
+            <span>Πίσω</span>
           </button>
         </>
       )}
 
-      {/* Right fade + arrow */}
+      {/* Right fade + navigation */}
       {canScrollRight && (
         <>
           <div className="absolute right-0 top-0 bottom-0 w-12 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, rgba(246,246,244,0.95), transparent)" }} />
           <button
             onClick={() => scroll("right")}
-            className="absolute right-1 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
+            className="absolute right-1 top-1/2 -translate-y-1/2 z-20 min-w-11 h-11 px-3 rounded-md bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
             aria-label="Scroll right"
           >
-            <ChevronRight size={16} className="text-gray-600" />
+            <span>Επόμενο</span>
           </button>
         </>
       )}
@@ -1239,7 +1239,7 @@ export default function TemplatesEl() {
         <div className="relative container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>Παραδείγματα Ιστοσελίδων</p>
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
               Βρείτε το Ιδανικό
               <span className="block" style={{ background: "linear-gradient(135deg, #5B8CFF, #6FE3FF, #8B5CFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 Στυλ Ιστοσελίδας
@@ -1303,7 +1303,7 @@ export default function TemplatesEl() {
       <section className="py-20" style={{ borderTop: "1px solid rgba(226,229,234,0.8)" }}>
         <div className="container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Δεν βρίσκετε αυτό που ψάχνετε;</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Δεν βρίσκετε αυτό που ψάχνετε;</h2>
             <p className="text-gray-500 mb-8 max-w-lg mx-auto">
               Κάθε ιστοσελίδα που φτιάχνουμε είναι πλήρως προσαρμοσμένη. Πείτε μας για την επιχείρησή σας και θα σχεδιάσουμε κάτι μοναδικό - αποκλειστικά για εσάς.
             </p>
@@ -1312,7 +1312,7 @@ export default function TemplatesEl() {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >
-              Αρχίστε μια Συνομιλία <ArrowRight size={18} />
+              Αρχίστε μια Συνομιλία
             </a>
           </motion.div>
         </div>

@@ -1,0 +1,64 @@
+.consultation-page { background: #F6F5F2; color: #101729; }
+.consultation-hero { position: relative; isolation: isolate; overflow: clip; background: #101729; color: #F6F5F2; }
+.consultation-art, .consultation-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.consultation-hero::after { content: ""; position: absolute; z-index: 0; inset: 0; background: linear-gradient(90deg, #101729d9 0%, #101729b3 45%, #10172933 100%); }
+.consultation-page[dir="rtl"] .consultation-hero::after { background: linear-gradient(270deg, #101729df 0%, #101729ba 50%, #10172933 100%); }
+.consultation-hero-content { position: relative; z-index: 1; padding-block: clamp(3rem, 6vw, 6rem); }
+.consultation-hero .brand-micro { color: #A8B8FF; margin: 0 0 1.5rem; }
+[data-brand] .consultation-hero h1 { font-size: clamp(3rem, 6vw, 5.5rem); max-width: 65rem; margin: 0 0 1.5rem; text-wrap: balance; }
+[data-brand] .consultation-hero h1 span { display: block; color: #A8B8FF; }
+[data-brand] .consultation-page:lang(el) .consultation-hero h1 { font-size: clamp(2rem, 5vw, 4.5rem); }
+.consultation-hero-intro { max-width: 43rem; color: #E0E4EF; margin-bottom: 2rem; }
+.consultation-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 2rem; }
+.consultation-direct-link { display: inline-flex; min-height: 3.5rem; align-items: center; font-weight: 700; text-decoration: underline; text-underline-offset: .35em; }
+.consultation-hero .consultation-note { color: #D1D7E5; margin-top: 1rem; }
+.consultation-page a:focus-visible { outline: 3px solid #6476d9; outline-offset: 5px; }
+.consultation-hero a:focus-visible { outline-color: #70D7F0; }
+.consultation-content { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(2rem, 7vw, 7rem); align-items: start; padding-block: clamp(3rem, 6vw, 6rem); }
+.consultation-form-panel { min-width: 0; padding: clamp(1.25rem, 3vw, 2.75rem); background: #fff; border-top: 4px solid #A8B8FF; scroll-margin-top: 6.5rem; }
+.consultation-form-panel:focus { outline: none; }
+.consultation-form-panel .brand-micro { color: #4D528A; margin-bottom: .75rem; }
+[data-brand] .consultation-form-panel h2, [data-brand] .consultation-aside h2 { font-size: clamp(1.75rem, 3.3vw, 2.75rem); margin-bottom: 1rem; }
+.consultation-form-intro { color: #526079; margin-bottom: 2rem; }
+.consultation-fields { border: 0; padding: 0; margin: 0; min-width: 0; display: grid; gap: 1.4rem; }
+.consultation-field { min-width: 0; }
+.consultation-field label { display: block; margin-bottom: .5rem; }
+.consultation-field label span { font-weight: 400; }
+.consultation-field :is(input, textarea) { width: 100%; min-width: 0; min-height: 3.5rem; border: 1px solid #8993A6; border-radius: .4rem; background: #FCFCFE; color: #101729; padding: .85rem 1rem; outline: none; }
+.consultation-field textarea { resize: vertical; min-height: 9rem; }
+.consultation-field :is(input, textarea):focus { border-color: #4D528A; outline: 3px solid #A8B8FF; outline-offset: 2px; }
+.consultation-field [aria-invalid="true"] { border-color: #a72845; }
+.consultation-fields:disabled { opacity: .65; }
+[data-brand] .consultation-hint, [data-brand] .consultation-note, [data-brand] .consultation-privacy, [data-brand] .consultation-field-error { font-size: .9375rem; line-height: 1.6; }
+.consultation-hint { margin-top: .5rem; color: #526079; }
+.consultation-field-error { margin-top: .4rem; color: #a72845; font-weight: 700; }
+.consultation-submit { margin-top: 1.75rem; width: 100%; }
+.consultation-privacy { margin-top: 1rem; color: #526079; }
+.consultation-privacy a, .consultation-error a { text-decoration: underline; text-underline-offset: .2em; }
+.consultation-error { background: #fff3f5; border-inline-start: 3px solid #a72845; padding: 1rem; margin-top: 1.5rem; }
+[data-brand] .consultation-error h3 { font-family: var(--font-body); font-size: 1.125rem; font-weight: 700; margin-bottom: .5rem; }
+.consultation-error p { margin-bottom: .5rem; }
+.consultation-success { min-height: 25rem; padding-block: 2rem; }
+.consultation-success p { margin-bottom: 1.5rem; }
+.consultation-success .consultation-note { color: #526079; }
+.consultation-aside { padding-block: 1.5rem; min-width: 0; }
+.consultation-aside h2 span { display: block; }
+.consultation-aside > p { color: #526079; margin-bottom: 2.5rem; }
+.consultation-aside .brand-micro { margin-bottom: 1rem; color: #4D528A; }
+.consultation-steps { list-style: none; padding: 0; margin: 0 0 2.5rem; }
+.consultation-steps li { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 1rem; padding-block: 1rem; border-top: 1px solid #cdd0dc; }
+.consultation-step-number { font-family: "Fira Mono", monospace; font-size: .875rem; color: #4D528A; padding-top: .25rem; direction: ltr; }
+.consultation-direct { border-top: 1px solid #cdd0dc; padding-top: 1.5rem; }
+[data-brand] .consultation-direct h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+.consultation-direct a { display: block; width: fit-content; max-width: 100%; padding-block: .6rem; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: .25em; }
+.consultation-direct bdi { display: inline-block; }
+[data-brand] .consultation-direct p { font-size: .9375rem; color: #526079; margin-top: .75rem; }
+@media (max-width: 900px) { .consultation-content { grid-template-columns: minmax(0, 1fr); gap: 2rem; } .consultation-aside { max-width: 42rem; } }
+@media (max-width: 767px) {
+  .consultation-hero::after, .consultation-page[dir="rtl"] .consultation-hero::after { background: linear-gradient(180deg, #101729d9, #101729c4 70%, #10172980); }
+  .consultation-actions { align-items: stretch; gap: .5rem; }
+  .consultation-actions .brand-button { width: 100%; }
+  .consultation-direct-link { justify-content: center; width: 100%; }
+  [data-brand] .consultation-hero h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+  [data-brand] .consultation-page:lang(en) .consultation-hero h1 { font-size: clamp(2rem, 9vw, 3.5rem); }
+}

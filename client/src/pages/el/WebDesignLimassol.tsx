@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -6,56 +8,16 @@ import { useSEO } from "@/hooks/useSEO";
 // Target keywords: "web design Λεμεσός", "website design Λεμεσός"
 // Design: matches DM-Labs.io site style - light bg, brand gradient accents, clean typography
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "DM-Labs.io",
-  description: "Επαγγελματικό πρακτορείο σχεδιασμού ιστοσελίδων που εξυπηρετεί επιχειρήσεις στη Λεμεσό. Προσαρμοσμένες ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία.",
-  url: "https://dm-labs.io/el/web-design-limassol/",
-  telephone: "+357-96-000000",
-  areaServed: "Worldwide",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Λεμεσός",
-    addressCountry: "CY",
-  },
-  priceRange: "€€",
-  serviceType: "Κατασκευή Ιστοσελίδας",
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Launch Website",
-      price: "299",
-      priceCurrency: "EUR",
-    },
-    {
-      "@type": "Offer",
-      name: "Growth Website",
-      price: "749",
-      priceCurrency: "EUR",
-    },
-    {
-      "@type": "Offer",
-      name: "Pro Website",
-      price: "1499",
-      priceCurrency: "EUR",
-    },
-    {
-      "@type": "Offer",
-      name: "Enterprise / Custom",
-      description: "Τιμή προσαρμοσμένη στο εύρος του έργου σας",
-    },
-  ],
-};
+
 
 const faqs = [
   {
     q: "Πόσο κοστίζει η κατασκευή ιστοσελίδας στη Λεμεσό;",
-    a: "Τα πακέτα κατασκευής ιστοσελίδων μας για επιχειρήσεις στη Λεμεσό ξεκινούν από €299 για το Launch Website, €749 για το Growth Website και €1,499 για το Pro Website. Η τιμή για Enterprise / Custom έργα προσαρμόζεται στο εύρος του έργου σας. Όλα τα πακέτα περιλαμβάνουν mobile-responsive design, παραμετροποίηση SEO και φόρμα επικοινωνίας. Αυτές είναι εισαγωγικές τιμές για περιορισμένο χρονικό διάστημα - δείτε τη σελίδα Τιμές για την πλήρη ανάλυση.",
+    a: BUILD_PRICE_SUMMARY.el,
   },
   {
     q: "Πόσος χρόνος χρειάζεται για την κατασκευή μιας ιστοσελίδας;",
-    a: "Οι περισσότερες ιστοσελίδες παραδίδονται εντός 7 έως 14 ημερών από τη στιγμή που λαμβάνουμε το περιεχόμενο και τα σχόλιά σας. Οι ιστοσελίδες Launch Website χρειάζονται συνήθως 5 έως 7 ημέρες. Οι ιστοσελίδες Growth Website και Pro Website με περισσότερες σελίδες και προσαρμοσμένες λειτουργίες χρειάζονται 10 έως 14 ημέρες. Σας κρατάμε ενήμερους σε κάθε στάδιο.",
+    a: "Συμφωνούμε το χρονοδιάγραμμα πριν ξεκινήσουμε, με βάση το εύρος και τα απαραίτητα υλικά. Σας ενημερώνουμε σε κάθε στάδιο. Αλλαγές στο έργο, στο περιεχόμενο ή στα σχόλια μπορεί να επηρεάσουν το πρόγραμμα· συμφωνούμε μαζί σας κάθε αναθεώρηση.",
   },
   {
     q: "Συνεργάζεστε με επιχειρήσεις στη Λεμεσό εξ αποστάσεως;",
@@ -69,18 +31,7 @@ export default function WebDesignLimassol() {
     description: "Η DM-Labs.io κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λεμεσό που θέλουν να ξεχωρίσουν. Mobile-first, SEO-ready, γρήγορη παράδοση. Αποκτήστε online παρουσία σήμερα.",
     canonicalPath: "/el/web-design-limassol/",
   });
-  useEffect(() => {
-    // Inject schema markup
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "limassol-schema";
-    script.text = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById("limassol-schema");
-      if (s) s.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/el/web-design-limassol/", "el", "Web Design Λεμεσός", "Επαγγελματικό πρακτορείο σχεδιασμού ιστοσελίδων που εξυπηρετεί επιχειρήσεις στη Λεμεσό. Προσαρμοσμένες ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία.", faqs));
 
   return (
     <main className="bg-white">
@@ -187,26 +138,7 @@ export default function WebDesignLimassol() {
             .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Launch Website",
-                price: "€299",
-                desc: "Ιδανικό για freelancers και μικρές επιχειρήσεις που χρειάζονται μια καθαρή, επαγγελματική online παρουσία.",
-                highlight: false,
-              },
-              {
-                name: "Growth Website",
-                price: "€749",
-                desc: "Ιδανικό για καθιερωμένες επιχειρήσεις που θέλουν περισσότερες σελίδες, animations και προχωρημένο SEO.",
-                highlight: true,
-              },
-              {
-                name: "Pro Website",
-                price: "€1,499",
-                desc: "Πλήρης ιστοσελίδα με προσαρμοσμένες λειτουργίες, φόρμες κρατήσεων και υποστήριξη κατά προτεραιότητα.",
-                highlight: false,
-              },
-            ].map((p) => (
+            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((p) => (
               <div
                 key={p.name}
                 className={`rounded-2xl p-6 border ${
@@ -280,7 +212,7 @@ export default function WebDesignLimassol() {
             Είστε έτοιμοι να αποκτήσετε online παρουσία για την επιχείρησή σας στη Λεμεσό;
           </h2>
           <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-            Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση.
+            Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση αφού κατανοήσουμε τις ανάγκες σας. Χωρίς δέσμευση.
           </p>
           <Link href="/el/contact/">
             <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">

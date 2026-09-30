@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Star, ArrowRight, Check, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { X, Star, Check } from "lucide-react";
 
 // ─── CDN URLs - all fresh uploads Expires=1804155913+ ───────────────────────
 const CDN = {
@@ -528,7 +528,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Luxury feminine aesthetic with deep plum and rose tones, elegant serif typography, and a warm, inviting feel. Perfect for hair salons, beauty studios, and nail bars.",
-    waMessage: "Hi! I'm interested in the Bella Salon website design.",
+    waMessage: "Hello DM-Labs team! I'm interested in the Bella Salon website design.",
     price: "€350",
     images: { card: "" },
   },
@@ -559,7 +559,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Fresh Mediterranean aesthetic with deep green tones, warm cream backgrounds, and elegant typography. Ideal for farm-to-table restaurants, Mediterranean cuisine, and healthy dining.",
-    waMessage: "Hi! I'm interested in the Verde Restaurant website design.",
+    waMessage: "Hello DM-Labs team! I'm interested in the Verde Restaurant website design.",
     price: "€350",
     images: { card: "" },
   },
@@ -590,7 +590,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "High-energy dark aesthetic with black and orange accents, bold typography, and dynamic layouts. Perfect for gyms, CrossFit boxes, and strength training studios.",
-    waMessage: "Hi! I'm interested in the PulseGym website design.",
+    waMessage: "Hello DM-Labs team! I'm interested in the PulseGym website design.",
     price: "€350",
     images: { card: "" },
   },
@@ -621,7 +621,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Clean, professional aesthetic with navy and blue accents on white backgrounds. Perfect for dental clinics, medical offices, and healthcare providers.",
-    waMessage: "Hi! I'm interested in the Dr. Elara Dental website design.",
+    waMessage: "Hello DM-Labs team! I'm interested in the Dr. Elara Dental website design.",
     price: "€350",
     images: { card: "" },
   },
@@ -652,7 +652,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Artisan minimal aesthetic with espresso and gold tones, clean typography, and a warm, inviting feel. Great for specialty coffee shops, artisan roasters, and café bars.",
-    waMessage: "Hi! I'm interested in the Nomad Coffee website design.",
+    waMessage: "Hello DM-Labs team! I'm interested in the Nomad Coffee website design.",
     price: "€250",
     images: { card: "" },
   },
@@ -683,7 +683,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Calm, balanced aesthetic with deep teal and sage tones, natural textures, and clean typography. Ideal for yoga studios, pilates centres, and mindfulness spaces.",
-    waMessage: "Hi! I'm interested in the Serenity Yoga website design.",
+    waMessage: "Hello DM-Labs team! I'm interested in the Serenity Yoga website design.",
     price: "€250",
     images: { card: "" },
   },
@@ -710,7 +710,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Dark luxury editorial with Cormorant Garamond serif, champagne gold accents, and cinematic full-screen photography. Ideal for premium real estate agencies.",
-    waMessage: "Hi! I'm interested in the Luxe Realty website design.",
+    waMessage: "Hello DM-Labs team! I'm interested in the Luxe Realty website design.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -737,7 +737,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Warm, rounded Nunito typography with coral and sky accents on a cream base. Friendly design with organic shapes. Ideal for nurseries and childcare.",
-    waMessage: "Hi! I'm interested in the Little Stars Nursery website design.",
+    waMessage: "Hello DM-Labs team! I'm interested in the Little Stars Nursery website design.",
     price: "€299",
     images: { card: "" },
     livePreview: true,
@@ -764,7 +764,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Brutalist minimal with Syne display font, off-white paper tones, and terracotta accents. Asymmetric split layouts. Ideal for architecture studios.",
-    waMessage: "Hi! I'm interested in the Arcos Architecture website design.",
+    waMessage: "Hello DM-Labs team! I'm interested in the Arcos Architecture website design.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -791,7 +791,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Warm Mediterranean with Playfair Display serif, deep olive and gold tones. Ideal for artisan delis, food shops, and specialty grocers.",
-    waMessage: "Hi! I'm interested in the Olio Deli website design.",
+    waMessage: "Hello DM-Labs team! I'm interested in the Olio Deli website design.",
     price: "€299",
     images: { card: "" },
     livePreview: true,
@@ -818,7 +818,7 @@ const TEMPLATES = [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Authoritative dark with EB Garamond serif, deep navy and warm gold. Ideal for law firms, legal consultancies, and professional services.",
-    waMessage: "Hi! I'm interested in the Horizon Law website design.",
+    waMessage: "Hello DM-Labs team! I'm interested in the Horizon Law website design.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -883,7 +883,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
             style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
           >
-            <ExternalLink size={16} />
+
             Open Full Preview
           </a>
 
@@ -956,7 +956,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
             className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white text-gray-900 px-5 py-2.5 rounded-full font-semibold text-sm shadow-xl flex items-center gap-2"
             style={{ transform: "translateY(8px)" }}
           >
-            Interactive Demo <ArrowRight size={14} />
+            Interactive Demo
           </motion.div>
         </div>
       </div>
@@ -984,7 +984,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
             <span>Built around your brand</span>
           </span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors templates-editorial-card-action" style={{ color: "#5B8CFF" }}>
-            Preview <ChevronRight size={14} />
+            Preview
           </button>
         </div>
       </div>
@@ -1060,7 +1060,7 @@ function CustomBuildCard() {
             style={{ color: "#5B8CFF" }}
             onClick={e => e.stopPropagation()}
           >
-            Get a Quote <ChevronRight size={14} />
+            Get a Quote
           </a>
         </div>
       </div>
@@ -1099,30 +1099,30 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 
   return (
     <div className="relative">
-      {/* Left fade + arrow */}
+      {/* Left fade + navigation */}
       {canScrollLeft && (
         <>
           <div className="absolute left-0 top-0 bottom-0 w-12 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(246,246,244,0.95), transparent)" }} />
           <button
             onClick={() => scroll("left")}
-            className="absolute left-1 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
+            className="absolute left-1 top-1/2 -translate-y-1/2 z-20 min-w-11 h-11 px-3 rounded-md bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
             aria-label="Scroll left"
           >
-            <ChevronLeft size={16} className="text-gray-600" />
+            <span>Back</span>
           </button>
         </>
       )}
 
-      {/* Right fade + arrow */}
+      {/* Right fade + navigation */}
       {canScrollRight && (
         <>
           <div className="absolute right-0 top-0 bottom-0 w-12 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, rgba(246,246,244,0.95), transparent)" }} />
           <button
             onClick={() => scroll("right")}
-            className="absolute right-1 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
+            className="absolute right-1 top-1/2 -translate-y-1/2 z-20 min-w-11 h-11 px-3 rounded-md bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
             aria-label="Scroll right"
           >
-            <ChevronRight size={16} className="text-gray-600" />
+            <span>Next</span>
           </button>
         </>
       )}
@@ -1316,7 +1316,7 @@ export default function Templates() {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl templates-editorial-cta-button"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >
-              Start a Conversation <ArrowRight size={18} />
+              Start a Conversation
             </a>
           </motion.div>
         </div>

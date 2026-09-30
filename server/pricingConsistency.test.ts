@@ -11,6 +11,9 @@ function source(path: string) {
 }
 
 const commercialSources = [
+  "client/src/components/pricing/pricingContent.ts",
+  "client/src/components/pricing/pricingCopy.ts",
+  "client/src/components/faq/faqContent.ts",
   "client/src/pages/Pricing.tsx",
   "client/src/pages/Services.tsx",
   "client/src/pages/FAQ.tsx",
@@ -34,6 +37,8 @@ const commercialSources = [
 
 const termsSource = source("client/src/pages/Terms.tsx");
 const enterprisePricingSources = [
+  "client/src/components/pricing/pricingCopy.ts",
+  "client/src/components/faq/faqContent.ts",
   "client/public/llms.txt",
   "client/src/pages/Home.tsx",
   "client/src/pages/Pricing.tsx",
@@ -76,7 +81,7 @@ describe("canonical package and care-plan consistency", () => {
     expect(commercialSources).toContain("€69");
     expect(commercialSources).toContain("€129");
     expect(commercialSources).toContain("Up to 3 small content updates");
-    expect(commercialSources).toContain("Unlimited reasonable updates");
+    expect(commercialSources).toContain("Content updates when you need them");
     expect(commercialSources).toContain("from €149/mo");
   });
 
@@ -107,28 +112,13 @@ describe("canonical package and care-plan consistency", () => {
     expect(source("client/src/pages/el/WebDesignCyprusEl.tsx")).not.toContain('name": "Enterprise / Custom Κύπρος", "description": "Τιμή προσαρμοσμένη στο εύρος του έργου σας" }, "price"');
   });
 
-  it("keeps the primary Enterprise pricing grids equivalent and Greek-only", () => {
-    const englishPricing = source("client/src/pages/Pricing.tsx");
-    const greekPricing = source("client/src/pages/el/PricingEl.tsx");
-    const hebrewPricing = source("client/src/pages/he/PricingHe.tsx");
 
-    expect(englishPricing).toContain("Brand direction and visual identity");
-    expect(englishPricing).toContain("Custom SEO strategy and performance reporting");
-    expect(greekPricing).toContain("Στρατηγική branding και οπτική ταυτότητα");
-    expect(greekPricing).toContain("αναφορές απόδοσης");
-    expect(hebrewPricing).toContain("כיוון מותגי וזהות ויזואלית");
-    expect(hebrewPricing).toContain("דוחות ביצועים מותאמים");
-    expect(greekPricing).not.toMatch(/[\u0590-\u05FF]/);
-    for (const pricingSource of [englishPricing, greekPricing, hebrewPricing]) {
-      expect(pricingSource).toContain("lg:grid-cols-4");
-    }
-  });
 });
 
 describe("Terms of Service supplied content", () => {
   it("uses the supplied title, publish date, numbered sections, and section-seven subheadings", () => {
-    expect(termsSource).toContain("Terms of Service — DM-Labs.io");
-    expect(termsSource).toContain("Last updated: 19 August 2026");
+    expect(termsSource).toContain("Terms of Service: DM-Labs.io");
+    expect(termsSource).toContain("Last updated: 30 September 2026");
     for (const heading of [
       "1. About these terms",
       "2. Our services",

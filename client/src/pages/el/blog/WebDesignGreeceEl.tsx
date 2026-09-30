@@ -1,22 +1,25 @@
+import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
-import { useSEO } from "@/hooks/useSEO";
+import { useGreekArticleSEO } from "@/hooks/useGreekArticleSEO";
 // Greek blog: Web design in Greece — /el/blog/web-design-ellada-odigos-2026
 // Primary keyword: "web design Ελλάδα", "κατασκευή ιστοσελίδας Ελλάδα"
 export default function WebDesignGreeceEl() {
-  useSEO({
+  const article = useGreekArticleSEO("web-design-ellada-odigos-2026", {
     title: "Κατασκευή Ιστοσελίδας: Πλήρης Οδηγός 2026 | DM-Labs.io",
-    description: "Όλα όσα χρειάζεται να ξέρει μια ελληνική επιχείρηση για την κατασκευή ιστοσελίδας το 2026 — κόστος, τι να ζητήσετε από έναν web designer, και πώς να βρεθείτε στη Google.",
-    canonicalPath: "/el/blog/web-design-ellada-odigos-2026/",
+    description: "Όλα όσα χρειάζεται να ξέρει μια ελληνική επιχείρηση για την κατασκευή ιστοσελίδας το 2026: κόστος, τι να ζητήσετε από έναν web designer, και πώς να βρεθείτε στη Google.",
+    headline: "Κατασκευή Ιστοσελίδας: Όσα Χρειάζεται να Ξέρει κάθε Επιχείρηση το 2026",
+    ogImage: "https://images.unsplash.com/photo-1555993539-1732b0258235?w=1200&q=80",
+    ogImageAlt: "Κατασκευή ιστοσελίδας 2026 - web design Αθήνα Θεσσαλονίκη",
   });
   return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
+    <main className="blog-article-page bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
         <div className="mb-8">
-          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">← Πίσω στα Άρθρα</Link>
+          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">Πίσω στα Άρθρα</Link>
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs text-[#9CA3AF]">Ιούνιος 2026</span>
+            <time className="text-xs text-[#9CA3AF]" dateTime={article.date}>{new Date(`${article.date}T12:00:00Z`).toLocaleDateString("el-GR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>
             <span className="text-xs text-[#9CA3AF]">-</span>
             <span className="text-xs text-[#9CA3AF]">7 λεπτά ανάγνωση</span>
           </div>
@@ -26,6 +29,7 @@ export default function WebDesignGreeceEl() {
           <p className="text-lg text-[#5B6472] leading-relaxed">
             Όπου κι αν βρίσκεται η επιχείρησή σας, η ιστοσελίδα σας είναι το πιο σημαντικό εργαλείο της επιχείρησής σας το 2026. Δείτε τι χρειάζεστε να ξέρετε πριν χτίσετε ή ανακατασκευάσετε τη δική σας.
           </p>
+          <p className="text-sm text-[#5B6472] mt-4">Από την ομάδα DM-Labs.io</p>
         </header>
 
         <div className="rounded-2xl overflow-hidden mb-10">
@@ -42,14 +46,14 @@ export default function WebDesignGreeceEl() {
 
           <section>
             <p className="leading-relaxed text-lg">
-              Οι μικρές επιχειρήσεις ανταγωνίζονται για την προσοχή του κοινού τους. Από τα εστιατόρια της Θεσσαλονίκης μέχρι τα boutique ξενοδοχεία των νησιών, κάθε επιχείρηση διεκδικεί το ίδιο πράγμα: ορατότητα. Το 2026, αυτή η διεκδίκηση γίνεται πρώτα online — και η ιστοσελίδα σας είναι το θεμέλιο όλων.
+              Οι μικρές επιχειρήσεις ανταγωνίζονται για την προσοχή του κοινού τους. Από τα εστιατόρια της Θεσσαλονίκης μέχρι τα boutique ξενοδοχεία των νησιών, κάθε επιχείρηση διεκδικεί το ίδιο πράγμα: ορατότητα. Το 2026, αυτή η διεκδίκηση γίνεται πρώτα online, και η ιστοσελίδα σας είναι το θεμέλιο όλων.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Γιατί Άλλαξε το Web Design</h2>
             <p className="leading-relaxed mb-4">
-              Πριν από πέντε χρόνια, αρκούσε να έχετε οποιαδήποτε ιστοσελίδα για να ξεχωρίζετε. Σήμερα, οι ανταγωνιστές σας έχουν κι αυτοί ιστοσελίδες — και πολλές από αυτές είναι καλές. Ο πήχης έχει ανέβει σημαντικά, και οι Έλληνες καταναλωτές έχουν γίνει πιο απαιτητικοί.
+              Πριν από πέντε χρόνια, αρκούσε να έχετε οποιαδήποτε ιστοσελίδα για να ξεχωρίζετε. Σήμερα, οι ανταγωνιστές σας έχουν κι αυτοί ιστοσελίδες, και πολλές από αυτές είναι καλές. Ο πήχης έχει ανέβει σημαντικά, και οι Έλληνες καταναλωτές έχουν γίνει πιο απαιτητικοί.
             </p>
             <p className="leading-relaxed">
               Σύμφωνα με την Google, το 53% των χρηστών κινητών εγκαταλείπει μια σελίδα που αργεί πάνω από 3 δευτερόλεπτα να φορτώσει. Η ιστοσελίδα σας πρέπει να είναι γρήγορη, καθαρή και φτιαγμένη πρώτα για κινητό.
@@ -89,14 +93,14 @@ export default function WebDesignGreeceEl() {
               </table>
             </div>
             <p className="leading-relaxed">
-              Η μεγάλη διακύμανση στις τιμές freelancer και agency αντικατοπτρίζει την τεράστια διαφορά σε ποιότητα, εμπειρία και τι περιλαμβάνεται. Μια ιστοσελίδα €300 και μια €1.500 μπορεί να μοιάζουν σε screenshot — αλλά η διαφορά στα SEO θεμέλια, στην ταχύτητα φόρτωσης και στην ποιότητα κώδικα είναι συχνά τεράστια.
+              Η μεγάλη διακύμανση στις τιμές freelancer και agency αντικατοπτρίζει την τεράστια διαφορά σε ποιότητα, εμπειρία και τι περιλαμβάνεται. Μια ιστοσελίδα €300 και μια €1.500 μπορεί να μοιάζουν σε screenshot, αλλά η διαφορά στα SEO θεμέλια, στην ταχύτητα φόρτωσης και στην ποιότητα κώδικα είναι συχνά τεράστια.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Το Πρόβλημα SEO που Έχουν οι Περισσότερες Ελληνικές Ιστοσελίδες</h2>
             <p className="leading-relaxed mb-4">
-              Το πιο συνηθισμένο πρόβλημα που βλέπουμε σε ελληνικές επιχειρηματικές ιστοσελίδες δεν είναι ο σχεδιασμός — είναι το SEO. Μια όμορφη ιστοσελίδα που δεν βρίσκεται στη Google είναι σαν μια όμορφη διαφημιστική πινακίδα στη μέση της ερήμου. Φαίνεται ωραία και δεν κάνει τίποτα.
+              Το πιο συνηθισμένο πρόβλημα που βλέπουμε σε ελληνικές επιχειρηματικές ιστοσελίδες δεν είναι ο σχεδιασμός, είναι το SEO. Μια όμορφη ιστοσελίδα που δεν βρίσκεται στη Google είναι σαν μια όμορφη διαφημιστική πινακίδα στη μέση της ερήμου. Φαίνεται ωραία και δεν κάνει τίποτα.
             </p>
             <p className="leading-relaxed mb-4">
               Το σωστό SEO για μια ελληνική επιχειρηματική ιστοσελίδα περιλαμβάνει αρκετά επίπεδα. Πρώτον, on-page SEO: κάθε σελίδα χρειάζεται μοναδικό meta title, meta description, σωστή δομή επικεφαλίδων και alt tags εικόνων στα ελληνικά. Δεύτερον, τοπικό SEO: το Google Business Profile σας πρέπει να είναι επαληθευμένο, πλήρες και συνεπές με το όνομα, τη διεύθυνση και το τηλέφωνο στην ιστοσελίδα σας.
@@ -109,7 +113,7 @@ export default function WebDesignGreeceEl() {
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Ελληνικά ή Αγγλικά; Πρέπει η Ιστοσελίδα σας να είναι Δίγλωσση;</h2>
             <p className="leading-relaxed mb-4">
-              Για τις περισσότερες επιχειρήσεις, η απάντηση είναι ναι — ειδικά αν εξυπηρετείτε τουρίστες, expats ή διεθνείς πελάτες. Μια δίγλωσση ιστοσελίδα (ελληνικά και αγγλικά) διπλασιάζει το δυνητικό κοινό σας και σηματοδοτεί επαγγελματισμό στους διεθνείς επισκέπτες.
+              Για τις περισσότερες επιχειρήσεις, η απάντηση είναι ναι, ειδικά αν εξυπηρετείτε τουρίστες, expats ή διεθνείς πελάτες. Μια δίγλωσση ιστοσελίδα (ελληνικά και αγγλικά) διπλασιάζει το δυνητικό κοινό σας και σηματοδοτεί επαγγελματισμό στους διεθνείς επισκέπτες.
             </p>
             <p className="leading-relaxed">
               Το κλειδί είναι να το κάνετε σωστά. Μια δίγλωσση ιστοσελίδα δεν είναι απλώς μια μεταφρασμένη εκδοχή της ίδιας σελίδας. Χρειάζεται ξεχωριστά URLs για κάθε γλώσσα, σωστά <code>hreflang</code> tags ώστε η Google να ξέρει ποια εκδοχή να εμφανίσει σε ποιον χρήστη, και περιεχόμενο που διαβάζεται φυσικά και στις δύο γλώσσες. Στη DM-Labs.io, κάθε ιστοσελίδα που κατασκευάζουμε είναι πλήρως δίγλωσση από προεπιλογή.
@@ -122,11 +126,11 @@ export default function WebDesignGreeceEl() {
               Η ελληνική αγορά έχει εκατοντάδες παρόχους web design. Εδώ είναι τι πραγματικά έχει σημασία:
             </p>
             <ul className="space-y-3 pl-4">
-              <li className="leading-relaxed"><strong>Διαφανείς τιμές</strong> — Αν ένα γραφείο δεν σας δίνει εύρος τιμών εκ των προτέρων, αυτό είναι κόκκινη σημαία. Πρέπει να ξέρετε τι πληρώνετε πριν ξεκινήσετε τη συνομιλία.</li>
-              <li className="leading-relaxed"><strong>Πραγματικό portfolio</strong> — Ζητήστε να δείτε live ιστοσελίδες που έχουν κατασκευάσει, όχι μόνο screenshots. Επισκεφθείτε αυτές τις σελίδες από το κινητό σας και ελέγξτε πόσο γρήγορα φορτώνουν.</li>
-              <li className="leading-relaxed"><strong>SEO ως standard</strong> — Όχι ως προαιρετικό extra. Το on-page SEO πρέπει να είναι μέρος κάθε επαγγελματικής κατασκευής.</li>
-              <li className="leading-relaxed"><strong>Σαφές χρονοδιάγραμμα</strong> — Ένα επαγγελματικό γραφείο θα σας δώσει ημερομηνία παράδοσης και θα την τηρήσει.</li>
-              <li className="leading-relaxed"><strong>Συνεχής υποστήριξη</strong> — Τι γίνεται μετά την παράδοση; Ποιον καλείτε όταν κάτι χαλάσει ή χρειαστεί να ενημερώσετε το μενού σας;</li>
+              <li className="leading-relaxed"><strong>Διαφανείς τιμές</strong>: Αν ένα γραφείο δεν σας δίνει εύρος τιμών εκ των προτέρων, αυτό είναι κόκκινη σημαία. Πρέπει να ξέρετε τι πληρώνετε πριν ξεκινήσετε τη συνομιλία.</li>
+              <li className="leading-relaxed"><strong>Πραγματικό portfolio</strong>: Ζητήστε να δείτε live ιστοσελίδες που έχουν κατασκευάσει, όχι μόνο screenshots. Επισκεφθείτε αυτές τις σελίδες από το κινητό σας και ελέγξτε πόσο γρήγορα φορτώνουν.</li>
+              <li className="leading-relaxed"><strong>SEO ως standard</strong>: Όχι ως προαιρετικό extra. Το on-page SEO πρέπει να είναι μέρος κάθε επαγγελματικής κατασκευής.</li>
+              <li className="leading-relaxed"><strong>Σαφές χρονοδιάγραμμα</strong>: Ένα επαγγελματικό γραφείο θα σας δώσει ημερομηνία παράδοσης και θα την τηρήσει.</li>
+              <li className="leading-relaxed"><strong>Συνεχής υποστήριξη</strong>: Τι γίνεται μετά την παράδοση; Ποιον καλείτε όταν κάτι χαλάσει ή χρειαστεί να ενημερώσετε το μενού σας;</li>
             </ul>
           </section>
 
@@ -155,7 +159,7 @@ export default function WebDesignGreeceEl() {
 
           <div className="rounded-2xl bg-gradient-to-r from-[#5B8CFF]/10 to-[#8B5CFF]/10 border border-[#5B8CFF]/20 p-8 my-8">
             <h3 className="text-xl font-bold text-[#111315] mb-2">Έτοιμοι να χτίσετε μια ιστοσελίδα που δουλεύει για την ελληνική σας επιχείρηση;</h3>
-            <p className="text-[#5B6472] mb-4">Κλείστε μια δωρεάν, χωρίς δέσμευση συμβουλευτική. Θα εξετάσουμε την τρέχουσα κατάστασή σας, θα σας πούμε ακριβώς τι συστήνουμε και θα σας δώσουμε σαφή τιμή — χωρίς πίεση.</p>
+            <p className="text-[#5B6472] mb-4">Κλείστε μια δωρεάν, χωρίς δέσμευση συμβουλευτική. Θα εξετάσουμε την τρέχουσα κατάστασή σας, θα σας πούμε ακριβώς τι συστήνουμε και θα σας δώσουμε σαφή τιμή, χωρίς πίεση.</p>
             <Link href="/el/contact/" className="inline-block bg-[#5B8CFF] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#4a7be8] transition-colors">
               Δωρεάν Συμβουλευτική
             </Link>

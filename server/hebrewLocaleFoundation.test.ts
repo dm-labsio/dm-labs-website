@@ -33,47 +33,19 @@ describe("Hebrew locale foundation", () => {
     expect(getHebrewLanguageTogglePath("/el/blog/")).toBe("/he");
   });
 
-  it("prepares Hebrew document language, RTL direction, and a Hebrew-native font", () => {
+  it("uses route-derived language and the shared brand roles for Hebrew", () => {
     const context = readSource("client/src/contexts/LanguageContext.tsx");
-    const shell = readSource("client/index.html");
-    const styles = readSource("client/src/index.css");
-
-    expect(context).toContain('type Lang = "en" | "el" | "he"');
+    const styles = readSource("client/src/styles/typography.css");
+    expect(context).toContain("const lang = getRouteLanguage(location)");
     expect(context).toContain('document.documentElement.dir = lang === "he" ? "rtl" : "ltr"');
-    expect(shell).toContain("family=Heebo");
-    expect(styles).toContain('html[dir="rtl"] body');
+    expect(styles).toContain(':lang(he)');
+    expect(styles).toContain('--font-display: "Rubik"');
+    expect(styles).toContain('--font-micro: "Open Sans"');
+    expect(styles).toContain('--hero-tracking: 0');
+    expect(styles).not.toContain("!important");
   });
 
-  it("keeps the approved Hebrew type hierarchy scoped to RTL routes", () => {
-    const shell = readSource("client/index.html");
-    const styles = readSource("client/src/index.css");
-
-    expect(shell).toContain("family=Google+Sans");
-    expect(shell).toContain("family=Heebo:wght@100..900");
-    expect(shell).toContain("family=Huninn");
-    expect(styles).toContain('--hebrew-body-font: "Google Sans", "Heebo"');
-    expect(styles).toContain('--hebrew-display-font: "Heebo"');
-    expect(styles).toContain('--hebrew-accent-font: "Huninn"');
-    expect(styles).toContain('html[dir="rtl"] .editorial-home-shell');
-    expect(styles).toContain('--pricing-sans: var(--hebrew-body-font)');
-    expect(styles).toContain('--pricing-display: var(--hebrew-display-font)');
-    expect(styles).toContain('--faq-display: var(--hebrew-display-font)');
-    expect(styles).toContain('.hebrew-home :not(.hebrew-template-preview-mockup):not(.hebrew-template-preview-mockup *)');
-    expect(styles).toContain('.hebrew-home :is(h1, h2, h3, h4, h5, h6, .font-bold, .font-extrabold, [class*="heading"], [class*="title"], [class*="price"])');
-    expect(styles).toContain('html[dir="rtl"] .font-mono');
-    expect(styles).toContain('html[dir="rtl"] h1');
-    expect(styles).toContain('font-weight: 900');
-    expect(styles).toContain('HEBREW HOMEPAGE TOKEN SYSTEM');
-    expect(styles).toContain('--hebrew-token-lead-size: 18px');
-    expect(styles).toContain('--hebrew-token-body-size: 14px');
-    expect(styles).toContain('font-size: 42.9px !important;');
-    expect(styles).toContain('font-size: 30px !important;');
-    expect(styles).toContain('font-size: 36px !important;');
-    expect(styles).toContain('font-weight: 700 !important;');
-    expect(styles).not.toContain("-webkit-text-stroke");
-  });
-
-  it("keeps Hebrew cookie consent compact at the side, with a simple mobile-entry delay", () => {
+  it("keeps Hebrew consent labelled, translated and usable on narrow screens", () => {
     const cookieBanner = readSource("client/src/components/CookieBanner.tsx");
 
     expect(cookieBanner).toContain('acceptAll: "אני מאשר/ת"');
@@ -81,19 +53,10 @@ describe("Hebrew locale foundation", () => {
     expect(cookieBanner).toContain('manage: "הגדרות"');
     expect(cookieBanner).toContain('cookieHref: "/he/cookies/"');
     expect(cookieBanner).toContain('privacyHref: "/he/privacy/"');
-    expect(cookieBanner).toContain('w-[min(11.5rem,calc(100vw-1.5rem))]');
-    expect(cookieBanner).toContain('left-3 right-auto text-right sm:bottom-5 sm:w-[min(16rem,calc(100vw-2rem))]');
-    expect(cookieBanner).toContain('document.querySelector<HTMLElement>(".hero-scrub-scope--hebrew")');
-    expect(cookieBanner).toContain('hero.dataset.released === "true"');
-    expect(cookieBanner).toContain('let revealTimer = 0');
-    expect(cookieBanner).toContain('hero.dataset.released === "true"');
-    expect(cookieBanner).toContain('window.setTimeout(() => setVisible(true), 650)');
-    expect(cookieBanner).toContain('if (window.matchMedia("(max-width: 767px)").matches)');
-    expect(cookieBanner).toContain('const timer = window.setTimeout(() => setVisible(true), 1200);');
-    expect(cookieBanner).toContain('setVisible(false);');
-    expect(cookieBanner).toContain('window.addEventListener("scroll", revealAfterHero, { passive: true })');
-    expect(cookieBanner).toContain('window.requestAnimationFrame(revealAfterHero)');
-    expect(cookieBanner).toContain('flex items-center justify-center');
+    expect(cookieBanner).toContain('role="dialog"');
+    expect(cookieBanner).toContain('aria-labelledby="cookie-consent-title"');
+    expect(cookieBanner).toContain('סגירת הגדרות העוגיות');
+    expect(cookieBanner).toContain('htmlFor="cookie-analytics"');
   });
 
   it("keeps the Hebrew pricing and header treatments visually contained", () => {
@@ -101,60 +64,36 @@ describe("Hebrew locale foundation", () => {
     const layout = readSource("client/src/components/Layout.tsx");
     const styles = readSource("client/src/index.css");
 
-    const journey = readSource("client/src/components/LocalizedPricingJourney.tsx");
-    expect(pricing).toContain('<LocalizedPricingJourney locale="he"');
-    expect(journey).toContain('className="pricing-editorial-price-row"');
-    expect(journey).toContain('className="pricing-editorial-price-unit"');
+    const journey = readSource("client/src/components/pricing/PricingPage.tsx");
+    expect(pricing).toContain('<PricingPage key="he" locale="he"');
+    expect(journey).toContain('className="pricing-build-amount"');
+    expect(journey).toContain('className="pricing-price-unit"');
     expect(pricing).not.toContain('<small> one-time</small>');
-    expect(styles).toContain('overflow-wrap: anywhere;');
-    expect(styles).toContain('.faq-editorial .faq-editorial-title em { white-space: normal; }');
-    expect(styles).toContain('background: #f6f6f4;');
-    expect(layout).toContain('border-[#E2E5EA] bg-[#F6F6F4] shadow-sm');
+    expect(readSource("client/src/styles/typography.css")).toContain('overflow-wrap: break-word');
+    expect(layout).toContain('<SiteHeader location={location}');
   });
 
-  it("keeps Hebrew within the shared static-mobile Hero contract while preserving desktop media and language isolation", () => {
-    const scrub = readSource("client/src/components/HomeHeroScrub.tsx");
+  it("uses the shared immediate Hebrew hero without changing example artwork or flag geometry", () => {
     const home = readSource("client/src/pages/he/HomeHe.tsx");
-    const cards = readSource("client/src/components/InteractiveExampleCard.tsx");
-    const canvasSequence = readSource("client/src/components/HebrewMobileCanvasSequence.tsx");
     const styles = readSource("client/src/index.css");
-    const layout = readSource("client/src/components/Layout.tsx");
-
-    expect(home).toContain('<HomeHeroScrub variant="hebrew">');
-    expect(scrub).toContain('variant?: "default" | "hebrew"');
-    expect(scrub).toContain('const isStaticMobile = isMobileViewport && scope.dataset.mobileHero === "static";');
-    expect(cards).toContain('interactive-example-card');
-    expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew');
-    expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew :is(.hero-scrub-poster, .hero-scrub-video)');
+    const header = readSource("client/src/components/SiteHeader.tsx");
+    expect(home).toContain('<HomeHero language="he" />');
     expect(styles).toContain('html[dir="rtl"] .hebrew-home .interactive-example-card img');
-    expect(scrub).toContain('data-mobile-hero="static"');
-    expect(scrub).toContain('scope.dataset.video = "none";');
-    expect(scrub).toContain('<source media="(min-width: 768px)" src={HERO_SCRUB_VIDEO_URL} type="video/mp4" />');
-    expect(canvasSequence).toContain('scope.dataset.mobileHero === "static"');
-    expect(canvasSequence).not.toContain('scope.dataset.released = "true"');
-    expect(styles).toContain('html.js .hero-scrub-scope[data-mobile-hero="static"] .hero-scrub-copy');
-    expect(scrub).toContain('<HebrewMobileCanvasSequence />');
-    expect(styles).toContain('.hero-scrub-canvas');
-    expect(layout).toContain('src="/media/icons/israel-flag-icon.webp"');
-    expect(layout).toContain('width="20"');
-    expect(layout).toContain('height="20"');
-    expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-poster');
-    expect(styles).toContain('html[dir="rtl"] .hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-wash');
-    expect(scrub).toContain('HEBREW_STATIC_MOBILE_HERO_ART_URL');
-    expect(scrub).toContain('className="hero-scrub-hebrew-static-art"');
-    expect(styles).toContain('hero-scrub-scope--hebrew[data-mobile-hero="static"] .hero-scrub-hebrew-static-art');
+    expect(header).toContain('src="/media/icons/israel-flag-icon.webp"');
+    expect(header).toContain('width="20"');
+    expect(header).toContain('height="20"');
   });
 
   it("keeps the Hebrew pricing comparison and consent persistence aligned with shared behavior", () => {
     const pricing = readSource("client/src/pages/he/PricingHe.tsx");
     const cookieBanner = readSource("client/src/components/CookieBanner.tsx");
 
-    expect(pricing).toContain('className="border-b border-[#E8EAF0]"');
-    expect(pricing).toContain('bg-[#8B5CFF]/[0.03]');
-    expect(pricing).toContain('<PlanCell value={row[1]} colour="#5B8CFF" />');
-    expect(pricing).toContain('pricing-editorial-custom-grid');
-    expect(cookieBanner).toContain('const COOKIE_KEY = "dm_cookie_consent"');
-    expect(cookieBanner).toContain('const stored = localStorage.getItem(COOKIE_KEY)');
+    expect(pricing).toContain('<PricingPage key="he" locale="he"');
+    const sharedPricing = readSource("client/src/components/pricing/PricingPage.tsx");
+    expect(sharedPricing).toContain('<th scope="row">');
+    expect(sharedPricing).toContain('t.included : t.excluded');
+    expect(cookieBanner).toContain('saveAnalyticsConsent(value)');
+    expect(readSource("client/src/lib/cookieConsent.ts")).toContain('CONSENT_KEY = "dm_cookie_consent"');
   });
 
   it("extends browser hreflang output without changing incomplete-route behavior", () => {
@@ -169,23 +108,19 @@ describe("Hebrew locale foundation", () => {
   it("keeps the active language state exclusive and preserves reading position only for direct translations", () => {
     const layout = readSource("client/src/components/Layout.tsx");
 
-    expect(layout).toContain("const isEnglish = !isGreek && !isHebrew;");
-    expect(layout).toContain('aria-current={language.isActive ? "true" : undefined}');
+    const header = readSource("client/src/components/SiteHeader.tsx");
+    expect(header).toContain('aria-current={language === option.target ? "true" : undefined}');
     expect(layout).toContain("languageSwitchScrollRef");
     expect(layout).toContain("targetLang === \"el\" ? routes.el !== null : routes.he !== null");
-    expect(layout).toContain("navigateLanguage(language.target, language.href)");
+    expect(header).toContain("onLanguageNavigate(option.target, getLanguageHref(option.target))");
   });
 
   it("keeps the Hebrew Contact form structurally aligned with the shared contact contract", () => {
     const contact = readSource("client/src/pages/he/ContactHe.tsx");
 
     expect(contact).toContain('canonicalPath: "/he/contact/"');
-    expect(contact).toContain("WEB3FORMS_URL");
-    expect(contact).toContain("contact-editorial-form-card");
-    expect(contact).toContain("contact-editorial-field-label");
-    expect(contact).toContain("contact-editorial-submit");
-    expect(contact).toContain('id="contact-he-email"');
-    expect(contact).toContain('dir="ltr"');
+    expect(contact).toContain('<ContactPage locale="he" />');
+    expect(contact).toContain("noindex: true");
   });
 
   it("exposes only reviewed Hebrew routes and no invented child routes", () => {
@@ -265,42 +200,19 @@ describe("Hebrew locale foundation", () => {
     expect(terms).not.toContain("AnimateIn");
   });
 
-  it("keeps Hebrew custom design as a complete, indexable RTL service counterpart", () => {
-    const customDesign = readSource("client/src/pages/he/CustomDesignHe.tsx");
+  it("routes Hebrew custom design and mobile-first to shared localized service pages", () => {
     const seoRoutes = readSource("client/src/lib/seoRoutes.ts");
-
-    expect(customDesign).toContain('canonicalPath: "/he/services/custom-design/"');
-    expect(seoRoutes).toContain('"/services/custom-design": "/he/services/custom-design"');
-    expect(customDesign).toContain("עיצוב אתרים בהתאמה אישית");
-    expect(customDesign).toContain("FAQPage");
-    expect(customDesign).toContain('href="/he/contact/"');
-    expect(customDesign).toContain('href="/he/pricing/"');
-    expect(customDesign).toContain('dir="rtl"');
+    for (const [name, id] of [["CustomDesignHe", "custom-design"], ["MobileFirstHe", "mobile-first"]]) {
+      expect(readSource(`client/src/pages/he/${name}.tsx`)).toContain(`locale="he" serviceId="${id}"`);
+      expect(seoRoutes).toContain(`"/services/${id}": "/he/services/${id}"`);
+    }
   });
 
-  it("keeps Hebrew mobile-first as a complete, indexable RTL service counterpart", () => {
-    const mobileFirst = readSource("client/src/pages/he/MobileFirstHe.tsx");
+  it("routes Hebrew SEO, security and delivery through the shared RTL service renderer", () => {
     const seoRoutes = readSource("client/src/lib/seoRoutes.ts");
-
-    expect(mobileFirst).toContain('canonicalPath: "/he/services/mobile-first/"');
-    expect(seoRoutes).toContain('"/services/mobile-first": "/he/services/mobile-first"');
-    expect(mobileFirst).toContain("פיתוח עם מובייל");
-    expect(mobileFirst).toContain("פיתוח אתרים בגישת Mobile-First");
-    expect(mobileFirst).toContain("FAQPage");
-    expect(mobileFirst).toContain('href="/he/contact/"');
-    expect(mobileFirst).toContain('href="/he/pricing/"');
-    expect(mobileFirst).toContain('dir="rtl"');
-  });
-
-  it("keeps Hebrew SEO as a complete, indexable RTL service counterpart", () => {
-    const seo = readSource("client/src/pages/he/SeoHe.tsx");
-    const seoRoutes = readSource("client/src/lib/seoRoutes.ts");
-    expect(seo).toContain('canonicalPath: "/he/services/seo/"');
-    expect(seoRoutes).toContain('"/services/seo": "/he/services/seo"');
-    expect(seo).toContain("אופטימיזציית SEO");
-    expect(seo).toContain("FAQPage");
-    expect(seo).toContain('href="/he/contact/"');
-    expect(seo).toContain('href="/he/pricing/"');
-    expect(seo).toContain('dir="rtl"');
+    for (const [name, id] of [["SeoHe", "seo"], ["SecurityHe", "security"], ["TurnaroundHe", "turnaround"]]) {
+      expect(readSource(`client/src/pages/he/${name}.tsx`)).toContain(`locale="he" serviceId="${id}"`);
+      expect(seoRoutes).toContain(`"/services/${id}": "/he/services/${id}"`);
+    }
   });
 });

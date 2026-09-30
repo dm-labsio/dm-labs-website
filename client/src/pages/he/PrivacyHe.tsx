@@ -1,5 +1,6 @@
+import "@/styles/legal.css";
 import { Link } from "wouter";
-import { ChevronLeft } from "lucide-react";
+
 import { useSEO } from "@/hooks/useSEO";
 
 const sectionTitle = "text-xl font-semibold text-[#111315] mb-3";
@@ -17,16 +18,16 @@ export default function PrivacyHe() {
   });
 
   return (
-    <>
+    <div className="legal-document">
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
           <Link href="/he/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
-            <ChevronLeft size={16} className="rotate-180" /> חזרה לדף הבית
+             חזרה לדף הבית
           </Link>
           <div className="text-center">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">משפטי</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">מדיניות פרטיות</h1>
-            <p className="text-sm text-[#5B6472]">עודכנה לאחרונה: מרץ 2026</p>
+            <p className="text-sm text-[#5B6472]">עודכנה לאחרונה: 30 בספטמבר 2026</p>
           </div>
         </div>
       </section>
@@ -37,7 +38,7 @@ export default function PrivacyHe() {
             <div><h2 className={sectionTitle}>2. מידע שאנו אוספים</h2><p className="mb-3">אנו אוספים את הקטגוריות הבאות של נתונים אישיים:</p><ul className={listClass}>
               <li><strong className={strongClass}>פרטי קשר:</strong> שם, כתובת אימייל, מספר טלפון ושם העסק, הנמסרים בעת מילוי טופס יצירת הקשר או שליחת הודעה ב-WhatsApp.</li>
               <li><strong className={strongClass}>מידע על הפרויקט:</strong> פרטים על העסק, העדפות עיצוב ודרישות האתר, הנמסרים במהלך פגישות ייעוץ.</li>
-              <li><strong className={strongClass}>נתונים טכניים:</strong> כתובת IP, סוג דפדפן, סוג מכשיר ודפים שנצפו, הנאספים אוטומטית באמצעות עוגיות חיוניות ועוגיות ניתוח, בכפוף להסכמתכם.</li>
+              <li><strong className={strongClass}>נתונים טכניים:</strong> ספקי האירוח מקבלים נתוני חיבור טכניים, כולל כתובת IP, כדי להציג את האתר ולהגן עליו. בהסכמה לאנליטיקה נאספים גם נתוני דפדפן, מכשיר ושימוש בעמודים. איסוף כתובת IP ב־PostHog כבוי בהגדרות האתר.</li>
               <li><strong className={strongClass}>פרטי תשלום:</strong> פרטי חיוב המעובדים בבטחה באמצעות ספקי תשלום חיצוניים. איננו שומרים מספרי כרטיסי אשראי.</li>
             </ul></div>
             <div><h2 className={sectionTitle}>3. הבסיס המשפטי לעיבוד</h2><p className="mb-3">לפי תקנת הגנת המידע הכללית (GDPR), אנו מעבדים את הנתונים שלכם על בסיס:</p><ul className={listClass}>
@@ -45,11 +46,11 @@ export default function PrivacyHe() {
               <li><strong className={strongClass}>עניין לגיטימי:</strong> כדי להשיב לפניות, לשפר את השירותים שלנו ולהבטיח את אבטחת האתר.</li>
               <li><strong className={strongClass}>הסכמה:</strong> עבור עוגיות ניתוח ותקשורת שיווקית, ככל שרלוונטי. ניתן לבטל הסכמה בכל עת.</li>
             </ul></div>
-            <div><h2 className={sectionTitle}>4. כיצד אנו משתמשים בנתונים שלכם</h2><ul className={listClass}><li>להשיב לפניותיכם ולספק הצעות מחיר</li><li>לעצב, לפתח ולמסור את פרויקט האתר שלכם</li><li>לתקשר עדכוני פרויקט ולוחות זמנים</li><li>לעבד תשלומים עבור השירותים שלנו</li><li>לספק תחזוקה ותמיכה לאחר ההשקה</li><li>לשפר את האתר והשירותים שלנו באמצעות ניתוח אנונימי</li></ul></div>
+            <div><h2 className={sectionTitle}>4. כיצד אנו משתמשים בנתונים שלכם</h2><ul className={listClass}><li>להשיב לפניותיכם ולספק הצעות מחיר</li><li>לעצב, לפתח ולמסור את פרויקט האתר שלכם</li><li>לתקשר עדכוני פרויקט ולוחות זמנים</li><li>לעבד תשלומים עבור השירותים שלנו</li><li>לספק תחזוקה ותמיכה לאחר ההשקה</li><li>להבין את השימוש באתר ולאבחן תקלות באמצעות אנליטיקה ותיעוד ביקורים בהסכמה. שדות הטפסים מוסתרים בתיעוד. מזהי האנליטיקה הם פסאודונימיים, ואינם אנונימיים לחלוטין.</li></ul></div>
             <div><h2 className={sectionTitle}>5. שיתוף נתונים</h2><p className="mb-3">איננו מוכרים, משכירים או סוחרים בנתונים האישיים שלכם. אנו עשויים לשתף נתונים עם הקטגוריות הבאות של נמענים, ורק לצורך אספקת שירותינו:</p><ul className={listClass}>
-              <li><strong className={strongClass}>ספקי אירוח:</strong> לאירוח והצגת האתר שלכם.</li><li><strong className={strongClass}>מעבדי תשלומים:</strong> לעיבוד תשלומים מאובטח.</li><li><strong className={strongClass}>ספקי ניתוח:</strong> ניתוח ידידותי לפרטיות, בהסכמתכם, שאינו עוקב אחריכם באתרים אחרים.</li><li><strong className={strongClass}>מעבדי טפסים:</strong> Web3Forms, להעברת טפסי יצירת קשר לאימייל שלנו.</li>
+              <li><strong className={strongClass}>ספקי אירוח:</strong> לאירוח והצגת האתר שלכם.</li><li><strong className={strongClass}>מעבדי תשלומים:</strong> לעיבוד תשלומים מאובטח.</li><li><strong className={strongClass}>ספקי ניתוח:</strong> PostHog באירופה לניתוח, תיעוד ביקורים ושגיאות, ו־Vercel Web Analytics לניתוח השימוש באתר. שניהם מופעלים רק לאחר הסכמה לאנליטיקה.</li><li><strong className={strongClass}>מעבדי טפסים:</strong> Web3Forms, להעברת טפסי יצירת קשר לאימייל שלנו.</li>
             </ul></div>
-            <div><h2 className={sectionTitle}>6. שמירת נתונים</h2><p>אנו שומרים נתונים אישיים רק למשך הזמן הנחוץ למטרות שלשמן נאספו. בפרט:</p><ul className={`${listClass} mt-3`}><li>טפסי יצירת קשר: 12 חודשים לאחר התקשורת האחרונה</li><li>נתוני פרויקט לקוח: משך הפרויקט בתוספת 24 חודשים</li><li>רשומות תשלום: כנדרש לפי דיני מס וחשבונאות רלוונטיים</li><li>נתוני ניתוח: 26 חודשים, באופן אנונימי</li></ul></div>
+            <div><h2 className={sectionTitle}>6. שמירת נתונים</h2><p>אנו שומרים נתונים אישיים רק למשך הזמן הנחוץ למטרות שלשמן נאספו. בפרט:</p><ul className={`${listClass} mt-3`}><li>טפסי יצירת קשר: 12 חודשים לאחר התקשורת האחרונה</li><li>נתוני פרויקט לקוח: משך הפרויקט בתוספת 24 חודשים</li><li>רשומות תשלום: כנדרש לפי דיני מס וחשבונאות רלוונטיים</li><li>תיעוד ביקורים: 30 ימים לפי הגדרת הפרויקט הנוכחית. נתוני אנליטיקה ושגיאות נשמרים לצורך ניתוח שימוש ואבחון תקלות, בכפוף להגדרות השמירה של הספק ולצורך בנתונים.</li></ul></div>
             <div><h2 className={sectionTitle}>7. הזכויות שלכם לפי GDPR</h2><p className="mb-3">כנושאי מידע, עומדות לכם הזכויות הבאות:</p><ul className={listClass}>
               <li><strong className={strongClass}>זכות עיון:</strong> לבקש עותק של הנתונים האישיים שאנו מחזיקים עליכם.</li><li><strong className={strongClass}>זכות לתיקון:</strong> לבקש תיקון נתונים לא מדויקים או חסרים.</li><li><strong className={strongClass}>זכות למחיקה:</strong> לבקש למחוק את הנתונים האישיים שלכם, הידועה גם כזכות להישכח.</li><li><strong className={strongClass}>זכות להגבלת עיבוד:</strong> לבקש שנגביל את אופן השימוש בנתונים שלכם.</li><li><strong className={strongClass}>זכות לניידות נתונים:</strong> לקבל את הנתונים בפורמט מובנה וקריא למכונה.</li><li><strong className={strongClass}>זכות להתנגד:</strong> להתנגד לעיבוד המבוסס על עניין לגיטימי.</li><li><strong className={strongClass}>זכות לביטול הסכמה:</strong> לבטל בכל עת הסכמה לעוגיות ניתוח או לשיווק.</li>
             </ul><p className="mt-3">כדי לממש זכויות אלה, צרו איתנו קשר בכתובת <a href="mailto:info@dm-labs.io" className="text-[#5B8CFF] hover:underline" dir="ltr">info@dm-labs.io</a>. נשיב בתוך 30 ימים.</p></div>
@@ -65,6 +66,6 @@ export default function PrivacyHe() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

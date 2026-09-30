@@ -1,32 +1,15 @@
+import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
 // =============================================================================
 // /el/web-design-cyprus -- National Cyprus Pillar Page (Greek)
 // =============================================================================
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import StarButton from "@/components/ui/star-button";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "DM-Labs.io",
-  "description": "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε κάθε αγορά, με εξ αποστάσεως συνεργασία.",
-  "url": "https://dm-labs.io/el/web-design-cyprus/",
-  "telephone": "+35797472847",
-  "priceRange": "€€",
-  "areaServed": "Worldwide",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Κατασκευή Ιστοσελίδας Υπηρεσίες",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Launch Website", "description": "Επώνυμη επαγγελματική σελίδα για επιχειρήσεις" }, "price": "299", "priceCurrency": "EUR" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Growth Website", "description": "Ιστοσελίδα έως 5 σελίδων με SEO και φόρμες επικοινωνίας για επιχειρήσεις" }, "price": "749", "priceCurrency": "EUR" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pro Website", "description": "Πλήρως custom ιστοσελίδα με animations, blog άρθρα και πλήρη δομή SEO" }, "price": "1499", "priceCurrency": "EUR" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise / Custom", "description": "Τιμή προσαρμοσμένη στο εύρος του έργου σας" } }
-    ]
-  }
-};
+
 
 const cities = [
   { name: "Λεμεσός", slug: "/el/web-design-limassol/", color: "#5B8CFF", bg: "#EEF3FF", desc: "Η επιχειρηματική και χρηματοοικονομική πρωτεύουσα της περιοχής. Σπίτι χιλιάδων ΜΜΕ, διεθνών εταιρειών και μιας ανθούσας τεχνολογικής σκηνής." },
@@ -51,7 +34,7 @@ const industries = [
 const faqs = [
   {
     q: "Πόσο κοστίζει η κατασκευή ιστοσελίδας;",
-    a: "Η κατασκευή ιστοσελίδας κυμαίνεται συνήθως από €299 έως €2.500+ ανάλογα με το μέγεθος και την πολυπλοκότητα του project. Στη DM-Labs.io, το Launch Website πακέτο μας ξεκινά από €299 για μια επώνυμη επαγγελματική σελίδα, το Growth Website πακέτο είναι €749 για έως 5 σελίδες με φόρμες επικοινωνίας και SEO, και το Pro Website πακέτο είναι €1,499 για μια πλήρως custom ιστοσελίδα με animations, blog άρθρα και πλήρη δομή SEO. Η τιμή για Enterprise / Custom έργα προσαρμόζεται στο εύρος του έργου σας. Όλες οι τιμές είναι διαφανείς, χωρίς κρυφές χρεώσεις."
+    a: BUILD_PRICE_SUMMARY.el
   },
   {
     q: "Ποια είναι η διαφορά μεταξύ web design και web development;",
@@ -63,7 +46,7 @@ const faqs = [
   },
   {
     q: "Πόσο χρόνο χρειάζεται για να κατασκευαστεί μια ιστοσελίδα;",
-    a: "Οι Launch Website ιστοσελίδες μας δημοσιεύονται μέσα σε 5 έως 7 εργάσιμες μέρες από τη στιγμή που θα έχουμε το περιεχόμενο και τα σχόλιά σας. Τα Growth Website πακέτα χρειάζονται 7 έως 10 μέρες και τα Pro Website πακέτα 10 έως 14 μέρες. Σας ενημερώνουμε καθ' όλη τη διαδικασία και δεν εξαφανιζόμαστε μεταξύ σημαντικών σημείων. Ταχεία παράδοση είναι διαθέσιμη κατόπιν αιτήματος."
+    a: "Συμφωνούμε το χρονοδιάγραμμα πριν ξεκινήσουμε, με βάση το εύρος και τα απαραίτητα υλικά. Σας ενημερώνουμε σε κάθε στάδιο. Αλλαγές στο έργο, στο περιεχόμενο ή στα σχόλια μπορεί να επηρεάσουν το πρόγραμμα· συμφωνούμε μαζί σας κάθε αναθεώρηση."
   },
   {
     q: "Μπορείτε να φτιάξετε δίγλωσση ιστοσελίδα στα ελληνικά και αγγλικά;",
@@ -80,7 +63,7 @@ const faqs = [
 ];
 
 const whyUs = [
-  { icon: "⚡", title: "Γρήγορη Παράδοση", desc: "Οι Launch Website ιστοσελίδες είναι online σε 5-7 μέρες. Χωρίς αναμονή μηνών για μια βασική σελίδα." },
+  { icon: "⚡", title: "Γρήγορη Παράδοση", desc: "Δουλεύουμε με σαφές πλάνο και σας ενημερώνουμε για κάθε επόμενο βήμα." },
   { icon: "📱", title: "Mobile-First Σχεδιασμός", desc: "Η εμπειρία στο κινητό έχει σημασία. Κάθε ιστοσελίδα που φτιάχνουμε είναι βελτιστοποιημένη πρώτα για τηλέφωνα." },
   { icon: "🔍", title: "SEO Ενσωματωμένο", desc: "On-page SEO, σωστά meta tags, γρήγορη φόρτωση και structured data - περιλαμβάνονται σε κάθε πακέτο." },
   { icon: "💬", title: "Υποστήριξη WhatsApp", desc: "Επικοινωνούμε μέσω WhatsApp, όχι μέσω ticketing systems. Πάντα μιλάτε με πραγματικό άτομο, γρήγορα." },
@@ -91,23 +74,11 @@ const whyUs = [
 export default function WebDesignCyprusEl() {
   useSEO({
     title: "Κατασκευή Ιστοσελίδας | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
-    description: "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε κάθε αγορά. Custom ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία. Mobile-first, βελτιστοποιημένες για SEO, παράδοση σε 5-14 μέρες. Δωρεάν συμβουλευτική.",
+    description: "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε κάθε αγορά. Custom ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία. Mobile-first, βελτιστοποιημένες για SEO, με συμφωνημένο χρονοδιάγραμμα. Δωρεάν συμβουλευτική.",
     canonicalPath: "/el/web-design-cyprus/"
   });
 
-  useEffect(() => {
-    const existing = document.getElementById("schema-cyprus");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.id = "schema-cyprus";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById("schema-cyprus");
-      if (s) s.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/el/web-design-cyprus/", "el", "Κατασκευή Ιστοσελίδας", "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε κάθε αγορά, με εξ αποστάσεως συνεργασία.", faqs));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
@@ -135,7 +106,7 @@ export default function WebDesignCyprusEl() {
                 </button>
               </Link>
               <a
-                href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1"
+                href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BF%CE%BC%CE%AC%CE%B4%CE%B1%20DM-Labs%21%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -243,58 +214,7 @@ export default function WebDesignCyprusEl() {
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Launch Website",
-                price: "€299",
-                desc: "Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική παρουσία στο διαδίκτυο.",
-                features: [
-                  "Επώνυμη επαγγελματική σελίδα",
-                  "Responsive για κινητά",
-                  "Κουμπί WhatsApp",
-                  "Σύνδεσμοι social media",
-                  "Widget προσβασιμότητας",
-                  "2 γύροι αναθεωρήσεων",
-                  "Παράδοση σε 5-7 μέρες",
-                ],
-                highlight: false,
-              },
-              {
-                name: "Growth Website",
-                price: "€749",
-                desc: "Για καθιερωμένες επιχειρήσεις που χρειάζονται μια ολοκληρωμένη ιστοσελίδα με έμφαση στη μετατροπή επισκεπτών σε πελάτες.",
-                features: [
-                  "Έως 5 σελίδες",
-                  "Responsive για κινητά",
-                  "Φόρμα επικοινωνίας + κρατήσεων",
-                  "Google Maps + Reviews widget",
-                  "Ενότητα μαρτυριών",
-                  "Βασική SEO βελτιστοποίηση",
-                  "Βελτιστοποίηση ταχύτητας",
-                  "3 γύροι αναθεωρήσεων",
-                  "Παράδοση σε 7-10 μέρες",
-                ],
-                highlight: true,
-              },
-              {
-                name: "Pro Website",
-                price: "€1,499",
-                desc: "Για επιχειρήσεις που θέλουν μια πλήρως custom, πλούσια σε χαρακτηριστικά ιστοσελίδα με τα πάντα συμπεριλαμβανόμενα.",
-                features: [
-                  "Έως 7 σελίδες",
-                  "Πλήρως custom σχεδιασμός + animations",
-                  "Φόρμα επικοινωνίας + κρατήσεων",
-                  "Google Maps + Reviews widget",
-                  "Μαρτυρίες + gallery",
-                  "5 SEO blog άρθρα",
-                  "Πλήρης meta/SEO δομή",
-                  "Pop-up συμπεριλαμβάνεται",
-                  "4 γύροι αναθεωρήσεων",
-                  "Παράδοση σε 10-14 μέρες",
-                ],
-                highlight: false,
-              },
-            ].map((pkg) => (
+            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((pkg) => (
               <AnimateIn key={pkg.name}>
                 <div className={`rounded-2xl p-6 border h-full flex flex-col ${pkg.highlight ? "bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF] border-transparent text-white shadow-lg" : "bg-white border-[#E8EAF0] text-[#111315] shadow-sm"}`}>
                   <div className="mb-4">
@@ -321,7 +241,7 @@ export default function WebDesignCyprusEl() {
           </div>
           <AnimateIn>
             <p className="text-center text-sm text-[#5B6472] mt-8">
-              Όλες οι τιμές είναι εφάπαξ. Χωρίς μηνιαίες χρεώσεις εκτός αν επιλέξετε προαιρετικό πλάνο συντήρησης.{" "}
+              Η κατασκευή χρεώνεται εφάπαξ. Φιλοξενία και συντήρηση απαιτούνται όσο διαχειριζόμαστε την ιστοσελίδα σας, από €69/μήνα. Δεν περιλαμβάνονται τυχόν φόροι και χωριστά συμφωνημένες χρεώσεις τρίτων.{" "}
               <Link href="/el/pricing/">
                 <span className="text-[#5B8CFF] font-semibold hover:underline cursor-pointer">Δείτε πλήρεις τιμές</span>
               </Link>
@@ -377,13 +297,13 @@ export default function WebDesignCyprusEl() {
                   {city.slug ? (
                     <Link href={city.slug}>
                       <span style={{ color: city.color }} className="text-sm font-semibold hover:underline cursor-pointer">
-                        Δείτε τη σελίδα {city.name} →
+                        Δείτε τη σελίδα {city.name}
                       </span>
                     </Link>
                   ) : (
                     <Link href="/el/contact/">
                       <span style={{ color: city.color }} className="text-sm font-semibold hover:underline cursor-pointer">
-                        Ζητήστε προσφορά για {city.name} →
+                        Ζητήστε προσφορά για {city.name}
                       </span>
                     </Link>
                   )}
@@ -468,7 +388,7 @@ export default function WebDesignCyprusEl() {
               Έτοιμοι να φέρετε την επιχείρησή σας online;
             </h2>
             <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-              Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. Μπορείτε επίσης να μας στείλετε απευθείας στο WhatsApp - απαντάμε γρήγορα.
+              Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση αφού κατανοήσουμε τις ανάγκες σας. Χωρίς δέσμευση. Μπορείτε επίσης να μας στείλετε απευθείας στο WhatsApp - απαντάμε γρήγορα.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/el/contact/">
@@ -477,7 +397,7 @@ export default function WebDesignCyprusEl() {
                 </button>
               </Link>
               <a
-                href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1"
+                href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BF%CE%BC%CE%AC%CE%B4%CE%B1%20DM-Labs%21%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1"
                 target="_blank"
                 rel="noopener noreferrer"
               >

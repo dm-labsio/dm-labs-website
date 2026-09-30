@@ -1,3 +1,6 @@
+import PackageOverview from "@/components/pricing/PackageOverview";
+import ServiceFeaturePage from "@/components/services/ServiceFeaturePage";
+import { isRefreshedService } from "@/components/services/serviceFeatureContent";
 /* ============================================================
    D&M LABS - Service Detail Page
    Route: /services/:serviceId
@@ -9,11 +12,7 @@ import { Link, useParams } from "wouter";
 import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
-import {
-  Globe, Smartphone, Search, Zap, Shield, Clock,
-  CheckCircle2, ArrowRight, ChevronLeft, MessageCircle,
-  Monitor, BarChart2, Lock, MapPin, Gauge, Layers, FileText, Share2
-} from "lucide-react";
+import { Globe, Smartphone, Search, Zap, Shield, Clock, CheckCircle2, MessageCircle, Monitor, BarChart2, Lock, MapPin, Gauge, Layers, FileText, Share2 } from "lucide-react";
 
 const GRADIENT_BG = "/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
 const TRIANGLE_GEO = "/media/cloudfront/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
@@ -32,226 +31,16 @@ const SERVICES: Record<string, {
   faqs: { q: string; a: string }[];
   relatedServices: string[];
 }> = {
-  "custom-design": {
-    id: "custom-design",
-    icon: Globe,
-    accentColor: "#5B8CFF",
-    title: "Custom Website Design",
-    subtitle: "A website that looks and feels like your brand - not a generic design.",
-    intro: "Every business is different. Your website should reflect that. We design every site from scratch, starting with your brand identity, your audience, and your goals. No page builders, no recycled layouts - just a thoughtfully crafted digital presence built specifically for you.",
-    why: [
-      { heading: "First impressions matter", body: "Visitors form an opinion about your business within 50 milliseconds of landing on your site. A generic design signals that you don't care about the details. A custom design signals professionalism, trust, and attention to quality." },
-      { heading: "Your brand, not ours", body: "We study your logo, your colours, your tone of voice, and your competitors before writing a single line of code. The result is a website that feels like an extension of your business - not a website that could belong to anyone." },
-      { heading: "Designed to convert", body: "Beautiful design is only half the job. We structure every page with conversion in mind - clear calls to action, logical information hierarchy, and friction-free paths to contact or purchase." },
-    ],
-    whatWeDeliver: [
-      "Custom visual identity applied across all pages",
-      "Unique layout designed around your content",
-      "Brand-matched colour palette, typography, and iconography",
-      "Hero sections, service cards, testimonials, and CTAs",
-      "Custom illustrations or photography integration",
-      "Consistent design language across desktop and mobile",
-      "2 revision rounds included (Launch) / 3 rounds (Growth) / 4 rounds (Pro)",
-    ],
-    howItWorks: [
-      { step: "01", title: "Discovery", desc: "We start with a brief conversation to understand your business, your audience, and what you want visitors to do on your site." },
-      { step: "02", title: "Moodboard & Direction", desc: "We present a visual direction - colour palette, typography, and layout style - for your approval before any code is written." },
-      { step: "03", title: "Design & Build", desc: "We design and develop simultaneously, so you see a real working website, not a static mockup." },
-      { step: "04", title: "Review & Refine", desc: "You review the site and request changes. We refine until you're happy, then launch." },
-    ],
-    faqs: [
-      { q: "Do you use page builders like Wix or Squarespace?", a: "No. We write clean, hand-crafted code using React and modern web technologies. This gives you better performance, more flexibility, and no platform lock-in." },
-      { q: "Can I provide my own design or branding?", a: "Absolutely. If you have an existing brand guide, logo, or design preferences, we'll work within those guidelines. If you don't, we'll help you develop a visual identity." },
-      { q: "How many pages are included?", a: "The Launch plan includes a Branded Business Page. The Growth plan includes up to 4 pages, and the Pro plan includes up to 7 pages. Additional pages can be added for a small fee." },
-      { q: "What if I want changes after launch?", a: "Minor updates are included in our maintenance plans. Larger redesigns are quoted separately." },
-    ],
-    relatedServices: ["mobile-first", "seo", "performance"],
-  },
-  "mobile-first": {
-    id: "mobile-first",
-    icon: Smartphone,
-    accentColor: "#6FE3FF",
-    title: "Mobile-First Development",
-    subtitle: "Over 60% of web traffic is mobile. Your site needs to be perfect on every screen.",
-    intro: "Mobile-first is not a feature we add at the end - it's how we build from the very beginning. Every layout, every button, every image is designed for a small screen first, then enhanced for larger displays. The result is a website that works flawlessly whether your customer is on a phone, a tablet, or a desktop.",
-    why: [
-      { heading: "Most of your visitors are on mobile", body: "Across most industries, 60-70% of website visitors arrive on a smartphone. If your site is slow, hard to navigate, or broken on mobile, you're losing the majority of your potential customers before they even read a word." },
-      { heading: "Google ranks mobile-friendly sites higher", body: "Google uses mobile-first indexing, meaning it evaluates the mobile version of your site when deciding where to rank you in search results. A poor mobile experience directly hurts your SEO." },
-      { heading: "Touch-friendly interactions", body: "Mobile users interact differently from desktop users. We design with touch in mind - larger tap targets, swipeable galleries, sticky navigation, and forms that work with mobile keyboards." },
-    ],
-    whatWeDeliver: [
-      "Mobile-first layout architecture",
-      "Responsive design across all screen sizes (320px to 2560px)",
-      "Touch-optimised navigation and buttons",
-      "Mobile-friendly forms and input fields",
-      "Optimised images for fast mobile loading",
-      "Tested on iOS Safari, Android Chrome, and major browsers",
-      "No horizontal scrolling or layout breakage on any device",
-    ],
-    howItWorks: [
-      { step: "01", title: "Mobile Layout First", desc: "We design the mobile layout before anything else, ensuring the core experience is perfect on the smallest screens." },
-      { step: "02", title: "Progressive Enhancement", desc: "We then enhance the layout for tablets and desktops, adding more visual complexity where screen space allows." },
-      { step: "03", title: "Cross-Device Testing", desc: "We test on real devices and emulators across iOS and Android to catch any layout issues before launch." },
-      { step: "04", title: "Performance Validation", desc: "We run Lighthouse and PageSpeed tests on mobile to ensure fast load times on 4G and 5G connections." },
-    ],
-    faqs: [
-      { q: "Does mobile-first mean it looks worse on desktop?", a: "Not at all. Mobile-first is a development methodology, not a design constraint. Desktop layouts are fully designed and often more visually rich than their mobile counterparts." },
-      { q: "Which devices do you test on?", a: "We test on iPhone (Safari), Android (Chrome), iPad, and a range of desktop browsers including Chrome, Firefox, and Edge." },
-      { q: "What about very old phones?", a: "We target devices running iOS 14+ and Android 8+, which covers over 95% of active mobile users." },
-    ],
-    relatedServices: ["custom-design", "performance", "seo"],
-  },
-  "seo": {
-    id: "seo",
-    icon: Search,
-    accentColor: "#5B8CFF",
-    title: "SEO Optimisation",
-    subtitle: "Get found on Google. Attract customers who are already looking for what you offer.",
-    intro: "Search Engine Optimisation (SEO) is the practice of making your website visible in Google search results. We build SEO into every website from day one - not as an afterthought. From clean code structure to keyword-rich content and fast load times, every technical decision we make has SEO in mind.",
-    why: [
-      { heading: "Organic traffic is free, forever", body: "Unlike paid advertising, a well-optimised website continues to attract visitors long after it's launched. Ranking on the first page of Google for your key services means a steady stream of potential customers finding you without spending a penny on ads." },
-      { heading: "Local SEO for local businesses", body: "If you serve a specific city or region, local SEO is essential. We optimise your site for location-based searches (e.g. 'hair salon Tel Aviv' or 'physiotherapist Barcelona') so you appear when nearby customers are looking." },
-      { heading: "Technical SEO from the ground up", body: "Many websites are built without any thought for SEO. We do the opposite - every page has a proper title, meta description, heading hierarchy, schema markup, and clean URL structure from the moment it goes live." },
-    ],
-    whatWeDeliver: [
-      "SEO-friendly URL structure and page titles",
-      "Meta descriptions for every page",
-      "Proper heading hierarchy (H1, H2, H3)",
-      "Schema markup (LocalBusiness, Service, FAQ)",
-      "Image alt text and file naming",
-      "XML sitemap and robots.txt",
-      "Google Search Console setup",
-      "Core Web Vitals optimisation",
-      "Local SEO setup for location-based businesses",
-    ],
-    howItWorks: [
-      { step: "01", title: "Keyword Research", desc: "We identify the search terms your target customers use and build your content strategy around them." },
-      { step: "02", title: "On-Page Optimisation", desc: "Every page is structured with SEO best practices - titles, headings, content, and internal linking." },
-      { step: "03", title: "Technical SEO", desc: "We ensure your site is fast, crawlable, and correctly indexed by Google." },
-      { step: "04", title: "Search Console Setup", desc: "We connect your site to Google Search Console so you can monitor performance and fix issues over time." },
-    ],
-    faqs: [
-      { q: "How long does SEO take to show results?", a: "SEO is a long-term investment. Most sites start seeing improvements within 3-6 months, with significant results after 6-12 months. We set up the foundation - ongoing content and link building accelerate results." },
-      { q: "Do you offer ongoing SEO services?", a: "Our Complete Care plan includes monthly SEO monitoring and minor optimisations. Full content marketing and link building campaigns are available as a separate service." },
-      { q: "Will my site rank on Google immediately after launch?", a: "Google needs time to crawl and index your site. We submit your sitemap to Google Search Console at launch to speed up the process, but ranking takes time and depends on competition in your industry." },
-    ],
-    relatedServices: ["performance", "custom-design", "mobile-first"],
-  },
-  "performance": {
-    id: "performance",
-    icon: Zap,
-    accentColor: "#8B5CFF",
-    title: "Fast Performance",
-    subtitle: "Every second of load time costs you customers. We make your site lightning fast.",
-    intro: "Website speed is not just a technical metric - it directly affects how many visitors stay on your site, how many convert to customers, and how high you rank on Google. We obsess over performance at every stage of development, from how images are compressed to how JavaScript is loaded.",
-    why: [
-      { heading: "Speed affects conversions", body: "Research by Google shows that a 1-second delay in mobile load time can reduce conversions by up to 20%. A site that loads in under 2 seconds keeps visitors engaged. A site that takes 5 seconds loses most of them before the page even appears." },
-      { heading: "Core Web Vitals and Google ranking", body: "Google uses Core Web Vitals - a set of speed and user experience metrics - as a ranking factor. A fast site ranks higher. A slow site is penalised, regardless of how good the content is." },
-      { heading: "Better experience for everyone", body: "Fast sites feel professional. Slow sites feel broken. Performance is part of the brand experience, and we treat it that way." },
-    ],
-    whatWeDeliver: [
-      "Optimised and compressed images (WebP format)",
-      "Lazy loading for images and heavy components",
-      "Minified CSS and JavaScript bundles",
-      "Efficient code splitting and tree shaking",
-      "CDN delivery for static assets",
-      "Google Lighthouse score 90+ on performance",
-      "Core Web Vitals passing (LCP, FID, CLS)",
-      "Fast Time to First Byte (TTFB)",
-    ],
-    howItWorks: [
-      { step: "01", title: "Asset Optimisation", desc: "All images are compressed and converted to modern formats (WebP). Videos are streamed, not embedded." },
-      { step: "02", title: "Code Efficiency", desc: "We write lean, efficient code and remove any unused libraries or dependencies." },
-      { step: "03", title: "Caching & CDN", desc: "Static assets are served from a CDN with aggressive caching to minimise load times globally." },
-      { step: "04", title: "Performance Audit", desc: "Before launch, we run a full Lighthouse audit and fix any issues until scores are in the green." },
-    ],
-    faqs: [
-      { q: "What Lighthouse scores do you target?", a: "We aim for 90+ on Performance, Accessibility, Best Practices, and SEO. Most of our sites score above 95 on desktop." },
-      { q: "Does performance degrade over time?", a: "It can if new content is added carelessly. Our maintenance plans include monthly performance checks to ensure your site stays fast." },
-      { q: "What about third-party scripts like chat widgets?", a: "Third-party scripts (chat, analytics, booking widgets) can slow down a site. We load them asynchronously and defer non-critical scripts to minimise their impact." },
-    ],
-    relatedServices: ["seo", "mobile-first", "security"],
-  },
-  "security": {
-    id: "security",
-    icon: Shield,
-    accentColor: "#5B8CFF",
-    title: "Secure & Reliable",
-    subtitle: "SSL, secure hosting, and regular backups - your website protected around the clock.",
-    intro: "A website that goes down, gets hacked, or shows a security warning in the browser is a business liability. We build security and reliability into every site we deliver - from SSL certificates and secure hosting to automated backups and uptime monitoring.",
-    why: [
-      { heading: "SSL is non-negotiable", body: "Every website we build includes an SSL certificate, which encrypts data between your visitors and your server. Without SSL, browsers display a 'Not Secure' warning that immediately destroys trust. With SSL, visitors see a padlock in the address bar - a signal that your site is safe." },
-      { heading: "Downtime costs money", body: "If your website is down, customers can't find you, can't contact you, and can't book with you. We use reliable hosting infrastructure with 99.9% uptime guarantees and monitor your site on an ongoing basis." },
-      { heading: "Backups protect your investment", body: "A single server failure or accidental deletion can wipe out your entire website. We maintain regular automated backups so your site can be restored quickly if anything goes wrong." },
-    ],
-    whatWeDeliver: [
-      "SSL certificate (HTTPS) included on all plans",
-      "Secure, managed hosting infrastructure",
-      "Automated daily backups",
-      "Uptime monitoring with instant alerts",
-      "Security headers and CORS configuration",
-      "Protection against common web vulnerabilities",
-      "GDPR-compliant cookie consent and privacy policy",
-      "Regular dependency and security updates (Maintenance plans)",
-    ],
-    howItWorks: [
-      { step: "01", title: "Secure Hosting Setup", desc: "We deploy your site on enterprise-grade hosting with SSL, firewall, and DDoS protection." },
-      { step: "02", title: "Backup Configuration", desc: "Automated daily backups are configured before launch, stored securely off-site." },
-      { step: "03", title: "Monitoring Activation", desc: "Uptime monitoring is enabled so we're alerted immediately if your site goes offline." },
-      { step: "04", title: "Ongoing Maintenance", desc: "Security patches and dependency updates are applied regularly as part of our maintenance plans." },
-    ],
-    faqs: [
-      { q: "Is SSL included in all plans?", a: "Yes. Every website we build includes a free SSL certificate. There is no extra charge." },
-      { q: "What happens if my site gets hacked?", a: "We restore from the most recent clean backup and investigate the cause. Our maintenance plans include priority support for security incidents." },
-      { q: "Do you handle GDPR compliance?", a: "We include a cookie consent banner, privacy policy, and cookie policy on every site. For businesses that handle sensitive personal data, we recommend consulting a GDPR specialist for full compliance." },
-    ],
-    relatedServices: ["performance", "turnaround", "custom-design"],
-  },
-  "turnaround": {
-    id: "turnaround",
-    icon: Clock,
-    accentColor: "#6FE3FF",
-    title: "Quick Turnaround",
-    subtitle: "From first conversation to live website in 5-10 business days.",
-    intro: "We know that time is money. Waiting weeks or months for a website is not acceptable when your business needs an online presence now. Our streamlined process is designed to move fast without cutting corners - from the initial brief to a live, polished website in under two weeks.",
-    why: [
-      { heading: "Your business can't wait", body: "Every day without a professional website is a day you're losing customers to competitors who have one. We've built our entire process around speed - from how we gather requirements to how we deploy and launch." },
-      { heading: "Speed without sacrifice", body: "Fast doesn't mean rushed. We've refined our workflow over dozens of projects to eliminate wasted time while maintaining the quality standards our clients expect. You get a fast turnaround and a beautiful result." },
-      { heading: "Clear milestones, no surprises", body: "We give you a clear timeline at the start of every project. You know exactly when to expect the first preview, when to submit feedback, and when your site will go live." },
-    ],
-    whatWeDeliver: [
-      "Project kickoff within 24 hours of payment",
-      "First preview delivered within 3-5 business days",
-      "Revisions completed within 1-2 business days",
-      "Launch within 5-10 business days total",
-      "Domain connection and DNS setup included",
-      "Post-launch support for 7 days",
-      "Clear communication throughout via WhatsApp",
-    ],
-    howItWorks: [
-      { step: "Day 1", title: "Kickoff", desc: "We confirm all requirements, gather your content (logo, text, images), and begin design immediately." },
-      { step: "Days 2-4", title: "Design & Build", desc: "We design and develop your site simultaneously. You receive a live preview link to review." },
-      { step: "Days 5-7", title: "Revisions", desc: "You review the site and request changes. We implement all revisions within 24-48 hours." },
-      { step: "Days 8-10", title: "Launch", desc: "Final approval, domain connection, SSL activation, and go-live. Your site is live." },
-    ],
-    faqs: [
-      { q: "What do you need from me to get started?", a: "Your logo (or brand guidelines), the text content for each page, any photos you want to use, and your domain login details. We can help with content if needed." },
-      { q: "What if I'm not ready with my content?", a: "We can start with placeholder content and swap in your real content before launch. This doesn't affect the timeline significantly." },
-      { q: "Can you deliver faster than 5 days?", a: "For urgent projects, we offer an express service. Contact us to discuss your deadline and we'll do our best to accommodate." },
-      { q: "What happens after launch?", a: "We provide 7 days of post-launch support to fix any issues. After that, our maintenance plans keep your site running smoothly." },
-    ],
-    relatedServices: ["custom-design", "security", "mobile-first"],
-  },
   "maps": {
     id: "maps",
     icon: MapPin,
     accentColor: "#5B8CFF",
     title: "Google Maps & Location",
-    subtitle: "Help customers find you instantly — embedded maps and location info on every page.",
-    intro: "For businesses with a physical presence, Google Maps integration isn’t just useful — it’s essential. We embed interactive maps, turn-by-turn directions, and location details so customers can find you with a single tap.",
+    subtitle: "Help customers find you instantly, embedded maps and location info on every page.",
+    intro: "For businesses with a physical presence, Google Maps integration isn’t just useful; it’s essential. We embed interactive maps, turn-by-turn directions, and location details so customers can find you with a single tap.",
     why: [
-      { heading: "Remove friction from finding you", body: "If a customer has to copy your address into another app, you’ve already lost them. An embedded map allows one-click navigation — especially important for mobile users on the go." },
-      { heading: "Boost your local SEO", body: "Correct Google Maps integration, combined with Google Business Profile, strengthens your presence in local search results. Appear in Google’s ‘Local Pack’ — the three businesses shown first in local searches." },
+      { heading: "Remove friction from finding you", body: "If a customer has to copy your address into another app, you’ve already lost them. An embedded map allows one-click navigation, especially important for mobile users on the go." },
+      { heading: "Boost your local SEO", body: "Correct Google Maps integration, combined with Google Business Profile, strengthens your presence in local search results. Google decides whether and where your business appears; no map or ranking placement is guaranteed." },
       { heading: "Trust and professionalism", body: "A site with clear location info and an embedded map shows your business is real, established, and easy to reach. This builds trust before the customer even visits." },
     ],
     whatWeDeliver: [
@@ -260,7 +49,7 @@ const SERVICES: Record<string, {
       "Address, opening hours, and phone number display",
       "Google Business Profile connection",
       "LocalBusiness schema markup for SEO",
-      "Mobile-optimised — one-tap navigation",
+      "Mobile-optimised: one-tap navigation",
     ],
     howItWorks: [
       { step: "01", title: "Location Setup", desc: "We confirm your address, opening hours, and contact details for accurate display." },
@@ -269,8 +58,8 @@ const SERVICES: Record<string, {
       { step: "04", title: "Mobile Testing", desc: "We verify the map loads fast and navigation works seamlessly on iOS and Android." },
     ],
     faqs: [
-      { q: "Do I need a Google Business account?", a: "We strongly recommend having one — it’s free and significantly boosts your local visibility on Google. We can guide you through setting it up." },
-      { q: "Does the map work on mobile?", a: "Yes. The embedded map automatically opens the Google Maps app on mobile for instant navigation." },
+      { q: "Do I need a Google Business account?", a: "We strongly recommend having one. It’s free and significantly boosts your local visibility on Google. We can guide you through setting it up." },
+      { q: "Does the map work on mobile?", a: "Yes. Visitors can open directions in Google Maps. Whether the app or browser opens depends on their device and settings." },
       { q: "Can I show multiple locations?", a: "Yes. If you have multiple branches or locations, we can display all of them on a single map." },
     ],
     relatedServices: ["seo", "custom-design", "forms"],
@@ -280,31 +69,31 @@ const SERVICES: Record<string, {
     icon: FileText,
     accentColor: "#6FE3FF",
     title: "Contact Forms",
-    subtitle: "Professional forms that turn visitors into enquiries — delivered straight to your inbox.",
-    intro: "A well-designed contact form is one of the most important conversion tools on your website. We build forms that are easy to complete, secure, and send enquiries directly to your email — so you never miss a potential client.",
+    subtitle: "Professional forms that turn visitors into enquiries, delivered straight to your inbox.",
+    intro: "A well-designed contact form is one of the most important conversion tools on your website. We build forms that are easy to complete, secure, and send enquiries directly to your email, with clear success and error feedback.",
     why: [
-      { heading: "Convert visitors into leads", body: "A contact form is the bridge between an interested visitor and a new client. We design forms that are simple, clear, and encourage completion — without unnecessary fields that put users off." },
-      { heading: "Receive enquiries instantly", body: "Every form submission sends an automatic email to your inbox with all the client’s details. No dashboard to check — enquiries come straight to you." },
+      { heading: "Convert visitors into leads", body: "A contact form is the bridge between an interested visitor and a new client. We design forms that are simple, clear, and encourage completion, without unnecessary fields that put users off." },
+      { heading: "Receive enquiries by email", body: "Accepted submissions are sent to your chosen email address. Delivery depends on the form provider and your mail service, so we test the setup and provide a fallback contact option." },
       { heading: "Professional image", body: "A contact form on your website shows you’re organised and professional. Unlike a plain email link, a form collects the right information from the start." },
     ],
     whatWeDeliver: [
       "Custom contact form with the fields you need",
-      "Real-time email delivery to your inbox",
+      "Email notifications through the agreed form provider",
       "Success confirmation message for the user",
-      "Spam protection (honeypot and rate limiting)",
+      "Spam controls supported by the agreed form provider",
       "Mobile-friendly forms",
       "Optional: booking or appointment form",
     ],
     howItWorks: [
-      { step: "01", title: "Form Design", desc: "We agree on which fields you need — name, email, phone, message, or anything else." },
+      { step: "01", title: "Form Design", desc: "We agree on which fields you need: name, email, phone, message, or anything else." },
       { step: "02", title: "Integration", desc: "We build the form into your site with proper validation and error messages." },
-      { step: "03", title: "Email Setup", desc: "We connect the form to your email so every submission arrives instantly in your inbox." },
-      { step: "04", title: "Testing", desc: "We test the form fully before launch — including mobile testing." },
+      { step: "03", title: "Email Setup", desc: "We connect your chosen form provider and test delivery to the agreed email address." },
+      { step: "04", title: "Testing", desc: "We test the form fully before launch, including mobile testing." },
     ],
     faqs: [
       { q: "Which email do submissions go to?", a: "Whichever email you provide. You can also set multiple recipients if you want enquiries going to different people." },
       { q: "Can I have different forms for different services?", a: "Yes. We can create separate forms for different pages or services, each with different fields and recipients." },
-      { q: "What about spam?", a: "We use anti-spam techniques (honeypot fields, rate limiting) to minimise unwanted messages without affecting the user experience." },
+      { q: "What about spam?", a: "We configure the spam controls supported by the agreed form provider. These reduce unwanted submissions but cannot eliminate all spam." },
     ],
     relatedServices: ["custom-design", "mobile-first", "maps"],
   },
@@ -313,8 +102,8 @@ const SERVICES: Record<string, {
     icon: Share2,
     accentColor: "#8B5CFF",
     title: "Social Media Integration",
-    subtitle: "Connect your website to your social media — and turn visitors into followers and clients.",
-    intro: "Social media is where your clients are. Your website should lead them there — and vice versa. We integrate your social media into every website, from footer icons to live Instagram feeds and share buttons, creating a cohesive digital presence.",
+    subtitle: "Connect your website to your social media and turn visitors into followers and clients.",
+    intro: "Social media is where your clients are. Your website should lead them there and vice versa. We connect your website to your social profiles. Live feeds and other integrations can be added where agreed in your project scope.",
     why: [
       { heading: "Amplify your reach", body: "Every website visitor is a potential follower. With clear, visible social media icons and CTAs, you turn a one-time visit into a long-term relationship with your audience." },
       { heading: "Social proof", body: "Showing your follower count or live Instagram posts signals that your business is active and trustworthy. Social proof is one of the most powerful trust factors online." },
@@ -330,7 +119,7 @@ const SERVICES: Record<string, {
     ],
     howItWorks: [
       { step: "01", title: "Profile Gathering", desc: "You provide links to all the social media profiles you want displayed." },
-      { step: "02", title: "Integration", desc: "We place icons and links in the right spots — header, footer, contact page." },
+      { step: "02", title: "Integration", desc: "We place icons and links in the right spots: header, footer, contact page." },
       { step: "03", title: "WhatsApp & Direct Contact", desc: "We set up a WhatsApp click-to-chat button so clients can reach you with one click." },
       { step: "04", title: "Link Testing", desc: "We verify all links open correctly on desktop and mobile before launch." },
     ],
@@ -356,6 +145,13 @@ const SERVICE_LABELS: Record<string, string> = {
 };
 
 export default function ServiceDetailPage() {
+  const { serviceId = "" } = useParams<{ serviceId: string }>();
+  return isRefreshedService(serviceId)
+    ? <ServiceFeaturePage key={serviceId} locale="en" serviceId={serviceId} />
+    : <LegacyServiceDetailPage />;
+}
+
+function LegacyServiceDetailPage() {
   const params = useParams<{ serviceId: string }>();
   const serviceId = params.serviceId || "";
   const service = SERVICES[serviceId];
@@ -382,7 +178,7 @@ export default function ServiceDetailPage() {
           "description": service.intro,
           "serviceType": service.title,
           "url": serviceUrl,
-          "provider": { "@id": "https://dm-labs.io/#professionalservice" },
+          "provider": { "@id": "https://dm-labs.io/#organization" },
           "areaServed": "Worldwide",
         },
         {
@@ -410,7 +206,7 @@ export default function ServiceDetailPage() {
         <p className="text-[#5B6472] mb-8">The service you're looking for doesn't exist.</p>
         <StarButton asChild><Link href="/services/" className="btn-primary">
           View All Services
-          <ArrowRight size={16} />
+
         </Link></StarButton>
       </div>
     );
@@ -437,7 +233,7 @@ export default function ServiceDetailPage() {
           {/* Breadcrumb */}
           <AnimateIn variant="fade-up" delay={0.05}>
             <Link href="/services/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
-              <ChevronLeft size={16} />
+
               Back to Services
             </Link>
           </AnimateIn>
@@ -474,9 +270,6 @@ export default function ServiceDetailPage() {
             {service.why.map((item, i) => (
               <StaggerItem key={i}>
                 <div className="dm-card h-full">
-                  <div className="w-8 h-8 rounded-lg mb-4 flex items-center justify-center" style={{ background: `${service.accentColor}15` }}>
-                    <span className="text-sm font-bold" style={{ color: service.accentColor }}>{String(i + 1).padStart(2, "0")}</span>
-                  </div>
                   <h3 className="text-lg font-semibold text-[#111315] mb-3">{item.heading}</h3>
                   <p className="text-sm text-[#5B6472] leading-relaxed">{item.body}</p>
                 </div>
@@ -495,13 +288,13 @@ export default function ServiceDetailPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimateIn>
               <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">What We Deliver</p>
-              <h2 className="text-3xl font-bold text-[#111315] mb-6">Everything included, no extras</h2>
+              <h2 className="text-3xl font-bold text-[#111315] mb-6">What we can include</h2>
               <p className="text-base text-[#5B6472] leading-relaxed mb-8">
-                Every item below is included in your website project. No hidden fees, no optional add-ons that should be standard.
+                We agree the features below as part of your package and written scope. Additional integrations and third-party fees are quoted separately.
               </p>
               <StarButton asChild><Link href="/contact/" className="btn-primary">
                 Start Your Project
-                <ArrowRight size={16} />
+
               </Link></StarButton>
             </AnimateIn>
             <AnimateIn delay={0.2}>
@@ -579,7 +372,7 @@ export default function ServiceDetailPage() {
                     <div className="dm-card text-center cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
                       <p className="text-sm font-semibold text-[#111315] mb-1">{rel.label}</p>
                       <span className="text-xs text-[#5B8CFF] inline-flex items-center gap-1 justify-center">
-                        Learn more <ArrowRight size={12} />
+                        Learn more
                       </span>
                     </div>
                   </Link>
@@ -590,6 +383,7 @@ export default function ServiceDetailPage() {
         </section>
       )}
 
+      <PackageOverview locale="en" context="service" />
       {/* ── CTA ── */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 z-0" style={{ background: "#0F172A" }}>
@@ -602,7 +396,7 @@ export default function ServiceDetailPage() {
               Let's build your website with {service.title} built in from day one.
             </h2>
             <p className="text-base text-[#94A3B8] mb-10 max-w-lg mx-auto">
-              No commitment, no pressure. Get in touch and we'll discuss your project within hours.
+              No commitment, no pressure. Get in touch and we'll discuss your project and agree the next step.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <StarButton asChild><Link href="/contact/" className="btn-primary !h-14 !text-base !px-8">
@@ -611,7 +405,7 @@ export default function ServiceDetailPage() {
               </Link></StarButton>
               <Link href="/pricing/" className="inline-flex items-center gap-2 px-8 h-14 rounded-xl border-2 border-white/20 text-white font-semibold hover:border-white/40 transition-all duration-300 text-base">
                 View Pricing
-                <ArrowRight size={18} />
+
               </Link>
             </div>
           </AnimateIn>

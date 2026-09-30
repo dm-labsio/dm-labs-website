@@ -17,7 +17,7 @@
  */
 import { useParams, useLocation } from "wouter";
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
-import { X, ExternalLink } from "lucide-react";
+import { X } from "lucide-react";
 
 const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
   "bella-salon":          { name: "Bella Salon",          url: "/previews/bella-salon.html" },
@@ -195,7 +195,7 @@ export default function PreviewPage() {
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors text-xs px-2 py-1.5 rounded-lg hover:bg-white/10"
           >
-            <ExternalLink size={13} />
+
             <span className="hidden sm:inline">New tab</span>
           </a>
 

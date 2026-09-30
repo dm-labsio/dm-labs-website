@@ -1,24 +1,21 @@
+import PackageOverview from "@/components/pricing/PackageOverview";
+import HomeIntroductionVideo from "@/components/home/HomeIntroductionVideo";
+import "@/components/home/HomePageDark.css";
+import { HomeServices, HomeProcess, HomeIndustries } from "@/components/home/HomeOverviewSections";
+import TeamProfiles from "@/components/TeamProfiles";
 /* ============================================================
    DM-Labs.io - Homepage
    Hero with gradient atmosphere + floating devices
-   Sections: Hero, Trust Strip, Template Showcase + Industries, Services, Process, Testimonials, Pricing, Stats, CTA
+   Sections: Hero, Trust Strip, Template Showcase + Industries, Services, Process, Testimonials, Pricing, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import StarButton from "@/components/ui/star-button";
-import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
-import EditorialFitLine from "@/components/EditorialFitLine";
 import InteractiveExampleCard from "@/components/InteractiveExampleCard";
-import HomeHeroScrub from "@/components/HomeHeroScrub";
-import {
-  Globe, Smartphone, Search, Zap, Shield, Clock,
-  CheckCircle2, ArrowRight, MessageCircle,
-  Utensils, Scissors, Stethoscope, Dumbbell,
-  Palette, Code, Rocket, Headphones, Quote, HelpCircle,
-  Users, CalendarCheck, Languages
-} from "lucide-react";
+import HomeHero from "@/components/home/HomeHero";
+
 
 // ─── Hand-crafted card mockups for homepage template showcase ────
 const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
@@ -108,9 +105,8 @@ function HomepageCardPreview({ tplId, category }: { tplId: string; category: str
   );
 }
 
-const GRADIENT_BG = "/media/cloudfront/gradient-mesh-bg-nrkTNmAHHWeVJB3ubHRGDu.webp";
 const TRIANGLE_GEO = "/media/cloudfront/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
-const DARK_CTA_BG = "/media/cloudfront/dark-cta-bg-LgZ8epcpi9XDGLof5Q9KgS.webp";
+const DARK_CTA_BG = "/media/brand-refresh/v1/faq-pearl-arcs-desktop.webp";
 
 // Featured live-preview mini-sites for the homepage showcase
 // Using the same mini-site HTML files as the Templates page
@@ -190,131 +186,26 @@ export default function HomePage() {
     description: "Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses worldwide.",
   });
 
-  // This graph is serialized into the prerendered homepage and is the single source of homepage structured data.
-  useEffect(() => {
-    const existingSchema = document.getElementById("home-jsonld-schema");
-    if (existingSchema) return;
-    const offers = [
-      { "@type": "Offer", "name": "Launch Website", "description": "1-page landing site, mobile responsive, WhatsApp button, basic SEO, 2 revision rounds.", "price": "299", "priceCurrency": "EUR" },
-      { "@type": "Offer", "name": "Growth Website", "description": "Up to 4 pages, contact form, map, testimonials, basic SEO, Search Console and Analytics setup, 3 revision rounds.", "price": "749", "priceCurrency": "EUR" },
-      { "@type": "Offer", "name": "Pro Website", "description": "Up to 7 pages, gallery, pop-up, scroll animations, full SEO structure, blog setup or a website visual pack, 4 revision rounds.", "price": "1499", "priceCurrency": "EUR" },
-      { "@type": "Offer", "name": "Enterprise / Custom", "description": "Pricing tailored to your scope for integrations, multilingual websites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume." }
-    ];
-    const schema = {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://dm-labs.io/#professionalservice",
-          "name": "DM-Labs.io",
-          "alternateName": "DM-Labs",
-          "description": "Custom websites built to strengthen your brand and turn interest into enquiries. Fast delivery and personal care for businesses worldwide.",
-          "url": "https://dm-labs.io/",
-          "logo": "https://dm-labs.io/logo.png",
-          "image": "https://dm-labs.io/social/dm-labs-growth-social-card-centered.png",
-          "telephone": "+35797472847",
-          "email": "info@dm-labs.io",
-          "priceRange": "€299-€1,499",
-          "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
-          "areaServed": "Worldwide",
-          "employee": [
-            {
-              "@type": "Person",
-              "name": "Anastacia B.",
-              "jobTitle": "Creative Director & AI Specialist",
-              "image": "https://dm-labs.io/media/manus/AtkkCmVLLZyIDtDx.webp"
-            },
-            {
-              "@type": "Person",
-              "name": "Tom B.",
-              "jobTitle": "Technical Director & SEO Expert",
-              "image": "https://dm-labs.io/media/manus/DVIoYisVQvzbqoiR.webp"
-            }
-          ],
-          "sameAs": ["https://www.instagram.com/dm_labs.io/"],
-          "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Website Packages", "itemListElement": offers }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://dm-labs.io/#website",
-          "url": "https://dm-labs.io/",
-          "name": "DM-Labs.io",
-          "description": "Web design for growing businesses worldwide",
-          "publisher": { "@id": "https://dm-labs.io/#professionalservice" },
-          "inLanguage": ["en", "el", "he"]
-        }
-      ]
-    };
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "home-jsonld-schema";
-    script.text = JSON.stringify(schema);
-    document.head.appendChild(script);
-    return () => { document.getElementById("home-jsonld-schema")?.remove(); };
-  }, []);
   return (
-    <div className="editorial-home">
+    <div className="editorial-home home-page--dark" lang="en" data-button-surface="dark">
       {/* ═══════════════════════════════════════════
           HERO SECTION
           ═══════════════════════════════════════════ */}
-      <HomeHeroScrub>
-        <div className="editorial-hero-copy">
-        <p className="editorial-label mb-5">
-          Built for your next level
-        </p>
-        <h1 className="sr-only">Built to impress. Designed to convert.</h1>
-        <div className="editorial-hero-fit" aria-hidden="true">
-          <EditorialFitLine maxSizeRatio={0.17}>Built to</EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}><em className="editorial-serif">impress.</em></EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}>Designed to</EditorialFitLine>
-          <EditorialFitLine maxSizeRatio={0.17}><em className="editorial-serif">convert.</em></EditorialFitLine>
-        </div>
-        <p className="editorial-lead mb-8 max-w-2xl mx-auto">
-          Look established. Earn trust. Make the next enquiry easy. We build sharp, fast websites and handle the technical details, so you can focus on your business. Wherever you do business.
-        </p>
-        <div className="editorial-hero-actions flex flex-wrap gap-4 justify-center">
-          <StarButton asChild><Link href="/contact/" className="btn-primary">
-            Get a Free Consultation
-            <ArrowRight size={18} />
-          </Link></StarButton>
-          <Link href="/templates/" className="editorial-outline-button">
-            Browse Examples
-            <ArrowRight size={18} />
-          </Link>
-        </div>
-        </div>
-      </HomeHeroScrub>
+      <HomeHero language="en" />
 
       {/* ═══════════════════════════════════════════
           TRUST STRIP
           ═══════════════════════════════════════════ */}
-      <section className="bg-white border-y border-[#E2E5EA]">
-        <div className="container py-6">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-            {[
-              "Designed to earn trust",
-              "Delivered in Days",
-              "Mobile Responsive",
-              "SEO Optimised",
-              "Direct access to Tom & Anastacia",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-sm text-[#5B6472]">
-                <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0" />
-                <span className="font-medium">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
+
+      <HomeIntroductionVideo language="en" />
 
       {/* ═══════════════════════════════════════════
           TEMPLATE SHOWCASE + INDUSTRY GRID
           (moved directly after trust strip)
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
+      <section className="home-examples section-spacing relative overflow-hidden">
+
         <div className="container relative z-10">
           {/* -- Template Showcase Grid -- */}
           <AnimateIn className="text-center mb-10">
@@ -323,7 +214,7 @@ export default function HomePage() {
               Make Your First Impression <span className="editorial-serif">Count</span>
             </h2>
             <p className="editorial-lead max-w-2xl mx-auto">
-              Your website sets the standard before you say a word. Explore these <strong className="text-[#111315]">concept designs</strong> to see the possibilities. Your website will be designed around your brand, your customers, and the action you want them to take.
+              Your website sets the standard before you say a word. Explore these <strong className="text-[#edf2ff]">concept designs</strong> to see the possibilities. Your website will be designed around your brand, your customers, and the action you want them to take.
             </p>
           </AnimateIn>
 
@@ -345,7 +236,7 @@ export default function HomePage() {
           <AnimateIn className="text-center mb-16">
             <StarButton asChild><Link href="/templates/" className="btn-primary">
               View All Examples
-              <ArrowRight size={16} />
+
             </Link></StarButton>
           </AnimateIn>
         </div>
@@ -354,102 +245,17 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           SERVICES OVERVIEW
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing">
-        <div className="container">
-          <AnimateIn className="text-center mb-16">
-            <p className="editorial-label mb-4">Our Services</p>
-            <h2 className="editorial-section-heading mb-5">
-              Look the Part. <span className="editorial-serif">Win</span> the Enquiry.
-            </h2>
-            <p className="editorial-lead max-w-2xl mx-auto">
-              A confident brand, a fast experience, and a clear path to contact you. Every detail has a job to do.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              { icon: Globe, title: "Custom Website Design", desc: "A distinctive website that makes your business look as capable as it is. Built around your brand and the customers you want to win.", anchor: "custom-design" },
-              { icon: Smartphone, title: "Mobile-First Development", desc: "Make it easy to choose you from a phone. Clear content, simple navigation, and contact options within reach.", anchor: "mobile-first" },
-              { icon: Search, title: "SEO Optimisation", desc: "Give search engines a clear picture of your business, so the right customers have a stronger path to finding you.", anchor: "seo" },
-              { icon: Zap, title: "Fast Performance", desc: "Keep attention on your offer. Fast pages and optimised media help customers reach the next step without waiting.", anchor: "performance" },
-              { icon: Shield, title: "Secure & Reliable", desc: "Keep the technical work off your desk. Hosting, backups, and fixes are handled through your ongoing care plan.", anchor: "security" },
-              { icon: Clock, title: "Quick Turnaround", desc: "Move from plan to launch with clear milestones. Standard builds typically take 5-14 business days, depending on scope and content readiness.", anchor: "turnaround" },
-            ].map((service) => (
-              <StaggerItem key={service.title}>
-                <Link href={`/services/${service.anchor}/`}>
-                  <div className="dm-card h-full cursor-pointer hover:border-[#5B8CFF]/40 hover:-translate-y-1 transition-all duration-300">
-                    <div className="icon-container-gradient mb-5">
-                      <service.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="editorial-card-title text-lg mb-2">{service.title}</h3>
-                    <p className="editorial-card-copy text-sm text-[#5B6472] leading-relaxed mb-4">{service.desc}</p>
-                    <span className="text-sm font-medium text-[#5B8CFF] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Read more <ArrowRight size={14} />
-                    </span>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      <HomeServices language="en" />
 
       {/* ═══════════════════════════════════════════
           PROCESS OVERVIEW
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 100%)" }}>
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
-
-        <div className="container relative z-10">
-          <AnimateIn className="text-center mb-16">
-            <p className="editorial-label mb-4">How It Works</p>
-            <h2 className="editorial-section-heading mb-5">
-              From Idea to Launch in 5 Simple Steps
-            </h2>
-            <p className="editorial-lead max-w-2xl mx-auto">
-              Clear milestones. Direct answers. A website ready for business. We drive the project forward and keep you in control at every step.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-            {[
-              { icon: MessageCircle, step: "01", title: "Discovery Call", desc: "Quick WhatsApp chat to understand your business and goals.", time: "~1 day", color: "#5B8CFF" },
-              { icon: Palette, step: "02", title: "Design", desc: "We create a custom design based on your brand and preferences.", time: "2-3 days", color: "#6FE3FF" },
-              { icon: Code, step: "03", title: "Build", desc: "Your website is developed with clean code, optimised for speed and SEO.", time: "3-5 days", color: "#8B5CFF" },
-              { icon: Headphones, step: "04", title: "Revisions", desc: "We refine the design based on your feedback until you're happy.", time: "1-2 days", color: "#5B8CFF" },
-              { icon: Rocket, step: "05", title: "Launch", desc: "We deploy your site, connect your domain, and make sure everything works.", time: "~1 day", color: "#6FE3FF" },
-            ].map((item) => (
-              <StaggerItem key={item.step}>
-                <div className="text-center">
-                  <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" style={{ background: `${item.color}12` }}>
-                    <item.icon size={28} style={{ color: item.color }} strokeWidth={1.75} />
-                    <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full brand-gradient text-white text-xs font-bold flex items-center justify-center">
-                      {item.step}
-                    </span>
-                  </div>
-                  <h3 className="editorial-card-title text-base mb-1">{item.title}</h3>
-                  <p className="text-xs text-[#8B5CFF] font-medium mb-2">{item.time}</p>
-                  <p className="text-sm text-[#5B6472] leading-relaxed">{item.desc}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <AnimateIn className="text-center mt-12">
-            <Link href="/process/" className="btn-secondary">
-              See Full Process
-              <ArrowRight size={16} />
-            </Link>
-          </AnimateIn>
-        </div>
-      </section>
+      <HomeProcess language="en" />
 
       {/* ═══════════════════════════════════════════
           TESTIMONIALS
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
+      <section className="home-stories section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-14">
               <p className="editorial-label mb-4">Client Stories</p>
@@ -465,23 +271,19 @@ export default function HomePage() {
             {TESTIMONIALS.map((t) => (
               <StaggerItem key={t.name}>
                 <div className="dm-card h-full flex flex-col relative">
-                  {/* Quote icon */}
-                  <div className="absolute top-5 right-5 opacity-10">
-                    <Quote size={40} className="text-[#5B8CFF]" />
-                  </div>
-                
+
                   {/* Quote text */}
-                  <p className="editorial-quote text-[#3D4550] mb-6 flex-1">
+                  <p className="editorial-quote text-[#d5dff0] mb-6 flex-1">
                     "{t.text}"
                   </p>
                   {/* Author */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-[#E2E5EA]">
+                  <div className="flex items-center gap-3 pt-4 border-t border-[#34435f]">
                     <div className="w-10 h-10 rounded-full brand-gradient flex items-center justify-center text-white text-sm font-bold shrink-0">
                       {t.initial}
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-[#111315]">{t.name}</p>
-                      <p className="text-xs text-[#5B6472]">{t.role}</p>
+                      <p className="text-sm font-semibold text-[#edf2ff]">{t.name}</p>
+                      <p className="text-xs text-[#bdc9df]">{t.role}</p>
                     </div>
                   </div>
                 </div>
@@ -494,376 +296,24 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           PRICING PREVIEW
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 100%)" }}>
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-          <img src={GRADIENT_BG} alt="" role="presentation" className="w-full h-full object-cover" aria-hidden="true" />
-        </div>
-
-        <div className="container relative z-10">
-          <AnimateIn className="text-center mb-16">
-            <p className="editorial-label mb-4">Transparent Pricing</p>
-            <h2 className="editorial-section-heading mb-5">
-              Invest in Your <span className="editorial-serif">Next Level</span>
-            </h2>
-            <p className="editorial-lead max-w-2xl mx-auto mb-5">
-              Choose the scope that fits your ambition. Know what you are getting before we start.
-            </p>
-           </AnimateIn>
-
-          <div
-            className="w-full flex flex-col sm:flex-row items-center justify-center gap-3 py-4 px-6 mb-10 rounded-xl text-center sm:text-left"
-            style={{ background: "linear-gradient(90deg, #5B8CFF 0%, #6FE3FF 50%, #8B5CFF 100%)" }}
-          >
-            <span className="editorial-label !text-white">Built around your business</span>
-            <span className="hidden sm:block w-px h-5 bg-white/40" />
-            <span className="text-sm sm:text-base text-white/90 font-medium">Website build + ongoing hosting and care. See full pricing for your complete investment.</span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
-
-            {/* Launch Website */}
-            <AnimateIn delay={0.1}>
-              <div className="dm-card h-full flex flex-col">
-                <p className="editorial-label !text-[#5B8CFF] mb-3">Launch Website</p>
-                <div className="flex items-baseline gap-1 mb-4">
-                  <span className="editorial-price">€299</span>
-                  <span className="text-sm text-[#5B6472]">one-time</span>
-                </div>
-                <p className="text-sm text-[#5B6472] mb-6">A lean online presence for a new business that needs to launch clearly and professionally.</p>
-                <ul className="space-y-3 mb-8 flex-1">
-                  {["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                      <CheckCircle2 size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/contact/" className="btn-secondary w-full justify-center">Get a Free Consultation</Link>
-              </div>
-            </AnimateIn>
-
-            {/* Growth Website - Recommended */}
-            <AnimateIn delay={0.2}>
-              <div className="brand-gradient-border h-full">
-                <div className="dm-card h-full flex flex-col !shadow-none relative">
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full brand-gradient text-white text-xs font-semibold whitespace-nowrap">Recommended</span>
-                  <p className="editorial-label !text-[#8B5CFF] mb-3">Growth Website</p>
-                  <div className="flex items-baseline gap-1 mb-4">
-                    <span className="editorial-price">€749</span>
-                    <span className="text-sm text-[#5B6472]">one-time</span>
-                  </div>
-                  <p className="text-sm text-[#5B6472] mb-6">A conversion-focused site for a business ready to be found, trusted, and contacted online.</p>
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"].map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                        <CheckCircle2 size={16} className="text-[#8B5CFF] shrink-0 mt-0.5" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <StarButton asChild><Link href="/contact/" className="btn-primary w-full justify-center">Get a Free Consultation</Link></StarButton>
-                </div>
-              </div>
-            </AnimateIn>
-
-            {/* Pro Website */}
-            <AnimateIn delay={0.3}>
-              <div className="dm-card h-full flex flex-col">
-                <p className="editorial-label !text-[#3D9CBB] mb-3">Pro Website</p>
-                <div className="flex items-baseline gap-1 mb-4">
-                  <span className="editorial-price">€1,499</span>
-                  <span className="text-sm text-[#5B6472]">one-time</span>
-                </div>
-                <p className="text-sm text-[#5B6472] mb-6">For a more complete digital presence with richer content, motion, and stronger search foundations.</p>
-                <ul className="space-y-3 mb-8 flex-1">
-                  {["Up to 7 pages", "Gallery or portfolio", "Pop-up and scroll-driven animations", "Full SEO structure", "Blog setup or website visual pack", "4 revision rounds"].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#111315]">
-                      <CheckCircle2 size={16} className="text-[#6FE3FF] shrink-0 mt-0.5" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/contact/" className="btn-secondary w-full justify-center">Get a Free Consultation</Link>
-              </div>
-            </AnimateIn>
-
-          </div>
-
-          {/* Enterprise Wide Banner */}
-          <AnimateIn delay={0.4} className="mt-8 max-w-5xl mx-auto">
-            <div className="rounded-2xl overflow-hidden" style={{ background: "linear-gradient(135deg, #0d1117 0%, #161b2e 50%, #0d1117 100%)", border: "1px solid rgba(91,140,255,0.2)" }}>
-              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 p-8">
-
-                {/* Left: label + price + description */}
-                <div className="flex-shrink-0 lg:w-64">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)", color: "#fff" }}>Built for You</span>
-                  <p className="editorial-label !text-[#6FE3FF] mb-2">Enterprise / Custom</p>
-                  <p className="editorial-price !text-white mb-2 enterprise-scope-title">Pricing tailored to your scope</p>
-                  <p className="text-xs font-medium mb-4" style={{ color: "#5B8CFF" }}>Quote based on scope</p>
-                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-                    For integrations, multilingual builds, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, or unusual content volume.
-                  </p>
-                  <Link
-                    href="/contact/"
-                    className="mt-6 inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"
-                    style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}
-                  >
-                    <MessageCircle size={16} /> Contact Us
-                  </Link>
-                </div>
-
-                {/* Divider */}
-                <div className="hidden lg:block w-px self-stretch" style={{ background: "rgba(91,140,255,0.2)" }} />
-
-                {/* Right: feature grid */}
-                <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
-                  {[
-                    { icon: Globe, label: "Fully custom design from scratch" },
-                    { icon: Zap, label: "Scope designed around your project" },
-                    { icon: CalendarCheck, label: "CRM and booking integrations" },
-                    { icon: Languages, label: "Multi-language support" },
-                    { icon: Users, label: "Dedicated project manager" },
-                    { icon: Headphones, label: "Priority support and delivery" },
-                    { icon: ArrowRight, label: "Ongoing retainer option" },
-                    { icon: CheckCircle2, label: "Custom SEO and content strategy" },
-                  ].map(({ icon: Icon, label }) => (
-                    <div key={label} className="flex items-start gap-2.5">
-                      <Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#6FE3FF" }} />
-                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>{label}</span>
-                    </div>
-                  ))}
-                </div>
-
-              </div>
-            </div>
-          </AnimateIn>
-
-          <AnimateIn className="text-center mt-10">
-            <p className="text-sm text-[#5B6472] mb-3">
-              All plans include a <span className="font-semibold text-[#111315]">free consultation</span> - no commitment, no pressure.
-            </p>
-            <Link href="/pricing/" className="text-sm font-medium text-[#5B8CFF] hover:underline inline-flex items-center gap-1">
-              See full pricing &amp; add-ons <ArrowRight size={14} />
-            </Link>
-          </AnimateIn>
-        </div>
-      </section>
+      <PackageOverview locale="en" />
 
       {/* ═══════════════════════════════════════════
           INDUSTRIES WE SERVE
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
-        <div className="container">
-          <AnimateIn className="text-center mb-8">
-            <p className="editorial-label">Industries we work with</p>
-          </AnimateIn>
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { icon: Utensils, label: "Restaurants", industry: "restaurant" },
-              { icon: Scissors, label: "Beauty Salons", industry: "beauty" },
-              { icon: Stethoscope, label: "Clinics", industry: "clinic" },
-              { icon: Dumbbell, label: "Fitness", industry: "fitness" },
-
-            ].map((biz) => (
-              <StaggerItem key={biz.label}>
-                <Link href="/templates/">
-                  <div className="dm-card text-center !p-6 cursor-pointer hover:-translate-y-1 hover:border-[#5B8CFF]/40 transition-all duration-300">
-                    <div className="icon-container-gradient mx-auto mb-4 !w-14 !h-14">
-                      <biz.icon size={24} className="text-[#5B8CFF]" strokeWidth={1.75} />
-                    </div>
-                    <p className="editorial-card-title text-sm">{biz.label}</p>
-                    <p className="text-xs mt-1 text-[#5B8CFF]">View examples →</p>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-          {/* Can't find your industry CTA */}
-          <AnimateIn className="text-center mt-10">
-            <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-[#F8FAFF] border border-[#5B8CFF]/20">
-              <HelpCircle size={18} className="text-[#5B8CFF] shrink-0" />
-              <p className="text-sm text-[#5B6472]">
-                <strong className="text-[#111315]">Don't see your industry?</strong>{" "}
-                We work with all types of businesses.{" "}
-                <Link href="/contact/" className="text-[#5B8CFF] font-medium hover:underline">
-                  Get in touch →
-                </Link>
-              </p>
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          STATS BANNER - vivid gradient, animated on scroll
-          ═══════════════════════════════════════════ */}
-      <section className="relative overflow-hidden py-16 sm:py-20"
-        style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E2A4A 50%, #0F172A 100%)" }}
-      >
-        {/* Ambient glows */}
-        <div className="absolute top-0 left-1/4 w-72 h-72 bg-[#5B8CFF] rounded-full blur-[100px] opacity-20 pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-[#8B5CFF] rounded-full blur-[100px] opacity-15 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-32 bg-[#6FE3FF] rounded-full blur-[80px] opacity-10 pointer-events-none" />
-        <div className="container relative z-10">
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {[
-              { value: "5-14", label: "Days to Launch", sub: "from first call" },
-              { value: "5★", label: "Client Satisfaction", sub: "our standard" },
-              { value: "100%", label: "Mobile Optimised", sub: "every project" },
-              { value: "∞", label: "Ongoing Support", sub: "we’re always here" },
-            ].map((stat, i) => (
-              <StaggerItem key={stat.label}>
-                <div className="text-center group">
-                  {/* Divider line on desktop */}
-                  <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 w-px h-12 bg-white/10" />
-                  <p
-                    className="editorial-stat-value text-4xl sm:text-5xl lg:text-6xl mb-2 transition-transform duration-300 group-hover:scale-110"
-                    style={{
-                      background: i % 2 === 0
-                        ? "linear-gradient(135deg, #6FE3FF 0%, #5B8CFF 100%)"
-                        : "linear-gradient(135deg, #A78BFF 0%, #6FE3FF 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
-                    {stat.value}
-                  </p>
-                  <p className="text-base font-semibold text-white mb-1">{stat.label}</p>
-                  <p className="text-xs text-[#94A3B8]">{stat.sub}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      <HomeIndustries language="en" />
 
       {/* ═══════════════════════════════════════════
           WHO WE ARE - Team Section
           ═══════════════════════════════════════════ */}
-      <section className="section-spacing bg-white">
+      <section className="home-team section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-14">
             <p className="editorial-label !text-[#5B8CFF] mb-4">The people behind the work</p>
             <h2 className="editorial-section-heading">Who We Are</h2>
           </AnimateIn>
 
-          {/* Two stacked cards - horizontal on desktop, photo-top on mobile */}
-          <div className="flex flex-col gap-8 max-w-3xl mx-auto">
-
-            {/* Anastacia Card */}
-            <AnimateIn delay={0.1}>
-              <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 overflow-hidden">
-                {/* MOBILE: compact horizontal - square photo left, text right */}
-                <div className="flex md:hidden flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
-                    <img
-                      src="/media/manus/AtkkCmVLLZyIDtDx.webp"
-                      alt="Anastacia B. - Creative Director and AI Specialist at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover"
-                      style={{ objectPosition: 'center top' }}
-                    />
-                    <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
-                    <div>
-                      <h3 className="editorial-card-title text-base mb-0.5">Anastacia B.</h3>
-                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Creative Director &amp; AI Specialist</p>
-                      <p className="text-xs text-[#5B6472] leading-relaxed">
-                        I worked with global tech companies on digital products and AI implementation. I know how to use the best AI tools available today - not to replace craft, but to deliver sharper results, faster, for every client.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-3 pt-2">
-                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;Your website should work as hard as you do.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* DESKTOP: horizontal flex - photo left, content right */}
-                <div className="hidden md:flex flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px', minHeight: '240px', maxHeight: '280px' }}>
-                    <img
-                      src="/media/manus/AtkkCmVLLZyIDtDx.webp"
-                      alt="Anastacia B. - Creative Director and AI Specialist at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={{ objectPosition: 'center top' }}
-                    />
-                    <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-7 flex-1">
-                    <div>
-                      <h3 className="editorial-card-title text-xl mb-0.5">Anastacia B.</h3>
-                      <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Creative Director &amp; AI Specialist</p>
-                      <p className="text-sm text-[#5B6472] leading-relaxed">
-                        I worked with global tech companies on digital products and AI implementation. I understand how to use the best AI tools available today - not to replace craft or human judgment, but to deliver sharper, more effective results for every client we work with.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-5 pt-4">
-                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;Your website should work as hard as you do.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </AnimateIn>
-
-            {/* Tom Card */}
-            <AnimateIn delay={0.2}>
-              <div className="group rounded-2xl border border-[#E2E5EA] bg-[#F8FAFF] hover:border-[#5B8CFF]/40 hover:shadow-xl transition-all duration-500 overflow-hidden">
-                {/* MOBILE: compact horizontal - square photo left, text right */}
-                <div className="flex md:hidden flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '120px', minHeight: '160px' }}>
-                    <img
-                      src="/media/manus/DVIoYisVQvzbqoiR.webp"
-                      alt="Tom B. - Technical Director and SEO Expert at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover object-top"
-                    />
-                    <div className="absolute inset-y-0 right-0 w-5 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-4 flex-1 min-w-0">
-                    <div>
-                      <h3 className="editorial-card-title text-base mb-0.5">Tom B.</h3>
-                      <p className="text-xs font-semibold text-[#5B8CFF] mb-2">Technical Director &amp; SEO Expert</p>
-                      <p className="text-xs text-[#5B6472] leading-relaxed">
-                        My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side so you never have to think about it.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-3 pt-2">
-                      <p className="text-xs italic text-[#111315] font-medium">&ldquo;First, solve the problem. Then, write the code.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* DESKTOP: horizontal flex */}
-                <div className="hidden md:flex flex-row">
-                  <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '200px' }}>
-                    <img
-                      src="/media/manus/DVIoYisVQvzbqoiR.webp"
-                      alt="Tom B. - Technical Director & SEO Expert at DM-Labs.io"
-                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-[#F8FAFF]" />
-                  </div>
-                  <div className="flex flex-col justify-between p-7 flex-1">
-                    <div>
-                      <h3 className="editorial-card-title text-xl mb-0.5">Tom B.</h3>
-                      <p className="text-sm font-semibold text-[#5B8CFF] mb-4">Technical Director &amp; SEO Expert</p>
-                      <p className="text-sm text-[#5B6472] leading-relaxed">
-                        My background is in automation, development, and integrating complex systems for global organisations. I love solving the technical side of things so you never have to think about it - what you get is a site that is solid, fast, and built to last.
-                      </p>
-                    </div>
-                    <div className="border-t border-[#E2E5EA] mt-5 pt-4">
-                      <p className="text-sm italic text-[#111315] font-medium">&ldquo;First, solve the problem. Then, write the code.&rdquo;</p>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </AnimateIn>
-
-          </div>
+          <TeamProfiles language="en" />
         </div>
       </section>
 
@@ -895,7 +345,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <StarButton asChild><Link href="/contact/" className="btn-primary !h-14 !text-base !px-8">
-                <MessageCircle size={20} />
+
                 Get a Free Consultation
               </Link></StarButton>
             </div>

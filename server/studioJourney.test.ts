@@ -1,0 +1,75 @@
+import React from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { describe, expect, it } from "vitest";
+import ServicesPage from "../client/src/components/studio/ServicesPage";
+import ProcessPage from "../client/src/components/studio/ProcessPage";
+import { CAPABILITY_IDS, STUDIO_COPY, studioRoute } from "../client/src/components/studio/studioCopy";
+
+const locales = ["en", "el", "he"] as const;
+const escaped = (value: string) => renderToStaticMarkup(React.createElement(React.Fragment, null, value));
+
+describe("Services and process multilingual journey", () => {
+  it.each(locales)("offers nine fully clickable service destinations without plans or prices in %s", locale => {
+    const html = renderToStaticMarkup(React.createElement(ServicesPage, { locale }));
+    expect(html.match(/<h1\b/g)).toHaveLength(1);
+    expect(html).not.toContain("<main");
+    expect(html).not.toMatch(/€|pricing-catalog|website-packages|id="maintenance"|studio-jump-links|Enterprise/);
+    expect(html).not.toContain(`href="${studioRoute(locale, "pricing")}`);
+    expect(STUDIO_COPY[locale].services.capabilities).toHaveLength(9);
+    for (const id of CAPABILITY_IDS) {
+      expect(html).toContain(`id="${id}" tabindex="-1"`);
+      expect(html).toContain(`href="${studioRoute(locale, `services/${id}`)}"`);
+      expect(html).toContain(`aria-labelledby="${id}-title" aria-describedby="${id}-description"`);
+    }
+    const cards = [...html.matchAll(/<a class="studio-service-link"[^>]*>(.*?)<\/a>/g)];
+    expect(cards).toHaveLength(9);
+    for (const [index, card] of cards.entries()) {
+      for (const text of STUDIO_COPY[locale].services.capabilities[index]) expect(card[1]).toContain(escaped(text));
+      expect(card[1]).toContain('alt="" aria-hidden="true" loading="lazy" decoding="async"');
+      expect(card[1]).not.toMatch(/<button|tabindex|<a\b/);
+    }
+    for (const path of ["contact", "process"]) expect(html).toContain(`href="${studioRoute(locale, path)}"`);
+  });
+
+  it.each(locales)("renders five complete process chapters without fixed delivery promises in %s", locale => {
+    const html = renderToStaticMarkup(React.createElement(ProcessPage, { locale }));
+    expect(html.match(/<h1\b/g)).toHaveLength(1);
+    expect(html.match(/<li\b/g)).toHaveLength(5);
+    for (const [i, step] of STUDIO_COPY[locale].process.steps.entries()) {
+      expect(html).toContain(`id="step-${i + 1}"`);
+      for (const text of [step.title, step.copy, step.output]) expect(html).toContain(escaped(text));
+    }
+    expect(html).not.toContain('id="timing"');
+    expect(html).not.toMatch(/5–7|7–10|10–14/);
+    for (const path of ["contact", "services", "faq"]) expect(html).toContain(`href="${studioRoute(locale, path)}"`);
+  });
+
+  it.each(locales)("keeps readable static content, correct direction and working anchors in %s", locale => {
+    for (const component of [ServicesPage, ProcessPage]) {
+      const html = renderToStaticMarkup(React.createElement(component, { locale }));
+      expect(html).toContain(`lang="${locale}" dir="${locale === "he" ? "rtl" : "ltr"}"`);
+      expect(html).not.toMatch(/<video|opacity:0|icon-container/);
+      for (const [, anchor] of html.matchAll(/href="#([^"]+)"/g)) expect(html).toContain(`id="${anchor}" tabindex="-1"`);
+      expect(html).toContain(escaped(STUDIO_COPY[locale].consultation));
+    }
+  });
+
+  it("keeps the new pages on shared components, preserves Hebrew indexing and limits motion to decoration", () => {
+    for (const [locale, suffix, prefix] of [["en", "", ""], ["el", "El", "el/"], ["he", "He", "he/"]]) {
+      for (const family of ["Services", "Process"]) {
+        const source = readFileSync(resolve(import.meta.dirname, `../client/src/pages/${prefix}${family}${suffix}.tsx`), "utf8");
+        expect(source).toContain(`<${family}Page locale="${locale}" />`);
+        if (locale === "he") expect(source).toContain("noindex: true");
+      }
+    }
+    const styles = readFileSync(resolve(import.meta.dirname, "../client/src/components/studio/StudioPage.css"), "utf8");
+    expect(styles).toContain("@media (prefers-reduced-motion: no-preference)");
+    expect(styles).toContain(".studio-rule[data-visible=\"true\"] span");
+    expect(styles).toContain('font-family: "Rubik", Arial, sans-serif; font-weight: 800');
+    expect(styles).not.toContain("infinite");
+    expect(STUDIO_COPY.en.process.steps[1].copy).toContain("paid in full before work begins");
+    expect(STUDIO_COPY.en.process.steps[3].copy).toContain("Launch includes 2 revision rounds, Growth includes 3 and Pro includes 4");
+  });
+});

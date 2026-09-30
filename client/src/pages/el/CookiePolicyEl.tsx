@@ -1,7 +1,8 @@
+import "@/styles/legal.css";
 /* D&M LABS - Πολιτική Cookies (Συμμόρφωση GDPR) */
 import { Link } from "wouter";
-import AnimateIn from "@/components/AnimateIn";
-import { ChevronLeft } from "lucide-react";
+
+
 import { useSEO } from "@/hooks/useSEO";
 
 export default function CookiePolicyEl() {
@@ -14,25 +15,25 @@ export default function CookiePolicyEl() {
   });
 
   return (
-    <>
+    <div className="legal-document">
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
           <Link href="/el/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
-            <ChevronLeft size={16} />
+
             Επιστροφή στην Αρχική
           </Link>
           <div className="text-center">
-            <AnimateIn>
+            <div>
               <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Νομικά</p>
               <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Πολιτική Cookies</h1>
-              <p className="text-sm text-[#5B6472]">Τελευταία ενημέρωση: Μάρτιος 2026</p>
-            </AnimateIn>
+              <p className="text-sm text-[#5B6472]">Τελευταία ενημέρωση: 30 Σεπτεμβρίου 2026</p>
+            </div>
           </div>
         </div>
       </section>
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl">
-          <AnimateIn>
+          <div>
             <div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">
 
               <div>
@@ -51,7 +52,7 @@ export default function CookiePolicyEl() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">3. Τύποι Cookies που Χρησιμοποιούμε</h2>
-                <div className="overflow-x-auto mt-4">
+                <div className="overflow-x-auto mt-4" role="region" aria-label="Στοιχεία cookies" tabIndex={0}>
                   <table className="w-full text-left border-collapse">
                     <thead>
                       <tr className="border-b border-[#E2E5EA]">
@@ -65,7 +66,7 @@ export default function CookiePolicyEl() {
                       <tr className="border-b border-[#E2E5EA]/50">
                         <td className="py-3 pr-4 font-mono text-xs">dm_cookie_consent</td>
                         <td className="py-3 pr-4">Απαραίτητο</td>
-                        <td className="py-3 pr-4">Αποθηκεύει τις προτιμήσεις συγκατάθεσης cookies</td>
+                        <td className="py-3 pr-4">Αποθηκεύει την επιλογή συγκατάθεσης στο local storage του browser</td>
                         <td className="py-3">Μόνιμο</td>
                       </tr>
                       <tr className="border-b border-[#E2E5EA]/50">
@@ -90,18 +91,18 @@ export default function CookiePolicyEl() {
                 <ul className="list-disc pl-5 space-y-2 mt-3">
                   <li>Δεν σας παρακολουθούν σε άλλες ιστοσελίδες</li>
                   <li>Δεν δημιουργούν διαφημιστικά προφίλ</li>
-                  <li>Ανωνυμοποιούν τη διεύθυνση IP σας</li>
+                  <li>Έχουν απενεργοποιημένη τη συλλογή διεύθυνσης IP στο PostHog από τη ρύθμιση του site</li>
                   <li>Δεν μοιράζονται δεδομένα με τρίτους διαφημιστές</li>
                 </ul>
-                <p className="mt-3">Μπορείτε να αποσύρετε τη συγκατάθεσή σας για cookies ανάλυσης ανά πάσα στιγμή, διαγράφοντας τα cookies του προγράμματος περιήγησής σας και επισκεπτόμενοι ξανά την ιστοσελίδα μας, όπου θα εμφανιστεί ξανά το banner cookies.</p>
+                <p className="mt-3">Μπορείτε να αποσύρετε τη συγκατάθεση από τις Ρυθμίσεις cookies στο υποσέλιδο, επιλέγοντας Απόρριψη. Σταματά η περαιτέρω ανάλυση και καταγραφή συνεδριών. Επικοινωνήστε μαζί μας και για διαγραφή δεδομένων που έχουν ήδη συλλεχθεί.</p>
               </div>
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">6. Cookies Τρίτων</h2>
-                <p>Δεν χρησιμοποιούμε cookies διαφήμισης τρίτων. Οι μόνες υπηρεσίες τρίτων που ενδέχεται να ορίσουν cookies είναι:</p>
+                <p>Δεν χρησιμοποιούμε cookies διαφήμισης τρίτων. Οι υπηρεσίες τρίτων που χρησιμοποιεί το site περιλαμβάνουν:</p>
                 <ul className="list-disc pl-5 space-y-2 mt-3">
                   <li><strong className="text-[#111315]">PostHog (EU):</strong> Ο πάροχός μας για αναλυτικά στοιχεία, καταγραφή συνεδριών και παρακολούθηση σφαλμάτων. Φορτώνεται μόνο αφού συναινέσετε στα analytics cookies.</li>
-                  <li><strong className="text-[#111315]">Web3Forms:</strong> Ο επεξεργαστής φόρμας επικοινωνίας μας. Το Web3Forms ενδέχεται να ορίσει απαραίτητα cookies για την αποτροπή ανεπιθύμητων υποβολών.</li>
+                  <li><strong className="text-[#111315]">Vercel Web Analytics:</strong> Ανάλυση χρήσης χωρίς cookies, ενεργή μόνο με συγκατάθεση analytics.</li><li><strong className="text-[#111315]">Google Maps και εξωτερικά πολυμέσα:</strong> Οι ενσωματωμένοι χάρτες και τα αρχεία σε εξωτερικούς servers μπορεί να διαβιβάσουν τεχνικά στοιχεία σύνδεσης κατά τη φόρτωσή τους.</li><li><strong className="text-[#111315]">Web3Forms:</strong> Ο πάροχος της φόρμας επικοινωνίας μας, που λαμβάνει τα στοιχεία που συμπληρώνετε όταν στέλνετε ένα αίτημα.</li>
                   <li><strong className="text-[#111315]">WhatsApp:</strong> Το αιωρούμενο widget WhatsApp συνδέεται με εξωτερική σελίδα WhatsApp και δεν ορίζει cookies στην ιστοσελίδα μας.</li>
                 </ul>
               </div>
@@ -112,7 +113,7 @@ export default function CookiePolicyEl() {
                 <ul className="list-disc pl-5 space-y-2">
                   <li><strong className="text-[#111315]">Banner cookies:</strong> Κατά την πρώτη επίσκεψή σας στην ιστοσελίδα μας, ένα banner cookies σάς επιτρέπει να αποδεχτείτε όλα τα cookies, να απορρίψετε τα μη απαραίτητα ή να προσαρμόσετε τις προτιμήσεις σας.</li>
                   <li><strong className="text-[#111315]">Ρυθμίσεις προγράμματος περιήγησης:</strong> Τα περισσότερα προγράμματα περιήγησης σάς επιτρέπουν να προβάλλετε, να διαχειρίζεστε και να διαγράφετε cookies. Σημειώστε ότι η απενεργοποίηση απαραίτητων cookies ενδέχεται να επηρεάσει τη λειτουργικότητα της ιστοσελίδας.</li>
-                  <li><strong className="text-[#111315]">Επαναφορά προτιμήσεων:</strong> Διαγράψτε τα cookies του προγράμματος περιήγησής σας για την ιστοσελίδα μας και το banner συγκατάθεσης θα εμφανιστεί ξανά κατά την επόμενη επίσκεψή σας.</li>
+                  <li><strong className="text-[#111315]">Επαναφορά προτιμήσεων:</strong> Ανοίξτε τις Ρυθμίσεις cookies στο υποσέλιδο για αλλαγή επιλογής. Η προτίμηση αποθηκεύεται σε local storage, οπότε μόνο η διαγραφή cookies μπορεί να μην την επαναφέρει.</li>
                 </ul>
               </div>
 
@@ -143,9 +144,9 @@ export default function CookiePolicyEl() {
               <Link href="/el/privacy/" className="text-sm text-[#5B8CFF] hover:underline">Πολιτική Απορρήτου</Link>
               <Link href="/el/terms/" className="text-sm text-[#5B8CFF] hover:underline">Όροι Χρήσης</Link>
             </div>
-          </AnimateIn>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

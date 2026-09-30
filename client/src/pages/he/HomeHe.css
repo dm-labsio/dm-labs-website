@@ -1,0 +1,4 @@
+/* Hebrew homepage composition; typography is shared through styles/typography.css. */
+.hebrew-home-refresh :is(article, .dm-card) { min-width: 0; }
+.hebrew-home-refresh section[id] { scroll-margin-top: 88px; }
+.hebrew-home-refresh .he-home-note { color: #5b6472; }

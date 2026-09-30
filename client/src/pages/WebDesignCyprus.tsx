@@ -1,8 +1,10 @@
+import { BUILD_PRICE_SUMMARY } from "@/components/pricing/pricingContent";
 /* ============================================================
    DM-Labs.io — Web Design Cyprus Pillar Page
    ============================================================ */
 import StarButton from "@/components/ui/star-button";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
@@ -14,34 +16,14 @@ const packages = [
 ];
 
 const faqItems = [
-  { q: "How much does web design cost?", a: "DM-Labs.io website packages start at €299 for a Launch Website. Growth Website packages start at €749 and Pro Website packages start at €1,499. Enterprise / Custom projects are quoted separately based on scope." },
+  { q: "How much does web design cost?", a: BUILD_PRICE_SUMMARY.en },
   { q: "What is included in a DM-Labs.io website package?", a: "Every package has a clearly defined scope. The Launch package includes responsive implementation and basic SEO foundations. Growth adds up to four pages, a contact form, maps, reviews/testimonials, and Search Console and Analytics setup. Pro adds up to seven pages, richer visual features, full SEO structure, and a blog setup or visual pack." },
   { q: "Can you build a bilingual Greek and English website?", a: "Yes. Multilingual functionality can be included in an Enterprise / Custom scope, depending on language, content, and editing requirements." },
   { q: "Do you provide ongoing website care?", a: "Yes. Basic Care is €69 per month and Complete Care is €129 per month. New pages, copywriting, new integrations, redesigns, advanced SEO work, and complex content migration are quoted separately." },
   { q: "When is a project Enterprise / Custom?", a: "Enterprise / Custom applies to scope beyond the standard packages, including integrations, multilingual websites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume." },
 ];
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://dm-labs.io/web-design-cyprus/#professionalservice",
-      "name": "DM-Labs.io",
-      "alternateName": "DM-Labs",
-      "description": "Professional website design and web development for businesses worldwide.",
-      "url": "https://dm-labs.io/web-design-cyprus/",
-      "telephone": "+35797472847",
-      "email": "info@dm-labs.io",
-      "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
-      "areaServed": "Worldwide",
-      "priceRange": "€299-€1,499",
-      "currenciesAccepted": "EUR",
-      "hasOfferCatalog": { "@type": "OfferCatalog", "name": "DM-Labs.io Website Packages", "itemListElement": packages.map((item) => ({ "@type": "Offer", "name": item.name, "price": item.price.replace(/[€,]/g, ""), "priceCurrency": "EUR" })) }
-    },
-    { "@type": "FAQPage", "mainEntity": faqItems.map((item) => ({ "@type": "Question", "name": item.q, "acceptedAnswer": { "@type": "Answer", "text": item.a } })) }
-  ]
-};
+
 
 export default function WebDesignCyprus() {
   useSEO({
@@ -50,15 +32,7 @@ export default function WebDesignCyprus() {
     canonicalPath: "/web-design-cyprus/",
   });
 
-  useEffect(() => {
-    document.getElementById("schema-cyprus")?.remove();
-    const script = document.createElement("script");
-    script.id = "schema-cyprus";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => { document.getElementById("schema-cyprus")?.remove(); };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/web-design-cyprus/", "en", "Web Design", "Professional website design and web development for businesses worldwide.", faqItems));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
@@ -68,7 +42,7 @@ export default function WebDesignCyprus() {
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Web Design Without Borders</span>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">Professional <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">Web Design</span></h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">DM-Labs.io designs and builds professional websites for businesses worldwide. Choose a clear package or request a custom scope for more complex work.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><Link href="/contact/" className="btn-primary">Get a Free Consultation</Link></StarButton><a href="https://wa.me/35797472847?text=Hi%20DM-Labs.io!%20I%27m%20interested%20in%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Us</a></div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><Link href="/contact/" className="btn-primary">Get a Free Consultation</Link></StarButton><a href="https://wa.me/35797472847?text=Hello%20DM-Labs%20team%21%20I%27m%20interested%20in%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Us</a></div>
           </AnimateIn>
         </div>
       </section>

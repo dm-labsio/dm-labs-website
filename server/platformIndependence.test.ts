@@ -93,12 +93,14 @@ describe("platform-independent production stack", () => {
     expect(viteConfig).not.toMatch(/transformIndexHtml|configureServer|jsxLocPlugin/i);
   });
 
-  it("replaces Umami with one official Vercel Analytics React component", () => {
+  it("gates the one official Vercel Analytics component on consent", () => {
     expect(packageJson.dependencies["@vercel/analytics"]).toMatch(/^\^2\./);
     expect(htmlShell).not.toMatch(/umami|VITE_ANALYTICS/i);
-    expect(appSource).toContain('import { Analytics } from "@vercel/analytics/react";');
-    expect(appSource).toContain('<Analytics mode={import.meta.env.MODE === "production" ? "production" : "development"} />');
-    expect(appSource.match(/<Analytics\b/g)).toHaveLength(1);
+    expect(appSource).not.toMatch(/<Analytics\b/);
+    expect(postHogSource).toContain('import { Analytics } from "@vercel/analytics/react";');
+    expect(postHogSource).toContain('return consented ? <Analytics');
+    expect(postHogSource).toContain('beforeSend={event => hasAnalyticsConsent() ? event : null}');
+    expect(postHogSource.match(/<Analytics\b/g)).toHaveLength(1);
   });
 
   it("loads PostHog only after analytics consent and masks session-replay inputs", () => {
@@ -108,7 +110,7 @@ describe("platform-independent production stack", () => {
     expect(postHogSource).toContain('api_host: "https://eu.i.posthog.com"');
     expect(postHogSource).toContain("maskAllInputs: true");
     expect(postHogSource).toContain("capture_exceptions: true");
-    expect(cookieBannerSource).toContain('new Event(CONSENT_UPDATED_EVENT)');
+    expect(cookieBannerSource).toContain('saveAnalyticsConsent(value)');
   });
 
   it("preserves the production build, output directory, and 91-route prerender contract", () => {

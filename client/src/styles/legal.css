@@ -1,0 +1,20 @@
+/* Legal documents have a reading scale, independent of the marketing hero scale. */
+.legal-document { background: #101729; color: #d1d7e5; }
+.legal-document > section { background: transparent; }
+.legal-document > section:first-child { padding-block: 3rem 2rem !important; }
+.legal-document .container { max-width: 54rem; }
+.legal-document .section-spacing { padding-block: 2rem 4rem; }
+[data-brand] .legal-document h1 { font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.16; color: #f6f5f2; }
+[data-brand] .legal-document h2 { font-size: clamp(1.3rem, 2.5vw, 1.6rem); line-height: 1.3; color: #f6f5f2; text-align: start; text-wrap: pretty; }
+[data-brand] .legal-document h3 { font-size: 1.125rem; line-height: 1.4; color: #f6f5f2; }
+[data-brand] .legal-document :is(p, li, td) { color: #d1d7e5; font-size: 1rem; line-height: 1.75; overflow-wrap: anywhere; }
+[data-brand] .legal-document strong { color: #f6f5f2; }
+[data-brand] .legal-document a { color: #a8b8ff; text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.legal-document :is(ul, ol) { padding-inline-start: 1.5rem; padding-inline-end: 0; }
+.legal-document [class*="space-y-8"] > div { padding-block-end: 1.5rem; border-bottom: 1px solid #34435f; }
+.legal-document table { width: 100%; min-width: 34rem; table-layout: fixed; }
+.legal-document :is(th, td) { border-color: #34435f; padding: .75rem; }
+
+[data-brand] .legal-document th { color: #f6f5f2; font-size: .9rem; text-align: start; overflow-wrap: anywhere; }
+.legal-document .overflow-x-auto { scrollbar-color: #a8b8ff #25324c; scrollbar-width: thin; }
+.legal-document .overflow-x-auto:focus-visible { outline: 2px solid #a8b8ff; outline-offset: 4px; }

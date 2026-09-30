@@ -1,7 +1,8 @@
+import "@/styles/legal.css";
 /* D&M LABS - Cookie Policy (GDPR Compliant) */
 import { Link } from "wouter";
-import AnimateIn from "@/components/AnimateIn";
-import { ChevronLeft } from "lucide-react";
+
+
 import { useSEO } from "@/hooks/useSEO";
 
 export default function CookiePolicy() {
@@ -13,25 +14,25 @@ export default function CookiePolicy() {
     description: "Learn how DM-Labs.io uses cookies on dm-labs.io and how you can manage your preferences.",
   });
   return (
-    <>
+    <div className="legal-document">
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
           <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
-            <ChevronLeft size={16} />
+
             Back to Home
           </Link>
           <div className="text-center">
-          <AnimateIn>
+          <div>
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Legal</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Cookie Policy</h1>
-            <p className="text-sm text-[#5B6472]">Last updated: March 2026</p>
-          </AnimateIn>
+            <p className="text-sm text-[#5B6472]">Last updated: 30 September 2026</p>
+          </div>
           </div>
         </div>
       </section>
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl">
-          <AnimateIn>
+          <div>
             <div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">
 
               <div>
@@ -50,7 +51,7 @@ export default function CookiePolicy() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">3. Types of Cookies We Use</h2>
-                <div className="overflow-x-auto mt-4">
+                <div className="overflow-x-auto mt-4" role="region" aria-label="Cookie details" tabIndex={0}>
                   <table className="w-full text-left border-collapse">
                     <thead>
                       <tr className="border-b border-[#E2E5EA]">
@@ -64,7 +65,7 @@ export default function CookiePolicy() {
                       <tr className="border-b border-[#E2E5EA]/50">
                         <td className="py-3 pr-4 font-mono text-xs">dm_cookie_consent</td>
                         <td className="py-3 pr-4">Essential</td>
-                        <td className="py-3 pr-4">Stores your cookie consent preferences</td>
+                        <td className="py-3 pr-4">Stores your consent choice in browser local storage</td>
                         <td className="py-3">Persistent</td>
                       </tr>
                       <tr className="border-b border-[#E2E5EA]/50">
@@ -89,18 +90,18 @@ export default function CookiePolicy() {
                 <ul className="list-disc pl-5 space-y-2 mt-3">
                   <li>Do not track you across other websites</li>
                   <li>Do not create advertising profiles</li>
-                  <li>Anonymise your IP address</li>
+                  <li>Have PostHog IP-address capture disabled in the website configuration</li>
                   <li>Do not share data with third-party advertisers</li>
                 </ul>
-                <p className="mt-3">You can withdraw your consent for analytics cookies at any time by clearing your browser cookies and revisiting our site, where the cookie banner will appear again.</p>
+                <p className="mt-3">You can withdraw analytics consent at any time: open Cookie settings in the footer and choose Reject. This stops further analytics and session recording. Contact us if you also want previously collected data deleted.</p>
               </div>
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">6. Third-Party Cookies</h2>
-                <p>We do not use third-party advertising cookies. The only third-party services that may set cookies are:</p>
+                <p>We do not use third-party advertising cookies. Third-party services used by this website include:</p>
                 <ul className="list-disc pl-5 space-y-2 mt-3">
                   <li><strong className="text-[#111315]">PostHog (EU):</strong> Our analytics, session replay and error-tracking provider. It is loaded only after you consent to analytics cookies.</li>
-                  <li><strong className="text-[#111315]">Web3Forms:</strong> Our contact form processor. Web3Forms may set essential cookies to prevent spam submissions.</li>
+                  <li><strong className="text-[#111315]">Vercel Web Analytics:</strong> Cookieless usage analytics, enabled here only with analytics consent.</li><li><strong className="text-[#111315]">Google Maps and external media:</strong> Embedded maps and files served by external providers may receive technical connection data when loaded.</li><li><strong className="text-[#111315]">Web3Forms:</strong> Our contact form processor, which receives the details you enter when you submit an enquiry.</li>
                   <li><strong className="text-[#111315]">WhatsApp:</strong> The floating WhatsApp widget links to an external WhatsApp page and does not set cookies on our site.</li>
                 </ul>
               </div>
@@ -111,7 +112,7 @@ export default function CookiePolicy() {
                 <ul className="list-disc pl-5 space-y-2">
                   <li><strong className="text-[#111315]">Cookie banner:</strong> When you first visit our site, a cookie banner allows you to accept all cookies, reject non-essential cookies, or customise your preferences.</li>
                   <li><strong className="text-[#111315]">Browser settings:</strong> Most browsers allow you to view, manage, and delete cookies. Note that disabling essential cookies may affect site functionality.</li>
-                  <li><strong className="text-[#111315]">Reset preferences:</strong> Clear your browser cookies for our site and the consent banner will reappear on your next visit.</li>
+                  <li><strong className="text-[#111315]">Reset preferences:</strong> Open Cookie settings in the footer to review or change your choice. Your preference is stored in local storage, so clearing cookies alone may not reset it.</li>
                 </ul>
               </div>
 
@@ -142,9 +143,9 @@ export default function CookiePolicy() {
               <Link href="/privacy/" className="text-sm text-[#5B8CFF] hover:underline">Privacy Policy</Link>
               <Link href="/terms/" className="text-sm text-[#5B8CFF] hover:underline">Terms of Service</Link>
             </div>
-          </AnimateIn>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
