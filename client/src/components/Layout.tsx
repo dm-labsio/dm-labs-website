@@ -9,6 +9,7 @@ import BrandLogo from "./BrandLogo";
 import SiteHeader from "./SiteHeader";
 import { getNavigation } from "./siteNavigation";
 import { pricingEnquiryQuery } from "@/lib/pricingEnquiry";
+import { openCookiePreferences } from "@/lib/cookieConsent";
 import { getRouteLanguage } from "@/lib/routeLanguage";
 import { getGreekLanguageTogglePath, getHebrewLanguageTogglePath, getHreflangRouteSet, normalizeRoutePath, withTrailingSlash } from "@/lib/seoRoutes";
 
@@ -193,6 +194,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <li><Link href="/terms/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Terms of Service</Link></li>
                   </>
                 )}
+                <li><button type="button" onClick={openCookiePreferences} className="text-sm text-[#94A3B8] hover:text-white transition-colors underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{isHebrew ? "הגדרות עוגיות" : isGreek ? "Ρυθμίσεις cookies" : "Cookie settings"}</button></li>
               </ul>
             </div>
 

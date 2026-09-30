@@ -45,7 +45,7 @@ describe("Hebrew locale foundation", () => {
     expect(styles).not.toContain("!important");
   });
 
-  it("keeps Hebrew cookie consent compact at the side, with a simple mobile-entry delay", () => {
+  it("keeps Hebrew consent labelled, translated and usable on narrow screens", () => {
     const cookieBanner = readSource("client/src/components/CookieBanner.tsx");
 
     expect(cookieBanner).toContain('acceptAll: "אני מאשר/ת"');
@@ -53,12 +53,10 @@ describe("Hebrew locale foundation", () => {
     expect(cookieBanner).toContain('manage: "הגדרות"');
     expect(cookieBanner).toContain('cookieHref: "/he/cookies/"');
     expect(cookieBanner).toContain('privacyHref: "/he/privacy/"');
-    expect(cookieBanner).toContain('w-[min(11.5rem,calc(100vw-1.5rem))]');
-    expect(cookieBanner).toContain('left-3 right-auto text-right sm:bottom-5 sm:w-[min(16rem,calc(100vw-2rem))]');
-    expect(cookieBanner).toContain('const timer = window.setTimeout(() => setVisible(true), 1200);');
-    expect(cookieBanner).not.toContain('requestAnimationFrame');
-    expect(cookieBanner).not.toContain('hero.dataset');
-    expect(cookieBanner).toContain('flex items-center justify-center');
+    expect(cookieBanner).toContain('role="dialog"');
+    expect(cookieBanner).toContain('aria-labelledby="cookie-consent-title"');
+    expect(cookieBanner).toContain('סגירת הגדרות העוגיות');
+    expect(cookieBanner).toContain('htmlFor="cookie-analytics"');
   });
 
   it("keeps the Hebrew pricing and header treatments visually contained", () => {
@@ -94,8 +92,8 @@ describe("Hebrew locale foundation", () => {
     const sharedPricing = readSource("client/src/components/pricing/PricingPage.tsx");
     expect(sharedPricing).toContain('<th scope="row">');
     expect(sharedPricing).toContain('t.included : t.excluded');
-    expect(cookieBanner).toContain('const COOKIE_KEY = "dm_cookie_consent"');
-    expect(cookieBanner).toContain('const stored = localStorage.getItem(COOKIE_KEY)');
+    expect(cookieBanner).toContain('saveAnalyticsConsent(value)');
+    expect(readSource("client/src/lib/cookieConsent.ts")).toContain('CONSENT_KEY = "dm_cookie_consent"');
   });
 
   it("extends browser hreflang output without changing incomplete-route behavior", () => {

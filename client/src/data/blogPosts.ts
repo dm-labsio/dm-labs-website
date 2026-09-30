@@ -67,7 +67,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         question: "How long does it take to appear in AI search results?",
-        answer: "There is no guaranteed timeframe. In our site audits, meaningful progress commonly takes 60 to 90 days after the foundations are corrected and new pages are crawled. Profile updates can appear sooner, while reviews and organic visibility build over time.",
+        answer: "There is no guaranteed timeframe. Progress depends on the starting point, competition, crawling and indexing. We review the evidence over time without promising a date or position.",
       },
       {
         question: "Will an AI answer send me less traffic than a normal search result?",
@@ -201,7 +201,7 @@ export const POSTS: BlogPost[] = [
 <p>For local discovery, the two work together. Your profile gives Google core local business details. Your website proves and expands them through service pages, contact information, and structured data.</p>
 
 <h3>How long does it take to appear in AI search results?</h3>
-<p>There is no guarantee. In our site audits, 60 to 90 days is a realistic window for meaningful movement after the foundations are corrected and new pages are crawled. Profile updates can appear sooner, while organic visibility and reviews build over time.</p>
+<p>There is no guaranteed timeframe or placement. Progress depends on the starting point, competition, crawling and indexing. We track changes over time rather than promising a date or position.</p>
 
 <h3>Will an AI answer send me less traffic than a normal search result?</h3>
 <p>Sometimes it can mean fewer clicks, but in our audits the people who do click after reading an AI answer are often further along in the decision. Measure enquiries, calls, bookings, and sales rather than treating raw traffic as the only outcome.</p>
@@ -481,7 +481,7 @@ export const POSTS: BlogPost[] = [
 
 <div class="blog-cta">
   <h3>Ready to get your beauty studio online?</h3>
-  <p>View our beauty salon design examples and get in touch for a free consultation. We will tell you exactly what your website needs and give you a clear quote within 24 hours.</p>
+  <p>View our beauty salon design examples and get in touch for a free consultation. We will tell you exactly what your website needs and give you a clear quote after we understand your requirements.</p>
   <a href="/contact/" class="blog-cta-btn">Get a Free Consultation</a>
 </div>
     `,
@@ -915,8 +915,8 @@ export const POSTS: BlogPost[] = [
 <p>The businesses that are invisible have none of them.</p>
 
 <h2>How Long Does It Take?</h2>
-<p>GEO is faster than traditional SEO in one important way: AI models update their knowledge more frequently than Google's ranking algorithm. A new Clutch listing or a structured data update can influence AI answers within weeks, not months.</p>
-<p>The full GEO foundation, structured data, directory listings, and targeted content, typically takes 60–90 days to show measurable results in AI answer frequency. That is significantly faster than the 6–12 months that traditional SEO requires to move from page 3 to page 1.</p>
+<p>There is no reliable shortcut or fixed timetable for appearing in AI answers. Different services discover, retrieve and use information in different ways.</p>
+<p>Structured data, accurate directory listings and useful content help make your business easier to understand. We assess visibility over time; inclusion, ranking and timing remain outside our control.</p>
 
 <h2>What We Don't Cover Here</h2>
 <p>This article covers the fundamentals. The full GEO playbook, the specific directories that matter most for businesses, the exact schema markup that AI models prioritise, the content formats that get cited most frequently, and the ongoing maintenance that keeps you visible as AI models update, is what we implement for clients as part of our <a href="/pricing/" class="blog-link">SEO + GEO package</a>.</p>

@@ -54,7 +54,7 @@ export const overviewContent = {
       {
         "number": "04",
         "title": "Revisions",
-        "body": "We refine the design based on your feedback until you're happy."
+        "body": "We refine the design through the revision rounds included in your package."
       },
       {
         "number": "05",
@@ -115,7 +115,7 @@ export const overviewContent = {
       {
         "number": "04",
         "title": "Αναθεωρήσεις",
-        "body": "Βελτιώνουμε τον σχεδιασμό βάσει των σχολίων σας μέχρι να είστε απόλυτα ικανοποιημένοι."
+        "body": "Βελτιώνουμε τον σχεδιασμό μέσα στους γύρους αναθεωρήσεων του πακέτου σας."
       },
       {
         "number": "05",
@@ -176,7 +176,7 @@ export const overviewContent = {
       {
         "number": "04",
         "title": "סבבי תיקונים",
-        "body": "מלטשים את הפרטים על פי המשוב שלכם עד שאתם מרוצים."
+        "body": "מלטשים את העיצוב במסגרת סבבי התיקונים הכלולים בחבילה שלכם."
       },
       {
         "number": "05",

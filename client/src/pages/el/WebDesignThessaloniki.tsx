@@ -1,3 +1,4 @@
+import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
 import { useEffect } from "react";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
@@ -36,8 +37,7 @@ const schemaMarkup = {
 const faqs = [
   {
     q: "Πόσο κοστίζει η κατασκευή ιστοσελίδας στη Θεσσαλονίκη;",
-    a: "Τα πακέτα μας για επιχειρήσεις στη Θεσσαλονίκη ξεκινούν από €299 για το πακέτο Launch Website. Αυτό περιλαμβάνει πλήρως προσαρμοσμένο σχεδιασμό, responsive για κινητά, αρχική ρύθμιση SEO, φόρμα επικοινωνίας και όλα όσα χρειάζεστε για να βγείτε online. Το πακέτο Growth Website ξεκινά από €749 και το Pro Website από €1,499. Η τιμή για Enterprise / Custom έργα προσαρμόζεται στο εύρος του έργου σας. Οι τιμές εξαρτώνται από τις απαιτήσεις του έργου, γι\
-' αυτό συνιστούμε πάντα μια δωρεάν συμβουλευτική συνάντηση πρώτα - με αυτόν τον τρόπο λαμβάνετε μια ακριβή προσφορά χωρίς εκπλήξεις.",
+    a: BUILD_PRICE_SUMMARY.el,
   },
   {
     q: "Εργάζεστε με επιχειρήσεις στη Θεσσαλονίκη απομακρυσμένα;",
@@ -187,26 +187,7 @@ export default function WebDesignThessalonikiEl() {
             .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Launch Website",
-                price: "από €299",
-                desc: "Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική online παρουσία. Ό,τι χρειάζεστε για να ξεκινήσετε με σιγουριά.",
-                highlight: false,
-              },
-              {
-                name: "Growth Website",
-                price: "από €749",
-                desc: "Για καθιερωμένες επιχειρήσεις που χρειάζονται ολοκληρωμένη ιστοσελίδα με περισσότερες σελίδες, ισχυρότερο SEO και κομψό σχεδιασμό.",
-                highlight: true,
-              },
-              {
-                name: "Pro Website",
-                price: "από €1,499",
-                desc: "Για επιχειρήσεις που θέλουν μια πλήρως προσαρμοσμένη ιστοσελίδα πλούσια σε χαρακτηριστικά, με τα πάντα να περιλαμβάνονται - από προσαρμοσμένη λειτουργικότητα έως υποστήριξη κατά προτεραιότητα.",
-                highlight: false,
-              },
-            ].map((p) => (
+            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((p) => (
               <div
                 key={p.name}
                 className={`rounded-2xl p-6 border ${
@@ -227,7 +208,7 @@ export default function WebDesignThessalonikiEl() {
             ))}
           </div>
           <p className="text-xs text-[#9CA3AF] mt-4">
-            Όλες οι τιμές είναι εφάπαξ. Χωρίς μηνιαίες χρεώσεις, χωρίς κρυφά κόστη.
+            Η κατασκευή χρεώνεται εφάπαξ. Φιλοξενία και συντήρηση χρεώνονται χωριστά, από €69/μήνα όσο διαχειριζόμαστε την ιστοσελίδα σας. Δεν περιλαμβάνονται τυχόν φόροι και χωριστά συμφωνημένες χρεώσεις τρίτων.
           </p>
         </div>
       </section>
@@ -313,7 +294,7 @@ export default function WebDesignThessalonikiEl() {
             Είστε έτοιμοι να βάλετε την επιχείρησή σας στη Θεσσαλονίκη online;
           </h2>
           <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-            Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. Μπορείτε επίσης να επικοινωνήσετε μαζί μας απευθείας στο WhatsApp - απαντάμε γρήγορα.
+            Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση αφού κατανοήσουμε τις ανάγκες σας. Χωρίς δέσμευση. Μπορείτε επίσης να επικοινωνήσετε μαζί μας απευθείας στο WhatsApp - απαντάμε γρήγορα.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/el/contact/">

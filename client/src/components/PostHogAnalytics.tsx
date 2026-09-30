@@ -1,30 +1,37 @@
-import { useEffect } from "react";
+import { useEffect, useSyncExternalStore } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import posthog from "posthog-js";
-
-const CONSENT_KEY = "dm_cookie_consent";
-const CONSENT_UPDATED_EVENT = "dm-cookie-consent-updated";
+import { hasAnalyticsConsent, subscribeToConsent } from "@/lib/cookieConsent";
 
 // PostHog project tokens are browser-safe identifiers, not secret API keys.
 const PROJECT_TOKEN = import.meta.env.VITE_POSTHOG_PROJECT_TOKEN || "phc_toyMzjsCB4j2RZMTYpPP3qe9ZdrLdYfu4jMWTf4yfnfB";
 
 let initialized = false;
 
-function hasAnalyticsConsent() {
-  try {
-    return JSON.parse(window.localStorage.getItem(CONSENT_KEY) ?? "null")?.analytics === true;
-  } catch {
-    return false;
+export function syncAnalyticsConsent() {
+  if (!hasAnalyticsConsent()) {
+    if (initialized) {
+      posthog.stopSessionRecording();
+      posthog.opt_out_capturing();
+    }
+    return;
   }
-}
-
-function initializeIfConsented() {
-  if (initialized || !hasAnalyticsConsent()) return;
+  if (initialized) {
+    if (posthog.has_opted_out_capturing()) {
+      posthog.opt_in_capturing({ captureEventName: false });
+      posthog.startSessionRecording();
+    }
+    return;
+  }
 
   posthog.init(PROJECT_TOKEN, {
     api_host: "https://eu.i.posthog.com",
     autocapture: true,
     capture_exceptions: true,
     capture_pageview: "history_change",
+    ip: false,
+    cross_subdomain_cookie: false,
+    opt_out_persistence_by_default: true,
     defaults: "2026-05-30",
     disable_session_recording: false,
     session_recording: {
@@ -33,19 +40,20 @@ function initializeIfConsented() {
     },
   });
   initialized = true;
+  posthog.opt_in_capturing({ captureEventName: false });
 }
 
 /** Captures a non-identifying conversion only after the visitor has opted in. */
 export function capturePostHogEvent(event: string, properties?: Record<string, string>) {
-  if (initialized) posthog.capture(event, properties);
+  if (initialized && hasAnalyticsConsent()) posthog.capture(event, properties);
 }
 
 export default function PostHogAnalytics() {
+  const consented = useSyncExternalStore(subscribeToConsent, hasAnalyticsConsent, () => false);
   useEffect(() => {
-    initializeIfConsented();
-    window.addEventListener(CONSENT_UPDATED_EVENT, initializeIfConsented);
-    return () => window.removeEventListener(CONSENT_UPDATED_EVENT, initializeIfConsented);
+    syncAnalyticsConsent();
+    return subscribeToConsent(syncAnalyticsConsent);
   }, []);
 
-  return null;
+  return consented ? <Analytics mode={import.meta.env.MODE === "production" ? "production" : "development"} beforeSend={event => hasAnalyticsConsent() ? event : null} /> : null;
 }

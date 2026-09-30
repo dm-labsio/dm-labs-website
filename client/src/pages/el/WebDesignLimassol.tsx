@@ -1,3 +1,4 @@
+import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
 import { useEffect } from "react";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
@@ -51,7 +52,7 @@ const schemaMarkup = {
 const faqs = [
   {
     q: "Πόσο κοστίζει η κατασκευή ιστοσελίδας στη Λεμεσό;",
-    a: "Τα πακέτα κατασκευής ιστοσελίδων μας για επιχειρήσεις στη Λεμεσό ξεκινούν από €299 για το Launch Website, €749 για το Growth Website και €1,499 για το Pro Website. Η τιμή για Enterprise / Custom έργα προσαρμόζεται στο εύρος του έργου σας. Όλα τα πακέτα περιλαμβάνουν mobile-responsive design, παραμετροποίηση SEO και φόρμα επικοινωνίας. Αυτές είναι εισαγωγικές τιμές για περιορισμένο χρονικό διάστημα - δείτε τη σελίδα Τιμές για την πλήρη ανάλυση.",
+    a: BUILD_PRICE_SUMMARY.el,
   },
   {
     q: "Πόσος χρόνος χρειάζεται για την κατασκευή μιας ιστοσελίδας;",
@@ -187,26 +188,7 @@ export default function WebDesignLimassol() {
             .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Launch Website",
-                price: "€299",
-                desc: "Ιδανικό για freelancers και μικρές επιχειρήσεις που χρειάζονται μια καθαρή, επαγγελματική online παρουσία.",
-                highlight: false,
-              },
-              {
-                name: "Growth Website",
-                price: "€749",
-                desc: "Ιδανικό για καθιερωμένες επιχειρήσεις που θέλουν περισσότερες σελίδες, animations και προχωρημένο SEO.",
-                highlight: true,
-              },
-              {
-                name: "Pro Website",
-                price: "€1,499",
-                desc: "Πλήρης ιστοσελίδα με προσαρμοσμένες λειτουργίες, φόρμες κρατήσεων και υποστήριξη κατά προτεραιότητα.",
-                highlight: false,
-              },
-            ].map((p) => (
+            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((p) => (
               <div
                 key={p.name}
                 className={`rounded-2xl p-6 border ${
@@ -280,7 +262,7 @@ export default function WebDesignLimassol() {
             Είστε έτοιμοι να αποκτήσετε online παρουσία για την επιχείρησή σας στη Λεμεσό;
           </h2>
           <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-            Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση.
+            Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση αφού κατανοήσουμε τις ανάγκες σας. Χωρίς δέσμευση.
           </p>
           <Link href="/el/contact/">
             <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">

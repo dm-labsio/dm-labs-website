@@ -81,7 +81,7 @@ describe("canonical package and care-plan consistency", () => {
     expect(commercialSources).toContain("€69");
     expect(commercialSources).toContain("€129");
     expect(commercialSources).toContain("Up to 3 small content updates");
-    expect(commercialSources).toContain("Unlimited reasonable updates");
+    expect(commercialSources).toContain("Content updates when you need them");
     expect(commercialSources).toContain("from €149/mo");
   });
 

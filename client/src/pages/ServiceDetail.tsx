@@ -40,7 +40,7 @@ const SERVICES: Record<string, {
     intro: "For businesses with a physical presence, Google Maps integration isn’t just useful; it’s essential. We embed interactive maps, turn-by-turn directions, and location details so customers can find you with a single tap.",
     why: [
       { heading: "Remove friction from finding you", body: "If a customer has to copy your address into another app, you’ve already lost them. An embedded map allows one-click navigation, especially important for mobile users on the go." },
-      { heading: "Boost your local SEO", body: "Correct Google Maps integration, combined with Google Business Profile, strengthens your presence in local search results. Appear in Google’s ‘Local Pack’, the three businesses shown first in local searches." },
+      { heading: "Boost your local SEO", body: "Correct Google Maps integration, combined with Google Business Profile, strengthens your presence in local search results. Google decides whether and where your business appears; no map or ranking placement is guaranteed." },
       { heading: "Trust and professionalism", body: "A site with clear location info and an embedded map shows your business is real, established, and easy to reach. This builds trust before the customer even visits." },
     ],
     whatWeDeliver: [
@@ -59,7 +59,7 @@ const SERVICES: Record<string, {
     ],
     faqs: [
       { q: "Do I need a Google Business account?", a: "We strongly recommend having one. It’s free and significantly boosts your local visibility on Google. We can guide you through setting it up." },
-      { q: "Does the map work on mobile?", a: "Yes. The embedded map automatically opens the Google Maps app on mobile for instant navigation." },
+      { q: "Does the map work on mobile?", a: "Yes. Visitors can open directions in Google Maps. Whether the app or browser opens depends on their device and settings." },
       { q: "Can I show multiple locations?", a: "Yes. If you have multiple branches or locations, we can display all of them on a single map." },
     ],
     relatedServices: ["seo", "custom-design", "forms"],
@@ -70,30 +70,30 @@ const SERVICES: Record<string, {
     accentColor: "#6FE3FF",
     title: "Contact Forms",
     subtitle: "Professional forms that turn visitors into enquiries, delivered straight to your inbox.",
-    intro: "A well-designed contact form is one of the most important conversion tools on your website. We build forms that are easy to complete, secure, and send enquiries directly to your email, so you never miss a potential client.",
+    intro: "A well-designed contact form is one of the most important conversion tools on your website. We build forms that are easy to complete, secure, and send enquiries directly to your email, with clear success and error feedback.",
     why: [
       { heading: "Convert visitors into leads", body: "A contact form is the bridge between an interested visitor and a new client. We design forms that are simple, clear, and encourage completion, without unnecessary fields that put users off." },
-      { heading: "Receive enquiries instantly", body: "Every form submission sends an automatic email to your inbox with all the client’s details. No dashboard to check. Enquiries come straight to you." },
+      { heading: "Receive enquiries by email", body: "Accepted submissions are sent to your chosen email address. Delivery depends on the form provider and your mail service, so we test the setup and provide a fallback contact option." },
       { heading: "Professional image", body: "A contact form on your website shows you’re organised and professional. Unlike a plain email link, a form collects the right information from the start." },
     ],
     whatWeDeliver: [
       "Custom contact form with the fields you need",
-      "Real-time email delivery to your inbox",
+      "Email notifications through the agreed form provider",
       "Success confirmation message for the user",
-      "Spam protection (honeypot and rate limiting)",
+      "Spam controls supported by the agreed form provider",
       "Mobile-friendly forms",
       "Optional: booking or appointment form",
     ],
     howItWorks: [
       { step: "01", title: "Form Design", desc: "We agree on which fields you need: name, email, phone, message, or anything else." },
       { step: "02", title: "Integration", desc: "We build the form into your site with proper validation and error messages." },
-      { step: "03", title: "Email Setup", desc: "We connect the form to your email so every submission arrives instantly in your inbox." },
+      { step: "03", title: "Email Setup", desc: "We connect your chosen form provider and test delivery to the agreed email address." },
       { step: "04", title: "Testing", desc: "We test the form fully before launch, including mobile testing." },
     ],
     faqs: [
       { q: "Which email do submissions go to?", a: "Whichever email you provide. You can also set multiple recipients if you want enquiries going to different people." },
       { q: "Can I have different forms for different services?", a: "Yes. We can create separate forms for different pages or services, each with different fields and recipients." },
-      { q: "What about spam?", a: "We use anti-spam techniques (honeypot fields, rate limiting) to minimise unwanted messages without affecting the user experience." },
+      { q: "What about spam?", a: "We configure the spam controls supported by the agreed form provider. These reduce unwanted submissions but cannot eliminate all spam." },
     ],
     relatedServices: ["custom-design", "mobile-first", "maps"],
   },
@@ -103,7 +103,7 @@ const SERVICES: Record<string, {
     accentColor: "#8B5CFF",
     title: "Social Media Integration",
     subtitle: "Connect your website to your social media and turn visitors into followers and clients.",
-    intro: "Social media is where your clients are. Your website should lead them there and vice versa. We integrate your social media into every website, from footer icons to live Instagram feeds and share buttons, creating a cohesive digital presence.",
+    intro: "Social media is where your clients are. Your website should lead them there and vice versa. We connect your website to your social profiles. Live feeds and other integrations can be added where agreed in your project scope.",
     why: [
       { heading: "Amplify your reach", body: "Every website visitor is a potential follower. With clear, visible social media icons and CTAs, you turn a one-time visit into a long-term relationship with your audience." },
       { heading: "Social proof", body: "Showing your follower count or live Instagram posts signals that your business is active and trustworthy. Social proof is one of the most powerful trust factors online." },
@@ -288,9 +288,9 @@ function LegacyServiceDetailPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimateIn>
               <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">What We Deliver</p>
-              <h2 className="text-3xl font-bold text-[#111315] mb-6">Everything included, no extras</h2>
+              <h2 className="text-3xl font-bold text-[#111315] mb-6">What we can include</h2>
               <p className="text-base text-[#5B6472] leading-relaxed mb-8">
-                Every item below is included in your website project. No hidden fees, no optional add-ons that should be standard.
+                We agree the features below as part of your package and written scope. Additional integrations and third-party fees are quoted separately.
               </p>
               <StarButton asChild><Link href="/contact/" className="btn-primary">
                 Start Your Project
@@ -396,7 +396,7 @@ function LegacyServiceDetailPage() {
               Let's build your website with {service.title} built in from day one.
             </h2>
             <p className="text-base text-[#94A3B8] mb-10 max-w-lg mx-auto">
-              No commitment, no pressure. Get in touch and we'll discuss your project within hours.
+              No commitment, no pressure. Get in touch and we'll discuss your project and agree the next step.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <StarButton asChild><Link href="/contact/" className="btn-primary !h-14 !text-base !px-8">

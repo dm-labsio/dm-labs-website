@@ -8,6 +8,7 @@ import { Link } from "wouter";
 import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
+import { BUILD_PLANS, BUILD_PRICES, BUILD_PRICE_SUMMARY } from "@/components/pricing/pricingContent";
 
 const schemaMarkup = {
   "@context": "https://schema.org",
@@ -37,7 +38,7 @@ const schemaMarkup = {
 const faqs = [
   {
     q: "Πόσο κοστίζει μια ιστοσελίδα για μια επιχείρηση στη Λευκωσία;",
-    a: "Τα πακέτα μας ξεκινούν από €299 για μια ιστοσελίδα Launch Website, μια πλήρως προσαρμοσμένη, responsive για κινητά ιστοσελίδα με εγκατάσταση SEO, φόρμα επικοινωνίας και όλα όσα χρειάζεστε για να βγείτε live. Το πακέτο Growth Website ξεκινά από €749 και το Pro Website από €1,499. Η τιμή για Enterprise / Custom έργα προσαρμόζεται στο εύρος του έργου σας. Πάντα προτείνουμε μια δωρεάν συμβουλευτική συνάντηση πρώτα, ώστε να λάβετε μια ακριβή προσφορά χωρίς εκπλήξεις."
+    a: BUILD_PRICE_SUMMARY.el
   },
   {
     q: "Συνεργάζεστε με επιχειρήσεις στη Λευκωσία εξ αποστάσεως;",
@@ -174,33 +175,11 @@ export default function WebDesignNicosiaEl() {
               Τιμές Κατασκευής Ιστοσελίδας για Επιχειρήσεις στη Λευκωσία
             </h2>
             <p className="text-[#5B6472] mb-10 leading-relaxed">
-              Διαφανής, σταθερή τιμολόγηση. Χωρίς κρυφές χρεώσεις, χωρίς εκπλήξεις με ωριαία χρέωση. Κάθε πακέτο περιλαμβάνει προσαρμοσμένο σχεδιασμό, mobile-first κατασκευή, εγκατάσταση SEO και φόρμα επικοινωνίας.
+              Διαφανής, σταθερή τιμολόγηση. Χωρίς κρυφές χρεώσεις, χωρίς εκπλήξεις με ωριαία χρέωση. Κάθε πακέτο περιλαμβάνει προσαρμοσμένο σχεδιασμό, responsive κατασκευή και βασικές SEO βάσεις. Φόρμες επικοινωνίας περιλαμβάνονται στα Growth και Pro.
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Launch Website",
-                price: "€299",
-                desc: "Ιδανικό για αυτοαπασχολούμενους, freelancers και μικρές επιχειρήσεις που χρειάζονται μια καθαρή, επαγγελματική online παρουσία.",
-                features: ["Έως 5 σελίδες", "Responsive για κινητά", "Φόρμα επικοινωνίας", "Βασική εγκατάσταση SEO", "Ενσωμάτωση Google Maps", "Συμφωνημένο χρονοδιάγραμμα"],
-                highlight: false
-              },
-              {
-                name: "Growth Website",
-                price: "€749",
-                desc: "Ιδανικό για καθιερωμένες επιχειρήσεις στη Λευκωσία που χρειάζονται περισσότερο περιεχόμενο, περισσότερες σελίδες και ισχυρότερα θεμέλια SEO.",
-                features: ["Έως 10 σελίδες", "Προηγμένη εγκατάσταση SEO", "Ενότητα άρθρων ή νέων", "Κουμπί συνομιλίας WhatsApp", "Ενσωμάτωση Analytics", "Συμφωνημένο χρονοδιάγραμμα"],
-                highlight: true
-              },
-              {
-                name: "Pro Website",
-                price: "€1,499",
-                desc: "Για επιχειρήσεις που θέλουν μια πλήρως προσαρμοσμένη ιστοσελίδα με πλούσια χαρακτηριστικά, όπως συστήματα κρατήσεων, πολυγλωσσικό περιεχόμενο ή e-commerce.",
-                features: ["Απεριόριστες σελίδες", "Σύστημα κρατήσεων / ερωτήσεων", "Δίγλωσσο (Ελληνικά + Αγγλικά)", "Προσαρμοσμένα animations", "Υποστήριξη κατά προτεραιότητα", "Συμφωνημένο χρονοδιάγραμμα"],
-                highlight: false
-              }
-            ].map((pkg) => (
+            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((pkg) => (
               <AnimateIn key={pkg.name}>
                 <div className={`rounded-2xl p-6 border h-full flex flex-col ${pkg.highlight ? "border-[#5B8CFF] shadow-lg bg-gradient-to-b from-[#EEF3FF] to-white" : "border-[#E8EAF0] shadow-sm bg-white"}`}>
                   {pkg.highlight && (
@@ -347,7 +326,7 @@ export default function WebDesignNicosiaEl() {
               Είστε έτοιμοι να βάλετε την επιχείρησή σας στη Λευκωσία online;
             </h2>
             <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-              Πείτε μας για την επιχείρησή σας και θα σας στείλουμε μια δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. Μπορείτε επίσης να επικοινωνήσετε μαζί μας απευθείας στο WhatsApp, απαντάμε γρήγορα.
+              Πείτε μας για την επιχείρησή σας και θα σας στείλουμε μια δωρεάν πρόταση αφού κατανοήσουμε τις ανάγκες σας. Χωρίς δέσμευση. Μπορείτε επίσης να επικοινωνήσετε μαζί μας απευθείας στο WhatsApp, απαντάμε γρήγορα.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/el/contact/">

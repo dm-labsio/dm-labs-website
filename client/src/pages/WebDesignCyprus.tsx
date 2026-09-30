@@ -1,3 +1,4 @@
+import { BUILD_PRICE_SUMMARY } from "@/components/pricing/pricingContent";
 /* ============================================================
    DM-Labs.io — Web Design Cyprus Pillar Page
    ============================================================ */
@@ -14,7 +15,7 @@ const packages = [
 ];
 
 const faqItems = [
-  { q: "How much does web design cost?", a: "DM-Labs.io website packages start at €299 for a Launch Website. Growth Website packages start at €749 and Pro Website packages start at €1,499. Enterprise / Custom projects are quoted separately based on scope." },
+  { q: "How much does web design cost?", a: BUILD_PRICE_SUMMARY.en },
   { q: "What is included in a DM-Labs.io website package?", a: "Every package has a clearly defined scope. The Launch package includes responsive implementation and basic SEO foundations. Growth adds up to four pages, a contact form, maps, reviews/testimonials, and Search Console and Analytics setup. Pro adds up to seven pages, richer visual features, full SEO structure, and a blog setup or visual pack." },
   { q: "Can you build a bilingual Greek and English website?", a: "Yes. Multilingual functionality can be included in an Enterprise / Custom scope, depending on language, content, and editing requirements." },
   { q: "Do you provide ongoing website care?", a: "Yes. Basic Care is €69 per month and Complete Care is €129 per month. New pages, copywriting, new integrations, redesigns, advanced SEO work, and complex content migration are quoted separately." },

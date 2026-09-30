@@ -36,7 +36,7 @@ export default function Terms() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">2. Our services</h2>
-                <p>We design, build, host, maintain and optimise websites for businesses. Website packages start at €299. Care plans, SEO retainers and add-on services are optional and are set out on your invoice.</p>
+                <p>We design, build, host, maintain and optimise websites for businesses. Website packages start at €299. An active care plan is required while we host and manage your website. SEO retainers and add-on services are optional. Your selected services are set out on your invoice.</p>
               </div>
 
               <div>
@@ -61,7 +61,7 @@ export default function Terms() {
                 <p>Website builds are paid in full before work begins. We start once the invoice clears. Staged payment is available on larger projects by prior written agreement.</p>
                 <p>Care plans and retainers can be paid monthly, quarterly or annually. The frequency you've chosen is stated on your invoice.</p>
                 <ul className="list-disc space-y-1 pl-5">
-                  <li>Monthly: invoiced on the 1st of each month, due within 7 days.</li>
+                  <li>Monthly care starts in the month after the official website launch. It is invoiced on the 1st of each month, due within 7 days.</li>
                   <li>Quarterly: invoiced on the 1st of the first month of each quarter, due within 7 days.</li>
                   <li>Annually: invoiced on the anniversary of your plan start date, due within 7 days.</li>
                 </ul>

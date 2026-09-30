@@ -2,6 +2,11 @@ import type { SiteLanguage } from "@/lib/routeLanguage";
 
 export const BUILD_PRICES = [299, 749, 1499] as const;
 export const CARE_PLANS = [{ name: "Basic Care", monthly: 69, yearly: 750 }, { name: "Complete Care", monthly: 129, yearly: 1395 }] as const;
+export const BUILD_PRICE_SUMMARY = {
+  en: "Launch Website is €299 for one page or two simple pages, Growth Website is €749 for up to 4 pages, and Pro Website is €1,499 for up to 7 pages. Contact forms are included with Growth and Pro. Enterprise / Custom is quoted for your scope. The build is a one-time cost; hosting and care are required while we manage your website, from €69 per month. Prices exclude applicable taxes and separately agreed third-party costs.",
+  el: "Το Launch Website κοστίζει €299 για μία σελίδα ή δύο απλές σελίδες, το Growth Website €749 για έως 4 σελίδες και το Pro Website €1,499 για έως 7 σελίδες. Φόρμα επικοινωνίας περιλαμβάνεται στα Growth και Pro. Το Enterprise / Custom κοστολογείται βάσει του έργου. Η κατασκευή χρεώνεται εφάπαξ. Φιλοξενία και συντήρηση απαιτούνται όσο διαχειριζόμαστε την ιστοσελίδα σας, από €69 τον μήνα. Οι τιμές δεν περιλαμβάνουν τυχόν φόρους και χωριστά συμφωνημένες χρεώσεις τρίτων.",
+} as const;
+
 export const BUILD_PLANS: Record<SiteLanguage, readonly { name: string; summary: string; features: readonly string[] }[]> = {
   "en": [
     {
@@ -127,7 +132,7 @@ export const CARE_FEATURES: Record<SiteLanguage, readonly (readonly string[])[]>
     ],
     [
       "Everything in Basic Care",
-      "Unlimited reasonable updates",
+      "Content updates when you need them",
       "Priority WhatsApp support",
       "Monthly performance check",
       "One simple banner or section update each month"
@@ -143,7 +148,7 @@ export const CARE_FEATURES: Record<SiteLanguage, readonly (readonly string[])[]>
     ],
     [
       "Όλα όσα περιλαμβάνει το Basic Care",
-      "Απεριόριστες ενημερώσεις εντός εύλογου πλαισίου",
+      "Ενημερώσεις περιεχομένου όταν τις χρειάζεστε",
       "Υποστήριξη WhatsApp με προτεραιότητα",
       "Μηνιαίος έλεγχος απόδοσης",
       "Ένα απλό banner ή ενημέρωση ενότητας κάθε μήνα"
@@ -159,7 +164,7 @@ export const CARE_FEATURES: Record<SiteLanguage, readonly (readonly string[])[]>
     ],
     [
       "כל מה שכלול ב־Basic Care",
-      "עדכונים סבירים ללא הגבלה",
+      "עדכוני תוכן כשצריך",
       "תמיכת WhatsApp בעדיפות",
       "בדיקת ביצועים חודשית",
       "עדכון באנר או אזור פשוט בחודש"

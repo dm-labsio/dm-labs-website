@@ -72,7 +72,7 @@ export default function NailSalonEl() {
           </section>
           <div className="bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] rounded-2xl p-8 border border-[#D0DEFF] mt-10">
             <h3 className="text-xl font-bold text-[#111315] mb-3">Ζητήστε Δωρεάν Πρόταση</h3>
-            <p className="text-[#5B6472] mb-6">Πείτε μας για το studio σας και θα σας στείλουμε πρόταση μέσα σε 24 ώρες.</p>
+            <p className="text-[#5B6472] mb-6">Πείτε μας για το studio σας και θα σας στείλουμε πρόταση αφού κατανοήσουμε τις ανάγκες σας.</p>
             <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Επικοινωνήστε μαζί μας

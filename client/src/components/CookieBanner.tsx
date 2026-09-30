@@ -1,15 +1,12 @@
-/* D&M LABS - GDPR Cookie Consent Banner — EN/EL/HE */
-import StarButton from "@/components/ui/star-button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useLocation } from "wouter";
 import { X } from "lucide-react";
-
-const COOKIE_KEY = "dm_cookie_consent";
-const CONSENT_UPDATED_EVENT = "dm-cookie-consent-updated";
+import { CONSENT_OPEN_EVENT, readAnalyticsConsent, saveAnalyticsConsent } from "@/lib/cookieConsent";
 
 const STRINGS = {
   en: {
     title: "We use cookies",
-    body: "We use cookies to improve your experience. You can choose which cookies to allow.",
+    body: "With your permission, we use analytics, error tracking and session replay to understand how this site is used. Form inputs are masked in replay. You can change your choice in Cookie settings.",
     acceptAll: "Accept All",
     reject: "Reject",
     manage: "Manage",
@@ -27,7 +24,7 @@ const STRINGS = {
   },
   el: {
     title: "Χρησιμοποιούμε cookies",
-    body: "Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας. Μπορείτε να επιλέξετε ποια cookies να επιτρέψετε.",
+    body: "Με την άδειά σας, χρησιμοποιούμε analytics, καταγραφή σφαλμάτων και αναπαραγωγή συνεδριών για να κατανοούμε τη χρήση του site. Τα πεδία των φορμών καλύπτονται στην αναπαραγωγή. Αλλάξτε την επιλογή σας από τις Ρυθμίσεις cookies.",
     acceptAll: "Αποδοχή Όλων",
     reject: "Απόρριψη",
     manage: "Διαχείριση",
@@ -45,7 +42,7 @@ const STRINGS = {
   },
   he: {
     title: "אנחנו משתמשים בעוגיות",
-    body: "אנחנו משתמשים בעוגיות כדי לשפר את החוויה באתר. ניתן לבחור אילו עוגיות לאפשר.",
+    body: "באישורכם, נשתמש באנליטיקה, בדיווח שגיאות ובתיעוד ביקורים כדי להבין את השימוש באתר. שדות הטפסים מוסתרים בתיעוד. אפשר לשנות את הבחירה בהגדרות העוגיות.",
     acceptAll: "אני מאשר/ת",
     reject: "לא, תודה",
     manage: "הגדרות",
@@ -64,103 +61,52 @@ const STRINGS = {
 };
 
 export default function CookieBanner() {
+  const [location] = useLocation();
   const [visible, setVisible] = useState(false);
   const [showPrefs, setShowPrefs] = useState(false);
   const [analytics, setAnalytics] = useState(false);
-
-  const locale = typeof window !== "undefined" && window.location.pathname.startsWith("/he")
-    ? "he"
-    : typeof window !== "undefined" && window.location.pathname.startsWith("/el") ? "el" : "en";
+  const panel = useRef<HTMLDivElement>(null);
+  const returnFocus = useRef<HTMLElement | null>(null);
+  const locale = location === "/he" || location.startsWith("/he/") ? "he" : location === "/el" || location.startsWith("/el/") ? "el" : "en";
   const t = STRINGS[locale];
-  const isHebrew = locale === "he";
+  const closeLabel = locale === "he" ? "סגירת הגדרות העוגיות" : locale === "el" ? "Κλείσιμο ρυθμίσεων cookies" : "Close cookie settings";
+  const buttonClass = "min-h-11 rounded-lg border border-[#CBD1DC] px-3 py-2 text-sm font-medium text-[#111315] hover:bg-[#F6F6F4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5B8CFF]";
 
   useEffect(() => {
-    const stored = localStorage.getItem(COOKIE_KEY);
-    if (stored) return;
+    const timer = readAnalyticsConsent() === null ? window.setTimeout(() => setVisible(true), 1200) : undefined;
+    const open = () => {
+      window.clearTimeout(timer);
+      returnFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      setAnalytics(readAnalyticsConsent() === true);
+      setShowPrefs(true);
+      setVisible(true);
+      window.requestAnimationFrame(() => panel.current?.focus());
+    };
+    window.addEventListener(CONSENT_OPEN_EVENT, open);
+    return () => { window.clearTimeout(timer); window.removeEventListener(CONSENT_OPEN_EVENT, open); };
+  }, []);
 
-    const timer = window.setTimeout(() => setVisible(true), 1200);
-    return () => window.clearTimeout(timer);
-  }, [locale]);
-
-  const saveConsent = (analyticsConsent: boolean) => {
-    localStorage.setItem(COOKIE_KEY, JSON.stringify({ essential: true, analytics: analyticsConsent }));
-    window.dispatchEvent(new Event(CONSENT_UPDATED_EVENT));
-  };
-  const accept = () => {
-    saveConsent(true);
-    setVisible(false);
-  };
-  const reject = () => {
-    saveConsent(false);
-    setVisible(false);
-  };
-  const savePrefs = () => {
-    saveConsent(analytics);
-    setVisible(false);
-  };
-
+  const close = () => { setVisible(false); returnFocus.current?.focus(); };
+  const save = (value: boolean) => { saveAnalyticsConsent(value); close(); };
+  const dismiss = () => { if (readAnalyticsConsent() === null) save(false); else close(); };
   if (!visible) return null;
 
-  return (
-    <div
-      className={`fixed z-50 bg-white rounded-xl shadow-xl border border-[#E2E5EA] ${isHebrew ? "bottom-3 w-[min(11.5rem,calc(100vw-1.5rem))] p-2 left-3 right-auto text-right sm:bottom-5 sm:w-[min(16rem,calc(100vw-2rem))] sm:p-3 sm:left-6" : "bottom-6 left-4 right-4 sm:max-w-sm p-5 sm:left-auto sm:right-6"}`}
-      role="dialog" aria-label="Cookie consent" aria-live="polite"
-      dir={isHebrew ? "rtl" : undefined}
-    >
-      <div className={`flex items-start justify-between gap-3 ${isHebrew ? "mb-1.5 sm:mb-2" : "mb-2"}`}>
-        <h2 className={`cookie-consent-title font-semibold text-[#111315] ${isHebrew ? "text-xs sm:text-sm" : "text-sm"}`}>{t.title}</h2>
-        <button onClick={reject} className="text-[#5B6472] hover:text-[#111315] transition-colors p-1 rounded" aria-label="Close">
-          <X size={16} />
-        </button>
-      </div>
-
-      {!showPrefs ? (
-        <>
-          <p className={`text-xs text-[#5B6472] leading-relaxed ${isHebrew ? "mb-1.5 text-[10px] leading-[1.35] sm:mb-3 sm:text-xs sm:leading-relaxed" : "mb-4"}`}>{t.body}</p>
-          <div className={`flex flex-col gap-2 ${isHebrew ? "gap-1.5 sm:gap-2" : ""}`}>
-            <StarButton asChild><button onClick={accept} className={`w-full ${isHebrew ? "min-h-7 py-1 text-[11px] sm:min-h-10 sm:py-2 sm:text-sm" : "min-h-11 py-2.5 text-sm"} rounded-xl brand-gradient text-white font-semibold hover:opacity-90 transition-opacity flex items-center justify-center`} style={{ textAlign: "center" }}>{t.acceptAll}</button></StarButton>
-            <div className="flex gap-2">
-            <button onClick={reject} className={`flex-1 ${isHebrew ? "min-h-7 py-1 text-[11px] sm:min-h-10 sm:py-2 sm:text-sm" : "min-h-11 py-2.5 text-sm"} rounded-xl border border-[#E2E5EA] font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center`}>{t.reject}</button>
-            <button onClick={() => setShowPrefs(true)} className={`flex-1 ${isHebrew ? "min-h-7 py-1 text-[11px] sm:min-h-10 sm:py-2 sm:text-sm" : "min-h-11 py-2.5 text-sm"} rounded-xl border border-[#E2E5EA] font-medium text-[#111315] hover:bg-[#F6F6F4] transition-colors text-center`}>{t.manage}</button>
-            </div>
-          </div>
-          <p className={`text-xs text-[#5B6472] text-center ${isHebrew ? "mt-1.5 text-[9px] sm:mt-3 sm:text-xs" : "mt-3"}`}>
-            <a href={t.cookieHref} className="underline hover:text-[#5B8CFF] transition-colors">{t.cookiePolicy}</a>
-            {" · "}
-            <a href={t.privacyHref} className="underline hover:text-[#5B8CFF] transition-colors">{t.privacyPolicy}</a>
-          </p>
-        </>
-      ) : (
-        <>
-          <p className="text-xs text-[#5B6472] mb-3">{t.chooseWhich}</p>
-          <div className="space-y-3 mb-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-[#111315]">{t.essential}</p>
-                <p className="text-xs text-[#5B6472]">{t.required}</p>
-              </div>
-              <div className="w-10 h-5 bg-[#5B8CFF] rounded-full flex items-center justify-end px-0.5 opacity-60 cursor-not-allowed">
-                <div className="w-4 h-4 bg-white rounded-full" />
-              </div>
-            </div>
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-[#111315]">{t.analytics}</p>
-                <p className="text-xs text-[#5B6472]">{t.helpUs}</p>
-              </div>
-              <button
-                onClick={() => setAnalytics(!analytics)}
-                className={`w-10 h-5 rounded-full flex items-center px-0.5 transition-colors ${analytics ? "bg-[#5B8CFF] justify-end" : "bg-[#E2E5EA] justify-start"}`}
-                role="switch" aria-checked={analytics}
-              >
-                <div className="w-4 h-4 bg-white rounded-full shadow-sm" />
-              </button>
-            </div>
-          </div>
-          <StarButton asChild><button onClick={savePrefs} className="w-full min-h-11 py-2.5 rounded-xl brand-gradient text-white text-sm font-semibold hover:opacity-90 transition-opacity flex items-center justify-center" style={{ textAlign: "center" }}>{t.savePrefs}</button></StarButton>
-          <button onClick={() => setShowPrefs(false)} className="w-full mt-2 py-2 text-xs text-[#5B6472] hover:text-[#111315] transition-colors">{t.back}</button>
-        </>
-      )}
+  return <div ref={panel} tabIndex={-1} className="fixed z-[10000] bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-sm max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-xl border border-[#E2E5EA] bg-white p-5 shadow-xl text-[#111315]" role="dialog" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-description" dir={locale === "he" ? "rtl" : "ltr"} lang={locale} onKeyDown={event => { if (event.key === "Escape") { event.preventDefault(); dismiss(); } }}>
+    <div className="flex items-start justify-between gap-3 mb-2">
+      <h2 id="cookie-consent-title" className="text-base font-semibold">{t.title}</h2>
+      <button type="button" onClick={dismiss} aria-label={closeLabel} className="min-h-11 min-w-11 grid place-items-center rounded-lg focus-visible:outline focus-visible:outline-2"><X size={18} /></button>
     </div>
-  );
+    <p id="cookie-consent-description" className="text-sm text-[#5B6472] leading-relaxed mb-4">{t.body}</p>
+    {showPrefs && <div className="mb-4 space-y-3">
+      <p className="text-sm">{t.chooseWhich}</p>
+      <div className="flex items-center justify-between gap-3 text-sm"><span>{t.essential}</span><span>{t.required}</span></div>
+      <label className="flex min-h-11 items-center justify-between gap-3 text-sm" htmlFor="cookie-analytics"><span>{t.analytics}</span><input id="cookie-analytics" type="checkbox" checked={analytics} onChange={event => setAnalytics(event.target.checked)} className="h-5 w-5 accent-[#5B8CFF]" /></label>
+    </div>}
+    <div className="grid grid-cols-2 gap-2">
+      <button type="button" className={buttonClass} onClick={() => save(true)}>{t.acceptAll}</button>
+      <button type="button" className={buttonClass} onClick={() => save(false)}>{t.reject}</button>
+      <button type="button" className={`${buttonClass} col-span-2`} onClick={() => { if (showPrefs) save(analytics); else { setAnalytics(readAnalyticsConsent() === true); setShowPrefs(true); } }}>{showPrefs ? t.savePrefs : t.manage}</button>
+    </div>
+    <p className="mt-3 text-xs text-[#5B6472] text-center"><a className="underline" href={t.cookieHref}>{t.cookiePolicy}</a>{" · "}<a className="underline" href={t.privacyHref}>{t.privacyPolicy}</a></p>
+  </div>;
 }

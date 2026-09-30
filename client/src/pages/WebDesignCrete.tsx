@@ -1,3 +1,4 @@
+import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
 import { useEffect } from "react";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
@@ -37,7 +38,7 @@ const schemaMarkup = {
 const faqs = [
   {
     q: "How much does a website cost for a business in Crete?",
-    a: "Our packages start from €299 for a Launch Website, a fully custom, mobile-responsive website with SEO setup, a contact form, and everything your business needs to go live. The Growth Website is €749 and includes up to 4 pages, contact form, Google Maps, and basic SEO. The Pro Website is €1,499 and includes up to 7 pages, full SEO structure, and blog setup. All prices are one-time fees with no monthly charges."
+    a: BUILD_PRICE_SUMMARY.en
   },
   {
     q: "Do you work with businesses in Crete remotely?",
@@ -189,7 +190,7 @@ export default function WebDesignCrete() {
             But it is not only about tourism. Crete has a thriving local economy - construction, professional services, retail, beauty, healthcare, and agriculture all depend on local customers who are increasingly searching on Google before making a decision. A business without a website, or with an outdated one, is simply not in the conversation.
           </p>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            A well-built website does several things at once. It ranks on Google for the searches your customers are already making - whether that is "restaurant Heraklion", "hair salon Chania", or "villa rental Rethymno". It loads quickly on mobile, which is how most people browse. It builds trust before a customer has even spoken to you. And it works for your business 24 hours a day, seven days a week, without any ongoing effort from you.
+            A well-built website does several things at once. It can help search engines understand your business for relevant searches - whether that is "restaurant Heraklion", "hair salon Chania", or "villa rental Rethymno". It loads quickly on mobile, which is how most people browse. It builds trust before a customer has even spoken to you. Keeping it useful requires ongoing content, hosting and maintenance.
           </p>
           <p className="text-[#5B6472] leading-relaxed">
             The businesses in Crete that invest in a quality website now - before their sector becomes fully saturated online - are the ones that capture the most valuable search traffic and build lasting credibility with both local customers and international visitors.
@@ -241,26 +242,7 @@ export default function WebDesignCrete() {
             .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Launch Website",
-                price: "€299",
-                desc: "A clean, professional branded page with mobile-responsive design, WhatsApp button, social links, accessibility widget, and 2 revisions.",
-                highlight: false
-              },
-              {
-                name: "Growth Website",
-                price: "€749",
-                desc: "Up to 5 pages with contact and booking forms, Google Maps, reviews widget, testimonials, SEO setup, and speed optimisation.",
-                highlight: true
-              },
-              {
-                name: "Pro Website",
-                price: "€1,499",
-                desc: "Up to 7 pages with custom design and animations, gallery, 5 SEO blog articles, full meta and SEO structure, pop-up, and 4 revisions.",
-                highlight: false
-              }
-            ].map((p) => (
+            {BUILD_PLANS.en.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((p) => (
               <div
                 key={p.name}
                 className={`rounded-2xl p-6 border ${
@@ -281,7 +263,7 @@ export default function WebDesignCrete() {
             ))}
           </div>
           <p className="text-xs text-[#9CA3AF] mt-4">
-            All prices are one-time fees. No monthly charges, no hidden costs.{" "}
+            Build prices are one-time fees. Hosting and care are charged separately, from €69/month while we manage your website. Prices exclude applicable taxes and separately agreed third-party costs.{" "}
             <Link href="/pricing/" className="text-[#5B8CFF] underline underline-offset-2">
               View full pricing details
             </Link>
@@ -341,7 +323,7 @@ export default function WebDesignCrete() {
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Working Together, Wherever You AreAll of Crete
+            Working Together, Wherever You Are
           </h2>
           <p className="text-[#5B6472] mb-8">
             We work with businesses throughout the island - Heraklion, Chania, Rethymno, Agios Nikolaos, Ierapetra, Sitia, and every town and village in between. Distance is never a factor.
@@ -443,7 +425,7 @@ export default function WebDesignCrete() {
             Ready to get your Crete business online?
           </h2>
           <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-            Tell us about your business and we will send you a free proposal within 24 hours. No commitment, no pressure. You can also reach us directly on WhatsApp - we respond quickly.
+            Tell us about your business and we will send you a free proposal after we understand your requirements. No commitment, no pressure. You can also reach us directly on WhatsApp - we respond quickly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact/">

@@ -1,3 +1,4 @@
+import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
 // =============================================================================
 // /el/web-design-cyprus -- National Cyprus Pillar Page (Greek)
 // =============================================================================
@@ -51,7 +52,7 @@ const industries = [
 const faqs = [
   {
     q: "Πόσο κοστίζει η κατασκευή ιστοσελίδας;",
-    a: "Η κατασκευή ιστοσελίδας κυμαίνεται συνήθως από €299 έως €2.500+ ανάλογα με το μέγεθος και την πολυπλοκότητα του project. Στη DM-Labs.io, το Launch Website πακέτο μας ξεκινά από €299 για μια επώνυμη επαγγελματική σελίδα, το Growth Website πακέτο είναι €749 για έως 5 σελίδες με φόρμες επικοινωνίας και SEO, και το Pro Website πακέτο είναι €1,499 για μια πλήρως custom ιστοσελίδα με animations, blog άρθρα και πλήρη δομή SEO. Η τιμή για Enterprise / Custom έργα προσαρμόζεται στο εύρος του έργου σας. Όλες οι τιμές είναι διαφανείς, χωρίς κρυφές χρεώσεις."
+    a: BUILD_PRICE_SUMMARY.el
   },
   {
     q: "Ποια είναι η διαφορά μεταξύ web design και web development;",
@@ -243,58 +244,7 @@ export default function WebDesignCyprusEl() {
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Launch Website",
-                price: "€299",
-                desc: "Ιδανικό για νέες επιχειρήσεις που χρειάζονται γρήγορα μια καθαρή, επαγγελματική παρουσία στο διαδίκτυο.",
-                features: [
-                  "Επώνυμη επαγγελματική σελίδα",
-                  "Responsive για κινητά",
-                  "Κουμπί WhatsApp",
-                  "Σύνδεσμοι social media",
-                  "Widget προσβασιμότητας",
-                  "2 γύροι αναθεωρήσεων",
-                  "Συμφωνημένο χρονοδιάγραμμα",
-                ],
-                highlight: false,
-              },
-              {
-                name: "Growth Website",
-                price: "€749",
-                desc: "Για καθιερωμένες επιχειρήσεις που χρειάζονται μια ολοκληρωμένη ιστοσελίδα με έμφαση στη μετατροπή επισκεπτών σε πελάτες.",
-                features: [
-                  "Έως 5 σελίδες",
-                  "Responsive για κινητά",
-                  "Φόρμα επικοινωνίας + κρατήσεων",
-                  "Google Maps + Reviews widget",
-                  "Ενότητα μαρτυριών",
-                  "Βασική SEO βελτιστοποίηση",
-                  "Βελτιστοποίηση ταχύτητας",
-                  "3 γύροι αναθεωρήσεων",
-                  "Συμφωνημένο χρονοδιάγραμμα",
-                ],
-                highlight: true,
-              },
-              {
-                name: "Pro Website",
-                price: "€1,499",
-                desc: "Για επιχειρήσεις που θέλουν μια πλήρως custom, πλούσια σε χαρακτηριστικά ιστοσελίδα με τα πάντα συμπεριλαμβανόμενα.",
-                features: [
-                  "Έως 7 σελίδες",
-                  "Πλήρως custom σχεδιασμός + animations",
-                  "Φόρμα επικοινωνίας + κρατήσεων",
-                  "Google Maps + Reviews widget",
-                  "Μαρτυρίες + gallery",
-                  "5 SEO blog άρθρα",
-                  "Πλήρης meta/SEO δομή",
-                  "Pop-up συμπεριλαμβάνεται",
-                  "4 γύροι αναθεωρήσεων",
-                  "Συμφωνημένο χρονοδιάγραμμα",
-                ],
-                highlight: false,
-              },
-            ].map((pkg) => (
+            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((pkg) => (
               <AnimateIn key={pkg.name}>
                 <div className={`rounded-2xl p-6 border h-full flex flex-col ${pkg.highlight ? "bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF] border-transparent text-white shadow-lg" : "bg-white border-[#E8EAF0] text-[#111315] shadow-sm"}`}>
                   <div className="mb-4">
@@ -321,7 +271,7 @@ export default function WebDesignCyprusEl() {
           </div>
           <AnimateIn>
             <p className="text-center text-sm text-[#5B6472] mt-8">
-              Όλες οι τιμές είναι εφάπαξ. Χωρίς μηνιαίες χρεώσεις εκτός αν επιλέξετε προαιρετικό πλάνο συντήρησης.{" "}
+              Η κατασκευή χρεώνεται εφάπαξ. Φιλοξενία και συντήρηση απαιτούνται όσο διαχειριζόμαστε την ιστοσελίδα σας, από €69/μήνα. Δεν περιλαμβάνονται τυχόν φόροι και χωριστά συμφωνημένες χρεώσεις τρίτων.{" "}
               <Link href="/el/pricing/">
                 <span className="text-[#5B8CFF] font-semibold hover:underline cursor-pointer">Δείτε πλήρεις τιμές</span>
               </Link>
@@ -468,7 +418,7 @@ export default function WebDesignCyprusEl() {
               Έτοιμοι να φέρετε την επιχείρησή σας online;
             </h2>
             <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-              Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση μέσα σε 24 ώρες. Χωρίς δέσμευση. Μπορείτε επίσης να μας στείλετε απευθείας στο WhatsApp - απαντάμε γρήγορα.
+              Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση αφού κατανοήσουμε τις ανάγκες σας. Χωρίς δέσμευση. Μπορείτε επίσης να μας στείλετε απευθείας στο WhatsApp - απαντάμε γρήγορα.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/el/contact/">
