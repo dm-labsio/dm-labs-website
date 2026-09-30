@@ -24,13 +24,17 @@ describe("International positioning", () => {
     expect(`${HOME_HERO_COPY.he.opening} ${HOME_HERO_COPY.he.payoff}`).toBe("בונים לכם אתר שיביא יותר לקוחות");
   });
 
-  it("keeps countries out of customer-facing copy and metadata in every locale", () => {
+  it("keeps countries out of marketing copy and metadata, allowing the currency terms disclosure", () => {
     const violations: string[] = [];
     const paths = [...files(resolve(root, "client/src")).filter(p => /\.(tsx?|jsx?)$/.test(p)), resolve(root, "scripts/prerender-meta.mjs")];
     for (const file of paths) {
       const source = readFileSync(file, "utf8");
       const ast = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true, file.endsWith("tsx") ? ts.ScriptKind.TSX : ts.ScriptKind.TS);
       function visit(node: ts.Node) {
+        // This factual legal explanation describes currency routing, not our service area.
+        if (/\/pages\/(?:Terms|el\/TermsEl|he\/TermsHe)\.tsx$/.test(file)
+          && ts.isJsxElement(node) && node.openingElement.tagName.getText(ast) === "p"
+          && node.openingElement.attributes.properties.some(attribute => ts.isJsxAttribute(attribute) && attribute.name.getText(ast) === "data-currency-location")) return;
         if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node) || ts.isJsxText(node)) {
           const text = withoutTechnicalReferences(node.getText(ast));
           if (countries.test(text)) violations.push(`${file}:${source.slice(0, node.getStart(ast)).split("\n").length}: ${text.slice(0, 160)}`);

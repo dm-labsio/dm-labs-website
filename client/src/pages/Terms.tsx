@@ -58,7 +58,10 @@ export default function Terms() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">4. Payment</h2>
-                <p>Prices are shown in the currency indicated and exclude any applicable taxes. The agreed amount and payment currency are confirmed on your invoice.</p>
+                <p data-currency-location>Prices are shown in the currency indicated and exclude any applicable taxes. We use the approximate country associated with your IP address to display Israeli shekels in Israel, US dollars in the United States, Canadian dollars in Canada, and euros elsewhere. If the country cannot be identified, we display euros. The website language does not determine the currency. A VPN, travel or a location error may affect the currency shown; contact us for a written quote if it is not suitable.</p>
+                <p>Converted prices use preset reference exchange rates and are rounded upward to whole pricing increments. They remain fixed until we update our published prices; they are not live exchange-rate quotes and may differ from your bank or payment provider's rates. Original euro prices are not converted.</p>
+                <p>Selecting a plan or sending an enquiry does not place an order or take payment. Before you accept a proposal or make payment, we confirm in writing the scope, total payable including applicable taxes and required charges, payment currency, and any recurring amount, billing frequency and start date. The invoice reflects that agreement. Any display or calculation error is addressed before acceptance. Later changes to displayed prices, currencies or exchange rates do not change an accepted quote or agreed invoice without your agreement, subject to applicable law.</p>
+                <p>Unless otherwise agreed in writing and subject to applicable law, you are responsible for conversion and transfer fees charged by your own bank or chosen payment provider. Any additional allocation of transfer fees that we require is disclosed and agreed before you accept the proposal or make payment. These terms do not limit rights that cannot be excluded under applicable law.</p>
                 <p>Website builds are paid in full before work begins. We start once the invoice clears. Staged payment is available on larger projects by prior written agreement.</p>
                 <p>Care plans and retainers can be paid monthly, quarterly or annually. The frequency you've chosen is stated on your invoice.</p>
                 <ul className="list-disc space-y-1 pl-5">
@@ -145,7 +148,9 @@ export default function Terms() {
               </div>
 
               <div>
-                <h2 className="text-xl font-semibold text-[#111315] mb-3">10. Timelines</h2><p>We work towards prompt delivery, with the scope, milestones and estimated schedule agreed in writing before work begins. There is no standard delivery period or guaranteed launch date unless expressly agreed in writing for your project.</p><p>The agreed schedule depends on receiving payment, content, images, branding, access credentials and approvals when required. Changes to scope, delayed materials or feedback, and third-party dependencies may affect the schedule. We will explain the impact and agree any revised dates in writing. If a project is put on hold, we will notify you and agree a restart date based on availability.</p><p>Nothing in these terms limits rights or remedies that cannot be excluded under applicable law.</p></div>
+                <h2 className="text-xl font-semibold text-[#111315] mb-3">10. Timelines</h2><p>We work towards prompt delivery, with the scope, milestones and estimated schedule agreed in writing before work begins. There is no standard delivery period or guaranteed launch date unless expressly agreed in writing for your project.</p>
+                <p>The agreed schedule depends on receiving payment, content, images, branding, access credentials and approvals when required. Changes to scope, delayed materials or feedback, and third-party dependencies may affect the schedule. We will explain the impact and agree any revised dates in writing. If a project is put on hold, we will notify you and agree a restart date based on availability.</p>
+                <p>Nothing in these terms limits rights or remedies that cannot be excluded under applicable law.</p></div>
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">11. Your content</h2>
