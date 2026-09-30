@@ -1,3 +1,5 @@
+import { usePricingCurrency } from "@/contexts/CurrencyContext";
+import { commercialText } from "../../../../shared/currency";
 import React, { useEffect } from "react";
 import BrandButton from "@/components/ui/brand-button";
 import { contactWhatsApp } from "@/components/contact/contactCopy";
@@ -7,23 +9,25 @@ import { FAQ_COPY } from "./faqCopy";
 import "./FAQPage.css";
 
 // Keep English product names and currency figures intact within Hebrew prose.
-function AnswerText({ text }: { text: string }) {
+function AnswerText({ text, locale }: { text: string; locale: SiteLanguage }) {
+  const { text: localize } = usePricingCurrency(locale);
   return <>{text.split(/(Launch Website|Growth Website|Pro Website|Enterprise \/ Custom|Basic Care|Complete Care|€[\d,]+)/g).map((part, index) =>
     /^(Launch Website|Growth Website|Pro Website|Enterprise \/ Custom|Basic Care|Complete Care|€[\d,]+)$/.test(part)
-      ? <bdi key={index} lang="en" dir="ltr">{part}</bdi> : part
+      ? <bdi key={index} lang="en" dir="ltr">{localize(part)}</bdi> : part
   )}</>;
 }
 
 export default function FAQPage({ locale }: { locale: SiteLanguage }) {
+  const { currency } = usePricingCurrency(locale);
   const t = FAQ_COPY[locale];
   const answers = FAQ_CONTENT[locale];
   useEffect(() => {
     const id = "faq-jsonld-schema";
     let script = document.getElementById(id) as HTMLScriptElement | null;
     if (!script) { script = document.createElement("script"); script.id = id; script.type = "application/ld+json"; document.head.appendChild(script); }
-    script.textContent = JSON.stringify(faqSchema(locale)).replace(/</g, "\\u003c");
+    script.textContent = commercialText(JSON.stringify(faqSchema(locale)), locale, currency).replace(/</g, "\\u003c");
     return () => script.remove();
-  }, [locale]);
+  }, [locale, currency]);
 
   return <div className="faq-page" lang={locale} dir={locale === "he" ? "rtl" : "ltr"}>
     <section className="faq-hero">
@@ -51,7 +55,7 @@ export default function FAQPage({ locale }: { locale: SiteLanguage }) {
             const item = answers[id];
             return <details key={id} className="faq-question" open={id === "start"}>
               <summary><h3>{item.q}</h3><span className="faq-toggle" aria-hidden="true" /></summary>
-              <div className="faq-answer"><p><AnswerText text={item.a} /></p>{item.link && <a href={faqRoute(locale, item.link.path)}>{item.link.label}</a>}</div>
+              <div className="faq-answer"><p><AnswerText text={item.a} locale={locale} /></p>{item.link && <a href={faqRoute(locale, item.link.path)}>{item.link.label}</a>}</div>
             </details>;
           })}</div>
         </section>)}

@@ -1,3 +1,4 @@
+import { usePricingCurrency, Price } from "@/contexts/CurrencyContext";
 import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
 // =============================================================================
 // /el/web-design-cyprus -- National Cyprus Pillar Page (Greek)
@@ -31,7 +32,7 @@ const industries = [
   { icon: "🎓", name: "Εκπαίδευση & Φροντιστήρια", desc: "Ιδιωτικά σχολεία, κέντρα ξένων γλωσσών και φροντιστήρια σε κάθε αγορά χρησιμοποιούν ιστοσελίδες για να προσελκύσουν μαθητές και να παρουσιάσουν το πρόγραμμα και τα δίδακτρά τους." },
 ];
 
-const faqs = [
+const baseFaqs = [
   {
     q: "Πόσο κοστίζει η κατασκευή ιστοσελίδας;",
     a: BUILD_PRICE_SUMMARY.el
@@ -72,6 +73,9 @@ const whyUs = [
 ];
 
 export default function WebDesignCyprusEl() {
+  const { copy, euro } = usePricingCurrency("el");
+  const faqs = copy(baseFaqs);
+
   useSEO({
     title: "Κατασκευή Ιστοσελίδας | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
     description: "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε κάθε αγορά. Custom ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία. Mobile-first, βελτιστοποιημένες για SEO, με συμφωνημένο χρονοδιάγραμμα. Δωρεάν συμβουλευτική.",
@@ -214,7 +218,7 @@ export default function WebDesignCyprusEl() {
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((pkg) => (
+            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: euro(BUILD_PRICES[index]), highlight: index === 1 })).map((pkg) => (
               <AnimateIn key={pkg.name}>
                 <div className={`rounded-2xl p-6 border h-full flex flex-col ${pkg.highlight ? "bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF] border-transparent text-white shadow-lg" : "bg-white border-[#E8EAF0] text-[#111315] shadow-sm"}`}>
                   <div className="mb-4">
@@ -241,7 +245,7 @@ export default function WebDesignCyprusEl() {
           </div>
           <AnimateIn>
             <p className="text-center text-sm text-[#5B6472] mt-8">
-              Η κατασκευή χρεώνεται εφάπαξ. Φιλοξενία και συντήρηση απαιτούνται όσο διαχειριζόμαστε την ιστοσελίδα σας, από €69/μήνα. Δεν περιλαμβάνονται τυχόν φόροι και χωριστά συμφωνημένες χρεώσεις τρίτων.{" "}
+              Η κατασκευή χρεώνεται εφάπαξ. Φιλοξενία και συντήρηση απαιτούνται όσο διαχειριζόμαστε την ιστοσελίδα σας, από <Price euros={69} locale="el" />/μήνα. Δεν περιλαμβάνονται τυχόν φόροι και χωριστά συμφωνημένες χρεώσεις τρίτων.{" "}
               <Link href="/el/pricing/">
                 <span className="text-[#5B8CFF] font-semibold hover:underline cursor-pointer">Δείτε πλήρεις τιμές</span>
               </Link>

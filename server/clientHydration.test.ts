@@ -13,6 +13,6 @@ describe("prerendered client hydration", () => {
     expect(entry).toContain('import { createRoot } from "react-dom/client"');
     expect(entry).not.toContain("hydrateRoot(root");
     expect(entry).not.toContain("root.hasChildNodes()");
-    expect(entry).toContain("createRoot(root).render(<App />)");
+    expect(entry).toContain("createRoot(root).render(<CurrencyProvider currency={currency}><App /></CurrencyProvider>)");
   });
 });

@@ -1,3 +1,4 @@
+import { useCurrency } from "@/contexts/CurrencyContext";
 /* ============================================================
    DM-Labs.io - useSEO Hook
    Dynamically updates <title>, meta description, canonical URL,
@@ -157,6 +158,7 @@ function setBreadcrumbSchema(cleanPath: string, finalPath: string, title: string
 
 export function useSEO(options: SEOOptions = {}) {
   const [location] = useLocation();
+  const currency = useCurrency();
 
   useEffect(() => {
     const {
@@ -227,14 +229,14 @@ export function useSEO(options: SEOOptions = {}) {
     const schema = document.getElementById("page-jsonld-schema") ?? document.createElement("script");
     schema.id = "page-jsonld-schema";
     schema.setAttribute("type", "application/ld+json");
-    schema.textContent = JSON.stringify(pageSchema(canonicalUrl, title, description, locale, imageUrl, resolvedOgImageAlt)).replace(/</g, "\\u003c");
+    schema.textContent = JSON.stringify(pageSchema(canonicalUrl, title, description, locale, imageUrl, resolvedOgImageAlt, currency)).replace(/</g, "\\u003c");
     if (!schema.parentNode) document.head.appendChild(schema);
     return () => {
       schema.remove();
       document.getElementById("route-breadcrumb-jsonld")?.remove();
       document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
     };
-  }, [location, options.title, options.description, options.ogImage, options.ogImageAlt, options.ogType, options.canonicalPath, options.noindex, options.ogLocale]);
+  }, [location, currency, options.title, options.description, options.ogImage, options.ogImageAlt, options.ogType, options.canonicalPath, options.noindex, options.ogLocale]);
 }
 
 export default useSEO;

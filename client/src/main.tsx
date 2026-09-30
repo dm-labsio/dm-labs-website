@@ -1,5 +1,7 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
+import { CurrencyProvider } from "./contexts/CurrencyContext";
+import { loadVisitorCurrency } from "./lib/visitorCurrency";
 import "./index.css";
 
 // Snapshots already contain SEO scripts for crawlers. Recreate them for this
@@ -21,4 +23,9 @@ const root = document.getElementById("root")!;
 // snapshot was actually produced, so there is nothing to diff against and no
 // mismatch is possible; crawlers still see the full prerendered HTML source
 // regardless of which client API mounts the app afterward.
-createRoot(root).render(<App />);
+// Keep the prerendered page visible while the small lookup resolves. The first
+// interactive render already has the right prices; timeout/failure uses EUR.
+void loadVisitorCurrency().then(currency => {
+  document.documentElement.dataset.currency = currency;
+  createRoot(root).render(<CurrencyProvider currency={currency}><App /></CurrencyProvider>);
+});

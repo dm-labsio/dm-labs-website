@@ -1,3 +1,4 @@
+import { usePricingCurrency } from "@/contexts/CurrencyContext";
 import { absoluteImageUrl, ORGANIZATION_ID } from "@/lib/structuredData";
 import { newestFirst } from "@/lib/blogOrder";
 /* ============================================================
@@ -22,6 +23,7 @@ function formatDate(dateStr: string) {
 }
 
 export default function BlogPost() {
+  const { text: priceText } = usePricingCurrency("en");
   const { slug } = useParams<{ slug: string }>();
   const post = getPostBySlug(slug);
 
@@ -217,7 +219,7 @@ export default function BlogPost() {
                   pre.appendChild(btn);
                 });
               }}
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: post.content.replace(/<(p|tr) data-dm-prices>([\s\S]*?)<\/\1>/g, (_match, tag: string, content: string) => `<${tag}>${priceText(content)}</${tag}>`) }}
             />
 
             {/* Bottom back link */}

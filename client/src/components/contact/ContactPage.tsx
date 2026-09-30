@@ -1,3 +1,4 @@
+import { pricingEnquiry } from "@/lib/pricingEnquiry";
 import React from "react";
 import BrandButton from "@/components/ui/brand-button";
 import { capturePostHogEvent } from "@/components/PostHogAnalytics";
@@ -8,6 +9,8 @@ import "./ContactPage.css";
 
 export default function ContactPage({ locale }: { locale: SiteLanguage }) {
   const t = CONTACT_COPY[locale];
+  const enquiry = pricingEnquiry(locale);
+  const whatsapp = enquiry ? `https://wa.me/35797472847?text=${encodeURIComponent(enquiry)}` : contactWhatsApp(locale);
   return <div className="consultation-page" lang={locale} dir={locale === "he" ? "rtl" : "ltr"}>
     <section className="consultation-hero">
       <picture className="consultation-art" aria-hidden="true">
@@ -20,7 +23,7 @@ export default function ContactPage({ locale }: { locale: SiteLanguage }) {
         <p className="consultation-hero-intro">{t.intro}</p>
         <div className="consultation-actions">
           <BrandButton asChild><a href="#consultation-form">{t.cta}</a></BrandButton>
-          <a className="consultation-direct-link" href={contactWhatsApp(locale)} target="_blank" rel="noopener noreferrer">{t.whatsapp}</a>
+          <a className="consultation-direct-link" href={whatsapp} target="_blank" rel="noopener noreferrer">{t.whatsapp}</a>
         </div>
         <p className="consultation-note">{t.reassurance}</p>
       </div>
@@ -34,7 +37,7 @@ export default function ContactPage({ locale }: { locale: SiteLanguage }) {
         <ol className="consultation-steps">{t.next.map((step, index) => <li key={step}><span className="consultation-step-number" aria-hidden="true">0{index + 1}</span><p>{step}</p></li>)}</ol>
         <div className="consultation-direct">
           <h3>{t.directLabel}</h3>
-          <a href={contactWhatsApp(locale)} target="_blank" rel="noopener noreferrer">WhatsApp <bdi dir="ltr">+357 97 472 847</bdi></a>
+          <a href={whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp <bdi dir="ltr">+357 97 472 847</bdi></a>
           <a href="mailto:info@dm-labs.io"><bdi dir="ltr">info@dm-labs.io</bdi></a>
           <a href="https://www.instagram.com/dm_labs.io/" target="_blank" rel="noopener noreferrer">{t.instagram} <bdi lang="en">Instagram</bdi></a>
           <p>{t.hours}</p><p>{t.location}</p>

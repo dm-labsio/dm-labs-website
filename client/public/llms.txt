@@ -34,6 +34,20 @@ DM-Labs.io is a small, dedicated web design studio. We build custom, conversion-
 - Complete Care: €129/month or €1,395/year: content updates when you need them
 - SEO + GEO retainer: from €149/mo
 
+The prices above are the EUR base prices. The website automatically shows ILS for country code IL, USD for US, CAD for CA, and EUR everywhere else or when the country is unavailable. Currency is independent of the page language. The regional prices are stable, rounded amounts:
+
+| Package | EUR | USD | CAD | ILS |
+| --- | ---: | ---: | ---: | ---: |
+| Launch Website (one-time build) | 299 | 350 | 500 | 1,050 |
+| Growth Website (one-time build) | 749 | 875 | 1,225 | 2,600 |
+| Pro Website (one-time build) | 1,499 | 1,725 | 2,425 | 5,250 |
+| Basic Care (monthly) | 69 | 80 | 115 | 240 |
+| Complete Care (monthly) | 129 | 150 | 210 | 450 |
+| Basic Care (yearly) | 750 | 875 | 1,225 | 2,650 |
+| Complete Care (yearly) | 1,395 | 1,600 | 2,250 | 4,850 |
+| SEO + GEO retainer (monthly, from) | 149 | 170 | 240 | 520 |
+
+
 New pages, copywriting, new integrations, redesigns, advanced SEO and complex content migration are quoted separately from care.
 
 ## Working Together

@@ -1,3 +1,4 @@
+import { formatMoney, type Currency } from "../../../../shared/currency";
 import type { SiteLanguage } from "@/lib/routeLanguage";
 
 export const BUILD_PRICES = [299, 749, 1499] as const;
@@ -415,13 +416,12 @@ export const COMPARISON: Record<SiteLanguage, readonly { feature: string; launch
   ]
 };
 
-export function pricingMoney(locale: SiteLanguage, value: number) {
-  if (locale === "en") return `€${value.toLocaleString("en-IE", {minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2})}`;
-  return new Intl.NumberFormat(locale === "el" ? "el-GR" : "he-IL", {style: "currency", currency: "EUR", minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2}).format(value);
+export function pricingMoney(locale: SiteLanguage, value: number, currency: Currency = "EUR") {
+  return formatMoney(locale, value, currency);
 }
 
-export function pricingContactUrl(locale: SiteLanguage, build: number | null, care: number | null, yearly: boolean) {
+export function pricingContactUrl(locale: SiteLanguage, build: number | null, care: number | null, yearly: boolean, currency?: Currency) {
   const base = locale === "en" ? "/contact/" : `/${locale}/contact/`;
   if (build === null || care === null || !BUILD_PLANS.en[build] || !CARE_PLANS[care]) return base;
-  return `${base}?${new URLSearchParams({package: BUILD_PLANS.en[build].name, care: CARE_PLANS[care].name, billing: yearly ? "yearly" : "monthly"})}`;
+  return `${base}?${new URLSearchParams({package: BUILD_PLANS.en[build].name, care: CARE_PLANS[care].name, billing: yearly ? "yearly" : "monthly", ...(currency ? { currency } : {})})}`;
 }

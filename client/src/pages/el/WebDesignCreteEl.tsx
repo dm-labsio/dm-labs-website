@@ -1,3 +1,4 @@
+import { usePricingCurrency } from "@/contexts/CurrencyContext";
 import { BUILD_PRICE_SUMMARY } from "@/components/pricing/pricingContent";
 import { useStructuredData } from "@/hooks/useStructuredData";
 import { serviceSchemaData } from "@/lib/structuredData";
@@ -12,7 +13,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 
 
-const faqs = [
+const baseFaqs = [
   {
     q: "Πόσο κοστίζει μια ιστοσελίδα για μια επιχείρηση στην Κρήτη;",
     a: BUILD_PRICE_SUMMARY.el
@@ -85,6 +86,9 @@ const industries = [
 ];
 
 export default function WebDesignCreteEl() {
+  const { copy } = usePricingCurrency("el");
+  const faqs = copy(baseFaqs);
+
   useSEO({
     title: "Κατασκευή Ιστοσελίδας Κρήτη | Web Design για Ανάπτυξη | DM-Labs.io",
     description: "Εξατομικευμένες ιστοσελίδες για επιχειρήσεις στην Κρήτη. Σχεδιασμός για κινητά, βάσεις SEO και προσωπική φροντίδα. Δωρεάν συμβουλευτική.",

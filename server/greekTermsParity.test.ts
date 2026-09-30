@@ -27,7 +27,7 @@ describe("Greek Terms of Service parity", () => {
   });
 
   it("retains the English legal timeframes and monetary values", () => {
-    for (const value of ["€299", "€80", "€45", "€25", "€50", "€60", "14", "30", "45", "4", "7"]) {
+    for (const value of ["euros={299}", "euros={80}", "euros={45}", "euros={25}", "euros={50}", "euros={60}", "14", "30", "45", "4", "7"]) {
       expect(englishTerms).toContain(value);
       expect(greekTerms).toContain(value);
     }

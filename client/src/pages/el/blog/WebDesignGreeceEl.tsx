@@ -1,3 +1,4 @@
+import { Price } from "@/contexts/CurrencyContext";
 import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
 import { useGreekArticleSEO } from "@/hooks/useGreekArticleSEO";
@@ -88,7 +89,7 @@ export default function WebDesignGreeceEl() {
                   <tr><td className="px-4 py-3">DIY (Wix, Squarespace)</td><td className="px-4 py-3">€10–€30/μήνα</td><td className="px-4 py-3">Template, περιορισμένο SEO, branding πλατφόρμας</td></tr>
                   <tr><td className="px-4 py-3">Έλληνας freelancer</td><td className="px-4 py-3">€300–€2.000</td><td className="px-4 py-3">Μεγάλη διακύμανση ποιότητας, περιορισμένη υποστήριξη</td></tr>
                   <tr><td className="px-4 py-3">Τοπικό ελληνικό γραφείο</td><td className="px-4 py-3">€1.500–€8.000+</td><td className="px-4 py-3">Custom σχεδιασμός, ομάδα, υψηλό overhead</td></tr>
-                  <tr><td className="px-4 py-3 font-semibold text-[#5B8CFF]">DM-Labs.io</td><td className="px-4 py-3 font-semibold">€299–€1.499</td><td className="px-4 py-3">Ποιότητα agency, διαφανείς τιμές, γρήγορη παράδοση</td></tr>
+                  <tr><td className="px-4 py-3 font-semibold text-[#5B8CFF]">DM-Labs.io</td><td className="px-4 py-3 font-semibold"><Price euros={299} locale="el" />–<Price euros={1499} locale="el" /></td><td className="px-4 py-3">Ποιότητα agency, διαφανείς τιμές, γρήγορη παράδοση</td></tr>
                 </tbody>
               </table>
             </div>

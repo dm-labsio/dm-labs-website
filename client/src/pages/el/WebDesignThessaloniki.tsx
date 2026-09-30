@@ -1,3 +1,4 @@
+import { usePricingCurrency, Price } from "@/contexts/CurrencyContext";
 import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
 import { useStructuredData } from "@/hooks/useStructuredData";
 import { serviceSchemaData } from "@/lib/structuredData";
@@ -12,7 +13,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 
 
-const faqs = [
+const baseFaqs = [
   {
     q: "Πόσο κοστίζει η κατασκευή ιστοσελίδας στη Θεσσαλονίκη;",
     a: BUILD_PRICE_SUMMARY.el,
@@ -32,6 +33,9 @@ const faqs = [
 ];
 
 export default function WebDesignThessalonikiEl() {
+  const { copy, euro } = usePricingCurrency("el");
+  const faqs = copy(baseFaqs);
+
   useSEO({
     title: "Κατασκευή Ιστοσελίδας Θεσσαλονίκη | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
     description:
@@ -152,7 +156,7 @@ export default function WebDesignThessalonikiEl() {
             .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((p) => (
+            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: euro(BUILD_PRICES[index]), highlight: index === 1 })).map((p) => (
               <div
                 key={p.name}
                 className={`rounded-2xl p-6 border ${
@@ -173,7 +177,7 @@ export default function WebDesignThessalonikiEl() {
             ))}
           </div>
           <p className="text-xs text-[#9CA3AF] mt-4">
-            Η κατασκευή χρεώνεται εφάπαξ. Φιλοξενία και συντήρηση χρεώνονται χωριστά, από €69/μήνα όσο διαχειριζόμαστε την ιστοσελίδα σας. Δεν περιλαμβάνονται τυχόν φόροι και χωριστά συμφωνημένες χρεώσεις τρίτων.
+            Η κατασκευή χρεώνεται εφάπαξ. Φιλοξενία και συντήρηση χρεώνονται χωριστά, από <Price euros={69} locale="el" />/μήνα όσο διαχειριζόμαστε την ιστοσελίδα σας. Δεν περιλαμβάνονται τυχόν φόροι και χωριστά συμφωνημένες χρεώσεις τρίτων.
           </p>
         </div>
       </section>
