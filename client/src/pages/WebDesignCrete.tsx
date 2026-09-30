@@ -1,5 +1,6 @@
 import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -9,31 +10,7 @@ import { useSEO } from "@/hooks/useSEO";
 // Tertiary: "web design Heraklion", "web design Chania", "website Crete price"
 // Design: matches DM-Labs.io site style - light bg, brand gradient accents, clean typography
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "DM-Labs.io",
-  "url": "https://dm-labs.io",
-  "telephone": "+35797472847",
-  "email": "info@dm-labs.io",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Eleftheriou Chandrinou",
-    "addressLocality": "Paphos",
-    "postalCode": "8045",
-    "addressCountry": "CY"
-  },
-  "areaServed": "Worldwide",
-  "serviceArea": "Worldwide",
-  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for small businesses across Crete - Heraklion, Chania, Rethymno, and beyond. Custom websites built to earn trust and enquiries, with a project schedule agreed around your scope and content readiness.",
-  "priceRange": "€€",
-  "currenciesAccepted": "EUR",
-  "paymentAccepted": "Bank Transfer, PayPal",
-  "openingHours": "Mo-Fr 09:00-18:00",
-  "sameAs": [
-    "https://www.instagram.com/dmlabs.io"
-  ]
-};
+
 
 const faqs = [
   {
@@ -114,19 +91,7 @@ export default function WebDesignCrete() {
     canonicalPath: "/web-design-crete/"
   });
 
-  useEffect(() => {
-    const existing = document.getElementById("schema-crete");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.id = "schema-crete";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById("schema-crete");
-      if (s) s.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/web-design-crete/", "en", "Web Design Crete", "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for small businesses across Crete - Heraklion, Chania, Rethymno, and beyond. Custom websites built to earn trust and enquiries, with a project schedule agreed around your scope and content readiness.", faqs));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">

@@ -3,7 +3,8 @@ import { BUILD_PRICE_SUMMARY } from "@/components/pricing/pricingContent";
    DM-Labs.io — Web Design Cyprus Pillar Page
    ============================================================ */
 import StarButton from "@/components/ui/star-button";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
@@ -22,27 +23,7 @@ const faqItems = [
   { q: "When is a project Enterprise / Custom?", a: "Enterprise / Custom applies to scope beyond the standard packages, including integrations, multilingual websites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume." },
 ];
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://dm-labs.io/web-design-cyprus/#professionalservice",
-      "name": "DM-Labs.io",
-      "alternateName": "DM-Labs",
-      "description": "Professional website design and web development for businesses worldwide.",
-      "url": "https://dm-labs.io/web-design-cyprus/",
-      "telephone": "+35797472847",
-      "email": "info@dm-labs.io",
-      "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
-      "areaServed": "Worldwide",
-      "priceRange": "€299-€1,499",
-      "currenciesAccepted": "EUR",
-      "hasOfferCatalog": { "@type": "OfferCatalog", "name": "DM-Labs.io Website Packages", "itemListElement": packages.map((item) => ({ "@type": "Offer", "name": item.name, "price": item.price.replace(/[€,]/g, ""), "priceCurrency": "EUR" })) }
-    },
-    { "@type": "FAQPage", "mainEntity": faqItems.map((item) => ({ "@type": "Question", "name": item.q, "acceptedAnswer": { "@type": "Answer", "text": item.a } })) }
-  ]
-};
+
 
 export default function WebDesignCyprus() {
   useSEO({
@@ -51,15 +32,7 @@ export default function WebDesignCyprus() {
     canonicalPath: "/web-design-cyprus/",
   });
 
-  useEffect(() => {
-    document.getElementById("schema-cyprus")?.remove();
-    const script = document.createElement("script");
-    script.id = "schema-cyprus";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => { document.getElementById("schema-cyprus")?.remove(); };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/web-design-cyprus/", "en", "Web Design", "Professional website design and web development for businesses worldwide.", faqItems));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">

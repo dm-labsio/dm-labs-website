@@ -1,12 +1,14 @@
 import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
-import { useSEO } from "@/hooks/useSEO";
+import { useGreekArticleSEO } from "@/hooks/useGreekArticleSEO";
 
 export default function ΕστιατόριοEl() {
-  useSEO({
+  const article = useGreekArticleSEO("istoselidha-estiatorio-kypros", {
     title: "Γιατί Κάθε Εστιατόριο Χρειάζεται Ιστοσελίδα | DM-Labs.io",
     description: "Το Facebook δεν αρκεί για εστιατόριο. Δείτε τι χάνετε χωρίς επαγγελματική ιστοσελίδα και πώς να το διορθώσετε.",
-    canonicalPath: "/el/blog/istoselidha-estiatorio-kypros/",
+    headline: "Γιατί Κάθε Εστιατόριο Χρειάζεται Ιστοσελίδα (Όχι Μόνο Facebook)",
+    ogImage: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+    ogImageAlt: "Εστιατόριο ιστοσελίδα - επαγγελματική online παρουσία για εστίαση",
   });
 
   return (
@@ -17,7 +19,7 @@ export default function ΕστιατόριοEl() {
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs text-[#9CA3AF]">Απρίλιος 2026</span>
+            <time className="text-xs text-[#9CA3AF]" dateTime={article.date}>{new Date(`${article.date}T12:00:00Z`).toLocaleDateString("el-GR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>
             <span className="text-xs text-[#9CA3AF]">-</span>
             <span className="text-xs text-[#9CA3AF]">5 λεπτά ανάγνωση</span>
           </div>
@@ -27,6 +29,7 @@ export default function ΕστιατόριοEl() {
           <p className="text-lg text-[#5B6472] leading-relaxed">
             Έχετε εστιατόριο, καφέ ή ταβέρνα και βασίζεστε στο Facebook; Δείτε τι χάνετε κάθε μέρα χωρίς επαγγελματική ιστοσελίδα.
           </p>
+          <p className="text-sm text-[#5B6472] mt-4">Από την ομάδα DM-Labs.io</p>
         </header>
         <div className="space-y-8 text-[#374151]">
           <section>

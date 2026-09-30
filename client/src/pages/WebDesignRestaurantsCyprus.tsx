@@ -3,7 +3,8 @@
    Target: website design for restaurants in Cyprus.
    ============================================================ */
 import StarButton from "@/components/ui/star-button";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
@@ -21,29 +22,7 @@ const faqItems = [
   { question: "What search support is included?", answer: "Every package includes responsive implementation and basic SEO foundations. Growth includes Search Console and Analytics setup, while Pro includes a fuller SEO structure. Advanced SEO work and extra content are scoped separately." },
 ];
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://dm-labs.io/web-design-restaurants-cyprus/#professionalservice",
-      "name": "DM-Labs.io",
-      "description": "DM-Labs.io designs and builds professional, mobile-first websites for restaurants, tavernas, cafés, and bars worldwide.",
-      "url": "https://dm-labs.io/web-design-restaurants-cyprus/",
-      "telephone": "+35797472847",
-      "email": "info@dm-labs.io",
-      "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
-      "areaServed": "Worldwide",
-      "priceRange": "€299-€1,499",
-      "currenciesAccepted": "EUR",
-      "hasOfferCatalog": { "@type": "OfferCatalog", "name": "DM-Labs.io Website Packages", "itemListElement": packages.map((item) => ({ "@type": "Offer", "name": item.name, "price": item.price.replace(/[€,]/g, ""), "priceCurrency": "EUR" })) }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map((item) => ({ "@type": "Question", "name": item.question, "acceptedAnswer": { "@type": "Answer", "text": item.answer } }))
-    }
-  ]
-};
+
 
 export default function WebDesignRestaurantsCyprus() {
   useSEO({
@@ -52,15 +31,7 @@ export default function WebDesignRestaurantsCyprus() {
     canonicalPath: "/web-design-restaurants-cyprus/",
   });
 
-  useEffect(() => {
-    document.getElementById("schema-restaurants-cyprus")?.remove();
-    const script = document.createElement("script");
-    script.id = "schema-restaurants-cyprus";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => { document.getElementById("schema-restaurants-cyprus")?.remove(); };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/web-design-restaurants-cyprus/", "en", "Restaurant Website Design", "DM-Labs.io designs and builds professional, mobile-first websites for restaurants, tavernas, cafés, and bars worldwide.", faqItems.map(item => ({ q: item.question, a: item.answer }))));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">

@@ -1,5 +1,6 @@
 import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -9,30 +10,7 @@ import { useSEO } from "@/hooks/useSEO";
 // Tertiary (GR, price-intent): "κατασκευή ιστοσελίδας Θεσσαλονίκη τιμές"
 // Design: matches DM-Labs.io site style - light bg, brand gradient accents, clean typography
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "DM-Labs.io",
-  url: "https://dm-labs.io",
-  telephone: "+35797472847",
-  email: "info@dm-labs.io",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Eleftheriou Chandrinou 5",
-    addressLocality: "Paphos",
-    postalCode: "8045",
-    addressCountry: "CY",
-  },
-  areaServed: "Worldwide",
-  serviceArea: "Worldwide",
-  description:
-    "Η DM-Labs.io είναι ένα απομακρυσμένο στούντιο web design που δημιουργεί επαγγελματικές, mobile-first, βελτιστοποιημένες για SEO ιστοσελίδες για επιχειρήσεις στη Θεσσαλονίκη και σε κάθε αγορά. Ιστοσελίδες που χτίζουν εμπιστοσύνη, με γρήγορη παράδοση και προσωπική υποστήριξη.",
-  priceRange: "€€",
-  currenciesAccepted: "EUR",
-  paymentAccepted: "Τραπεζική Μεταφορά, PayPal",
-  openingHours: "Δε-Πα 09:00-18:00",
-  sameAs: ["https://www.instagram.com/dmlabs.io"],
-};
+
 
 const faqs = [
   {
@@ -61,20 +39,7 @@ export default function WebDesignThessalonikiEl() {
     canonicalPath: "/el/web-design-thessaloniki/",
   });
 
-  useEffect(() => {
-    // Inject LocalBusiness schema
-    const existing = document.getElementById("schema-thessaloniki");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.id = "schema-thessaloniki";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById("schema-thessaloniki");
-      if (s) s.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/el/web-design-thessaloniki/", "el", "Κατασκευή Ιστοσελίδας Θεσσαλονίκη", "Η DM-Labs.io είναι ένα απομακρυσμένο στούντιο web design που δημιουργεί επαγγελματικές, mobile-first, βελτιστοποιημένες για SEO ιστοσελίδες για επιχειρήσεις στη Θεσσαλονίκη και σε κάθε αγορά. Ιστοσελίδες που χτίζουν εμπιστοσύνη, με γρήγορη παράδοση και προσωπική υποστήριξη.", faqs));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">

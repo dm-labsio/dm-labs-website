@@ -5,7 +5,6 @@ import { HomeServices, HomeProcess, HomeIndustries } from "@/components/home/Hom
 import TeamProfiles from "@/components/TeamProfiles";
 import "./HomeHe.css";
 import StarButton from "@/components/ui/star-button";
-import { useEffect } from "react";
 
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
@@ -26,13 +25,7 @@ const examples = [
 
 export default function HomeHe() {
   useSEO({ title: "סוכנות עיצוב האתרים הטובה ביותר לעסקים בצמיחה | DM Labs", description: "נראות בולטת. אמון. יותר פניות. אתרים בהתאמה אישית, מסירה מהירה וליווי אישי לעסקים בכל מקום.", ogLocale: "he_IL", noindex: true });
-  useEffect(() => {
-    const id = "hebrew-home-webpage-schema";
-    const script = document.createElement("script");
-    script.id = id; script.type = "application/ld+json";
-    script.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "@id": "https://dm-labs.io/he/#webpage", url: "https://dm-labs.io/he/", name: "סוכנות עיצוב האתרים הטובה ביותר לעסקים בצמיחה | DM Labs", inLanguage: "he", isPartOf: { "@id": "https://dm-labs.io/#website" } });
-    document.head.appendChild(script); return () => document.getElementById(id)?.remove();
-  }, []);
+
 
   return <div className="hebrew-home hebrew-home-refresh home-page--dark" lang="he" dir="rtl" data-button-surface="dark">
     <HomeHero language="he" />

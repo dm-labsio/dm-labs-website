@@ -1,3 +1,4 @@
+import { absoluteImageUrl, ORGANIZATION_ID } from "@/lib/structuredData";
 import { newestFirst } from "@/lib/blogOrder";
 /* ============================================================
    D&M LABS - Blog Post Detail Page
@@ -29,7 +30,7 @@ export default function BlogPost() {
     title: post ? post.metaTitle : "Article | DM-Labs.io",
     description: post ? post.metaDescription : "Read the latest web design insights from DM-Labs.io.",
     ogImage: post ? post.coverImage : undefined,
-    ogImageAlt: post?.imageAlt,
+    ogImageAlt: post?.imageAlt ?? post?.title,
     ogType: "article",
     canonicalPath: post ? `/blog/${post.slug}/` : undefined,
   });
@@ -44,9 +45,10 @@ export default function BlogPost() {
       const schema = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": post.metaTitle,
+        "headline": post.title,
+        "@id": `https://dm-labs.io/blog/${post.slug}/#article`,
         "description": post.metaDescription,
-        "image": post.coverImage,
+        "image": absoluteImageUrl(post.coverImage),
         "datePublished": post.date,
         "dateModified": post.dateModified ?? post.date,
         "author": {
@@ -58,6 +60,7 @@ export default function BlogPost() {
           } : {})
         },
         "publisher": {
+          "@id": ORGANIZATION_ID,
           "@type": "Organization",
           "name": "DM-Labs.io",
           "logo": {
@@ -69,7 +72,7 @@ export default function BlogPost() {
           "@type": "WebPage",
           "@id": `https://dm-labs.io/blog/${post.slug}/`
         },
-        ...(post.language ? { "inLanguage": post.language } : {}),
+        "inLanguage": post.language ?? "en",
         ...(post.keywords?.length ? { "keywords": post.keywords.join(", ") } : {})
       };
 
@@ -163,11 +166,11 @@ export default function BlogPost() {
                   {post.title}
                 </h1>
                 <div className="flex flex-wrap items-center gap-4 text-sm text-white/80">
-                  <span className="flex items-center gap-1.5"><Calendar size={13} />{formatDate(post.date)}</span>
+                  <span className="flex items-center gap-1.5"><Calendar size={13} /><time dateTime={post.date}>{formatDate(post.date)}</time></span>
                   <span className="flex items-center gap-1.5"><Clock size={13} />{post.readTime}</span>
-                  {post.author && (
+                  {(
                     <span className="flex items-center gap-1.5 font-medium text-white/90">
-                      By {post.author}
+                      By {post.author ?? "Anastacia B."}
                     </span>
                   )}
                 </div>

@@ -5,35 +5,13 @@
    LocalBusiness schema injected on mount
    ============================================================ */
 import { Link } from "wouter";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
 import { BUILD_PLANS, BUILD_PRICES, BUILD_PRICE_SUMMARY } from "@/components/pricing/pricingContent";
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "DM-Labs.io",
-  "description": "Η DM-Labs.io σχεδιάζει και κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λευκωσία και σε κάθε αγορά. Mobile-first, βελτιστοποιημένες για SEO, με συμφωνημένο χρονοδιάγραμμα.",
-  "url": "https://dm-labs.io/el/web-design-nicosia/",
-  "logo": "https://dm-labs.io/logo.png",
-  "image": "https://dm-labs.io/social/dm-labs-website-social-card.png",
-  "telephone": "+35797472847",
-  "email": "info@dm-labs.io",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Λευκωσία",
-    "addressCountry": "CY"
-  },
-  "areaServed": "Worldwide",
-  "priceRange": "€€",
-  "currenciesAccepted": "EUR",
-  "paymentAccepted": "Τραπεζική Μεταφορά, PayPal",
-  "openingHours": "Δε-Πα 09:00-18:00",
-  "sameAs": [
-    "https://www.instagram.com/dmlabs.io"
-  ]
-};
+
 
 const faqs = [
   {
@@ -70,19 +48,7 @@ export default function WebDesignNicosiaEl() {
     canonicalPath: "/el/web-design-nicosia/"
   });
 
-  useEffect(() => {
-    const existing = document.getElementById("schema-nicosia");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.id = "schema-nicosia";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById("schema-nicosia");
-      if (s) s.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/el/web-design-nicosia/", "el", "Κατασκευή Ιστοσελίδας Λευκωσία", "Η DM-Labs.io σχεδιάζει και κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λευκωσία και σε κάθε αγορά. Mobile-first, βελτιστοποιημένες για SEO, με συμφωνημένο χρονοδιάγραμμα.", faqs));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">

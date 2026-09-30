@@ -1,12 +1,14 @@
 import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
-import { useSEO } from "@/hooks/useSEO";
+import { useGreekArticleSEO } from "@/hooks/useGreekArticleSEO";
 
 export default function YogaEl() {
-  useSEO({
+  const article = useGreekArticleSEO("istoselidha-yoga-pilates-studio-kypros", {
     title: "Ιστοσελίδα για Yoga και Pilates Studio | DM-Labs.io",
     description: "Γιατί το yoga ή pilates studio σας χρειάζεται ιστοσελίδα και όχι μόνο Instagram. Πρακτικός οδηγός.",
-    canonicalPath: "/el/blog/istoselidha-yoga-pilates-studio-kypros/",
+    headline: "Γιατί το Yoga ή Pilates Studio σας Χρειάζεται Ιστοσελίδα (Όχι Μόνο Instagram)",
+    ogImage: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=80",
+    ogImageAlt: "Yoga studio ιστοσελίδα - επαγγελματική online παρουσία για fitness",
   });
 
   return (
@@ -17,7 +19,7 @@ export default function YogaEl() {
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs text-[#9CA3AF]">Μάρτιος 2026</span>
+            <time className="text-xs text-[#9CA3AF]" dateTime={article.date}>{new Date(`${article.date}T12:00:00Z`).toLocaleDateString("el-GR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>
             <span className="text-xs text-[#9CA3AF]">-</span>
             <span className="text-xs text-[#9CA3AF]">5 λεπτά ανάγνωση</span>
           </div>
@@ -27,6 +29,7 @@ export default function YogaEl() {
           <p className="text-lg text-[#5B6472] leading-relaxed">
             Το Instagram σας γεμίζει likes αλλά όχι μαθητές; Δείτε πώς μια επαγγελματική ιστοσελίδα αλλάζει τα πράγματα για yoga studios, pilates studios και personal trainers.
           </p>
+          <p className="text-sm text-[#5B6472] mt-4">Από την ομάδα DM-Labs.io</p>
         </header>
         <div className="space-y-8 text-[#374151]">
           <section>

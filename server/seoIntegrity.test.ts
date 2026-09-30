@@ -9,7 +9,7 @@ const indexHtml = read("client/index.html");
 const previewPage = read("client/src/pages/PreviewPage.tsx");
 const viteServer = read("server/_core/vite.ts");
 const vercelConfig = read("vercel.json");
-const home = read("client/src/pages/Home.tsx");
+const home = read("client/src/lib/structuredData.ts");
 const blogPost = read("client/src/pages/BlogPost.tsx");
 const serviceDetail = read("client/src/pages/ServiceDetail.tsx");
 const seoHook = read("client/src/hooks/useSEO.ts");
@@ -56,11 +56,9 @@ describe("SEO integrity", () => {
     expect(indexHtml).not.toContain('name="keywords"');
   });
 
-  it("uses only authorized service, founder, FAQ, article, and breadcrumb markup without review markup", () => {
-    expect(home).toContain('"@type": "ProfessionalService"');
-    expect(home).toContain('"name": "Anastacia B."');
-    expect(home).toContain('"name": "Tom B."');
-    expect(home).toContain('"areaServed": "Worldwide"');
+  it("uses only authorized organization, service, FAQ, article, and breadcrumb markup without review markup", () => {
+    expect(home).toContain('"@type": "Organization"');
+    expect(home).toContain('areaServed: "Worldwide"');
     expect(blogPost).toContain('"@type": "BlogPosting"');
     expect(blogPost).toContain('"@type": isOrganisationAuthor ? "Organization" : "Person"');
     expect(serviceDetail).toContain('"@type": "Service"');

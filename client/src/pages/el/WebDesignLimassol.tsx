@@ -1,5 +1,6 @@
 import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -7,47 +8,7 @@ import { useSEO } from "@/hooks/useSEO";
 // Target keywords: "web design Λεμεσός", "website design Λεμεσός"
 // Design: matches DM-Labs.io site style - light bg, brand gradient accents, clean typography
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "DM-Labs.io",
-  description: "Επαγγελματικό πρακτορείο σχεδιασμού ιστοσελίδων που εξυπηρετεί επιχειρήσεις στη Λεμεσό. Προσαρμοσμένες ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία.",
-  url: "https://dm-labs.io/el/web-design-limassol/",
-  telephone: "+357-96-000000",
-  areaServed: "Worldwide",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Λεμεσός",
-    addressCountry: "CY",
-  },
-  priceRange: "€€",
-  serviceType: "Κατασκευή Ιστοσελίδας",
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Launch Website",
-      price: "299",
-      priceCurrency: "EUR",
-    },
-    {
-      "@type": "Offer",
-      name: "Growth Website",
-      price: "749",
-      priceCurrency: "EUR",
-    },
-    {
-      "@type": "Offer",
-      name: "Pro Website",
-      price: "1499",
-      priceCurrency: "EUR",
-    },
-    {
-      "@type": "Offer",
-      name: "Enterprise / Custom",
-      description: "Τιμή προσαρμοσμένη στο εύρος του έργου σας",
-    },
-  ],
-};
+
 
 const faqs = [
   {
@@ -70,18 +31,7 @@ export default function WebDesignLimassol() {
     description: "Η DM-Labs.io κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λεμεσό που θέλουν να ξεχωρίσουν. Mobile-first, SEO-ready, γρήγορη παράδοση. Αποκτήστε online παρουσία σήμερα.",
     canonicalPath: "/el/web-design-limassol/",
   });
-  useEffect(() => {
-    // Inject schema markup
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "limassol-schema";
-    script.text = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById("limassol-schema");
-      if (s) s.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/el/web-design-limassol/", "el", "Web Design Λεμεσός", "Επαγγελματικό πρακτορείο σχεδιασμού ιστοσελίδων που εξυπηρετεί επιχειρήσεις στη Λεμεσό. Προσαρμοσμένες ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία.", faqs));
 
   return (
     <main className="bg-white">

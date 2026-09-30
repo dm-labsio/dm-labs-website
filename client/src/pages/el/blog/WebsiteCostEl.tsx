@@ -1,15 +1,17 @@
 import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
-import { useSEO } from "@/hooks/useSEO";
+import { useGreekArticleSEO } from "@/hooks/useGreekArticleSEO";
 
 // Greek blog: website cost Cyprus — /el/blog/posso-kostizei-istoselidha-kypros
 // Primary keyword: "πόσο κοστίζει ιστοσελίδα Κύπρος"
 
 export default function WebsiteCostEl() {
-  useSEO({
+  const article = useGreekArticleSEO("posso-kostizei-istoselidha-kypros", {
     title: "Πόσο Κοστίζει μια Ιστοσελίδα; (Ειλικρινής Οδηγός 2026) | DM-Labs.io",
     description: "Η αλήθεια για τις τιμές κατασκευής ιστοσελίδας το 2026. Τι περιλαμβάνεται, τι δεν περιλαμβάνεται και πώς να επιλέξετε σωστά.",
-    canonicalPath: "/el/blog/posso-kostizei-istoselidha-kypros/",
+    headline: "Πόσο Κοστίζει μια Ιστοσελίδα; (Ειλικρινής Οδηγός 2026)",
+    ogImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
+    ogImageAlt: "Τιμές κατασκευής ιστοσελίδας - οδηγός pricing 2026",
   });
 
   return (
@@ -22,7 +24,7 @@ export default function WebsiteCostEl() {
 
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs text-[#9CA3AF]">Ιανουάριος 2026</span>
+            <time className="text-xs text-[#9CA3AF]" dateTime={article.date}>{new Date(`${article.date}T12:00:00Z`).toLocaleDateString("el-GR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>
             <span className="text-xs text-[#9CA3AF]">-</span>
             <span className="text-xs text-[#9CA3AF]">6 λεπτά ανάγνωση</span>
           </div>
@@ -32,6 +34,7 @@ export default function WebsiteCostEl() {
           <p className="text-lg text-[#5B6472] leading-relaxed">
             Αν ψάχνετε για τιμές κατασκευής ιστοσελίδας, θα βρείτε τα πάντα: από €99 μέχρι €5.000+. Εδώ είναι η αλήθεια για το τι πραγματικά κοστίζει και τι παίρνετε για τα χρήματά σας.
           </p>
+          <p className="text-sm text-[#5B6472] mt-4">Από την ομάδα DM-Labs.io</p>
         </header>
 
         <div className="prose prose-slate max-w-none space-y-8 text-[#374151]">

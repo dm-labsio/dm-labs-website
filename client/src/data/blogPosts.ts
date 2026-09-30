@@ -25,7 +25,7 @@ export interface BlogPost {
   faq?: Array<{ question: string; answer: string }>;
 }
 
-export const POSTS: BlogPost[] = [
+const ARTICLE_CONTENT: BlogPost[] = [
   {
     slug: "google-ai-mode-near-me-cyprus",
     title: "Google's AI Now Answers \"Near Me\" Searches. Here's How to Be the Business It Recommends.",
@@ -49,31 +49,31 @@ export const POSTS: BlogPost[] = [
       "localbusiness schema",
     ],
     faq: [
-      {
-        question: "Is Google AI Mode available in my region?",
-        answer: "Google says AI Mode is available in more than 200 countries and territories and supports Greek. Check the current supported-country list in your own Google account, because availability and features can change by location and account.",
-      },
-      {
-        question: "Does Google AI Mode work in Greek?",
-        answer: "Yes. Google added Greek during its October 2025 language expansion. A proper Greek version of a business website gives local customers and search systems clear Greek-language information to work with.",
-      },
-      {
-        question: "Do I need a new website to appear in AI search?",
-        answer: "Usually not. Many businesses should first complete their Google Business Profile, correct inconsistent business details, add useful service pages, and publish crawlable content. A rebuild becomes relevant when the current website is slow, inaccessible, or cannot support those foundations.",
-      },
-      {
-        question: "Does Google Business Profile matter more than my website?",
-        answer: "For local discovery, Google Business Profile and the website work together. The profile provides core local business details, while the website proves, expands, and keeps those details consistent through service pages, contact information, and structured data.",
-      },
-      {
-        question: "How long does it take to appear in AI search results?",
-        answer: "There is no guaranteed timeframe. Progress depends on the starting point, competition, crawling and indexing. We review the evidence over time without promising a date or position.",
-      },
-      {
-        question: "Will an AI answer send me less traffic than a normal search result?",
-        answer: "Sometimes it can mean fewer clicks, but in our audits the people who do click after reading an AI answer are often further along in the decision. Measure enquiries, calls, bookings, and sales rather than treating raw traffic as the only outcome.",
-      },
-    ],
+  {
+    "question": "Is Google AI Mode available in my region?",
+    "answer": "Google says AI Mode is available in more than 200 countries and territories and supports Greek. Check the current supported-country list in your own account because availability and features can change by location and account. <a href=\"https://support.google.com/websearch/answer/16011537\" class=\"blog-link\" target=\"_blank\" rel=\"noopener noreferrer\">Google’s AI Mode help page</a> is the live reference."
+  },
+  {
+    "question": "Does Google AI Mode work in Greek?",
+    "answer": "Yes. Google added Greek during its October 2025 language expansion. A real Greek version of your website gives local customers and search systems clear Greek-language information to work with."
+  },
+  {
+    "question": "Do I need a new website to appear in AI search?",
+    "answer": "Usually not. Start with the profile, inconsistent details, useful service pages, and crawlable content. A rebuild becomes relevant when the current site is slow, inaccessible, or cannot support those foundations."
+  },
+  {
+    "question": "Does Google Business Profile matter more than my website?",
+    "answer": "For local discovery, the two work together. Your profile gives Google core local business details. Your website proves and expands them through service pages, contact information, and structured data."
+  },
+  {
+    "question": "How long does it take to appear in AI search results?",
+    "answer": "There is no guaranteed timeframe or placement. Progress depends on the starting point, competition, crawling and indexing. We track changes over time rather than promising a date or position."
+  },
+  {
+    "question": "Will an AI answer send me less traffic than a normal search result?",
+    "answer": "Sometimes it can mean fewer clicks, but in our audits the people who do click after reading an AI answer are often further along in the decision. Measure enquiries, calls, bookings, and sales rather than treating raw traffic as the only outcome."
+  }
+],
     content: `
 <p class="blog-lead">Someone in Paphos picks up their phone and asks Google: <em>“Best physio near me that speaks English?”</em> The old search result was a page of links. Increasingly, the answer appears first, with a short list of businesses and a reason to choose each one.</p>
 
@@ -186,25 +186,7 @@ export const POSTS: BlogPost[] = [
 
 <p>In the sites we audit, 60 to 90 days is the honest window for meaningful movement once the foundations are in place. It is close to the timeline we see for <a href="/blog/how-to-get-found-on-google-cyprus/" class="blog-link">getting found on Google</a> more broadly. Anyone promising an overnight answer is selling a story rather than a process.</p>
 
-<h2 id="faq">FAQ</h2>
-
-<h3>Is Google AI Mode available in my region?</h3>
-<p>Google says AI Mode is available in more than 200 countries and territories and supports Greek. Check the current supported-country list in your own account because availability and features can change by location and account. <a href="https://support.google.com/websearch/answer/16011537" class="blog-link" target="_blank" rel="noopener noreferrer">Google’s AI Mode help page</a> is the live reference.</p>
-
-<h3>Does Google AI Mode work in Greek?</h3>
-<p>Yes. Google added Greek during its October 2025 language expansion. A real Greek version of your website gives local customers and search systems clear Greek-language information to work with.</p>
-
-<h3>Do I need a new website to appear in AI search?</h3>
-<p>Usually not. Start with the profile, inconsistent details, useful service pages, and crawlable content. A rebuild becomes relevant when the current site is slow, inaccessible, or cannot support those foundations.</p>
-
-<h3>Does Google Business Profile matter more than my website?</h3>
-<p>For local discovery, the two work together. Your profile gives Google core local business details. Your website proves and expands them through service pages, contact information, and structured data.</p>
-
-<h3>How long does it take to appear in AI search results?</h3>
-<p>There is no guaranteed timeframe or placement. Progress depends on the starting point, competition, crawling and indexing. We track changes over time rather than promising a date or position.</p>
-
-<h3>Will an AI answer send me less traffic than a normal search result?</h3>
-<p>Sometimes it can mean fewer clicks, but in our audits the people who do click after reading an AI answer are often further along in the decision. Measure enquiries, calls, bookings, and sales rather than treating raw traffic as the only outcome.</p>
+<!-- article-faq -->
 
 <h2 id="sources">Sources</h2>
 <ol>
@@ -463,7 +445,7 @@ export const POSTS: BlogPost[] = [
 <p>For a nail salon or beauty studio, your work is your portfolio. A gallery section on your website - with real photos of your best work - converts browsers into bookings faster than any written description. Keep it updated and make sure the images load quickly on mobile.</p>
 
 <h3>4. Google Maps and Your Address</h3>
-<p>This is non-negotiable. Your website must display your exact address and an embedded Google Map. This is one of the strongest signals Google uses to rank local businesses. Without it, you are invisible to anyone searching "near me."</p>
+<p>This is non-negotiable. Your website must display your exact address and an embedded Google Map. Accurate location information helps customers find you. An embedded map is a convenience, not a requirement or a ranking guarantee for local search.</p>
 
 <h3>5. Client Reviews</h3>
 <p>Social proof is everything in the beauty industry. A dedicated section on your website showing real client reviews - even just five or six - builds immediate trust with first-time visitors. Link these to your Google Business Profile for maximum SEO benefit.</p>
@@ -517,7 +499,7 @@ export const POSTS: BlogPost[] = [
 <p>People choose a yoga or Pilates teacher based on trust and connection. A short, genuine bio - your training, your approach, why you teach - builds that trust before someone ever walks through your door. This is one of the most underused elements on wellness websites.</p>
 
 <h3>Location and Google Maps</h3>
-<p>An embedded Google Map and your full address are essential for local SEO. This is how Google knows to show your studio when someone searches for classes in your area. Without it, you simply do not appear in local results.</p>
+<p>An embedded Google Map and your full address are essential for local SEO. Keep your address and business profile accurate so customers can find you. An embedded map does not guarantee local rankings and is not required for them.</p>
 
 <h3>Pricing and Packages</h3>
 <p>Transparency about pricing removes a major source of hesitation. Whether you offer drop-in classes, monthly memberships, or class packs, list them clearly. Clients who know the price before they contact you are much more likely to follow through.</p>
@@ -643,7 +625,7 @@ export const POSTS: BlogPost[] = [
 
 <p><strong>Photos that make people hungry.</strong> You do not need a professional photographer for every shot, but you do need images that represent your food and atmosphere honestly and appetisingly. A website with no photos  -  or with blurry, poorly lit images  -  undermines trust before a customer has read a single word.</p>
 
-<p><strong>A Google Maps embed and schema markup.</strong> Embedding a Google Map on your contact page and adding structured data (schema markup) to your site tells Google exactly where you are, what type of restaurant you are, and what your opening hours are. This directly improves your chances of appearing in the local pack.</p>
+<p><strong>A Google Maps embed and schema markup.</strong> Embedding a Google Map on your contact page and adding structured data (schema markup) to your site tells Google exactly where you are, what type of restaurant you are, and what your opening hours are. This helps describe the business accurately; it does not guarantee a place in local search results.</p>
 
 <h2>The Tripadvisor Problem</h2>
 
@@ -859,11 +841,11 @@ export const POSTS: BlogPost[] = [
     slug: "geo-get-found-by-chatgpt-cyprus",
     title: "GEO: How to Get Your Business Found by ChatGPT and AI Search",
     metaTitle: "GEO 2026 | Get Found by ChatGPT & AI Search | DM-Labs.io",
-    metaDescription: "GEO (Generative Engine Optimization) is the new SEO. Learn why businesses are invisible to ChatGPT and Perplexity and what the first step to changing that looks like.",
+    metaDescription: "How SEO foundations, crawlable content and accurate business information support discovery in Google and AI search. What to improve and what cannot be guaranteed.",
     date: "2026-06-25",
     readTime: "5 min read",
     category: "SEO & GEO",
-    excerpt: "When someone asks ChatGPT 'best web design agency', your business probably doesn't appear. That's a GEO problem and it's fixable. Here's what you need to know.",
+    excerpt: "Learn how useful content, consistent business details and sound SEO support discovery in AI search, without promises of rankings or citations.",
     coverImage: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80",
     content: `
 <p class="blog-lead">Someone in Limassol opens ChatGPT and types: <em>"Who does web design?"</em> Or they ask Perplexity: <em>"Best restaurant in Paphos?"</em> Or they use Google's AI Overview to find a plumber in Nicosia.</p>
@@ -874,34 +856,34 @@ export const POSTS: BlogPost[] = [
 <p>GEO stands for <strong>Generative Engine Optimization</strong>. It is the practice of making your business visible inside AI-generated answers, not just on traditional Google results pages.</p>
 <p>The AI engines that matter right now are:</p>
 <ul>
-  <li><strong>ChatGPT</strong> (OpenAI): over 100 million daily users</li>
-  <li><strong>Google AI Overviews</strong>: now appearing on 30–40% of all Google searches</li>
-  <li><strong>Perplexity</strong>: the fastest-growing AI search engine</li>
+  <li><strong>ChatGPT</strong> (OpenAI): search and conversational answers</li>
+  <li><strong>Google AI Overviews</strong>: AI-generated responses within Google Search</li>
+  <li><strong>Perplexity</strong>: AI-assisted search with source links</li>
   <li><strong>Microsoft Copilot</strong>: built into Windows and Bing</li>
   <li><strong>Claude</strong> (Anthropic): increasingly used for research queries</li>
 </ul>
-<p>Each of these AI tools reads the web, synthesises information, and produces an answer. The businesses it mentions are the ones that have been optimised for this new type of search. The rest are invisible.</p>
+<p>Each of these AI tools reads the web, synthesises information, and produces an answer. Each service selects sources differently. Good SEO can support discovery, but no optimisation guarantees that a business will be mentioned.</p>
 
 <h2>How Is GEO Different From SEO?</h2>
 <p>Traditional SEO gets you a ranked link on a results page. The user sees your link, decides to click, and visits your website. The goal is a high position in the list.</p>
 <p>GEO is different. There is no list. The AI gives a direct answer and either your business is mentioned in that answer, or it isn't. There is no position 2 or position 7. There is mentioned, or not mentioned.</p>
 
 <div class="blog-callout">
-  <strong>The key difference:</strong> SEO gets you a ranked URL. GEO gets you a brand mention inside the answer itself. For local service businesses, web designers, restaurants, lawyers, clinics, a GEO mention is worth more than a page-2 SEO ranking.
+  <strong>The key difference:</strong> SEO supports discovery in traditional and AI search. A brand mention can lead to useful enquiries, but its value depends on the question, the audience and what happens next.
 </div>
 
 <h2>Why Businesses Are Particularly Exposed</h2>
 <p>The market has a specific vulnerability to the GEO gap. Here is why:</p>
-<p><strong>Low domain authority across the board.</strong> New business websites may have few external links pointing to them. AI models heavily weight authoritative third-party citations, directory listings, press mentions, industry publications. Without these, even a well-designed website is invisible to AI.</p>
-<p><strong>Thin online presence.</strong> Many businesses have a website but almost no presence on the platforms AI models actually read: Clutch, DesignRush, TripAdvisor, Google Business Profile, local directories. AI doesn't invent businesses; it cites the ones it has seen mentioned across multiple trusted sources.</p>
-<p><strong>No structured data.</strong> AI models extract facts about businesses from structured data (JSON-LD schema markup). Without it, important business details may be harder to interpret. This means the AI can't reliably extract your name, location, services, phone number, or opening hours, so it doesn't mention you.</p>
+<p><strong>Low domain authority across the board.</strong> New business websites may have few external links pointing to them. Relevant, credible third-party references can help people and search systems understand a business. A lack of backlinks alone does not determine whether it can appear in an AI answer.</p>
+<p><strong>Thin online presence.</strong> Many businesses have a website but almost no presence on the platforms AI models actually read: Clutch, DesignRush, TripAdvisor, Google Business Profile, local directories. Accurate profiles can support discovery, but AI answers can contain mistakes and should be checked against their sources.</p>
+<p><strong>No structured data.</strong> Structured data can clarify business details when it matches visible content. It is not a requirement for an AI mention, and Google does not require special AI schema. Clear, accessible text remains essential.</p>
 
 <h2>What Does a GEO Mention Actually Look Like?</h2>
 <p>When someone asks ChatGPT <em>"who does web design in Limassol?"</em>, a GEO-optimised business might appear like this in the answer:</p>
 <blockquote>
-  <em>"For web design in Limassol, DM-Labs.io (dm-labs.io) is a local agency offering custom websites designed to earn trust and enquiries, with specialisations in restaurant and hospitality websites. They are listed on Clutch with verified reviews and offer a free consultation."</em>
+  <em>"For web design in Limassol, DM-Labs.io (dm-labs.io) is a local agency offering custom websites designed to earn trust and enquiries, with specialisations in restaurant and hospitality websites. They offer a free consultation to discuss the project scope."</em>
 </blockquote>
-<p>That mention, unprompted, in a direct AI answer, is worth more than most paid ads. The user asked a question. The AI recommended you. The user clicks through with high intent.</p>
+<p>This is an illustrative example, not a verified quote from an AI service or a promise of inclusion. The useful outcome to measure is whether a relevant visitor takes the next step.</p>
 <p>This is what GEO looks like when it works.</p>
 
 <h2>The First Step: Visibility Foundations</h2>
@@ -909,17 +891,18 @@ export const POSTS: BlogPost[] = [
 <ol>
   <li><strong>Structured data on your website</strong>: JSON-LD schema that tells AI exactly who you are, what you do, where you are, and what you charge.</li>
   <li><strong>Third-party citations</strong>: Listings on directories and platforms that AI models actively read: Clutch, Google Business Profile, TripAdvisor, local business directories.</li>
-  <li><strong>Content that answers specific questions</strong>: AI models are trained on question-and-answer patterns. Content that directly answers "how much does X cost" or "best Y in Limassol" is far more likely to be cited than generic homepage copy.</li>
+  <li><strong>Content that answers specific questions</strong>: Answer the questions your customers actually ask, using clear details about scope, cost and the work you do. There is no universal format that guarantees an AI citation.</li>
 </ol>
 <p>The businesses that are already appearing in AI answers for relevant local queries have these three layers in place, usually without even realising it. They got there through good SEO habits that happen to also work for GEO.</p>
-<p>The businesses that are invisible have none of them.</p>
+
 
 <h2>How Long Does It Take?</h2>
 <p>There is no reliable shortcut or fixed timetable for appearing in AI answers. Different services discover, retrieve and use information in different ways.</p>
 <p>Structured data, accurate directory listings and useful content help make your business easier to understand. We assess visibility over time; inclusion, ranking and timing remain outside our control.</p>
 
+<p>Google says the same SEO foundations apply to its AI features, with no special AI schema or AI text file required. <a href="https://developers.google.com/search/docs/appearance/ai-features" class="blog-link" target="_blank" rel="noopener noreferrer">Google’s guidance</a>. OpenAI identifies OAI-SearchBot as its search crawler; allowing access supports eligibility, not guaranteed inclusion. <a href="https://developers.openai.com/api/docs/bots" class="blog-link" target="_blank" rel="noopener noreferrer">OpenAI’s crawler documentation</a>.</p>
 <h2>What We Don't Cover Here</h2>
-<p>This article covers the fundamentals. The full GEO playbook, the specific directories that matter most for businesses, the exact schema markup that AI models prioritise, the content formats that get cited most frequently, and the ongoing maintenance that keeps you visible as AI models update, is what we implement for clients as part of our <a href="/pricing/" class="blog-link">SEO + GEO package</a>.</p>
+<p>This article covers the fundamentals. We review crawlability, useful content, accurate business information, relevant structured data and ongoing search performance as part of our <a href="/pricing/" class="blog-link">SEO + GEO package</a>.</p>
 <p>For the Google-specific local-search layer, read <a href="/blog/google-ai-mode-near-me-cyprus/" class="blog-link">Google AI Mode and “near me” searches</a>. It covers the profile, Maps, service-page, and Greek-language checks we run when a business wants to understand why Google does or does not name it.</p>
 <p>If you want to understand where your business currently stands in AI search, what AI models say about you right now, what's missing, and what the specific gaps are, that's what our free consultation covers.</p>
 
@@ -1467,27 +1450,27 @@ intent.</code></pre>
       "woocommerce pricing",
     ],
     faq: [
-      {
-        question: "How much does an online shop cost?",
-        answer: "As of September 2026, Shopify's Basic plan runs about $39/month billed monthly (roughly $29/month if billed yearly), plus card transaction fees. WooCommerce's plugin is free, but a working store needs hosting, a theme, and extensions, which typically lands between roughly $200 and $3,000+ a year depending on how much you need. On top of either platform, budget for design, product setup and payment integration. Through DM-Labs.io, a fully built online shop typically falls in the same range as our larger custom builds, scoped once we know your product count and features. Get a fixed quote after a free consultation.",
-      },
-      {
-        question: "Do I need to register a business to sell online?",
-        answer: "In most countries you can start as a registered sole trader, which is common for small sellers testing a new online shop. Most countries also set a minimum turnover before you're required to register for VAT or sales tax. This is general information, not tax advice. Confirm your specific registration and tax obligations with a licensed accountant in your own country before you launch.",
-      },
-      {
-        question: "Can I sell in more than one language on the same shop?",
-        answer: "Yes, and if a meaningful part of your audience doesn't shop in English, you should. Both Shopify and WooCommerce support multiple languages through apps or plugins, but a bolt-on translator is not the same as clean, separate product pages per language that read naturally and rank properly on Google. Build the language structure in from day one rather than retrofitting it later.",
-      },
-      {
-        question: "Shopify or WooCommerce: which one should I actually choose?",
-        answer: "Choose Shopify if you want the fastest path to a working, secure, low-maintenance shop and you're comfortable with a monthly subscription. Choose WooCommerce if you already run a WordPress site, want maximum long-term flexibility, and don't mind a partner who handles the technical upkeep. Neither is 'wrong.' It depends on your budget shape and how hands-on you want to be.",
-      },
-      {
-        question: "How long does it take to launch an online shop before Black Friday?",
-        answer: "Realistically, 4 to 6 weeks from a standing start, covering platform setup, product pages, payment and delivery configuration, and testing. Black Friday 2026 falls on Friday, 27 November. Starting in the second half of October gives you more preparation time; starting in September gives you a proper buffer for photography, copy and a dry run before the rush.",
-      },
-    ],
+  {
+    "question": "How much does an online shop cost?",
+    "answer": "As of September 2026, Shopify's Basic plan runs about $39/month (roughly $29/month billed yearly) plus card fees. WooCommerce's plugin is free, but hosting, a theme and extensions typically bring a working store to somewhere between $200 and $3,000+ a year. Add design, product setup and payment integration on top of either, and a fully built shop through DM-Labs.io is scoped and quoted after we know your product count and features. No guessing, no hidden lines."
+  },
+  {
+    "question": "Do I need to register a business to sell online?",
+    "answer": "You can usually start as a registered sole trader, though the exact requirements vary by country. Most countries also set a minimum turnover before VAT or sales-tax registration is required. This is general information, not tax advice. Check your specific situation with a licensed accountant in your own country."
+  },
+  {
+    "question": "Can I sell in more than one language on the same shop?",
+    "answer": "Yes, and if a meaningful part of your audience doesn't shop in English, you should. Both platforms support it through apps or plugins, but proper separate product pages per language beat a bolted-on translator every time, for customers and for Google."
+  },
+  {
+    "question": "Shopify or WooCommerce: which one should I actually choose?",
+    "answer": "Shopify if you want it running fast with minimal upkeep and you're fine with a monthly fee. WooCommerce if you're already on WordPress, want maximum flexibility, and have someone keeping it maintained. There is no universally \"right\" answer, only the right one for your budget and how hands-on you want to be."
+  },
+  {
+    "question": "How long does it take to launch before Black Friday?",
+    "answer": "Timing depends on the shop’s scope, product content, payments, delivery setup and testing. We agree a realistic schedule before work begins. Black Friday 2026 is Friday, 27 November; whether that date is achievable is confirmed for your project."
+  }
+],
     content: `
 <p class="blog-lead">Let's be honest about what is actually happening to your business right now. Zara has an online shop. Amazon has an online shop. IKEA has an online shop. They take the sale, the card payment, and the delivery, all before your customer even finishes typing "is this in stock?" into your Instagram DMs. You are not losing to bigger, better products. You are losing to a checkout button you don't have.</p>
 
@@ -1598,22 +1581,7 @@ intent.</code></pre>
 
 <p class="blog-soft-cta">Six weeks sounds tight because it is tight. We compress this timeline for a living. <a href="/contact/" class="blog-link">Book a call</a> and tell us your Black Friday deadline, and we'll tell you exactly what's realistic.</p>
 
-<h2 id="faq">FAQ</h2>
-
-<h3>How much does an online shop cost?</h3>
-<p>As of September 2026, Shopify's Basic plan runs about $39/month (roughly $29/month billed yearly) plus card fees. WooCommerce's plugin is free, but hosting, a theme and extensions typically bring a working store to somewhere between $200 and $3,000+ a year. Add design, product setup and payment integration on top of either, and a fully built shop through DM-Labs.io is scoped and quoted after we know your product count and features. No guessing, no hidden lines.</p>
-
-<h3>Do I need to register a business to sell online?</h3>
-<p>You can usually start as a registered sole trader, though the exact requirements vary by country. Most countries also set a minimum turnover before VAT or sales-tax registration is required. This is general information, not tax advice. Check your specific situation with a licensed accountant in your own country.</p>
-
-<h3>Can I sell in more than one language on the same shop?</h3>
-<p>Yes, and if a meaningful part of your audience doesn't shop in English, you should. Both platforms support it through apps or plugins, but proper separate product pages per language beat a bolted-on translator every time, for customers and for Google.</p>
-
-<h3>Shopify or WooCommerce: which one should I actually choose?</h3>
-<p>Shopify if you want it running fast with minimal upkeep and you're fine with a monthly fee. WooCommerce if you're already on WordPress, want maximum flexibility, and have someone keeping it maintained. There is no universally "right" answer, only the right one for your budget and how hands-on you want to be.</p>
-
-<h3>How long does it take to launch before Black Friday?</h3>
-<p>Realistically 4 to 6 weeks from a standing start. Black Friday 2026 is Friday, 27 November. Starting now gives you a proper buffer for photography, copy, testing and a soft launch before the real rush hits.</p>
+<!-- article-faq -->
 
 <h2 id="sources">Sources</h2>
 <ol>
@@ -1638,6 +1606,12 @@ intent.</code></pre>
     `,
   },
 ];
+
+// The FAQ body and JSON-LD share one source so answer edits cannot drift.
+export const POSTS: BlogPost[] = ARTICLE_CONTENT.map(post => ({
+  ...post,
+  content: post.content.replace("<!-- article-faq -->", `<h2 id="faq">FAQ</h2>\n${(post.faq ?? []).map(({ question, answer }) => `<h3>${question}</h3>\n<p>${answer}</p>`).join("\n")}`),
+}));
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return POSTS.find((p) => p.slug === slug);

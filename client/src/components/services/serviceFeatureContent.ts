@@ -77,7 +77,7 @@ export function serviceFeatureSchema(locale: SiteLanguage, id: RefreshedService)
   const t = SERVICE_FEATURES[locale][id];
   const url = `https://dm-labs.io${serviceFeatureRoute(locale, id)}`;
   return { "@context": "https://schema.org", "@graph": [
-    { "@type": "Service", "@id": `${url}#service`, name: t.name, description: t.intro, serviceType: t.name, url, provider: { "@id": "https://dm-labs.io/#professionalservice" }, areaServed: "Worldwide" },
+    { "@type": "Service", "@id": `${url}#service`, name: t.name, description: t.intro, serviceType: t.name, url, provider: { "@id": "https://dm-labs.io/#organization" }, areaServed: "Worldwide" },
     { "@type": "FAQPage", inLanguage: locale, mainEntity: t.faqs.map(faq => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })) },
   ] };
 }

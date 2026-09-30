@@ -3,7 +3,8 @@
    Target: web design Limassol and website design Limassol.
    ============================================================ */
 import StarButton from "@/components/ui/star-button";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
@@ -21,26 +22,7 @@ const faqItems = [
   { question: "Can you add booking, a CRM, or multilingual content?", answer: "Yes, those requirements are available through Enterprise / Custom scope. The quote depends on the tools, content volume, languages, and implementation requirements." },
 ];
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://dm-labs.io/web-design-limassol/#professionalservice",
-      "name": "DM-Labs.io",
-      "description": "DM-Labs.io designs and builds professional, mobile-first websites for businesses worldwide.",
-      "url": "https://dm-labs.io/web-design-limassol/",
-      "telephone": "+35797472847",
-      "email": "info@dm-labs.io",
-      "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
-      "areaServed": "Worldwide",
-      "priceRange": "€299-€1,499",
-      "currenciesAccepted": "EUR",
-      "hasOfferCatalog": { "@type": "OfferCatalog", "name": "DM-Labs.io Website Packages", "itemListElement": packages.map((item) => ({ "@type": "Offer", "name": item.name, "price": item.price.replace(/[€,]/g, ""), "priceCurrency": "EUR" })) }
-    },
-    { "@type": "FAQPage", "mainEntity": faqItems.map((item) => ({ "@type": "Question", "name": item.question, "acceptedAnswer": { "@type": "Answer", "text": item.answer } })) }
-  ]
-};
+
 
 export default function WebDesignLimassol() {
   useSEO({
@@ -49,15 +31,7 @@ export default function WebDesignLimassol() {
     canonicalPath: "/web-design-limassol/",
   });
 
-  useEffect(() => {
-    document.getElementById("schema-limassol")?.remove();
-    const script = document.createElement("script");
-    script.id = "schema-limassol";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => { document.getElementById("schema-limassol")?.remove(); };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/web-design-limassol/", "en", "Web Design Limassol", "DM-Labs.io designs and builds professional, mobile-first websites for businesses worldwide.", faqItems.map(item => ({ q: item.question, a: item.answer }))));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">

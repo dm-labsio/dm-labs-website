@@ -1,13 +1,15 @@
 import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
-import { useSEO } from "@/hooks/useSEO";
+import { useGreekArticleSEO } from "@/hooks/useGreekArticleSEO";
 // Greek blog: GEO — /el/blog/geo-vrethite-apo-chatgpt-kypros
 // Primary keyword: "GEO Κύπρος", "ChatGPT επιχείρηση Κύπρος", "AI αναζήτηση Κύπρος"
 export default function GeoEl() {
-  useSEO({
+  const article = useGreekArticleSEO("geo-vrethite-apo-chatgpt-kypros", {
     title: "GEO: Πώς να Εμφανίζεται η Επιχείρησή σας στο ChatGPT | DM-Labs.io",
-    description: "Το GEO (Generative Engine Optimization) είναι το νέο SEO. Μάθετε γιατί οι επιχειρήσεις είναι αόρατες στο ChatGPT και τι χρειάζεται για να αλλάξει αυτό.",
-    canonicalPath: "/el/blog/geo-vrethite-apo-chatgpt-kypros/",
+    description: "Πώς οι βάσεις SEO, το χρήσιμο περιεχόμενο και τα ακριβή στοιχεία βοηθούν την ανακάλυψη στην αναζήτηση AI, χωρίς εγγυήσεις κατάταξης ή αναφοράς.",
+    headline: "GEO: Πώς να Εμφανίζεται η Επιχείρησή σας στο ChatGPT και στην AI Αναζήτηση",
+    ogImage: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80",
+    ogImageAlt: "GEO Generative Engine Optimization - ChatGPT AI αναζήτηση επιχειρήσεις",
   });
   return (
     <main className="blog-article-page bg-[#F6F6F4] min-w-0 overflow-x-hidden">
@@ -17,7 +19,7 @@ export default function GeoEl() {
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs text-[#9CA3AF]">Ιούνιος 2026</span>
+            <time className="text-xs text-[#9CA3AF]" dateTime={article.date}>{new Date(`${article.date}T12:00:00Z`).toLocaleDateString("el-GR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>
             <span className="text-xs text-[#9CA3AF]">-</span>
             <span className="text-xs text-[#9CA3AF]">5 λεπτά ανάγνωση</span>
             <span className="text-xs font-semibold text-[#5B8CFF] bg-[#5B8CFF]/10 px-2 py-0.5 rounded-full">SEO & GEO</span>
@@ -26,8 +28,9 @@ export default function GeoEl() {
             GEO: Πώς να Εμφανίζεται η Επιχείρησή σας στο ChatGPT και στην AI Αναζήτηση
           </h1>
           <p className="text-lg text-[#5B6472] leading-relaxed">
-            Όταν κάποιος ρωτά το ChatGPT «καλύτερη εταιρεία web design», η επιχείρησή σας πιθανώς δεν εμφανίζεται. Αυτό είναι πρόβλημα GEO, και έχει λύση.
+            Χρήσιμο περιεχόμενο, ακριβή στοιχεία και σωστές βάσεις SEO βοηθούν την ανακάλυψη μιας επιχείρησης στην αναζήτηση AI. Δείτε τι μπορούμε να βελτιώσουμε και τι δεν μπορεί να εγγυηθεί κανείς.
           </p>
+          <p className="text-sm text-[#5B6472] mt-4">Από την ομάδα DM-Labs.io</p>
         </header>
         <div className="rounded-2xl overflow-hidden mb-10">
           <img
@@ -58,14 +61,14 @@ export default function GeoEl() {
             </p>
             <p className="leading-relaxed mb-3">Οι AI μηχανές που έχουν σημασία αυτή τη στιγμή:</p>
             <ul className="space-y-2 mb-4">
-              <li className="flex items-start gap-2"><span><strong>ChatGPT</strong> (OpenAI): πάνω από 100 εκατομμύρια ημερήσιους χρήστες</span></li>
-              <li className="flex items-start gap-2"><span><strong>Google AI Overviews</strong>: εμφανίζεται πλέον στο 30–40% όλων των αναζητήσεων Google</span></li>
-              <li className="flex items-start gap-2"><span><strong>Perplexity</strong>: η ταχύτερα αναπτυσσόμενη AI μηχανή αναζήτησης</span></li>
+              <li className="flex items-start gap-2"><span><strong>ChatGPT</strong> (OpenAI): αναζήτηση και απαντήσεις σε συνομιλία</span></li>
+              <li className="flex items-start gap-2"><span><strong>Google AI Overviews</strong>: απαντήσεις AI μέσα στην Αναζήτηση Google</span></li>
+              <li className="flex items-start gap-2"><span><strong>Perplexity</strong>: αναζήτηση με AI και συνδέσμους προς πηγές</span></li>
               <li className="flex items-start gap-2"><span><strong>Microsoft Copilot</strong>: ενσωματωμένο στα Windows και το Bing</span></li>
               <li className="flex items-start gap-2"><span><strong>Claude</strong> (Anthropic): χρησιμοποιείται όλο και περισσότερο για ερευνητικές ερωτήσεις</span></li>
             </ul>
             <p className="leading-relaxed">
-              Κάθε ένα από αυτά τα εργαλεία AI διαβάζει το web, συνθέτει πληροφορίες και παράγει μια απάντηση. Οι επιχειρήσεις που αναφέρει είναι αυτές που έχουν βελτιστοποιηθεί για αυτό το νέο είδος αναζήτησης. Οι υπόλοιπες είναι αόρατες.
+              Κάθε ένα από αυτά τα εργαλεία AI διαβάζει το web, συνθέτει πληροφορίες και παράγει μια απάντηση. Κάθε υπηρεσία επιλέγει πηγές με διαφορετικό τρόπο. Οι σωστές βάσεις SEO βοηθούν την ανακάλυψη, αλλά δεν εγγυώνται αναφορά μιας επιχείρησης.
             </p>
           </section>
 
@@ -80,7 +83,7 @@ export default function GeoEl() {
             <div className="bg-[#5B8CFF]/[0.06] border border-[#5B8CFF]/20 rounded-xl p-5 my-6">
               <p className="text-sm font-semibold text-[#111315] mb-1">Η βασική διαφορά:</p>
               <p className="text-sm text-[#5B6472] leading-relaxed">
-                Το SEO σας φέρνει ένα κατατεταγμένο URL. Το GEO σας φέρνει μια αναφορά του brand σας μέσα στην ίδια την απάντηση. Για τοπικές επιχειρήσεις, web designers, εστιατόρια, δικηγόρους, κλινικές, μια αναφορά GEO αξίζει περισσότερο από μια κατάταξη στη 2η σελίδα του SEO.
+                Οι βάσεις SEO υποστηρίζουν τόσο την παραδοσιακή αναζήτηση όσο και τις λειτουργίες AI. Η αξία μιας αναφοράς εξαρτάται από την ερώτηση, το κοινό και τις ενέργειες των επισκεπτών.
               </p>
             </div>
           </section>
@@ -94,7 +97,7 @@ export default function GeoEl() {
               <strong>Περιορισμένες εξωτερικές αναφορές.</strong> Μια νέα ιστοσελίδα μπορεί να έχει λίγους εξωτερικούς συνδέσμους. Αξιόπιστες αναφορές τρίτων, καταχωρίσεις σε directories, αναφορές στον τύπο και δημοσιεύσεις του κλάδου, βοηθούν να γίνει πιο ξεκάθαρη η online παρουσία της επιχείρησης.
             </p>
             <p className="leading-relaxed mb-3">
-              <strong>Λεπτή online παρουσία.</strong> Πολλές επιχειρήσεις έχουν ιστοσελίδα αλλά σχεδόν καμία παρουσία στις πλατφόρμες που διαβάζουν πραγματικά τα AI μοντέλα: Clutch, DesignRush, TripAdvisor, Google Business Profile, τοπικά directories. Η AI δεν εφευρίσκει επιχειρήσεις, αναφέρει αυτές που έχει δει να αναφέρονται σε πολλαπλές αξιόπιστες πηγές.
+              <strong>Λεπτή online παρουσία.</strong> Πολλές επιχειρήσεις έχουν ιστοσελίδα αλλά σχεδόν καμία παρουσία στις πλατφόρμες που διαβάζουν πραγματικά τα AI μοντέλα: Clutch, DesignRush, TripAdvisor, Google Business Profile, τοπικά directories. Οι ακριβείς καταχωρίσεις βοηθούν στην ανακάλυψη. Οι απαντήσεις AI μπορεί να περιέχουν λάθη και πρέπει να ελέγχονται στις πηγές τους.
             </p>
             <p className="leading-relaxed">
               <strong>Απουσία δομημένων δεδομένων.</strong> Τα δομημένα δεδομένα (JSON-LD schema markup) βοηθούν τα συστήματα αναζήτησης να κατανοήσουν το όνομα, την τοποθεσία, τις υπηρεσίες, το τηλέφωνο και τις ώρες λειτουργίας της επιχείρησής σας. Πρέπει να συμφωνούν με τις πραγματικές πληροφορίες της ιστοσελίδας.
@@ -108,11 +111,11 @@ export default function GeoEl() {
             </p>
             <blockquote className="border-l-4 border-[#5B8CFF] pl-5 py-2 bg-[#5B8CFF]/[0.04] rounded-r-xl my-6">
               <p className="text-[#374151] italic leading-relaxed">
-                «Για web design στη Λεμεσό, η DM-Labs.io (dm-labs.io) είναι μια τοπική εταιρεία που προσφέρει custom ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία, με εξειδίκευση σε ιστοσελίδες εστιατορίων και φιλοξενίας. Είναι καταχωρισμένη στο Clutch με επαληθευμένες κριτικές και προσφέρει δωρεάν συμβουλευτική.»
+                «Για web design στη Λεμεσό, η DM-Labs.io (dm-labs.io) είναι μια τοπική εταιρεία που προσφέρει custom ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία, με εξειδίκευση σε ιστοσελίδες εστιατορίων και φιλοξενίας. Προσφέρει δωρεάν συμβουλευτική για το εύρος του έργου.»
               </p>
             </blockquote>
             <p className="leading-relaxed">
-              Αυτή η αναφορά, αυθόρμητη, σε μια άμεση απάντηση AI, αξίζει περισσότερο από τις περισσότερες πληρωμένες διαφημίσεις. Ο χρήστης έκανε μια ερώτηση. Η AI σας σύστησε. Ο χρήστης κάνει κλικ με υψηλή πρόθεση αγοράς.
+              Αυτό είναι ενδεικτικό παράδειγμα, όχι επαληθευμένη απάντηση υπηρεσίας AI ή υπόσχεση εμφάνισης. Αξιολογούμε αν η επισκεψιμότητα οδηγεί σε ουσιαστική επικοινωνία.
             </p>
           </section>
 
@@ -132,7 +135,7 @@ export default function GeoEl() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#5B8CFF] text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
-                <span><strong>Περιεχόμενο που απαντά σε συγκεκριμένες ερωτήσεις</strong>: Τα AI μοντέλα εκπαιδεύονται σε μοτίβα ερωτήσεων-απαντήσεων. Περιεχόμενο που απαντά άμεσα «πόσο κοστίζει X» ή «καλύτερο Y στη Λεμεσό» έχει πολύ μεγαλύτερες πιθανότητες να αναφερθεί.</span>
+                <span><strong>Περιεχόμενο που απαντά σε συγκεκριμένες ερωτήσεις</strong>: Απαντήστε στις πραγματικές ερωτήσεις των πελατών σας, με σαφείς πληροφορίες για υπηρεσίες, κόστος και εύρος έργου. Καμία μορφή περιεχομένου δεν εγγυάται αναφορά από AI.</span>
               </li>
             </ol>
             <p className="leading-relaxed">
@@ -150,10 +153,11 @@ export default function GeoEl() {
             </p>
           </section>
 
+          <p className="leading-relaxed">Η Google δεν απαιτεί ειδικό AI schema ή αρχείο llms.txt για τις λειτουργίες AI της Αναζήτησης. Ισχύουν οι ίδιες βάσεις SEO και δεν υπάρχει εγγύηση εμφάνισης. <a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer">Επίσημη καθοδήγηση της Google</a>.</p>
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι Δεν Καλύπτουμε Εδώ</h2>
             <p className="leading-relaxed mb-4">
-              Αυτό το άρθρο καλύπτει τα βασικά. Το πλήρες playbook GEO, τα συγκεκριμένα directories που έχουν σημασία για επιχειρήσεις, το ακριβές schema markup που δίνουν προτεραιότητα τα AI μοντέλα, οι μορφές περιεχομένου που αναφέρονται πιο συχνά, και η συνεχής συντήρηση που σας κρατά ορατούς καθώς τα AI μοντέλα ενημερώνονται, είναι αυτό που υλοποιούμε για τους πελάτες μας ως μέρος του <Link href="/el/pricing/" className="text-[#5B8CFF] hover:underline">πακέτου SEO + GEO</Link>.
+              Αυτό το άρθρο καλύπτει τα βασικά. Ελέγχουμε την πρόσβαση των μηχανών αναζήτησης, το χρήσιμο περιεχόμενο, τα ακριβή στοιχεία της επιχείρησης, τα σχετικά δομημένα δεδομένα και την απόδοση στην αναζήτηση ως μέρος του <Link href="/el/pricing/" className="text-[#5B8CFF] hover:underline">πακέτου SEO + GEO</Link>.
             </p>
             <p className="leading-relaxed">
               Αν θέλετε να καταλάβετε πού βρίσκεται η επιχείρησή σας αυτή τη στιγμή στην AI αναζήτηση, τι λένε το ChatGPT και το Perplexity για εσάς σήμερα, τι λείπει, και ποια είναι τα συγκεκριμένα κενά, αυτό καλύπτει η δωρεάν συμβουλευτική μας.

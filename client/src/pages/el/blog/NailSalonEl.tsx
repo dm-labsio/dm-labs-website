@@ -1,12 +1,14 @@
 import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
-import { useSEO } from "@/hooks/useSEO";
+import { useGreekArticleSEO } from "@/hooks/useGreekArticleSEO";
 
 export default function NailSalonEl() {
-  useSEO({
+  const article = useGreekArticleSEO("istoselidha-nail-salon-beauty-studio-kypros", {
     title: "Ιστοσελίδα για Nail Salon και Ομορφιά Studio | DM-Labs.io",
     description: "Τι χρειάζεται η ιστοσελίδα ενός nail salon ή beauty studio για να φέρνει νέους πελάτες. Πρακτικός οδηγός.",
-    canonicalPath: "/el/blog/istoselidha-nail-salon-beauty-studio-kypros/",
+    headline: "Ιστοσελίδα για Nail Salon και Ομορφιά Studio: Τι Χρειάζεστε Πραγματικά",
+    ogImage: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80",
+    ogImageAlt: "Ιστοσελίδα nail salon και στούντιο ομορφιάς - επαγγελματική online παρουσία",
   });
 
   return (
@@ -17,7 +19,7 @@ export default function NailSalonEl() {
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs text-[#9CA3AF]">Φεβρουάριος 2026</span>
+            <time className="text-xs text-[#9CA3AF]" dateTime={article.date}>{new Date(`${article.date}T12:00:00Z`).toLocaleDateString("el-GR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>
             <span className="text-xs text-[#9CA3AF]">-</span>
             <span className="text-xs text-[#9CA3AF]">5 λεπτά ανάγνωση</span>
           </div>
@@ -27,6 +29,7 @@ export default function NailSalonEl() {
           <p className="text-lg text-[#5B6472] leading-relaxed">
             Έχετε nail salon ή beauty studio; Δείτε τι πρέπει να έχει η ιστοσελίδα σας για να γεμίζει ραντεβού και να βρίσκεστε στη Google.
           </p>
+          <p className="text-sm text-[#5B6472] mt-4">Από την ομάδα DM-Labs.io</p>
         </header>
         <div className="space-y-8 text-[#374151]">
           <section>

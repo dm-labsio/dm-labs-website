@@ -10,7 +10,6 @@ import TeamProfiles from "@/components/TeamProfiles";
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import StarButton from "@/components/ui/star-button";
-import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
@@ -187,68 +186,6 @@ export default function HomePage() {
     description: "Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses worldwide.",
   });
 
-  // This graph is serialized into the prerendered homepage and is the single source of homepage structured data.
-  useEffect(() => {
-    const existingSchema = document.getElementById("home-jsonld-schema");
-    if (existingSchema) return;
-    const offers = [
-      { "@type": "Offer", "name": "Launch Website", "description": "1-page landing site, mobile responsive, WhatsApp button, basic SEO, 2 revision rounds.", "price": "299", "priceCurrency": "EUR" },
-      { "@type": "Offer", "name": "Growth Website", "description": "Up to 4 pages, contact form, map, testimonials, basic SEO, Search Console and Analytics setup, 3 revision rounds.", "price": "749", "priceCurrency": "EUR" },
-      { "@type": "Offer", "name": "Pro Website", "description": "Up to 7 pages, gallery, pop-up, scroll animations, full SEO structure, blog setup or a website visual pack, 4 revision rounds.", "price": "1499", "priceCurrency": "EUR" },
-      { "@type": "Offer", "name": "Enterprise / Custom", "description": "Pricing tailored to your scope for integrations, multilingual websites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume." }
-    ];
-    const schema = {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://dm-labs.io/#professionalservice",
-          "name": "DM-Labs.io",
-          "alternateName": "DM-Labs",
-          "description": "Custom websites built to strengthen your brand and turn interest into enquiries. Fast delivery and personal care for businesses worldwide.",
-          "url": "https://dm-labs.io/",
-          "logo": "https://dm-labs.io/logo.png",
-          "image": "https://dm-labs.io/social/dm-labs-growth-social-card-centered.png",
-          "telephone": "+35797472847",
-          "email": "info@dm-labs.io",
-          "priceRange": "€299-€1,499",
-          "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
-          "areaServed": "Worldwide",
-          "employee": [
-            {
-              "@type": "Person",
-              "name": "Anastacia B.",
-              "jobTitle": "Creative Director & AI Specialist",
-              "image": "https://dm-labs.io/media/manus/AtkkCmVLLZyIDtDx.webp"
-            },
-            {
-              "@type": "Person",
-              "name": "Tom B.",
-              "jobTitle": "Technical Director & SEO Expert",
-              "image": "https://dm-labs.io/media/manus/DVIoYisVQvzbqoiR.webp"
-            }
-          ],
-          "sameAs": ["https://www.instagram.com/dm_labs.io/"],
-          "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Website Packages", "itemListElement": offers }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://dm-labs.io/#website",
-          "url": "https://dm-labs.io/",
-          "name": "DM-Labs.io",
-          "description": "Web design for growing businesses worldwide",
-          "publisher": { "@id": "https://dm-labs.io/#professionalservice" },
-          "inLanguage": ["en", "el", "he"]
-        }
-      ]
-    };
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "home-jsonld-schema";
-    script.text = JSON.stringify(schema);
-    document.head.appendChild(script);
-    return () => { document.getElementById("home-jsonld-schema")?.remove(); };
-  }, []);
   return (
     <div className="editorial-home home-page--dark" lang="en" data-button-surface="dark">
       {/* ═══════════════════════════════════════════

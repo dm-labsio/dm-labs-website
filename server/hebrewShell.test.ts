@@ -14,8 +14,8 @@ describe("Hebrew shared shell and staged entry route", () => {
     expect(seoRoutes).toContain("INDEXABLE_HEBREW_PATHS");
     expect(seoRoutes).toContain("isIndexableHebrewRoute");
     expect(seoHook).toContain("isIndexableHebrewRoute(cleanPath) ? false : noindex");
-    expect(home).toContain('url: "https://dm-labs.io/he/"');
-    expect(home).toContain('inLanguage: "he"');
+    expect(readSource("client/src/lib/structuredData.ts")).toContain('"@type": "WebPage"');
+    expect(readSource("client/src/lib/structuredData.ts")).toContain('inLanguage: locale');
     expect(home).toContain('<PackageOverview locale="he" />');
     // Exact localized amounts and deep links are covered by packageOverview.test.ts.
   });

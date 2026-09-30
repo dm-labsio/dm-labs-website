@@ -2,6 +2,10 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
+// Snapshots already contain SEO scripts for crawlers. Recreate them for this
+// mount so route effects own cleanup and cannot leak metadata to another page.
+document.head.querySelectorAll('script[type="application/ld+json"]').forEach(script => script.remove());
+
 const root = document.getElementById("root")!;
 
 // This project has no real server-side rendering: scripts/prerender-full.mjs

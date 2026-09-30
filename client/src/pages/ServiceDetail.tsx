@@ -178,7 +178,7 @@ function LegacyServiceDetailPage() {
           "description": service.intro,
           "serviceType": service.title,
           "url": serviceUrl,
-          "provider": { "@id": "https://dm-labs.io/#professionalservice" },
+          "provider": { "@id": "https://dm-labs.io/#organization" },
           "areaServed": "Worldwide",
         },
         {

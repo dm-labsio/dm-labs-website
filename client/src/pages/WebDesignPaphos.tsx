@@ -3,7 +3,8 @@
    Target: web design Paphos and website design Paphos.
    ============================================================ */
 import StarButton from "@/components/ui/star-button";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
@@ -22,34 +23,7 @@ const faqItems = [
   { question: "What makes a project Enterprise / Custom?", answer: "Enterprise / Custom applies to work beyond the standard package scope, such as integrations, multilingual websites, CMS self-editing, AI or chatbot features, complex motion, CRM or booking, and unusual content volume." },
 ];
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://dm-labs.io/web-design-paphos/#professionalservice",
-      "name": "DM-Labs.io",
-      "alternateName": "DM-Labs",
-      "description": "DM-Labs.io designs and builds professional, mobile-first websites for businesses worldwide.",
-      "url": "https://dm-labs.io/web-design-paphos/",
-      "telephone": "+35797472847",
-      "email": "info@dm-labs.io",
-      "address": { "@type": "PostalAddress", "streetAddress": "Eleftheriou Chandrinou", "postalCode": "8045", "addressLocality": "Paphos", "addressCountry": "CY" },
-      "areaServed": "Worldwide",
-      "priceRange": "€299-€1,499",
-      "currenciesAccepted": "EUR",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "DM-Labs.io Website Packages",
-        "itemListElement": packages.map((item) => ({ "@type": "Offer", "name": item.name, "price": item.price.replace(/[€,]/g, ""), "priceCurrency": "EUR" }))
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map((item) => ({ "@type": "Question", "name": item.question, "acceptedAnswer": { "@type": "Answer", "text": item.answer } }))
-    }
-  ]
-};
+
 
 export default function WebDesignPaphos() {
   useSEO({
@@ -58,15 +32,7 @@ export default function WebDesignPaphos() {
     canonicalPath: "/web-design-paphos/",
   });
 
-  useEffect(() => {
-    document.getElementById("schema-paphos")?.remove();
-    const script = document.createElement("script");
-    script.id = "schema-paphos";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => { document.getElementById("schema-paphos")?.remove(); };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/web-design-paphos/", "en", "Web Design Paphos", "DM-Labs.io designs and builds professional, mobile-first websites for businesses worldwide.", faqItems.map(item => ({ q: item.question, a: item.answer }))));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">

@@ -30,6 +30,8 @@ export default function NotFound() {
     // Remove canonical — 404 pages must not self-canonicalise
     document.querySelectorAll('link[rel="canonical"]').forEach((el) => el.remove());
 
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
+
     return () => {
       // Restore robots to indexable on unmount (navigating away from 404)
       const tag = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;

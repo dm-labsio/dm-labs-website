@@ -2,9 +2,20 @@ import React, { useEffect, useRef, useState } from "react";
 import type { HomeLocale } from "./overviewContent";
 import { HOME_INTRODUCTION_COPY, HOME_INTRODUCTION_MEDIA, introductionSource } from "./homeIntroductionContent";
 import "./HomeIntroductionVideo.css";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { absoluteImageUrl, ORGANIZATION_ID } from "@/lib/structuredData";
 
 export default function HomeIntroductionVideo({ language }: { language: HomeLocale }) {
   const copy = HOME_INTRODUCTION_COPY[language];
+  const pageUrl = `https://dm-labs.io/${language === "en" ? "" : `${language}/`}`;
+  useStructuredData("introduction-video-jsonld", {
+    "@context": "https://schema.org", "@type": "VideoObject", "@id": `${pageUrl}#introduction-video`,
+    name: copy.title, description: "DM-Labs.io introduces the studio and its website services.",
+    thumbnailUrl: absoluteImageUrl(HOME_INTRODUCTION_MEDIA.poster),
+    contentUrl: absoluteImageUrl(HOME_INTRODUCTION_MEDIA.desktop),
+    uploadDate: "2026-09-29", duration: "PT31.1S", inLanguage: "en",
+    creator: { "@id": ORGANIZATION_ID }, isPartOf: { "@id": `${pageUrl}#webpage` },
+  });
   const video = useRef<HTMLVideoElement>(null);
   const frame = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);

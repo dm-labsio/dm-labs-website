@@ -2,32 +2,14 @@ import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pri
 // =============================================================================
 // /el/web-design-cyprus -- National Cyprus Pillar Page (Greek)
 // =============================================================================
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import StarButton from "@/components/ui/star-button";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "DM-Labs.io",
-  "description": "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε κάθε αγορά, με εξ αποστάσεως συνεργασία.",
-  "url": "https://dm-labs.io/el/web-design-cyprus/",
-  "telephone": "+35797472847",
-  "priceRange": "€€",
-  "areaServed": "Worldwide",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Κατασκευή Ιστοσελίδας Υπηρεσίες",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Launch Website", "description": "Επώνυμη επαγγελματική σελίδα για επιχειρήσεις" }, "price": "299", "priceCurrency": "EUR" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Growth Website", "description": "Ιστοσελίδα έως 5 σελίδων με SEO και φόρμες επικοινωνίας για επιχειρήσεις" }, "price": "749", "priceCurrency": "EUR" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pro Website", "description": "Πλήρως custom ιστοσελίδα με animations, blog άρθρα και πλήρη δομή SEO" }, "price": "1499", "priceCurrency": "EUR" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise / Custom", "description": "Τιμή προσαρμοσμένη στο εύρος του έργου σας" } }
-    ]
-  }
-};
+
 
 const cities = [
   { name: "Λεμεσός", slug: "/el/web-design-limassol/", color: "#5B8CFF", bg: "#EEF3FF", desc: "Η επιχειρηματική και χρηματοοικονομική πρωτεύουσα της περιοχής. Σπίτι χιλιάδων ΜΜΕ, διεθνών εταιρειών και μιας ανθούσας τεχνολογικής σκηνής." },
@@ -96,19 +78,7 @@ export default function WebDesignCyprusEl() {
     canonicalPath: "/el/web-design-cyprus/"
   });
 
-  useEffect(() => {
-    const existing = document.getElementById("schema-cyprus");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.id = "schema-cyprus";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById("schema-cyprus");
-      if (s) s.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/el/web-design-cyprus/", "el", "Κατασκευή Ιστοσελίδας", "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε κάθε αγορά, με εξ αποστάσεως συνεργασία.", faqs));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">

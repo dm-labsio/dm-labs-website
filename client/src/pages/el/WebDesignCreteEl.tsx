@@ -1,5 +1,6 @@
 import { BUILD_PRICE_SUMMARY } from "@/components/pricing/pricingContent";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -9,31 +10,7 @@ import { useSEO } from "@/hooks/useSEO";
 // Tertiary: "web design Ηράκλειο", "web design Χανιά", "website Crete price"
 // Design: matches DM-Labs.io site style - light bg, brand gradient accents, clean typography
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "DM-Labs.io",
-  "url": "https://dm-labs.io",
-  "telephone": "+35797472847",
-  "email": "info@dm-labs.io",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Eleftheriou Chandrinou 5",
-    "addressLocality": "Paphos",
-    "postalCode": "8045",
-    "addressCountry": "CY"
-  },
-  "areaServed": "Worldwide",
-  "serviceArea": "Worldwide",
-  "description": "Η DM-Labs.io είναι ένα απομακρυσμένο στούντιο web design που δημιουργεί επαγγελματικές, mobile-first, βελτιστοποιημένες για SEO ιστοσελίδες για μικρές επιχειρήσεις σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο και αλλού. Ιστοσελίδες που χτίζουν εμπιστοσύνη, με γρήγορη παράδοση και προσωπική υποστήριξη.",
-  "priceRange": "€€",
-  "currenciesAccepted": "EUR",
-  "paymentAccepted": "Τραπεζική Μεταφορά, PayPal",
-  "openingHours": "Δε-Πα 09:00-18:00",
-  "sameAs": [
-    "https://www.instagram.com/dmlabs.io"
-  ]
-};
+
 
 const faqs = [
   {
@@ -110,23 +87,11 @@ const industries = [
 export default function WebDesignCreteEl() {
   useSEO({
     title: "Κατασκευή Ιστοσελίδας Κρήτη | Web Design για Ανάπτυξη | DM-Labs.io",
-    description: "Επαγγελματικό web design για μικρές επιχειρήσεις σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο. Custom ιστοσελίδες που χτίζουν εμπιστοσύνη, με γρήγορη παράδοση και προσωπική υποστήριξη. Mobile-first, SEO-ready, χωρίς κρυφές χρεώσεις.",
+    description: "Εξατομικευμένες ιστοσελίδες για επιχειρήσεις στην Κρήτη. Σχεδιασμός για κινητά, βάσεις SEO και προσωπική φροντίδα. Δωρεάν συμβουλευτική.",
     canonicalPath: "/el/web-design-crete/"
   });
 
-  useEffect(() => {
-    const existing = document.getElementById("schema-crete");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.id = "schema-crete";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById("schema-crete");
-      if (s) s.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/el/web-design-crete/", "el", "Κατασκευή Ιστοσελίδας Κρήτη", "Η DM-Labs.io είναι ένα απομακρυσμένο στούντιο web design που δημιουργεί επαγγελματικές, mobile-first, βελτιστοποιημένες για SEO ιστοσελίδες για μικρές επιχειρήσεις σε όλη την Κρήτη - Ηράκλειο, Χανιά, Ρέθυμνο και αλλού. Ιστοσελίδες που χτίζουν εμπιστοσύνη, με γρήγορη παράδοση και προσωπική υποστήριξη.", faqs));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">

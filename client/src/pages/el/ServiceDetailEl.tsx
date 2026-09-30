@@ -1,3 +1,5 @@
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import PackageOverview from "@/components/pricing/PackageOverview";
 import ServiceFeaturePage from "@/components/services/ServiceFeaturePage";
 import { isRefreshedService } from "@/components/services/serviceFeatureContent";
@@ -154,8 +156,10 @@ function LegacyServiceDetailPage() {
   const service = SERVICES[serviceId];
   useSEO({
     title: service ? `${service.title} | DM-Labs.io` : "Υπηρεσία | DM-Labs.io",
-    description: service ? service.intro: "Επαγγελματικές υπηρεσίες web design. Εξατομικευμένες ιστοσελίδες γρήγορα και σωστά.",
+    description: service ? ({ maps: "Χάρτες Google Maps, οδηγίες και ακριβή στοιχεία τοποθεσίας για την ιστοσελίδα σας. Εύκολη πρόσβαση για πελάτες σε κινητό και υπολογιστή.", forms: "Φόρμες επικοινωνίας φιλικές προς κινητά, με τα πεδία που χρειάζεστε, έλεγχο στοιχείων και σαφή ενημέρωση μετά την υποβολή.", social: "Συνδέστε την ιστοσελίδα σας με τα social media και το WhatsApp. Σαφείς διαδρομές επικοινωνίας, με ενσωματώσεις που ταιριάζουν στο έργο σας." }[service.id] ?? service.subtitle): "Επαγγελματικές υπηρεσίες web design. Εξατομικευμένες ιστοσελίδες γρήγορα και σωστά.",
   });
+
+  useStructuredData("service-jsonld-schema", service ? serviceSchemaData(`https://dm-labs.io/el/services/${serviceId}/`, "el", service.title, service.intro, service.faqs) : null);
 
   if (!service) {
     return (

@@ -5,37 +5,13 @@
    LocalBusiness schema injected on mount
    ============================================================ */
 import { Link } from "wouter";
-import { useEffect } from "react";
+import { useStructuredData } from "@/hooks/useStructuredData";
+import { serviceSchemaData } from "@/lib/structuredData";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
 import { BUILD_PLANS, BUILD_PRICES, BUILD_PRICE_SUMMARY } from "@/components/pricing/pricingContent";
 
-const schemaMarkup = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "DM-Labs.io",
-  "description": "DM-Labs.io designs and builds professional websites for businesses in Nicosia and worldwide. Mobile-first, SEO-optimised, with a clear, agreed project schedule.",
-  "url": "https://dm-labs.io/web-design-nicosia/",
-  "logo": "https://dm-labs.io/logo.png",
-  "image": "https://dm-labs.io/social/dm-labs-website-social-card.png",
-  "telephone": "+35797472847",
-  "email": "info@dm-labs.io",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Eleftheriou Chandrinou",
-    "postalCode": "8045",
-    "addressLocality": "Paphos",
-    "addressCountry": "CY"
-  },
-  "areaServed": "Worldwide",
-  "priceRange": "€€",
-  "currenciesAccepted": "EUR",
-  "paymentAccepted": "Bank Transfer, PayPal",
-  "openingHours": "Mo-Fr 09:00-18:00",
-  "sameAs": [
-    "https://www.instagram.com/dmlabs.io"
-  ]
-};
+
 
 const faqs = [
   {
@@ -72,19 +48,7 @@ export default function WebDesignNicosia() {
     canonicalPath: "/web-design-nicosia/"
   });
 
-  useEffect(() => {
-    const existing = document.getElementById("schema-nicosia");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.id = "schema-nicosia";
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schemaMarkup);
-    document.head.appendChild(script);
-    return () => {
-      const s = document.getElementById("schema-nicosia");
-      if (s) s.remove();
-    };
-  }, []);
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/web-design-nicosia/", "en", "Web Design Nicosia", "DM-Labs.io designs and builds professional websites for businesses in Nicosia and worldwide. Mobile-first, SEO-optimised, with a clear, agreed project schedule.", faqs));
 
   return (
     <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">

@@ -1,13 +1,15 @@
 import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
-import { useSEO } from "@/hooks/useSEO";
+import { useGreekArticleSEO } from "@/hooks/useGreekArticleSEO";
 // Greek blog: Web design in Greece — /el/blog/web-design-ellada-odigos-2026
 // Primary keyword: "web design Ελλάδα", "κατασκευή ιστοσελίδας Ελλάδα"
 export default function WebDesignGreeceEl() {
-  useSEO({
+  const article = useGreekArticleSEO("web-design-ellada-odigos-2026", {
     title: "Κατασκευή Ιστοσελίδας: Πλήρης Οδηγός 2026 | DM-Labs.io",
     description: "Όλα όσα χρειάζεται να ξέρει μια ελληνική επιχείρηση για την κατασκευή ιστοσελίδας το 2026: κόστος, τι να ζητήσετε από έναν web designer, και πώς να βρεθείτε στη Google.",
-    canonicalPath: "/el/blog/web-design-ellada-odigos-2026/",
+    headline: "Κατασκευή Ιστοσελίδας: Όσα Χρειάζεται να Ξέρει κάθε Επιχείρηση το 2026",
+    ogImage: "https://images.unsplash.com/photo-1555993539-1732b0258235?w=1200&q=80",
+    ogImageAlt: "Κατασκευή ιστοσελίδας 2026 - web design Αθήνα Θεσσαλονίκη",
   });
   return (
     <main className="blog-article-page bg-[#F6F6F4] min-w-0 overflow-x-hidden">
@@ -17,7 +19,7 @@ export default function WebDesignGreeceEl() {
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs text-[#9CA3AF]">Ιούνιος 2026</span>
+            <time className="text-xs text-[#9CA3AF]" dateTime={article.date}>{new Date(`${article.date}T12:00:00Z`).toLocaleDateString("el-GR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>
             <span className="text-xs text-[#9CA3AF]">-</span>
             <span className="text-xs text-[#9CA3AF]">7 λεπτά ανάγνωση</span>
           </div>
@@ -27,6 +29,7 @@ export default function WebDesignGreeceEl() {
           <p className="text-lg text-[#5B6472] leading-relaxed">
             Όπου κι αν βρίσκεται η επιχείρησή σας, η ιστοσελίδα σας είναι το πιο σημαντικό εργαλείο της επιχείρησής σας το 2026. Δείτε τι χρειάζεστε να ξέρετε πριν χτίσετε ή ανακατασκευάσετε τη δική σας.
           </p>
+          <p className="text-sm text-[#5B6472] mt-4">Από την ομάδα DM-Labs.io</p>
         </header>
 
         <div className="rounded-2xl overflow-hidden mb-10">
