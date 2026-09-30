@@ -38,7 +38,6 @@ export default function HomeIntroductionVideo({ language }: { language: HomeLoca
     <div className="container">
       <header className="home-film-heading">
         <div><p className="brand-micro">{copy.label}</p><h2 id="home-film-title">{copy.title}</h2></div>
-        <p>{copy.intro}</p>
       </header>
       <div className="home-film-frame" ref={frame} data-revealed={revealed} data-started={started}>
         <div className="home-film-player">

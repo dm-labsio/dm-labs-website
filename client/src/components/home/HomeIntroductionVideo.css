@@ -1,8 +1,7 @@
 .home-film { background: linear-gradient(#101729, #080f20 9rem); color: #edf2ff; padding-block: clamp(4rem, 7vw, 6.5rem); scroll-margin-top: 6rem; }
-.home-film-heading { display: grid; grid-template-columns: 1.2fr 1fr; align-items: end; gap: 3rem; margin-bottom: 2.5rem; }
+.home-film-heading { margin-bottom: 2.5rem; }
 .home-film-heading .brand-micro { color: #b9c2ff; margin-bottom: 1rem; }
 .home-film-heading h2 { max-width: 19ch; }
-.home-film-heading > p { color: #bdc9df; max-width: 44ch; }
 .home-film-frame { position: relative; padding: 3px; border-radius: 18px; background: linear-gradient(125deg,#d7dfff,#9b9dff 45%,#6fe3ff); box-shadow: 0 0 0 8px #b3bdff0d, 0 12px 70px #6981ff30; overflow: hidden; isolation: isolate; }
 .home-film-frame::before { content: ""; position: absolute; width: 200%; height: 200%; inset: -50%; background: conic-gradient(from 40deg, transparent 60%, #fff 75%, #74e4ff 82%, transparent 90%); z-index: -1; }
 .home-film-frame[data-revealed="true"]::before { animation: film-frame-light 3.5s ease-out both; }
@@ -18,7 +17,7 @@
 .home-film-error :is(a, button) { display: inline-flex; min-height: 44px; align-items: center; margin-inline-end: 1.5rem; color: #bdcaff; text-decoration: underline; text-underline-offset: .25em; }
 @keyframes film-frame-light { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @media (max-width: 767px) {
-  .home-film-heading { grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 2rem; }
+  .home-film-heading { margin-bottom: 2rem; }
   .home-film-frame { padding: 2px; border-radius: 12px; }
   .home-film-player { border-radius: 10px; }
   .home-film-play { gap: .75rem; }
