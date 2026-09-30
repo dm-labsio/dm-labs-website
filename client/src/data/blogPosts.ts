@@ -756,7 +756,7 @@ export const POSTS: BlogPost[] = [
 <h2>What the DM-Labs.io Process Looks Like</h2>
 <p>We want to be specific about what working with us actually involves, because we think the process matters as much as the result.</p>
 <p>It starts with a free consultation - a conversation where we learn about your business, your customers, and what you want your website to do. No jargon, no technical questions you cannot answer. Just a conversation about your business.</p>
-<p>From there, we handle the design, the build, the SEO setup, and the launch. You review the work and give us feedback. We make revisions until it is right. The whole process, from first conversation to live website, takes between 5 and 14 days depending on the package.</p>
+<p>From there, we handle the design, the build, the SEO setup, and the launch. You review the work and give us feedback. We make revisions until it is right. We agree the project schedule before work begins, based on the scope, content and approvals needed.</p>
 <p>After launch, we are still here. If you need to update your prices, add a new service, or change a photo, you contact us and we sort it. You do not need to log into anything, learn any platform, or worry about breaking something.</p>
 <p>That is the difference. Not just a better website - a better experience of having a website.</p>
 

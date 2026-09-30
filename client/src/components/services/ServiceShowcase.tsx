@@ -61,20 +61,20 @@ function PerformanceStudy({ locale }: { locale: SiteLanguage }) {
   const t = SERVICE_VISUAL_COPY[locale];
   const ui = SERVICE_UI[locale];
   const [phase, setPhase] = useState(0);
-  const { root, replay } = useServiceMotion(phase);
+  const { root } = useServiceMotion(phase);
   return <div className="service-performance-study" ref={root}>
     <div className="service-view-controls" role="group" aria-label={ui.experience}>{t.performance.map((label, i) => <button key={label} type="button" onClick={() => setPhase(i)} aria-pressed={phase === i} aria-controls="performance-scene">{label}</button>)}</div>
     <div id="performance-scene"><PerformanceComposition locale={locale} phase={phase} /></div>
     <div className="performance-feedback" aria-live="polite"><p>{ui.metrics[phase][1]}</p></div>
-    <button className="service-motion-replay" type="button" onClick={replay}>{t.replay}</button>
+
     <p className="service-study-note">{t.flowNote}</p>
   </div>;
 }
 
 function DesignStudy({ locale }: { locale: SiteLanguage }) {
-  const { root, replay } = useServiceMotion(locale);
+  const { root } = useServiceMotion(locale);
   const t = SERVICE_UI[locale];
-  return <div className="service-design-study" ref={root}><DesignComposition locale={locale} /><p className="service-study-note">{t.studyNote}</p><button className="service-motion-replay" onClick={replay} type="button">{SERVICE_VISUAL_COPY[locale].replay}</button></div>;
+  return <div className="service-design-study" ref={root}><DesignComposition locale={locale} /><p className="service-study-note">{t.studyNote}</p></div>;
 }
 
 export default function ServiceShowcase({ locale, serviceId }: { locale: SiteLanguage; serviceId: DesignService }) {

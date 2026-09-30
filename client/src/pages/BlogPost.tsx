@@ -10,6 +10,7 @@ import { useSEO } from "@/hooks/useSEO";
 import { getPostBySlug, POSTS } from "@/data/blogPosts";
 import { Clock, Tag, Calendar } from "lucide-react";
 import AnimateIn from "@/components/AnimateIn";
+import "@/components/blog/BlogArticle.css";
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-GB", {
@@ -133,9 +134,9 @@ export default function BlogPost() {
   return (
     <>
       {/* Hero / Cover */}
-      <section className="relative overflow-hidden" style={{ paddingTop: "72px" }}>
-        <div className="relative" style={{ height: "clamp(260px, 40vh, 420px)" }}>
-          <picture>
+      <section className="blog-article-hero">
+        <div className="blog-article-cover">
+          <picture className="blog-article-image">
             {post.coverImageMobile && (
               <source media="(max-width: 767px)" srcSet={post.coverImageMobile} />
             )}
@@ -150,9 +151,9 @@ export default function BlogPost() {
             />
           </picture>
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.7) 100%)" }} />
-          <div className="absolute inset-0 flex flex-col justify-end">
-            <div className="container pb-10">
-              <AnimateIn>
+          <div className="blog-article-heading">
+            <div className="container">
+              <div>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-white mb-4"
                   style={{ background: "linear-gradient(90deg, #5B8CFF, #8B5CFF)" }}>
                   <Tag size={10} />
@@ -170,7 +171,7 @@ export default function BlogPost() {
                     </span>
                   )}
                 </div>
-              </AnimateIn>
+              </div>
             </div>
           </div>
         </div>

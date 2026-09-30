@@ -34,7 +34,7 @@ describe("Services and process multilingual journey", () => {
     for (const path of ["contact", "pricing", "process", "terms"]) expect(html).toContain(`href="${studioRoute(locale, path)}"`);
   });
 
-  it.each(locales)("renders five complete process chapters and qualified timing in %s", locale => {
+  it.each(locales)("renders five complete process chapters without fixed delivery promises in %s", locale => {
     const html = renderToStaticMarkup(React.createElement(ProcessPage, { locale }));
     expect(html.match(/<h1\b/g)).toHaveLength(1);
     expect(html.match(/<li\b/g)).toHaveLength(5);
@@ -42,10 +42,9 @@ describe("Services and process multilingual journey", () => {
       expect(html).toContain(`id="step-${i + 1}"`);
       for (const text of [step.title, step.copy, step.output]) expect(html).toContain(escaped(text));
     }
-    for (const range of ["5–7", "7–10", "10–14"]) expect(html).toContain(`<bdi dir="ltr">${range}</bdi>`);
-    expect(html).toContain(escaped(STUDIO_COPY[locale].process.timingLead));
-    expect(html).toContain(escaped(STUDIO_COPY[locale].process.days));
-    for (const path of ["contact", "pricing", "services", "faq"]) expect(html).toContain(`href="${studioRoute(locale, path)}"`);
+    expect(html).not.toContain('id="timing"');
+    expect(html).not.toMatch(/5–7|7–10|10–14/);
+    for (const path of ["contact", "services", "faq"]) expect(html).toContain(`href="${studioRoute(locale, path)}"`);
   });
 
   it.each(locales)("keeps readable static content, correct direction and working anchors in %s", locale => {

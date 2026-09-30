@@ -1,3 +1,4 @@
+import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -9,7 +10,7 @@ export default function NailSalonEl() {
   });
 
   return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
+    <main className="blog-article-page bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
         <div className="mb-8">
           <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">Πίσω στο Άρθρα</Link>
@@ -66,7 +67,7 @@ export default function NailSalonEl() {
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Πόσο Κοστίζει;</h2>
             <p className="leading-relaxed">
-              Μια επαγγελματική ιστοσελίδα για nail salon ή beauty studio κοστίζει από €299 (Launch - 1 σελίδα) μέχρι €749 (Growth - έως 4 σελίδες με γκαλερί, κρατήσεις και reviews). Παράδοση σε 5-10 ημέρες.
+              Μια επαγγελματική ιστοσελίδα για nail salon ή beauty studio κοστίζει από €299 (Launch - 1 σελίδα) μέχρι €749 (Growth - έως 4 σελίδες με γκαλερί, κρατήσεις και reviews). Το χρονοδιάγραμμα συμφωνείται πριν ξεκινήσουμε.
             </p>
           </section>
           <div className="bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] rounded-2xl p-8 border border-[#D0DEFF] mt-10">

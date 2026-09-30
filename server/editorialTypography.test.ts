@@ -36,11 +36,11 @@ describe("Brand typography migration", () => {
 });
 
 describe("Services and process metadata", () => {
-  it("retains Services metadata and qualifies Process timing", () => {
+  it("retains Services metadata and keeps Process timing project-specific", () => {
     expect(servicesSource).toContain('title: "Web Design Services for Business Growth | DM Labs"');
     expect(servicesSource).toContain('Custom design, fast development, SEO foundations and ongoing care.');
     expect(processSource).toContain('title: "Our Process | How We Build Websites | DM-Labs.io"');
-    expect(processSource).toContain('typical build estimates of 5–14 business days');
+    expect(processSource).toContain('with a schedule agreed around your project');
   });
 });
 

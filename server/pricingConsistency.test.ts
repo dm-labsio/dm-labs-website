@@ -118,7 +118,7 @@ describe("canonical package and care-plan consistency", () => {
 describe("Terms of Service supplied content", () => {
   it("uses the supplied title, publish date, numbered sections, and section-seven subheadings", () => {
     expect(termsSource).toContain("Terms of Service: DM-Labs.io");
-    expect(termsSource).toContain("Last updated: 19 August 2026");
+    expect(termsSource).toContain("Last updated: 30 September 2026");
     for (const heading of [
       "1. About these terms",
       "2. Our services",

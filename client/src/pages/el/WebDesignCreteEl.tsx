@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     q: "Πόσος χρόνος χρειάζεται για την κατασκευή μιας ιστοσελίδας για μια επιχείρηση στην Κρήτη;",
-    a: "Το πακέτο Launch Website συνήθως παραδίδεται εντός 5 έως 7 ημερών από τη στιγμή που έχουμε το περιεχόμενο και τα σχόλιά σας. Τα πακέτα Growth Website και Pro Website χρειάζονται 10 έως 14 ημέρες, ανάλογα με τον αριθμό των σελίδων και των λειτουργιών. Σας κρατάμε ενήμερους σε κάθε στάδιο και δεν εξαφανιζόμαστε μεταξύ των οροσήμων."
+    a: "Συμφωνούμε το χρονοδιάγραμμα πριν ξεκινήσουμε, με βάση το εύρος και τα απαραίτητα υλικά. Σας ενημερώνουμε σε κάθε στάδιο. Αλλαγές στο έργο, στο περιεχόμενο ή στα σχόλια μπορεί να επηρεάσουν το πρόγραμμα· συμφωνούμε μαζί σας κάθε αναθεώρηση."
   },
   {
     q: "Η επιχείρησή μου εξαρτάται από τον τουρισμό. Μπορείτε να φτιάξετε μια ιστοσελίδα που προσελκύει διεθνείς επισκέπτες;",
@@ -206,7 +206,7 @@ export default function WebDesignCreteEl() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[ 
+            {[
               { title: "Επώνυμη επαγγελματική σελίδα", desc: "Μια πλήρως προσαρμοσμένη ιστοσελίδα που ταιριάζει με την επωνυμία και το στυλ σας." },
               { title: "Responsive για κινητά", desc: "Φαίνεται τέλεια σε κάθε συσκευή - κινητά, tablet και υπολογιστές." },
               { title: "Βελτιστοποίηση ταχύτητας", desc: "Γρήγοροι χρόνοι φόρτωσης για να κρατήσετε τους επισκέπτες και να βελτιώσετε το Google ranking." },
@@ -271,7 +271,7 @@ export default function WebDesignCreteEl() {
                 Δείτε τα Πακέτα & τις Τιμές
               </button>
             </Link>
-            <a href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%B7%CE%BD%20%CE%B5%CF%80%CE%B9%CF%87%CE%B5%CE%AF%CF%81%CE%B7%CF%83ή%20%CE%BC%CE%BF%CF%85%20%CF%83%CF%84%CE%B7ν%20%CE%9A%CF%81ή%CF%84%CE%B7." target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BF%CE%BC%CE%AC%CE%B4%CE%B1%20DM-Labs%21%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%B7%CE%BD%20%CE%B5%CF%80%CE%B9%CF%87%CE%B5%CE%AF%CF%81%CE%B7%CF%83%CE%AE%20%CE%BC%CE%BF%CF%85%20%CF%83%CF%84%CE%B7%CE%BD%20%CE%9A%CF%81%CE%AE%CF%84%CE%B7." target="_blank" rel="noopener noreferrer">
               <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors bg-white">
                 Στείλτε μας στο WhatsApp
               </button>

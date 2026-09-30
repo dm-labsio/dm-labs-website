@@ -1,3 +1,4 @@
+import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -12,7 +13,7 @@ export default function WixVsDesignerEl() {
   });
 
   return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
+    <main className="blog-article-page bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
 
         <div className="mb-8">

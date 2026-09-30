@@ -41,12 +41,12 @@ export default function FAQPage({ locale }: { locale: SiteLanguage }) {
     <div className="container faq-reading-layout" id="faq-topics" tabIndex={-1}>
       <nav className="faq-topic-nav" aria-label={t.browse}>
         <p className="brand-micro">{t.browse}</p>
-        <ol>{FAQ_TOPICS.map((topic, index) => <li key={topic.id}><a href={`#${topic.id}`}><span className="faq-index" aria-hidden="true">0{index + 1}</span><span>{t.topics[topic.id].title}</span></a></li>)}</ol>
+        <ol>{FAQ_TOPICS.map((topic) => <li key={topic.id}><a href={`#${topic.id}`}><span>{t.topics[topic.id].title}</span></a></li>)}</ol>
         <a className="faq-topic-help" href={faqRoute(locale, "contact")}>{t.cta}</a>
       </nav>
       <div className="faq-groups">
-        {FAQ_TOPICS.map((topic, index) => <section key={topic.id} id={topic.id} tabIndex={-1} className="faq-group" aria-labelledby={`${topic.id}-title`}>
-          <header className="faq-group-header"><span className="faq-group-number" aria-hidden="true">0{index + 1}</span><div><h2 id={`${topic.id}-title`}>{t.topics[topic.id].title}</h2><p>{t.topics[topic.id].intro}</p></div></header>
+        {FAQ_TOPICS.map((topic) => <section key={topic.id} id={topic.id} tabIndex={-1} className="faq-group" aria-labelledby={`${topic.id}-title`}>
+          <header className="faq-group-header"><div><h2 id={`${topic.id}-title`}>{t.topics[topic.id].title}</h2><p>{t.topics[topic.id].intro}</p></div></header>
           <div className="faq-questions">{topic.questions.map(id => {
             const item = answers[id];
             return <details key={id} className="faq-question" open={id === "start"}>

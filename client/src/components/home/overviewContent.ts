@@ -31,7 +31,7 @@ export const overviewContent = {
       },
       {
         "title": "Quick Turnaround",
-        "body": "Move from plan to launch with clear milestones. Standard builds typically take 5-14 business days, depending on scope and content readiness.",
+        "body": "Move from plan to launch with clear milestones. We agree the schedule around your scope and content readiness.",
         "slug": "turnaround"
       }
     ],
@@ -39,32 +39,27 @@ export const overviewContent = {
       {
         "number": "01",
         "title": "Discovery Call",
-        "body": "Quick WhatsApp chat to understand your business and goals.",
-        "time": "~1 day"
+        "body": "Quick WhatsApp chat to understand your business and goals."
       },
       {
         "number": "02",
         "title": "Design",
-        "body": "We create a custom design based on your brand and preferences.",
-        "time": "2-3 days"
+        "body": "We create a custom design based on your brand and preferences."
       },
       {
         "number": "03",
         "title": "Build",
-        "body": "Your website is developed with clean code, optimised for speed and SEO.",
-        "time": "3-5 days"
+        "body": "Your website is developed with clean code, optimised for speed and SEO."
       },
       {
         "number": "04",
         "title": "Revisions",
-        "body": "We refine the design based on your feedback until you're happy.",
-        "time": "1-2 days"
+        "body": "We refine the design based on your feedback until you're happy."
       },
       {
         "number": "05",
         "title": "Launch",
-        "body": "We deploy your site, connect your domain, and make sure everything works.",
-        "time": "~1 day"
+        "body": "We deploy your site, connect your domain, and make sure everything works."
       }
     ]
   },
@@ -97,7 +92,7 @@ export const overviewContent = {
       },
       {
         "title": "Γρήγορη Παράδοση",
-        "body": "Από το πλάνο στη δημοσίευση, με ξεκάθαρα ορόσημα. Συνήθως 5-14 εργάσιμες ημέρες για τυπικά έργα, ανάλογα με το εύρος και την ετοιμότητα του περιεχομένου.",
+        "body": "Από το πλάνο στη δημοσίευση, με ξεκάθαρα ορόσημα. Συμφωνούμε το χρονοδιάγραμμα με βάση το εύρος και την ετοιμότητα του περιεχομένου.",
         "slug": "turnaround"
       }
     ],
@@ -105,32 +100,27 @@ export const overviewContent = {
       {
         "number": "01",
         "title": "Αρχική Κλήση",
-        "body": "Γρήγορη συνομιλία μέσω WhatsApp για να κατανοήσουμε την επιχείρησή σας και τους στόχους σας.",
-        "time": "~1 μέρα"
+        "body": "Γρήγορη συνομιλία μέσω WhatsApp για να κατανοήσουμε την επιχείρησή σας και τους στόχους σας."
       },
       {
         "number": "02",
         "title": "Σχεδιασμός",
-        "body": "Δημιουργούμε custom σχεδιασμό βάσει του brand και των προτιμήσεων σας.",
-        "time": "2-3 μέρες"
+        "body": "Δημιουργούμε custom σχεδιασμό βάσει του brand και των προτιμήσεων σας."
       },
       {
         "number": "03",
         "title": "Κατασκευή",
-        "body": "Η ιστοσελίδα σας αναπτύσσεται με καθαρό κώδικα, βελτιστοποιημένη για ταχύτητα και SEO.",
-        "time": "3-5 μέρες"
+        "body": "Η ιστοσελίδα σας αναπτύσσεται με καθαρό κώδικα, βελτιστοποιημένη για ταχύτητα και SEO."
       },
       {
         "number": "04",
         "title": "Αναθεωρήσεις",
-        "body": "Βελτιώνουμε τον σχεδιασμό βάσει των σχολίων σας μέχρι να είστε απόλυτα ικανοποιημένοι.",
-        "time": "1-2 μέρες"
+        "body": "Βελτιώνουμε τον σχεδιασμό βάσει των σχολίων σας μέχρι να είστε απόλυτα ικανοποιημένοι."
       },
       {
         "number": "05",
         "title": "Κυκλοφορία",
-        "body": "Δημοσιεύουμε την ιστοσελίδα σας, συνδέουμε το domain σας και βεβαιωνόμαστε ότι όλα λειτουργούν.",
-        "time": "~1 μέρα"
+        "body": "Δημοσιεύουμε την ιστοσελίδα σας, συνδέουμε το domain σας και βεβαιωνόμαστε ότι όλα λειτουργούν."
       }
     ]
   },
@@ -163,7 +153,7 @@ export const overviewContent = {
       },
       {
         "title": "מסירה מהירה",
-        "body": "מתקדמים להשקה עם אבני דרך ברורות. בנייה סטנדרטית אורכת לרוב 5 עד 14 ימי עסקים, בהתאם להיקף ולמוכנות התוכן.",
+        "body": "מתקדמים להשקה עם אבני דרך ברורות. מסכמים את לוח הזמנים בהתאם להיקף ולמוכנות התוכן.",
         "slug": "turnaround"
       }
     ],
@@ -171,32 +161,27 @@ export const overviewContent = {
       {
         "number": "01",
         "title": "שיחת פתיחה",
-        "body": "שיחה קצרה ב-WhatsApp כדי להבין את העסק ואת היעדים שלכם.",
-        "time": "יום אחד"
+        "body": "שיחה קצרה ב-WhatsApp כדי להבין את העסק ואת היעדים שלכם."
       },
       {
         "number": "02",
         "title": "עיצוב",
-        "body": "יוצרים כיוון עיצובי שמבוסס על המותג ועל ההעדפות שלכם.",
-        "time": "2 עד 3 ימים"
+        "body": "יוצרים כיוון עיצובי שמבוסס על המותג ועל ההעדפות שלכם."
       },
       {
         "number": "03",
         "title": "פיתוח",
-        "body": "בונים את האתר עם קוד נקי, מהיר ומותאם לחיפוש.",
-        "time": "3 עד 5 ימים"
+        "body": "בונים את האתר עם קוד נקי, מהיר ומותאם לחיפוש."
       },
       {
         "number": "04",
         "title": "סבבי תיקונים",
-        "body": "מלטשים את הפרטים על פי המשוב שלכם עד שאתם מרוצים.",
-        "time": "1 עד 2 ימים"
+        "body": "מלטשים את הפרטים על פי המשוב שלכם עד שאתם מרוצים."
       },
       {
         "number": "05",
         "title": "השקה",
-        "body": "מחברים דומיין, מפרסמים ובודקים שהכול עובד כמו שצריך.",
-        "time": "יום אחד"
+        "body": "מחברים דומיין, מפרסמים ובודקים שהכול עובד כמו שצריך."
       }
     ]
   }

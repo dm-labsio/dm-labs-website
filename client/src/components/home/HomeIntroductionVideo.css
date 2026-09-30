@@ -1,4 +1,4 @@
-.home-film { background: #080f20; color: #edf2ff; padding-block: clamp(4rem, 7vw, 6.5rem); scroll-margin-top: 6rem; }
+.home-film { background: linear-gradient(#101729, #080f20 9rem); color: #edf2ff; padding-block: clamp(4rem, 7vw, 6.5rem); scroll-margin-top: 6rem; }
 .home-film-heading { display: grid; grid-template-columns: 1.2fr 1fr; align-items: end; gap: 3rem; margin-bottom: 2.5rem; }
 .home-film-heading .brand-micro { color: #b9c2ff; margin-bottom: 1rem; }
 .home-film-heading h2 { max-width: 19ch; }

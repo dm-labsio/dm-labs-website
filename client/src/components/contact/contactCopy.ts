@@ -18,7 +18,7 @@ export const CONTACT_COPY = {
     failureTitle: "We couldn’t confirm your request.", failure: "Your details are still here. Try again, or reach us directly by WhatsApp or email.",
     successTitle: "Request received.", success: "Thank you for getting in touch. We’ll reply to the email address you provided to discuss the next step.",
     successNote: "This is an enquiry, not a confirmed appointment.", another: "Send another question", defaultMessage: "I would like a free website consultation.",
-    subject: "New consultation request", waText: "Hi DM Labs! I’d like to ask about a website for my business.",
+    subject: "New consultation request", waText: "Hello DM-Labs team! I’d like to ask about a website for my business.",
   },
   el: {
     title: "Επικοινωνία DM Labs | Δωρεάν συμβουλευτική για την ιστοσελίδα σας",
@@ -37,7 +37,7 @@ export const CONTACT_COPY = {
     failureTitle: "Δεν μπορέσαμε να επιβεβαιώσουμε την αποστολή.", failure: "Τα στοιχεία σας παραμένουν στη φόρμα. Δοκιμάστε ξανά ή επικοινωνήστε μαζί μας μέσω WhatsApp ή email.",
     successTitle: "Λάβαμε το αίτημά σας.", success: "Ευχαριστούμε για την επικοινωνία. Θα απαντήσουμε στο email που δηλώσατε για να συζητήσουμε το επόμενο βήμα.",
     successNote: "Πρόκειται για αίτημα επικοινωνίας, όχι για επιβεβαιωμένο ραντεβού.", another: "Στείλτε άλλη ερώτηση", defaultMessage: "Θα ήθελα μια δωρεάν συζήτηση για την ιστοσελίδα μου.",
-    subject: "Νέο αίτημα επικοινωνίας", waText: "Γεια σας DM Labs! Θα ήθελα να ρωτήσω για μια ιστοσελίδα για την επιχείρησή μου.",
+    subject: "Νέο αίτημα επικοινωνίας", waText: "Γεια σας ομάδα DM-Labs! Θα ήθελα να ρωτήσω για μια ιστοσελίδα για την επιχείρησή μου.",
   },
   he: {
     title: "צרו קשר עם DM Labs | שיחת ייעוץ לאתר ללא עלות",
@@ -56,7 +56,7 @@ export const CONTACT_COPY = {
     failureTitle: "לא הצלחנו לאשר את קבלת הבקשה.", failure: "הפרטים שלכם נשמרו בטופס. אפשר לנסות שוב או לפנות אלינו ישירות בוואטסאפ או באימייל.",
     successTitle: "הבקשה התקבלה.", success: "תודה שפניתם אלינו. נחזור לכתובת האימייל שמסרתם כדי לדבר על הצעד הבא.",
     successNote: "זו פנייה לשיחה, ולא אישור לפגישה שנקבעה.", another: "שליחת שאלה נוספת", defaultMessage: "אשמח לשיחת ייעוץ ללא עלות לגבי אתר לעסק שלי.",
-    subject: "בקשה חדשה לשיחת ייעוץ", waText: "שלום DM Labs! אשמח לשאול על אתר לעסק שלי.",
+    subject: "בקשה חדשה לשיחת ייעוץ", waText: "שלום לצוות DM-Labs! אשמח לשאול על אתר לעסק שלי.",
   },
 } satisfies Record<SiteLanguage, object>;
 

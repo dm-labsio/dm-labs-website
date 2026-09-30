@@ -41,7 +41,7 @@ html:has(.home-hero), body:has(.home-hero) { overflow-x: clip; }
 .home-hero .home-hero-secondary { padding-block: .875rem; color: #F6F5F2; text-decoration: underline; text-underline-offset: .35em; text-decoration-thickness: 1px; }
 .home-hero-secondary:hover { color: #A8B8FF; }
 .home-hero :is(a, button):focus-visible { outline: 3px solid #70D7F0; outline-offset: 5px; }
-.home-hero-scene { position: relative; min-width: 0; padding-bottom: 3rem; }
+.home-hero-scene { position: relative; min-width: 0; padding-bottom: 0; }
 .home-hero-art { position: relative; aspect-ratio: 1; direction: ltr; }
 .home-hero-depth { position: absolute; inset: 0; }
 .home-hero-aura { position: absolute; inset: 5%; border-radius: 50%; background: radial-gradient(ellipse, #5268E849, #A68CE81A 40%, transparent 70%); opacity: .5; pointer-events: none; }
@@ -52,13 +52,10 @@ html:has(.home-hero), body:has(.home-hero) { overflow-x: clip; }
 .home-hero-orbit-light { stroke: #BCEEFF; stroke-width: 2; stroke-linecap: round; stroke-dasharray: .12 .88; }
 .home-hero-sculpture { position: absolute; width: 92%; inset: -1% 4% auto; pointer-events: none; }
 .home-hero-sculpture img { display: block; width: 100%; height: auto; mask-image: radial-gradient(ellipse 65% 65% at 50% 47%, #000 35%, transparent 76%); }
-.home-hero .home-hero-motion-toggle {
-  position: absolute; bottom: 0; inset-inline-end: 0; display: inline-flex; align-items: center;
-  gap: .65rem; min-height: 44px; max-width: 100%; padding: .5rem 0; background: transparent;
-  border: 0; color: #BBC5D8; font-size: .875rem; font-weight: 400; text-align: start; cursor: pointer;
-}
-.home-hero-motion-toggle:hover { color: #F6F5F2; }
-.home-hero-motion-toggle span { direction: ltr; font-size: 1.125rem; }
+@keyframes hero-orbit-travel { to { stroke-dashoffset: -1; } }
+.home-hero-orbit-light { opacity: .95; animation: hero-orbit-travel 7s linear infinite; animation-play-state: paused; }
+.home-hero-orbit-light--secondary { animation-duration: 11s; animation-direction: reverse; opacity: .7; }
+.home-hero-scene[data-motion="playing"] .home-hero-orbit-light { animation-play-state: running; }
 /* A live preference change also restores the static composition mid-sequence. */
 .home-hero-scene[data-motion="reduced"] :is(.home-hero-depth, .home-hero-sculpture, .home-hero-orbits, .home-hero-aura) { transform: none !important; }
 .home-hero-scene[data-motion="reduced"] .home-hero-orbit-line { stroke-dashoffset: 0 !important; }
@@ -67,19 +64,23 @@ html:has(.home-hero), body:has(.home-hero) { overflow-x: clip; }
   .home-hero-scene :is(.home-hero-depth, .home-hero-sculpture, .home-hero-orbits, .home-hero-aura) { transform: none !important; }
   .home-hero-scene .home-hero-orbit-line { stroke-dashoffset: 0 !important; }
   .home-hero-scene .home-hero-orbit-light { opacity: 0 !important; }
-  .home-hero-motion-toggle { display: none !important; }
+  .home-hero-orbit-light { animation: none; }
 }
+/* One layered composition on phones and tablets. The artwork never adds a second row.
+   A dark veil beneath the copy preserves contrast while the orbit stays visible at the edge. */
 @media (max-width: 1023px) {
-  .home-hero .home-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; min-height: 0; }
-  .home-hero-copy { max-width: 44rem; }
-  .home-hero-scene { width: min(100%, 31rem); margin-inline: auto; }
+  .home-hero .home-hero-grid { position: relative; display: block; min-height: 0; padding-block: 4rem; }
+  .home-hero-copy { max-width: 40rem; z-index: 2; }
+  .home-hero-scene { position: absolute; width: min(110vw, 48rem); top: -3rem; inset-inline-end: -25%; opacity: .65; pointer-events: none; }
+  .home-hero-grid::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, #101729ed 0%, #101729c9 42%, #10172938 100%), linear-gradient(0deg, #101729 0%, transparent 35%); }
+  .home-hero[dir="rtl"] .home-hero-grid::after { background: linear-gradient(270deg, #101729ed 0%, #101729c9 42%, #10172938 100%), linear-gradient(0deg, #101729 0%, transparent 35%); }
 }
 @media (max-width: 767px) {
-  .home-hero .home-hero-grid { padding-block: 2.5rem 2rem; gap: 1rem; }
+  .home-hero .home-hero-grid { padding-block: 3rem 2.5rem; }
   .home-hero .home-hero-eyebrow { margin-bottom: 1.25rem; }
   .home-hero .home-hero-title { margin-bottom: 1.5rem; }
   .home-hero .home-hero-description { margin-bottom: 1.5rem; }
   .home-hero-actions { align-items: stretch; gap: .5rem 1.5rem; }
   .home-hero-primary { width: 100%; }
-  .home-hero-scene { width: 100%; }
+  .home-hero-scene { top: 0; inset-inline-end: -32%; width: 125%; }
 }

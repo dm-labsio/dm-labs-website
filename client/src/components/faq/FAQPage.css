@@ -23,7 +23,7 @@ html:has(.faq-page), body:has(.faq-page) { overflow-x: clip; }
 .faq-groups { min-width: 0; }
 .faq-group { scroll-margin-top: 7rem; margin-bottom: 4.5rem; }
 .faq-group:last-child { margin-bottom: 0; }
-.faq-group-header { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+.faq-group-header { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
 .faq-group-number { font-family: "Rubik", Arial, sans-serif; font-size: 3rem; font-weight: 800; line-height: 1.2; letter-spacing: -.03em; color: #A8B8FF; direction: ltr; }
 [data-brand] .faq-group h2 { font-size: clamp(1.75rem, 3vw, 2.75rem); color: #F6F5F2; margin: 0 0 .65rem; text-wrap: pretty; }
 .faq-group-header p { color: #BFC8DD; }
@@ -65,7 +65,7 @@ html:has(.faq-page), body:has(.faq-page) { overflow-x: clip; }
   [data-brand] .faq-page:lang(el) .faq-hero h1 { font-size: clamp(1.75rem, 8.7vw, 3rem); }
   .faq-hero::after { background: linear-gradient(180deg, #10172966, #101729b3 45%, #101729); }
   .faq-topic-nav ol { display: block; }
-  .faq-group-header { grid-template-columns: 2.5rem minmax(0, 1fr); }
+  .faq-group-header { grid-template-columns: minmax(0, 1fr); }
   .faq-group-number { font-size: 2rem; }
   .faq-answer { padding-inline: .25rem; }
   .faq-question summary { gap: 1rem; }

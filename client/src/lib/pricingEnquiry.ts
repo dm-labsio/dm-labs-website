@@ -17,8 +17,8 @@ export function pricingEnquiry(locale: "en" | "el" | "he", search = typeof windo
   const selection = pricingSelection(search);
   if (!selection) return "";
   const { package: website, care, billing } = selection;
-  if (locale === "en") return `Hi DM Labs! I'm interested in ${website} with ${care}, billed ${billing}. I'd love to discuss my project.`;
+  if (locale === "en") return `Hello DM-Labs team! I'm interested in ${website} with ${care}, billed ${billing}. I'd love to discuss my project.`;
   return locale === "el"
-    ? `Γεια σας DM Labs! Ενδιαφέρομαι για το ${website} με ${care}, με ${billing === "yearly" ? "ετήσια" : "μηνιαία"} πληρωμή. Θα ήθελα να συζητήσουμε το έργο μου.`
-    : `שלום DM Labs! אני מעוניין בחבילת ${website} עם ${care}, בתשלום ${billing === "yearly" ? "שנתי" : "חודשי"}. אשמח לדבר על הפרויקט שלי.`;
+    ? `Γεια σας ομάδα DM-Labs! Ενδιαφέρομαι για το ${website} με ${care}, με ${billing === "yearly" ? "ετήσια" : "μηνιαία"} πληρωμή. Θα ήθελα να συζητήσουμε το έργο μου.`
+    : `שלום לצוות DM-Labs! אני מעוניין בחבילת ${website} עם ${care}, בתשלום ${billing === "yearly" ? "שנתי" : "חודשי"}. אשמח לדבר על הפרויקט שלי.`;
 }

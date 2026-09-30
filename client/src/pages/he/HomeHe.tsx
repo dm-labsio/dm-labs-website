@@ -12,7 +12,7 @@ import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn
 import InteractiveExampleCard from "@/components/InteractiveExampleCard";
 import HomeHero from "@/components/home/HomeHero";
 
-const WHATSAPP_HEBREW = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20DM-Labs.io%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%9C%D7%92%D7%91%D7%99%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.";
+const WHATSAPP_HEBREW = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9C%D7%A6%D7%95%D7%95%D7%AA%20DM-Labs%21%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%9C%D7%92%D7%91%D7%99%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.";
 const DARK_CTA_BG = "/media/brand-refresh/v1/faq-pearl-arcs-desktop.webp";
 
 const examples = [
@@ -37,7 +37,7 @@ export default function HomeHe() {
   return <div className="hebrew-home hebrew-home-refresh home-page--dark" lang="he" dir="rtl" data-button-surface="dark">
     <HomeHero language="he" />
 
-    <section className="home-trust-strip border-y border-[#34435f]"><div className="container py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">{["עיצוב שבונה אמון", "מסירה בתוך ימים", "מותאם למובייל", "מוכן ל-SEO", "קשר ישיר עם טום ואנסטסיה"].map(item => <span key={item} className="flex items-center gap-2 text-sm font-medium text-[#bdc9df]">{item}</span>)}</div></section>
+
 
       <HomeIntroductionVideo language="he" />
 

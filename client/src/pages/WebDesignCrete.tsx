@@ -24,7 +24,7 @@ const schemaMarkup = {
   },
   "areaServed": "Worldwide",
   "serviceArea": "Worldwide",
-  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for small businesses across Crete - Heraklion, Chania, Rethymno, and beyond. Custom websites built to earn trust and enquiries, with delivery in 5-14 business days depending on scope and content readiness.",
+  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for small businesses across Crete - Heraklion, Chania, Rethymno, and beyond. Custom websites built to earn trust and enquiries, with a project schedule agreed around your scope and content readiness.",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Bank Transfer, PayPal",
@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     q: "How long does it take to build a website for a business in Crete?",
-    a: "The Launch Website typically goes live within 5 to 7 days from the moment we have your content and feedback. The Growth and Pro packages take 7 to 14 days depending on the number of pages and features. We keep you updated at every stage and do not disappear between milestones."
+    a: "We agree your project schedule before work begins, based on the scope and the materials needed. We keep you updated throughout. Changes to scope, content or feedback may affect the schedule; any revised dates are agreed with you."
   },
   {
     q: "My business depends on tourism. Can you build a website that attracts international visitors?",
@@ -245,19 +245,19 @@ export default function WebDesignCrete() {
               {
                 name: "Launch Website",
                 price: "€299",
-                desc: "A clean, professional branded page with mobile-responsive design, WhatsApp button, social links, accessibility widget, and 2 revisions. Live in 5-7 days.",
+                desc: "A clean, professional branded page with mobile-responsive design, WhatsApp button, social links, accessibility widget, and 2 revisions.",
                 highlight: false
               },
               {
                 name: "Growth Website",
                 price: "€749",
-                desc: "Up to 5 pages with contact and booking forms, Google Maps, reviews widget, testimonials, SEO setup, and speed optimisation. Live in 7-10 days.",
+                desc: "Up to 5 pages with contact and booking forms, Google Maps, reviews widget, testimonials, SEO setup, and speed optimisation.",
                 highlight: true
               },
               {
                 name: "Pro Website",
                 price: "€1,499",
-                desc: "Up to 7 pages with custom design and animations, gallery, 5 SEO blog articles, full meta and SEO structure, pop-up, and 4 revisions. Live in 10-14 days.",
+                desc: "Up to 7 pages with custom design and animations, gallery, 5 SEO blog articles, full meta and SEO structure, pop-up, and 4 revisions.",
                 highlight: false
               }
             ].map((p) => (
@@ -452,7 +452,7 @@ export default function WebDesignCrete() {
               </button>
             </Link>
             <a
-              href="https://wa.me/35797472847?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Crete"
+              href="https://wa.me/35797472847?text=Hello%20DM-Labs%20team%21%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Crete"
               target="_blank"
               rel="noopener noreferrer"
             >

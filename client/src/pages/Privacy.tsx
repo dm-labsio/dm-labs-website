@@ -1,6 +1,7 @@
+import "@/styles/legal.css";
 /* D&M LABS - Privacy Policy (GDPR Compliant) */
 import { Link } from "wouter";
-import AnimateIn from "@/components/AnimateIn";
+
 
 import { useSEO } from "@/hooks/useSEO";
 
@@ -12,7 +13,7 @@ export default function Privacy() {
   });
 
   return (
-    <>
+    <div className="legal-document">
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
           <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
@@ -20,17 +21,17 @@ export default function Privacy() {
             Back to Home
           </Link>
           <div className="text-center">
-            <AnimateIn>
+            <div>
               <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Legal</p>
               <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Privacy Policy</h1>
               <p className="text-sm text-[#5B6472]">Last updated: March 2026</p>
-            </AnimateIn>
+            </div>
           </div>
         </div>
       </section>
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl">
-          <AnimateIn>
+          <div>
             <div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">
 
               <div>
@@ -138,9 +139,9 @@ export default function Privacy() {
               <Link href="/cookies/" className="text-sm text-[#5B8CFF] hover:underline">Cookie Policy</Link>
               <Link href="/terms/" className="text-sm text-[#5B8CFF] hover:underline">Terms of Service</Link>
             </div>
-          </AnimateIn>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

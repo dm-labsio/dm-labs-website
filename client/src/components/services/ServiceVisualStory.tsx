@@ -13,14 +13,14 @@ export function ServiceVisualStory({ locale, serviceId }: { locale: SiteLanguage
   const [chapter, setChapter] = useState(0);
   const { root } = useServiceMotion(chapter);
   return <section className="container studio-section service-story" aria-labelledby="service-why-title">
-    <div className="service-story-heading"><p className="brand-micro">{ui.story}</p><h2 id="service-why-title">{SERVICE_UI[locale].whyTitle}</h2><p>{ui.choose}</p></div>
+    <div className="service-story-heading"><p className="brand-micro">{ui.story}</p><h2 id="service-why-title">{SERVICE_UI[locale].whyTitle}</h2></div>
     <div className="service-story-grid">
       <div className="service-story-visual" ref={root}>
         {serviceId === "custom-design" ? <DesignComposition locale={locale} variation={chapter} /> : serviceId === "performance" ? <PerformanceComposition locale={locale} phase={chapter} /> : <div className="story-mobile-composition" data-chapter={chapter} aria-hidden="true"><div className="story-mobile-grid" /><div className="story-mobile-device" data-motion-piece><WebsiteComposition locale={locale} /></div><span className="story-mobile-track" data-motion-line /><span className="story-touch-ring" data-motion-piece /></div>}
-        <div className="story-visual-caption"><bdi dir="ltr">0{chapter + 1} / 03</bdi><span>{labels[chapter]}</span></div>
+        <div className="story-visual-caption"><span>{labels[chapter]}</span></div>
       </div>
       <div className="service-principles">{t.principles.map(([heading, body], i) => <article key={heading} data-active={chapter === i}>
-        <h3><button type="button" onClick={() => setChapter(i)} aria-expanded={chapter === i} aria-controls={`service-chapter-${i}`}><bdi dir="ltr" aria-hidden="true">0{i + 1}</bdi><span>{labels[i]}</span><span aria-hidden="true">{chapter === i ? "−" : "+"}</span></button></h3>
+        <h3><button type="button" onClick={() => setChapter(i)} aria-expanded={chapter === i} aria-controls={`service-chapter-${i}`}><span>{labels[i]}</span><span aria-hidden="true">{chapter === i ? "−" : "+"}</span></button></h3>
         <div id={`service-chapter-${i}`} hidden={chapter !== i}><p className="service-chapter-heading">{heading}</p><p>{body}</p></div>
       </article>)}</div>
     </div>

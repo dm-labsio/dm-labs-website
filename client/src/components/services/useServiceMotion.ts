@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 type AnimeModule = Pick<typeof import("animejs"), "animate" | "createScope" | "stagger">;
 
@@ -51,10 +51,9 @@ export function attachServiceMotion(element: HTMLElement, loadAnime: () => Promi
 /** Animate artwork only. The complete composition and copy are the static default. */
 export function useServiceMotion(scene: string | number) {
   const root = useRef<HTMLDivElement>(null);
-  const [replay, setReplay] = useState(0);
   useEffect(() => {
     if (!root.current) return;
     return attachServiceMotion(root.current);
-  }, [scene, replay]);
-  return { root, replay: () => setReplay(value => value + 1) };
+  }, [scene]);
+  return { root };
 }

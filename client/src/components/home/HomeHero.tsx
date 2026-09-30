@@ -22,7 +22,7 @@ export default function HomeHero({ language }: { language: SiteLanguage }) {
             <a href={copy.examplesHref} className="home-hero-secondary">{copy.examples}</a>
           </div>
         </div>
-        <HomeHeroScene language={language} />
+        <HomeHeroScene />
       </div>
     </section>
   );

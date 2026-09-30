@@ -24,7 +24,7 @@ const schemaMarkup = {
   },
   "areaServed": "Worldwide",
   "serviceArea": "Worldwide",
-  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Thessaloniki and worldwide. Custom websites built to earn trust and enquiries, with delivery in 5-14 business days depending on scope and content readiness.",
+  "description": "DM-Labs.io is a remote web design studio building professional, mobile-first, SEO-optimised websites for businesses in Thessaloniki and worldwide. Custom websites built to earn trust and enquiries, with a project schedule agreed around your scope and content readiness.",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Bank Transfer, PayPal",
@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     q: "How long does it take to build a website for a Thessaloniki business?",
-    a: "The Launch Website typically goes live within 5 to 7 days from the moment we have your content and feedback. The Growth and Pro packages take 7 to 14 days depending on the number of pages and any custom features involved. We keep you updated throughout and do not disappear between milestones."
+    a: "We agree your project schedule before work begins, based on the scope and the materials needed. We keep you updated throughout. Changes to scope, content or feedback may affect the schedule; any revised dates are agreed with you."
   }
 ];
 
@@ -267,7 +267,7 @@ export default function WebDesignThessaloniki() {
             {[
               {
                 title: "Fast delivery",
-                desc: "Most websites are live within 5 to 14 days. We work quickly, communicate clearly, and do not leave you waiting."
+                desc: "We work quickly, communicate clearly, and do not leave you waiting."
               },
               {
                 title: "No technical knowledge needed",
@@ -344,7 +344,7 @@ export default function WebDesignThessaloniki() {
               </button>
             </Link>
             <a
-              href="https://wa.me/35797472847?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Thessaloniki"
+              href="https://wa.me/35797472847?text=Hello%20DM-Labs%20team%21%20I%27m%20interested%20in%20a%20website%20for%20my%20business%20in%20Thessaloniki"
               target="_blank"
               rel="noopener noreferrer"
             >

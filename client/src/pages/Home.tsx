@@ -259,24 +259,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           TRUST STRIP
           ═══════════════════════════════════════════ */}
-      <section className="home-trust-strip border-y border-[#34435f]">
-        <div className="container py-6">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-            {[
-              "Designed to earn trust",
-              "Delivered in Days",
-              "Mobile Responsive",
-              "SEO Optimised",
-              "Direct access to Tom & Anastacia",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-sm text-[#bdc9df]">
 
-                <span className="font-medium">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <HomeIntroductionVideo language="en" />
 

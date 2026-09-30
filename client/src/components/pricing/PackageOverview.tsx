@@ -24,7 +24,7 @@ export function PackageCards({ locale, compact = false }: { locale: SiteLanguage
     <div className="pricing-builds">{BUILD_PLANS[locale].map((plan, i) => <article key={plan.name} aria-label={plan.name} data-plan={i} className="pricing-build package-card">
       <div className="pricing-build-stage">
         <div className="pricing-card-art" aria-hidden="true"><img src={`/media/brand-refresh/v1/${PACKAGE_ART[i]}`} width="840" height="560" loading="lazy" decoding="async" alt="" /></div>
-        <div className="pricing-plan-top"><h3 lang="en"><Latin>{plan.name.split(" ")[0]}</Latin><span className="pricing-plan-category">Website</span></h3><span className="pricing-choice-stamp" aria-hidden="true">0{i + 1}</span></div>
+        <div className="pricing-plan-top"><h3 lang="en"><Latin>{plan.name.split(" ")[0]}</Latin><span className="pricing-plan-category">Website</span></h3></div>
         <div className="pricing-build-amount"><bdi dir="ltr" className="pricing-display-price">{pricingMoney(locale, BUILD_PRICES[i])}</bdi><span className="pricing-price-unit">{t.once}</span></div>
       </div>
       <div className="pricing-build-content">
@@ -48,7 +48,7 @@ export function CustomPackage({ locale, compact = false }: { locale: SiteLanguag
 export function CarePackageCards({ locale }: { locale: SiteLanguage }) {
   const t = PRICING_COPY[locale];
   return <div className="pricing-catalog pricing-care-grid" lang={locale} dir={locale === "he" ? "rtl" : "ltr"}>{CARE_PLANS.map((plan, i) => <article key={plan.name} className={`pricing-care package-card${i === 1 ? " is-featured" : ""}`}>
-    <div className="pricing-care-top"><h3 lang="en"><Latin>{plan.name}</Latin></h3><span className="pricing-choice-stamp" aria-hidden="true">0{i + 1}</span></div>
+    <div className="pricing-care-top"><h3 lang="en"><Latin>{plan.name}</Latin></h3></div>
     <p className="pricing-care-description">{PRICING_EXPERIENCE[locale].careFit[i]}</p>
     <div className="pricing-care-amount"><div className="pricing-care-price-row"><bdi dir="ltr" className="pricing-display-price">{pricingMoney(locale, plan.monthly)}</bdi><span className="pricing-price-unit">{t.month}</span></div><p className="pricing-billing-detail">{t.paidMonthly}</p></div>
     <ul className="pricing-features">{CARE_FEATURES[locale][i].map(feature => <li key={feature}>{feature}</li>)}</ul>

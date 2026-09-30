@@ -66,7 +66,6 @@ export function HomeProcess({ language }: Props) {
         {overviewContent[language].steps.map(step => <li key={step.number}>
           <span className="home-step-number" aria-hidden="true" lang="en" dir="ltr">{step.number}</span>
           <h3>{step.title}</h3>
-          <p className="home-step-time">{step.time}</p>
           <p>{step.body}</p>
         </li>)}
       </ol>

@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     q: "Πόσο χρόνο χρειάζεται για να κατασκευαστεί μια ιστοσελίδα;",
-    a: "Οι Launch Website ιστοσελίδες μας δημοσιεύονται μέσα σε 5 έως 7 εργάσιμες μέρες από τη στιγμή που θα έχουμε το περιεχόμενο και τα σχόλιά σας. Τα Growth Website πακέτα χρειάζονται 7 έως 10 μέρες και τα Pro Website πακέτα 10 έως 14 μέρες. Σας ενημερώνουμε καθ' όλη τη διαδικασία και δεν εξαφανιζόμαστε μεταξύ σημαντικών σημείων. Ταχεία παράδοση είναι διαθέσιμη κατόπιν αιτήματος."
+    a: "Συμφωνούμε το χρονοδιάγραμμα πριν ξεκινήσουμε, με βάση το εύρος και τα απαραίτητα υλικά. Σας ενημερώνουμε σε κάθε στάδιο. Αλλαγές στο έργο, στο περιεχόμενο ή στα σχόλια μπορεί να επηρεάσουν το πρόγραμμα· συμφωνούμε μαζί σας κάθε αναθεώρηση."
   },
   {
     q: "Μπορείτε να φτιάξετε δίγλωσση ιστοσελίδα στα ελληνικά και αγγλικά;",
@@ -80,7 +80,7 @@ const faqs = [
 ];
 
 const whyUs = [
-  { icon: "⚡", title: "Γρήγορη Παράδοση", desc: "Οι Launch Website ιστοσελίδες είναι online σε 5-7 μέρες. Χωρίς αναμονή μηνών για μια βασική σελίδα." },
+  { icon: "⚡", title: "Γρήγορη Παράδοση", desc: "Δουλεύουμε με σαφές πλάνο και σας ενημερώνουμε για κάθε επόμενο βήμα." },
   { icon: "📱", title: "Mobile-First Σχεδιασμός", desc: "Η εμπειρία στο κινητό έχει σημασία. Κάθε ιστοσελίδα που φτιάχνουμε είναι βελτιστοποιημένη πρώτα για τηλέφωνα." },
   { icon: "🔍", title: "SEO Ενσωματωμένο", desc: "On-page SEO, σωστά meta tags, γρήγορη φόρτωση και structured data - περιλαμβάνονται σε κάθε πακέτο." },
   { icon: "💬", title: "Υποστήριξη WhatsApp", desc: "Επικοινωνούμε μέσω WhatsApp, όχι μέσω ticketing systems. Πάντα μιλάτε με πραγματικό άτομο, γρήγορα." },
@@ -91,7 +91,7 @@ const whyUs = [
 export default function WebDesignCyprusEl() {
   useSEO({
     title: "Κατασκευή Ιστοσελίδας | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
-    description: "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε κάθε αγορά. Custom ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία. Mobile-first, βελτιστοποιημένες για SEO, παράδοση σε 5-14 μέρες. Δωρεάν συμβουλευτική.",
+    description: "Επαγγελματική κατασκευή ιστοσελίδων για επιχειρήσεις σε κάθε αγορά. Custom ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία. Mobile-first, βελτιστοποιημένες για SEO, με συμφωνημένο χρονοδιάγραμμα. Δωρεάν συμβουλευτική.",
     canonicalPath: "/el/web-design-cyprus/"
   });
 
@@ -135,7 +135,7 @@ export default function WebDesignCyprusEl() {
                 </button>
               </Link>
               <a
-                href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1"
+                href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BF%CE%BC%CE%AC%CE%B4%CE%B1%20DM-Labs%21%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -255,7 +255,7 @@ export default function WebDesignCyprusEl() {
                   "Σύνδεσμοι social media",
                   "Widget προσβασιμότητας",
                   "2 γύροι αναθεωρήσεων",
-                  "Παράδοση σε 5-7 μέρες",
+                  "Συμφωνημένο χρονοδιάγραμμα",
                 ],
                 highlight: false,
               },
@@ -272,7 +272,7 @@ export default function WebDesignCyprusEl() {
                   "Βασική SEO βελτιστοποίηση",
                   "Βελτιστοποίηση ταχύτητας",
                   "3 γύροι αναθεωρήσεων",
-                  "Παράδοση σε 7-10 μέρες",
+                  "Συμφωνημένο χρονοδιάγραμμα",
                 ],
                 highlight: true,
               },
@@ -290,7 +290,7 @@ export default function WebDesignCyprusEl() {
                   "Πλήρης meta/SEO δομή",
                   "Pop-up συμπεριλαμβάνεται",
                   "4 γύροι αναθεωρήσεων",
-                  "Παράδοση σε 10-14 μέρες",
+                  "Συμφωνημένο χρονοδιάγραμμα",
                 ],
                 highlight: false,
               },
@@ -477,7 +477,7 @@ export default function WebDesignCyprusEl() {
                 </button>
               </Link>
               <a
-                href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82!%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1"
+                href="https://wa.me/35797472847?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%20%CE%BF%CE%BC%CE%AC%CE%B4%CE%B1%20DM-Labs%21%20%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CE%B9%CF%83%CF%84%CE%BF%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1"
                 target="_blank"
                 rel="noopener noreferrer"
               >

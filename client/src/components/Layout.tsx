@@ -223,18 +223,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <p className="text-xs text-[#64748B]">
               &copy; {new Date().getFullYear()} DM-Labs.io. {isHebrew ? "כל הזכויות שמורות." : isGreek ? "Με επιφύλαξη παντός δικαιώματος." : "All rights reserved."}
             </p>
-            <p className="text-xs text-[#64748B]">
-              {isHebrew ? "מעוצב באירופה, נמסר לכל העולם." : isGreek ? "Σχεδιασμένο στην Ευρώπη, παραδίδεται παγκοσμίως." : "Crafted in Europe, delivered worldwide."}
-            </p>
-            {/* Crawlable language link in footer (Task 3) */}
-            <a
-              href={isHebrew ? getAltLangHref("en") : isGreek ? getAltLangHref("en") : getAltLangHref("el")}
-              onClick={(e) => { e.preventDefault(); navigate(isHebrew || isGreek ? getAltLangHref("en") : getAltLangHref("el")); }}
-              className="text-xs text-[#64748B] hover:text-white transition-colors underline underline-offset-2"
-              lang={isHebrew || isGreek ? "en" : "el"}
-            >
-              {isHebrew ? "View in English" : isGreek ? "View in English" : "Δείτε στα Ελληνικά"}
-            </a>
           </div>
         </div>
       </footer>

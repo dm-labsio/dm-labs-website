@@ -1,6 +1,7 @@
+import "@/styles/legal.css";
 /* D&M LABS - Πολιτική Cookies (Συμμόρφωση GDPR) */
 import { Link } from "wouter";
-import AnimateIn from "@/components/AnimateIn";
+
 
 import { useSEO } from "@/hooks/useSEO";
 
@@ -14,7 +15,7 @@ export default function CookiePolicyEl() {
   });
 
   return (
-    <>
+    <div className="legal-document">
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
           <Link href="/el/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
@@ -22,17 +23,17 @@ export default function CookiePolicyEl() {
             Επιστροφή στην Αρχική
           </Link>
           <div className="text-center">
-            <AnimateIn>
+            <div>
               <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Νομικά</p>
               <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Πολιτική Cookies</h1>
               <p className="text-sm text-[#5B6472]">Τελευταία ενημέρωση: Μάρτιος 2026</p>
-            </AnimateIn>
+            </div>
           </div>
         </div>
       </section>
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl">
-          <AnimateIn>
+          <div>
             <div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">
 
               <div>
@@ -51,7 +52,7 @@ export default function CookiePolicyEl() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">3. Τύποι Cookies που Χρησιμοποιούμε</h2>
-                <div className="overflow-x-auto mt-4">
+                <div className="overflow-x-auto mt-4" role="region" aria-label="Στοιχεία cookies" tabIndex={0}>
                   <table className="w-full text-left border-collapse">
                     <thead>
                       <tr className="border-b border-[#E2E5EA]">
@@ -143,9 +144,9 @@ export default function CookiePolicyEl() {
               <Link href="/el/privacy/" className="text-sm text-[#5B8CFF] hover:underline">Πολιτική Απορρήτου</Link>
               <Link href="/el/terms/" className="text-sm text-[#5B8CFF] hover:underline">Όροι Χρήσης</Link>
             </div>
-          </AnimateIn>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

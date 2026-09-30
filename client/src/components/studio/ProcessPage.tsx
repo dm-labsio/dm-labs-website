@@ -1,11 +1,8 @@
 import React from "react";
 import type { SiteLanguage } from "@/lib/routeLanguage";
-import { BUILD_PLANS, BUILD_PRICES, pricingMoney } from "@/components/pricing/pricingContent";
-import { PRICING_COPY } from "@/components/pricing/pricingCopy";
 import { STUDIO_COPY, studioRoute } from "./studioCopy";
 import { StudioClosing, StudioHero, StudioRule } from "./StudioShared";
 
-const TIMING = ["5–7", "7–10", "10–14"] as const;
 
 export default function ProcessPage({ locale }: { locale: SiteLanguage }) {
   const copy = STUDIO_COPY[locale];
@@ -20,11 +17,6 @@ export default function ProcessPage({ locale }: { locale: SiteLanguage }) {
         {i === 2 && <aside className="studio-design-break"><img src="/media/brand-refresh/v1/studio-tablet.webp" width="960" height="640" alt="" aria-hidden="true" loading="lazy" decoding="async" /><div><h4>{t.interlude}</h4><p>{t.interludeCopy}</p></div></aside>}
       </li>)}</ol>
     </section>
-    <section className="studio-timing" id="timing" tabIndex={-1} aria-labelledby="timing-title"><div className="container studio-section">
-      <div className="studio-intro"><div><p className="brand-micro">{t.nav[1]}</p><h2 id="timing-title">{t.timingTitle}</h2></div><p>{t.timingLead}</p></div>
-      <div className="studio-timing-grid">{BUILD_PLANS[locale].map((plan, i) => <article className={`studio-time studio-time--${i}`} key={plan.name}><h3 className="studio-plan-name"><bdi lang="en" dir="ltr">{plan.name}</bdi></h3><p className="studio-duration"><bdi dir="ltr">{TIMING[i]}</bdi><span>{t.days}</span></p><div className="studio-duration-line" aria-hidden="true" /><p>{t.from} <bdi className="studio-inline-price" dir="ltr">{pricingMoney(locale, BUILD_PRICES[i])}</bdi></p></article>)}</div>
-      <p>{t.careNote}</p><p className="studio-small">{PRICING_COPY[locale].tax}</p><a className="studio-link" href={studioRoute(locale, "pricing")}>{copy.pricingLink}</a>
-    </div></section>
     <StudioClosing locale={locale} family="process" />
   </div>;
 }

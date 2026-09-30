@@ -1,3 +1,4 @@
+import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 // Greek blog: Web design in Greece — /el/blog/web-design-ellada-odigos-2026
@@ -9,7 +10,7 @@ export default function WebDesignGreeceEl() {
     canonicalPath: "/el/blog/web-design-ellada-odigos-2026/",
   });
   return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
+    <main className="blog-article-page bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
         <div className="mb-8">
           <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">Πίσω στα Άρθρα</Link>

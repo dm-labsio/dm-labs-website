@@ -1,3 +1,4 @@
+import "@/styles/legal.css";
 /* D&M LABS - Terms of Service */
 import { Link } from "wouter";
 
@@ -11,7 +12,7 @@ export default function Terms() {
   });
 
   return (
-    <>
+    <div className="legal-document">
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
           <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
@@ -21,7 +22,7 @@ export default function Terms() {
           <div className="text-center">
             <p className="text-sm font-medium text-[#5B8CFF] mb-3 tracking-wide uppercase">Legal</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Terms of Service: DM-Labs.io</h1>
-            <p className="text-sm text-[#5B6472]">Last updated: 19 August 2026</p>
+            <p className="text-sm text-[#5B6472]">Last updated: 30 September 2026</p>
           </div>
         </div>
       </section>
@@ -143,15 +144,7 @@ export default function Terms() {
               </div>
 
               <div>
-                <h2 className="text-xl font-semibold text-[#111315] mb-3">10. Timelines</h2>
-                <p>Indicative delivery times, in working days, from the point we have everything we need from you:</p>
-                <ul className="list-disc space-y-1 pl-5">
-                  <li>Launch Website: 5–7 working days</li>
-                  <li>Growth Website: 7–10 working days</li>
-                  <li>Pro Website: quoted per project</li>
-                </ul>
-                <p>The clock starts once we've received all content, images, branding, access credentials and approvals, and it pauses whenever we're waiting on you. If a project sits on hold for more than 14 days waiting on your materials or feedback, we may reschedule it into the next available slot.</p>
-              </div>
+                <h2 className="text-xl font-semibold text-[#111315] mb-3">10. Timelines</h2><p>We work towards prompt delivery, with the scope, milestones and estimated schedule agreed in writing before work begins. There is no standard delivery period or guaranteed launch date unless expressly agreed in writing for your project.</p><p>The agreed schedule depends on receiving payment, content, images, branding, access credentials and approvals when required. Changes to scope, delayed materials or feedback, and third-party dependencies may affect the schedule. We will explain the impact and agree any revised dates in writing. If a project is put on hold, we will notify you and agree a restart date based on availability.</p><p>Nothing in these terms limits rights or remedies that cannot be excluded under applicable law.</p></div>
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">11. Your content</h2>
@@ -189,6 +182,6 @@ export default function Terms() {
             </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

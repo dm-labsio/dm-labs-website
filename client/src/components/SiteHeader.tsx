@@ -93,7 +93,7 @@ export default function SiteHeader({ location, getLanguageHref, onLanguageNaviga
               <nav aria-label={copy.navigation}>
                 {links.map((link, index) => <SheetClose asChild key={link.href}>
                   <Link href={link.href} className="site-menu-link" aria-current={current(link.href)}>
-                    <span className="site-menu-index" lang="en" dir="ltr" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><span>{link.label}</span>
+                    <span>{link.label}</span>
                   </Link>
                 </SheetClose>)}
               </nav>

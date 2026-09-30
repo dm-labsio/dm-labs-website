@@ -1,3 +1,4 @@
+import "@/styles/legal.css";
 import { Link } from "wouter";
 
 import { useSEO } from "@/hooks/useSEO";
@@ -17,7 +18,7 @@ export default function PrivacyHe() {
   });
 
   return (
-    <>
+    <div className="legal-document">
       <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}>
         <div className="container relative z-10">
           <Link href="/he/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8">
@@ -65,6 +66,6 @@ export default function PrivacyHe() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

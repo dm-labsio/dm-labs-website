@@ -1,3 +1,4 @@
+import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -9,7 +10,7 @@ export default function YogaEl() {
   });
 
   return (
-    <main className="bg-[#F6F6F4] min-w-0 overflow-x-hidden">
+    <main className="blog-article-page bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
         <div className="mb-8">
           <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">Πίσω στο Άρθρα</Link>
@@ -71,7 +72,7 @@ export default function YogaEl() {
           </section>
           <div className="bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] rounded-2xl p-8 border border-[#D0DEFF] mt-10">
             <h3 className="text-xl font-bold text-[#111315] mb-3">Κάντε το στούντιό σας την επόμενη επιλογή</h3>
-            <p className="text-[#5B6472] mb-6">Ιστοσελίδα για yoga studio, pilates studio ή personal trainer. Παράδοση σε 5-10 ημέρες.</p>
+            <p className="text-[#5B6472] mb-6">Ιστοσελίδα για yoga studio, pilates studio ή personal trainer. Το χρονοδιάγραμμα συμφωνείται πριν ξεκινήσουμε.</p>
             <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Ζητήστε Δωρεάν Πρόταση

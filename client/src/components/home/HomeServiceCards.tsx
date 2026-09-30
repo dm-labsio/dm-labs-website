@@ -29,7 +29,6 @@ export function HomeServiceCard({ language, index, open, onOpen, onToggle }: {
       <video ref={video} muted playsInline preload="none" tabIndex={-1} data-ready={open && ready} onLoadedData={() => setReady(true)} onError={() => setReady(false)} />
     </div>
     <div className="home-service-card-copy">
-      <div className="home-service-card-meta"><span className="brand-latin-code" lang="en" dir="ltr">{String(index + 1).padStart(2, "0")}</span><span aria-hidden="true">{open ? copy.close : copy.open}</span></div>
       <h3><button type="button" aria-expanded={open} aria-controls={`${id}-detail`} onClick={onToggle}>{item.title}<span aria-hidden="true">{open ? "−" : "+"}</span></button></h3>
       {!open && <p className="home-service-card-summary">{copy.summaries[index]}</p>}
       <div id={`${id}-detail`} className="home-service-card-detail" hidden={!open}>

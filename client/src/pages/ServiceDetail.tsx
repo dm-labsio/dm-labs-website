@@ -270,9 +270,6 @@ function LegacyServiceDetailPage() {
             {service.why.map((item, i) => (
               <StaggerItem key={i}>
                 <div className="dm-card h-full">
-                  <div className="w-8 h-8 rounded-lg mb-4 flex items-center justify-center" style={{ background: `${service.accentColor}15` }}>
-                    <span className="text-sm font-bold" style={{ color: service.accentColor }}>{String(i + 1).padStart(2, "0")}</span>
-                  </div>
                   <h3 className="text-lg font-semibold text-[#111315] mb-3">{item.heading}</h3>
                   <p className="text-sm text-[#5B6472] leading-relaxed">{item.body}</p>
                 </div>
