@@ -3,6 +3,7 @@ import { extname, relative, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { SERVICE_CARD_MEDIA } from "../client/src/components/home/serviceCardContent";
 import { HOME_INTRODUCTION_MEDIA } from "../client/src/components/home/homeIntroductionContent";
+import { CAPABILITY_IDS } from "../client/src/components/studio/studioCopy";
 
 const projectRoot = resolve(import.meta.dirname, "..");
 const clientRoot = resolve(projectRoot, "client");
@@ -33,6 +34,7 @@ const repositorySource = [
 ].join("\n");
 const allMediaFiles = collectFiles(mediaRoot);
 const mediaFiles = allMediaFiles.filter(path => extname(path) === ".webp");
+const serviceMarkAssets = CAPABILITY_IDS.flatMap(id => [160, 320].map(size => `/media/brand-refresh/v2/service-${id}-${size}.webp`));
 
 describe("GitHub-backed static media migration", () => {
   it("keeps compressed introduction and service-card videos within their playback budgets", () => {
@@ -56,10 +58,10 @@ describe("GitHub-backed static media migration", () => {
   });
 
   it("keeps current and retired versioned WebP assets below the one-megabyte checkpoint cap", () => {
-    expect(mediaFiles).toHaveLength(163);
+    expect(mediaFiles).toHaveLength(163 + serviceMarkAssets.length);
 
-    const mediaReferences = new Set(clientSource.match(/\/media\/[A-Za-z0-9._/-]+\.webp/g) ?? []);
-    expect(mediaReferences.size).toBe(158);
+    const mediaReferences = new Set([...(clientSource.match(/\/media\/[A-Za-z0-9._/-]+\.webp/g) ?? []), ...serviceMarkAssets]);
+    expect(mediaReferences.size).toBe(158 + serviceMarkAssets.length);
     const retiredHeroAssets = new Set([
       "/media/cloudfront/services-hero-bg-bfPgb525LqzgdU7JVYn89M.webp",
       "/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp",
@@ -77,6 +79,11 @@ describe("GitHub-backed static media migration", () => {
 
     for (const mediaReference of mediaReferences) {
       expect(existsSync(resolve(clientRoot, "public", mediaReference.slice(1))), mediaReference).toBe(true);
+    }
+    for (const size of [160, 320]) {
+      const bytes = serviceMarkAssets.filter(path => path.endsWith(`-${size}.webp`))
+        .reduce((total, path) => total + statSync(resolve(clientRoot, "public", path.slice(1))).size, 0);
+      expect(bytes).toBeLessThan(size === 160 ? 120_000 : 330_000);
     }
   });
 

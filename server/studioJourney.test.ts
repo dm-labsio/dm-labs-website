@@ -27,7 +27,7 @@ describe("Services and process multilingual journey", () => {
     expect(cards).toHaveLength(9);
     for (const [index, card] of cards.entries()) {
       for (const text of STUDIO_COPY[locale].services.capabilities[index]) expect(card[1]).toContain(escaped(text));
-      expect(card[1]).toContain('aria-hidden="true" focusable="false"');
+      expect(card[1]).toContain('alt="" aria-hidden="true" loading="lazy" decoding="async"');
       expect(card[1]).not.toMatch(/<button|tabindex|<a\b/);
     }
     for (const path of ["contact", "process"]) expect(html).toContain(`href="${studioRoute(locale, path)}"`);

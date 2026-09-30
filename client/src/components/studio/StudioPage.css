@@ -55,12 +55,10 @@ html:has(.studio-page), body:has(.studio-page) { overflow-x: clip; }
 [dir="rtl"] .studio-rule span { transform-origin: right; }
 .studio-capabilities-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1px; background: var(--studio-line); border-block: 1px solid var(--studio-line); }
 .studio-capabilities-grid article { min-width: 0; background: #0c172c; }
-.studio-service-link { display: flex; flex-direction: column; align-items: flex-start; gap: 1.75rem; height: 100%; padding: 2rem; position: relative; isolation: isolate; text-decoration: none; }
+.studio-service-link { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; height: 100%; padding: 1.5rem 2rem 2rem; position: relative; isolation: isolate; text-decoration: none; }
 .studio-service-link::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; background: radial-gradient(ellipse at 10% 0, #49447d70, transparent 75%), linear-gradient(130deg, #152947, #0f1c35); }
-.studio-service-mark { display: block; color: #aea1ff; flex-shrink: 0; width: 88px; height: 88px; }
-.studio-service-mark svg { display: block; width: 100%; height: 100%; }
-.service-mark-accent { color: #7be0ef; }
-.service-mark-tint { fill: #a292ff; fill-opacity: .08; stroke: none; }
+.studio-service-mark { display: block; flex-shrink: 0; width: 144px; height: 144px; }
+.studio-service-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .studio-page .studio-service-content h3 { font-size: clamp(1.375rem, 1.9vw, 1.625rem); line-height: 1.35; margin: 0 0 1rem; text-decoration: underline; text-decoration-color: #8e9fc3; text-decoration-thickness: 1px; text-underline-offset: .24em; text-decoration-skip-ink: auto; }
 .studio-service-content { min-width: 0; }
 .studio-service-content p { font-size: 1rem; line-height: 1.7; margin: 0; }
@@ -161,7 +159,7 @@ html:has(.studio-page), body:has(.studio-page) { overflow-x: clip; }
   .studio-package { display: flex; padding: 1.75rem 1.25rem; }
   .studio-capabilities-grid { grid-template-columns: 1fr; }
   .studio-service-link { flex-direction: row; gap: 1.1rem; padding: 1.75rem .25rem; }
-  .studio-service-mark { width: 56px; height: 56px; }
+  .studio-service-mark { width: clamp(4rem, 20vw, 5rem); height: clamp(4rem, 20vw, 5rem); }
   .studio-page .studio-service-content h3 { font-size: 1.3125rem; margin-bottom: .75rem; }
   .studio-service-content p { font-size: .9375rem; }
   .studio-chapter { grid-template-columns: 1fr; gap: 1rem; padding-block: 2rem 2.5rem; }
