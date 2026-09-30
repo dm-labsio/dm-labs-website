@@ -28,7 +28,6 @@ const removedPaths = [
   "server/_core/context.ts",
   "server/_core/trpc.ts",
   "server/_core/systemRouter.ts",
-  "shared",
 ];
 
 const removedPackages = [
@@ -54,6 +53,8 @@ function collectTextFiles(directory: string): string[] {
 const textExtensions = new Set([".css", ".html", ".js", ".json", ".mjs", ".ts", ".tsx"]);
 const runtimeFiles = [
   ...collectTextFiles(resolve(projectRoot, "client")),
+  ...collectTextFiles(resolve(projectRoot, "shared")),
+  ...collectTextFiles(resolve(projectRoot, "api")),
   ...collectTextFiles(resolve(projectRoot, "server/_core")),
   ...collectTextFiles(resolve(projectRoot, "scripts")),
   resolve(projectRoot, "vite.config.ts"),
@@ -90,7 +91,7 @@ describe("platform-independent production stack", () => {
     forbiddenRuntimeTokens.forEach(token => expect(runtimeSource, token).not.toContain(token));
 
     expect(serverEntry).not.toMatch(/oauth|trpc|registerChatRoutes|createContext/i);
-    expect(viteConfig).not.toMatch(/transformIndexHtml|configureServer|jsxLocPlugin/i);
+    expect(viteConfig).not.toMatch(/transformIndexHtml|jsxLocPlugin/i);
   });
 
   it("gates the one official Vercel Analytics component on consent", () => {

@@ -1,11 +1,12 @@
+import { convertedPrice, type Currency } from "../../../../shared/currency";
 import type { SiteLanguage } from "@/lib/routeLanguage";
 import { BUILD_PRICES, CARE_PLANS, COMPARISON } from "./pricingContent";
 
 /** Monthly care is a later recurring payment, never an annual lump sum. */
-export function pricingPaymentSchedule(build: number | null, care: number | null, yearly: boolean) {
+export function pricingPaymentSchedule(build: number | null, care: number | null, yearly: boolean, currency: Currency = "EUR") {
   if (build === null || care === null || BUILD_PRICES[build] === undefined || !CARE_PLANS[care]) return null;
-  const buildCost = BUILD_PRICES[build];
-  const careCost = yearly ? CARE_PLANS[care].yearly : CARE_PLANS[care].monthly;
+  const buildCost = convertedPrice(BUILD_PRICES[build], currency);
+  const careCost = convertedPrice(yearly ? CARE_PLANS[care].yearly : CARE_PLANS[care].monthly, currency);
   return { build: buildCost, care: careCost, total: yearly ? buildCost + careCost : null };
 }
 

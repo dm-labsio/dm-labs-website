@@ -1,3 +1,4 @@
+import { usePricingCurrency } from "@/contexts/CurrencyContext";
 /* ============================================================
    D&M LABS — /web-design-nicosia landing page
    Design: #0F172A dark, #5B8CFF→#8B5CFF gradient accents, #F6F6F4 bg
@@ -13,7 +14,7 @@ import { BUILD_PLANS, BUILD_PRICES, BUILD_PRICE_SUMMARY } from "@/components/pri
 
 
 
-const faqs = [
+const baseFaqs = [
   {
     q: "How much does a website cost for a Nicosia business?",
     a: BUILD_PRICE_SUMMARY.en
@@ -42,6 +43,9 @@ const industries = [
 ];
 
 export default function WebDesignNicosia() {
+  const { copy, euro } = usePricingCurrency("en");
+  const faqs = copy(baseFaqs);
+
   useSEO({
     title: "Web Design Nicosia | Websites Built for Growth | DM-Labs.io",
     description: "Professional web design for businesses in Nicosia. Custom websites built for credibility and enquiries, with fast delivery. Mobile-first, SEO-optimised, no hidden fees. Free consultation.",
@@ -145,7 +149,7 @@ export default function WebDesignNicosia() {
             </p>
           </AnimateIn>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {BUILD_PLANS.en.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((pkg) => (
+            {BUILD_PLANS.en.map((plan, index) => ({ ...plan, desc: plan.summary, price: euro(BUILD_PRICES[index]), highlight: index === 1 })).map((pkg) => (
               <AnimateIn key={pkg.name}>
                 <div className={`rounded-2xl p-6 border h-full flex flex-col ${pkg.highlight ? "border-[#5B8CFF] shadow-lg bg-gradient-to-b from-[#EEF3FF] to-white" : "border-[#E8EAF0] shadow-sm bg-white"}`}>
                   {pkg.highlight && (

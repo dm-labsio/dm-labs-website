@@ -1,3 +1,4 @@
+import { usePricingCurrency } from "@/contexts/CurrencyContext";
 import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
 import { useStructuredData } from "@/hooks/useStructuredData";
 import { serviceSchemaData } from "@/lib/structuredData";
@@ -10,7 +11,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 
 
-const faqs = [
+const baseFaqs = [
   {
     q: "Πόσο κοστίζει η κατασκευή ιστοσελίδας στη Λεμεσό;",
     a: BUILD_PRICE_SUMMARY.el,
@@ -26,6 +27,9 @@ const faqs = [
 ];
 
 export default function WebDesignLimassol() {
+  const { copy, euro } = usePricingCurrency("el");
+  const faqs = copy(baseFaqs);
+
   useSEO({
     title: "Web Design Λεμεσός | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
     description: "Η DM-Labs.io κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λεμεσό που θέλουν να ξεχωρίσουν. Mobile-first, SEO-ready, γρήγορη παράδοση. Αποκτήστε online παρουσία σήμερα.",
@@ -138,7 +142,7 @@ export default function WebDesignLimassol() {
             .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((p) => (
+            {BUILD_PLANS.el.map((plan, index) => ({ ...plan, desc: plan.summary, price: euro(BUILD_PRICES[index]), highlight: index === 1 })).map((p) => (
               <div
                 key={p.name}
                 className={`rounded-2xl p-6 border ${

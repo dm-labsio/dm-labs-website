@@ -1,10 +1,13 @@
+import MoneyText from "./MoneyText";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { usePricingCurrency } from "@/contexts/CurrencyContext";
 import { BUILD_ANCHORS, CARE_ANCHORS, PACKAGE_ART } from "./packageVisuals";
 import React, { useEffect, useRef, useState } from "react";
 import BrandButton from "@/components/ui/brand-button";
 import { contactWhatsApp } from "@/components/contact/contactCopy";
 import { FAQ_CONTENT } from "@/components/faq/faqContent";
 import type { SiteLanguage } from "@/lib/routeLanguage";
-import { BUILD_PLANS, BUILD_PRICES, CARE_PLANS, CARE_FEATURES, pricingContactUrl, pricingMoney } from "./pricingContent";
+import { BUILD_PLANS, BUILD_PRICES, CARE_PLANS, CARE_FEATURES, pricingContactUrl } from "./pricingContent";
 import { PRICING_COPY } from "./pricingCopy";
 import { useServiceMotion } from "@/components/services/useServiceMotion";
 import PricingEstimate from "./PricingEstimate";
@@ -17,10 +20,12 @@ function Latin({ children }: { children: React.ReactNode }) {
 }
 
 function PricingText({ text }: { text: string }) {
+  const { lang } = useLanguage();
+  const { text: localize } = usePricingCurrency(lang);
   return <>{text.split(/(Launch Website|Growth Website|Pro Website|Enterprise \/ Custom|Basic Care|Complete Care|€[\d,.]+(?:\/(?:month|μήνα))?)/g).map((part, i) => {
     if (part.startsWith("€")) {
       const [amount, unit] = part.split("/");
-      return <span key={i} className="pricing-inline-amount"><Latin>{amount}</Latin>{unit && `/${unit}`}</span>;
+      return <span key={i} className="pricing-inline-amount"><Latin>{localize(amount)}</Latin>{unit && `/${unit}`}</span>;
     }
     return /^(Launch Website|Growth Website|Pro Website|Enterprise \/ Custom|Basic Care|Complete Care)$/.test(part)
       ? <Latin key={i}>{part}</Latin> : part;
@@ -34,6 +39,7 @@ function activateCard(event: React.MouseEvent<HTMLElement>) {
 }
 
 export default function PricingPage({ locale }: { locale: SiteLanguage }) {
+  const { currency, price, money } = usePricingCurrency(locale);
   const t = PRICING_COPY[locale];
   const plans = BUILD_PLANS[locale];
   const x = PRICING_EXPERIENCE[locale];
@@ -51,7 +57,6 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
   const [yearly, setYearly] = useState(false);
   const build = buildIndex === null ? null : plans[buildIndex];
   const care = careIndex === null ? null : CARE_PLANS[careIndex];
-  const money = (value: number) => pricingMoney(locale, value);
   const route = (path: string) => `${locale === "en" ? "" : `/${locale}`}/${path}/`;
   const faq = FAQ_CONTENT[locale];
   const questions = [
@@ -82,7 +87,7 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
         <div className="pricing-build-stage">
           <div className="pricing-card-art" aria-hidden="true"><img data-motion-piece src={`/media/brand-refresh/v1/${art[i]}`} width="840" height="560" alt="" /></div>
           <div className="pricing-plan-top"><h3 id={`build-${i}`} lang="en"><Latin>{plan.name.split(" ")[0]}</Latin><span className="pricing-plan-category">Website</span></h3><span className="pricing-choice-stamp" aria-hidden="true">{buildIndex === i ? "✓" : null}</span></div>
-          <div className="pricing-build-amount"><bdi dir="ltr" className="pricing-display-price">{money(BUILD_PRICES[i])}</bdi><span className="pricing-price-unit">{t.once}</span></div>
+          <div className="pricing-build-amount"><bdi dir="ltr" className="pricing-display-price"><MoneyText value={money(price(BUILD_PRICES[i]))} /></bdi><span className="pricing-price-unit">{t.once}</span></div>
         </div>
         <div className="pricing-build-content">
           <p className="pricing-fit">{x.fit[i]}</p>
@@ -104,7 +109,7 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
       <div className="pricing-care-grid">{CARE_PLANS.map((plan, i) => <article key={plan.name} id={CARE_ANCHORS[i]} tabIndex={-1} onClick={activateCard} aria-labelledby={`care-${i}`} className={`pricing-care${i === 1 ? " is-featured" : ""}${careIndex === i ? " is-selected" : ""}`}>
         <div className="pricing-care-top"><h3 id={`care-${i}`} lang="en"><Latin>{plan.name}</Latin></h3><span className="pricing-choice-stamp" aria-hidden="true">{careIndex === i ? "✓" : null}</span></div>
         <p className="pricing-care-description">{x.careFit[i]}</p>
-        <div className="pricing-care-amount" aria-live="polite" aria-atomic="true"><div className="pricing-care-price-row"><bdi dir="ltr" className="pricing-display-price" key={yearly ? "year" : "month"}>{money(yearly ? plan.yearly : plan.monthly)}</bdi><span className="pricing-price-unit">{yearly ? t.year : t.month}</span></div><p className="pricing-billing-detail">{yearly ? <><Latin>{money(plan.yearly / 12)}</Latin> {t.equivalent}</> : t.paidMonthly}</p>{yearly && <p className="pricing-saving">{t.saving} <Latin>{money(plan.monthly * 12 - plan.yearly)}</Latin> {t.eachYear}</p>}</div>
+        <div className="pricing-care-amount" aria-live="polite" aria-atomic="true"><div className="pricing-care-price-row"><bdi dir="ltr" className="pricing-display-price" key={yearly ? "year" : "month"}><MoneyText value={money(price(yearly ? plan.yearly : plan.monthly))} /></bdi><span className="pricing-price-unit">{yearly ? t.year : t.month}</span></div><p className="pricing-billing-detail">{yearly ? <><Latin>{`≈ ${money(Math.ceil(price(plan.yearly) / 12))}`}</Latin> {t.equivalent}</> : t.paidMonthly}</p>{yearly && <p className="pricing-saving">{t.saving} <Latin>{money(price(plan.monthly) * 12 - price(plan.yearly))}</Latin> {t.eachYear}</p>}</div>
         <ul className="pricing-features">{CARE_FEATURES[locale][i].map(feature => <li key={feature}><PricingText text={feature} /></li>)}</ul>
         <button type="button" className="pricing-choice" aria-pressed={careIndex === i} onClick={() => {setCareIndex(i);advanceTo(buildIndex === null ? "website-packages" : "your-selection");}}><span>{careIndex === i ? t.selected : t.choose} <Latin>{plan.name}</Latin></span></button>
       </article>)}</div>
@@ -114,20 +119,20 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
       <div className="pricing-section-intro"><div><p className="brand-micro"><Latin>03 /</Latin> {x.flowSteps[2]}</p><h2 id="selection-title">{yearly ? x.estimateTitle : x.paymentTitle}</h2></div>{(build || care) && <button type="button" className="pricing-reset" onClick={() => {setBuildIndex(null);setCareIndex(null);setYearly(false);moveTo("website-packages");}}>{x.clear}</button>}</div>
       <div className="pricing-receipt">
         <div className="pricing-selection-items">
-          <div><p className="brand-micro">{t.steps[0]}</p>{build && buildIndex !== null ? <><p className="pricing-selection-name"><Latin>{build.name}</Latin></p><p className="pricing-selection-cost"><strong><Latin>{money(BUILD_PRICES[buildIndex])}</Latin></strong><span>{t.buildCost}</span></p></> : <a href="#website-packages">{t.chooseBuild}</a>}{build && <a className="pricing-change" href="#website-packages">{t.change}</a>}</div>
+          <div><p className="brand-micro">{t.steps[0]}</p>{build && buildIndex !== null ? <><p className="pricing-selection-name"><Latin>{build.name}</Latin></p><p className="pricing-selection-cost"><strong><Latin>{money(price(BUILD_PRICES[buildIndex]))}</Latin></strong><span>{t.buildCost}</span></p></> : <a href="#website-packages">{t.chooseBuild}</a>}{build && <a className="pricing-change" href="#website-packages">{t.change}</a>}</div>
           <span className="pricing-receipt-plus" aria-hidden="true">{yearly ? "+" : "↓"}</span>
-          <div><p className="brand-micro">{t.steps[1]}</p>{care ? <><p className="pricing-selection-name"><Latin>{care.name}</Latin></p><p className="pricing-selection-cost"><strong><Latin>{money(yearly ? care.yearly : care.monthly)}</Latin></strong><span>{yearly ? t.annualPaid : t.monthlyPaid}</span></p></> : <a href="#maintenance">{t.chooseCare}</a>}{care && <a className="pricing-change" href="#maintenance">{t.change}</a>}</div>
+          <div><p className="brand-micro">{t.steps[1]}</p>{care ? <><p className="pricing-selection-name"><Latin>{care.name}</Latin></p><p className="pricing-selection-cost"><strong><Latin>{money(price(yearly ? care.yearly : care.monthly))}</Latin></strong><span>{yearly ? t.annualPaid : t.monthlyPaid}</span></p></> : <a href="#maintenance">{t.chooseCare}</a>}{care && <a className="pricing-change" href="#maintenance">{t.change}</a>}</div>
         </div>
         <PricingEstimate locale={locale} build={buildIndex} care={careIndex} yearly={yearly} />
       </div>
-      <div className="pricing-selection-action"><BrandButton asChild className="pricing-action"><a href={pricingContactUrl(locale, buildIndex, careIndex, yearly)}>{build && care ? t.cta : t.help}</a></BrandButton><p>{t.reassurance}</p></div>
+      <div className="pricing-selection-action"><BrandButton asChild className="pricing-action"><a href={pricingContactUrl(locale, buildIndex, careIndex, yearly, currency)}>{build && care ? t.cta : t.help}</a></BrandButton><p>{t.reassurance}</p></div>
       <div className="pricing-terms"><p>{t.ownership} <a href={route("terms")}>{t.terms}</a></p></div>
       <aside className="pricing-scope"><h3>{t.scope}</h3><p>{t.scopeText}</p></aside>
     </div></section>
 
     <section className="pricing-section container" id="comparison" tabIndex={-1} aria-labelledby="comparison-title"><div className="pricing-section-intro"><div><p className="brand-micro">{t.compareLink}</p><h2 id="comparison-title">{t.compareTitle}</h2><p>{t.compareIntro}</p></div></div>
       <label className="pricing-differences"><input type="checkbox" checked={differencesOnly} onChange={event => setDifferencesOnly(event.target.checked)} /><span>{x.differences}</span></label>
-      <div className="pricing-table-scroll" role="region" aria-labelledby="comparison-title" tabIndex={0}><table className="pricing-table"><caption className="sr-only">{t.compareTitle}</caption><thead><tr><th scope="col">{t.feature}</th>{plans.map((plan, i) => <th scope="col" key={plan.name} data-selected={buildIndex === i}><Latin>{plan.name.split(" ")[0]}</Latin><span><Latin>{money(BUILD_PRICES[i])}</Latin></span></th>)}</tr></thead><tbody>{rows.map(row => <tr key={row.feature}><th scope="row">{row.feature}</th>{([row.launch, row.growth, row.pro]).map((value, i) => <td key={i} data-selected={buildIndex === i}>{typeof value === "boolean" ? <><span aria-hidden="true" className={value ? "pricing-included" : "pricing-excluded"}>{value ? "✓" : "×"}</span><span className="sr-only">{value ? t.included : t.excluded}</span></> : value}</td>)}</tr>)}</tbody></table></div>
+      <div className="pricing-table-scroll" role="region" aria-labelledby="comparison-title" tabIndex={0}><table className="pricing-table"><caption className="sr-only">{t.compareTitle}</caption><thead><tr><th scope="col">{t.feature}</th>{plans.map((plan, i) => <th scope="col" key={plan.name} data-selected={buildIndex === i}><Latin>{plan.name.split(" ")[0]}</Latin><span><Latin>{money(price(BUILD_PRICES[i]))}</Latin></span></th>)}</tr></thead><tbody>{rows.map(row => <tr key={row.feature}><th scope="row">{row.feature}</th>{([row.launch, row.growth, row.pro]).map((value, i) => <td key={i} data-selected={buildIndex === i}>{typeof value === "boolean" ? <><span aria-hidden="true" className={value ? "pricing-included" : "pricing-excluded"}>{value ? "✓" : "×"}</span><span className="sr-only">{value ? t.included : t.excluded}</span></> : value}</td>)}</tr>)}</tbody></table></div>
       <div className="pricing-mobile-comparison">{rows.map(row => <details key={row.feature} open>
         <summary><h3>{row.feature}</h3><span className="pricing-disclosure-mark" aria-hidden="true" /></summary>
         <dl className="pricing-mobile-values">{([row.launch, row.growth, row.pro]).map((value, i) => <div key={i} data-selected={buildIndex === i}><dt lang="en"><Latin>{plans[i].name.split(" ")[0]}</Latin></dt><dd>{typeof value === "boolean" ? <><span aria-hidden="true" className={value ? "pricing-included" : "pricing-excluded"}>{value ? "✓" : "×"}</span><span className="sr-only">{value ? t.included : t.excluded}</span></> : value}</dd></div>)}</dl>

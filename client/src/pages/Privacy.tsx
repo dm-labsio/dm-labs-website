@@ -48,6 +48,7 @@ export default function Privacy() {
                   <li><strong className="text-[#111315]">Technical data:</strong> Hosting providers receive technical connection data, including your IP address, to deliver and protect the site. With analytics consent, we also collect browser, device and page-use information. PostHog IP-address capture is disabled in our site configuration.</li>
                   <li><strong className="text-[#111315]">Payment information:</strong> Billing details processed securely through third-party payment providers. We do not store credit card numbers.</li>
                 </ul>
+                <p className="mt-3">For automatic currency display, our hosting provider, Vercel, derives an approximate country from the IP address received when serving your request. Our application uses that country only to choose a display currency and returns only the currency to your browser. This feature does not request GPS or precise device location and does not assess your behaviour or willingness to pay.</p>
               </div>
 
               <div>
@@ -58,6 +59,7 @@ export default function Privacy() {
                   <li><strong className="text-[#111315]">Legitimate interest:</strong> To respond to enquiries, improve our services, and ensure website security.</li>
                   <li><strong className="text-[#111315]">Consent:</strong> For analytics cookies and marketing communications (where applicable). You may withdraw consent at any time.</li>
                 </ul>
+                <p className="mt-3">For this limited country-to-currency lookup, we rely on our legitimate interest in presenting prices in a familiar currency (GDPR Article 6(1)(f)). We use only the country information needed for this purpose, without a persistent currency identifier. You may object to this processing by contacting us using the details below; you can also request a written quote in the appropriate currency.</p>
               </div>
 
               <div>
@@ -92,6 +94,7 @@ export default function Privacy() {
                   <li>Payment records: As required by applicable tax and accounting laws</li>
                   <li>Session replay: 30 days under the current project setting. Analytics and error records are retained for usage analysis and fault diagnosis, subject to the provider’s retention settings and the need for those records.</li>
                 </ul>
+                <p className="mt-3">The currency feature creates no separate stored record of your IP address or country and adds no currency cookies or browser storage. The selected currency is held in memory for the current page visit. Hosting providers may separately process connection data in operational and security logs as described in this policy; this feature does not change that processing. If you send an enquiry with a selected plan, the currency and displayed amounts become part of your enquiry and follow the enquiry or client-record retention periods above.</p>
               </div>
 
               <div>

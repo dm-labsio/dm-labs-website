@@ -47,6 +47,7 @@ export default function CookiePolicy() {
                   <li><strong className="text-[#111315]">Essential functionality:</strong> To ensure the website operates correctly, including remembering your cookie consent preferences.</li>
                   <li><strong className="text-[#111315]">Analytics:</strong> With your explicit consent, to understand how visitors interact with our website so we can improve our content and user experience.</li>
                 </ul>
+                <p className="mt-3">Automatic currency display uses the approximate country supplied by our hosting provider. It does not set or read currency cookies, store a currency preference in local or session storage, or enable analytics. Rejecting analytics does not disable this feature. The Privacy Policy explains the country lookup and your data-protection rights.</p>
               </div>
 
               <div>

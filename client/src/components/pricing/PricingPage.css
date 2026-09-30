@@ -277,3 +277,5 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
  .pricing-build:hover .pricing-choice::before,.pricing-care:hover .pricing-choice::before { transform: translateY(0); }
  .pricing-care:hover,.pricing-custom:hover { border-color: #A8B8FF; }
 }
+
+.pricing-currency-code { font-size: .35em; letter-spacing: 0; font-weight: 600; vertical-align: baseline; }

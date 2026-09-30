@@ -1,3 +1,4 @@
+import { usePricingCurrency, Price } from "@/contexts/CurrencyContext";
 import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
 import { useStructuredData } from "@/hooks/useStructuredData";
 import { serviceSchemaData } from "@/lib/structuredData";
@@ -12,7 +13,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 
 
-const faqs = [
+const baseFaqs = [
   {
     q: "How much does web design cost in Thessaloniki?",
     a: BUILD_PRICE_SUMMARY.en
@@ -32,6 +33,9 @@ const faqs = [
 ];
 
 export default function WebDesignThessaloniki() {
+  const { copy, euro } = usePricingCurrency("en");
+  const faqs = copy(baseFaqs);
+
   useSEO({
     title: "Web Design Thessaloniki | Websites Built for Growth | DM-Labs.io",
     description: "Professional web design for businesses in Thessaloniki. Custom websites built for credibility and enquiries, with fast delivery. Mobile-first, SEO-optimised, no hidden fees. Get a free consultation.",
@@ -151,7 +155,7 @@ export default function WebDesignThessaloniki() {
             .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {BUILD_PLANS.en.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((p) => (
+            {BUILD_PLANS.en.map((plan, index) => ({ ...plan, desc: plan.summary, price: euro(BUILD_PRICES[index]), highlight: index === 1 })).map((p) => (
               <div
                 key={p.name}
                 className={`rounded-2xl p-6 border ${
@@ -172,7 +176,7 @@ export default function WebDesignThessaloniki() {
             ))}
           </div>
           <p className="text-xs text-[#9CA3AF] mt-4">
-            Build prices are one-time fees. Hosting and care are charged separately, from €69/month while we manage your website. Prices exclude applicable taxes and separately agreed third-party costs.
+            Build prices are one-time fees. Hosting and care are charged separately, from <Price euros={69} locale="en" />/month while we manage your website. Prices exclude applicable taxes and separately agreed third-party costs.
           </p>
         </div>
       </section>

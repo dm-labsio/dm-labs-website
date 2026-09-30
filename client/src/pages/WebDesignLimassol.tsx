@@ -1,3 +1,4 @@
+import { usePricingCurrency } from "@/contexts/CurrencyContext";
 /* ============================================================
    DM-Labs.io — Web Design Limassol Landing Page
    Target: web design Limassol and website design Limassol.
@@ -9,13 +10,13 @@ import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
 
-const packages = [
+const basePackages = [
   { name: "Launch Website", price: "€299", features: ["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"] },
   { name: "Growth Website", price: "€749", features: ["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"] },
   { name: "Pro Website", price: "€1,499", features: ["Up to 7 pages", "Gallery or portfolio", "Pop-up and scroll-driven animations", "Full SEO structure", "Blog setup or a website visual pack", "4 revision rounds"] },
 ];
 
-const faqItems = [
+const baseFaqItems = [
   { question: "How much does web design cost for a Limassol business?", answer: "DM-Labs.io website packages start at €299 for a Launch Website. Growth Website packages start at €749 and Pro Website packages start at €1,499. Enterprise / Custom work is quoted according to the agreed scope." },
   { question: "Do you work with businesses in Limassol?", answer: "Yes. DM-Labs.io works with businesses worldwide. Our physical address is in Paphos, while consultation, review, and delivery can be handled remotely through practical online communication." },
   { question: "What does a Limassol business website include?", answer: "The exact inclusions depend on the package and scope. Common requirements include service pages, contact forms, maps, testimonials, galleries, social links, and search-friendly foundations." },
@@ -25,6 +26,10 @@ const faqItems = [
 
 
 export default function WebDesignLimassol() {
+  const { copy } = usePricingCurrency("en");
+  const packages = copy(basePackages);
+  const faqItems = copy(baseFaqItems);
+
   useSEO({
     title: "Web Design Limassol | Websites Built for Growth | DM-Labs.io",
     description: "DM-Labs.io builds professional, mobile-first websites for Limassol businesses. Distinctive design, clear routes to enquiry, and direct support from design to launch.",

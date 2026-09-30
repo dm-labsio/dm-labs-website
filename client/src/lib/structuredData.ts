@@ -1,3 +1,4 @@
+import { convertedPrice, type Currency } from "../../../shared/currency";
 import { SEO_BASE_URL, type SiteLocale } from "./seoRoutes";
 import { BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
 
@@ -5,7 +6,7 @@ export const ORGANIZATION_ID = `${SEO_BASE_URL}/#organization`;
 export const WEBSITE_ID = `${SEO_BASE_URL}/#website`;
 export const absoluteImageUrl = (image: string) => new URL(image, `${SEO_BASE_URL}/`).href;
 
-export function pageSchema(url: string, title: string, description: string, locale: SiteLocale, image: string, imageAlt: string) {
+export function pageSchema(url: string, title: string, description: string, locale: SiteLocale, image: string, imageAlt: string, currency: Currency = "EUR") {
   const path = new URL(url).pathname;
   const hasPackages = ["/", "/el/", "/he/", "/pricing/", "/el/pricing/", "/he/pricing/"].includes(path);
   return { "@context": "https://schema.org", "@graph": [
@@ -16,7 +17,7 @@ export function pageSchema(url: string, title: string, description: string, loca
       sameAs: ["https://www.instagram.com/dm_labs.io/"],
       ...(hasPackages ? { hasOfferCatalog: {
         "@type": "OfferCatalog", name: "Website Packages", itemListElement: BUILD_PLANS[locale].map((plan, index) => ({
-          "@type": "Offer", name: plan.name, price: BUILD_PRICES[index], priceCurrency: "EUR",
+          "@type": "Offer", name: plan.name, price: convertedPrice(BUILD_PRICES[index], currency), priceCurrency: currency,
           url: `${SEO_BASE_URL}${locale === "en" ? "" : `/${locale}`}/pricing/`,
           description: plan.features.join(". "),
           itemOffered: { "@type": "Service", name: plan.name, provider: { "@id": ORGANIZATION_ID } },

@@ -1,3 +1,4 @@
+import { Price } from "@/contexts/CurrencyContext";
 import "@/components/blog/BlogArticle.css";
 import { Link } from "wouter";
 import { useGreekArticleSEO } from "@/hooks/useGreekArticleSEO";
@@ -80,7 +81,7 @@ export default function WebsiteCostEl() {
           <section>
             <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι Περιλαμβάνεται στις Τιμές μας</h2>
             <p className="leading-relaxed mb-4">
-              Στη DM-Labs.io, οι τιμές μας ξεκινούν από €299 και περιλαμβάνουν:
+              Στη DM-Labs.io, οι τιμές μας ξεκινούν από <Price euros={299} locale="el" /> και περιλαμβάνουν:
             </p>
             <ul className="space-y-2 pl-4">
               <li className="leading-relaxed">Custom σχεδιασμό βάσει της επιχείρησής σας - όχι template</li>

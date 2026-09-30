@@ -399,7 +399,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 
 <h2>What DM-Labs.io Offers and Why the Pricing Makes Sense</h2>
 <p>We are a dedicated web design agency working remotely, and we built our pricing specifically for small and medium businesses that want a professional result without a corporate budget. Our packages sit in the sweet spot of the market - agency quality at a price that makes sense for a local business.</p>
-<p>Our <a href="/services/" class="blog-link">website packages</a> start at €299 for the Launch package (1-page site, mobile-responsive, fast delivery), €749 for the Growth package (up to 4 pages, contact form, Google Maps, SEO-optimised), and €1,499 for the Pro package (up to 7 pages, fully custom design, animations, and blog setup).</p>
+<p data-dm-prices>Our <a href="/services/" class="blog-link">website packages</a> start at €299 for the Launch package (1-page site, mobile-responsive, fast delivery), €749 for the Growth package (up to 4 pages, contact form, Google Maps, SEO-optimised), and €1,499 for the Pro package (up to 7 pages, fully custom design, animations, and blog setup).</p>
 <p>You can see the full breakdown on our <a href="/pricing/" class="blog-link">pricing page</a>. Every package includes a free consultation, SSL certificate, mobile-first development, and on-page SEO setup. No hidden fees.</p>
 <p>We keep our prices competitive because we are a small, focused team with low overheads - and because we believe a good website should be accessible to every business, not just the ones with large marketing budgets.</p>
 
@@ -516,7 +516,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 
 <h2>How DM-Labs.io Builds Wellness Studio Websites</h2>
 <p>We build yoga and Pilates studio websites that make it easy for the right students to discover you and take the next step. We agree a clear scope and delivery schedule before starting. Every site is mobile-first, SEO-ready from day one, and designed to convert visitors into students. You provide the content - your schedule, photos, bio, and pricing - and we handle the rest.</p>
-<p>Our <a href="/services/" class="blog-link">website packages</a> are built specifically for small wellness businesses that want a professional result without a complicated process or a large budget.</p>
+<p data-dm-prices>Our <a href="/services/" class="blog-link">website packages</a> are built specifically for small wellness businesses that want a professional result without a complicated process or a large budget.</p>
 
 <div class="blog-cta">
   <h3>Ready to fill your classes through Google?</h3>
@@ -789,7 +789,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
     <tr><td>DIY builders (Wix, Squarespace)</td><td>€10–€30/month</td><td>Template layout, limited SEO, platform branding</td></tr>
     <tr><td>Greek freelancer</td><td>€300–€2,000</td><td>Varies widely in quality; limited ongoing support</td></tr>
     <tr><td>Local Greek agency</td><td>€1,500–€8,000+</td><td>Custom design, full team, higher overhead costs</td></tr>
-    <tr><td>DM-Labs.io</td><td>€299–€1,499</td><td>Agency quality, transparent pricing, fast delivery</td></tr>
+    <tr data-dm-prices><td>DM-Labs.io</td><td>€299–€1,499</td><td>Agency quality, transparent pricing, fast delivery</td></tr>
   </tbody>
 </table>
 
@@ -821,7 +821,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 
 <h2>How DM-Labs.io Works With Growing Businesses</h2>
 <p>We are a web design agency that works with businesses worldwide. Our team builds professional, fast, bilingual websites that are designed to be found on Google and to convert visitors into customers.</p>
-<p>Our <a href="/services/" class="blog-link">web design packages</a> give your business a clear, professional presence, with the scope matched to your goals. Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate. No hidden fees, no surprises.</p>
+<p data-dm-prices>Our <a href="/services/" class="blog-link">web design packages</a> give your business a clear, professional presence, with the scope matched to your goals. Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate. No hidden fees, no surprises.</p>
 <p>We have worked with businesses in <a href="/web-design-thessaloniki/" class="blog-link">Thessaloniki</a>, Athens, and across the Greek islands including <a href="/web-design-crete/" class="blog-link">Crete</a>, as well as in <a href="/web-design-limassol/" class="blog-link">Limassol</a> and <a href="/web-design-nicosia/" class="blog-link">Nicosia</a>. If you are looking for a web design partner who understands your market and delivers on time, we would love to hear from you.</p>
 
 <h2>The Bottom Line</h2>

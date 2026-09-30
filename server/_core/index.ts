@@ -1,4 +1,5 @@
 import "dotenv/config";
+import visitorCurrency from "../../api/visitor-currency";
 import express from "express";
 import { createServer } from "http";
 import net from "net";
@@ -26,6 +27,11 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
+  // Local QA/build only. Vercel deploys api/visitor-currency.ts directly.
+  app.all("/api/visitor-currency/", (req, res) => {
+    req.headers["x-vercel-ip-country"] = process.env.DM_QA_COUNTRY ?? "";
+    visitorCurrency(req, res);
+  });
   // development mode uses Vite, production mode uses static files
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);

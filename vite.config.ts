@@ -1,9 +1,20 @@
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import path from "node:path";
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
+import visitorCurrency from "./api/visitor-currency";
 
-const plugins = [react(), tailwindcss()];
+const localCurrency: Plugin = {
+  name: "local-visitor-currency",
+  configureServer(server) {
+    server.middlewares.use("/api/visitor-currency", (req, res) => {
+      // Local development fixture only, never a public currency override.
+      req.headers["x-vercel-ip-country"] = process.env.DM_QA_COUNTRY ?? "";
+      visitorCurrency(req, res);
+    });
+  },
+};
+const plugins = [react(), tailwindcss(), localCurrency];
 
 export default defineConfig({
   plugins,

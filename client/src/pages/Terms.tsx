@@ -1,3 +1,4 @@
+import { Price } from "@/contexts/CurrencyContext";
 import "@/styles/legal.css";
 /* D&M LABS - Terms of Service */
 import { Link } from "wouter";
@@ -36,7 +37,7 @@ export default function Terms() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">2. Our services</h2>
-                <p>We design, build, host, maintain and optimise websites for businesses. Website packages start at €299. An active care plan is required while we host and manage your website. SEO retainers and add-on services are optional. Your selected services are set out on your invoice.</p>
+                <p>We design, build, host, maintain and optimise websites for businesses. Website packages start at <Price euros={299} locale="en" />. An active care plan is required while we host and manage your website. SEO retainers and add-on services are optional. Your selected services are set out on your invoice.</p>
               </div>
 
               <div>
@@ -45,8 +46,8 @@ export default function Terms() {
                 <p>That isn't us being difficult. It's how we keep prices honest for everyone. When you need something extra, we quote it in writing first and only start once you've approved it. No surprise charges, and no silent scope growth either.</p>
                 <p>Items that are always quoted separately:</p>
                 <ul className="list-disc space-y-1 pl-5">
-                  <li>New pages or new sections after launch, from €80 per page</li>
-                  <li>Revision rounds beyond your plan's allowance, €45 per round</li>
+                  <li>New pages or new sections after launch, from <Price euros={80} locale="en" /> per page</li>
+                  <li>Revision rounds beyond your plan's allowance, <Price euros={45} locale="en" /> per round</li>
                   <li>Multilingual implementation and translation</li>
                   <li>New integrations, booking systems, CRM connections or payment flows</li>
                   <li>Copywriting and content migration</li>
@@ -57,7 +58,10 @@ export default function Terms() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">4. Payment</h2>
-                <p>All prices are in Euros and exclude any applicable taxes.</p>
+                <p data-currency-location>Prices are shown in the currency indicated and exclude any applicable taxes. We use the approximate country associated with your IP address to display Israeli shekels in Israel, US dollars in the United States, Canadian dollars in Canada, and euros elsewhere. If the country cannot be identified, we display euros. The website language does not determine the currency. A VPN, travel or a location error may affect the currency shown; contact us for a written quote if it is not suitable.</p>
+                <p>Converted prices use preset reference exchange rates and are rounded upward to whole pricing increments. They remain fixed until we update our published prices; they are not live exchange-rate quotes and may differ from your bank or payment provider's rates. Original euro prices are not converted.</p>
+                <p>Selecting a plan or sending an enquiry does not place an order or take payment. Before you accept a proposal or make payment, we confirm in writing the scope, total payable including applicable taxes and required charges, payment currency, and any recurring amount, billing frequency and start date. The invoice reflects that agreement. Any display or calculation error is addressed before acceptance. Later changes to displayed prices, currencies or exchange rates do not change an accepted quote or agreed invoice without your agreement, subject to applicable law.</p>
+                <p>Unless otherwise agreed in writing and subject to applicable law, you are responsible for conversion and transfer fees charged by your own bank or chosen payment provider. Any additional allocation of transfer fees that we require is disclosed and agreed before you accept the proposal or make payment. These terms do not limit rights that cannot be excluded under applicable law.</p>
                 <p>Website builds are paid in full before work begins. We start once the invoice clears. Staged payment is available on larger projects by prior written agreement.</p>
                 <p>Care plans and retainers can be paid monthly, quarterly or annually. The frequency you've chosen is stated on your invoice.</p>
                 <ul className="list-disc space-y-1 pl-5">
@@ -66,7 +70,7 @@ export default function Terms() {
                   <li>Annually: invoiced on the anniversary of your plan start date, due within 7 days.</li>
                 </ul>
                 <p>Payment is by bank transfer against the invoice we send you. We may move recurring billing to automatic card or standing order collection at any time, with 30 days' notice.</p>
-                <p>Late payment. Invoices unpaid after 7 days carry a €25 administration fee, and the schedule in section 5 begins. We'd rather never charge it. Pay on time and you'll never see it.</p>
+                <p>Late payment. Invoices unpaid after 7 days carry a <Price euros={25} locale="en" /> administration fee, and the schedule in section 5 begins. We'd rather never charge it. Pay on time and you'll never see it.</p>
                 <p>Third-party costs (domain registration, premium hosting, paid plugins, stock licences, third-party subscriptions) are billed at cost and recovered on your first invoice. They are never spread silently across a monthly fee.</p>
               </div>
 
@@ -86,7 +90,7 @@ export default function Terms() {
                 <p>Care plans run continuously until cancelled. There's no long-term lock-in.</p>
                 <p>Either of us can end a plan with 30 days' written notice. For monthly plans, notice takes effect at the end of the following billing month and that month is payable in full. For quarterly and annual plans, cancellation takes effect at the end of the current paid term.</p>
                 <p>Amounts already paid are not refunded, including unused months on a quarterly or annual prepayment, because the work for that period has been scheduled and in most cases already carried out. We may offer credit against future work at our discretion.</p>
-                <p>If your plan ends before it has run four consecutive months, the €50 bundle discount applied to your build, any domain registration or third-party costs we covered upfront on your behalf, plus the stated value of any extras given free with the plan, becomes payable. Those extras are priced as a gift attached to an ongoing relationship, and they're listed at their real value on your invoice so there's never a surprise.</p>
+                <p>If your plan ends before it has run four consecutive months, the <Price euros={50} locale="en" /> bundle discount applied to your build, any domain registration or third-party costs we covered upfront on your behalf, plus the stated value of any extras given free with the plan, becomes payable. Those extras are priced as a gift attached to an ongoing relationship, and they're listed at their real value on your invoice so there's never a surprise.</p>
                 <p>We may pause or end a plan if invoices go unpaid, or if the work requested consistently sits outside what the plan covers.</p>
               </div>
 
@@ -120,7 +124,7 @@ export default function Terms() {
                   <li>Any item listed on your invoice as &quot;included free with an active care plan&quot;</li>
                 </ul>
 
-                <p>If you'd like to move your site elsewhere, we'll hand over your files and help with the transfer. Migration and handover work is billed at €60/hour.</p>
+                <p>If you'd like to move your site elsewhere, we'll hand over your files and help with the transfer. Migration and handover work is billed at <Price euros={60} locale="en" />/hour.</p>
               </div>
 
               <div>
@@ -140,11 +144,13 @@ export default function Terms() {
                   <li>Pro: 4 rounds</li>
                   <li>Enterprise: as stated on your proposal</li>
                 </ul>
-                <p>A round means one consolidated set of feedback from you, returned in a single message. Additional rounds are €45 each. Changes requested after the site goes live are treated as new work and quoted separately, or covered by your care plan where they fall within its allowance.</p>
+                <p>A round means one consolidated set of feedback from you, returned in a single message. Additional rounds are <Price euros={45} locale="en" /> each. Changes requested after the site goes live are treated as new work and quoted separately, or covered by your care plan where they fall within its allowance.</p>
               </div>
 
               <div>
-                <h2 className="text-xl font-semibold text-[#111315] mb-3">10. Timelines</h2><p>We work towards prompt delivery, with the scope, milestones and estimated schedule agreed in writing before work begins. There is no standard delivery period or guaranteed launch date unless expressly agreed in writing for your project.</p><p>The agreed schedule depends on receiving payment, content, images, branding, access credentials and approvals when required. Changes to scope, delayed materials or feedback, and third-party dependencies may affect the schedule. We will explain the impact and agree any revised dates in writing. If a project is put on hold, we will notify you and agree a restart date based on availability.</p><p>Nothing in these terms limits rights or remedies that cannot be excluded under applicable law.</p></div>
+                <h2 className="text-xl font-semibold text-[#111315] mb-3">10. Timelines</h2><p>We work towards prompt delivery, with the scope, milestones and estimated schedule agreed in writing before work begins. There is no standard delivery period or guaranteed launch date unless expressly agreed in writing for your project.</p>
+                <p>The agreed schedule depends on receiving payment, content, images, branding, access credentials and approvals when required. Changes to scope, delayed materials or feedback, and third-party dependencies may affect the schedule. We will explain the impact and agree any revised dates in writing. If a project is put on hold, we will notify you and agree a restart date based on availability.</p>
+                <p>Nothing in these terms limits rights or remedies that cannot be excluded under applicable law.</p></div>
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">11. Your content</h2>
@@ -158,7 +164,7 @@ export default function Terms() {
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">13. Bug fixing</h2>
-                <p>Faults in work we built are fixed free of charge for 30 days after launch, and remain covered for as long as you hold an active care plan. Issues caused by changes made by you or a third party, by a third-party service failing, or by hosting we don't manage, are billed at €60/hour and quoted before we start.</p>
+                <p>Faults in work we built are fixed free of charge for 30 days after launch, and remain covered for as long as you hold an active care plan. Issues caused by changes made by you or a third party, by a third-party service failing, or by hosting we don't manage, are billed at <Price euros={60} locale="en" />/hour and quoted before we start.</p>
               </div>
 
               <div>

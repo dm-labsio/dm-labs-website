@@ -1,3 +1,4 @@
+import { usePricingCurrency, Price } from "@/contexts/CurrencyContext";
 import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
 import { useStructuredData } from "@/hooks/useStructuredData";
 import { serviceSchemaData } from "@/lib/structuredData";
@@ -12,7 +13,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 
 
-const faqs = [
+const baseFaqs = [
   {
     q: "How much does a website cost for a business in Crete?",
     a: BUILD_PRICE_SUMMARY.en
@@ -85,6 +86,9 @@ const industries = [
 ];
 
 export default function WebDesignCrete() {
+  const { copy, euro } = usePricingCurrency("en");
+  const faqs = copy(baseFaqs);
+
   useSEO({
     title: "Web Design Crete | Websites Built for Growth | DM-Labs.io",
     description: "Professional web design for small businesses across Crete - Heraklion, Chania, Rethymno and beyond. Custom design that builds trust, with fast delivery and direct support. Mobile-first, SEO-ready, no hidden fees.",
@@ -207,7 +211,7 @@ export default function WebDesignCrete() {
             .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {BUILD_PLANS.en.map((plan, index) => ({ ...plan, desc: plan.summary, price: `€${BUILD_PRICES[index].toLocaleString("en-US")}`, highlight: index === 1 })).map((p) => (
+            {BUILD_PLANS.en.map((plan, index) => ({ ...plan, desc: plan.summary, price: euro(BUILD_PRICES[index]), highlight: index === 1 })).map((p) => (
               <div
                 key={p.name}
                 className={`rounded-2xl p-6 border ${
@@ -228,7 +232,7 @@ export default function WebDesignCrete() {
             ))}
           </div>
           <p className="text-xs text-[#9CA3AF] mt-4">
-            Build prices are one-time fees. Hosting and care are charged separately, from €69/month while we manage your website. Prices exclude applicable taxes and separately agreed third-party costs.{" "}
+            Build prices are one-time fees. Hosting and care are charged separately, from <Price euros={69} locale="en" />/month while we manage your website. Prices exclude applicable taxes and separately agreed third-party costs.{" "}
             <Link href="/pricing/" className="text-[#5B8CFF] underline underline-offset-2">
               View full pricing details
             </Link>

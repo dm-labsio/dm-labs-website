@@ -1,3 +1,4 @@
+import { usePricingCurrency } from "@/contexts/CurrencyContext";
 import { BUILD_PRICE_SUMMARY } from "@/components/pricing/pricingContent";
 /* ============================================================
    DM-Labs.io — Web Design Cyprus Pillar Page
@@ -9,13 +10,13 @@ import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
 
-const packages = [
+const basePackages = [
   { name: "Launch Website", price: "€299", details: "Small one-page or light two-page site with responsive build, basic SEO foundations, WhatsApp and social links, and 2 revision rounds." },
   { name: "Growth Website", price: "€749", details: "Up to 4 pages with a contact form, Google Maps and reviews/testimonials, basic SEO, Search Console and Analytics setup, and 3 revision rounds." },
   { name: "Pro Website", price: "€1,499", details: "Up to 7 pages with a gallery or portfolio, pop-up and scroll-driven animations, full SEO structure, blog setup or a website visual pack, and 4 revision rounds." },
 ];
 
-const faqItems = [
+const baseFaqItems = [
   { q: "How much does web design cost?", a: BUILD_PRICE_SUMMARY.en },
   { q: "What is included in a DM-Labs.io website package?", a: "Every package has a clearly defined scope. The Launch package includes responsive implementation and basic SEO foundations. Growth adds up to four pages, a contact form, maps, reviews/testimonials, and Search Console and Analytics setup. Pro adds up to seven pages, richer visual features, full SEO structure, and a blog setup or visual pack." },
   { q: "Can you build a bilingual Greek and English website?", a: "Yes. Multilingual functionality can be included in an Enterprise / Custom scope, depending on language, content, and editing requirements." },
@@ -26,6 +27,10 @@ const faqItems = [
 
 
 export default function WebDesignCyprus() {
+  const { copy } = usePricingCurrency("en");
+  const packages = copy(basePackages);
+  const faqItems = copy(baseFaqItems);
+
   useSEO({
     title: "Web Design | Websites Built for Growth | DM-Labs.io",
     description: "Professional web design for businesses. Distinctive design, fast delivery and personal care from DM-Labs.io, built around your business goals.",

@@ -1,3 +1,4 @@
+import { usePricingCurrency } from "@/contexts/CurrencyContext";
 /* ============================================================
    DM-Labs.io — Restaurant Website Design Cyprus
    Target: website design for restaurants in Cyprus.
@@ -9,13 +10,13 @@ import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import AnimateIn from "@/components/AnimateIn";
 
-const packages = [
+const basePackages = [
   { name: "Launch Website", price: "€299", features: ["Small one-page or light two-page site", "Responsive build", "Basic SEO foundations", "WhatsApp and social links", "2 revision rounds"] },
   { name: "Growth Website", price: "€749", features: ["Up to 4 pages", "Contact form", "Google Maps and reviews/testimonials", "Basic SEO", "Search Console and Analytics setup", "3 revision rounds"] },
   { name: "Pro Website", price: "€1,499", features: ["Up to 7 pages", "Gallery or portfolio", "Pop-up and scroll-driven animations", "Full SEO structure", "Blog setup or a website visual pack", "4 revision rounds"] },
 ];
 
-const faqItems = [
+const baseFaqItems = [
   { question: "How much does a restaurant website cost?", answer: "DM-Labs.io website packages start at €299 for a Launch Website. Growth Website packages start at €749 and Pro Website packages start at €1,499. Projects outside the standard scope are quoted separately after a free consultation." },
   { question: "Can a restaurant website include a menu and reservation path?", answer: "Yes. Menu, booking and reservation requirements are discussed during scoping. Depending on the package and complexity, the site can include clear menu pages, enquiry forms, external booking links, maps, and contact paths." },
   { question: "Can the website be multilingual?", answer: "Multilingual functionality is available through Enterprise / Custom scope. The final quote depends on language count, content volume, translations, and how you want to manage updates." },
@@ -25,6 +26,10 @@ const faqItems = [
 
 
 export default function WebDesignRestaurantsCyprus() {
+  const { copy } = usePricingCurrency("en");
+  const packages = copy(basePackages);
+  const faqItems = copy(baseFaqItems);
+
   useSEO({
     title: "Restaurant Website Design | DM-Labs.io",
     description: "DM-Labs.io builds professional, mobile-first restaurant websites. Make your restaurant the next choice with clear menus, easy contact paths and search-friendly foundations.",
