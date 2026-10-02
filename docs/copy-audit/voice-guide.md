@@ -8,6 +8,8 @@ Write from the meaning, not from the English sentence. Ask: "What does this line
 
 Owner's direction (2 October 2026): "It needs to be real, like the way you'd talk to me in a chat. Realistic. Simple." Read every line out loud. If you wouldn't say it to a friend who runs a business, simplify it.
 
+Second round of owner feedback (2 October 2026): simple does not mean short. Write **full, flowing, conversational sentences**, not clipped fragments or slogan lists. A little creative writing is welcome: an image ("think of your website as your best salesperson"), a real local saying, a wink. It should read like a smart friend explaining it over WhatsApp.
+
 ## Who we talk to
 
 Small business owners: restaurants, salons, clinics, studios, shops, offices. Busy, not technical, a little burned by agencies before. They want to look good, get found, get messages, and not deal with tech.
@@ -16,7 +18,7 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 
 - Confident, warm, a little cool. A friend who is very good at this.
 - Short sentences. Plain words. Concrete outcomes (messages, bookings, calls) instead of abstractions ("conversions", "engagement").
-- A native expression now and then, where it really lands. About one per section at most. Never two in a row.
+- Native expressions are welcome: a few per page, wherever a local would naturally use one. Don't stack two in the same sentence, and don't reuse the same one on a page.
 - Never in: legal pages, prices and payment terms, FAQ answers, form errors, accessibility labels. Those stay clear and plain.
 - No hype words: no "the best", "revolutionary", "unique solutions", "cutting-edge".
 - Watch the words that creep back in. At most once per page: Hebrew מרשים, מוקפד, ייחודי · Greek εντυπωσιακός, ξεχωρίζει / ξεχωριστός, μοναδικός. Say the plain thing instead: "נראה טוב", "δείχνει ωραία".
@@ -30,7 +32,7 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 - **Sentence case** in headings and buttons: "Δείτε όλα τα παραδείγματα", not "Δείτε Όλα τα Παραδείγματα". Greek doesn't use English title case.
 - English words: fine where Greeks actually use them (SEO, Google, WhatsApp, online, e-shop, site, brand, domain). Not in running text where Greek is natural: custom, scope, launch, build, review, pricing, care, mobile-first, concept, portfolio.
 
-### Expressions we can use (sparingly)
+### Expressions we can use
 
 | Expression | Meaning | Good for |
 |---|---|---|
@@ -46,6 +48,16 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 | δεν σας αφήνουμε στη μέση | we don't leave you halfway | support, care plans |
 | Η πρώτη εντύπωση δεν ξαναγίνεται | first impressions don't repeat | homepage, examples |
 | Ας τα πούμε | let's talk | soft CTAs |
+| όλο το εικοσιτετράωρο | around the clock | the website working for them |
+| στην τρίχα | immaculate, dressed to the nines | design, first impressions |
+| σαν τα μάτια μας | like the apple of our eye | care after launch |
+| περνάμε από κόσκινο | go through with a fine-tooth comb | revisions, testing |
+| δουλεύουν ρολόι | runs like clockwork | launch |
+| χαλασμένο τηλέφωνο | broken telephone (miscommunication) | working directly with the team |
+| ιστοσελίδες-φωτοτυπία | carbon-copy websites | custom design |
+| αν κάτι στραβώσει | if something goes wrong | support |
+| κοιμάστε ήσυχοι | sleep easy | maintenance, security |
+| σαν την παλάμη σας | like the back of your hand | local knowledge |
 
 ### Never write
 
@@ -71,7 +83,7 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 - Phone: "טלפון" in everyday lines, "מובייל" in service names ("התאמה מושלמת למובייל"). Avoid "נייד".
 - English words fine where Israelis use them: SEO, Google, WhatsApp, דומיין, לידים (casual contexts only).
 
-### Expressions we can use (sparingly)
+### Expressions we can use
 
 | Expression | Meaning | Good for |
 |---|---|---|
@@ -85,6 +97,15 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 | לא משאירים אתכם לבד | we don't leave you alone with it | support |
 | אין הזדמנות שנייה לרושם ראשון | no second chance at a first impression | homepage, examples |
 | תכל'ס | bottom line | very casual spots only |
+| מסביב לשעון | around the clock | the website working for them |
+| מצוחצח | spick and span, sharp | design, first impressions |
+| מא׳ ועד ת׳ | from A to Z | full service |
+| כמו על הבייבי שלנו | like our own baby | care after launch |
+| עובד כמו שעון | runs like clockwork | launch |
+| בלי טלפון שבור | no broken telephone | working directly with the team |
+| לישון בשקט | sleep easy | maintenance, security |
+| מה שלא בגוגל, כאילו לא קיים | if it's not on Google, it doesn't exist | SEO |
+| לרדוף אחרינו | chase us (for updates) | process, turnaround |
 
 ### Never write
 
