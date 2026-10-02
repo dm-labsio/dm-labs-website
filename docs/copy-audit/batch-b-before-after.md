@@ -151,6 +151,38 @@ Done before pushing, per the voice guide. Fixed before this sheet was written:
 - "η φιλοξενία με συντήρηση" → "η φιλοξενία και η συντήρηση"
 - "Κέρδος" for a discount → "Οικονομία"
 
+## Greek second pass
+
+After the owner asked how sure I am about the Greek, I reread every Greek line in this batch as if it were a chat message to a Greek business owner. These still read like a translation and were changed:
+
+| Where | Before | After | In English | Why |
+|---|---|---|---|---|
+| Pricing, under the title | Η κατασκευή πληρώνεται μία φορά, ενώ η φιλοξενία και η συντήρηση είναι απαραίτητες, από €69/μήνα. | Την κατασκευή την πληρώνετε μία φορά. Μετά χρειάζεται και πακέτο φιλοξενίας και συντήρησης, από €69/μήνα. | You pay for the build once. After that you also need a hosting and maintenance package, from €69/month. | Passive voice and "απαραίτητες" sounded like a contract |
+| Pricing, plans title | Τρία ξεκάθαρα πακέτα. | Τρία πακέτα, ένα για κάθε στάδιο. | Three packages, one for each stage. | "ξεκάθαρ-" appeared twice in two lines |
+| Pricing, plans intro | Κάθε πακέτο λέει ξεκάθαρα τι περιλαμβάνει | Σε κάθε πακέτο βλέπετε ακριβώς τι περιλαμβάνει | In each package you see exactly what's included | A package doesn't "say" anything |
+| Pricing, badge | Προτείνεται | Προτεινόμενο | Recommended | "Προτείνεται" is a verb ("is suggested"); a badge is an adjective |
+| Pricing, Growth summary | Μια ιστοσελίδα στημένη για να φέρνει μηνύματα και τηλέφωνα, για επιχειρήσεις που... | Για επιχειρήσεις που θέλουν να τις βρίσκουν και να τις εμπιστεύονται: μια ιστοσελίδα στημένη για να φέρνει μηνύματα και τηλεφωνήματα. | For businesses that want to be found and trusted: a site set up to bring messages and calls. | "τηλέφωνα" means phone devices; "τηλεφωνήματα" means calls. English word order flipped to Greek |
+| Pricing, Pro summary | κίνηση στη σελίδα | animations | animations | "κίνηση" also means traffic, so it read as "more visitors" |
+| Pricing, care feature | Διαχειριζόμενη φιλοξενία & παρακολούθηση διαθεσιμότητας | Φιλοξενία που διαχειριζόμαστε εμείς και έλεγχος ότι το site είναι πάντα online | Hosting we manage ourselves, and checks that the site is always online | Word-for-word "managed hosting & uptime monitoring" |
+| Pricing, care feature | Μηνιαίος έλεγχος απόδοσης | Μηνιαίος έλεγχος ταχύτητας | Monthly speed check | "απόδοση" also means financial return |
+| Pricing, care feature | Ένα απλό banner ή ενημέρωση ενότητας κάθε μήνα | Μία απλή αλλαγή σε banner ή σε μια ενότητα κάθε μήνα | One simple change to a banner or a section each month | "One banner" read as "we'll make you a banner" |
+| Pricing, Enterprise | CRM, κρατήσεις και συνδέσεις για τις επαφές σας | CRM, κρατήσεις και εργαλεία που μαζεύουν τα αιτήματα των πελατών σας | CRM, bookings and tools that collect your customers' requests | "Connections for your contacts" said nothing |
+| Pricing, Enterprise | Λειτουργίες AI ή chatbot όπου είναι χρήσιμες | Λειτουργίες AI ή chatbot, όπου έχει νόημα | AI or chatbot features, where it makes sense | More spoken |
+| Pricing, care badge | Πιο πλήρες | Το πιο πλήρες | The most complete | Missing article sounded like a headline |
+| Pricing, summary title | Η επιλογή σας με μια ματιά. | Με μια ματιά. | At a glance. | "Η επιλογή σας" was already the label right above it |
+| Pricing, summary | Επιλέξτε συντήρηση | Επιλέξτε πακέτο συντήρησης | Choose a maintenance package | You choose a package, not "maintenance" |
+| Pricing, help button | Βοηθήστε με να επιλέξω | Βοηθήστε με να διαλέξω | Help me choose | "διαλέγω" is what people say |
+| Pricing, reassurance | Η επιλογή σας είναι απλώς η αρχή της κουβέντας. | Απλώς ξεκινάμε την κουβέντα. | We're just starting the conversation. | Third "Η επιλογή σας" on the screen |
+| Pricing, tax note | Domain και υπηρεσίες τρίτων... | Το domain και οι υπηρεσίες τρίτων... | The domain and third-party services... | Greek needs the articles |
+| Pricing, question | Πότε ένα έργο είναι Enterprise / Custom; | Πότε ένα έργο θεωρείται Enterprise / Custom; | When does a project count as Enterprise / Custom? | More natural |
+| Contact, success note | Πρόκειται για αίτημα επικοινωνίας, όχι για επιβεβαιωμένο ραντεβού. | Αυτό είναι μήνυμα επικοινωνίας, όχι κλεισμένο ραντεβού. | This is a message, not a booked appointment. | Office language → spoken |
+| Contact, WhatsApp text | Γεια σας ομάδα DM-Labs! Θα ήθελα να ρωτήσω για μια ιστοσελίδα... | Γεια σας! Θέλω να φτιάξω ιστοσελίδα για την επιχείρησή μου και θα ήθελα να ρωτήσω μερικά πράγματα. | Hi! I want to build a website for my business and I'd like to ask a few things. | Nobody writes "Hello DM-Labs team" on WhatsApp |
+| FAQ, price | Η φιλοξενία και συντήρηση ξεκινά από €69 | Το πακέτο φιλοξενίας και συντήρησης ξεκινά από €69 | The hosting and maintenance package starts from €69 | Two subjects with a singular verb |
+| FAQ, extra costs | Το domain, εργαλεία επί πληρωμή, άδειες χρήσης... | Το domain, τα εργαλεία επί πληρωμή, οι άδειες χρήσης... | The domain, paid tools, licences... | Missing articles |
+| FAQ, integrations | ...συμφωνούμε τι θα γίνει και τυχόν κόστη τρίτων. | ...συμφωνούμε τι ακριβώς θα γίνει, μαζί με τυχόν κόστη τρίτων. | ...we agree exactly what will happen, along with any third-party costs. | Read as "we agree what will happen and any costs" (costs "happening") |
+| FAQ, care plans | διαχειριζόμενη φιλοξενία, παρακολούθηση διαθεσιμότητας | φιλοξενία που διαχειριζόμαστε εμείς, έλεγχος ότι το site είναι πάντα online | as the pricing card | Same as the pricing card |
+| FAQ, cancel | One long sentence joined with "και" | Split in two: "...ισχύουν οι όροι. Πριν από κάθε αλλαγή, σας εξηγούμε..." | ...the terms apply. Before any change, we explain... | Too long to read in one breath |
+
 ## Expected until later batches
 
 - The Terms pages still say "πλάνο συντήρησης" (Greek, where the rest of the site now says "πακέτο συντήρησης") and "אירוח" (Hebrew, 9 times). Legal wording is Batch G.
