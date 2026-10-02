@@ -4,6 +4,54 @@ Homepage and shared parts, Greek and Hebrew. Every new line has an English back-
 
 Nothing here changes a price, plan, timeline, link or promise. Google titles and descriptions are untouched (Batch F).
 
+## Round 2: after the owner's feedback (2 October)
+
+Feedback: too much "מרשים"; the consultation is "ייעוץ בחינם" with ב; use "התאמה מושלמת למובייל"; write it the way you'd talk in a chat, simple and real. The same lens was applied to the Greek (the owner isn't a native Greek speaker).
+
+Where a line appears both here and in the tables below, **this Round 2 version is what's on preview.**
+
+### Hebrew
+
+| | Round 1 | Round 2 | In English |
+|---|---|---|---|
+| Hero text | מרשים, מהיר ועם כל מה שצריך כדי שלקוחות יסמכו עליכם ויפנו אליכם... | נראה טוב, עולה מהר ונותן ללקוחות סיבה לפנות אליכם. את כל הצד הטכני אנחנו לוקחים עלינו, ואתם ממשיכים לעשות את מה שאתם הכי טובים בו. | Looks good, loads fast and gives customers a reason to contact you. We take the whole technical side on ourselves, and you keep doing what you do best. |
+| Consultation buttons, everywhere | לשיחת ייעוץ חינם · ייעוץ חינם · לשיחת ייעוץ ללא עלות | לשיחת ייעוץ בחינם · ייעוץ בחינם | Free consultation call · Free consultation |
+| "Free, no commitment" lines (Contact, Pricing, FAQ, Process, service pages) | ללא עלות וללא התחייבות | בחינם וללא התחייבות | Free and no commitment |
+| Video title | אנחנו בונים את האתר שלכם, ושומרים עליו כאילו היה שלנו. | בונים לכם את האתר, ושומרים עליו כאילו הוא שלנו. | We build your website and look after it like it's ours. |
+| Services intro | מותג מרשים, אתר מהיר ודרך ברורה ליצור קשר. הכול נבנה סביב העסק שלכם. | עיצוב שמתאים לכם, אתר מהיר ודרך פשוטה ליצור קשר. הכול סביב העסק שלכם. | A design that suits you, a fast site and an easy way to get in touch. All around your business. |
+| Mobile service name | מושלם בנייד | התאמה מושלמת למובייל | Perfect mobile fit |
+| Mobile text | קל לבחור בכם גם מהטלפון. תוכן ברור, ניווט פשוט... (repeated the card line) | בטלפון הכול ברור ונוח, ויוצרים איתכם קשר בלחיצה אחת. | On the phone everything is clear and easy, and people contact you in one tap. |
+| Custom design text | אתר עם אופי, שמראה כמה אתם טובים... למשוך. | אתר שמראה כמה אתם טובים במה שאתם עושים. מעוצב סביב המותג שלכם והלקוחות שאתם רוצים להביא. | A site that shows how good you are at what you do. Designed around your brand and the customers you want to bring in. |
+| SEO text | מבנה נכון ובסיס טכני מסודר... (repeated the card line) | בונים את האתר כך שגוגל יבין בדיוק מה אתם עושים, ויהיה קל יותר למצוא אתכם. | We build the site so Google understands exactly what you do, and you're easier to find. |
+| Go-live card line | יודעים בדיוק מתי עולים לאוויר. (repeated the name) | בלי הפתעות בדרך להשקה. | No surprises on the way to launch. |
+| Go-live text | מהתוכנית ועד ההשקה, עם אבני דרך ברורות... | בכל רגע יודעים איפה אנחנו עומדים. את לוח הזמנים קובעים יחד, לפי מה שצריך לבנות ומתי החומרים שלכם מוכנים. | You always know where we stand. We set the schedule together, based on what needs building and when your materials are ready. |
+| Packages intro | שלוש חבילות לבניית אתר. ופתרון אישי לכל מה שמעבר. | שלוש חבילות שאפשר להתחיל איתן. צריכים משהו מעבר? נבנה לכם בדיוק את מה שצריך. | Three packages you can start with. Need something more? We'll build exactly what you need. |
+| Examples text | ...אלה עיצובים להמחשה בלבד. את האתר שלכם נתכנן סביב... | ...אלה רק דוגמאות להמחשה. את האתר שלכם נבנה סביב העסק, הלקוחות ומה שאתם רוצים שהם יעשו. | ...These are just examples. We'll build yours around your business, your customers and what you want them to do. |
+| Example style | מינימליזם אומנותי | מינימליסטי עם אופי | Minimal with character |
+| Final call to action | יחד נגדיר את האתר, מה ייכלל בו ומה הצעדים הבאים. | יחד נחליט איך האתר ייראה, מה ייכנס בו ומה הלאה. | Together we'll decide how the site looks, what goes in and what's next. |
+| Industry cards | formal lines such as "גלריה מוקפדת שנותנת לעבודה שלכם את הבמה הראויה" | 21 lines rewritten in plain spoken Hebrew, e.g. "גלריה שמציגה את העבודה שלכם במיטבה", "להכיר את המאמנים ולראות איך זה להתאמן אצלכם", "קל למצוא למי לפנות ולקבוע שיחה ראשונה" | A gallery that shows your work at its best · Meet the coaches and see what training with you is like · Easy to find who to contact and book a first call |
+
+"מרשים" now appears zero times on the Hebrew homepage.
+
+### Greek
+
+| | Round 1 | Round 2 | In English |
+|---|---|---|---|
+| Hero text | Ξεχωρίζει, ανοίγει αστραπιαία και κάνει τους επισκέπτες να σας εμπιστευτούν και να σας γράψουν... | Δείχνει ωραία, ανοίγει γρήγορα και δίνει στον κόσμο λόγο να σας εμπιστευτεί και να σας γράψει. Τα τεχνικά τα αναλαμβάνουμε εμείς, εσείς ασχολείστε με αυτό που ξέρετε καλύτερα. | Looks good, loads fast and gives people a reason to trust you and message you. We handle the technical side, you get on with what you do best. |
+| Video title | Το φτιάχνουμε για εσάς. Και το προσέχουμε σαν δικό μας. ("it" had nothing to refer to) | Φτιάχνουμε το site σας. Και το προσέχουμε σαν να ήταν δικό μας. | We build your site. And look after it as if it were ours. |
+| Services intro | Ταυτότητα που ξεχωρίζει, σελίδες που πετάνε... | Σχεδιασμός που σας ταιριάζει, σελίδες που πετάνε και εύκολη επικοινωνία. Όλα γύρω από την επιχείρησή σας. | A design that suits you, pages that fly and easy contact. All around your business. |
+| Mobile service name | Άψογη στο κινητό | Άψογη προσαρμογή σε κινητά | Flawless mobile fit (mirrors the Hebrew; also the phrase Greek business owners search for) |
+| Mobile text | Να σας διαλέγουν εύκολα, ακόμα κι από το κινητό... (repeated the card line) | Στο κινητό όλα διαβάζονται άνετα, η πλοήγηση είναι απλή και σας καλούν ή σας γράφουν με ένα πάτημα. | On mobile everything reads comfortably, navigation is simple and people call or message you in one tap. |
+| SEO text | ...οι σωστοί πελάτες να μπορούν να σας βρουν πιο εύκολα. (repeated the card line) | Στήνουμε την ιστοσελίδα έτσι ώστε η Google να καταλαβαίνει ακριβώς τι κάνετε, και να σας βρίσκουν πιο εύκολα. | We set up the site so Google understands exactly what you do, and people find you more easily. |
+| Delivery card line | Ξέρετε πάντα πότε βγαίνει στον αέρα. | Χωρίς εκπλήξεις μέχρι την παράδοση. | No surprises until delivery. |
+| Delivery text | Από το πρώτο πλάνο μέχρι να βγει στον αέρα, ξέρετε πάντα... | Ξέρετε πάντα σε ποιο σημείο βρισκόμαστε. Το χρονοδιάγραμμα το κλείνουμε μαζί, ανάλογα με το τι φτιάχνουμε και πότε είναι έτοιμο το υλικό σας. | You always know where we are. We fix the schedule together, based on what we're building and when your material is ready. |
+| Anastacia bio | ...τι σας κάνει να ξεχωρίζετε... | ...τι σας κάνει διαφορετικούς... | ...what makes you different... |
+| Industry cards | formal lines such as "Κατανοητή παρουσίαση των υπηρεσιών σας και των ανθρώπων που τις παρέχουν" | 16 lines rewritten in plain spoken Greek, e.g. "Απλή παρουσίαση των υπηρεσιών και της ομάδας σας", "Η εμπειρία σας και οι περιοχές που ξέρετε σαν την παλάμη σας", "Δοκιμαστικό μάθημα, πρόγραμμα και εγγραφές, όλα από το κινητό" | A simple presentation of your services and team · Your experience and the areas you know like the back of your hand · Trial class, timetable and sign-ups, all from your phone |
+
+"Ξεχωρίζει" and related words went from five uses on the Greek homepage to one (the footer).
+
+**Greek "free consultation"** stays "Δωρεάν συμβουλευτική". In Greek "δωρεάν" works on its own, with no preposition, so the Hebrew ב fix doesn't carry over.
+
 ## Kept on purpose
 
 - **Hebrew homepage headline** "בונים לכם אתר שיביא יותר לקוחות" ("We build you a website that brings more customers"). A test marks it as owner-approved, and it already reads naturally.

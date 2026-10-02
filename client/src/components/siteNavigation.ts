@@ -46,5 +46,5 @@ export function getActiveNavHref(location: string, language: SiteLanguage) {
 export const NAV_COPY = {
   en: { home: "DM Labs home", navigation: "Main navigation", open: "Open menu", close: "Close menu", language: "Choose language", consultation: "Free consultation", skip: "Skip to content", note: "A good website starts with a conversation." },
   el: { home: "DM Labs: Αρχική", navigation: "Κύρια πλοήγηση", open: "Άνοιγμα μενού", close: "Κλείσιμο μενού", language: "Επιλογή γλώσσας", consultation: "Δωρεάν συμβουλευτική", skip: "Μετάβαση στο περιεχόμενο", note: "Κάθε καλή ιστοσελίδα ξεκινά με μια κουβέντα." },
-  he: { home: "DM Labs: דף הבית", navigation: "ניווט ראשי", open: "פתיחת תפריט", close: "סגירת תפריט", language: "בחירת שפה", consultation: "ייעוץ חינם", skip: "דילוג לתוכן", note: "אתר טוב מתחיל בשיחה." },
+  he: { home: "DM Labs: דף הבית", navigation: "ניווט ראשי", open: "פתיחת תפריט", close: "סגירת תפריט", language: "בחירת שפה", consultation: "ייעוץ בחינם", skip: "דילוג לתוכן", note: "אתר טוב מתחיל בשיחה." },
 };

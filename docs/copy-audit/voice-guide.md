@@ -4,7 +4,9 @@ How DM Labs sounds in Greek and Hebrew. Read this before writing or changing any
 
 ## The one rule
 
-Write from the meaning, not from the English sentence. Ask: "What does this line need the reader to know or feel?" Then write it the way a sharp local copywriter would say it to a business owner over coffee. Keep every fact. Drop the English sentence shape.
+Write from the meaning, not from the English sentence. Ask: "What does this line need the reader to know or feel?" Then write it the way you'd say it to a client in a WhatsApp chat. Keep every fact. Drop the English sentence shape.
+
+Owner's direction (2 October 2026): "It needs to be real, like the way you'd talk to me in a chat. Realistic. Simple." Read every line out loud. If you wouldn't say it to a friend who runs a business, simplify it.
 
 ## Who we talk to
 
@@ -17,6 +19,8 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 - A native expression now and then, where it really lands. About one per section at most. Never two in a row.
 - Never in: legal pages, prices and payment terms, FAQ answers, form errors, accessibility labels. Those stay clear and plain.
 - No hype words: no "the best", "revolutionary", "unique solutions", "cutting-edge".
+- Watch the words that creep back in. At most once per page: Hebrew מרשים, מוקפד, ייחודי · Greek εντυπωσιακός, ξεχωρίζει / ξεχωριστός, μοναδικός. Say the plain thing instead: "נראה טוב", "δείχνει ωραία".
+- Don't repeat yourself. A card's short line and its longer text must not say the same thing.
 - No em dashes. Use a full stop or a comma. Don't use " - " as a dash either.
 
 ## Greek
@@ -64,6 +68,7 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 - Active voice. "אנחנו בונים", not "נבנה על ידינו".
 - Everyday Israeli Hebrew, not translated-document Hebrew. Read it aloud: if nobody would say it, rewrite it.
 - Buttons with ל־ are natural and fine: "לפרטים נוספים", "לצפייה בדוגמה".
+- Phone: "טלפון" in everyday lines, "מובייל" in service names ("התאמה מושלמת למובייל"). Avoid "נייד".
 - English words fine where Israelis use them: SEO, Google, WhatsApp, דומיין, לידים (casual contexts only).
 
 ### Expressions we can use (sparingly)
@@ -94,7 +99,7 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 | ביצועים מהירים | "fast performance" | מהירות טעינה |
 | מסירה מהירה | sounds like shipping | עולים לאוויר מהר |
 | אירוח (for web hosting) | not the Israeli term | אחסון |
-| ללא עלות (in CTAs) | stiff, formal | חינם |
+| ללא עלות · חינם (consultation) | owner's wording is "ייעוץ בחינם", with ב | ייעוץ בחינם · לשיחת ייעוץ בחינם · בחינם וללא התחייבות |
 | הטובה ביותר | unprovable superlative | say what we do |
 
 ## Fixed terms (glossary)
@@ -115,7 +120,7 @@ Use exactly these everywhere. Change one only by changing it site-wide.
 | Slug | English | Greek | Hebrew |
 |---|---|---|---|
 | custom-design | Custom Website Design | Ιστοσελίδα στα μέτρα σας | עיצוב אתרים בהתאמה אישית |
-| mobile-first | Mobile-First Development | Άψογη στο κινητό | מושלם בנייד |
+| mobile-first | Mobile-First Development | Άψογη προσαρμογή σε κινητά | התאמה מושלמת למובייל |
 | seo | SEO Optimisation | Εμφάνιση στη Google (SEO) | קידום אורגני (SEO) |
 | performance | Fast Performance | Ταχύτητα φόρτωσης | מהירות טעינה |
 | security | Secure & Reliable | Ασφάλεια και φροντίδα | אבטחה ותחזוקה |
@@ -139,8 +144,8 @@ These are the short names (homepage cards, menus, links). Each service page can 
 
 | Action | Greek | Hebrew |
 |---|---|---|
-| Free consultation (header) | Δωρεάν συμβουλευτική | ייעוץ חינם |
-| Free consultation (main buttons) | Δωρεάν συμβουλευτική (a longer label wraps to two lines on phones) | לשיחת ייעוץ חינם |
+| Free consultation (header) | Δωρεάν συμβουλευτική | ייעוץ בחינם |
+| Free consultation (main buttons) | Δωρεάν συμβουλευτική (a longer label wraps to two lines on phones; Greek needs no preposition here) | לשיחת ייעוץ בחינם |
 | See examples | Δείτε παραδείγματα | לדוגמאות |
 | See all examples | Δείτε όλα τα παραδείγματα | לכל הדוגמאות |
 | Open a service | Δείτε την υπηρεσία | לפרטים על השירות |
