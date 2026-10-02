@@ -10,7 +10,7 @@ Nothing here changes a price, plan, timeline, link or promise. Google titles and
 
 | | Round 3 | Round 4 | In English |
 |---|---|---|---|
-| Video title | אנחנו בונים לכם את האתר, ואחרי ההשקה שומרים עליו כמו על הבייבי שלנו. | בונים לכם את האתר, ולא נעלמים אחרי ההשקה. | We build your website, and we don't disappear after launch. |
+| Video title | אנחנו בונים לכם את האתר, ואחרי ההשקה שומרים עליו כמו על הבייבי שלנו. | איתכם לאורך כל הדרך, גם אחרי ההשקה. (owner's wording; an interim "בונים לכם את האתר, ולא נעלמים אחרי ההשקה." was also rejected) | With you all the way, even after launch. |
 
 **Greek.** The owner asked how sure we are that the Greek is native. A line-by-line review hunting for English calques found these, now fixed:
 
