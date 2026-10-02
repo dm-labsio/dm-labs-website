@@ -132,9 +132,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div style={{ marginBottom: "20px" }}><BrandLogo full /></div>
                 <p className="text-sm text-[#94A3B8] leading-relaxed max-w-xs">
                   {isHebrew
-                    ? "בלטו בשוק. בנו אמון. הפכו עניין לפניות. אתרים בהתאמה אישית וליווי אישי מטום ואנסטסיה, לעסקים בכל מקום."
+                    ? "אתר שגורם לעסק שלכם לבלוט, ללקוחות לסמוך עליכם ולטלפון לצלצל. בעיצוב אישי ובליווי צמוד של טום ואנסטסיה, לעסקים בכל העולם."
                     : isGreek
-                      ? "Ξεχωρίστε. Κερδίστε εμπιστοσύνη. Μετατρέψτε το ενδιαφέρον σε επαφές. Custom ιστοσελίδες και προσωπική φροντίδα από τον Tom και την Anastacia, σε επιχειρήσεις παντού."
+                      ? "Μια ιστοσελίδα που σας κάνει να ξεχωρίζετε, κερδίζει την εμπιστοσύνη των πελατών σας και κάνει το τηλέφωνο να χτυπάει. Τη φτιάχνουμε από το μηδέν, με την προσωπική φροντίδα του Tom και της Anastacia, για επιχειρήσεις σε όλο τον κόσμο."
                       : "Stand out. Earn trust. Turn interest into enquiries. Custom websites and personal care from Tom and Anastacia, for businesses worldwide."
                   }
                 </p>
@@ -183,9 +183,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </>
                 ) : isGreek ? (
                   <>
-                    <li><Link href="/el/privacy/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική Απορρήτου</Link></li>
-                    <li><Link href="/el/cookies/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική Cookies</Link></li>
-                    <li><Link href="/el/terms/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Όροι Χρήσης</Link></li>
+                    <li><Link href="/el/privacy/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική απορρήτου</Link></li>
+                    <li><Link href="/el/cookies/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική cookies</Link></li>
+                    <li><Link href="/el/terms/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Όροι χρήσης</Link></li>
                   </>
                 ) : (
                   <>
@@ -214,7 +214,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </li>
                 <li className="flex items-start gap-3 text-sm text-[#94A3B8]">
                   <MapPin size={16} className="text-[#5B8CFF] shrink-0 mt-0.5" />
-                  <span>{isHebrew ? "אירופה והעולם" : isGreek ? "Ευρώπη και Παγκοσμίως" : "Europe & Worldwide"}</span>
+                  <span>{isHebrew ? "אירופה והעולם" : isGreek ? "Ευρώπη και όλος ο κόσμος" : "Europe & Worldwide"}</span>
                 </li>
               </ul>
             </div>

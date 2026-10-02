@@ -19,7 +19,7 @@ export const EL_NAV_LINKS = [
   { label: "Παραδείγματα", href: "/el/templates/" },
   { label: "Τιμές", href: "/el/pricing/" },
   { label: "Άρθρα", href: "/el/blog/" },
-  { label: "FAQ", href: "/el/faq/" },
+  { label: "Ερωτήσεις", href: "/el/faq/" },
   { label: "Επικοινωνία", href: "/el/contact/" },
 ];
 
@@ -28,9 +28,9 @@ export const HE_NAV_LINKS = [
   { label: "שירותים", href: "/he/services/" },
   { label: "תהליך", href: "/he/process/" },
   { label: "דוגמאות", href: "/he/templates/" },
-  { label: "תמחור", href: "/he/pricing/" },
+  { label: "מחירים", href: "/he/pricing/" },
   { label: "שאלות נפוצות", href: "/he/faq/" },
-  { label: "יצירת קשר", href: "/he/contact/" },
+  { label: "צרו קשר", href: "/he/contact/" },
 ];
 
 
@@ -45,6 +45,6 @@ export function getActiveNavHref(location: string, language: SiteLanguage) {
 
 export const NAV_COPY = {
   en: { home: "DM Labs home", navigation: "Main navigation", open: "Open menu", close: "Close menu", language: "Choose language", consultation: "Free consultation", skip: "Skip to content", note: "A good website starts with a conversation." },
-  el: { home: "DM Labs: Αρχική", navigation: "Κύρια πλοήγηση", open: "Άνοιγμα μενού", close: "Κλείσιμο μενού", language: "Επιλογή γλώσσας", consultation: "Δωρεάν συμβουλευτική", skip: "Μετάβαση στο περιεχόμενο", note: "Μια καλή ιστοσελίδα ξεκινά με μια συζήτηση." },
-  he: { home: "DM Labs: דף הבית", navigation: "ניווט ראשי", open: "פתיחת תפריט", close: "סגירת תפריט", language: "בחירת שפה", consultation: "ייעוץ ללא עלות", skip: "דילוג לתוכן", note: "אתר טוב מתחיל בשיחה." },
+  el: { home: "DM Labs: Αρχική", navigation: "Κύρια πλοήγηση", open: "Άνοιγμα μενού", close: "Κλείσιμο μενού", language: "Επιλογή γλώσσας", consultation: "Δωρεάν συμβουλευτική", skip: "Μετάβαση στο περιεχόμενο", note: "Κάθε καλή ιστοσελίδα ξεκινά με μια κουβέντα." },
+  he: { home: "DM Labs: דף הבית", navigation: "ניווט ראשי", open: "פתיחת תפריט", close: "סגירת תפריט", language: "בחירת שפה", consultation: "ייעוץ חינם", skip: "דילוג לתוכן", note: "אתר טוב מתחיל בשיחה." },
 };

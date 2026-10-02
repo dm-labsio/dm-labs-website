@@ -301,7 +301,7 @@ export function serveStatic(app: Express) {
       const notFoundTitle = urlPath === "/he" || urlPath.startsWith("/he/")
         ? "הדף לא נמצא | DM-Labs.io"
         : urlPath === "/el" || urlPath.startsWith("/el/")
-          ? "Σελίδα Δεν Βρέθηκε | DM-Labs.io"
+          ? "Η σελίδα δεν βρέθηκε | DM-Labs.io"
           : "Page Not Found | DM-Labs.io";
       html = html.replace(
         /<title>[^<]*<\/title>/,

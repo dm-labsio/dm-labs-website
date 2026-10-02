@@ -117,10 +117,10 @@ const FEATURED_TEMPLATES = [
     industry: "restaurant",
     name: "Nomad Coffee",
     category: "Καφετέρια & Καφές",
-    styleLabel: "Artisan Minimal",
+    styleLabel: "Μίνιμαλ με χαρακτήρα",
     previewUrl: "/previews/nomad-coffee.html",
     imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80",
-    imageAlt: "Nomad Coffee website example",
+    imageAlt: "Παράδειγμα ιστοσελίδας για το Nomad Coffee",
     palette: ["#1a1208", "#2c1f0e"],
   },
   {
@@ -131,7 +131,7 @@ const FEATURED_TEMPLATES = [
     styleLabel: "Κομψό & Θηλυκό",
     previewUrl: "/previews/bella-salon.html",
     imageUrl: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80",
-    imageAlt: "Bella Salon website example",
+    imageAlt: "Παράδειγμα ιστοσελίδας για το Bella Salon",
     palette: ["#1a0a0f", "#6b2d3e"],
   },
   {
@@ -142,17 +142,17 @@ const FEATURED_TEMPLATES = [
     styleLabel: "Καθαρό & Επαγγελματικό",
     previewUrl: "/previews/dr-elara-dental.html",
     imageUrl: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80",
-    imageAlt: "Dr. Elara Dental website example",
+    imageAlt: "Παράδειγμα ιστοσελίδας για το Dr. Elara Dental",
     palette: ["#0a1628", "#0d2040"],
   },
   {
     id: "verde-restaurant",
     industry: "restaurant",
     name: "Verde Restaurant",
-    styleLabel: "Fresh Mediterranean",
+    styleLabel: "Φρέσκο μεσογειακό",
     previewUrl: "/previews/verde-restaurant.html",
     imageUrl: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80",
-    imageAlt: "Verde Restaurant website example",
+    imageAlt: "Παράδειγμα ιστοσελίδας για το Verde Restaurant",
     palette: ["#1a2e1a", "#2d5a27"],
   },
 ];
@@ -209,12 +209,12 @@ export default function HomeElPage() {
         <div className="container relative z-10">
           {/* -- Template Showcase Grid -- */}
           <AnimateIn className="text-center mb-10">
-            <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Έμπνευση Σχεδιασμού</p>
+            <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Ιδέες σχεδιασμού</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#edf2ff] mb-3">
-              Η πρώτη εντύπωση ανοίγει πόρτες
+              Η πρώτη εντύπωση δεν ξαναγίνεται
             </h2>
             <p className="text-base text-[#bdc9df] max-w-2xl mx-auto">
-              Η ιστοσελίδα σας δείχνει την αξία σας πριν από την πρώτη συζήτηση. Εξερευνήστε αυτά τα <strong className="text-[#edf2ff]">concept σχέδια</strong> για έμπνευση. Το δικό σας site θα σχεδιαστεί γύρω από το brand, τους πελάτες και τους στόχους σας.
+              Η ιστοσελίδα σας μιλάει για εσάς πριν καν σας γνωρίσουν. Πάρτε ιδέες από αυτά τα <strong className="text-[#edf2ff]">ενδεικτικά σχέδια</strong>. Τη δική σας θα τη σχεδιάσουμε γύρω από το brand, τους πελάτες και τους στόχους σας.
             </p>
           </AnimateIn>
 
@@ -235,7 +235,7 @@ export default function HomeElPage() {
 
           <AnimateIn className="text-center mb-16">
             <StarButton asChild><Link href="/el/templates/" className="btn-primary">
-              Δείτε Όλα τα Παραδείγματα
+              Δείτε όλα τα παραδείγματα
 
             </Link></StarButton>
           </AnimateIn>
@@ -258,9 +258,9 @@ export default function HomeElPage() {
       <section className="home-stories section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-14">
-              <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Ιστορίες Πελατών</p>
+              <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Ιστορίες πελατών</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#edf2ff] mb-4">
-              Τι Λένε οι Πελάτες μας
+              Τι λένε οι πελάτες μας
             </h2>
             <p className="text-lg text-[#bdc9df] max-w-xl mx-auto">
               Πρώτες εντυπώσεις από τις επιχειρήσεις με τις οποίες έχουμε συνεργαστεί.
@@ -310,7 +310,7 @@ export default function HomeElPage() {
         <div className="container">
           <AnimateIn className="text-center mb-14">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#5B8CFF] mb-3">Οι άνθρωποι πίσω από τη δουλειά</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#edf2ff]">Ποιοι Είμαστε</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#edf2ff]">Ποιοι είμαστε</h2>
           </AnimateIn>
 
           <TeamProfiles language="el" />
@@ -336,17 +336,17 @@ export default function HomeElPage() {
 
         <div className="container relative z-10 section-spacing text-center">
           <AnimateIn>
-            <p className="text-sm font-medium text-[#6FE3FF] mb-4 tracking-wide uppercase">Έτοιμοι να Ξεκινήσετε;</p>
+            <p className="text-sm font-medium text-[#6FE3FF] mb-4 tracking-wide uppercase">Ξεκινάμε;</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-3xl mx-auto leading-tight">
               Δώστε στους πελάτες λόγο να σας επιλέξουν
             </h2>
             <p className="text-lg text-[#94A3B8] mb-10 max-w-xl mx-auto">
-              Πείτε μας πού θέλετε να φτάσει η επιχείρησή σας. Θα σχεδιάσουμε την ιστοσελίδα, το εύρος του έργου και τα επόμενα βήματα μαζί σας. Μιλάτε απευθείας με τους ανθρώπους που την κατασκευάζουν.
+              Πείτε μας πού θέλετε να πάει η επιχείρησή σας. Μαζί ορίζουμε την ιστοσελίδα, τι θα περιλαμβάνει και τα επόμενα βήματα. Και μιλάτε κατευθείαν με αυτούς που τη φτιάχνουν, χωρίς μεσάζοντες.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <StarButton asChild><Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">
 
-                Δωρεάν Συμβουλευτική
+                Δωρεάν συμβουλευτική
               </Link></StarButton>
             </div>
           </AnimateIn>

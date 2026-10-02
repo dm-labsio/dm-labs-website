@@ -17,7 +17,7 @@ function withoutTechnicalReferences(text: string) {
 describe("International positioning", () => {
   it("uses the selected English headline and its Greek adaptation", () => {
     expect(`${HOME_HERO_COPY.en.opening} ${HOME_HERO_COPY.en.payoff}`).toBe("Built to impress. Designed to convert.");
-    expect(`${HOME_HERO_COPY.el.opening} ${HOME_HERO_COPY.el.payoff}`).toBe("Εντυπωσιάζει με την πρώτη ματιά. Μετατρέπει το ενδιαφέρον σε πελάτες.");
+    expect(`${HOME_HERO_COPY.el.opening} ${HOME_HERO_COPY.el.payoff}`).toBe("Εντυπωσιάζει με το καλημέρα. Και φέρνει πελάτες.");
   });
 
   it("uses the approved natural Hebrew homepage headline", () => {

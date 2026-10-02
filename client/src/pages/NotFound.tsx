@@ -15,7 +15,7 @@ export default function NotFound() {
     document.title = isHebrew
       ? "הדף לא נמצא | DM-Labs.io"
       : isGreek
-        ? "Σελίδα Δεν Βρέθηκε | DM-Labs.io"
+        ? "Η σελίδα δεν βρέθηκε | DM-Labs.io"
         : "Page Not Found | DM-Labs.io";
 
     // Noindex — override any existing robots meta
@@ -46,7 +46,7 @@ export default function NotFound() {
           <p className="text-8xl font-bold brand-gradient-text mb-4">404</p>
           <h1 className="text-3xl font-bold text-[#111315] mb-3">הדף לא נמצא</h1>
           <p className="text-[#5B6472] mb-8 max-w-sm mx-auto">
-            העמוד שחיפשתם אינו קיים. אפשר לחזור לדף הבית ולמצוא את מה שצריך.
+            נראה שהלכתם לאיבוד. בואו נחזור לדף הבית ונמצא את מה שחיפשתם.
           </p>
           <StarButton asChild><Link href="/he/" className="btn-primary">
              חזרה לדף הבית
@@ -61,12 +61,12 @@ export default function NotFound() {
       <div className="min-h-[70vh] flex items-center justify-center">
         <div className="container text-center py-20">
           <p className="text-8xl font-bold brand-gradient-text mb-4">404</p>
-          <h1 className="text-3xl font-bold text-[#111315] mb-3">Η Σελίδα Δεν Βρέθηκε</h1>
+          <h1 className="text-3xl font-bold text-[#111315] mb-3">Αυτή η σελίδα δεν υπάρχει</h1>
           <p className="text-[#5B6472] mb-8 max-w-sm mx-auto">
-            Η σελίδα που ψάχνετε δεν υπάρχει. Ας σας επαναφέρουμε στη σωστή κατεύθυνση.
+            Μάλλον χαθήκατε λίγο. Πάμε πίσω στην αρχή να βρείτε αυτό που ψάχνετε.
           </p>
           <StarButton asChild><Link href="/el/" className="btn-primary">
-             Επιστροφή στην Αρχική
+             Πίσω στην αρχική
           </Link></StarButton>
         </div>
       </div>

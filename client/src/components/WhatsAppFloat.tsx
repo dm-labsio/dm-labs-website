@@ -13,7 +13,7 @@ export default function WhatsAppFloat() {
   const locale = typeof window !== "undefined" && window.location.pathname.startsWith("/he")
     ? "he"
     : typeof window !== "undefined" && window.location.pathname.startsWith("/el") ? "el" : "en";
-  const tooltip = locale === "he" ? "יש שאלה? דברו איתנו!" : locale === "el" ? "Γρήγορη ερώτηση; Γράψτε μας!" : "Quick question? Message us!";
+  const tooltip = locale === "he" ? "יש שאלה? כתבו לנו!" : locale === "el" ? "Γρήγορη ερώτηση; Γράψτε μας!" : "Quick question? Message us!";
   const waUrl = locale === "he" ? WA_HE : locale === "el" ? WA_EL : WA_EN;
   const ariaLabel = locale === "he" ? "פנייה אלינו ב-WhatsApp" : locale === "el" ? "Επικοινωνήστε μαζί μας στο WhatsApp" : "Chat with us on WhatsApp";
 
