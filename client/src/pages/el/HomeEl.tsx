@@ -211,10 +211,10 @@ export default function HomeElPage() {
           <AnimateIn className="text-center mb-10">
             <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Ιδέες σχεδιασμού</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#edf2ff] mb-3">
-              Η πρώτη εντύπωση δεν ξαναγίνεται
+              Δεύτερη ευκαιρία για πρώτη εντύπωση δεν υπάρχει
             </h2>
             <p className="text-base text-[#bdc9df] max-w-2xl mx-auto">
-              Ο κόσμος σας κρίνει από την ιστοσελίδα σας μέσα σε λίγα δευτερόλεπτα, πριν καν σηκώσει το τηλέφωνο. Ρίξτε μια ματιά σε αυτά τα <strong className="text-[#edf2ff]">ενδεικτικά σχέδια</strong> για ιδέες, και τη δική σας θα τη στήσουμε από το μηδέν, γύρω από το brand, τους πελάτες και τους στόχους σας.
+              Ο κόσμος σας κρίνει από την ιστοσελίδα σας μέσα σε λίγα δευτερόλεπτα, πριν καν σας πάρει τηλέφωνο. Ρίξτε μια ματιά σε αυτά τα <strong className="text-[#edf2ff]">ενδεικτικά σχέδια</strong> για ιδέες, και τη δική σας θα τη στήσουμε από το μηδέν, με βάση το brand, τους πελάτες και τους στόχους σας.
             </p>
           </AnimateIn>
 
@@ -338,10 +338,10 @@ export default function HomeElPage() {
           <AnimateIn>
             <p className="text-sm font-medium text-[#6FE3FF] mb-4 tracking-wide uppercase">Ξεκινάμε;</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 max-w-3xl mx-auto leading-tight">
-              Δώστε στους πελάτες λόγο να σας επιλέξουν
+              Δώστε στους πελάτες σας έναν λόγο να διαλέξουν εσάς
             </h2>
             <p className="text-lg text-[#94A3B8] mb-10 max-w-xl mx-auto">
-              Πείτε μας πού θέλετε να πάει η επιχείρησή σας και θα το σχεδιάσουμε μαζί: πώς θα είναι η ιστοσελίδα, τι θα περιλαμβάνει και ποιο είναι το επόμενο βήμα. Και σε όλη τη διαδρομή μιλάτε κατευθείαν με αυτούς που τη φτιάχνουν, χωρίς μεσάζοντες και χωρίς χαλασμένο τηλέφωνο.
+              Πείτε μας πού θέλετε να πάει η επιχείρησή σας και θα τα κανονίσουμε μαζί: πώς θα είναι η ιστοσελίδα, τι θα περιλαμβάνει και ποιο είναι το επόμενο βήμα. Και σε όλη τη διαδρομή μιλάτε κατευθείαν με αυτούς που τη φτιάχνουν, χωρίς μεσάζοντες και χωρίς χαλασμένο τηλέφωνο.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <StarButton asChild><Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">

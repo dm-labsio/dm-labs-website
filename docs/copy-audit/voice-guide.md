@@ -29,6 +29,7 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 
 - Address: polite plural **εσείς**, but warm. Lowercase "σας", never "Σας". (Default. The owner can switch to "εσύ".)
 - Standard Greek that reads naturally in both Greece and Cyprus. No dialect.
+- Google the search engine is neuter in everyday speech: "στο Google", "το Google καταλαβαίνει". "Η Google" is the company.
 - **Sentence case** in headings and buttons: "Δείτε όλα τα παραδείγματα", not "Δείτε Όλα τα Παραδείγματα". Greek doesn't use English title case.
 - English words: fine where Greeks actually use them (SEO, Google, WhatsApp, online, e-shop, site, brand, domain). Not in running text where Greek is natural: custom, scope, launch, build, review, pricing, care, mobile-first, concept, portfolio.
 
@@ -46,7 +47,7 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 | να χτυπάει το τηλέφωνο | the phone keeps ringing | results |
 | βγαίνει στον αέρα | goes live | launch |
 | δεν σας αφήνουμε στη μέση | we don't leave you halfway | support, care plans |
-| Η πρώτη εντύπωση δεν ξαναγίνεται | first impressions don't repeat | homepage, examples |
+| Δεύτερη ευκαιρία για πρώτη εντύπωση δεν υπάρχει | there's no second chance at a first impression | homepage, examples |
 | Ας τα πούμε | let's talk | soft CTAs |
 | όλο το εικοσιτετράωρο | around the clock | the website working for them |
 | στην τρίχα | immaculate, dressed to the nines | design, first impressions |
@@ -73,6 +74,12 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 | Φτιαγμένο για εσάς. Με τη δική μας φροντίδα. | English tagline shape | natural sentence |
 | ερώτημα / ερωτήματα for an enquiry | means "query, question" | μήνυμα, αίτημα (for forms), επικοινωνία |
 | Η καλύτερη εταιρεία... | unprovable superlative | say what we do |
+| σηκώνω το τηλέφωνο (to call someone) | in Greek it means to *answer* the phone | σας παίρνει τηλέφωνο |
+| είμαστε πάνω του | word-for-word "we're on it" | το πιάνουμε αμέσως |
+| γύρω από το brand / την επιχείρησή σας | word-for-word "built around" | με βάση το brand σας · ξεκινάμε από... |
+| ένα κουμπί που σας καλεί | the button doesn't call you, the visitor does | ένα κουμπί για να σας πάρουν τηλέφωνο |
+| Η πρώτη εντύπωση δεν ξαναγίνεται | not an established saying | Δεύτερη ευκαιρία για πρώτη εντύπωση δεν υπάρχει |
+| αξίζει μια πιο κοντινή ματιά | word-for-word "worth a closer look" | αξίζει να το γνωρίσει κανείς από κοντά |
 
 ## Hebrew
 
@@ -142,7 +149,7 @@ Use exactly these everywhere. Change one only by changing it site-wide.
 |---|---|---|---|
 | custom-design | Custom Website Design | Ιστοσελίδα στα μέτρα σας | עיצוב אתרים בהתאמה אישית |
 | mobile-first | Mobile-First Development | Άψογη προσαρμογή σε κινητά | התאמה מושלמת למובייל |
-| seo | SEO Optimisation | Εμφάνιση στη Google (SEO) | קידום אורגני (SEO) |
+| seo | SEO Optimisation | Εμφάνιση στο Google (SEO) | קידום אורגני (SEO) |
 | performance | Fast Performance | Ταχύτητα φόρτωσης | מהירות טעינה |
 | security | Secure & Reliable | Ασφάλεια και φροντίδα | אבטחה ותחזוקה |
 | turnaround | Quick Turnaround | Γρήγορη παράδοση | עולים לאוויר מהר |
@@ -187,6 +194,10 @@ Natural copy still has to carry the phrases people type into Google. Keep these 
 | City pages | κατασκευή ιστοσελίδας + city name (Λεμεσός, Λευκωσία, Θεσσαλονίκη, Κρήτη, Κύπρος) | n/a |
 | Service pages | the service's own topic (e.g. SEO, ταχύτητα ιστοσελίδας, φόρμα επικοινωνίας) | the service's own topic (e.g. קידום אורגני, טופס יצירת קשר) |
 | Blog posts | the post's existing title keyword | n/a |
+
+## Native review
+
+The owner reads Hebrew natively but not Greek. Every Greek batch gets a self-review pass hunting specifically for English calques (see "Never write"), and a native Greek speaker should read the homepage and pricing before anything goes to `main`.
 
 ## Things we don't touch
 

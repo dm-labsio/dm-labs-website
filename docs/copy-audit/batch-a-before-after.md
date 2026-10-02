@@ -4,11 +4,37 @@ Homepage and shared parts, Greek and Hebrew. Every new line has an English back-
 
 Nothing here changes a price, plan, timeline, link or promise. Google titles and descriptions are untouched (Batch F).
 
-## Round 3 (latest): full conversational sentences
+## Round 4 (latest): Hebrew video title and a Greek self-review
+
+**Hebrew.** The owner didn't like the video title and asked for something shorter and more to the point.
+
+| | Round 3 | Round 4 | In English |
+|---|---|---|---|
+| Video title | אנחנו בונים לכם את האתר, ואחרי ההשקה שומרים עליו כמו על הבייבי שלנו. | בונים לכם את האתר, ולא נעלמים אחרי ההשקה. | We build your website, and we don't disappear after launch. |
+
+**Greek.** The owner asked how sure we are that the Greek is native. A line-by-line review hunting for English calques found these, now fixed:
+
+| Problem | Round 3 | Round 4 | In English |
+|---|---|---|---|
+| Wrong meaning: "σηκώνω το τηλέφωνο" means *answer* the phone, not call | ...να κάνει τον πελάτη να σηκώσει το τηλέφωνο. · ...πριν καν σηκώσει το τηλέφωνο. | ...να κάνει τον πελάτη να σας πάρει τηλέφωνο. · ...πριν καν σας πάρει τηλέφωνο. | ...get the customer to call you. · ...before they even call you. |
+| Calque of "we're on it" | Αν κάτι στραβώσει, είμαστε ήδη πάνω του... | Αν κάτι στραβώσει, το πιάνουμε αμέσως, κι εσείς κοιμάστε ήσυχοι. | If something goes wrong, we deal with it right away, and you sleep easy. |
+| The button doesn't call you, the visitor does | ...και ένα κουμπί που σας καλεί ή σας στέλνει μήνυμα... | ...και ένα κουμπί για να σας πάρουν τηλέφωνο ή να σας στείλουν μήνυμα με ένα πάτημα. | ...and a button so people can call or message you in one tap. |
+| Sentence switched subject halfway; "γύρω από" is a calque of "built around" | ...να λέει ξεκάθαρα τι κάνετε και να σας βρίσκουν με ένα πάτημα. Έτσι στήνουμε κάθε ιστοσελίδα, γύρω από τη δική σας επιχείρηση. | Μια καλή ιστοσελίδα δεν είναι μόνο να δείχνει ωραία. Πρέπει να ανοίγει γρήγορα, να λέει ξεκάθαρα τι κάνετε και να μπορεί ο επισκέπτης να επικοινωνήσει μαζί σας με ένα πάτημα. Έτσι ακριβώς φτιάχνουμε και τη δική σας. | A good website isn't just about looking nice. It has to load fast, say clearly what you do and let visitors contact you in one tap. That's exactly how we'll build yours. |
+| "Built around" calque; made-up compound | Χωρίς έτοιμα πρότυπα και χωρίς ιστοσελίδες-φωτοτυπία. Σχεδιάζουμε... γύρω από το brand σας... | Χωρίς έτοιμα πρότυπα και χωρίς ιστοσελίδες της σειράς. Ξεκινάμε από το brand σας και τους πελάτες που θέλετε να κερδίσετε, και σχεδιάζουμε μια ιστοσελίδα που δείχνει πόσο καλοί είστε σε αυτό που κάνετε. | No ready-made templates and no run-of-the-mill websites. We start from your brand and the customers you want to win, and design a site that shows how good you are at what you do. |
+| Examples text, same calque | ...γύρω από το brand, τους πελάτες... | ...με βάση το brand, τους πελάτες και τους στόχους σας. | ...based on your brand, your customers and your goals. |
+| Not an established saying | Η πρώτη εντύπωση δεν ξαναγίνεται | Δεύτερη ευκαιρία για πρώτη εντύπωση δεν υπάρχει | There's no second chance at a first impression |
+| More natural heading | Κάθε λεπτομέρεια έχει τον λόγο της. | Τίποτα δεν είναι τυχαίο. | Nothing is there by accident. |
+| More natural heading | Δώστε στους πελάτες λόγο να σας επιλέξουν | Δώστε στους πελάτες σας έναν λόγο να διαλέξουν εσάς | Give your customers a reason to choose you |
+| Unclear "it" | ...και θα το σχεδιάσουμε μαζί: | ...και θα τα κανονίσουμε μαζί: | ...and we'll sort it all out together: |
+| Calque of "worth a closer look" | Προϊόντα που αξίζουν μια πιο κοντινή ματιά. | Προϊόντα που αξίζει να τα γνωρίσει κανείς από κοντά. | Products worth getting to know up close. |
+| Smoother | ...και απαντήσεις χωρίς καθυστερήσεις. · Οι σελίδες μας ανοίγουν... | ...και γρήγορες απαντήσεις. · Οι σελίδες που φτιάχνουμε ανοίγουν... | ...and quick answers. · The pages we build open... |
+| Everyday usage: the search engine is neuter | στη Google · η Google · Εμφάνιση στη Google (SEO) | στο Google · το Google · Εμφάνιση στο Google (SEO) | (same meaning; "η Google" is the company) |
+
+## Round 3: full conversational sentences
 
 Feedback: Round 2 was too clipped. Write full, flowing sentences, the way you'd talk in a chat, with a bit of creative writing and real local expressions.
 
-**This is what's on preview.** Where a line also appears in Round 2 or in the Round 1 tables below, this version replaces it.
+Where Round 4 above doesn't change a line, this Round 3 version is what's on preview. It replaces Round 2 and the Round 1 tables below.
 
 ### Hebrew
 
