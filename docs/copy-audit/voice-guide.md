@@ -74,6 +74,8 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 | Φτιαγμένο για εσάς. Με τη δική μας φροντίδα. | English tagline shape | natural sentence |
 | ερώτημα / ερωτήματα for an enquiry | means "query, question" | μήνυμα, αίτημα (for forms), επικοινωνία |
 | Η καλύτερη εταιρεία... | unprovable superlative | say what we do |
+| φροντίδα · πλάνο φροντίδας (for the care plans) | word-for-word "care" | συντήρηση · πακέτο συντήρησης · φιλοξενία και συντήρηση |
+| γύροι αναθεωρήσεων | stiff | γύροι διορθώσεων |
 | σηκώνω το τηλέφωνο (to call someone) | in Greek it means to *answer* the phone | σας παίρνει τηλέφωνο |
 | είμαστε πάνω του | word-for-word "we're on it" | το πιάνουμε αμέσως |
 | γύρω από το brand / την επιχείρησή σας | word-for-word "built around" | με βάση το brand σας · ξεκινάμε από... |
@@ -164,7 +166,7 @@ These are the short names (homepage cards, menus, links). Each service page can 
 | enquiry, message from a customer | μήνυμα · αίτημα (forms) | פנייה |
 | go live / launch | δημοσίευση · βγαίνει στον αέρα | השקה · עלייה לאוויר |
 | hosting | φιλοξενία | אחסון |
-| maintenance / care | συντήρηση | תחזוקה |
+| maintenance / care | συντήρηση · πακέτο συντήρησης | תחזוקה · תוכנית תחזוקה · תוכנית אחסון ותחזוקה |
 | revisions | γύροι διορθώσεων | סבבי תיקונים |
 | examples | παραδείγματα | דוגמאות |
 

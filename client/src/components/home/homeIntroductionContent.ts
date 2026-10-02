@@ -13,7 +13,7 @@ export const HOME_INTRODUCTION_COPY = {
     error: "The video couldn’t load. Try again or open it directly.", retry: "Try again", open: "Open video",
   },
   el: {
-    label: "Λίγα λόγια για εμάς", title: "Φτιάχνουμε το site σας και μετά το προσέχουμε σαν τα μάτια μας.",
+    label: "Λίγα λόγια για εμάς", title: "Δίπλα σας σε όλη τη διαδρομή, ακόμα και μετά την παράδοση.",
     play: "Δείτε ποιοι είμαστε",
     error: "Το βίντεο δεν φορτώθηκε. Δοκιμάστε ξανά ή ανοίξτε το απευθείας.", retry: "Δοκιμάστε ξανά", open: "Άνοιγμα βίντεο",
   },

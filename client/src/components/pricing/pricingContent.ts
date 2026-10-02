@@ -5,7 +5,7 @@ export const BUILD_PRICES = [299, 749, 1499] as const;
 export const CARE_PLANS = [{ name: "Basic Care", monthly: 69, yearly: 750 }, { name: "Complete Care", monthly: 129, yearly: 1395 }] as const;
 export const BUILD_PRICE_SUMMARY = {
   en: "Launch Website is €299 for one page or two simple pages, Growth Website is €749 for up to 4 pages, and Pro Website is €1,499 for up to 7 pages. Contact forms are included with Growth and Pro. Enterprise / Custom is quoted for your scope. The build is a one-time cost; hosting and care are required while we manage your website, from €69 per month. Prices exclude applicable taxes and separately agreed third-party costs.",
-  el: "Το Launch Website κοστίζει €299 για μία σελίδα ή δύο απλές σελίδες, το Growth Website €749 για έως 4 σελίδες και το Pro Website €1,499 για έως 7 σελίδες. Φόρμα επικοινωνίας περιλαμβάνεται στα Growth και Pro. Το Enterprise / Custom κοστολογείται βάσει του έργου. Η κατασκευή χρεώνεται εφάπαξ. Φιλοξενία και συντήρηση απαιτούνται όσο διαχειριζόμαστε την ιστοσελίδα σας, από €69 τον μήνα. Οι τιμές δεν περιλαμβάνουν τυχόν φόρους και χωριστά συμφωνημένες χρεώσεις τρίτων.",
+  el: "Το Launch Website κοστίζει €299 για μία σελίδα ή δύο απλές σελίδες, το Growth Website €749 για έως 4 σελίδες και το Pro Website €1,499 για έως 7 σελίδες. Τα Growth και Pro περιλαμβάνουν και φόρμα επικοινωνίας. Για το Enterprise / Custom δίνουμε προσφορά ανάλογα με το έργο. Η κατασκευή πληρώνεται μία φορά, και όσο διαχειριζόμαστε την ιστοσελίδα σας χρειάζεται και πακέτο φιλοξενίας και συντήρησης, από €69 τον μήνα. Οι τιμές δεν περιλαμβάνουν τυχόν φόρους και χωριστά συμφωνημένες χρεώσεις τρίτων.",
 } as const;
 
 export const BUILD_PLANS: Record<SiteLanguage, readonly { name: string; summary: string; features: readonly string[] }[]> = {
@@ -49,47 +49,47 @@ export const BUILD_PLANS: Record<SiteLanguage, readonly { name: string; summary:
   "el": [
     {
       "name": "Launch Website",
-      "summary": "Μια καθαρή, επαγγελματική online παρουσία για μια νέα επιχείρηση που θέλει να ξεκινήσει σωστά.",
+      "summary": "Για νέες επιχειρήσεις που θέλουν να ξεκινήσουν σωστά, χωρίς πολλά-πολλά: μια καθαρή, επαγγελματική παρουσία στο ίντερνετ.",
       "features": [
         "Μία σελίδα ή δύο απλές σελίδες",
-        "Responsive κατασκευή",
-        "Βασικές SEO βάσεις",
+        "Προσαρμογή σε κινητά και υπολογιστές",
+        "Οι βάσεις για το SEO",
         "WhatsApp και σύνδεσμοι social media",
-        "2 γύροι αναθεωρήσεων"
+        "2 γύροι διορθώσεων"
       ]
     },
     {
       "name": "Growth Website",
-      "summary": "Ένα site με έμφαση στις μετατροπές, για επιχείρηση που θέλει να τη βρίσκουν, να την εμπιστεύονται και να επικοινωνούν μαζί της.",
+      "summary": "Μια ιστοσελίδα στημένη για να φέρνει μηνύματα και τηλέφωνα, για επιχειρήσεις που θέλουν να τις βρίσκουν και να τις εμπιστεύονται.",
       "features": [
         "Έως 4 σελίδες",
         "Φόρμα επικοινωνίας",
-        "Google Maps και ενότητα reviews / testimonials",
+        "Google Maps και ενότητα με κριτικές πελατών",
         "Βασικό SEO",
         "Ρύθμιση Search Console και Analytics",
-        "3 γύροι αναθεωρήσεων"
+        "3 γύροι διορθώσεων"
       ]
     },
     {
       "name": "Pro Website",
-      "summary": "Μια πιο ολοκληρωμένη ψηφιακή παρουσία με πλουσιότερο περιεχόμενο, motion και ισχυρότερη βάση αναζήτησης.",
+      "summary": "Για όσους θέλουν το κάτι παραπάνω: περισσότερο περιεχόμενο, κίνηση στη σελίδα και πιο γερές βάσεις για το Google.",
       "features": [
         "Έως 7 σελίδες",
-        "Gallery ή portfolio",
-        "Pop-up και animations με scroll",
-        "Πλήρης SEO δομή",
-        "Ρύθμιση blog ή website visual pack",
-        "4 γύροι αναθεωρήσεων"
+        "Γκαλερί ή παρουσίαση έργων",
+        "Pop-up και animations καθώς κυλάει η σελίδα",
+        "Πλήρης δομή για SEO",
+        "Στήσιμο blog ή πακέτο γραφικών για την ιστοσελίδα",
+        "4 γύροι διορθώσεων"
       ]
     }
   ],
   "he": [
     {
       "name": "Launch Website",
-      "summary": "נקודת פתיחה מקצועית ומזמינה לעסק בתחילת הדרך.",
+      "summary": "לעסקים שרק יוצאים לדרך ורוצים להתחיל נכון: אתר נקי ומקצועי, בלי סיבוכים.",
       "features": [
         "עמוד אחד או שניים פשוטים",
-        "מותאם למובייל",
+        "התאמה מלאה למובייל",
         "יסודות SEO",
         "WhatsApp ורשתות חברתיות",
         "2 סבבי תיקונים"
@@ -97,25 +97,25 @@ export const BUILD_PLANS: Record<SiteLanguage, readonly { name: string; summary:
     },
     {
       "name": "Growth Website",
-      "summary": "אתר שעוזר ללקוחות הנכונים למצוא אתכם וליצור קשר בביטחון.",
+      "summary": "אתר שבנוי כדי להביא פניות: עוזר ללקוחות הנכונים למצוא אתכם, לסמוך עליכם ולהרים טלפון.",
       "features": [
         "עד 4 עמודים",
         "טופס יצירת קשר",
-        "Google Maps וביקורות",
+        "Google Maps וביקורות של לקוחות",
         "SEO בסיסי",
-        "Search Console ו-Analytics",
+        "הגדרת Search Console ו-Analytics",
         "3 סבבי תיקונים"
       ]
     },
     {
       "name": "Pro Website",
-      "summary": "נוכחות דיגיטלית עשירה יותר, עם תוכן ותשתית חיפוש שמוכנים לצמוח איתכם.",
+      "summary": "לעסקים שרוצים את כל החבילה: יותר תוכן, אנימציות ובסיס חזק יותר לגוגל, שיגדל יחד איתכם.",
       "features": [
         "עד 7 עמודים",
         "גלריה או תיק עבודות",
-        "אנימציות Popup וגלילה",
+        "פופ־אפים ואנימציות בגלילה",
         "מבנה SEO מלא",
-        "בלוג או חבילת נכסים",
+        "הקמת בלוג או חבילת גרפיקה לאתר",
         "4 סבבי תיקונים"
       ]
     }
@@ -157,7 +157,7 @@ export const CARE_FEATURES: Record<SiteLanguage, readonly (readonly string[])[]>
   ],
   "he": [
     [
-      "אירוח מנוהל וניטור זמינות",
+      "אחסון מנוהל וניטור זמינות",
       "ניהול קבצי האתר ומסד הנתונים, אם קיים",
       "גיבויים ותיקוני תקלות",
       "תמיכה ב־WhatsApp",
@@ -168,7 +168,7 @@ export const CARE_FEATURES: Record<SiteLanguage, readonly (readonly string[])[]>
       "עדכוני תוכן כשצריך",
       "תמיכת WhatsApp בעדיפות",
       "בדיקת ביצועים חודשית",
-      "עדכון באנר או אזור פשוט בחודש"
+      "עדכון של באנר או אזור פשוט אחד בחודש"
     ]
   ]
 };
@@ -262,19 +262,19 @@ export const COMPARISON: Record<SiteLanguage, readonly { feature: string; launch
       "pro": "Έως 7"
     },
     {
-      "feature": "Responsive κατασκευή",
+      "feature": "Προσαρμογή σε κινητά και υπολογιστές",
       "launch": true,
       "growth": true,
       "pro": true
     },
     {
-      "feature": "WhatsApp και social links",
+      "feature": "WhatsApp και σύνδεσμοι social media",
       "launch": true,
       "growth": true,
       "pro": true
     },
     {
-      "feature": "Βασικές SEO βάσεις",
+      "feature": "Οι βάσεις για το SEO",
       "launch": true,
       "growth": true,
       "pro": true
@@ -292,7 +292,7 @@ export const COMPARISON: Record<SiteLanguage, readonly { feature: string; launch
       "pro": true
     },
     {
-      "feature": "Ενότητα reviews ή testimonials",
+      "feature": "Ενότητα με κριτικές πελατών",
       "launch": false,
       "growth": true,
       "pro": true
@@ -304,31 +304,31 @@ export const COMPARISON: Record<SiteLanguage, readonly { feature: string; launch
       "pro": true
     },
     {
-      "feature": "Gallery ή portfolio",
+      "feature": "Γκαλερί ή παρουσίαση έργων",
       "launch": false,
       "growth": false,
       "pro": true
     },
     {
-      "feature": "Pop-up και animations με scroll",
+      "feature": "Pop-up και animations καθώς κυλάει η σελίδα",
       "launch": false,
       "growth": false,
       "pro": true
     },
     {
-      "feature": "Πλήρης SEO δομή",
+      "feature": "Πλήρης δομή για SEO",
       "launch": false,
       "growth": false,
       "pro": true
     },
     {
-      "feature": "Blog setup ή visual pack",
+      "feature": "Στήσιμο blog ή πακέτο γραφικών",
       "launch": false,
       "growth": false,
       "pro": true
     },
     {
-      "feature": "Γύροι αναθεωρήσεων",
+      "feature": "Γύροι διορθώσεων",
       "launch": "2",
       "growth": "3",
       "pro": "4"
@@ -342,7 +342,7 @@ export const COMPARISON: Record<SiteLanguage, readonly { feature: string; launch
       "pro": "עד 7"
     },
     {
-      "feature": "מותאם למובייל",
+      "feature": "התאמה מלאה למובייל",
       "launch": true,
       "growth": true,
       "pro": true
@@ -390,7 +390,7 @@ export const COMPARISON: Record<SiteLanguage, readonly { feature: string; launch
       "pro": true
     },
     {
-      "feature": "אנימציות Popup וגלילה",
+      "feature": "פופ־אפים ואנימציות בגלילה",
       "launch": false,
       "growth": false,
       "pro": true
@@ -402,7 +402,7 @@ export const COMPARISON: Record<SiteLanguage, readonly { feature: string; launch
       "pro": true
     },
     {
-      "feature": "בלוג או חבילת נכסים",
+      "feature": "הקמת בלוג או חבילת גרפיקה",
       "launch": false,
       "growth": false,
       "pro": true
