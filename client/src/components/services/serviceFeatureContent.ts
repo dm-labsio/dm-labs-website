@@ -68,8 +68,8 @@ export const SERVICE_FEATURES: Record<SiteLanguage, Record<RefreshedService, Ser
 export const SERVICE_RELATED: Record<RefreshedService, readonly string[]> = { "custom-design": ["mobile-first", "seo", "performance"], "mobile-first": ["custom-design", "performance", "seo"], performance: ["seo", "mobile-first", "security"], seo: ["performance", "custom-design", "mobile-first"], security: ["performance", "turnaround", "custom-design"], turnaround: ["custom-design", "security", "mobile-first"] };
 export const SERVICE_NAMES: Record<SiteLanguage, Record<string, string>> = {
   en: { "custom-design": "Custom design", "mobile-first": "Mobile-first", seo: "Search foundations", performance: "Performance", security: "Security", turnaround: "Delivery", maps: "Maps", forms: "Contact forms", social: "Social connections" },
-  el: { "custom-design": "Εξατομικευμένος σχεδιασμός", "mobile-first": "Σχεδιασμός για κινητά", seo: "Βάσεις SEO", performance: "Απόδοση", security: "Ασφάλεια", turnaround: "Παράδοση", maps: "Χάρτες", forms: "Φόρμες επικοινωνίας", social: "Σύνδεση με social media" },
-  he: { "custom-design": "עיצוב מותאם אישית", "mobile-first": "עיצוב למובייל", seo: "יסודות SEO", performance: "ביצועים", security: "אבטחה", turnaround: "מסירה", maps: "מפות", forms: "טפסי יצירת קשר", social: "חיבור לרשתות" },
+  el: { "custom-design": "Ιστοσελίδα στα μέτρα σας", "mobile-first": "Άψογη προσαρμογή σε κινητά", seo: "Εμφάνιση στο Google (SEO)", performance: "Ταχύτητα φόρτωσης", security: "Ασφάλεια και φροντίδα", turnaround: "Γρήγορη παράδοση", maps: "Google Maps και τοποθεσία", forms: "Φόρμες επικοινωνίας", social: "Social media και WhatsApp" },
+  he: { "custom-design": "עיצוב אתרים בהתאמה אישית", "mobile-first": "התאמה מושלמת למובייל", seo: "קידום אורגני (SEO)", performance: "מהירות טעינה", security: "אבטחה ותחזוקה", turnaround: "עולים לאוויר מהר", maps: "מפה ומיקום", forms: "טפסי יצירת קשר", social: "רשתות חברתיות ו־WhatsApp" },
 };
 
 export const serviceFeatureRoute = (locale: SiteLanguage, id: string) => `${locale === "en" ? "" : `/${locale}`}/services/${id}/`;

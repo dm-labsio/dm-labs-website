@@ -155,8 +155,11 @@ Use exactly these everywhere. Change one only by changing it site-wide.
 | performance | Fast Performance | Ταχύτητα φόρτωσης | מהירות טעינה |
 | security | Secure & Reliable | Ασφάλεια και φροντίδα | אבטחה ותחזוקה |
 | turnaround | Quick Turnaround | Γρήγορη παράδοση | עולים לאוויר מהר |
+| maps | Google Maps & Location | Google Maps και τοποθεσία | מפה ומיקום |
+| forms | Contact Forms | Φόρμες επικοινωνίας | טפסי יצירת קשר |
+| social | Social Media Integration | Social media και WhatsApp | רשתות חברתיות ו־WhatsApp |
 
-These are the short names (homepage cards, menus, links). Each service page can keep a longer heading, as long as it clearly names the same thing. Batch C aligns the service pages.
+These are the short names (homepage cards, menus, links). Each service page can keep a longer heading, as long as it clearly names the same thing. Batch C aligned every service page, the services overview and the "related services" links to these names.
 
 ### Everyday terms
 
