@@ -12,7 +12,7 @@ export const SERVICE_SEO: Partial<Record<SiteLanguage, Record<RefreshedService, 
       description: "Όχι άλλη μια ιστοσελίδα από έτοιμο template. Τη σχεδιάζουμε με βάση το brand, τους πελάτες και το ύφος σας, και σας δείχνουμε το σχέδιο πριν την κατασκευή.",
     },
     "mobile-first": {
-      title: "Ιστοσελίδα που δείχνει άψογα στο κινητό | DM-Labs.io",
+      title: "Responsive ιστοσελίδα για κινητά και tablet | DM-Labs.io",
       description: "Πολλοί πελάτες θα σας γνωρίσουν από το κινητό τους. Σχεδιάζουμε πρώτα για τη μικρή οθόνη, ώστε να διαβάζεται εύκολα και να σας στέλνουν μήνυμα με ένα πάτημα.",
     },
     performance: {

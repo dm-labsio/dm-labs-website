@@ -31,10 +31,10 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
         </div>
       </div>
       <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "55%" }}>
-        <div style={{ fontSize: "7px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "4px" }}>Specialty Coffee - Λεμεσός</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "5px" }}>Καφές που Αξίζει<br/><em style={{ color: "#c8a96e" }}>να Χαλαρώσεις</em> Για</div>
-        <div style={{ fontSize: "7px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "8px" }}>Κόκκοι μονής προέλευσης,<br/>ψημένοι σε μικρές παρτίδες.</div>
-        <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "7px", padding: "4px 10px", fontWeight: 700, display: "inline-block" }}>Δείτε το Μενού μας</div>
+        <div style={{ fontSize: "7px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "4px" }}>Specialty καφές · Λεμεσός</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "5px" }}>Καλός καφές,<br/><em style={{ color: "#c8a96e" }}>χωρίς</em> βιασύνη</div>
+        <div style={{ fontSize: "7px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "8px" }}>Κόκκοι μίας προέλευσης,<br/>καβουρδισμένοι σε μικρές ποσότητες.</div>
+        <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "7px", padding: "4px 10px", fontWeight: 700, display: "inline-block" }}>Το μενού μας</div>
       </div>
       <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
         <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
@@ -53,10 +53,10 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
         </div>
       </div>
       <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "48%" }}>
-        <div style={{ fontSize: "7px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "5px" }}>Ομορφιά Studio</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "6px", fontStyle: "italic" as const }}>Όπου η Ομορφιά<br/><em style={{ color: "#c4735a" }}>Συναντά</em> την Τέχνη</div>
-        <div style={{ fontSize: "7px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "8px" }}>Εξειδικευμένες περιποιήσεις<br/>σε πολυτελές περιβάλλον.</div>
-        <div style={{ background: "#c4735a", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", letterSpacing: "0.1em" }}>Κλείστε Ραντεβού</div>
+        <div style={{ fontSize: "7px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "5px" }}>Στούντιο ομορφιάς</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "6px", fontStyle: "italic" as const }}>Σας αξίζει<br/><em style={{ color: "#c4735a" }}>να νιώθετε</em> υπέροχα</div>
+        <div style={{ fontSize: "7px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "8px" }}>Μαλλιά, πρόσωπο και νύχια,<br/>σε έναν χώρο μόνο για εσάς.</div>
+        <div style={{ background: "#c4735a", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", letterSpacing: "0.1em" }}>Κλείστε ραντεβού</div>
       </div>
       <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
         <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
@@ -73,16 +73,16 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
           <div style={{ width: "14px", height: "14px", borderRadius: "3px", background: "#2196f3" }} />
           <span style={{ fontSize: "9px", fontWeight: 700, color: "#0a1628" }}>Dr. Elara Dental</span>
         </div>
-        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "3px 8px", borderRadius: "3px", fontWeight: 600 }}>Κλείστε Ραντεβού</div>
+        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "3px 8px", borderRadius: "3px", fontWeight: 600 }}>Κλείστε ραντεβού</div>
       </div>
       <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "50%" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "6px" }}>
           <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-          <span style={{ fontSize: "7px", color: "#2196f3", fontWeight: 600 }}>Δεχόμαστε Νέους Ασθενείς</span>
+          <span style={{ fontSize: "7px", color: "#2196f3", fontWeight: 600 }}>Δεχόμαστε νέους ασθενείς</span>
         </div>
-        <div style={{ fontSize: "17px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "5px" }}>Το Χαμόγελό σας,<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>Τέλειο</span><br/>με Φροντίδα</div>
+        <div style={{ fontSize: "17px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "5px" }}>Χαμογελάστε<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>ξανά</span><br/>με σιγουριά</div>
         <div style={{ fontSize: "7px", color: "#4a6080", lineHeight: 1.5, marginBottom: "8px" }}>Σύγχρονη οδοντιατρική σε ήρεμο,<br/>άνετο περιβάλλον.</div>
-        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", borderRadius: "3px", fontWeight: 600 }}>Δείτε Θεραπείες</div>
+        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", borderRadius: "3px", fontWeight: 600 }}>Οι θεραπείες μας</div>
       </div>
       <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
         <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
@@ -116,8 +116,8 @@ const FEATURED_TEMPLATES = [
     id: "nomad-coffee",
     industry: "restaurant",
     name: "Nomad Coffee",
-    category: "Καφετέρια & Καφές",
-    styleLabel: "Μίνιμαλ με χαρακτήρα",
+    category: "Καφέ",
+    styleLabel: "Minimal και ζεστό",
     previewUrl: "/previews/nomad-coffee.html",
     imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80",
     imageAlt: "Παράδειγμα ιστοσελίδας για το Nomad Coffee",
@@ -127,8 +127,8 @@ const FEATURED_TEMPLATES = [
     id: "bella-salon",
     industry: "beauty",
     name: "Bella Salon",
-    category: "Ομορφιά & Wellness",
-    styleLabel: "Κομψό & Θηλυκό",
+    category: "Ομορφιά και ευεξία",
+    styleLabel: "Κομψό και θηλυκό",
     previewUrl: "/previews/bella-salon.html",
     imageUrl: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80",
     imageAlt: "Παράδειγμα ιστοσελίδας για το Bella Salon",
@@ -138,8 +138,8 @@ const FEATURED_TEMPLATES = [
     id: "dr-elara-dental",
     industry: "clinic",
     name: "Dr. Elara Dental",
-    category: "Κλινικές & Υγεία",
-    styleLabel: "Καθαρό & Επαγγελματικό",
+    category: "Ιατρεία και υγεία",
+    styleLabel: "Καθαρό και επαγγελματικό",
     previewUrl: "/previews/dr-elara-dental.html",
     imageUrl: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80",
     imageAlt: "Παράδειγμα ιστοσελίδας για το Dr. Elara Dental",
@@ -235,7 +235,7 @@ export default function HomeElPage() {
 
           <AnimateIn className="text-center mb-16">
             <StarButton asChild><Link href="/el/templates/" className="btn-primary">
-              Δείτε όλα τα παραδείγματα
+              Όλα τα παραδείγματα
 
             </Link></StarButton>
           </AnimateIn>

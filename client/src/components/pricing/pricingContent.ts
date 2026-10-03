@@ -52,7 +52,7 @@ export const BUILD_PLANS: Record<SiteLanguage, readonly { name: string; summary:
       "summary": "Για νέες επιχειρήσεις που θέλουν να ξεκινήσουν σωστά, χωρίς πολλά-πολλά: μια καθαρή, επαγγελματική παρουσία στο ίντερνετ.",
       "features": [
         "Μία σελίδα ή δύο απλές σελίδες",
-        "Προσαρμογή σε κινητά και υπολογιστές",
+        "Responsive για κινητά και υπολογιστές",
         "Οι βάσεις για το SEO",
         "WhatsApp και σύνδεσμοι social media",
         "2 γύροι διορθώσεων"
@@ -262,7 +262,7 @@ export const COMPARISON: Record<SiteLanguage, readonly { feature: string; launch
       "pro": "Έως 7"
     },
     {
-      "feature": "Προσαρμογή σε κινητά και υπολογιστές",
+      "feature": "Responsive για κινητά και υπολογιστές",
       "launch": true,
       "growth": true,
       "pro": true

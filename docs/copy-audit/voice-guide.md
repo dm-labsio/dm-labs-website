@@ -52,7 +52,8 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 - Standard Greek that reads naturally in both Greece and Cyprus. No dialect.
 - Google the search engine is neuter in everyday speech: "στο Google", "το Google καταλαβαίνει". "Η Google" is the company.
 - **Sentence case** in headings and buttons: "Δείτε όλα τα παραδείγματα", not "Δείτε Όλα τα Παραδείγματα". Greek doesn't use English title case.
-- English words: fine where Greeks actually use them (SEO, Google, WhatsApp, online, e-shop, site, brand, domain). Not in running text where Greek is natural: custom, scope, launch, build, review, pricing, care, mobile-first, concept, portfolio.
+- English words: fine where Greeks actually use them (SEO, Google, WhatsApp, online, e-shop, site, brand, domain, responsive, template, backup, link building, followers, feed). Greek web design studios write "responsive σχεδιασμός" and "έτοιμο template", so we do too. Not in running text where Greek is natural: custom, scope, launch, build, review, pricing, care, mobile-first, concept, portfolio.
+- Sayings: at most one per section. A block with five sayings in a row reads like a phrasebook. In October 2026 we took "στο πι και φι", "περνάμε από κόσκινο", "γυαλίζουμε" and "δουλεύουν ρολόι" out of the homepage for that reason.
 
 ### Expressions we can use
 
@@ -90,7 +91,7 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 | εστιάζετε στην επιχείρησή σας | "focus on your business", word for word | εσείς ασχολείστε με αυτό που ξέρετε καλύτερα |
 | Ξεχωρίστε. Κερδίστε εμπιστοσύνη. Μετατρέψτε... | English three-command slogan | one flowing sentence |
 | Γρήγορη Απόδοση | "fast performance" | Ταχύτητα φόρτωσης |
-| Mobile-First Ανάπτυξη | jargon | Άψογη στο κινητό |
+| Mobile-First Ανάπτυξη · Άψογη προσαρμογή σε κινητά | jargon · long and not the word studios use | Responsive σχεδιασμός |
 | κρατάμε το έργο σε κίνηση | "we keep things moving" | δεν μένει τίποτα στον αέρα |
 | Φτιαγμένο για εσάς. Με τη δική μας φροντίδα. | English tagline shape | natural sentence |
 | ερώτημα / ερωτήματα for an enquiry | means "query, question" | μήνυμα, αίτημα (for forms), επικοινωνία |
@@ -98,11 +99,16 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 | φροντίδα · πλάνο φροντίδας (for the care plans) | word-for-word "care" | συντήρηση · πακέτο συντήρησης · φιλοξενία και συντήρηση |
 | γύροι αναθεωρήσεων | stiff | γύροι διορθώσεων |
 | σηκώνω το τηλέφωνο (to call someone) | in Greek it means to *answer* the phone | σας παίρνει τηλέφωνο |
-| είμαστε πάνω του | word-for-word "we're on it" | το πιάνουμε αμέσως |
+| είμαστε πάνω του | word-for-word "we're on it" | το αναλαμβάνουμε εμείς (not "αμέσως": we don't promise a response time) |
 | γύρω από το brand / την επιχείρησή σας | word-for-word "built around" | με βάση το brand σας · ξεκινάμε από... |
 | ένα κουμπί που σας καλεί | the button doesn't call you, the visitor does | ένα κουμπί για να σας πάρουν τηλέφωνο |
 | Η πρώτη εντύπωση δεν ξαναγίνεται | not an established saying | Δεύτερη ευκαιρία για πρώτη εντύπωση δεν υπάρχει |
 | αξίζει μια πιο κοντινή ματιά | word-for-word "worth a closer look" | αξίζει να το γνωρίσει κανείς από κοντά |
+| πηδάει / πηδήματα (for a page that jumps while loading) | slang double meaning | η σελίδα μετακινείται · μένει σταθερή |
+| όσο είναι ζεστοί (about people) | slang double meaning | όσο το ενδιαφέρον είναι ακόμα ζεστό |
+| η γέφυρα ανάμεσα σε... · μια σχέση που κρατάει | English marketing metaphors | say what happens: "εκεί ένας επισκέπτης γίνεται πελάτης" |
+| Πείτε μας τι σκέφτεστε (everywhere) | fine once, a translated habit when repeated | Γράψτε μας δυο λόγια |
+| σε καλά χέρια (more than once on the site) | fine once, a cliché when repeated | use it once (Security page title) |
 
 ## Hebrew
 
@@ -171,10 +177,10 @@ Use exactly these everywhere. Change one only by changing it site-wide.
 | Slug | English | Greek | Hebrew |
 |---|---|---|---|
 | custom-design | Custom Website Design | Ιστοσελίδα στα μέτρα σας | עיצוב אתרים בהתאמה אישית |
-| mobile-first | Mobile-First Development | Άψογη προσαρμογή σε κινητά | התאמה מושלמת למובייל |
+| mobile-first | Mobile-First Development | Responsive σχεδιασμός | התאמה מושלמת למובייל |
 | seo | SEO Optimisation | Εμφάνιση στο Google (SEO) | קידום אורגני (SEO) |
 | performance | Fast Performance | Ταχύτητα φόρτωσης | מהירות טעינה |
-| security | Secure & Reliable | Ασφάλεια και φροντίδα | אבטחה ותחזוקה |
+| security | Secure & Reliable | Ασφάλεια και συντήρηση | אבטחה ותחזוקה |
 | turnaround | Quick Turnaround | Γρήγορη παράδοση | עולים לאוויר מהר |
 | maps | Google Maps & Location | Google Maps και τοποθεσία | מפה ומיקום |
 | forms | Contact Forms | Φόρμες επικοινωνίας | טפסי יצירת קשר |
