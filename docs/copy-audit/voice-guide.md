@@ -10,6 +10,25 @@ Owner's direction (2 October 2026): "It needs to be real, like the way you'd tal
 
 Second round of owner feedback (2 October 2026): simple does not mean short. Write **full, flowing, conversational sentences**, not clipped fragments or slogan lists. A little creative writing is welcome: an image ("think of your website as your best salesperson"), a real local saying, a wink. It should read like a smart friend explaining it over WhatsApp.
 
+## Method (from 3 October 2026)
+
+Owner's feedback on Batch C: "It still feels extremely forced. The creative writing in the native language is the main task." The cause: each Greek or Hebrew line was still written from its English line, so the English ideas and sentence order came through even when the grammar was right. From now on:
+
+1. **Read the English only for the facts.** Note what the section must say: prices, numbers, limits, promises, what we don't guarantee. Nothing else carries over.
+2. **Close the English and write from scratch,** the way an Israeli or Greek copywriter would write for a local small-business site. Change the order, merge lines, drop decorative ones, as long as every fact is still there.
+3. **Drop ideas that only exist in English agency-speak.** Don't translate them, say the concrete thing.
+   - Hebrew: הסיפור שלכם, מרגיש כמוכם, שפה ויזואלית / עיצובית / מותגית, כיוון (for "direction"), סביב העסק (for "built around"), נוכחות, עם מחשבה, עם כוונה, מסר.
+   - Greek: η ιστορία σας, σας εκφράζει / σας μοιάζει, οπτική / σχεδιαστική γλώσσα, κατεύθυνση, παρουσία, με σκέψη, χαρακτήρας, μήνυμα (for "message" as a concept).
+   - Instead: what the visitor sees, what the business gets, what we do.
+4. **Sayings only where a local would really use them.** One or two per page at most, and never forced into a headline. A plain headline beats a clever one that sounds translated.
+5. **Read it aloud.** If it sounds like an ad translated from English, write it plainer.
+
+Owner's word choices:
+
+- Hebrew: **מובייל** for the device, everywhere ("מותאם למובייל", "נכנסים מהמובייל"). **טלפון** only for calls and phone numbers ("להרים טלפון", "מספר טלפון").
+- Hebrew reference line for tone: "אנחנו בונים אתר שמציג את העסק שלכם כמו שמגיע לו להיראות."
+- Hebrew: "גוגל" takes the masculine ("גוגל מבין", "גוגל מחליט"), as on the homepage.
+
 ## Who we talk to
 
 Small business owners: restaurants, salons, clinics, studios, shops, offices. Busy, not technical, a little burned by agencies before. They want to look good, get found, get messages, and not deal with tech.
@@ -89,7 +108,7 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 - Active voice. "אנחנו בונים", not "נבנה על ידינו".
 - Everyday Israeli Hebrew, not translated-document Hebrew. Read it aloud: if nobody would say it, rewrite it.
 - Buttons with ל־ are natural and fine: "לפרטים נוספים", "לצפייה בדוגמה".
-- Phone: "טלפון" in everyday lines, "מובייל" in service names ("התאמה מושלמת למובייל"). Avoid "נייד".
+- The device is always "מובייל" (owner's choice, 3 October 2026). "טלפון" only for calls and phone numbers. Avoid "נייד".
 - English words fine where Israelis use them: SEO, Google, WhatsApp, דומיין, לידים (casual contexts only).
 
 ### Expressions we can use

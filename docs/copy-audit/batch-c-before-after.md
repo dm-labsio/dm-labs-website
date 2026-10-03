@@ -142,3 +142,30 @@ Checked before pushing:
 
 - Google titles and descriptions of these pages (Batch F), including the Hebrew Social description that still says "להפוך מבקרים לעוקבים".
 - The Hebrew Maps, Forms and Social pages still use their old schema names ("טפסי יצירת קשר לאתרים" and so on). Those strings feed Google, so they move with Batch F.
+
+## Hebrew round 2: new method (3 October 2026)
+
+Owner's feedback: "אנחנו מעצבים אתר שמרגיש כמוכם" feels very unnatural, the device should be "מובייל" everywhere, and the text still feels forced in many places. The cause was method, not grammar: every line was still written from its English line. The voice guide now has a "Method" section: take only the facts from English, write from scratch, drop English agency ideas ("feels like you", "your story", "visual direction", "built around"), and use sayings only where they come naturally. The Hebrew of Batch C was rewritten that way, and the same patterns were fixed on the homepage, pricing, FAQ and contact.
+
+| Where | Round 1 | Round 2 | In English |
+|---|---|---|---|
+| Services, intro | אנחנו מעצבים אתר שמרגיש כמוכם, בונים אותו כך שיביא פניות... | אנחנו בונים אתר שמציג את העסק שלכם כמו שמגיע לו להיראות, דואגים שגוגל יבין מה אתם עושים ושומרים עליו גם אחרי ההשקה. אתם ממשיכים לעבוד, ואת כל הצד הטכני תשאירו לנו. | We build a site that shows your business the way it deserves to look, make sure Google understands what you do and look after it after launch. You keep working, and leave the technical side to us. (Owner's wording for the first part.) |
+| Process, intro | אתם מכירים את העסק, אנחנו מכירים עיצוב ובנייה... | אתם מכירים את העסק הכי טוב, ואנחנו יודעים לבנות אתרים. ככה זה עובד אצלנו, מהשיחה הראשונה ועד שהאתר באוויר. | You know the business best, and we know how to build websites. Here's how it works with us, from the first call until the site is live. |
+| Process, steps 2–4 | מגדירים בדיוק מה עושים · נותנים לרעיון צורה · מדייקים ביחד | סוגרים מה בדיוק עושים · מעצבים ובונים · מתקנים ומדייקים | We settle exactly what we'll do · We design and build · We fix and fine-tune |
+| Process, middle | רואים איך זה ייראה, עוד לפני שמתחילים לבנות. | רואים את העיצוב לפני שבונים. | You see the design before we build. |
+| Custom design | אתר שתפור בדיוק עליכם. · אתר שמדבר בשפה שלכם, נראה מצוחצח... | לא עוד אתר מתבנית. אתר שעוצב בשבילכם. · כל עסק שונה, אז גם האתר שלו צריך להיות שונה. | Not another template site. A site designed for you. · Every business is different, so its site should be too. |
+| Custom design FAQ | אתם משתמשים במערכות לבניית אתרים? | אתם בונים ב־Wix או במערכות דומות? | Do you build on Wix or similar? (how Israelis actually ask) |
+| Mobile | המסר שלכם צריך להיות ברור באותה מידה בכף היד... | האתר צריך לעבוד מעולה במובייל בדיוק כמו במחשב, כי שם הרבה מהלקוחות שלכם יפגשו אתכם בפעם הראשונה. | The site has to work great on mobile, just like on desktop, because that's where many of your customers will meet you first. |
+| Speed | תנו למבקרים להגיע לסיפור שלכם... · מהירות היא חלק מהחוויה. | באתר מהיר, אנשים רואים מה אתם מציעים ופונים אליכם בלי לחכות ובלי להתעצבן. · מהירות זה לא רק ציון בבדיקה. | On a fast site, people see what you offer and contact you without waiting or getting annoyed. · Speed isn't just a test score. |
+| SEO | שמי שמחפש אתכם, ימצא אתכם. | שימצאו אתכם כשמחפשים בגוגל. | So people find you when they search on Google. |
+| Security | אתם ישנים בשקט, אנחנו שומרים על האתר. | האתר שלכם בידיים טובות. | Your site is in good hands. |
+| Delivery | תוכנית ברורה, והכול עובד כמו שעון. | תוכנית ברורה, בלי הפתעות בדרך. | A clear plan, no surprises along the way. |
+| Design demo labels | אותיות עם אופי · לכל צבע יש סיבה · הסיפור שלכם, בלי בלבול | פונט שמתאים לעסק · צבעים שמתאימים למותג · כל דבר במקום הנכון | A font that suits the business · colours that match the brand · everything in the right place |
+| Homepage | כל פרט נמצא שם מסיבה. | שום דבר פה לא במקרה. | Nothing here is by chance. |
+| Homepage | לעולם של העסק שלכם · עסקים שונים. אתרים עם אופי. | לכל תחום · כל עסק צריך אתר אחר. | For every field · Every business needs a different site. |
+| Homepage, industries | תנו לעבודות שלכם לפתוח את השיחה. · כל נכס מקבל את תשומת הלב שלו. | העבודות שלכם הן כרטיס הביקור הכי טוב. · כל נכס מוצג במיטבו. | Your work is your best business card. · Every property shown at its best. |
+| Contact, WhatsApp message | שלום לצוות DM-Labs! אשמח לשאול על אתר לעסק שלי. | היי! אני רוצה אתר לעסק שלי ואשמח לשאול כמה שאלות. | Hi! I want a website for my business and I'd like to ask a few questions. |
+| Everywhere | טלפון (the device) | מובייל | "טלפון" stays only for calls and phone numbers |
+| Everywhere | גוגל מחליטה / תבין (feminine) | גוגל מחליט / יבין | One form, as on the homepage |
+
+Facts, numbers and "we don't guarantee" lines are unchanged. Greek gets the same method next.
