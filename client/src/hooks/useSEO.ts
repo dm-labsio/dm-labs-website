@@ -25,6 +25,11 @@ const DEFAULT_DESCRIPTION =
   "Stand out. Build trust. Win more enquiries. DM Labs creates custom websites with fast delivery and personal care for businesses worldwide.";
 const DEFAULT_OG_IMAGE = "https://dm-labs.io/social/dm-labs-growth-social-card-centered.png";
 const DEFAULT_OG_IMAGE_ALT = "We build your website. Built for growth. DM Labs";
+// The social card is shared on Greek and Hebrew pages too, so its description follows the page language.
+const LOCALIZED_OG_IMAGE_ALT: Partial<Record<ReturnType<typeof getRouteLanguage>, string>> = {
+  el: "DM Labs: φτιάχνουμε την ιστοσελίδα σας, για να μεγαλώσει η επιχείρησή σας",
+  he: "DM Labs: אנחנו בונים לכם את האתר, כדי שהעסק שלכם יגדל",
+};
 const DEFAULT_OG_IMAGE_WIDTH = "1200";
 const DEFAULT_OG_IMAGE_HEIGHT = "675";
 
@@ -198,7 +203,8 @@ export function useSEO(options: SEOOptions = {}) {
     setOgTag("og:title", title);
     setOgTag("og:description", description);
     setOgTag("og:url", canonicalUrl);
-    const resolvedOgImageAlt = ogImageAlt ?? (ogImage === DEFAULT_OG_IMAGE ? DEFAULT_OG_IMAGE_ALT : title);
+    const locale = getRouteLanguage(cleanPath);
+    const resolvedOgImageAlt = ogImageAlt ?? (ogImage === DEFAULT_OG_IMAGE ? LOCALIZED_OG_IMAGE_ALT[locale] ?? DEFAULT_OG_IMAGE_ALT : title);
     const imageUrl = absoluteImageUrl(ogImage);
     setOgTag("og:image", imageUrl);
     if (resolvedOgImageAlt) setOgTag("og:image:alt", resolvedOgImageAlt);
@@ -213,7 +219,6 @@ export function useSEO(options: SEOOptions = {}) {
     }
     setOgTag("og:type", ogType);
     setOgTag("og:site_name", "DM-Labs.io");
-    const locale = getRouteLanguage(cleanPath);
     setOgTag("og:locale", ogLocale ?? { en: "en_GB", el: "el_GR", he: "he_IL" }[locale]);
 
     // Update Twitter tags

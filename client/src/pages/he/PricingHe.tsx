@@ -3,8 +3,8 @@ import PricingPage from "@/components/pricing/PricingPage";
 
 export default function PricingHe() {
   useSEO({
-    title: "מחירי עיצוב אתרים | DM-Labs.io",
-    description: "השוו חבילות אתר ותוכניות אירוח ותחזוקה של DM-Labs.io. היקף ברור, חיוב שקוף ואפשרויות מותאמות לעסקים בצמיחה.",
+    title: "כמה עולה לבנות אתר? מחירים ברורים | DM-Labs.io",
+    description: "כמה עולה אתר לעסק? כאן תמצאו את כל החבילות והמחירים, מה כלול בכל אחת וכמה עולים אחסון ותחזוקה. בלי אותיות קטנות.",
     ogLocale: "he_IL",
     noindex: true,
   });

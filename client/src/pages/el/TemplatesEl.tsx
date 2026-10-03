@@ -167,13 +167,13 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         <div style={{ display: "flex", gap: "12px" }}>
           {["Υπηρεσίες","Σχετικά","Γκαλερί","Κράτηση"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a5a4a", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{l}</span>)}
         </div>
-        <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "3px 10px", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Κρατήστε Τώρα</div>
+        <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "3px 10px", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Κλείστε ραντεβού</div>
       </div>
       <div style={{ position: "absolute", top: "56px", left: "18px", maxWidth: "48%" }}>
-        <div style={{ fontSize: "9px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "6px" }}>Ομορφιά Studio</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Όπου η Ομορφιά<br/><em style={{ color: "#c4735a" }}>Συναντά</em> την Τέχνη</div>
-        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>Εξειδικευμένες περιποιήσεις μαλλιών, δέρματος &amp; νυχιών<br/>σε πολυτελές περιβάλλον.</div>
-        <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em" }}>Κλείστε Ραντεβού</div>
+        <div style={{ fontSize: "9px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "6px" }}>Στούντιο ομορφιάς</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Σας αξίζει<br/><em style={{ color: "#c4735a" }}>να νιώθετε</em> υπέροχα</div>
+        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>Μαλλιά, περιποίηση προσώπου και νύχια,<br/>σε έναν χώρο μόνο για εσάς.</div>
+        <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em" }}>Κλείστε ραντεβού</div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
         {["#f7f0e8","#c4735a","#2a1a14","#e8d5c4","#f0e8e0"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
@@ -197,9 +197,9 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         <div style={{ border: "1px solid #7ab060", color: "#7ab060", fontSize: "8px", padding: "3px 10px" }}>Κράτηση</div>
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#7ab060", marginBottom: "5px" }}>Ristorante - Λεμεσός</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#7ab060", marginBottom: "5px" }}>Εστιατόριο · Λεμεσός</div>
         <div style={{ fontFamily: "Georgia, serif", fontSize: "24px", fontWeight: 400, color: "#e8f0e0", lineHeight: 1.1, marginBottom: "8px", fontStyle: "italic" as const }}>Γεύση από<br/>τη Μεσόγειο</div>
-        <div style={{ background: "#7ab060", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block" }}>Δείτε Μενού</div>
+        <div style={{ background: "#7ab060", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block" }}>Δείτε το μενού</div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
         {["#0d1a0f","#7ab060","#c8a96e","#e8f0e0","#2d4a20"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.15)" }} />)}
@@ -223,9 +223,9 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         <div style={{ background: "#ff6b35", color: "#fff", fontSize: "8px", padding: "3px 10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Εγγραφή</div>
       </div>
       <div style={{ position: "absolute", top: "52px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#ff6b35", marginBottom: "4px" }}>Λεμεσός - Est. 2019</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#ff6b35", marginBottom: "4px" }}>Λεμεσός · από το 2019</div>
         <div style={{ fontFamily: "Impact, sans-serif", fontSize: "28px", fontWeight: 900, color: "#fff", lineHeight: 1.0, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "6px" }}>ΞΕΠΕΡΑΣΕ<br/><span style={{ color: "#ff6b35" }}>ΤΑ</span><br/>ΟΡΙΑ ΣΟΥ</div>
-        <div style={{ background: "#ff6b35", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Δωρεάν Δοκιμή</div>
+        <div style={{ background: "#ff6b35", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Δωρεάν δοκιμαστικό</div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
         {["#0a0a0a","#ff6b35","#ffa500","#1a1a2e","#ffffff"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.15)" }} />)}
@@ -246,16 +246,16 @@ const CARD_DESIGNS: Record<string, React.FC> = {
           <div style={{ width: "16px", height: "16px", borderRadius: "4px", background: "#2196f3" }} />
           <span style={{ fontSize: "10px", fontWeight: 700, color: "#0a1628" }}>Dr. Elara Dental</span>
         </div>
-        <div style={{ background: "#2196f3", color: "#fff", fontSize: "8px", padding: "4px 10px", borderRadius: "4px", fontWeight: 600 }}>Κλείστε Ραντεβού</div>
+        <div style={{ background: "#2196f3", color: "#fff", fontSize: "8px", padding: "4px 10px", borderRadius: "4px", fontWeight: 600 }}>Κλείστε ραντεβού</div>
       </div>
       <div style={{ position: "absolute", top: "50px", left: "18px", maxWidth: "50%" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "5px", marginBottom: "8px" }}>
           <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80" }} />
-          <span style={{ fontSize: "8px", color: "#2196f3", fontWeight: 600 }}>Δεχόμαστε Νέους Ασθενείς</span>
+          <span style={{ fontSize: "8px", color: "#2196f3", fontWeight: 600 }}>Δεχόμαστε νέους ασθενείς</span>
         </div>
-        <div style={{ fontSize: "20px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "6px" }}>Το Χαμόγελό σας,<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>Τέλειο</span><br/>με Φροντίδα</div>
+        <div style={{ fontSize: "20px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "6px" }}>Χαμογελάστε<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>ξανά</span><br/>με σιγουριά</div>
         <div style={{ fontSize: "8px", color: "#4a6080", lineHeight: 1.5, marginBottom: "10px" }}>Σύγχρονη οδοντιατρική σε ήρεμο,<br/>άνετο περιβάλλον.</div>
-        <div style={{ background: "#2196f3", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", borderRadius: "4px", fontWeight: 600 }}>Δείτε Θεραπείες</div>
+        <div style={{ background: "#2196f3", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", borderRadius: "4px", fontWeight: 600 }}>Οι θεραπείες μας</div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
         {["#f5f9ff","#2196f3","#0a1628","#64b5f6","#1e3a5f"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
@@ -278,12 +278,12 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         </div>
       </div>
       <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "55%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "5px" }}>Ειδικός Καφές - Λεμεσός</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "6px" }}>Καφές που Αξίζει<br/><em style={{ color: "#c8a96e" }}>να Χαλαρώσεις</em> Για</div>
-        <div style={{ fontSize: "8px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "10px" }}>Κόκκοι μονής προέλευσης, ψημένοι στο χέρι<br/>σε μικρές παρτίδες.</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "5px" }}>Specialty καφές · Λεμεσός</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "6px" }}>Καλός καφές,<br/><em style={{ color: "#c8a96e" }}>χωρίς</em> βιασύνη</div>
+        <div style={{ fontSize: "8px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "10px" }}>Κόκκοι μίας προέλευσης, καβουρδισμένοι<br/>σε μικρές ποσότητες.</div>
         <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "8px", padding: "5px 12px", fontWeight: 700 }}>Δείτε το Μενού μας</div>
-          <div style={{ border: "1px solid rgba(200,169,110,0.5)", color: "#c8a96e", fontSize: "8px", padding: "5px 12px" }}>Η Ιστορία μας</div>
+          <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "8px", padding: "5px 12px", fontWeight: 700 }}>Το μενού μας</div>
+          <div style={{ border: "1px solid rgba(200,169,110,0.5)", color: "#c8a96e", fontSize: "8px", padding: "5px 12px" }}>Η ιστορία μας</div>
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
@@ -307,11 +307,11 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#8bb5a8", marginBottom: "5px" }}>Yoga Studio - Λεμεσός</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f0f7f4", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Βρείτε το<br/><em style={{ color: "#8bb5a8" }}>Γαλήνιο</em> Μέρος σας</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#8bb5a8", marginBottom: "5px" }}>Στούντιο yoga · Λεμεσός</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f0f7f4", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Βρείτε<br/><em style={{ color: "#8bb5a8" }}>την ηρεμία</em> σας</div>
         <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#4a7c6f", color: "#f0f7f4", fontSize: "8px", padding: "5px 12px" }}>Δείτε Μαθήματα</div>
-          <div style={{ border: "1px solid rgba(139,181,168,0.4)", color: "#8bb5a8", fontSize: "8px", padding: "5px 12px" }}>Δείτε Πρόγραμμα</div>
+          <div style={{ background: "#4a7c6f", color: "#f0f7f4", fontSize: "8px", padding: "5px 12px" }}>Τα μαθήματα</div>
+          <div style={{ border: "1px solid rgba(139,181,168,0.4)", color: "#8bb5a8", fontSize: "8px", padding: "5px 12px" }}>Το πρόγραμμα</div>
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
@@ -331,15 +331,15 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "40px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(184,151,90,0.2)" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 400, color: "#b8975a", letterSpacing: "0.25em", textTransform: "uppercase" as const }}>Luxe.Realty</span>
         <div style={{ display: "flex", gap: "14px" }}>
-          {["Ακίνητα","Σχετικά","Οδηγός Visa"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.7)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
+          {["Ακίνητα","Σχετικά","Golden Visa"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.7)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Αθήνα - Premium Ακίνητα</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Εξαιρετικές<br/>Κατοικίες</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Ακίνητα πολυτελείας · Αθήνα</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Το σπίτι που ψάχνετε,<br/>στην Αθήνα</div>
         <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#b8975a", color: "#0a0a0a", fontSize: "8px", padding: "5px 14px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Δείτε Ακίνητα</div>
-          <div style={{ border: "1px solid rgba(184,151,90,0.4)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Οδηγός Visa</div>
+          <div style={{ background: "#b8975a", color: "#0a0a0a", fontSize: "8px", padding: "5px 14px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Τα ακίνητα</div>
+          <div style={{ border: "1px solid rgba(184,151,90,0.4)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Golden Visa</div>
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
@@ -361,13 +361,13 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         <div style={{ display: "flex", gap: "10px" }}>
           {["Σχετικά","Προγράμματα","Επίσκεψη"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a5a4a" }}>{l}</span>)}
         </div>
-        <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "3px 10px", borderRadius: "20px", fontWeight: 700 }}>Κλείστε Επίσκεψη</div>
+        <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "3px 10px", borderRadius: "20px", fontWeight: 700 }}>Κλείστε επίσκεψη</div>
       </div>
       <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "48%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#f06a50", marginBottom: "5px" }}>Παιδικός Σταθμός - Αθήνα</div>
-        <div style={{ fontFamily: "Nunito, sans-serif", fontSize: "20px", fontWeight: 800, color: "#2d2416", lineHeight: 1.2, marginBottom: "6px" }}>Εκεί που τα Μικρά<br/><span style={{ color: "#f06a50" }}>Ανθίζουν</span></div>
-        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>Ένα φροντιστικό περιβάλλον για<br/>παιδιά από 3 μηνών έως 5 ετών.</div>
-        <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", borderRadius: "20px", fontWeight: 700 }}>Κλείστε Επίσκεψη</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#f06a50", marginBottom: "5px" }}>Παιδικός σταθμός · Αθήνα</div>
+        <div style={{ fontFamily: "Nunito, sans-serif", fontSize: "20px", fontWeight: 800, color: "#2d2416", lineHeight: 1.2, marginBottom: "6px" }}>Ένα δεύτερο σπίτι<br/><span style={{ color: "#f06a50" }}>για τα παιδιά σας</span></div>
+        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>Ζεστό και ασφαλές περιβάλλον για<br/>παιδιά από 3 μηνών έως 5 ετών.</div>
+        <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", borderRadius: "20px", fontWeight: 700 }}>Κλείστε επίσκεψη</div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
         {["#fffbf5","#f06a50","#5bb8d4","#f5c842","#2d2416"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
@@ -390,10 +390,10 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         </div>
       </div>
       <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "46%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4613a", marginBottom: "5px" }}>Αρχιτεκτονικό Γραφείο</div>
-        <div style={{ fontSize: "22px", fontWeight: 800, color: "#1a1916", lineHeight: 1.1, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "8px" }}>ΧΩΡΟΣ<br/>ΠΟΥ<br/><span style={{ color: "#c4613a" }}>ΜΙΛΑΕΙ</span></div>
-        <div style={{ fontSize: "8px", color: "#7a7568", lineHeight: 1.5, marginBottom: "10px" }}>Αρχιτεκτονική που γεφυρώνει<br/>ιδέα και τέχνη.</div>
-        <div style={{ background: "#1a1916", color: "#f4f1ec", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Δείτε Έργα</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4613a", marginBottom: "5px" }}>Αρχιτεκτονικό γραφείο</div>
+        <div style={{ fontSize: "22px", fontWeight: 800, color: "#1a1916", lineHeight: 1.1, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "8px" }}>ΧΩΡΟΙ<br/>ΓΙΑ<br/><span style={{ color: "#c4613a" }}>ΖΩΗ</span></div>
+        <div style={{ fontSize: "8px", color: "#7a7568", lineHeight: 1.5, marginBottom: "10px" }}>Από το πρώτο σκίτσο<br/>μέχρι το κλειδί στο χέρι.</div>
+        <div style={{ background: "#1a1916", color: "#f4f1ec", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Τα έργα μας</div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
         {["#f4f1ec","#c4613a","#1a1916","#2d2b27","#7a7568"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
@@ -417,11 +417,11 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         <div style={{ border: "1px solid #c8973a", color: "#c8973a", fontSize: "8px", padding: "3px 10px" }}>Παραγγείλτε</div>
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c8973a", marginBottom: "5px" }}>Artisan Deli - Αθήνα</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#faf6ef", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Το Καλύτερο<br/>Μεσογειακό Deli</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c8973a", marginBottom: "5px" }}>Ντελικατέσεν · Αθήνα</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#faf6ef", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Γεύσεις της Μεσογείου<br/>στο τραπέζι σας</div>
         <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#c8973a", color: "#1e1c17", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>Δείτε Προϊόντα</div>
-          <div style={{ border: "1px solid rgba(200,151,58,0.4)", color: "#c8973a", fontSize: "8px", padding: "5px 12px" }}>Η Ιστορία μας</div>
+          <div style={{ background: "#c8973a", color: "#1e1c17", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>Τα προϊόντα μας</div>
+          <div style={{ border: "1px solid rgba(200,151,58,0.4)", color: "#c8973a", fontSize: "8px", padding: "5px 12px" }}>Η ιστορία μας</div>
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
@@ -441,16 +441,16 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "40px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(184,151,90,0.15)" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 400, color: "#b8975a", letterSpacing: "0.2em", textTransform: "uppercase" as const }}>Horizon Law</span>
         <div style={{ display: "flex", gap: "14px" }}>
-          {["Δίκαιο","Ομάδα","Άρθρα"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.65)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
+          {["Τομείς","Ομάδα","Άρθρα"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.65)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
         </div>
-        <div style={{ border: "1px solid #b8975a", color: "#b8975a", fontSize: "8px", padding: "3px 10px" }}>Συμβουλή</div>
+        <div style={{ border: "1px solid #b8975a", color: "#b8975a", fontSize: "8px", padding: "3px 10px" }}>Ραντεβού</div>
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Δικηγορικό Γραφείο - Αθήνα</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Δικαιοσύνη με Πάθος.<br/><em style={{ color: "#b8975a" }}>Αριστεία</em> στην Πράξη.</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Δικηγορικό γραφείο · Αθήνα</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Δίπλα σας<br/><em style={{ color: "#b8975a" }}>σε κάθε</em> βήμα.</div>
         <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#b8975a", color: "#0c1524", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>Τομείς Δικαίου</div>
-          <div style={{ border: "1px solid rgba(184,151,90,0.35)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Γνωρίστε την Ομάδα</div>
+          <div style={{ background: "#b8975a", color: "#0c1524", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>Τομείς δικαίου</div>
+          <div style={{ border: "1px solid rgba(184,151,90,0.35)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Η ομάδα μας</div>
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
@@ -486,16 +486,16 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
 
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
-  { id: "all", label: "Όλοι οι Κλάδοι", icon: "✦" },
-  { id: "restaurant", label: "Εστιατόρια & Καφετέριες", icon: "☕" },
-  { id: "beauty", label: "Ομορφιά & Ευεξία", icon: "✂" },
-  { id: "clinic", label: "Κλινικές & Υγεία", icon: "+" },
-  { id: "fitness", label: "Γυμναστήρια & Fitness", icon: "◈" },
-  { id: "realestate", label: "Κτηματομεσιτικά", icon: "◻" },
-  { id: "childcare", label: "Παιδική Μέριμνα", icon: "◎" },
+  { id: "all", label: "Όλοι οι κλάδοι", icon: "✦" },
+  { id: "restaurant", label: "Εστιατόρια και καφέ", icon: "☕" },
+  { id: "beauty", label: "Ομορφιά και ευεξία", icon: "✂" },
+  { id: "clinic", label: "Ιατρεία και υγεία", icon: "+" },
+  { id: "fitness", label: "Γυμναστήρια", icon: "◈" },
+  { id: "realestate", label: "Ακίνητα", icon: "◻" },
+  { id: "childcare", label: "Παιδικοί σταθμοί", icon: "◎" },
   { id: "architecture", label: "Αρχιτεκτονική", icon: "△" },
-  { id: "deli", label: "Ντελικατέσεν & Τρόφιμα", icon: "◇" },
-  { id: "legal", label: "Νομικές Υπηρεσίες", icon: "▣" },
+  { id: "deli", label: "Ντελικατέσεν και τρόφιμα", icon: "◇" },
+  { id: "legal", label: "Νομικές υπηρεσίες", icon: "▣" },
 ];
 
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
@@ -505,61 +505,61 @@ const TEMPLATES = [
     id: "bella-salon",
     industry: "beauty",
     name: "Bella Salon",
-    tagline: "Κομψό & Θηλυκό",
+    tagline: "Κομψό και θηλυκό",
     tier: "Growth",
     tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
     domain: "bellasalon.com",
     palette: ["#1a0a0f", "#6b2d3e", "#c4748a", "#e8b4c0", "#fdf0f3"],
-    paletteNames: ["Βαθύ Δαμάσκηνο", "Σκούρο Ροζ", "Ροζ Σκόνη", "Ροζέ", "Ελεφαντόδοντο"],
-    styleLabel: "Πολυτελές Θηλυκό",
+    paletteNames: ["Βαθύ δαμάσκηνο", "Σκούρο ροζ", "Ροζ σκόνη", "Ροζέ", "Ελεφαντόδοντο"],
+    styleLabel: "Πολυτελές και θηλυκό",
     livePreview: true,
     previewUrl: "/previews/bella-salon.html",
     features: [
-      "Κομψό banner με κουμπί κράτησης",
+      "Κομψή αρχική ενότητα με κουμπί κράτησης",
       "Παρουσίαση υπηρεσιών με τιμές",
-      "Ενότητα γκαλερί εργασιών",
+      "Γκαλερί με δουλειές",
       "Γνωρίστε τους stylists μας",
-      "Επικοινωνία & φόρμα ράντεβου",
-      "Τοποθεσία & ώρες λειτουργίας",
+      "Επικοινωνία και φόρμα για ραντεβού",
+      "Τοποθεσία και ώρες λειτουργίας",
       "Κουμπί WhatsApp",
-      "Responsive για κινητά",
+      "Άψογη εμφάνιση στο κινητό",
     ],
     pages: [
-      { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
+      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Πολυτελές θηλυκή αισθητική με βαθύ δαμάσκηνο και ροζ τόνους, κομψή serif τυπογραφία και ζεστή, φιλόξενη αίσθηση. Ιδανική για κομμωτήρια, beauty studios και nail bars.",
-    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Bella Salon.",
+    style: "Θηλυκό και πολυτελές ύφος σε αποχρώσεις δαμάσκηνου και ροζ, με κομψή γραμματοσειρά και ζεστή, φιλόξενη αίσθηση. Ταιριάζει σε κομμωτήρια, κέντρα αισθητικής και studio νυχιών.",
+    waMessage: "Γεια σας! Είδα το παράδειγμα Bella Salon στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€350",
     images: { card: "" },
   },
   {
     id: "verde-restaurant",
     industry: "restaurant",
-    name: "Verde Εστιατόριο",
-    tagline: "Φρέσκο & Μεσογειακό",
+    name: "Εστιατόριο Verde",
+    tagline: "Φρέσκο και μεσογειακό",
     tier: "Growth",
     tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
     domain: "verderestaurant.com",
     palette: ["#1a2e1a", "#2d5a27", "#4a8c3f", "#8bc34a", "#f5f9f0"],
-    paletteNames: ["Δάσος", "Βαθύ Πράσινο", "Φύλλο", "Φρέσκο Πράσινο", "Κρέμα"],
-    styleLabel: "Φρέσκο Μεσογειακό",
+    paletteNames: ["Δάσος", "Βαθύ πράσινο", "Φύλλο", "Φρέσκο πράσινο", "Κρέμα"],
+    styleLabel: "Φρέσκο μεσογειακό",
     livePreview: true,
     previewUrl: "/previews/verde-restaurant.html",
     features: [
-      "Μεγάλο banner πλήρους πλάτους με κουμπί κράτησης",
-      "Παρουσίαση χαρακτηριστικών πιάτων",
+      "Μεγάλη αρχική ενότητα με κουμπί κράτησης",
+      "Τα αγαπημένα πιάτα",
       "Σελίδα μενού με κατηγορίες",
-      "Ενότητα Σχετικά / Η Ιστορία μας",
-      "Επικοινωνία & φόρμα κράτησης",
+      "Σελίδα «Ποιοι είμαστε»",
+      "Επικοινωνία και φόρμα κράτησης",
       "Ενσωματωμένος χάρτης Google Maps",
-      "WhatsApp & σύνδεσμοι social media",
-      "Responsive για κινητά",
+      "WhatsApp και σύνδεσμοι social media",
+      "Άψογη εμφάνιση στο κινητό",
     ],
     pages: [
-      { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
+      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Αναπνευστική μεσογειακή αισθητική με βαθείς πράσινες αποχρώσεις, ζεστά κρεμ φόντα και κομψή τυπογραφία. Ιδανική για εστιατόρια με φρέσκα υλικά, μεσογειακή κουζίνα και υγιεινή διατροφή.",
-    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Verde Εστιατόριο.",
+    style: "Μεσογειακό ύφος που αναπνέει, σε βαθιές πράσινες αποχρώσεις με ζεστό κρεμ φόντο και κομψή γραμματοσειρά. Ταιριάζει σε εστιατόρια με μεσογειακή κουζίνα και φρέσκα υλικά.",
+    waMessage: "Γεια σας! Είδα το παράδειγμα Verde στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€350",
     images: { card: "" },
   },
@@ -567,30 +567,30 @@ const TEMPLATES = [
     id: "pulse-gym",
     industry: "fitness",
     name: "PulseGym",
-    tagline: "Τολμηρό & Δυναμικό",
+    tagline: "Τολμηρό και δυναμικό",
     tier: "Growth",
     tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
     domain: "pulsegym.com",
     palette: ["#0a0a0a", "#1a1a2e", "#ff6b35", "#ffa500", "#ffffff"],
-    paletteNames: ["Μαύρο", "Σκούρο Ναυτικό", "Πορτοκαλί", "Κεχριμπάρι", "Λευκό"],
-    styleLabel: "Σκούρο & Τολμηρό",
+    paletteNames: ["Μαύρο", "Σκούρο ναυτικό", "Πορτοκαλί", "Κεχριμπάρι", "Λευκό"],
+    styleLabel: "Σκούρο και τολμηρό",
     livePreview: true,
     previewUrl: "/previews/pulse-gym.html",
     features: [
-      "Τολμηρό σκούρο banner με κουμπί εγγραφής",
-      "Πρόγραμμα μαθημάτων & προγράμματα",
+      "Σκούρα, τολμηρή αρχική ενότητα με κουμπί εγγραφής",
+      "Πρόγραμμα και τύποι προπόνησης",
       "Προφίλ εκπαιδευτών",
-      "Πλάνα συνδρομής",
-      "Επικοινωνία & κράτηση δοκιμαστικού",
-      "Τοποθεσία & ώρες λειτουργίας",
+      "Πακέτα συνδρομής",
+      "Επικοινωνία και κράτηση δοκιμαστικού",
+      "Τοποθεσία και ώρες λειτουργίας",
       "Κουμπί WhatsApp",
-      "Responsive για κινητά",
+      "Άψογη εμφάνιση στο κινητό",
     ],
     pages: [
-      { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
+      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Αισθητική υψηλής ενέργειας με μαύρο φόντο και πορτοκαλί ακσεσουάρ, έντονη τυπογραφία και δυναμικές διαταξεις. Ιδανική για γυμναστήρια, CrossFit και studios δύναμης.",
-    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας PulseGym.",
+    style: "Ύφος γεμάτο ενέργεια, με μαύρο φόντο, πορτοκαλί πινελιές, δυνατή γραμματοσειρά και δυναμική διάταξη. Ταιριάζει σε γυμναστήρια, CrossFit και studio προπόνησης δύναμης.",
+    waMessage: "Γεια σας! Είδα το παράδειγμα PulseGym στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€350",
     images: { card: "" },
   },
@@ -598,30 +598,30 @@ const TEMPLATES = [
     id: "dr-elara-dental",
     industry: "clinic",
     name: "Dr. Elara Dental",
-    tagline: "Καθαρό & Επαγγελματικό",
+    tagline: "Καθαρό και επαγγελματικό",
     tier: "Growth",
     tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
     domain: "elaradental.com",
     palette: ["#0a1628", "#1e3a5f", "#2196f3", "#64b5f6", "#f5f9ff"],
-    paletteNames: ["Σκούρο Ναυτικό", "Ναυτικό", "Μπλε", "Ανοιχτό Μπλε", "Παγωμένο Λευκό"],
-    styleLabel: "Καθαρό Κλινικό",
+    paletteNames: ["Σκούρο ναυτικό", "Ναυτικό", "Μπλε", "Ανοιχτό μπλε", "Παγωμένο λευκό"],
+    styleLabel: "Καθαρό και ιατρικό",
     livePreview: true,
     previewUrl: "/previews/dr-elara-dental.html",
     features: [
-      "Επαγγελματικό banner με κουμπί κράτησης",
+      "Επαγγελματική αρχική ενότητα με κουμπί για ραντεβού",
       "Παρουσίαση οδοντιατρικών υπηρεσιών",
-      "Ενότητα προφίλ ιατρών",
-      "Μαρτυρίες ασθενών",
-      "Επικοινωνία & φόρμα ράντεβου",
-      "Τοποθεσία & ώρες λειτουργίας",
+      "Γνωρίστε τους γιατρούς",
+      "Κριτικές ασθενών",
+      "Επικοινωνία και φόρμα για ραντεβού",
+      "Τοποθεσία και ώρες λειτουργίας",
       "Κουμπί WhatsApp",
-      "Responsive για κινητά",
+      "Άψογη εμφάνιση στο κινητό",
     ],
     pages: [
-      { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
+      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Καθαρή, επαγγελματική αισθητική με ναυτικό και μπλε ακσεσουάρ σε λευκό φόντο. Ιδανική για οδοντιατρεία, ιατρεία και παροχής υγειονομικών υπηρεσιών.",
-    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Dr. Elara Dental.",
+    style: "Καθαρό, επαγγελματικό ύφος με μπλε πινελιές σε λευκό φόντο. Ταιριάζει σε οδοντιατρεία, ιατρεία και υπηρεσίες υγείας.",
+    waMessage: "Γεια σας! Είδα το παράδειγμα Dr. Elara Dental στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€350",
     images: { card: "" },
   },
@@ -629,30 +629,30 @@ const TEMPLATES = [
     id: "nomad-coffee",
     industry: "restaurant",
     name: "Nomad Coffee",
-    tagline: "Χειροτεχνικό & Minimal",
+    tagline: "Χειροποίητο και minimal",
     tier: "Launch",
     tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
     domain: "nomadcoffee.com",
     palette: ["#1a1208", "#3d2b1f", "#8b6914", "#c8a96e", "#f7f0e6"],
-    paletteNames: ["Εσπρέσο", "Σκούρο Καφέ", "Χρυσό", "Καραμέλα", "Κρέμα"],
-    styleLabel: "Χειροτεχνικό Minimal",
+    paletteNames: ["Εσπρέσο", "Σκούρο καφέ", "Χρυσό", "Καραμέλα", "Κρέμα"],
+    styleLabel: "Χειροποίητο minimal",
     livePreview: true,
     previewUrl: "/previews/nomad-coffee.html",
     features: [
-      "Απλό banner με ημερήσιες προσφορές",
-      "Παρουσίαση χαρακτηριστικών καφέδων",
+      "Απλή αρχική ενότητα με τις προσφορές της ημέρας",
+      "Οι καφέδες μας",
       "Μενού με κατηγορίες",
-      "Ενότητα Σχετικά / Η Ιστορία μας",
-      "Σελίδα επικοινωνίας & τοποθεσίας",
-      "Κουμπί τηλεφωνικής επικοινωνίας",
-      "WhatsApp & σύνδεσμοι social media",
-      "Responsive για κινητά",
+      "Σελίδα «Ποιοι είμαστε»",
+      "Σελίδα επικοινωνίας και τοποθεσίας",
+      "Κουμπί για τηλεφώνημα",
+      "WhatsApp και σύνδεσμοι social media",
+      "Άψογη εμφάνιση στο κινητό",
     ],
     pages: [
-      { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
+      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Χειροτεχνική minimal αισθητική με τόνους εσπρέσο και χρυσού, καθαρή τυπογραφία και ζεστή, φιλόξενη αίσθηση. Ιδανική για specialty coffee shops, χειροτεχνίτες καφές και καφέ-μπαρ.",
-    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Nomad Coffee.",
+    style: "Minimal ύφος σε αποχρώσεις εσπρέσο και χρυσού, με καθαρή γραμματοσειρά και ζεστή αίσθηση. Ταιριάζει σε specialty coffee shops και μικρά καφεκοπτεία.",
+    waMessage: "Γεια σας! Είδα το παράδειγμα Nomad Coffee στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€250",
     images: { card: "" },
   },
@@ -660,30 +660,30 @@ const TEMPLATES = [
     id: "serenity-yoga",
     industry: "fitness",
     name: "Serenity Yoga",
-    tagline: "Ήρεμο & Ισορροπημένο",
+    tagline: "Ήρεμο και ισορροπημένο",
     tier: "Launch",
     tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
     domain: "serenityyoga.com",
     palette: ["#1a2420", "#2d4a3e", "#4a7c6f", "#8bb5a8", "#f0f7f4"],
-    paletteNames: ["Σκούρο Δάσος", "Βαθύ Πράσινο", "Φασκομηλιά", "Μέντα", "Ανοιχτό Πράσινο"],
-    styleLabel: "Ήρεμο Φυσικό",
+    paletteNames: ["Σκούρο δάσος", "Βαθύ πράσινο", "Φασκομηλιά", "Μέντα", "Ανοιχτό πράσινο"],
+    styleLabel: "Ήρεμο και φυσικό",
     livePreview: true,
     previewUrl: "/previews/serenity-yoga.html",
     features: [
-      "Ήρεμο banner με κουμπί κράτησης μαθήματος",
-      "Πρόγραμμα yoga μαθημάτων",
+      "Ήρεμη αρχική ενότητα με κράτηση μαθήματος",
+      "Πρόγραμμα μαθημάτων yoga",
       "Προφίλ εκπαιδευτών",
-      "Ενότητα wellness φιλοσοφίας",
-      "Επικοινωνία & φόρμα κράτησης",
-      "Τοποθεσία & ώρες λειτουργίας",
+      "Η φιλοσοφία του στούντιο",
+      "Επικοινωνία και φόρμα κράτησης",
+      "Τοποθεσία και ώρες λειτουργίας",
       "Κουμπί WhatsApp",
-      "Responsive για κινητά",
+      "Άψογη εμφάνιση στο κινητό",
     ],
     pages: [
-      { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
+      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Ήρεμη, ισορροπημένη αισθητική με βαθείς τόνους φασκομιλιάς, φυσικές υφές και καθαρή τυπογραφία. Ιδανική για studios yoga, pilates και χώρους ευεξίας.",
-    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Serenity Yoga.",
+    style: "Ήρεμο, ισορροπημένο ύφος σε αποχρώσεις φασκόμηλου, με φυσικές υφές και καθαρή γραμματοσειρά. Ταιριάζει σε στούντιο yoga, pilates και χώρους ευεξίας.",
+    waMessage: "Γεια σας! Είδα το παράδειγμα Serenity Yoga στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€250",
     images: { card: "" },
   },
@@ -693,24 +693,24 @@ const TEMPLATES = [
     id: "luxe-realty",
     industry: "realestate",
     name: "Luxe Realty",
-    tagline: "Πολυτέλεια & Επένδυση",
+    tagline: "Πολυτέλεια και επένδυση",
     tier: "Pro",
     tierGradient: "linear-gradient(135deg, #c9a96e, #9a7040)",
     domain: "luxerealty.gr",
     palette: ["#0a0a08", "#111110", "#c9a96e", "#f5f0e8", "#888880"],
     paletteNames: ["Μαύρο", "Σκούρο", "Σαμπάνια", "Κρέμα", "Απαλό"],
     features: [
-      "Μεγάλο banner πλήρους οθόνης με αναζήτηση ακινήτων",
-      "Grid επιλεγμένων ακινήτων",
-      "Ενότητα υπηρεσιών Golden Visa",
-      "Επικοινωνία & φόρμα ερωτήματος",
-      "Βελτιστοποιημένο SEO για ακίνητα Αθήνα",
+      "Αρχική ενότητα σε όλη την οθόνη με αναζήτηση ακινήτων",
+      "Επιλεγμένα ακίνητα",
+      "Υπηρεσίες Golden Visa",
+      "Επικοινωνία και φόρμα για αιτήματα",
+      "SEO για ακίνητα στην Αθήνα",
     ],
     pages: [
-      { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
+      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Σκούρα editorial πολυτέλεια με Cormorant Garamond serif, χρυσά ακσεσουάρ σαμπάνιας και κινηματογραφική φωτογραφία πλήρους οθόνης. Ιδανική για premium γραφεία ακινήτων.",
-    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Luxe Realty.",
+    style: "Σκούρο, πολυτελές ύφος με κλασική γραμματοσειρά, χρυσές πινελιές σαμπάνιας και φωτογραφία σε όλη την οθόνη. Ταιριάζει σε γραφεία ακινήτων υψηλών προδιαγραφών.",
+    waMessage: "Γεια σας! Είδα το παράδειγμα Luxe Realty στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -720,24 +720,24 @@ const TEMPLATES = [
     id: "little-stars-nursery",
     industry: "childcare",
     name: "Little Stars Nursery",
-    tagline: "Ζεστό & Παιχνιδιάρικο",
+    tagline: "Ζεστό και παιχνιδιάρικο",
     tier: "Growth",
     tierGradient: "linear-gradient(135deg, #f06a50, #d04030)",
     domain: "littlestarsnursery.gr",
     palette: ["#2d2416", "#f06a50", "#5bb8d4", "#f5c842", "#fffbf5"],
     paletteNames: ["Μελάνι", "Κοραλί", "Ουρανί", "Κίτρινο", "Κρέμα"],
     features: [
-      "Κάρτες προγραμμάτων ανά ηλικιακή ομάδα",
-      "Ενότητα Σχετικά & αξίες",
-      "Μαρτυρίες γονέων",
-      "Φόρμα κράτησης επίσκεψης στον παιδικό σταθμό",
-      "Βελτιστοποιημένο SEO για παιδικές υπηρεσίες Αθήνα",
+      "Προγράμματα ανά ηλικία",
+      "Ποιοι είμαστε και τι πιστεύουμε",
+      "Κριτικές γονέων",
+      "Φόρμα για να κλείσετε επίσκεψη",
+      "SEO για παιδικούς σταθμούς στην Αθήνα",
     ],
     pages: [
-      { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
+      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Ζεστή Nunito τυπογραφία με κοραλί και ουράνια ακσεσουάρ σε κρεμ βάση. Φιλικός σχεδιασμός με οργανικά σχήματα. Ιδανικός για παιδικούς σταθμούς και παιδική μέριμνα.",
-    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Little Stars Nursery.",
+    style: "Ζεστή, στρογγυλεμένη γραμματοσειρά με κοραλί και γαλάζιες πινελιές σε κρεμ φόντο και απαλά σχήματα. Ταιριάζει σε παιδικούς σταθμούς και χώρους για μικρά παιδιά.",
+    waMessage: "Γεια σας! Είδα το παράδειγμα Little Stars Nursery στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€299",
     images: { card: "" },
     livePreview: true,
@@ -747,24 +747,24 @@ const TEMPLATES = [
     id: "arcos-architecture",
     industry: "architecture",
     name: "Arcos Architecture",
-    tagline: "Βρουταλιστικό & Minimal",
+    tagline: "Brutalist και minimal",
     tier: "Pro",
     tierGradient: "linear-gradient(135deg, #c4613a, #8a3a1a)",
     domain: "arcosarchitecture.gr",
     palette: ["#1a1916", "#2d2b27", "#c4613a", "#f4f1ec", "#7a7568"],
     paletteNames: ["Ανθρακί", "Σκούρο", "Τερακότα", "Χαρτί", "Απαλό"],
     features: [
-      "Μεγάλο banner διπλής οθόνης με πλήρη εικόνα",
-      "Πλέγμα εργασιών",
-      "Υπηρεσίες με αριθμημένη διάταξη",
-      "Ιστορία στούντιο & στατιστικά",
-      "Βελτιστοποιημένο SEO για αρχιτεκτονικά γραφεία Αθήνα",
+      "Αρχική ενότητα σε δύο στήλες με μεγάλη φωτογραφία",
+      "Τα έργα μας",
+      "Υπηρεσίες σε αριθμημένη λίστα",
+      "Το γραφείο σε αριθμούς",
+      "SEO για αρχιτεκτονικά γραφεία στην Αθήνα",
     ],
     pages: [
-      { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
+      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Βρουταλιστικό minimal με Syne display font, αποχρώσεις χαρτιού και τερακότα ακσεσουάρ. Ασύμμετρες διαιρετές διαταξεις. Ιδανικό για αρχιτεκτονικά γραφεία.",
-    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Arcos Architecture.",
+    style: "Λιτό, brutalist ύφος σε αποχρώσεις χαρτιού με πινελιές τερακότας και ασύμμετρη διάταξη. Ταιριάζει σε αρχιτεκτονικά γραφεία.",
+    waMessage: "Γεια σας! Είδα το παράδειγμα Arcos Architecture στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -781,17 +781,17 @@ const TEMPLATES = [
     palette: ["#1e1c17", "#4a5e2a", "#c8973a", "#faf6ef", "#7a7060"],
     paletteNames: ["Μελάνι", "Ελιά", "Χρυσό", "Κρέμα", "Απαλό"],
     features: [
-      "Ηρωική διπλής οθόνης με φωτογραφία προιόντων",
-      "Πλέγμα κατηγοριών με εφέ επικάλυψη",
-      "Επιλεγμένα προιόντα με τιμές",
-      "Ενότητα ιστορίας μας",
-      "Βελτιστοποιημένο SEO για δελικατέσεν Αθήνα",
+      "Αρχική ενότητα σε δύο στήλες με φωτογραφία προϊόντων",
+      "Κατηγορίες προϊόντων",
+      "Επιλεγμένα προϊόντα με τιμές",
+      "Σελίδα «Ποιοι είμαστε»",
+      "SEO για ντελικατέσεν στην Αθήνα",
     ],
     pages: [
-      { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
+      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Ζεστή Μεσόγειος με Playfair Display serif, βαθειά ελιά και χρυσά χρώματα. Ιδανική για χειροτεχνικά ντελικατέσεν, τρόφιμα καταστήματα και specialty παντοπωλεία.",
-    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Olio Deli.",
+    style: "Ζεστό μεσογειακό ύφος σε πράσινο της ελιάς και χρυσό, με κλασική γραμματοσειρά. Ταιριάζει σε ντελικατέσεν, μπακάλικα και καταστήματα τροφίμων.",
+    waMessage: "Γεια σας! Είδα το παράδειγμα Olio Deli στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€299",
     images: { card: "" },
     livePreview: true,
@@ -801,24 +801,24 @@ const TEMPLATES = [
     id: "horizon-law",
     industry: "legal",
     name: "Horizon Law",
-    tagline: "Αυθεντικό & Σκούρο",
+    tagline: "Επιβλητικό και σκούρο",
     tier: "Pro",
     tierGradient: "linear-gradient(135deg, #b8975a, #7a6030)",
     domain: "horizonlaw.gr",
     palette: ["#0c1524", "#142035", "#b8975a", "#f8f4ec", "#8a9ab5"],
-    paletteNames: ["Ναυτικό", "Σκούρο Ναυτικό", "Χρυσό", "Κρέμα", "Απαλό"],
+    paletteNames: ["Ναυτικό", "Σκούρο ναυτικό", "Χρυσό", "Κρέμα", "Απαλό"],
     features: [
-      "Ηρωική πλήρους οθόνης με ατμοσφαιρική φωτογραφία",
-      "6 κάρτες τομέων δικαίου",
+      "Αρχική ενότητα σε όλη την οθόνη με ατμοσφαιρική φωτογραφία",
+      "6 τομείς δικαίου",
       "Προφίλ δικηγόρων με φωτογραφίες",
-      "Μαρτυρίες πελατών",
-      "Βελτιστοποιημένο SEO για νομικά γραφεία Αθήνα",
+      "Κριτικές πελατών",
+      "SEO για δικηγορικά γραφεία στην Αθήνα",
     ],
     pages: [
-      { label: "Ζωντανή Προεπισκόπηση", preview: "live", description: "Πλήρως διαδραστική ζωντανή προεπισκόπηση - κάντε scroll, κλικ και εξερευνήστε ολόκληρη την ιστοσελίδα" },
+      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Αυθεντικό σκούρο με EB Garamond serif, βαθύ ναυτικό και ζεστό χρυσό. Ιδανικό για δικηγορικά γραφεία, νομικές συμβουλευτικές και επαγγελματικές υπηρεσίες.",
-    waMessage: "Γεια σας ομάδα DM-Labs! Με ενδιαφέρει ο σχεδιασμός ιστοσελίδας Horizon Law.",
+    style: "Επιβλητικό, σκούρο ύφος σε βαθύ μπλε και ζεστό χρυσό, με κλασική γραμματοσειρά. Ταιριάζει σε δικηγορικά γραφεία και επαγγελματικές υπηρεσίες.",
+    waMessage: "Γεια σας! Είδα το παράδειγμα Horizon Law στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -884,7 +884,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
           >
 
-            Άνοιγμα Πλήρους Προεπισκόπησης
+            Δείτε ολόκληρη την προεπισκόπηση
           </a>
 
           {/* Style description */}
@@ -894,7 +894,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
 
           {/* What's included */}
           <div>
-            <h3 className="text-gray-900 font-semibold mb-3 text-sm uppercase tracking-widest">Τι Περιλαμβάνεται</h3>
+            <h3 className="text-gray-900 font-semibold mb-3 text-sm uppercase tracking-widest">Τι περιλαμβάνει</h3>
             <ul className="space-y-2">
               {template.features.map(f => (
                 <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
@@ -907,20 +907,20 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
 
           {/* Τιμές CTA */}
           <div className="rounded-xl p-4 border border-gray-200" style={{ background: "linear-gradient(135deg, #F8F9FF, #F5F0FF)" }}>
-            <p className="text-xs text-gray-500 mb-1 font-medium">Αυτό είναι έμπνευση σχεδιασμού</p>
-            <p className="text-gray-400 text-xs mb-4 leading-relaxed">Κάθε ιστοσελίδα κατασκευάζεται από μηδενική βάση και προσαρμόζεται στο brand σας. Η τιμή εξαρτάται από το πλάνο που θα επιλέξετε - όχι από το παράδειγμα.</p>
+            <p className="text-xs text-gray-500 mb-1 font-medium">Είναι απλώς μια ιδέα</p>
+            <p className="text-gray-400 text-xs mb-4 leading-relaxed">Κάθε ιστοσελίδα τη φτιάχνουμε από την αρχή, με βάση το brand σας. Η τιμή εξαρτάται από το πακέτο που θα διαλέξετε, όχι από το παράδειγμα.</p>
             <a
               href="/el/pricing/"
               className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] mb-2"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >
-              Δείτε Τιμές Πακέτων
+              Δείτε τα πακέτα και τις τιμές
             </a>
             <a
               href="/el/contact/"
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-sm border border-gray-200 text-gray-700 transition-all duration-300 hover:border-[#5B8CFF] hover:text-[#5B8CFF]"
             >
-              Ζητήστε Προσφορά για αυτό το Σχέδιο
+              Ζητήστε προσφορά για κάτι παρόμοιο
             </a>
           </div>
 
@@ -928,7 +928,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             <div className="flex">
               {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-amber-400 text-amber-400" />)}
             </div>
-            <span className="text-gray-500 text-xs">Εμπιστεύονται από 50+ επιχειρήσεις</span>
+            <span className="text-gray-500 text-xs">Διαδραστικό παράδειγμα για έμπνευση</span>
           </div>
         </div>
       </motion.div>
@@ -956,7 +956,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
             className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white text-gray-900 px-5 py-2.5 rounded-full font-semibold text-sm shadow-xl flex items-center gap-2"
             style={{ transform: "translateY(8px)" }}
           >
-            Διαδραστικό Demo
+            Διαδραστικό παράδειγμα
           </motion.div>
         </div>
       </div>
@@ -979,7 +979,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Σχεδιαστική έμπνευση για το δικό σας brand</span>
+          <span className="text-xs text-gray-400 italic">Ιδέες για το δικό σας brand</span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
             Προεπισκόπηση
           </button>
@@ -1020,24 +1020,24 @@ function CustomBuildCard() {
           </svg>
         </div>
 
-        <h3 className="relative z-10 text-white font-bold text-xl leading-tight mb-1">Προσαρμοσμένη Κατασκευή</h3>
-        <p className="relative z-10 text-blue-200/80 text-sm">Πλήρως Εξατομικευμένος Σχεδιασμός</p>
+        <h3 className="relative z-10 text-white font-bold text-xl leading-tight mb-1">Από την αρχή, για εσάς</h3>
+        <p className="relative z-10 text-blue-200/80 text-sm">Σχεδιασμός μόνο για εσάς</p>
       </div>
 
       {/* Card body */}
       <div className="p-5 flex flex-col flex-1">
         <p className="text-gray-600 text-sm leading-relaxed mb-4">
-          Κανένα από αυτά δεν ταιριάζει στο όραμά σας; Σχεδιάζουμε την ιστοσελίδα σας εξ ολοκλήρου από μηδενική βάση, μοναδική διάταξη, προσαρμοσμένα γραφικά και ταυτότητα brand φτιαγμένη αποκλειστικά για εσάς.
+          Κανένα παράδειγμα δεν σας κάνει; Κανένα πρόβλημα. Σχεδιάζουμε την ιστοσελίδα σας από την αρχή, με δική της διάταξη, γραφικά και ύφος, μόνο για εσάς.
         </p>
 
         {/* Feature list */}
         <ul className="space-y-2 mb-5 flex-1">
           {[
-            "100% μοναδική διάταξη - πλήρως εξατομικευμένη",
-            "Προσαρμοσμένες εικονογραφήσεις & brand graphics",
-            "Προσαρμοσμένη παλέτα χρωμάτων & τυπογραφία",
-            "Φτιαγμένο γύρω από τους συγκεκριμένους επιχειρηματικούς σας στόχους",
-            "Συνεργατική διαδικασία σχεδιασμού",
+            "Διάταξη φτιαγμένη μόνο για εσάς",
+            "Εικονογραφήσεις και γραφικά για το brand σας",
+            "Χρώματα και γραμματοσειρές με βάση το brand σας",
+            "Σχεδιασμένο με βάση τους στόχους της επιχείρησής σας",
+            "Είστε μέσα σε κάθε βήμα του σχεδιασμού",
           ].map(f => (
             <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
               <Check size={14} className="text-[#5B8CFF] shrink-0 mt-0.5" />
@@ -1047,14 +1047,14 @@ function CustomBuildCard() {
         </ul>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Σχεδιασμός γύρω από τους στόχους σας</span>
+          <span className="text-xs text-gray-400 italic">Με βάση τους στόχους σας</span>
           <a
             href="/el/contact/"
             className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
             style={{ color: "#5B8CFF" }}
             onClick={e => e.stopPropagation()}
           >
-            Ζητήστε Προσφορά
+            Ζητήστε προσφορά
           </a>
         </div>
       </div>
@@ -1100,7 +1100,7 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
           <button
             onClick={() => scroll("left")}
             className="absolute left-1 top-1/2 -translate-y-1/2 z-20 min-w-11 h-11 px-3 rounded-md bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
-            aria-label="Scroll left"
+            aria-label="Κύλιση αριστερά"
           >
             <span>Πίσω</span>
           </button>
@@ -1114,7 +1114,7 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
           <button
             onClick={() => scroll("right")}
             className="absolute right-1 top-1/2 -translate-y-1/2 z-20 min-w-11 h-11 px-3 rounded-md bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-all hidden md:flex"
-            aria-label="Scroll right"
+            aria-label="Κύλιση δεξιά"
           >
             <span>Επόμενο</span>
           </button>
@@ -1156,8 +1156,8 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function TemplatesEl() {
   useSEO({
-    title: "Παραδείγματα Ιστοσελίδων | Δείτε τη Δουλειά μας | DM-Labs.io",
-    description: "Εξερευνήστε concept ιστοσελίδες της DM-Labs.io για εστιατόρια, σαλόνια, οδοντιατρεία, στούντιο yoga και άλλα. Δείτε τι μπορεί να πετύχει το δικό σας brand.",
+    title: "Παραδείγματα ιστοσελίδων για επιχειρήσεις | DM-Labs.io",
+    description: "Παραδείγματα ιστοσελίδων για εστιατόρια, σαλόνια ομορφιάς, ιατρεία, στούντιο yoga και άλλα. Δείτε πώς θα μπορούσε να είναι και η δική σας.",
     canonicalPath: "/el/templates/",
   });
   const [location] = useLocation();
@@ -1238,18 +1238,18 @@ export default function TemplatesEl() {
         <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(139,92,255,0.07)" }} />
         <div className="relative container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>Παραδείγματα Ιστοσελίδων</p>
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>Παραδείγματα ιστοσελίδων</p>
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
-              Βρείτε το Ιδανικό
+              Βρείτε το στυλ
               <span className="block" style={{ background: "linear-gradient(135deg, #5B8CFF, #6FE3FF, #8B5CFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                Στυλ Ιστοσελίδας
+                που σας ταιριάζει
               </span>
             </h1>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
-              Περιηγηθείτε στα σχέδιά μας ανά κλάδο. Κάθε παράδειγμα προσαρμόζεται πλήρως για την επιχείρησή σας - το λογότυπό σας, τα χρώματά σας, το περιεχόμενό σας.
+              Δείτε τα παραδείγματα ανά κλάδο και κρατήστε ιδέες. Όποιο κι αν σας αρέσει, το προσαρμόζουμε στην επιχείρησή σας: στο λογότυπο, στα χρώματα και στο περιεχόμενό σας.
             </p>
             <p className="text-sm text-gray-400 max-w-xl mx-auto">
-              Αυτά είναι <strong className="text-gray-500">διαδραστικά demo</strong>, όχι σταθερά πακέτα. Κάθε ιστοσελίδα κατασκευάζεται από μηδενική βάση για την επιχείρησή σας. Πραγματικές υλοποιήσεις πελατών διατίθενται κατόπιν αιτήματος.
+              Αυτά είναι <strong className="text-gray-500">διαδραστικά παραδείγματα</strong>, όχι έτοιμα πακέτα. Κάθε ιστοσελίδα τη φτιάχνουμε από την αρχή για την επιχείρησή σας. Αν θέλετε να δείτε πραγματικές ιστοσελίδες πελατών μας, ζητήστε τες.
             </p>
           </motion.div>
         </div>
@@ -1277,10 +1277,10 @@ export default function TemplatesEl() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" className="w-8 h-8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
               </div>
               <h3 className="text-gray-900 text-2xl font-bold mb-3">
-                {INDUSTRIES.find(i => i.id === activeIndustry)?.label} Παραδείγματα
+                Παραδείγματα: {INDUSTRIES.find(i => i.id === activeIndustry)?.label}
               </h3>
               <p className="text-gray-500 max-w-md mx-auto mb-8 leading-relaxed">
-                Ετοιμάζουμε όμορφα παραδείγματα για αυτόν τον κλάδο. Εν τω μεταξύ, μπορούμε να δημιουργήσουμε έναν εντελώς custom σχεδιασμό για την επιχείρησή σας - απλά επικοινωνήστε μαζί μας.
+                Για αυτόν τον κλάδο δεν έχουμε ακόμα παραδείγματα εδώ, αλλά μπορούμε να σχεδιάσουμε για εσάς μια ιστοσελίδα από την αρχή. Απλώς στείλτε μας μήνυμα.
               </p>
               <a
                 href="/el/contact/"
@@ -1290,7 +1290,7 @@ export default function TemplatesEl() {
                 <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white" aria-hidden>
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
-                Ζητήστε Custom Σχεδιασμό
+                Ζητήστε σχεδιασμό από την αρχή
               </a>
             </motion.div>
           )}
@@ -1305,14 +1305,14 @@ export default function TemplatesEl() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Δεν βρίσκετε αυτό που ψάχνετε;</h2>
             <p className="text-gray-500 mb-8 max-w-lg mx-auto">
-              Κάθε ιστοσελίδα που φτιάχνουμε είναι πλήρως προσαρμοσμένη. Πείτε μας για την επιχείρησή σας και θα σχεδιάσουμε κάτι μοναδικό - αποκλειστικά για εσάς.
+              Κάθε ιστοσελίδα τη φτιάχνουμε από την αρχή. Πείτε μας δυο λόγια για την επιχείρησή σας, και θα δούμε μαζί τι της ταιριάζει.
             </p>
             <a
               href="/el/contact/"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >
-              Αρχίστε μια Συνομιλία
+              Ας τα πούμε
             </a>
           </motion.div>
         </div>

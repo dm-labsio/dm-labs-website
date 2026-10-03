@@ -7,8 +7,8 @@ import { useSEO } from "@/hooks/useSEO";
 
 export default function PrivacyEl() {
   useSEO({
-    title: "Πολιτική Απορρήτου | DM-Labs.io",
-    description: "Πολιτική απορρήτου της DM-Labs.io. Πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τα προσωπικά σας δεδομένα σύμφωνα με τον GDPR.",
+    title: "Πολιτική απορρήτου | DM-Labs.io",
+    description: "Πώς η DM-Labs.io συλλέγει, χρησιμοποιεί και προστατεύει τα προσωπικά σας δεδομένα, σύμφωνα με τον GDPR.",
     canonicalPath: "/el/privacy/",
   });
 

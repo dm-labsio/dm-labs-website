@@ -183,8 +183,8 @@ const TESTIMONIALS = [
 
 export default function HomeElPage() {
   useSEO({
-    title: "Η καλύτερη εταιρεία web design για επιχειρήσεις που αναπτύσσονται | DM Labs",
-    description: "Ξεχωρίστε. Κερδίστε εμπιστοσύνη. Προσελκύστε περισσότερες επαφές. Custom ιστοσελίδες, γρήγορη παράδοση και προσωπική φροντίδα σε επιχειρήσεις παντού.",
+    title: "Κατασκευή ιστοσελίδων για επιχειρήσεις | DM Labs",
+    description: "Φτιάχνουμε ιστοσελίδες που φέρνουν πελάτες: σχεδιασμός στα μέτρα σας, άψογη εμφάνιση στο κινητό, SEO και συντήρηση. Δωρεάν συμβουλευτική με τον Tom και την Anastacia.",
   });
   return (
     <div className="home-page--dark" lang="el" data-button-surface="dark">

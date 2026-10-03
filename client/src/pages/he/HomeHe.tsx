@@ -24,7 +24,7 @@ const examples = [
 
 
 export default function HomeHe() {
-  useSEO({ title: "סוכנות עיצוב האתרים הטובה ביותר לעסקים בצמיחה | DM Labs", description: "נראות בולטת. אמון. יותר פניות. אתרים בהתאמה אישית, מסירה מהירה וליווי אישי לעסקים בכל מקום.", ogLocale: "he_IL", noindex: true });
+  useSEO({ title: "בניית אתרים לעסקים | עיצוב אתרים בהתאמה אישית | DM Labs", description: "אנחנו בונים לעסקים אתרים שמביאים פניות: עיצוב אישי, התאמה מלאה למובייל, קידום אורגני ותחזוקה שוטפת. לשיחת ייעוץ בחינם עם תום ואנסטסיה.", ogLocale: "he_IL", noindex: true });
 
 
   return <div className="hebrew-home hebrew-home-refresh home-page--dark" lang="he" dir="rtl" data-button-surface="dark">

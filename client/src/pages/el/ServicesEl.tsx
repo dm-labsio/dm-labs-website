@@ -3,8 +3,8 @@ import ServicesPage from "@/components/studio/ServicesPage";
 
 export default function ServicesEl() {
   useSEO({
-    title: "Υπηρεσίες Σχεδιασμού Ιστοσελίδων | DM-Labs.io",
-    description: "Επαγγελματικές υπηρεσίες web design. Custom ιστοσελίδες, mobile-first ανάπτυξη, SEO βελτιστοποίηση και συντήρηση. Γρήγορη παράδοση και προσωπική φροντίδα.",
+    title: "Υπηρεσίες κατασκευής ιστοσελίδων | DM-Labs.io",
+    description: "Όλα όσα χρειάζεται η ιστοσελίδα σας σε ένα σημείο: σχεδιασμός στα μέτρα σας, προσαρμογή σε κινητά, SEO, ταχύτητα, ασφάλεια και συντήρηση.",
   });
   return <ServicesPage locale="el" />;
 }

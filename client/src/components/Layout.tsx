@@ -13,6 +13,12 @@ import { openCookiePreferences } from "@/lib/cookieConsent";
 import { getRouteLanguage } from "@/lib/routeLanguage";
 import { getGreekLanguageTogglePath, getHebrewLanguageTogglePath, getHreflangRouteSet, normalizeRoutePath, withTrailingSlash } from "@/lib/seoRoutes";
 
+// Screen readers announce these decorative videos, so their labels follow the page language.
+const BANNER_LABELS: Record<string, Partial<Record<"en" | "el" | "he", string>>> = {
+  "/": { el: "Διακοσμητικό βίντεο με αφηρημένες ψηφιακές μορφές", he: "וידאו דקורטיבי עם צורות דיגיטליות מופשטות" },
+  "/contact": { el: "Διακοσμητικό βίντεο για τη σελίδα επικοινωνίας", he: "וידאו דקורטיבי לעמוד יצירת הקשר" },
+};
+
 const CINEMATIC_BANNERS: Record<string, CinematicBannerProps> = {
   "/": {
     label: "Abstract digital studio motion",
@@ -64,7 +70,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const isTemplatesIndex = normalizedLocation === "/templates";
   const NAV_LINKS = getNavigation(getRouteLanguage(location));
   const languageNeutralPath = normalizedLocation.replace(/^\/(?:el|he)(?=\/|$)/, "") || "/";
-  const cinematicBanner = isStandalonePreview ? null : CINEMATIC_BANNERS[languageNeutralPath] ?? null;
+  const baseBanner = isStandalonePreview ? null : CINEMATIC_BANNERS[languageNeutralPath] ?? null;
+  const localizedBannerLabel = BANNER_LABELS[languageNeutralPath]?.[isHebrew ? "he" : isGreek ? "el" : "en"];
+  const cinematicBanner = baseBanner && localizedBannerLabel ? { ...baseBanner, label: localizedBannerLabel } : baseBanner;
   const cinematicInterlude = languageNeutralPath === "/" || languageNeutralPath === "/contact" ? cinematicBanner : null;
 
   useEffect(() => {
@@ -132,7 +140,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div style={{ marginBottom: "20px" }}><BrandLogo full /></div>
                 <p className="text-sm text-[#94A3B8] leading-relaxed max-w-xs">
                   {isHebrew
-                    ? "אתר שגורם לעסק שלכם לבלוט, ללקוחות לסמוך עליכם ולטלפון לצלצל. בעיצוב אישי ובליווי צמוד של טום ואנסטסיה, לעסקים בכל העולם."
+                    ? "אתר שגורם לעסק שלכם לבלוט, ללקוחות לסמוך עליכם ולטלפון לצלצל. בעיצוב אישי ובליווי צמוד של תום ואנסטסיה, לעסקים בכל העולם."
                     : isGreek
                       ? "Μια ιστοσελίδα που σας κάνει να ξεχωρίζετε, κερδίζει την εμπιστοσύνη των πελατών σας και κάνει το τηλέφωνο να χτυπάει. Τη φτιάχνουμε από το μηδέν, με την προσωπική φροντίδα του Tom και της Anastacia, για επιχειρήσεις σε όλο τον κόσμο."
                       : "Stand out. Earn trust. Turn interest into enquiries. Custom websites and personal care from Tom and Anastacia, for businesses worldwide."
@@ -144,7 +152,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   href="https://www.instagram.com/dm_labs.io/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Follow DM-Labs.io on Instagram"
+                  aria-label={isHebrew ? "עקבו אחרי DM-Labs.io באינסטגרם" : isGreek ? "Ακολουθήστε την DM-Labs.io στο Instagram" : "Follow DM-Labs.io on Instagram"}
                   className="group flex items-center justify-center w-9 h-9 rounded-xl transition-all duration-300"
                   style={{ background: "linear-gradient(135deg, #5B8CFF22 0%, #A855F722 100%)", border: "1px solid rgba(91,140,255,0.2)" }}
                   onMouseEnter={e => (e.currentTarget.style.background = "linear-gradient(135deg, #5B8CFF44 0%, #A855F744 100%)")}

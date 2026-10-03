@@ -10,8 +10,8 @@ export default function CookiePolicyEl() {
   // /el/cookies/ self-canonicalises to https://dm-labs.io/el/cookies/
   // /el/cookie-policy/ 301s to /el/cookies/ at the server level
   useSEO({
-    title: "Πολιτική Cookies | DM-Labs.io",
-    description: "Πολιτική cookies της DM-Labs.io. Πώς χρησιμοποιούμε τα cookies σύμφωνα με τον GDPR.",
+    title: "Πολιτική cookies | DM-Labs.io",
+    description: "Ποια cookies χρησιμοποιεί η ιστοσελίδα, για ποιο λόγο και πώς μπορείτε να αλλάξετε τις ρυθμίσεις σας, σύμφωνα με τον GDPR.",
   });
 
   return (

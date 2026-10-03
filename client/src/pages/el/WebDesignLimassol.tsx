@@ -31,8 +31,8 @@ export default function WebDesignLimassol() {
   const faqs = copy(baseFaqs);
 
   useSEO({
-    title: "Web Design Λεμεσός | Ιστοσελίδες για Ανάπτυξη | DM-Labs.io",
-    description: "Η DM-Labs.io κατασκευάζει επαγγελματικές ιστοσελίδες για επιχειρήσεις στη Λεμεσό που θέλουν να ξεχωρίσουν. Mobile-first, SEO-ready, γρήγορη παράδοση. Αποκτήστε online παρουσία σήμερα.",
+    title: "Κατασκευή ιστοσελίδων στη Λεμεσό | DM-Labs.io",
+    description: "Ιστοσελίδες για επιχειρήσεις στη Λεμεσό που θέλουν να τις βρίσκουν και να τους στέλνουν μήνυμα: άψογες στο κινητό, με γερές βάσεις SEO. Δωρεάν συμβουλευτική.",
     canonicalPath: "/el/web-design-limassol/",
   });
   useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/el/web-design-limassol/", "el", "Web Design Λεμεσός", "Επαγγελματικό πρακτορείο σχεδιασμού ιστοσελίδων που εξυπηρετεί επιχειρήσεις στη Λεμεσό. Προσαρμοσμένες ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία.", faqs));

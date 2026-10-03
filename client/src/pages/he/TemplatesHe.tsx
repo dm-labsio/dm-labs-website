@@ -167,12 +167,12 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         <div style={{ display: "flex", gap: "12px" }}>
           {["שירותים","אודות","גלריה","הזמנה"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a5a4a", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{l}</span>)}
         </div>
-        <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "3px 10px", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>הזמינו עכשיו</div>
+        <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "3px 10px", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>קביעת תור</div>
       </div>
       <div style={{ position: "absolute", top: "56px", left: "18px", maxWidth: "48%" }}>
         <div style={{ fontSize: "9px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "6px" }}>סטודיו ליופי</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>מקום שבו היופי<br/><em style={{ color: "#c4735a" }}>פוגש</em> אמנות</div>
-        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>טיפולי שיער, עור וציפורניים מקצועיים<br/>בסביבה יוקרתית.</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>כי מגיע לך<br/><em style={{ color: "#c4735a" }}>להרגיש</em> יפה</div>
+        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>שיער, טיפוח פנים וציפורניים,<br/>באווירה פרטית ונעימה.</div>
         <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em" }}>קבעו תור</div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
@@ -192,7 +192,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "13px", fontWeight: 700, color: "#e8f0e0", letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Verde</span>
         <div style={{ display: "flex", gap: "14px" }}>
-          {["תפריט","הסיפור","הזמנה"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(232,240,224,0.7)", letterSpacing: "0.08em" }}>{l}</span>)}
+          {["תפריט","עלינו","הזמנה"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(232,240,224,0.7)", letterSpacing: "0.08em" }}>{l}</span>)}
         </div>
         <div style={{ border: "1px solid #7ab060", color: "#7ab060", fontSize: "8px", padding: "3px 10px" }}>הזמנה</div>
       </div>
@@ -223,9 +223,9 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         <div style={{ background: "#ff6b35", color: "#fff", fontSize: "8px", padding: "3px 10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>הרשמה</div>
       </div>
       <div style={{ position: "absolute", top: "52px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#ff6b35", marginBottom: "4px" }}>לימסול, נוסד ב־2019</div>
-        <div style={{ fontFamily: "Impact, sans-serif", fontSize: "28px", fontWeight: 900, color: "#fff", lineHeight: 1.0, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "6px" }}>לשבור<br/><span style={{ color: "#ff6b35" }}>את</span><br/>הגבולות</div>
-        <div style={{ background: "#ff6b35", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const }}>אימון ניסיון חינם</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#ff6b35", marginBottom: "4px" }}>לימסול · מאז 2019</div>
+        <div style={{ fontFamily: "Impact, sans-serif", fontSize: "28px", fontWeight: 900, color: "#fff", lineHeight: 1.0, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "6px" }}>הגרסה<br/><span style={{ color: "#ff6b35" }}>הכי חזקה</span><br/>שלך</div>
+        <div style={{ background: "#ff6b35", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const }}>אימון ניסיון בחינם</div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
         {["#0a0a0a","#ff6b35","#ffa500","#1a1a2e","#ffffff"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.15)" }} />)}
@@ -253,7 +253,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
           <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80" }} />
           <span style={{ fontSize: "8px", color: "#2196f3", fontWeight: 600 }}>מקבלים מטופלים חדשים</span>
         </div>
-        <div style={{ fontSize: "20px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "6px" }}>החיוך שלכם,<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>מושלם</span><br/>עם טיפול</div>
+        <div style={{ fontSize: "20px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "6px" }}>רופא שיניים<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>שלא</span><br/>מפחדים ממנו</div>
         <div style={{ fontSize: "8px", color: "#4a6080", lineHeight: 1.5, marginBottom: "10px" }}>רפואת שיניים מודרנית בסביבה<br/>רגועה ונוחה.</div>
         <div style={{ background: "#2196f3", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", borderRadius: "4px", fontWeight: 600 }}>לטיפולים</div>
       </div>
@@ -274,16 +274,16 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "12px", fontWeight: 700, color: "#c8a96e", letterSpacing: "0.06em" }}>Nomad Co.</span>
         <div style={{ display: "flex", gap: "12px" }}>
-          {["תפריט","הסיפור","פולים","אירועים"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,169,110,0.7)" }}>{l}</span>)}
+          {["תפריט","עלינו","פולים","אירועים"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,169,110,0.7)" }}>{l}</span>)}
         </div>
       </div>
       <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "55%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "5px" }}>קפה מיוחד, לימסול</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "6px" }}>קפה ששווה<br/><em style={{ color: "#c8a96e" }}>להאט</em> בשבילו</div>
-        <div style={{ fontSize: "8px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "10px" }}>פולים ממקור יחיד, קלויים ביד<br/>במנות קטנות.</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "5px" }}>בית קפה, לימסול</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "6px" }}>קפה טוב,<br/><em style={{ color: "#c8a96e" }}>בלי</em> למהר</div>
+        <div style={{ fontSize: "8px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "10px" }}>פולים ממקור אחד, קלויים אצלנו<br/>בכמויות קטנות.</div>
         <div style={{ display: "flex", gap: "6px" }}>
           <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "8px", padding: "5px 12px", fontWeight: 700 }}>לתפריט</div>
-          <div style={{ border: "1px solid rgba(200,169,110,0.5)", color: "#c8a96e", fontSize: "8px", padding: "5px 12px" }}>הסיפור שלנו</div>
+          <div style={{ border: "1px solid rgba(200,169,110,0.5)", color: "#c8a96e", fontSize: "8px", padding: "5px 12px" }}>עלינו</div>
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
@@ -308,7 +308,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
         <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#8bb5a8", marginBottom: "5px" }}>סטודיו יוגה, לימסול</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f0f7f4", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>מצאו את<br/><em style={{ color: "#8bb5a8" }}>המקום</em> השקט שלכם</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f0f7f4", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>קחו רגע<br/><em style={{ color: "#8bb5a8" }}>של</em> שקט לעצמכם</div>
         <div style={{ display: "flex", gap: "6px" }}>
           <div style={{ background: "#4a7c6f", color: "#f0f7f4", fontSize: "8px", padding: "5px 12px" }}>לשיעורים</div>
           <div style={{ border: "1px solid rgba(139,181,168,0.4)", color: "#8bb5a8", fontSize: "8px", padding: "5px 12px" }}>ללוח הזמנים</div>
@@ -335,8 +335,8 @@ const CARD_DESIGNS: Record<string, React.FC> = {
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>אתונה, נכסי פרימיום</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>בתים יוצאי דופן<br/>בשבילכם</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>נדל״ן יוקרה, אתונה</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>הבית הבא שלכם<br/>מחכה באתונה</div>
         <div style={{ display: "flex", gap: "6px" }}>
           <div style={{ background: "#b8975a", color: "#0a0a0a", fontSize: "8px", padding: "5px 14px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>לנכסים</div>
           <div style={{ border: "1px solid rgba(184,151,90,0.4)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>מדריך ויזה</div>
@@ -365,8 +365,8 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "48%" }}>
         <div style={{ fontSize: "8px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#f06a50", marginBottom: "5px" }}>גן ילדים, אתונה</div>
-        <div style={{ fontFamily: "Nunito, sans-serif", fontSize: "20px", fontWeight: 800, color: "#2d2416", lineHeight: 1.2, marginBottom: "6px" }}>מקום שבו הקטנים<br/><span style={{ color: "#f06a50" }}>פורחים</span></div>
-        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>סביבה מטפחת לילדים<br/>מגיל 3 חודשים עד 5 שנים.</div>
+        <div style={{ fontFamily: "Nunito, sans-serif", fontSize: "20px", fontWeight: 800, color: "#2d2416", lineHeight: 1.2, marginBottom: "6px" }}>בית שני<br/><span style={{ color: "#f06a50" }}>לקטנטנים</span></div>
+        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>גן חם ומחבק לילדים<br/>מגיל 3 חודשים עד 5.</div>
         <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", borderRadius: "20px", fontWeight: 700 }}>קבעו ביקור</div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
@@ -391,8 +391,8 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       </div>
       <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "46%" }}>
         <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4613a", marginBottom: "5px" }}>משרד אדריכלות</div>
-        <div style={{ fontSize: "22px", fontWeight: 800, color: "#1a1916", lineHeight: 1.1, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "8px" }}>חלל<br/>שמדבר<br/><span style={{ color: "#c4613a" }}>בעד עצמו</span></div>
-        <div style={{ fontSize: "8px", color: "#7a7568", lineHeight: 1.5, marginBottom: "10px" }}>אדריכלות שמחברת<br/>בין רעיון לאומנות.</div>
+        <div style={{ fontSize: "22px", fontWeight: 800, color: "#1a1916", lineHeight: 1.1, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "8px" }}>בונים<br/>מרחבים<br/><span style={{ color: "#c4613a" }}>לחיים</span></div>
+        <div style={{ fontSize: "8px", color: "#7a7568", lineHeight: 1.5, marginBottom: "10px" }}>מהסקיצה הראשונה<br/>ועד המפתח ביד.</div>
         <div style={{ background: "#1a1916", color: "#f4f1ec", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>לפרויקטים</div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
@@ -412,16 +412,16 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(200,151,58,0.2)" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "13px", fontWeight: 700, color: "#c8973a", letterSpacing: "0.08em", fontStyle: "italic" as const }}>Olio Deli</span>
         <div style={{ display: "flex", gap: "12px" }}>
-          {["תפריט","הסיפור","מוצרים"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,151,58,0.7)" }}>{l}</span>)}
+          {["תפריט","עלינו","מוצרים"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,151,58,0.7)" }}>{l}</span>)}
         </div>
         <div style={{ border: "1px solid #c8973a", color: "#c8973a", fontSize: "8px", padding: "3px 10px" }}>הזמינו</div>
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c8973a", marginBottom: "5px" }}>מעדניית אומן, אתונה</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#faf6ef", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>המעדנייה הים<br/>תיכונית הטובה ביותר</div>
+        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c8973a", marginBottom: "5px" }}>מעדנייה, אתונה</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#faf6ef", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>טעמים של הים התיכון,<br/>ישר לשולחן שלכם</div>
         <div style={{ display: "flex", gap: "6px" }}>
           <div style={{ background: "#c8973a", color: "#1e1c17", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>למוצרים</div>
-          <div style={{ border: "1px solid rgba(200,151,58,0.4)", color: "#c8973a", fontSize: "8px", padding: "5px 12px" }}>הסיפור שלנו</div>
+          <div style={{ border: "1px solid rgba(200,151,58,0.4)", color: "#c8973a", fontSize: "8px", padding: "5px 12px" }}>עלינו</div>
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
@@ -441,13 +441,13 @@ const CARD_DESIGNS: Record<string, React.FC> = {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "40px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(184,151,90,0.15)" }}>
         <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 400, color: "#b8975a", letterSpacing: "0.2em", textTransform: "uppercase" as const }}>Horizon Law</span>
         <div style={{ display: "flex", gap: "14px" }}>
-          {["משפט","צוות","מאמרים"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.65)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
+          {["תחומי עיסוק","הצוות","מאמרים"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.65)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
         </div>
         <div style={{ border: "1px solid #b8975a", color: "#b8975a", fontSize: "8px", padding: "3px 10px" }}>ייעוץ</div>
       </div>
       <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
         <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>משרד עורכי דין, אתונה</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>צדק מתוך תשוקה.<br/><em style={{ color: "#b8975a" }}>מצוינות</em> בפעולה.</div>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>ליווי משפטי<br/><em style={{ color: "#b8975a" }}>אישי</em> ומקצועי.</div>
         <div style={{ display: "flex", gap: "6px" }}>
           <div style={{ background: "#b8975a", color: "#0c1524", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>תחומי עיסוק</div>
           <div style={{ border: "1px solid rgba(184,151,90,0.35)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>הכירו את הצוות</div>
@@ -486,13 +486,13 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
 
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
-  { id: "all", label: "כל הענפים", icon: "✦" },
+  { id: "all", label: "כל התחומים", icon: "✦" },
   { id: "restaurant", label: "מסעדות ובתי קפה", icon: "☕" },
-  { id: "beauty", label: "יופי ורווחה", icon: "✂" },
-  { id: "clinic", label: "מרפאות ובריאות", icon: "+" },
-  { id: "fitness", label: "כושר ו-Fitness", icon: "◈" },
+  { id: "beauty", label: "יופי וטיפוח", icon: "✂" },
+  { id: "clinic", label: "קליניקות ובריאות", icon: "+" },
+  { id: "fitness", label: "כושר וספורט", icon: "◈" },
   { id: "realestate", label: "נדל״ן", icon: "◻" },
-  { id: "childcare", label: "טיפול בילדים", icon: "◎" },
+  { id: "childcare", label: "גנים ומעונות", icon: "◎" },
   { id: "architecture", label: "אדריכלות", icon: "△" },
   { id: "deli", label: "מעדניות ומזון", icon: "◇" },
   { id: "legal", label: "שירותים משפטיים", icon: "▣" },
@@ -515,7 +515,7 @@ const TEMPLATES = [
     livePreview: true,
     previewUrl: "/previews/bella-salon.html",
     features: [
-      "הירו אלגנטי עם כפתור הזמנה",
+      "אזור פתיחה אלגנטי עם כפתור הזמנה",
       "הצגת שירותים ומחירים",
       "גלריית עבודות",
       "הכירו את צוות הסטייליסטים",
@@ -525,10 +525,10 @@ const TEMPLATES = [
       "מותאם למובייל",
     ],
     pages: [
-      { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
+      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "אסתטיקה נשית יוקרתית בגוני שזיף וורוד, טיפוגרפיית serif אלגנטית ותחושה חמה ומזמינה. מתאימה לסלונים, סטודיואים ליופי וברים לציפורניים.",
-    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Bella Salon.",
+    style: "סגנון נשי ויוקרתי בגוני שזיף וורוד, עם פונט אלגנטי ותחושה חמה ומזמינה. מתאים לסלונים, לקוסמטיקאיות ולמכוני ציפורניים.",
+    waMessage: "היי! ראיתי אצלכם את הדוגמה של Bella Salon ואשמח לשמוע עוד.",
     price: "€350",
     images: { card: "" },
   },
@@ -536,30 +536,30 @@ const TEMPLATES = [
     id: "verde-restaurant",
     industry: "restaurant",
     name: "מסעדת Verde",
-    tagline: "רענן וים-תיכוני",
+    tagline: "רענן וים תיכוני",
     tier: "Growth",
     tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
     domain: "verderestaurant.com",
     palette: ["#1a2e1a", "#2d5a27", "#4a8c3f", "#8bc34a", "#f5f9f0"],
     paletteNames: ["יער", "ירוק עמוק", "עלה", "ירוק רענן", "קרם"],
-    styleLabel: "ים-תיכוני רענן",
+    styleLabel: "ים תיכוני ורענן",
     livePreview: true,
     previewUrl: "/previews/verde-restaurant.html",
     features: [
-      "הירו רחב עם כפתור הזמנה",
+      "אזור פתיחה רחב עם כפתור הזמנה",
       "הצגת מנות נבחרות",
       "עמוד תפריט לפי קטגוריות",
-      "אודות והסיפור שלנו",
+      "עמוד אודות",
       "יצירת קשר וטופס הזמנה",
       "מפת Google Maps משולבת",
       "WhatsApp וקישורים חברתיים",
       "מותאם למובייל",
     ],
     pages: [
-      { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
+      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "אסתטיקה ים-תיכונית נושמת בגוני ירוק עמוקים, רקעי קרם חמים וטיפוגרפיה אלגנטית. מתאימה למסעדות עם חומרי גלם טריים ומטבח ים-תיכוני.",
-    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של מסעדת Verde.",
+    style: "סגנון ים תיכוני ונושם בגוני ירוק עמוק ורקע קרם חם, עם פונט אלגנטי. מתאים למסעדות עם מטבח ים תיכוני וחומרי גלם טריים.",
+    waMessage: "היי! ראיתי אצלכם את הדוגמה של מסעדת Verde ואשמח לשמוע עוד.",
     price: "€350",
     images: { card: "" },
   },
@@ -577,7 +577,7 @@ const TEMPLATES = [
     livePreview: true,
     previewUrl: "/previews/pulse-gym.html",
     features: [
-      "הירו כהה ונועז עם כפתור הרשמה",
+      "אזור פתיחה כהה ונועז עם כפתור הרשמה",
       "לוח שיעורים ותוכניות",
       "פרופילי מאמנים",
       "מסלולי מנוי",
@@ -587,10 +587,10 @@ const TEMPLATES = [
       "מותאם למובייל",
     ],
     pages: [
-      { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
+      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "אסתטיקה מלאת אנרגיה עם רקע שחור ונגיעות כתומות, טיפוגרפיה עוצמתית ופריסות דינמיות. מתאימה לחדרי כושר, CrossFit וסטודיואים לכוח.",
-    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של PulseGym.",
+    style: "סגנון אנרגטי עם רקע שחור ונגיעות כתומות, פונט חזק ופריסה דינמית. מתאים לחדרי כושר, לקרוספיט ולסטודיו לאימוני כוח.",
+    waMessage: "היי! ראיתי אצלכם את הדוגמה של PulseGym ואשמח לשמוע עוד.",
     price: "€350",
     images: { card: "" },
   },
@@ -608,7 +608,7 @@ const TEMPLATES = [
     livePreview: true,
     previewUrl: "/previews/dr-elara-dental.html",
     features: [
-      "הירו מקצועי עם כפתור הזמנה",
+      "אזור פתיחה מקצועי עם כפתור הזמנה",
       "הצגת שירותי רפואת שיניים",
       "פרופילי רופאים",
       "המלצות מטופלים",
@@ -618,10 +618,10 @@ const TEMPLATES = [
       "מותאם למובייל",
     ],
     pages: [
-      { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
+      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "אסתטיקה נקייה ומקצועית עם נגיעות נייבי וכחול על רקע לבן. מתאימה למרפאות שיניים, קליניקות ושירותי בריאות.",
-    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Dr. Elara Dental.",
+    style: "סגנון נקי ומקצועי בכחול נייבי על רקע לבן. מתאים למרפאות שיניים, לקליניקות ולשירותי בריאות.",
+    waMessage: "היי! ראיתי אצלכם את הדוגמה של Dr. Elara Dental ואשמח לשמוע עוד.",
     price: "€350",
     images: { card: "" },
   },
@@ -639,20 +639,20 @@ const TEMPLATES = [
     livePreview: true,
     previewUrl: "/previews/nomad-coffee.html",
     features: [
-      "הירו מינימליסטי עם מבצעים יומיים",
+      "אזור פתיחה מינימליסטי עם מבצעים יומיים",
       "הצגת קפה נבחר",
       "תפריט לפי קטגוריות",
-      "אודות והסיפור שלנו",
+      "עמוד אודות",
       "עמוד קשר ומיקום",
       "כפתור חיוג ישיר",
       "WhatsApp וקישורים חברתיים",
       "מותאם למובייל",
     ],
     pages: [
-      { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
+      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "אסתטיקה אומנותית ומינימליסטית בגוני אספרסו וזהב, טיפוגרפיה נקייה ותחושה חמה. מתאימה לבתי קפה מיוחדים ולקפה-ברים.",
-    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Nomad Coffee.",
+    style: "סגנון מינימליסטי בגוני אספרסו וזהב, עם פונט נקי ותחושה חמה. מתאים לבתי קפה ולבתי קלייה קטנים.",
+    waMessage: "היי! ראיתי אצלכם את הדוגמה של Nomad Coffee ואשמח לשמוע עוד.",
     price: "€250",
     images: { card: "" },
   },
@@ -670,20 +670,20 @@ const TEMPLATES = [
     livePreview: true,
     previewUrl: "/previews/serenity-yoga.html",
     features: [
-      "הירו רגוע עם הזמנת שיעור",
+      "אזור פתיחה רגוע עם הזמנת שיעור",
       "לוח שיעורי יוגה",
       "פרופילי מדריכים",
-      "פילוסופיית רווחה",
+      "הגישה של הסטודיו",
       "יצירת קשר וטופס הזמנה",
       "מיקום ושעות פעילות",
       "כפתור WhatsApp",
       "מותאם למובייל",
     ],
     pages: [
-      { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
+      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "אסתטיקה רגועה ומאוזנת בגוני מרווה עמוקים, מרקמים טבעיים וטיפוגרפיה נקייה. מתאימה לסטודיואים ליוגה, פילאטיס ורווחה.",
-    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Serenity Yoga.",
+    style: "סגנון רגוע ומאוזן בגוני ירוק מרווה, עם מרקמים טבעיים ופונט נקי. מתאים לסטודיו ליוגה, לפילאטיס ולמרכזי רווחה.",
+    waMessage: "היי! ראיתי אצלכם את הדוגמה של Serenity Yoga ואשמח לשמוע עוד.",
     price: "€250",
     images: { card: "" },
   },
@@ -700,17 +700,17 @@ const TEMPLATES = [
     palette: ["#0a0a08", "#111110", "#c9a96e", "#f5f0e8", "#888880"],
     paletteNames: ["שחור", "כהה", "שמפניה", "קרם", "רך"],
     features: [
-      "הירו מלא עם חיפוש נכסים",
-      "גריד נכסים נבחרים",
+      "אזור פתיחה מלא עם חיפוש נכסים",
+      "נכסים נבחרים",
       "שירותי Golden Visa",
       "יצירת קשר וטופס פנייה",
       "SEO מותאם לנדל״ן",
     ],
     pages: [
-      { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
+      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "יוקרה editorial כהה עם Cormorant Garamond, נגיעות שמפניה זהובות וצילום קולנועי במסך מלא. מתאימה למשרדי נדל״ן פרימיום.",
-    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Luxe Realty.",
+    style: "סגנון יוקרתי וכהה עם פונט קלאסי, נגיעות זהב שמפניה וצילומים במסך מלא. מתאים למשרדי נדל״ן יוקרה.",
+    waMessage: "היי! ראיתי אצלכם את הדוגמה של Luxe Realty ואשמח לשמוע עוד.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -734,10 +734,10 @@ const TEMPLATES = [
       "SEO מותאם לשירותי ילדים",
     ],
     pages: [
-      { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
+      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "טיפוגרפיית Nunito חמה עם נגיעות קורל ותכלת על בסיס קרם. עיצוב ידידותי עם צורות אורגניות, מתאים לגנים ולמסגרות לילדים.",
-    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Little Stars Nursery.",
+    style: "פונט עגול וחם עם נגיעות קורל ותכלת על רקע קרם, וצורות רכות. מתאים לגנים ולמסגרות לגיל הרך.",
+    waMessage: "היי! ראיתי אצלכם את הדוגמה של Little Stars Nursery ואשמח לשמוע עוד.",
     price: "€299",
     images: { card: "" },
     livePreview: true,
@@ -754,17 +754,17 @@ const TEMPLATES = [
     palette: ["#1a1916", "#2d2b27", "#c4613a", "#f4f1ec", "#7a7568"],
     paletteNames: ["פחם", "כהה", "טרקוטה", "נייר", "רך"],
     features: [
-      "הירו מפוצל עם צילום מלא",
-      "גריד פרויקטים",
+      "אזור פתיחה מפוצל עם צילום מלא",
+      "תיק פרויקטים",
       "שירותים בפריסה ממוספרת",
-      "סיפור הסטודיו וסטטיסטיקות",
+      "אודות הסטודיו ומספרים",
       "SEO מותאם לאדריכלות",
     ],
     pages: [
-      { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
+      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "ברוטליזם מינימליסטי עם Syne, גוני נייר ונגיעות טרקוטה. פריסות מפוצלות ואסימטריות, מתאימות למשרדי אדריכלות.",
-    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Arcos Architecture.",
+    style: "סגנון מינימליסטי וחשוף בגוני נייר ונגיעות טרקוטה, עם פריסות לא סימטריות. מתאים למשרדי אדריכלות.",
+    waMessage: "היי! ראיתי אצלכם את הדוגמה של Arcos Architecture ואשמח לשמוע עוד.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -781,17 +781,17 @@ const TEMPLATES = [
     palette: ["#1e1c17", "#4a5e2a", "#c8973a", "#faf6ef", "#7a7060"],
     paletteNames: ["דיו", "זית", "זהב", "קרם", "רך"],
     features: [
-      "הירו מפוצל עם צילום מוצרים",
-      "גריד קטגוריות עם שכבות",
+      "אזור פתיחה מפוצל עם צילום מוצרים",
+      "קטגוריות מוצרים",
       "מוצרים נבחרים ומחירים",
-      "הסיפור שלנו",
+      "עמוד אודות",
       "SEO מותאם למעדניות",
     ],
     pages: [
-      { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
+      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "ים תיכוני חם עם Playfair Display, ירוק זית עמוק וגווני זהב. מתאימה למעדניות, חנויות מזון ובוטיקים קולינריים.",
-    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Olio Deli.",
+    style: "סגנון ים תיכוני חם בירוק זית וזהב, עם פונט קלאסי. מתאים למעדניות, לחנויות אוכל ולבוטיקים קולינריים.",
+    waMessage: "היי! ראיתי אצלכם את הדוגמה של Olio Deli ואשמח לשמוע עוד.",
     price: "€299",
     images: { card: "" },
     livePreview: true,
@@ -808,17 +808,17 @@ const TEMPLATES = [
     palette: ["#0c1524", "#142035", "#b8975a", "#f8f4ec", "#8a9ab5"],
     paletteNames: ["נייבי", "נייבי כהה", "זהב", "קרם", "רך"],
     features: [
-      "הירו מלא עם צילום אווירה",
-      "6 כרטיסי תחומי משפט",
+      "אזור פתיחה מלא עם צילום אווירה",
+      "6 תחומי עיסוק",
       "פרופילי עורכי דין עם צילומים",
       "המלצות לקוחות",
       "SEO מותאם למשרדים משפטיים",
     ],
     pages: [
-      { label: "תצוגה חיה", preview: "live", description: "דוגמה חיה ואינטראקטיבית. גללו, לחצו וגלו את האתר המלא" },
+      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "סגנון סמכותי וכהה עם EB Garamond, נייבי עמוק וזהב חם. מתאים למשרדי עורכי דין, ייעוץ משפטי ושירותים מקצועיים.",
-    waMessage: "שלום לצוות DM-Labs! אני מתעניין/ת בעיצוב האתר של Horizon Law.",
+    style: "סגנון רציני וכהה בנייבי עמוק וזהב חם, עם פונט קלאסי. מתאים למשרדי עורכי דין ולשירותים מקצועיים.",
+    waMessage: "היי! ראיתי אצלכם את הדוגמה של Horizon Law ואשמח לשמוע עוד.",
     price: "€450",
     images: { card: "" },
     livePreview: true,
@@ -884,7 +884,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
           >
 
-            פתחו תצוגה מלאה
+            לתצוגה המלאה
           </a>
 
           {/* Style description */}
@@ -907,20 +907,20 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
 
           {/* Τιμές CTA */}
           <div className="rounded-xl p-4 border border-gray-200" style={{ background: "linear-gradient(135deg, #F8F9FF, #F5F0FF)" }}>
-            <p className="text-xs text-gray-500 mb-1 font-medium">זוהי השראה לעיצוב</p>
-            <p className="text-gray-400 text-xs mb-4 leading-relaxed">כל אתר נבנה מאפס ומותאם למותג שלכם. המחיר תלוי בחבילה שתבחרו, לא בדוגמה.</p>
+            <p className="text-xs text-gray-500 mb-1 font-medium">זו רק השראה</p>
+            <p className="text-gray-400 text-xs mb-4 leading-relaxed">כל אתר נבנה מאפס לפי המותג שלכם. המחיר תלוי בחבילה שתבחרו, לא בדוגמה.</p>
             <a
               href="/he/pricing/"
               className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] mb-2"
               style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
             >
-              צפו בחבילות ובמחירים
+              לחבילות ולמחירים
             </a>
             <a
               href="/he/contact/"
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-sm border border-gray-200 text-gray-700 transition-all duration-300 hover:border-[#5B8CFF] hover:text-[#5B8CFF]"
             >
-              בקשו הצעת מחיר לעיצוב הזה
+              רוצים משהו כזה? לקבלת הצעת מחיר
             </a>
           </div>
 
@@ -979,7 +979,7 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">השראה לעיצוב המותג שלכם</span>
+          <span className="text-xs text-gray-400 italic">רעיונות לעיצוב של העסק שלכם</span>
           <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
             תצוגה מקדימה
           </button>
@@ -1021,23 +1021,23 @@ function CustomBuildCard() {
         </div>
 
         <h3 className="relative z-10 text-white font-bold text-xl leading-tight mb-1">בנייה מותאמת אישית</h3>
-        <p className="relative z-10 text-blue-200/80 text-sm">עיצוב ייחודי לחלוטין</p>
+        <p className="relative z-10 text-blue-200/80 text-sm">עיצוב מאפס, רק בשבילכם</p>
       </div>
 
       {/* Card body */}
       <div className="p-5 flex flex-col flex-1">
         <p className="text-gray-600 text-sm leading-relaxed mb-4">
-          אף דוגמה לא מתאימה בדיוק לחזון שלכם? נעצב את האתר מאפס, עם פריסה ייחודית, גרפיקה מותאמת וזהות מותג שנבנית רק עבורכם.
+          לא מצאתם דוגמה שמתאימה בדיוק? אין בעיה. נעצב לכם אתר מאפס, עם פריסה, גרפיקה וסגנון שנבנים רק בשבילכם.
         </p>
 
         {/* Feature list */}
         <ul className="space-y-2 mb-5 flex-1">
           {[
-            "פריסה ייחודית לחלוטין",
+            "פריסה שנבנית רק בשבילכם",
             "איורים וגרפיקת מותג מותאמים",
-            "פלטת צבעים וטיפוגרפיה מותאמות",
-            "בנוי סביב מטרות העסק שלכם",
-            "תהליך עיצוב שיתופי",
+            "צבעים ופונטים לפי המותג",
+            "מתוכנן לפי המטרות של העסק",
+            "אתם מעורבים בכל שלב",
           ].map(f => (
             <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
               <Check size={14} className="text-[#5B8CFF] shrink-0 mt-0.5" />
@@ -1047,14 +1047,14 @@ function CustomBuildCard() {
         </ul>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">עיצוב סביב המטרות שלכם</span>
+          <span className="text-xs text-gray-400 italic">עיצוב לפי המטרות שלכם</span>
           <a
             href="/he/contact/"
             className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
             style={{ color: "#5B8CFF" }}
             onClick={e => e.stopPropagation()}
           >
-            בקשו הצעת מחיר
+            לקבלת הצעת מחיר
           </a>
         </div>
       </div>
@@ -1157,8 +1157,8 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function TemplatesHe() {
   useSEO({
-    title: "דוגמאות לאתרים | השראה לעסק שלך | DM-Labs.io",
-    description: "גלו עיצובי קונספט אינטראקטיביים של DM-Labs.io למסעדות, סלונים, מרפאות, סטודיואים ליוגה ועוד. גלו את אפשרויות העיצוב למותג שלכם.",
+    title: "דוגמאות לאתרים לעסקים | השראה לעיצוב | DM-Labs.io",
+    description: "דוגמאות לאתרים של מסעדות, סלונים, מרפאות, סטודיו ליוגה ועוד. תגללו, תלחצו ותראו איך האתר של העסק שלכם יכול להיראות.",
     canonicalPath: "/he/templates/",
     ogLocale: "he_IL",
     noindex: true,
@@ -1242,12 +1242,12 @@ export default function TemplatesHe() {
         <div className="relative container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <p className="templates-editorial-label text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>דוגמאות לאתרים</p>
-            <h1 className="templates-editorial-title text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight"><span>מצאו את</span><span><em>סגנון האתר</em> שלכם</span></h1>
+            <h1 className="templates-editorial-title text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight"><span>איזה סגנון</span><span><em>מתאים</em> לעסק שלכם?</span></h1>
             <p className="templates-editorial-lead text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
-              עברו בין עיצובים לפי ענף וקחו השראה לאתר הבא שלכם. כל כיוון יכול לקבל את השפה, הצבעים והתוכן שמרגישים בדיוק כמו העסק שלכם.
+              תסתכלו על הדוגמאות לפי תחום ותקחו מהן רעיונות. כל עיצוב כאן אפשר להתאים לעסק שלכם: ללוגו, לצבעים ולתוכן.
             </p>
             <p className="templates-editorial-note text-sm text-gray-400 max-w-xl mx-auto">
-              אלו <strong className="text-gray-500">נקודות השראה אינטראקטיביות</strong>. כל אתר נבנה מאפס עבור העסק שלכם.
+              אלה <strong className="text-gray-500">דוגמאות להשראה</strong>, לא חבילות מוכנות. כל אתר נבנה מאפס בשביל העסק שלכם.
             </p>
           </motion.div>
         </div>
@@ -1275,10 +1275,10 @@ export default function TemplatesHe() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" className="w-8 h-8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
               </div>
               <h3 className="text-gray-900 text-2xl font-bold mb-3">
-                {INDUSTRIES.find(i => i.id === activeIndustry)?.label} דוגמאות
+                דוגמאות: {INDUSTRIES.find(i => i.id === activeIndustry)?.label}
               </h3>
               <p className="text-gray-500 max-w-md mx-auto mb-8 leading-relaxed">
-                אנחנו מכינים דוגמאות יפות לענף הזה. בינתיים נוכל לעצב עבורכם אתר מותאם אישית לחלוטין.
+                לתחום הזה עוד אין כאן דוגמאות, אבל זה לא מפריע לנו לעצב לכם אתר מאפס.
               </p>
               <a
                 href="/he/contact/"
@@ -1288,7 +1288,7 @@ export default function TemplatesHe() {
                 <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white" aria-hidden>
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
-                בקשו עיצוב מותאם אישית
+                לעיצוב בהתאמה אישית
               </a>
             </motion.div>
           )}
@@ -1301,9 +1301,9 @@ export default function TemplatesHe() {
       <section className="py-20" style={{ borderTop: "1px solid rgba(226,229,234,0.8)" }}>
         <div className="container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">מחפשים משהו שמרגיש בדיוק שלכם?</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">לא מצאתם מה שחיפשתם?</h2>
             <p className="text-gray-500 mb-8 max-w-lg mx-auto">
-              כל אתר שאנחנו בונים מותאם אישית. ספרו לנו על העסק, ונחשוב יחד על כיוון ייחודי שמרגיש נכון עבורו.
+              כל אתר שאנחנו בונים מעוצב מאפס. ספרו לנו בכמה מילים על העסק, ונחשוב יחד מה הכי מתאים לו.
             </p>
             <a
               href="/he/contact/"

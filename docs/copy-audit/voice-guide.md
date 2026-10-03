@@ -28,6 +28,8 @@ Owner's word choices:
 - Hebrew: **מובייל** for the device, everywhere ("מותאם למובייל", "נכנסים מהמובייל"). **טלפון** only for calls and phone numbers ("להרים טלפון", "מספר טלפון").
 - Hebrew reference line for tone: "אנחנו בונים אתר שמציג את העסק שלכם כמו שמגיע לו להיראות."
 - Hebrew: "גוגל" takes the masculine ("גוגל מבין", "גוגל מחליט"), as on the homepage.
+- Hebrew: Tom is **תום** (with ת), never טום.
+- Write each section as a chat reply to the question the visitor has at that point ("So what do you actually do?", "I'm not sure what I need"), and use that reply almost as is. Don't fill English page slots (small label + two-part slogan + tagline) line by line. The owner's test: it should sound like the chat, not like an ad.
 
 ## Who we talk to
 
@@ -162,7 +164,7 @@ Use exactly these everywhere. Change one only by changing it site-wide.
 | Brand | DM Labs / DM-Labs.io | η DM Labs / DM-Labs.io | DM Labs / DM-Labs.io |
 | Build plans | Launch Website, Growth Website, Pro Website | same, in English | same, in English |
 | Care plans | Basic Care, Complete Care | same, in English | same, in English |
-| People | Tom, Anastacia | Tom, Anastacia | תום, אנסטסיה |
+| People | Tom, Anastacia | Tom, Anastacia | תום, אנסטסיה (Tom with ת) |
 
 ### Services
 

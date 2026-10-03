@@ -8,7 +8,7 @@ const list = "list-disc pr-5 space-y-2";
 const strong = "text-[#111315]";
 
 export default function CookiePolicyHe() {
-  useSEO({ title: "מדיניות עוגיות | DM-Labs.io", description: "למדו כיצד DM-Labs.io משתמשת בעוגיות וכיצד ניתן לנהל את ההעדפות שלכם.", canonicalPath: "/he/cookies/", ogLocale: "he_IL", noindex: true });
+  useSEO({ title: "מדיניות עוגיות | DM-Labs.io", description: "באילו עוגיות האתר משתמש, למה, ואיך אפשר לשנות את ההגדרות בכל רגע.", canonicalPath: "/he/cookies/", ogLocale: "he_IL", noindex: true });
   return <div className="legal-document">
     <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}><div className="container relative z-10">
       <Link href="/he/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8"> חזרה לדף הבית</Link>

@@ -11,7 +11,7 @@ const strongClass = "text-[#111315]";
 export default function PrivacyHe() {
   useSEO({
     title: "מדיניות פרטיות | DM-Labs.io",
-    description: "מדיניות הפרטיות של DM-Labs.io מסבירה כיצד אנו אוספים, משתמשים ומגנים על נתונים אישיים.",
+    description: "איך DM-Labs.io אוספת, משתמשת ושומרת על המידע האישי שלכם, ומה הזכויות שלכם.",
     canonicalPath: "/he/privacy/",
     ogLocale: "he_IL",
     noindex: true,

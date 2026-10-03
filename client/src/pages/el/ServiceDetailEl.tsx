@@ -160,7 +160,7 @@ function LegacyServiceDetailPage() {
   const service = SERVICES[serviceId];
   useSEO({
     title: service ? `${service.title} | DM-Labs.io` : "Υπηρεσία | DM-Labs.io",
-    description: service ? ({ maps: "Χάρτες Google Maps, οδηγίες και ακριβή στοιχεία τοποθεσίας για την ιστοσελίδα σας. Εύκολη πρόσβαση για πελάτες σε κινητό και υπολογιστή.", forms: "Φόρμες επικοινωνίας φιλικές προς κινητά, με τα πεδία που χρειάζεστε, έλεγχο στοιχείων και σαφή ενημέρωση μετά την υποβολή.", social: "Συνδέστε την ιστοσελίδα σας με τα social media και το WhatsApp. Σαφείς διαδρομές επικοινωνίας, με ενσωματώσεις που ταιριάζουν στο έργο σας." }[service.id] ?? service.subtitle): "Επαγγελματικές υπηρεσίες web design. Εξατομικευμένες ιστοσελίδες γρήγορα και σωστά.",
+    description: service ? ({ maps: "Χάρτης Google μέσα στην ιστοσελίδα, οδηγίες με ένα πάτημα και διεύθυνση και ωράριο σε εμφανές σημείο, για να σας βρίσκουν οι πελάτες χωρίς ψάξιμο.", forms: "Φόρμα επικοινωνίας που συμπληρώνεται εύκολα και στο κινητό, και κάθε μήνυμα έρχεται κατευθείαν στο email σας με όλα τα στοιχεία που χρειάζεστε.", social: "Κουμπί WhatsApp, σύνδεσμοι σε Instagram και Facebook και live feed του Instagram στην ιστοσελίδα, για να σας ακολουθούν και να σας στέλνουν μήνυμα πιο εύκολα." }[service.id] ?? service.subtitle): "Υπηρεσίες κατασκευής ιστοσελίδων της DM-Labs.io.",
   });
 
   useStructuredData("service-jsonld-schema", service ? serviceSchemaData(`https://dm-labs.io/el/services/${serviceId}/`, "el", service.title, service.intro, service.faqs) : null);

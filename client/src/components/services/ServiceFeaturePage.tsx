@@ -9,6 +9,7 @@ import { SERVICE_VISUAL_COPY } from "./serviceVisualCopy";
 import { studioRoute } from "@/components/studio/studioCopy";
 import { isFoundationService, SERVICE_FEATURES, SERVICE_NAMES, SERVICE_RELATED, serviceFeatureRoute, serviceFeatureSchema, type RefreshedService } from "./serviceFeatureContent";
 import { SERVICE_UI } from "./serviceFeatureUI";
+import { SERVICE_SEO } from "./serviceSeo";
 import ServiceShowcase from "./ServiceShowcase";
 import ServiceFoundationStory from "./ServiceFoundationStory";
 import { FOUNDATION_COPY } from "./serviceFoundationCopy";
@@ -16,7 +17,8 @@ import "./ServiceFeaturePage.css";
 
 export default function ServiceFeaturePage({ locale, serviceId }: { locale: SiteLanguage; serviceId: RefreshedService }) {
   const content = SERVICE_FEATURES[locale][serviceId];
-  useSEO({ title: `${content.name} | DM-Labs.io`, description: content.intro, canonicalPath: serviceFeatureRoute(locale, serviceId), ...(locale === "he" ? { ogLocale: "he_IL", noindex: true } : {}) });
+  const seo = SERVICE_SEO[locale]?.[serviceId];
+  useSEO({ title: seo?.title ?? `${content.name} | DM-Labs.io`, description: seo?.description ?? content.intro, canonicalPath: serviceFeatureRoute(locale, serviceId), ...(locale === "he" ? { ogLocale: "he_IL", noindex: true } : {}) });
   useEffect(() => {
     const schemaId = "service-jsonld-schema";
     const existing = document.getElementById(schemaId);

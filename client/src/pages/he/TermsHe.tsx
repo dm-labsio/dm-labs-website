@@ -8,7 +8,7 @@ const heading = "text-xl font-semibold text-[#111315] mb-3";
 const list = "list-disc pr-5 space-y-2";
 
 export default function TermsHe() {
-  useSEO({ title: "תנאי שירות | DM-Labs.io", description: "תנאי השירות של DM-Labs.io לעיצוב, פיתוח, אירוח ותחזוקת אתרים.", canonicalPath: "/he/terms/", ogLocale: "he_IL", noindex: true });
+  useSEO({ title: "תנאי שירות | DM-Labs.io", description: "תנאי השירות של DM-Labs.io לעיצוב ובניית אתרים, אחסון ותחזוקה.", canonicalPath: "/he/terms/", ogLocale: "he_IL", noindex: true });
   return <div className="legal-document">
     <section className="relative overflow-hidden" style={{ paddingTop: "clamp(4rem, 8vh, 6rem)", paddingBottom: "clamp(2rem, 4vh, 3rem)" }}><div className="container relative z-10">
       <Link href="/he/" className="inline-flex items-center gap-1.5 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-8"> חזרה לדף הבית</Link>

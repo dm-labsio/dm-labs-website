@@ -5,8 +5,8 @@ import { useSEO } from "@/hooks/useSEO";
 
 export default function TermsEl() {
   useSEO({
-    title: "Όροι Χρήσης | DM-Labs.io",
-    description: "Διαβάστε τους Όρους Χρήσης της DM-Labs.io για σχεδιασμό, ανάπτυξη και συναφείς υπηρεσίες ιστοσελίδων.",
+    title: "Όροι χρήσης | DM-Labs.io",
+    description: "Οι όροι χρήσης της DM-Labs.io για τον σχεδιασμό, την κατασκευή, τη φιλοξενία και τη συντήρηση ιστοσελίδων.",
     canonicalPath: "/el/terms/",
   });
 
