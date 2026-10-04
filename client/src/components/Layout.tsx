@@ -193,7 +193,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <>
                     <li><Link href="/el/privacy/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική απορρήτου</Link></li>
                     <li><Link href="/el/cookies/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Πολιτική cookies</Link></li>
-                    <li><Link href="/el/terms/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Όροι χρήσης</Link></li>
+                    <li><Link href="/el/terms/" className="text-sm text-[#94A3B8] hover:text-white transition-colors">Όροι παροχής υπηρεσιών</Link></li>
                   </>
                 ) : (
                   <>

@@ -207,6 +207,11 @@ These are the short names (homepage cards, menus, links). Each service page can 
 | maintenance / care | συντήρηση · πακέτο συντήρησης | תחזוקה · תוכנית תחזוקה · תוכנית אחסון ותחזוקה |
 | revisions | γύροι διορθώσεων | סבבי תיקונים |
 | examples | παραδείγματα | דוגמאות |
+| Terms of Service (page name) | Όροι παροχής υπηρεσιών | תנאי שירות |
+| analytics / analytics cookies | ανάλυση επισκεψιμότητας · cookies ανάλυσης | אנליטיקה · עוגיות אנליטיקה |
+| session replay | καταγραφή συνεδριών | תיעוד ביקורים |
+| error tracking | παρακολούθηση σφαλμάτων | מעקב שגיאות |
+| legitimate interest (GDPR) | έννομο συμφέρον | אינטרס לגיטימי |
 
 ### Buttons
 

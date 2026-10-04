@@ -22,7 +22,7 @@ describe("Greek Terms of Service parity", () => {
     expect(count(greekTerms, "h2")).toBe(16);
     expect(count(englishTerms, "h3")).toBe(3);
     expect(count(greekTerms, "h3")).toBe(3);
-    expect(greekTerms).toContain("7. Τι συμβαίνει όταν λήξει ένα πλάνο");
+    expect(greekTerms).toContain("7. Τι γίνεται όταν λήξει το πακέτο συντήρησης");
     expect(greekTerms).toContain("Τελευταία ενημέρωση: 30 Σεπτεμβρίου 2026");
   });
 
