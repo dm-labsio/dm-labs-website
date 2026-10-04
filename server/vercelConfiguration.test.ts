@@ -10,7 +10,7 @@ const vercelConfig = JSON.parse(
   installCommand: string;
   buildCommand: string;
   outputDirectory: string;
-  trailingSlash: boolean;
+  trailingSlash?: boolean;
   routes: Array<{
     src: string;
     status: number;
@@ -60,12 +60,13 @@ function extractQuotedItems(source: string, pattern: RegExp): string[] {
 }
 
 describe("Vercel static deployment configuration", () => {
-  it("pins the static build output, Node, pnpm, Chromium, trailing slashes, and no rewrites", () => {
+  it("pins the static build output, Node, pnpm, Chromium, and no rewrites", () => {
     expect(vercelConfig.$schema).toBe("https://openapi.vercel.sh/vercel.json");
     expect(vercelConfig.installCommand).toBe("pnpm install --frozen-lockfile");
     expect(vercelConfig.buildCommand).toBe("pnpm build");
     expect(vercelConfig.outputDirectory).toBe("dist/public");
-    expect(vercelConfig.trailingSlash).toBe(true);
+    // Edge auto-normalization would run before legacy redirects and add a hop.
+    expect(vercelConfig.trailingSlash).toBeUndefined();
     expect(vercelConfig.redirects).toBeUndefined();
     expect(vercelConfig.rewrites).toBeUndefined();
     expect(packageJson.engines.node).toBe("24.x");
@@ -73,10 +74,10 @@ describe("Vercel static deployment configuration", () => {
     expect(packageJson.devDependencies["@sparticuz/chromium"]).toBe("149.0.0");
   });
 
-  it("ports every Express legacy redirect one-for-one as a pre-normalization 301 route", () => {
+  it("ports every Express legacy redirect ahead of one slash-normalization route", () => {
     const expressRedirects = extractExpressRedirects(staticServer);
     const vercelRedirects = Object.fromEntries(
-      vercelConfig.routes.map(({ src, headers }) => {
+      vercelConfig.routes.slice(0, -1).map(({ src, headers }) => {
         const literalSource = src
           .replace(/^\^/, "")
           .replace(/\/\?\$$/, "")
@@ -86,15 +87,19 @@ describe("Vercel static deployment configuration", () => {
     );
 
     expect(Object.keys(expressRedirects)).toHaveLength(16);
-    expect(vercelConfig.routes).toHaveLength(16);
-    expect(vercelConfig.routes.every(rule => rule.status === 301)).toBe(true);
-    expect(vercelConfig.routes.every(rule => rule.src.endsWith("/?$"))).toBe(
+    expect(vercelConfig.routes).toHaveLength(17);
+    expect(vercelConfig.routes.slice(0, -1).every(rule => rule.status === 301)).toBe(true);
+    expect(vercelConfig.routes.slice(0, -1).every(rule => rule.src.endsWith("/?$"))).toBe(
       true
     );
-    expect(vercelConfig.routes.every(rule => !rule.src.includes(".*"))).toBe(
-      true
-    );
+    expect(vercelConfig.routes.slice(0, -1).every(rule => !rule.src.includes(".*"))).toBe(true);
     expect(vercelRedirects).toEqual(expressRedirects);
+    const slashRule = vercelConfig.routes.at(-1)!;
+    expect(slashRule).toEqual({
+      src: "^/(?!.*\\.[^/]+$)([^/].*[^/]|[^/])$",
+      status: 308,
+      headers: { Location: "/$1/" },
+    });
   });
 
   it("sets a one-year immutable cache header for every local media asset", () => {

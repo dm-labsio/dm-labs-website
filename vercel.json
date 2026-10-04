@@ -3,7 +3,6 @@
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm build",
   "outputDirectory": "dist/public",
-  "trailingSlash": true,
   "routes": [
     {
       "src": "^/blog/geo-vrethite-apo-chatgpt-kypros/?$",
@@ -65,7 +64,7 @@
       "src": "^/el/web-design-restaurants-cyprus/?$",
       "status": 301,
       "headers": {
-        "Location": "/el/web-design-cyprus/"
+        "Location": "/el/blog/istoselidha-estiatorio-kypros/"
       }
     },
     {
@@ -115,6 +114,13 @@
       "status": 301,
       "headers": {
         "Location": "/"
+      }
+    },
+    {
+      "src": "^/(?!.*\\.[^/]+$)([^/].*[^/]|[^/])$",
+      "status": 308,
+      "headers": {
+        "Location": "/$1/"
       }
     }
   ],
