@@ -27,15 +27,15 @@ describe("Dr George orthopaedic website case study", () => {
     }
   });
 
-  it("registers only the English route until QA approval", () => {
-    expect(getHreflangRouteSet(`/blog/${slug}/`)).toEqual({en: `/blog/${slug}`, el: null, he: null});
-    expect(POSTS_EL.some(p => p.slug === slug)).toBe(false);
+  it("connects the approved English article to complete Greek and Hebrew drafts", () => {
+    expect(getHreflangRouteSet(`/blog/${slug}/`)).toEqual({en: `/blog/${slug}`, el: `/el/blog/${slug}`, he: `/he/blog/${slug}`});
+    expect(POSTS_EL.some(p => p.slug === slug)).toBe(true);
     for (const file of ["scripts/prerender-full.mjs", "scripts/prerender-meta.mjs", "client/public/sitemap.xml"]) {
       expect(readFileSync(resolve(root, file), "utf8")).toContain(slug);
     }
     const sitemap = readFileSync(resolve(root, "client/public/sitemap.xml"), "utf8");
-    expect(sitemap).not.toContain(`/el/blog/${slug}`);
-    expect(sitemap).not.toContain(`/he/blog/${slug}`);
+    expect(sitemap).toContain(`/el/blog/${slug}`);
+    expect(sitemap).toContain(`/he/blog/${slug}`);
   });
 
   it("ships real local captures and an accessible, on-demand walkthrough without autoplay", () => {

@@ -12,7 +12,7 @@ describe("Shared navigation destinations", () => {
     expect(getActiveNavHref(`${prefix}/process`, language)).toBe(`${prefix}/process/`);
     expect(getActiveNavHref(`${prefix}/services-unrelated/`, language)).toBeUndefined();
   });
-  it("does not offer a nonexistent Hebrew blog", () => {
-    expect(getNavigation("he").some(link => link.href.includes("/blog"))).toBe(false);
+  it("offers the Hebrew article index once a complete article exists", () => {
+    expect(getNavigation("he")).toContainEqual({ label: "מאמרים", href: "/he/blog/" });
   });
 });

@@ -29,6 +29,7 @@ export const HE_NAV_LINKS = [
   { label: "תהליך", href: "/he/process/" },
   { label: "דוגמאות", href: "/he/templates/" },
   { label: "מחירים", href: "/he/pricing/" },
+  { label: "מאמרים", href: "/he/blog/" },
   { label: "שאלות נפוצות", href: "/he/faq/" },
   { label: "צרו קשר", href: "/he/contact/" },
 ];

@@ -23,6 +23,7 @@ export interface BlogPost {
   author?: string; // Optional visible byline, e.g. "DM-Labs.io"
   authorType?: "Person" | "Organization";
   language?: string;
+  layout?: "case-study";
   keywords?: string[];
   faq?: Array<{ question: string; answer: string }>;
 }

@@ -228,7 +228,7 @@ export function useSEO(options: SEOOptions = {}) {
     if (resolvedOgImageAlt) setMetaTag("twitter:image:alt", resolvedOgImageAlt);
 
     // Emit only reciprocal, real translation targets. Completed Hebrew routes
-    // participate through the explicit route map; Hebrew blog URLs remain absent.
+    // participate through the explicit route map, including completed articles.
     setHreflangTags(getHreflangRouteSet(cleanPath));
     setBreadcrumbSchema(cleanPath, finalPath, title);
     const schema = document.getElementById("page-jsonld-schema") ?? document.createElement("script");

@@ -6,6 +6,8 @@ const projectRoot = join(import.meta.dirname, "..");
 const readSource = (relativePath: string) => readFileSync(join(projectRoot, relativePath), "utf8");
 
 const hebrewRoutes = [
+  "/he/blog/",
+  "/he/blog/doctor-website-design-orthopaedics-case-study/",
   "/he/",
   "/he/services/",
   "/he/process/",
@@ -36,16 +38,16 @@ describe("Hebrew indexing release", () => {
     expect(seoHook).toContain("isIndexableHebrewRoute(cleanPath) ? false : noindex");
   });
 
-  it("lists precisely the 19 completed Hebrew canonical URLs, with no Hebrew blog entries", () => {
+  it("lists precisely the 21 completed Hebrew canonical URLs, including the first article", () => {
     const sitemap = readSource("client/public/sitemap.xml");
     const foundHebrewLocs = sitemap.match(/<loc>https:\/\/dm-labs\.io\/he\/[\s\S]*?<\/loc>/g) ?? [];
 
-    expect(foundHebrewLocs).toHaveLength(19);
+    expect(foundHebrewLocs).toHaveLength(21);
     for (const path of hebrewRoutes) {
       expect(sitemap).toContain(`<loc>https://dm-labs.io${path}</loc>`);
       expect(sitemap).toContain(`hreflang="he" href="https://dm-labs.io${path}"`);
       expect(sitemap).toContain(`hreflang="he-IL" href="https://dm-labs.io${path}"`);
     }
-    expect(sitemap).not.toContain("https://dm-labs.io/he/blog/");
+    expect(sitemap).not.toContain("https://dm-labs.io/he/blog/google-ai-mode-near-me-cyprus/");
   });
 });

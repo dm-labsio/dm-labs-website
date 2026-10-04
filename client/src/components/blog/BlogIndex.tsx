@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { Link } from "wouter";
 import { POSTS } from "@/data/blogPosts";
 import { POSTS_EL } from "@/data/blogPostsEl";
+import { POSTS_HE } from "@/data/blogPostsHe";
 import { newestFirst } from "@/lib/blogOrder";
 import "./BlogIndex.css";
 
-type BlogLocale = "en" | "el";
+type BlogLocale = "en" | "el" | "he";
 type Article = { title: string; excerpt: string; category: string; date: string; readTime: string; coverImage: string; href: string };
 export function blogArticles(locale: BlogLocale): Article[] {
+  if (locale === "he") return newestFirst(POSTS_HE.map(post => ({ ...post, href: `/he/blog/${post.slug}/` })));
   return newestFirst<Article>(locale === "en" ? POSTS.map(post => ({ ...post, href: `/blog/${post.slug}/` })) : POSTS_EL.map(post => ({ ...post, href: `/el/blog/${post.elSlug}/` })));
 }
 const searchable = (text: string) => text.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -19,6 +21,7 @@ export function filterArticles(articles: Article[], query: string): Article[] {
   });
 }
 const copy = {
+  he: { label: "מאמרים ודוגמאות", title: "מדברים על אתרים", intro: "מה כדאי שיהיה באתר של העסק שלכם? כאן אנחנו מסבירים דרך אתרים שבנינו.", search: "חיפוש מאמרים", placeholder: "חפשו לפי נושא או סוג עסק", clear: "ניקוי החיפוש", read: "לקריאת המאמר", empty: "לא מצאנו מאמר שמתאים לחיפוש. אפשר לנסות נושא אחר.", count: (n: number) => n === 1 ? "מאמר אחד" : `${n} מאמרים`, question: "יש לכם שאלה על האתר שלכם?", cta: "לשיחת ייעוץ בחינם" },
   en: { label: "Resources and insights", title: "The DM-Labs.io Blog", intro: "Practical ideas for a website that works for your business.", search: "Search articles", placeholder: "Try SEO, design, or your industry", clear: "Clear search", read: "Read article", empty: "No articles match your search. Try another topic.", count: (n: number) => `${n} ${n === 1 ? "article" : "articles"}`, question: "A question about your website?", cta: "Get a free consultation" },
   el: { label: "Άρθρα και συμβουλές", title: "Το Blog της DM-Labs.io", intro: "Πρακτικές ιδέες για μια ιστοσελίδα που βοηθά την επιχείρησή σας.", search: "Αναζήτηση άρθρων", placeholder: "SEO, σχεδιασμός ή ο κλάδος σας", clear: "Καθαρισμός αναζήτησης", read: "Διαβάστε το άρθρο", empty: "Δεν βρέθηκαν άρθρα. Δοκιμάστε ένα άλλο θέμα.", count: (n: number) => `${n} ${n === 1 ? "άρθρο" : "άρθρα"}`, question: "Έχετε μια ερώτηση για την ιστοσελίδα σας;", cta: "Δωρεάν συμβουλευτική" },
 };
@@ -33,10 +36,10 @@ export default function BlogIndex({ locale }: { locale: BlogLocale }) {
       <div className="blog-index-tools"><div className="blog-index-search"><label htmlFor="article-search">{t.search}</label><input id="article-search" type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder={t.placeholder} aria-controls="blog-articles" /></div><p role="status" aria-live="polite">{t.count(articles.length)}</p></div>
       <div id="blog-articles" className="blog-index-grid">{articles.map(post => <article key={post.href} className="blog-index-card"><Link href={post.href}>
         <img src={post.coverImage} alt="" width="600" height="360" loading="lazy" decoding="async" />
-        <div className="blog-index-card-copy"><span className="blog-index-category">{post.category}</span><h2>{post.title}</h2><p className="blog-index-excerpt">{post.excerpt}</p><div className="blog-index-meta"><time dateTime={post.date}>{new Date(`${post.date}T12:00:00Z`).toLocaleDateString(locale === "el" ? "el-GR" : "en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })}</time><span>{post.readTime}</span></div><span className="blog-index-read">{t.read}</span></div>
+        <div className="blog-index-card-copy"><span className="blog-index-category">{post.category}</span><h2>{post.title}</h2><p className="blog-index-excerpt">{post.excerpt}</p><div className="blog-index-meta"><time dateTime={post.date}>{new Date(`${post.date}T12:00:00Z`).toLocaleDateString({ en: "en-GB", el: "el-GR", he: "he-IL" }[locale], { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })}</time><span>{post.readTime}</span></div><span className="blog-index-read">{t.read}</span></div>
       </Link></article>)}</div>
       {!articles.length && <div className="blog-index-empty"><p>{t.empty}</p><button type="button" onClick={() => { setQuery(""); document.getElementById("article-search")?.focus(); }}>{t.clear}</button></div>}
-      <aside className="blog-index-contact"><h2>{t.question}</h2><Link href={`${locale === "en" ? "" : "/el"}/contact/`}>{t.cta}</Link></aside>
+      <aside className="blog-index-contact"><h2>{t.question}</h2><Link href={`${locale === "en" ? "" : `/${locale}`}/contact/`}>{t.cta}</Link></aside>
     </section>
   </div>;
 }

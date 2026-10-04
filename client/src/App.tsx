@@ -44,6 +44,8 @@ import Templates from "./pages/Templates";
 import ServiceDetail from "./pages/ServiceDetail";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import BlogHe from "./pages/he/BlogHe";
+import { DrGeorgeCaseStudyEl, DrGeorgeCaseStudyHe } from "./pages/LocalizedDrGeorgeCaseStudy";
 import WebDesignLimassol from "./pages/WebDesignLimassol";
 import WebDesignThessaloniki from "./pages/WebDesignThessaloniki";
 import WebDesignNicosia from "./pages/WebDesignNicosia";
@@ -120,6 +122,8 @@ function MainRouter() {
 
         {/* ── Hebrew staged route: only completed Hebrew homepage is exposed ── */}
         <Route path="/he" component={HomeHe} />
+        <Route path="/he/blog" component={BlogHe} />
+        <Route path="/he/blog/doctor-website-design-orthopaedics-case-study" component={DrGeorgeCaseStudyHe} />
         <Route path="/he/" component={HomeHe} />
         <Route path="/he/services" component={ServicesHe} />
         <Route path="/he/services/" component={ServicesHe} />
@@ -185,6 +189,7 @@ function MainRouter() {
         <Route path="/5"><Redirect to="/" /></Route>
 
         {/* ── Greek Blog Posts ── */}
+        <Route path="/el/blog/doctor-website-design-orthopaedics-case-study" component={DrGeorgeCaseStudyEl} />
         <Route path="/el/blog/wix-vs-epaggelmatias-web-designer-kypros" component={WixVsDesignerEl} />
         <Route path="/el/blog/posso-kostizei-istoselidha-kypros" component={WebsiteCostEl} />
         <Route path="/el/blog/istoselidha-nail-salon-beauty-studio-kypros" component={NailSalonEl} />

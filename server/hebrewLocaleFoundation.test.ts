@@ -29,8 +29,8 @@ describe("Hebrew locale foundation", () => {
       he: null,
     });
     expect(getHebrewLanguageTogglePath("/terms/")).toBe("/he/terms");
-    expect(getHebrewLanguageTogglePath("/blog/")).toBe("/he");
-    expect(getHebrewLanguageTogglePath("/el/blog/")).toBe("/he");
+    expect(getHebrewLanguageTogglePath("/blog/")).toBe("/he/blog");
+    expect(getHebrewLanguageTogglePath("/el/blog/")).toBe("/he/blog");
   });
 
   it("uses route-derived language and the shared brand roles for Hebrew", () => {
@@ -48,7 +48,7 @@ describe("Hebrew locale foundation", () => {
   it("keeps Hebrew consent labelled, translated and usable on narrow screens", () => {
     const cookieBanner = readSource("client/src/components/CookieBanner.tsx");
 
-    expect(cookieBanner).toContain('acceptAll: "אני מאשר/ת"');
+    expect(cookieBanner).toContain('acceptAll: "אישור כל העוגיות"');
     expect(cookieBanner).toContain('reject: "לא, תודה"');
     expect(cookieBanner).toContain('manage: "הגדרות"');
     expect(cookieBanner).toContain('cookieHref: "/he/cookies/"');
@@ -182,9 +182,9 @@ describe("Hebrew locale foundation", () => {
     expect(router).toContain('<Route path="/he/services/social" component={SocialHe} />');
     expect(prerender).toContain('"/he/services/social"');
     expect(serverRoutes).toContain('"/he/services/social"');
-    expect(router).not.toContain('path="/he/blog"');
-    expect(prerender).not.toContain('"/he/blog"');
-    expect(serverRoutes).not.toContain('"/he/blog"');
+    expect(router).toContain('path="/he/blog"');
+    expect(prerender).toContain('"/he/blog"');
+    expect(serverRoutes).toContain('"/he/blog"');
   });
 
   it("keeps Hebrew Terms complete, indexable, and free of visibility-gating effects", () => {

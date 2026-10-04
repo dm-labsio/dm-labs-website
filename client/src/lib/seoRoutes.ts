@@ -23,17 +23,19 @@ export const EN_TO_EL_PATHS: Readonly<Record<string, string | null>> = {
   "/blog/website-leads-real-estate-construction-hospitality": null,
   "/blog/google-ai-mode-near-me-cyprus": null,
   "/blog/online-shop-cyprus-shopify-vs-woocommerce": null,
-  "/blog/doctor-website-design-orthopaedics-case-study": null,
+  "/blog/doctor-website-design-orthopaedics-case-study": "/el/blog/doctor-website-design-orthopaedics-case-study",
   "/web-design-paphos": null,
   "/web-design-restaurants-cyprus": null,
 };
 
 /**
  * Hebrew mappings contain only reviewed, prerendered Hebrew destinations.
- * Missing paths, including every current Hebrew blog URL, remain absent so
+ * Missing paths, including untranslated Hebrew blog URLs, remain absent so
  * hreflang and language-switch targets can never fabricate a translation.
  */
 export const EN_TO_HE_PATHS: Readonly<Record<string, string | null>> = {
+  "/blog": "/he/blog",
+  "/blog/doctor-website-design-orthopaedics-case-study": "/he/blog/doctor-website-design-orthopaedics-case-study",
   "/": "/he",
   "/services": "/he/services",
   "/process": "/he/process",
@@ -75,7 +77,7 @@ export const HE_TO_EN_PATHS: Readonly<Record<string, string>> = Object.fromEntri
 /**
  * Hebrew routes were initially launched in staging with page-level noindex
  * settings. This explicit allowlist marks the completed rollout as eligible for
- * indexing while deliberately excluding every Hebrew blog path.
+ * indexing while excluding any article without a completed Hebrew version.
  */
 export const INDEXABLE_HEBREW_PATHS = new Set(
   Object.values(EN_TO_HE_PATHS).filter((path): path is string => path !== null),

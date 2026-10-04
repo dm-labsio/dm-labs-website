@@ -57,7 +57,7 @@ export function inspectSeoDocument(expectedUrl) {
     const answer = node.acceptedAnswer;
     expect(answer?.["@type"] === "Answer" && answer.text && text.includes(normalize(plain(answer.text))), `FAQ answer differs from content: ${node.name}`);
   });
-  const articleRoute = /^\/(?:el\/)?blog\/[^/]+\/$/.test(path);
+  const articleRoute = /^\/(?:(?:el|he)\/)?blog\/[^/]+\/$/.test(path);
   expect(ofType("BlogPosting").length === (articleRoute ? 1 : 0), "Article markup missing or leaked from another route");
   ofType("BlogPosting").forEach(node => {
     expect(normalize(node.headline) === normalize(document.querySelector("h1")?.textContent ?? ""), "Article headline differs from visible heading");
