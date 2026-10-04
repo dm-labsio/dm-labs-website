@@ -1,4 +1,4 @@
-import { usePricingCurrency } from "@/contexts/CurrencyContext";
+import { usePricingCurrency, Price } from "@/contexts/CurrencyContext";
 import { BUILD_PRICE_SUMMARY, BUILD_PLANS, BUILD_PRICES } from "@/components/pricing/pricingContent";
 import { useStructuredData } from "@/hooks/useStructuredData";
 import { serviceSchemaData } from "@/lib/structuredData";
@@ -6,7 +6,7 @@ import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 
 // SEO landing page: /web-design-limassol
-// Target keywords: "web design Λεμεσός", "website design Λεμεσός"
+// Target keywords: "web design Λεμεσός", "κατασκευή ιστοσελίδας Λεμεσός"
 // Design: matches DM-Labs.io site style - light bg, brand gradient accents, clean typography
 
 
@@ -17,12 +17,20 @@ const baseFaqs = [
     a: BUILD_PRICE_SUMMARY.el,
   },
   {
-    q: "Πόσος χρόνος χρειάζεται για την κατασκευή μιας ιστοσελίδας;",
-    a: "Συμφωνούμε το χρονοδιάγραμμα πριν ξεκινήσουμε, με βάση το εύρος και τα απαραίτητα υλικά. Σας ενημερώνουμε σε κάθε στάδιο. Αλλαγές στο έργο, στο περιεχόμενο ή στα σχόλια μπορεί να επηρεάσουν το πρόγραμμα· συμφωνούμε μαζί σας κάθε αναθεώρηση.",
+    q: "Σε πόσο καιρό θα είναι έτοιμη η ιστοσελίδα;",
+    a: "Το χρονοδιάγραμμα το συμφωνούμε πριν ξεκινήσουμε, ανάλογα με το εύρος και τα υλικά που χρειάζονται. Σας ενημερώνουμε σε κάθε στάδιο. Αλλαγές στο έργο, στο περιεχόμενο ή στα σχόλια μπορεί να επηρεάσουν το πρόγραμμα, και κάθε νέα ημερομηνία τη συμφωνούμε μαζί σας.",
   },
   {
-    q: "Συνεργάζεστε με επιχειρήσεις στη Λεμεσό εξ αποστάσεως;",
-    a: "Ναι, φυσικά. Συνεργαζόμαστε με επιχειρήσεις διεθνώς, αποκλειστικά online. Η διαδικασία μας βασίζεται στη σαφή επικοινωνία μέσω WhatsApp, email και βιντεοκλήσεων - επομένως η τοποθεσία δεν αποτελεί ποτέ εμπόδιο. Πολλοί από τους πελάτες μας στη Λεμεσό δεν χρειάστηκαν ποτέ συνάντηση πρόσωπο με πρόσωπο.",
+    q: "Δουλεύετε με επιχειρήσεις στη Λεμεσό;",
+    a: "Ναι. Η DM-Labs.io δουλεύει με επιχειρήσεις παντού. Η διεύθυνσή μας είναι στην Πάφο, και η κουβέντα, οι διορθώσεις και η παράδοση γίνονται από απόσταση, μέσω WhatsApp, email και βιντεοκλήσεων.",
+  },
+  {
+    q: "Τι μπορεί να έχει η ιστοσελίδα μιας επιχείρησης στη Λεμεσό;",
+    a: "Εξαρτάται από το πακέτο και το εύρος του έργου. Συνήθως έχει σελίδες υπηρεσιών, φόρμα επικοινωνίας, χάρτη, κριτικές πελατών, γκαλερί, συνδέσμους για τα social media και τις βάσεις για το SEO.",
+  },
+  {
+    q: "Μπορείτε να προσθέσετε κρατήσεις, CRM ή περισσότερες γλώσσες;",
+    a: "Ναι, ως έργο Enterprise / Custom. Η προσφορά εξαρτάται από τα εργαλεία, τον όγκο του περιεχομένου, τις γλώσσες και το τι ακριβώς χρειάζεται να στηθεί.",
   },
 ];
 
@@ -35,7 +43,7 @@ export default function WebDesignLimassol() {
     description: "Ιστοσελίδες για επιχειρήσεις στη Λεμεσό που θέλουν να τις βρίσκουν και να τους στέλνουν μήνυμα: άψογες στο κινητό, με γερές βάσεις SEO. Δωρεάν συμβουλευτική.",
     canonicalPath: "/el/web-design-limassol/",
   });
-  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/el/web-design-limassol/", "el", "Web Design Λεμεσός", "Επαγγελματικό πρακτορείο σχεδιασμού ιστοσελίδων που εξυπηρετεί επιχειρήσεις στη Λεμεσό. Προσαρμοσμένες ιστοσελίδες με έμφαση στην εμπιστοσύνη και την επικοινωνία.", faqs));
+  useStructuredData("location-jsonld-schema", serviceSchemaData("https://dm-labs.io/el/web-design-limassol/", "el", "Κατασκευή ιστοσελίδων στη Λεμεσό", "Ιστοσελίδες για επιχειρήσεις στη Λεμεσό, σχεδιασμένες από το μηδέν για να εμπνέουν εμπιστοσύνη και να φέρνουν μηνύματα.", faqs));
 
   return (
     <main className="bg-white">
@@ -43,26 +51,26 @@ export default function WebDesignLimassol() {
       <section className="section-spacing bg-gradient-to-br from-[#EEF3FF] via-white to-[#F0EAFF]">
         <div className="container max-w-4xl mx-auto text-center">
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#5B8CFF] mb-4">
-            Εξυπηρετώντας τη Λεμεσό,
+            Web design · Λεμεσός
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] leading-tight mb-6">
-            Κατασκευή Ιστοσελίδας Λεμεσός<br />
+            Κατασκευή ιστοσελίδας στη Λεμεσό<br />
             <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">
-              Επαγγελματικές Ιστοσελίδες για Τοπικές Επιχειρήσεις
+              Ιστοσελίδες που φέρνουν πελάτες
             </span>
           </h1>
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
-            Η DM-Labs.io είναι ένα εξειδικευμένο πρακτορείο web design που βοηθά τις επιχειρήσεις της Λεμεσού να αποκτήσουν μια ισχυρή online παρουσία. Δημιουργούμε γρήγορες, mobile-first και conversion-focused ιστοσελίδες ώστε η επιχείρησή σας να ξεχωρίζει σε μια από τις πιο ανταγωνιστικές αγορές της περιοχής.
+            Φτιάχνουμε ξεκάθαρες, επαγγελματικές και responsive ιστοσελίδες για επιχειρήσεις στη Λεμεσό. Για να δείχνει η επιχείρησή σας σοβαρή, να σας εμπιστεύονται και να έχει ο πελάτης έναν καλό λόγο να σας πάρει τηλέφωνο.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
-                Λάβετε Δωρεάν Προσφορά
+                Ζητήστε δωρεάν προσφορά
               </button>
             </Link>
             <Link href="/el/pricing/">
               <button className="px-8 py-3.5 rounded-xl border border-[#5B8CFF] text-[#5B8CFF] font-semibold text-base hover:bg-[#EEF3FF] transition-colors">
-                Δείτε τις Τιμές
+                Δείτε τις τιμές
               </button>
             </Link>
           </div>
@@ -73,16 +81,16 @@ export default function WebDesignLimassol() {
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-6">
-            Γιατί οι Επιχειρήσεις της Λεμεσού Χρειάζονται Επαγγελματική Ιστοσελίδα
+            Γιατί μια επιχείρηση στη Λεμεσό χρειάζεται σωστή ιστοσελίδα
           </h2>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            Η Λεμεσός είναι η επιχειρηματική και οικονομική πρωτεύουσα της περιοχής - έδρα διεθνών δικηγορικών γραφείων, ναυτιλιακών εταιρειών, fintech startups και ενός ακμάζοντος τομέα φιλοξενίας. Διαθέτει επίσης μια από τις μεγαλύτερες κοινότητες ομογενών στην Ανατολική Μεσόγειο, με κατοίκους και επισκέπτες από τη Ρωσία, το Ηνωμένο Βασίλειο και όλη την Ευρώπη να αναζητούν ενεργά online για τοπικές υπηρεσίες.
+            Η Λεμεσός έχει από όλα: ναυτιλιακές εταιρείες, δικηγορικά γραφεία, εταιρείες τεχνολογίας, εστιατόρια και πολύ τουρισμό. Έχει επίσης πολλούς κατοίκους και επισκέπτες από το εξωτερικό, που ψάχνουν τοπικές υπηρεσίες στο ίντερνετ.
           </p>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            Σε αυτό το περιβάλλον, μια επαγγελματική ιστοσελίδα δεν είναι προαιρετική - είναι η πρώτη σας εντύπωση. Όταν ένας πιθανός πελάτης αναζητά "λογιστής στη Λεμεσό" ή "εστιατόριο κοντά στην παραλία", η ιστοσελίδα σας είτε εργάζεται για εσάς είτε παραδίδει αυτόν τον πελάτη σε έναν ανταγωνιστή. Μια καλοφτιαγμένη ιστοσελίδα με σωστό SEO, γρήγορους χρόνους φόρτωσης και σαφή πρόσκληση για δράση (call to action) μετατρέπει τους επισκέπτες σε πελάτες όλο το εικοσιτετράωρο.
+            Σε μια τέτοια αγορά, η ιστοσελίδα είναι η πρώτη εντύπωση. Όταν κάποιος ψάχνει «λογιστής Λεμεσός» ή «εστιατόριο κοντά στη θάλασσα», είτε βρίσκει εσάς είτε κάποιον ανταγωνιστή σας. Μια καλοφτιαγμένη ιστοσελίδα, με σωστό SEO, γρήγορη φόρτωση και ξεκάθαρο κουμπί για επικοινωνία, δουλεύει για εσάς όλο το εικοσιτετράωρο.
           </p>
           <p className="text-[#5B6472] leading-relaxed">
-            Η αγορά της Λεμεσού είναι ανταγωνιστική και ολοένα και πιο ψηφιακή. Οι επιχειρήσεις που επενδύουν σε μια ποιοτική online παρουσία τώρα - πριν από τους ανταγωνιστές τους - κατακτούν την πιο πολύτιμη επισκεψιμότητα από τις μηχανές αναζήτησης και χτίζουν διαρκή αξιοπιστία τόσο με τους τοπικούς όσο και με τους διεθνείς πελάτες.
+            Ο ανταγωνισμός στη Λεμεσό μεγαλώνει, και όλο και περισσότερα γίνονται online. Όσοι φτιάχνουν τώρα μια σωστή ιστοσελίδα, πριν από τους ανταγωνιστές τους, κερδίζουν πρώτοι όσους ψάχνουν στο Google και χτίζουν εμπιστοσύνη με πελάτες από την πόλη και από το εξωτερικό.
           </p>
         </div>
       </section>
@@ -91,32 +99,32 @@ export default function WebDesignLimassol() {
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Τι Κατασκευάζουμε για τις Επιχειρήσεις της Λεμεσού
+            Τι φτιάχνουμε για επιχειρήσεις στη Λεμεσό
           </h2>
           <p className="text-[#5B6472] mb-10">
-            Κάθε ιστοσελίδα που παραδίδουμε είναι φτιαγμένη για να αποδίδει - όχι απλώς για να φαίνεται ωραία.{" "}
+            Κάθε ιστοσελίδα που φτιάχνουμε έχει δουλειά να κάνει, δεν είναι μόνο για να δείχνει ωραία.{" "}
             <Link href="/el/services/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
-              Δείτε όλες τις υπηρεσίες μας
+              Όλες οι υπηρεσίες μας
             </Link>
             .
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               {
-                title: "Προσαρμοσμένος Σχεδιασμός",
-                desc: "Κανένα έτοιμο πρότυπο. Κάθε ιστοσελίδα σχεδιάζεται από μηδενική βάση για να ταιριάζει με τη μάρκα σας, το κοινό σας και τους στόχους σας.",
+                title: "Ιστοσελίδα στα μέτρα σας",
+                desc: "Χωρίς έτοιμα templates. Σχεδιάζουμε από το μηδέν, με βάση το brand, τους πελάτες και τους στόχους σας.",
               },
               {
-                title: "Σχεδιασμός Mobile-First",
-                desc: "Η εμπειρία στο κινητό έχει σημασία. Κάθε ιστοσελίδα που κατασκευάζουμε φαίνεται και λειτουργεί τέλεια σε οποιαδήποτε οθόνη.",
+                title: "Responsive σχεδιασμός",
+                desc: "Η ιστοσελίδα δείχνει και δουλεύει σωστά σε κάθε οθόνη, από το κινητό μέχρι τον υπολογιστή.",
               },
               {
-                title: "Έτοιμο για SEO",
-                desc: "Καθαρός κώδικας, γρήγοροι χρόνοι φόρτωσης, σωστά meta tags και δομημένα δεδομένα (structured data) - όλα όσα χρειάζεται η Google για να κατατάξει την ιστοσελίδα σας.",
+                title: "Εμφάνιση στο Google (SEO)",
+                desc: "Καθαρός κώδικας, γρήγορη φόρτωση, σωστοί τίτλοι και περιγραφές: οι βάσεις για να καταλαβαίνει το Google τι κάνετε.",
               },
               {
-                title: "Γρήγορη Παράδοση",
-                desc: "Οι περισσότερες ιστοσελίδες παραδίδονται εντός 7 έως 14 ημερών. Κινούμαστε γρήγορα χωρίς εκπτώσεις στην ποιότητα.",
+                title: "Γρήγορη παράδοση",
+                desc: "Το χρονοδιάγραμμα το συμφωνούμε από την αρχή και σας ενημερώνουμε σε κάθε βήμα. Ξέρετε πάντα τι ακολουθεί.",
               },
             ].map((s) => (
               <div key={s.title} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
@@ -132,12 +140,12 @@ export default function WebDesignLimassol() {
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Διαφανείς Τιμές για τις Επιχειρήσεις της Λεμεσού
+            Ξεκάθαρες τιμές για επιχειρήσεις στη Λεμεσό
           </h2>
           <p className="text-[#5B6472] mb-10">
-            Χωρίς κρυφές χρεώσεις. Χωρίς ωριαία χρέωση. Μία σταθερή τιμή, όλα περιλαμβάνονται.{" "}
+            Χωρίς κρυφές χρεώσεις και χωρίς χρέωση με την ώρα. Η κατασκευή έχει σταθερή τιμή, που τη συμφωνούμε από πριν.{" "}
             <Link href="/el/pricing/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
-              Δείτε την πλήρη ανάλυση τιμών
+              Όλες οι τιμές αναλυτικά
             </Link>
             .
           </p>
@@ -153,7 +161,7 @@ export default function WebDesignLimassol() {
               >
                 {p.highlight && (
                   <span className="inline-block text-xs font-semibold text-[#5B8CFF] uppercase tracking-wider mb-2">
-                    Πιο Δημοφιλές
+                    Προτεινόμενο
                   </span>
                 )}
                 <div className="text-3xl font-extrabold text-[#111315] mb-1">{p.price}</div>
@@ -163,7 +171,7 @@ export default function WebDesignLimassol() {
             ))}
           </div>
           <p className="text-xs text-[#9CA3AF] mt-4">
-            * Αυτές είναι εισαγωγικές τιμές για περιορισμένο χρονικό διάστημα.
+            Η κατασκευή πληρώνεται μία φορά. Όσο διαχειριζόμαστε την ιστοσελίδα σας, χρειάζεται και πακέτο φιλοξενίας και συντήρησης, από <Price euros={69} locale="el" />/μήνα. Οι τιμές δεν περιλαμβάνουν τυχόν φόρους και χρεώσεις τρίτων που συμφωνούνται ξεχωριστά.
           </p>
         </div>
       </section>
@@ -172,10 +180,10 @@ export default function WebDesignLimassol() {
       <section className="section-spacing">
         <div className="container max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-3">
-            Εξ αποστάσεως συνεργασία, Εξυπηρετούμε τη Λεμεσό
+            Συνεργασία από απόσταση, σε όλη τη Λεμεσό
           </h2>
           <p className="text-[#5B6472] mb-8">
-            Εξυπηρετούμε επιχειρήσεις σε όλη τη Λεμεσό - από την παλιά πόλη και την παραλία μέχρι την επιχειρηματική περιοχή και τα προάστια όπως ο Άγιος Αθανάσιος, τα Πολεμίδια και η Γερμασόγεια.
+            Δουλεύουμε με επιχειρήσεις σε όλη τη Λεμεσό: από την παλιά πόλη και την παραλία μέχρι τον Άγιο Αθανάσιο, τα Πολεμίδια και τη Γερμασόγεια.
           </p>
           <div className="rounded-2xl overflow-hidden border border-[#E8EAF0] shadow-sm" style={{ height: "360px" }}>
             <iframe
@@ -196,7 +204,7 @@ export default function WebDesignLimassol() {
       <section className="section-spacing bg-[#F8F9FC]">
         <div className="container max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-[#111315] mb-10">
-            Συχνές Ερωτήσεις
+            Συχνές ερωτήσεις
           </h2>
           <div className="flex flex-col gap-6">
             {faqs.map((faq) => (
@@ -213,14 +221,14 @@ export default function WebDesignLimassol() {
       <section className="section-spacing bg-gradient-to-br from-[#5B8CFF] to-[#8B5CFF]">
         <div className="container max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Είστε έτοιμοι να αποκτήσετε online παρουσία για την επιχείρησή σας στη Λεμεσό;
+            Θέλετε καινούργια ιστοσελίδα για την επιχείρησή σας στη Λεμεσό;
           </h2>
           <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-            Πείτε μας για την επιχείρησή σας και θα σας στείλουμε δωρεάν πρόταση αφού κατανοήσουμε τις ανάγκες σας. Χωρίς δέσμευση.
+            Πείτε μας δυο λόγια για την επιχείρησή σας και θα σας προτείνουμε από πού να ξεκινήσετε. Η πρώτη κουβέντα είναι δωρεάν και χωρίς δέσμευση.
           </p>
           <Link href="/el/contact/">
             <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-              Επικοινωνήστε μαζί μας σήμερα
+              Επικοινωνήστε μαζί μας
             </button>
           </Link>
         </div>
