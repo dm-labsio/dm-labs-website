@@ -158,10 +158,11 @@ export const REDIRECTS: Record<string, string> = {
   "/blog/posso-kostizei-istoselidha-kypros": "/el/blog/posso-kostizei-istoselidha-kypros/",
   "/blog/web-design-ellada-odigos-2026": "/el/blog/web-design-ellada-odigos-2026/",
   "/blog/istoselidha-yoga-pilates-studio-kypros": "/el/blog/istoselidha-yoga-pilates-studio-kypros/",
+  "/blog/istoselidha-estiatorio-kypros": "/el/blog/istoselidha-estiatorio-kypros/",
   // Verified GSC legacy paths
   "/blog/wix-vs-epaggelmatias-web-designer-kypros": "/el/blog/wix-vs-epaggelmatias-web-designer-kypros/",
   "/el/web-design-paphos": "/el/web-design-cyprus/",
-  "/el/web-design-restaurants-cyprus": "/el/web-design-cyprus/",
+  "/el/web-design-restaurants-cyprus": "/el/blog/istoselidha-estiatorio-kypros/",
   // Slug drift
   "/blog/local-seo-google-cyprus": "/blog/how-to-get-found-on-google-cyprus/",
   "/blog/website-yoga-pilates-studio-cyprus": "/blog/yoga-pilates-studio-website-cyprus/",
@@ -253,17 +254,22 @@ export function serveStatic(app: Express) {
     );
   }
 
-  // NOTE: Trailing-slash normalisation is delegated to the hosting edge
-  // before this application. Adding a redirect here as well can cause an infinite
-  // redirect loop (/path → /path/ → /path → …). Do NOT add trailing-slash
-  // redirect middleware in this file.
-
-  // ── 2. Permanent 301 redirects (Task 2) ────────────────────────────────────
+  // Resolve legacy aliases before normalizing slashes so each old URL reaches
+  // its final page in one hop. Vercel mirrors this order in vercel.json.
   app.use((req, res, next) => {
     const urlPath = (req.path || "/").replace(/\/$/, "") || "/";
     const target = REDIRECTS[urlPath];
     if (target) {
       return res.redirect(301, target);
+    }
+    next();
+  });
+
+  app.use((req, res, next) => {
+    const pathname = req.path || "/";
+    if (pathname !== "/" && !pathname.endsWith("/") && !/\.[^/]+$/.test(pathname)) {
+      const query = req.originalUrl.slice(pathname.length);
+      return res.redirect(308, `${pathname}/${query}`);
     }
     next();
   });
