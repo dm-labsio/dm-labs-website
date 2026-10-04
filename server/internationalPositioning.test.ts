@@ -31,6 +31,10 @@ describe("International positioning", () => {
       const source = readFileSync(file, "utf8");
       const ast = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true, file.endsWith("tsx") ? ts.ScriptKind.TSX : ts.ScriptKind.TS);
       function visit(node: ts.Node) {
+        // Only this client case study's body may describe the practice's actual locations.
+        // Keep its title/metadata and all DM Labs marketing copy under the usual guard.
+        if (file === resolve(root, "client/src/data/drGeorgeCaseStudy.ts")
+          && ts.isPropertyAssignment(node) && node.name.getText(ast) === "content") return;
         // This factual legal explanation describes currency routing, not our service area.
         if (/\/pages\/(?:Terms|el\/TermsEl|he\/TermsHe)\.tsx$/.test(file)
           && ts.isJsxElement(node) && node.openingElement.tagName.getText(ast) === "p"

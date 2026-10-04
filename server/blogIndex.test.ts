@@ -25,7 +25,7 @@ describe("Compact multilingual blog index", () => {
     expect(html).toContain(`href="${locale === "el" ? "/el" : ""}/contact/"`);
     expect(html).not.toMatch(/<video|opacity:0|—/);
   });
-  it.each([["en", "2026-09-22"], ["el", "2026-06-25"]] as const)("shows the latest %s publication first without changing the source data", (locale, latestDate) => {
+  it.each([["en", "2026-10-04"], ["el", "2026-06-25"]] as const)("shows the latest %s publication first without changing the source data", (locale, latestDate) => {
     const source = locale === "en" ? POSTS : POSTS_EL;
     const originalOrder = source.map(post => post.slug);
     const articles = blogArticles(locale);

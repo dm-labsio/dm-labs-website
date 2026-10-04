@@ -39,9 +39,10 @@ const serviceMarkAssets = CAPABILITY_IDS.flatMap(id => [160, 320].map(size => `/
 describe("GitHub-backed static media migration", () => {
   it("keeps compressed introduction and service-card videos within their playback budgets", () => {
     const videos = allMediaFiles.filter(path => extname(path) !== ".webp");
-    const expected = [HOME_INTRODUCTION_MEDIA.desktop, HOME_INTRODUCTION_MEDIA.mobile, ...SERVICE_CARD_MEDIA.map(media => media.video)];
+    const caseStudyVideo = "/media/case-studies/dr-george/walkthrough.mp4";
+    const expected = [HOME_INTRODUCTION_MEDIA.desktop, HOME_INTRODUCTION_MEDIA.mobile, ...SERVICE_CARD_MEDIA.map(media => media.video), caseStudyVideo];
     expect(videos.map(path => `/${relative(resolve(clientRoot, "public"), path)}`).sort()).toEqual([...expected].sort());
-    for (const [path, budget] of [[expected[0], 7_000_000], [expected[1], 3_500_000], ...SERVICE_CARD_MEDIA.map(media => [media.video, 450_000] as const)] as const) {
+    for (const [path, budget] of [[expected[0], 7_000_000], [expected[1], 3_500_000], ...SERVICE_CARD_MEDIA.map(media => [media.video, 450_000] as const), [caseStudyVideo, 5_000_000]] as const) {
       const file = readFileSync(resolve(clientRoot, "public", path.slice(1)));
       expect(file.length).toBeLessThan(budget);
       const atoms: string[] = [];
@@ -58,10 +59,10 @@ describe("GitHub-backed static media migration", () => {
   });
 
   it("keeps current and retired versioned WebP assets below the one-megabyte checkpoint cap", () => {
-    expect(mediaFiles).toHaveLength(163 + serviceMarkAssets.length);
+    expect(mediaFiles).toHaveLength(169 + serviceMarkAssets.length);
 
     const mediaReferences = new Set([...(clientSource.match(/\/media\/[A-Za-z0-9._/-]+\.webp/g) ?? []), ...serviceMarkAssets]);
-    expect(mediaReferences.size).toBe(158 + serviceMarkAssets.length);
+    expect(mediaReferences.size).toBe(164 + serviceMarkAssets.length);
     const retiredHeroAssets = new Set([
       "/media/cloudfront/services-hero-bg-bfPgb525LqzgdU7JVYn89M.webp",
       "/media/hero/dm-labs-hero-tunnel-opening-poster_7b05ee6d.webp",

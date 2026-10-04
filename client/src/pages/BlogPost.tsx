@@ -139,7 +139,7 @@ export default function BlogPost() {
   return (
     <>
       {/* Hero / Cover */}
-      <section className="blog-article-hero">
+      <section className={`blog-article-hero${post.category === "Case Studies" ? " blog-case-study-hero" : ""}`}>
         <div className="blog-article-cover">
           <picture className="blog-article-image">
             {post.coverImageMobile && (
@@ -155,7 +155,7 @@ export default function BlogPost() {
               className="w-full h-full object-cover"
             />
           </picture>
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.7) 100%)" }} />
+          <div className="blog-article-shade absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.7) 100%)" }} />
           <div className="blog-article-heading">
             <div className="container">
               <div>

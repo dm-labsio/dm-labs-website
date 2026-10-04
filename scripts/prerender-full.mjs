@@ -49,6 +49,7 @@ const BASE_URL = "https://dm-labs.io";
 // Keep this list in sync with prerender-meta.mjs EN_STATIC_ROUTES + EL_STATIC_ROUTES
 // plus all EN blog slugs and EL blog slugs.
 const EN_BLOG_SLUGS = [
+  "doctor-website-design-orthopaedics-case-study",
   "website-cost-cyprus-2026-guide",
   "web-design-nail-salon-beauty-studio-cyprus",
   "yoga-pilates-studio-website-cyprus",

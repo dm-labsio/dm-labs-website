@@ -23,6 +23,7 @@ export const EN_TO_EL_PATHS: Readonly<Record<string, string | null>> = {
   "/blog/website-leads-real-estate-construction-hospitality": null,
   "/blog/google-ai-mode-near-me-cyprus": null,
   "/blog/online-shop-cyprus-shopify-vs-woocommerce": null,
+  "/blog/doctor-website-design-orthopaedics-case-study": null,
   "/web-design-paphos": null,
   "/web-design-restaurants-cyprus": null,
 };

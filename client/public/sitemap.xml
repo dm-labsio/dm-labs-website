@@ -312,7 +312,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/blog/" />
     <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/blog/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/blog/" />
-    <lastmod>2026-09-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
+    <lastmod>2026-10-04</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://dm-labs.io/el/blog/</loc>
@@ -765,5 +765,11 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/blog/online-shop-cyprus-shopify-vs-woocommerce/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/blog/online-shop-cyprus-shopify-vs-woocommerce/" />
     <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/blog/doctor-website-design-orthopaedics-case-study/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/blog/doctor-website-design-orthopaedics-case-study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/blog/doctor-website-design-orthopaedics-case-study/" />
+    <lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
 </urlset>
