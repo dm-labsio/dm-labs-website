@@ -47,6 +47,13 @@
       }
     },
     {
+      "src": "^/blog/istoselidha-estiatorio-kypros/?$",
+      "status": 301,
+      "headers": {
+        "Location": "/el/blog/istoselidha-estiatorio-kypros/"
+      }
+    },
+    {
       "src": "^/blog/wix-vs-epaggelmatias-web-designer-kypros/?$",
       "status": 301,
       "headers": {

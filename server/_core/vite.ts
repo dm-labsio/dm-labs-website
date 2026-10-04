@@ -158,6 +158,7 @@ export const REDIRECTS: Record<string, string> = {
   "/blog/posso-kostizei-istoselidha-kypros": "/el/blog/posso-kostizei-istoselidha-kypros/",
   "/blog/web-design-ellada-odigos-2026": "/el/blog/web-design-ellada-odigos-2026/",
   "/blog/istoselidha-yoga-pilates-studio-kypros": "/el/blog/istoselidha-yoga-pilates-studio-kypros/",
+  "/blog/istoselidha-estiatorio-kypros": "/el/blog/istoselidha-estiatorio-kypros/",
   // Verified GSC legacy paths
   "/blog/wix-vs-epaggelmatias-web-designer-kypros": "/el/blog/wix-vs-epaggelmatias-web-designer-kypros/",
   "/el/web-design-paphos": "/el/web-design-cyprus/",

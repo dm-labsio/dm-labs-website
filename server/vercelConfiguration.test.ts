@@ -86,8 +86,8 @@ describe("Vercel static deployment configuration", () => {
       })
     );
 
-    expect(Object.keys(expressRedirects)).toHaveLength(16);
-    expect(vercelConfig.routes).toHaveLength(17);
+    expect(Object.keys(expressRedirects)).toHaveLength(17);
+    expect(vercelConfig.routes).toHaveLength(18);
     expect(vercelConfig.routes.slice(0, -1).every(rule => rule.status === 301)).toBe(true);
     expect(vercelConfig.routes.slice(0, -1).every(rule => rule.src.endsWith("/?$"))).toBe(
       true

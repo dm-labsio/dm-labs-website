@@ -11,6 +11,7 @@ const prerenderMeta = readFileSync(resolve(projectRoot, "scripts/prerender-meta.
 describe("GSC 404 remediation and missing Greek translations", () => {
   it("keeps only the three verified GSC paths as permanent redirects", () => {
     expect(staticServer).toContain('"/blog/wix-vs-epaggelmatias-web-designer-kypros": "/el/blog/wix-vs-epaggelmatias-web-designer-kypros/"');
+    expect(staticServer).toContain('"/blog/istoselidha-estiatorio-kypros": "/el/blog/istoselidha-estiatorio-kypros/"');
     expect(staticServer).toContain('"/el/web-design-paphos": "/el/web-design-cyprus/"');
     expect(staticServer).toContain('"/el/web-design-restaurants-cyprus": "/el/blog/istoselidha-estiatorio-kypros/"');
     expect(staticServer).not.toContain('"/cdn-cgi/l/email-protection":');
