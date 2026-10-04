@@ -5,61 +5,61 @@ import { useGreekArticleSEO } from "@/hooks/useGreekArticleSEO";
 
 export default function NailSalonEl() {
   const article = useGreekArticleSEO("istoselidha-nail-salon-beauty-studio-kypros", {
-    title: "Ιστοσελίδα για Nail Salon και Ομορφιά Studio | DM-Labs.io",
-    description: "Τι χρειάζεται η ιστοσελίδα ενός nail salon ή beauty studio για να φέρνει νέους πελάτες. Πρακτικός οδηγός.",
-    headline: "Ιστοσελίδα για Nail Salon και Ομορφιά Studio: Τι Χρειάζεστε Πραγματικά",
+    title: "Ιστοσελίδα για nail salon και beauty studio | DM-Labs.io",
+    description: "Τι πρέπει να έχει η ιστοσελίδα ενός nail salon ή beauty studio για να γεμίζει το πρόγραμμα με ραντεβού. Πρακτικός οδηγός.",
+    headline: "Ιστοσελίδα για nail salon και beauty studio: τι χρειάζεστε πραγματικά",
     ogImage: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80",
-    ogImageAlt: "Ιστοσελίδα nail salon και στούντιο ομορφιάς - επαγγελματική online παρουσία",
+    ogImageAlt: "Ιστοσελίδα για nail salon και στούντιο ομορφιάς",
   });
 
   return (
     <main className="blog-article-page bg-[#F6F6F4] min-w-0 overflow-x-hidden">
       <article className="container max-w-3xl mx-auto py-16 px-4">
         <div className="mb-8">
-          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">Πίσω στο Άρθρα</Link>
+          <Link href="/el/blog/" className="text-[#5B8CFF] text-sm font-medium hover:underline">Πίσω στα άρθρα</Link>
         </div>
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
             <time className="text-xs text-[#9CA3AF]" dateTime={article.date}>{new Date(`${article.date}T12:00:00Z`).toLocaleDateString("el-GR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>
-            <span className="text-xs text-[#9CA3AF]">-</span>
-            <span className="text-xs text-[#9CA3AF]">5 λεπτά ανάγνωση</span>
+            <span className="text-xs text-[#9CA3AF]">·</span>
+            <span className="text-xs text-[#9CA3AF]">{article.readTime} ανάγνωση</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#111315] leading-tight mb-4">
-            Ιστοσελίδα για Nail Salon και Ομορφιά Studio: Τι Χρειάζεστε Πραγματικά
+            Ιστοσελίδα για nail salon και beauty studio: τι χρειάζεστε πραγματικά
           </h1>
           <p className="text-lg text-[#5B6472] leading-relaxed">
-            Έχετε nail salon ή beauty studio; Δείτε τι πρέπει να έχει η ιστοσελίδα σας για να γεμίζει ραντεβού και να βρίσκεστε στη Google.
+            Έχετε nail salon ή beauty studio; Δείτε τι χρειάζεται η ιστοσελίδα σας για να κλείνετε περισσότερα ραντεβού και να σας βρίσκουν στο Google.
           </p>
-          <p className="text-sm text-[#5B6472] mt-4">Από την ομάδα DM-Labs.io</p>
+          <p className="text-sm text-[#5B6472] mt-4">Από την ομάδα της DM-Labs.io</p>
         </header>
         <div className="space-y-8 text-[#374151]">
           <section>
-            <h2 className="text-2xl font-bold text-[#111315] mb-3">Γιατί το Instagram Δεν Αρκεί</h2>
+            <h2 className="text-2xl font-bold text-[#111315] mb-3">Γιατί το Instagram δεν αρκεί</h2>
             <p className="leading-relaxed mb-4">
-              Το Instagram είναι εξαιρετικό για να δείχνετε τη δουλειά σας. Αλλά όταν κάποιος ψάχνει "nail salon Λεμεσός" ή "beauty studio Λευκωσία" στη Google, το Instagram δεν εμφανίζεται στα πρώτα αποτελέσματα. Εμφανίζονται ιστοσελίδες.
+              Το Instagram είναι ιδανικό για να δείχνετε τη δουλειά σας. Όταν όμως κάποιος ψάχνει στο Google «nail salon Λεμεσός» ή «beauty studio Λευκωσία», βλέπει πρώτα τον χάρτη με τις επιχειρήσεις της περιοχής και ιστοσελίδες. Ένα προφίλ στο Instagram σπάνια εμφανίζεται εκεί.
             </p>
             <p className="leading-relaxed">
-              Αν δεν έχετε ιστοσελίδα, χάνετε πελάτες που ψάχνουν ακριβώς αυτό που προσφέρετε - κάθε μέρα.
+              Χωρίς ιστοσελίδα, χάνετε κάθε μέρα πελάτες που ψάχνουν ακριβώς αυτό που κάνετε.
             </p>
           </section>
           <div className="rounded-2xl overflow-hidden my-8">
             <img
               src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80"
-              alt="Ιστοσελίδα nail salon και στούντιο ομορφιάς - επαγγελματική online παρουσία"
+              alt="Ιστοσελίδα για nail salon και στούντιο ομορφιάς"
               className="w-full object-cover"
               style={{ maxHeight: "320px" }}
               loading="lazy"
             />
           </div>
           <section>
-            <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι Πρέπει να Έχει η Ιστοσελίδα σας</h2>
+            <h2 className="text-2xl font-bold text-[#111315] mb-3">Τι πρέπει να έχει η ιστοσελίδα σας</h2>
             <div className="space-y-4">
               {[
-                { title: "Γκαλερί με τη δουλειά σας", desc: "Φωτογραφίες από τις υπηρεσίες σας - nail art, βαφές, περιποίηση. Αυτό είναι το πρώτο πράγμα που κοιτάει ένας νέος πελάτης." },
-                { title: "Λίστα υπηρεσιών και τιμών", desc: "Ξεκάθαρη λίστα με τι προσφέρετε και πόσο κοστίζει. Οι πελάτες δεν θέλουν να τηλεφωνούν για να μάθουν τιμές." },
-                { title: "Σύστημα κράτησης ή WhatsApp κουμπί", desc: "Κάντε εύκολο για τον πελάτη να κλείσει ραντεβού. Ένα απλό WhatsApp κουμπί μπορεί να διπλασιάσει τις κρατήσεις σας." },
-                { title: "Ωράριο και τοποθεσία", desc: "Πότε είστε ανοιχτοί, πού βρίσκεστε, πώς να σας βρουν. Βασικές πληροφορίες που πολλές ιστοσελίδες παραλείπουν." },
-                { title: "Reviews από πελάτες", desc: "Τα Google reviews σας στην ιστοσελίδα σας δείχνουν αξιοπιστία και βοηθούν στο SEO." }
+                { title: "Γκαλερί με τη δουλειά σας", desc: "Φωτογραφίες από nail art, βαφές και περιποιήσεις. Είναι το πρώτο πράγμα που κοιτάζει ένας νέος πελάτης." },
+                { title: "Υπηρεσίες και τιμές", desc: "Μια ξεκάθαρη λίστα με το τι κάνετε και πόσο κοστίζει. Ο κόσμος δεν θέλει να τηλεφωνεί για να μάθει τιμές." },
+                { title: "Κράτηση ή κουμπί WhatsApp", desc: "Κάντε το εύκολο: ένα κουμπί WhatsApp ή ένα σύστημα κρατήσεων, για να κλείνει ο πελάτης ραντεβού με ένα πάτημα." },
+                { title: "Ωράριο και τοποθεσία", desc: "Πότε είστε ανοιχτά, πού βρίσκεστε και πώς θα έρθουν. Βασικά πράγματα, που όμως λείπουν από πολλές ιστοσελίδες." },
+                { title: "Κριτικές πελατών", desc: "Οι κριτικές στο Google δείχνουν ότι είστε αξιόπιστοι και μετράνε στα τοπικά αποτελέσματα. Βάλτε μερικές και στην ιστοσελίδα σας." }
               ].map((item) => (
                 <div key={item.title} className="bg-white rounded-2xl p-5 border border-[#E8EAF0]">
                   <h3 className="font-bold text-[#111315] mb-1">{item.title}</h3>
@@ -69,14 +69,14 @@ export default function NailSalonEl() {
             </div>
           </section>
           <section>
-            <h2 className="text-2xl font-bold text-[#111315] mb-3">Πόσο Κοστίζει;</h2>
+            <h2 className="text-2xl font-bold text-[#111315] mb-3">Πόσο κοστίζει;</h2>
             <p className="leading-relaxed">
-              Μια επαγγελματική ιστοσελίδα για nail salon ή beauty studio κοστίζει από <Price euros={299} locale="el" /> (Launch - 1 σελίδα) μέχρι <Price euros={749} locale="el" /> (Growth - έως 4 σελίδες με γκαλερί, κρατήσεις και reviews). Το χρονοδιάγραμμα συμφωνείται πριν ξεκινήσουμε.
+              Μια ιστοσελίδα για nail salon ή beauty studio ξεκινά από <Price euros={299} locale="el" /> με το Launch, που είναι μία σελίδα ή δύο απλές σελίδες. Με <Price euros={749} locale="el" />, το Growth έχει έως 4 σελίδες, φόρμα επικοινωνίας, χάρτη και κριτικές πελατών. Αν θέλετε ξεχωριστή γκαλερί, αυτή περιλαμβάνεται στο Pro, και ένα σύστημα κρατήσεων γίνεται ως έργο Enterprise / Custom. Η φιλοξενία και η συντήρηση ξεκινούν από <Price euros={69} locale="el" /> τον μήνα, και το χρονοδιάγραμμα το συμφωνούμε πριν ξεκινήσουμε.
             </p>
           </section>
           <div className="bg-gradient-to-br from-[#EEF3FF] to-[#F0EAFF] rounded-2xl p-8 border border-[#D0DEFF] mt-10">
-            <h3 className="text-xl font-bold text-[#111315] mb-3">Ζητήστε Δωρεάν Πρόταση</h3>
-            <p className="text-[#5B6472] mb-6">Πείτε μας για το studio σας και θα σας στείλουμε πρόταση αφού κατανοήσουμε τις ανάγκες σας.</p>
+            <h3 className="text-xl font-bold text-[#111315] mb-3">Ζητήστε δωρεάν προσφορά</h3>
+            <p className="text-[#5B6472] mb-6">Πείτε μας δυο λόγια για το studio σας, και μόλις καταλάβουμε τι χρειάζεστε, σας στέλνουμε πρόταση.</p>
             <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
                 Επικοινωνήστε μαζί μας
