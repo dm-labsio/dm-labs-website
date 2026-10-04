@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Star, Check } from "lucide-react";
+import { X, Check } from "lucide-react";
 
 // ─── CDN URLs - all fresh uploads Expires=1804155913+ ───────────────────────
 const CDN = {
@@ -923,13 +923,6 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
               Get a Quote for This Design
             </a>
           </div>
-
-          <div className="flex items-center gap-2">
-            <div className="flex">
-              {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-amber-400 text-amber-400" />)}
-            </div>
-            <span className="text-gray-500 text-xs">Loved by 50+ businesses</span>
-          </div>
         </div>
       </motion.div>
     </motion.div>
@@ -1253,7 +1246,7 @@ export default function Templates() {
               Browse curated designs by industry. Each example is fully customised for your business, with your logo, colours, and content.
             </p>
             <p className="text-sm text-gray-400 max-w-xl mx-auto templates-editorial-note">
-              These are <strong className="text-gray-500">interactive demo concepts</strong>, not fixed packages. Every website we build is tailored from scratch for your business. Real client work is available on request.
+              These are <strong className="text-gray-500">interactive demo concepts</strong>, not fixed packages. Every website we build is tailored from scratch for your business.
             </p>
           </motion.div>
         </div>

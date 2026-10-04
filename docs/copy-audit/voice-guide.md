@@ -248,5 +248,5 @@ The owner reads Hebrew natively but not Greek. Every Greek batch gets a self-rev
 
 - Prices, currencies, plan names, what each plan includes, timelines, payment terms.
 - Page addresses (URLs), image files, structured data fields other than visible text.
-- Customer testimonials. They are quotes attributed to people, so we don't put new words in their mouths.
+- What customer testimonials say. They are quotes attributed to people, so we don't put new words in their mouths. The Greek quotes were reworded to sound natural (owner's request), keeping exactly what each English quote says and nothing more.
 - The meaning of legal text. Legal pages only get clearer wording.

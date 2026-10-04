@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Star, Check } from "lucide-react";
+import { X, Check } from "lucide-react";
 
 // ─── CDN URLs - all fresh uploads Expires=1804155913+ ───────────────────────
 const CDN = {
@@ -923,13 +923,6 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
               Ζητήστε προσφορά για κάτι παρόμοιο
             </a>
           </div>
-
-          <div className="flex items-center gap-2">
-            <div className="flex">
-              {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-amber-400 text-amber-400" />)}
-            </div>
-            <span className="text-gray-500 text-xs">Διαδραστικό παράδειγμα για έμπνευση</span>
-          </div>
         </div>
       </motion.div>
     </motion.div>
@@ -1249,7 +1242,7 @@ export default function TemplatesEl() {
               Δείτε τα παραδείγματα ανά κλάδο και κρατήστε ιδέες. Όποιο κι αν σας αρέσει, το προσαρμόζουμε στην επιχείρησή σας: στο λογότυπο, στα χρώματα και στο περιεχόμενό σας.
             </p>
             <p className="text-sm text-gray-400 max-w-xl mx-auto">
-              Αυτά είναι <strong className="text-gray-500">διαδραστικά παραδείγματα</strong>, όχι έτοιμα πακέτα. Κάθε ιστοσελίδα τη φτιάχνουμε από την αρχή για την επιχείρησή σας. Αν θέλετε να δείτε πραγματικές ιστοσελίδες πελατών μας, ζητήστε τες.
+              Αυτά είναι <strong className="text-gray-500">διαδραστικά παραδείγματα</strong>, όχι έτοιμα πακέτα. Κάθε ιστοσελίδα τη φτιάχνουμε από την αρχή για την επιχείρησή σας.
             </p>
           </motion.div>
         </div>

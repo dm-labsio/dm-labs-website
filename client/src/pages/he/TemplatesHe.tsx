@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import CinematicHeroBackground from "@/components/CinematicHeroBackground";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Star, Check } from "lucide-react";
+import { X, Check } from "lucide-react";
 
 // ─── CDN URLs - all fresh uploads Expires=1804155913+ ───────────────────────
 const CDN = {
@@ -922,13 +922,6 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
             >
               רוצים משהו כזה? לקבלת הצעת מחיר
             </a>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <div className="flex">
-              {[1,2,3,4,5].map(i => <Star key={i} size={12} className="fill-amber-400 text-amber-400" />)}
-            </div>
-            <span className="text-gray-500 text-xs">עיצוב אינטראקטיבי להשראה</span>
           </div>
         </div>
       </motion.div>

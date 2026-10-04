@@ -159,25 +159,25 @@ const FEATURED_TEMPLATES = [
 
 const TESTIMONIALS = [
   {
-    name: "Maria K.",
-    role: "Ιδιοκτήτρια Εστιατορίου",
-    text: "Η νέα μας ιστοσελίδα έφερε τρεις νέες κρατήσεις μέσα στην πρώτη εβδομάδα. Η ομάδα κατάλαβε ακριβώς τι χρειαζόμασταν και παρέδωσε πιο γρήγορα από ό,τι περίμενα. Το συνιστώ ανεπιφύλακτα.",
+    name: "Μαρία Κ.",
+    role: "Ιδιοκτήτρια εστιατορίου",
+    text: "Η νέα ιστοσελίδα μάς έφερε τρεις κρατήσεις μέσα στην πρώτη εβδομάδα. Κατάλαβαν ακριβώς τι χρειαζόμασταν και την είχαμε έτοιμη πιο γρήγορα απ' ό,τι περίμενα. Τους συστήνω ανεπιφύλακτα.",
     rating: 5,
-    initial: "M",
+    initial: "Μ",
   },
   {
-    name: "Andreas P.",
-    role: "Κλινική Φυσιοθεραπείας",
-    text: "Επαγγελματικοί, άμεσοι και πραγματικά αφοσιωμένοι στο να κάνουν την κλινική μας να φαίνεται στο καλύτερό της online. Η mobile έκδοση είναι τέλεια - οι περισσότεροι ασθενείς μας κλείνουν ραντεβού από το κινητό τους.",
+    name: "Ανδρέας Π.",
+    role: "Κλινική φυσιοθεραπείας",
+    text: "Επαγγελματίες με άμεση ανταπόκριση. Νοιάστηκαν πραγματικά να δείχνει η κλινική μας όσο καλύτερα γίνεται online. Στο κινητό η ιστοσελίδα είναι τέλεια, και αυτό μετράει, γιατί οι περισσότεροι ασθενείς μας κλείνουν ραντεβού από το κινητό τους.",
     rating: 5,
-    initial: "A",
+    initial: "Α",
   },
   {
-    name: "Sophia L.",
-    role: "Ιδιοκτήτρια Σαλονιού Ομορφιάς",
-    text: "Ήμουν ανήσυχη για την κατασκευή ιστοσελίδας, αλλά η DM-Labs.io έκανε όλη τη διαδικασία εντελώς άνετη και χωρίς άγχος. Ανέλαβαν τα πάντα και το αποτέλεσμα είναι εκπληκτικό. Άξιζε κάθε σεντ.",
+    name: "Σοφία Λ.",
+    role: "Ιδιοκτήτρια κέντρου ομορφιάς",
+    text: "Με άγχωνε η ιδέα να φτιάξω ιστοσελίδα, αλλά με τη DM-Labs.io όλα έγιναν χωρίς κανένα άγχος. Ανέλαβαν τα πάντα και το αποτέλεσμα είναι εκπληκτικό. Άξιζε κάθε ευρώ.",
     rating: 5,
-    initial: "S",
+    initial: "Σ",
   },
 ];
 
@@ -258,7 +258,7 @@ export default function HomeElPage() {
       <section className="home-stories section-spacing">
         <div className="container">
           <AnimateIn className="text-center mb-14">
-              <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Ιστορίες πελατών</p>
+              <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Κριτικές πελατών</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#edf2ff] mb-4">
               Τι λένε οι πελάτες μας
             </h2>
@@ -274,7 +274,7 @@ export default function HomeElPage() {
 
                   {/* Quote text */}
                   <p className="text-sm text-[#d5dff0] leading-relaxed mb-6 flex-1 italic">
-                    "{t.text}"
+                    «{t.text}»
                   </p>
                   {/* Author */}
                   <div className="flex items-center gap-3 pt-4 border-t border-[#34435f]">
