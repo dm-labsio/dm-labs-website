@@ -122,7 +122,7 @@ describe("Vercel static deployment configuration", () => {
     });
   });
 
-  it("keeps the esbuild-backed prerender command and emits root 404.html after 97 routes", () => {
+  it("keeps the esbuild-backed prerender command and emits root 404.html after 95 routes", () => {
     expect(packageJson.scripts.build).toBe(
       "tsx scripts/check-link-integrity.ts && vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/prerender-full.mjs"
     );
@@ -148,7 +148,7 @@ describe("Vercel static deployment configuration", () => {
 
     expect(
       literalRoutes.length + englishBlogSlugs.length + greekBlogSlugs.length
-    ).toBe(91);
+    ).toBe(95);
     expect(prerenderSource.indexOf("for (const route of ROUTES)")).toBeLessThan(
       prerenderSource.indexOf("const notFoundPage = await context.newPage()")
     );

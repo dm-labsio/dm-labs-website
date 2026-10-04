@@ -3,6 +3,8 @@
    All Greek articles live here as structured data.
    ============================================================ */
 
+import { DR_GEORGE_CASE_STUDY_EL } from "./drGeorgeCaseStudyLocales";
+
 export interface BlogPostEl {
   slug: string;
   elSlug: string;
@@ -15,6 +17,7 @@ export interface BlogPostEl {
 }
 
 export const POSTS_EL: BlogPostEl[] = [
+  { ...DR_GEORGE_CASE_STUDY_EL, elSlug: DR_GEORGE_CASE_STUDY_EL.slug },
   {
     slug: "website-cost-cyprus-2026-guide",
     elSlug: "posso-kostizei-istoselidha-kypros",

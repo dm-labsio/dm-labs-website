@@ -193,6 +193,12 @@ const EN_STATIC_ROUTES = [
   })),
   // English-only blog posts (no Greek counterpart — self-referencing hreflang)
   {
+    path: "/blog/doctor-website-design-orthopaedics-case-study",
+    title: "Doctor Website Design: A Case Study in Orthopaedics",
+    description: "See how Dr George Konstantinidis’s website organizes specialist services, clinic locations, patient information, and booking details in three languages.",
+    elPath: "/el/blog/doctor-website-design-orthopaedics-case-study",
+  },
+  {
     path: "/blog/google-search-console-ai-seo-prompts",
     title: "7 AI Prompts for Google Search Console SEO",
     description: "Turn Google Search Console data into SEO actions with seven copy-ready AI prompts for quick wins, content gaps, CTR, decay and planning.",
@@ -221,6 +227,12 @@ const EN_STATIC_ROUTES = [
 // ─── Greek Static Routes ──────────────────────────────────────────────────────
 
 const EL_STATIC_ROUTES = [
+  {
+    path: "/el/blog/doctor-website-design-orthopaedics-case-study",
+    title: "Κατασκευή ιστοσελίδας γιατρού: Δρ Γεώργιος Κωνσταντινίδης",
+    description: "Πώς οργανώσαμε την ιστοσελίδα του Δρ Γεωργίου Κωνσταντινίδη: τομείς εξειδίκευσης, ιατρεία, οδηγίες για ασθενείς και στοιχεία για ραντεβού σε τρεις γλώσσες.",
+    enPath: "/blog/doctor-website-design-orthopaedics-case-study",
+  },
   {
     path: "/el",
     title: "Η καλύτερη εταιρεία web design για επιχειρήσεις που αναπτύσσονται | DM Labs",

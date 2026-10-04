@@ -10,22 +10,36 @@ import { useEffect } from "react";
 import { Link, useParams, useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { getPostBySlug, POSTS } from "@/data/blogPosts";
+import type { BlogPost as ArticleData } from "@/data/blogPosts";
+import type { SiteLocale } from "@/lib/seoRoutes";
 import { Clock, Tag, Calendar } from "lucide-react";
 import AnimateIn from "@/components/AnimateIn";
 import "@/components/blog/BlogArticle.css";
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-GB", {
+function formatDate(dateStr: string, locale: SiteLocale) {
+  return new Date(`${dateStr}T12:00:00Z`).toLocaleDateString({ en: "en-GB", el: "el-GR", he: "he-IL" }[locale], {
     day: "numeric",
     month: "long",
     year: "numeric",
+    timeZone: "UTC",
   });
 }
 
 export default function BlogPost() {
-  const { text: priceText } = usePricingCurrency("en");
+  return <BlogArticle />;
+}
+
+export function BlogArticle({ article, locale = "en" }: { article?: ArticleData; locale?: SiteLocale }) {
+  const { text: priceText } = usePricingCurrency(locale);
   const { slug } = useParams<{ slug: string }>();
-  const post = getPostBySlug(slug);
+  const post = article ?? getPostBySlug(slug);
+  const prefix = locale === "en" ? "" : `/${locale}`;
+  const articlePath = post ? `${prefix}/blog/${post.slug}/` : undefined;
+  const labels = {
+    en: { by: "By", back: "Back to Blog", more: "More articles" },
+    el: { by: "Από την", back: "Πίσω στα άρθρα", more: "Περισσότερα άρθρα" },
+    he: { by: "מאת", back: "לכל המאמרים", more: "לכל המאמרים" },
+  }[locale];
 
   // useSEO must be called unconditionally (Rules of Hooks)
   useSEO({
@@ -34,7 +48,7 @@ export default function BlogPost() {
     ogImage: post ? post.coverImage : undefined,
     ogImageAlt: post?.imageAlt ?? post?.title,
     ogType: "article",
-    canonicalPath: post ? `/blog/${post.slug}/` : undefined,
+    canonicalPath: articlePath,
   });
 
   // Visible post metadata is serialized as BlogPosting during prerender.
@@ -48,7 +62,7 @@ export default function BlogPost() {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": post.title,
-        "@id": `https://dm-labs.io/blog/${post.slug}/#article`,
+        "@id": `https://dm-labs.io${articlePath}#article`,
         "description": post.metaDescription,
         "image": absoluteImageUrl(post.coverImage),
         "datePublished": post.date,
@@ -72,7 +86,7 @@ export default function BlogPost() {
         },
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": `https://dm-labs.io/blog/${post.slug}/`
+          "@id": `https://dm-labs.io${articlePath}`
         },
         "inLanguage": post.language ?? "en",
         ...(post.keywords?.length ? { "keywords": post.keywords.join(", ") } : {})
@@ -93,7 +107,7 @@ export default function BlogPost() {
       const s = document.getElementById(SCHEMA_ID);
       if (s) s.remove();
     };
-  }, [post]);
+  }, [post, articlePath]);
 
   useEffect(() => {
     const SCHEMA_ID = "article-faq-jsonld-schema";
@@ -139,7 +153,7 @@ export default function BlogPost() {
   return (
     <>
       {/* Hero / Cover */}
-      <section className="blog-article-hero">
+      <section className={`blog-article-hero${post.category === "Case Studies" || post.layout === "case-study" ? " blog-case-study-hero" : ""}`}>
         <div className="blog-article-cover">
           <picture className="blog-article-image">
             {post.coverImageMobile && (
@@ -155,7 +169,7 @@ export default function BlogPost() {
               className="w-full h-full object-cover"
             />
           </picture>
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.7) 100%)" }} />
+          <div className="blog-article-shade absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.7) 100%)" }} />
           <div className="blog-article-heading">
             <div className="container">
               <div>
@@ -168,11 +182,11 @@ export default function BlogPost() {
                   {post.title}
                 </h1>
                 <div className="flex flex-wrap items-center gap-4 text-sm text-white/80">
-                  <span className="flex items-center gap-1.5"><Calendar size={13} /><time dateTime={post.date}>{formatDate(post.date)}</time></span>
+                  <span className="flex items-center gap-1.5"><Calendar size={13} /><time dateTime={post.date}>{formatDate(post.date, locale)}</time></span>
                   <span className="flex items-center gap-1.5"><Clock size={13} />{post.readTime}</span>
                   {(
                     <span className="flex items-center gap-1.5 font-medium text-white/90">
-                      By {post.author ?? "Anastacia B."}
+                      {labels.by} <bdi>{post.author ?? "Anastacia B."}</bdi>
                     </span>
                   )}
                 </div>
@@ -187,8 +201,8 @@ export default function BlogPost() {
         <div className="container">
           <div className="max-w-2xl mx-auto">
             {/* Back link */}
-            <Link href="/blog/" className="inline-flex items-center gap-2 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-10 font-medium">
-               Back to Blog
+            <Link href={`${prefix}/blog/`} className="inline-flex items-center gap-2 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors mb-10 font-medium">
+               {labels.back}
             </Link>
 
             {/* Article content */}
@@ -224,8 +238,8 @@ export default function BlogPost() {
 
             {/* Bottom back link */}
             <div className="mt-14 pt-8 border-t border-[#E2E5EA]">
-              <Link href="/blog/" className="inline-flex items-center gap-2 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors font-medium">
-                 More articles
+              <Link href={`${prefix}/blog/`} className="inline-flex items-center gap-2 text-sm text-[#5B6472] hover:text-[#5B8CFF] transition-colors font-medium">
+                 {labels.more}
               </Link>
             </div>
           </div>
@@ -234,6 +248,7 @@ export default function BlogPost() {
 
       {/* Related Articles */}
       {(() => {
+        if (locale !== "en") return null;
         const related = newestFirst(POSTS).filter(
           (p) => p.slug !== post.slug && p.category === post.category
         ).slice(0, 2);

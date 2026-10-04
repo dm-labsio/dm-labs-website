@@ -4,6 +4,8 @@
    Add new posts to the POSTS array.
    ============================================================ */
 
+import { DR_GEORGE_CASE_STUDY } from "./drGeorgeCaseStudy";
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -21,11 +23,13 @@ export interface BlogPost {
   author?: string; // Optional visible byline, e.g. "DM-Labs.io"
   authorType?: "Person" | "Organization";
   language?: string;
+  layout?: "case-study";
   keywords?: string[];
   faq?: Array<{ question: string; answer: string }>;
 }
 
 const ARTICLE_CONTENT: BlogPost[] = [
+  DR_GEORGE_CASE_STUDY,
   {
     slug: "google-ai-mode-near-me-cyprus",
     title: "Google's AI Now Answers \"Near Me\" Searches. Here's How to Be the Business It Recommends.",

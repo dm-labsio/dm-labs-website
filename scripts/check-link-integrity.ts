@@ -32,6 +32,7 @@ const SRC_DIR = join(ROOT, "client", "src");
 
 const ASSET_EXTENSIONS = new Set([
   ".png", ".jpg", ".jpeg", ".svg", ".ico", ".webp", ".gif", ".avif",
+  ".mp4", ".webm",
   ".xml", ".txt", ".pdf", ".json", ".webmanifest", ".html", ".css", ".js",
 ]);
 

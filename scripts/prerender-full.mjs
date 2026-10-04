@@ -49,6 +49,7 @@ const BASE_URL = "https://dm-labs.io";
 // Keep this list in sync with prerender-meta.mjs EN_STATIC_ROUTES + EL_STATIC_ROUTES
 // plus all EN blog slugs and EL blog slugs.
 const EN_BLOG_SLUGS = [
+  "doctor-website-design-orthopaedics-case-study",
   "website-cost-cyprus-2026-guide",
   "web-design-nail-salon-beauty-studio-cyprus",
   "yoga-pilates-studio-website-cyprus",
@@ -64,6 +65,7 @@ const EN_BLOG_SLUGS = [
 ];
 
 const EL_BLOG_SLUGS = [
+  "doctor-website-design-orthopaedics-case-study",
   "wix-vs-epaggelmatias-web-designer-kypros",
   "posso-kostizei-istoselidha-kypros",
   "istoselidha-nail-salon-beauty-studio-kypros",
@@ -96,6 +98,8 @@ const ROUTES = [
   "/terms",
   // Hebrew staged routes: add each only after its full page content is complete.
   "/he",
+  "/he/blog",
+  "/he/blog/doctor-website-design-orthopaedics-case-study",
   "/he/services",
   "/he/process",
   "/he/pricing",

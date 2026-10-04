@@ -13,3 +13,40 @@
 
 [data-brand] main.blog-article-page h1 { font-size: clamp(1.8rem, 3.6vw, 3rem); line-height: 1.25; text-wrap: pretty; overflow-wrap: anywhere; }
 @media (max-width: 600px) { [data-brand] main.blog-article-page h1 { font-size: clamp(1.6rem, 6.4vw, 2rem); } }
+
+/* Real client captures keep their full aspect ratio, with room beyond the text column. */
+.blog-case-study-hero .blog-article-cover { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: center; width: min(calc(100% - 4rem), 1280px); margin: auto; padding-block: 4rem; }
+.blog-case-study-hero .blog-article-image { position: relative; grid-column: 2; grid-row: 1; overflow: hidden; border-radius: 1rem; }
+.blog-case-study-hero .blog-article-image img { height: auto; aspect-ratio: 16 / 9; }
+.blog-case-study-hero .blog-article-shade { display: none; }
+.blog-case-study-hero .blog-article-heading { grid-column: 1; grid-row: 1; padding: 0; }
+.blog-case-study-hero .blog-article-heading .container { padding: 0; }
+@media (max-width: 850px) {
+  .blog-case-study-hero .blog-article-cover { grid-template-columns: 1fr; gap: 2rem; width: min(calc(100% - 3rem), 650px); padding-block: 2.5rem; }
+  .blog-case-study-hero .blog-article-image { grid-column: 1; grid-row: 2; }
+}
+.blog-content .case-study-project { padding: 1.5rem; margin-bottom: 2.5rem; border: 1px solid #d9e2e9; border-radius: 1rem; background: #f3f7fa; }
+.blog-content .case-study-eyebrow, .blog-content .case-study-screen-label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #35516a; }
+.blog-content .case-study-project p { margin: .65rem 0; font-size: 1.2rem; font-weight: 600; color: #152b40; }
+.blog-content .case-study-project p span { display: block; margin-top: .3rem; font-size: .95rem; font-weight: 400; color: #4d5b6a; }
+.blog-content .case-study-media { position: relative; left: 50%; transform: translateX(-50%); width: min(calc(100vw - 3rem), 1000px); margin: 2.5rem 0 3rem; }
+.blog-content .case-study-media > a { display: block; }
+.blog-content .case-study-media img, .blog-content .case-study-media video { display: block; width: 100%; height: auto; max-height: none; border: 1px solid #d9e2e9; border-radius: .8rem; background: #e9f0f5; box-shadow: 0 12px 35px #152b4010; }
+.blog-content .case-study-media a:focus-visible { outline: 3px solid #236cab; outline-offset: 5px; border-radius: .8rem; }
+.blog-content .case-study-media figcaption { max-width: 42rem; margin: 1rem auto 0; color: #536171; font-size: .875rem; line-height: 1.7; text-align: center; }
+.blog-content .case-study-devices { display: grid; grid-template-columns: 3.65fr 1fr; gap: 1.5rem; align-items: end; padding: 1.5rem; background: linear-gradient(140deg, #edf4f8, #dae8ee); border-radius: 1rem; }
+.blog-content .case-study-screen-label { margin-bottom: .7rem; }
+.blog-content .case-study-film { padding: 1.25rem; background: #edf4f8; border-radius: 1rem; }
+.blog-content .case-study-note { font-size: .875rem; color: #536171; padding-left: 1rem; border-left: 2px solid #b1c8d9; }
+/* Center wide figures from the inline-start edge in RTL; never mirror captures. */
+[dir="rtl"] .blog-content .case-study-media { left: auto; right: 50%; transform: translateX(50%); }
+[dir="rtl"] .blog-content .case-study-note { padding-left: 0; border-left: 0; padding-right: 1rem; border-right: 2px solid #b1c8d9; }
+.blog-content:lang(he) .case-study-eyebrow, .blog-content:lang(he) .case-study-screen-label { letter-spacing: 0; }
+.blog-content:lang(el) .case-study-eyebrow, .blog-content:lang(el) .case-study-screen-label { text-transform: none; letter-spacing: 0; }
+@media (max-width: 600px) {
+  .blog-content .case-study-media { width: 100%; left: 0; transform: none; }
+  [dir="rtl"] .blog-content .case-study-media { right: auto; left: auto; transform: none; }
+  .blog-content .case-study-devices { grid-template-columns: 1fr; padding: 1rem; }
+  .blog-content .case-study-devices > a:last-child { width: min(100%, 245px); justify-self: center; }
+  .blog-content .case-study-film { padding: .75rem; }
+}
