@@ -378,8 +378,8 @@ const ARTICLE_CONTENT: BlogPost[] = [
     <tr><th>Price Range</th><th>What You Typically Get</th><th>Best For</th></tr>
   </thead>
   <tbody>
-    <tr><td>€0 - €150/yr</td><td>DIY builder layout, limited SEO, platform branding</td><td>Absolute beginners, zero budget</td></tr>
-    <tr><td>€300 - €800</td><td>Freelancer-built, basic design, varies in quality</td><td>Small budgets, simple needs</td></tr>
+    <tr><td>Free - about €30/month</td><td>DIY builder layout, limited SEO, platform branding</td><td>Absolute beginners, zero budget</td></tr>
+    <tr><td>€300 - €2,000</td><td>Freelancer-built, basic design, varies in quality</td><td>Small budgets, simple needs</td></tr>
     <tr><td>€299 - €1,499</td><td>Agency-built, custom design, SEO-ready, mobile-first</td><td>Businesses serious about growth</td></tr>
     <tr><td>€1,500 - €5,000+</td><td>Complex functionality, e-commerce, custom integrations</td><td>Larger businesses, online stores</td></tr>
     <tr><td>€5,000 - €10,000+</td><td>Enterprise-level, bespoke systems, large teams</td><td>Corporates, complex platforms</td></tr>
@@ -399,7 +399,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 
 <h2>What DM-Labs.io Offers and Why the Pricing Makes Sense</h2>
 <p>We are a dedicated web design agency working remotely, and we built our pricing specifically for small and medium businesses that want a professional result without a corporate budget. Our packages sit in the sweet spot of the market - agency quality at a price that makes sense for a local business.</p>
-<p data-dm-prices>Our <a href="/services/" class="blog-link">website packages</a> start at €299 for the Launch package (1-page site, mobile-responsive, fast delivery), €749 for the Growth package (up to 4 pages, contact form, Google Maps, SEO-optimised), and €1,499 for the Pro package (up to 7 pages, fully custom design, animations, and blog setup).</p>
+<p data-dm-prices>Our <a href="/services/" class="blog-link">website packages</a> start at €299 for the Launch package (one page or two light pages, responsive, basic SEO foundations), €749 for the Growth package (up to 4 pages, contact form, Google Maps, reviews, Search Console and Analytics setup), and €1,499 for the Pro package (up to 7 pages, gallery or portfolio, animations, full SEO structure, and a blog setup or website visual pack). Hosting and care plans start at €69 per month.</p>
 <p>You can see the full breakdown on our <a href="/pricing/" class="blog-link">pricing page</a>. Every package includes a free consultation, SSL certificate, mobile-first development, and on-page SEO setup. No hidden fees.</p>
 <p>We keep our prices competitive because we are a small, focused team with low overheads - and because we believe a good website should be accessible to every business, not just the ones with large marketing budgets.</p>
 
@@ -436,7 +436,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <h2>The 5 Things a Beauty Salon Website Must Have</h2>
 
 <h3>1. Online Booking or a WhatsApp Button</h3>
-<p>Your clients are busy. They do not want to send a DM and wait for a reply. A booking button or a direct WhatsApp link lets them take action immediately, at midnight on a Sunday if that is when they are browsing. This single feature can double your enquiry rate.</p>
+<p>Your clients are busy. They do not want to send a DM and wait for a reply. A booking button or a direct WhatsApp link lets them take action immediately, at midnight on a Sunday if that is when they are browsing.</p>
 
 <h3>2. A Service Menu with Prices</h3>
 <p>Clients want to know what you offer and what it costs before they contact you. A clear, well-organised service menu builds trust and filters out time-wasters. It also tells Google exactly what your business does, which helps you rank for searches like "gel nails Nicosia" or "lash extensions Limassol."</p>
@@ -451,14 +451,14 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <p>Social proof is everything in the beauty industry. A dedicated section on your website showing real client reviews - even just five or six - builds immediate trust with first-time visitors. Link these to your Google Business Profile for maximum SEO benefit.</p>
 
 <h2>Why Mobile-First Design Is Especially Important for Beauty Clients</h2>
-<p>Think about when your clients search for a salon. They are on their phone, probably on the go. Over 80% of local searches happen on mobile devices. If your website is slow to load, hard to read on a small screen, or requires pinching and zooming, potential clients will leave within seconds and book with your competitor instead.</p>
+<p>Think about when your clients search for a salon. They are on their phone, probably on the go. If your website is slow to load, hard to read on a small screen, or requires pinching and zooming, potential clients will leave within seconds and book with your competitor instead.</p>
 <p>A properly built nail salon website must be designed for mobile first. That means large text, tap-friendly buttons, fast loading times, and a WhatsApp or booking button that is always visible.</p>
 
 <h2>What a Good Beauty Salon Website Looks Like</h2>
 <p>At DM-Labs.io, we have built website examples specifically designed for beauty businesses. The <strong>Bella Salon</strong> interactive demo on our <a href="/templates/" class="blog-link">Examples page</a> shows exactly what a professional beauty salon website looks like in practice: clean layout, gallery section, service menu, booking CTA, and mobile-first design. These are not generic designs - they are built around how beauty clients actually browse and decide.</p>
 
 <h2>How DM-Labs.io Builds Beauty Salon Websites</h2>
-<p>We build beauty salon and nail salon websites that make your work the reason to book. We agree a clear scope and delivery schedule before starting. Every site includes a mobile-first design, your service menu, a photo gallery, Google Maps integration, a WhatsApp contact button, and on-page SEO setup so Google can find you from day one.</p>
+<p>We build beauty salon and nail salon websites that make your work the reason to book. We agree a clear scope and delivery schedule before starting. Every site includes a mobile-first design, your service menu, a WhatsApp contact button, and on-page SEO setup so Google can find you from day one. Growth adds Google Maps and client reviews, and Pro adds a gallery.</p>
 <p>You do not need to know anything about technology. You send us your photos, your services and prices, and your business details. We handle everything else and deliver a website you are proud to share.</p>
 
 <div class="blog-cta">
@@ -541,7 +541,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <p class="blog-lead">If your business is not showing up on Google, you are missing the most valuable customers you will ever have: people who are actively searching for exactly what you offer, right now, in your city. Getting found on Google is not as complicated as it sounds. This guide explains it in plain English, step by step, with no jargon.</p>
 
 <h2>Why Google Visibility Matters More Than Ever</h2>
-<p>Consumer behaviour has shifted dramatically. Before visiting a new restaurant, booking a salon, or hiring a contractor, people search Google first. Businesses that appear in the top three local results capture almost half of all clicks. The businesses below them share what is left. And businesses that do not appear at all? They are simply not part of the decision.</p>
+<p>Consumer behaviour has shifted dramatically. Before visiting a new restaurant, booking a salon, or hiring a contractor, people search Google first. The businesses at the top of the local results get most of the attention. Businesses that do not appear at all are simply not part of the decision.</p>
 <p>Local competition varies by business and market. Accurate business information, useful service pages, and a well-maintained Google Business Profile create a stronger foundation for search visibility.</p>
 
 <h2>Two Ways to Appear on Google: What Is the Difference?</h2>
@@ -568,7 +568,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <p>You can test your site's mobile performance for free at <strong>pagespeed.web.dev</strong>. A score above 80 on mobile is a reasonable target for a local business website. If your score is below 50, your site is likely costing you rankings and customers.</p>
 
 <h2>How DM-Labs.io Builds Websites That Are Already Optimised for Google</h2>
-<p>Every website we build at DM-Labs.io is SEO-ready from day one. That means proper heading structure, fast loading times, mobile-first design, your location and services clearly stated in the right places, and meta titles and descriptions set up for every page. We also include Google Maps integration and guidance on setting up your Google Business Profile as part of every project.</p>
+<p>Every website we build at DM-Labs.io is SEO-ready from day one. That means proper heading structure, fast loading times, mobile-first design, your location and services clearly stated in the right places, and meta titles and descriptions set up for every page. Growth and Pro also include Google Maps integration, and every project comes with guidance on setting up your Google Business Profile.</p>
 <p>You do not need to understand any of this technically. Our job is to make sure your website does the right things so Google can find you and send you customers. Our <a href="/services/" class="blog-link">website packages</a> combine strong presentation, technical SEO foundations, and clear paths to enquiry.</p>
 
 <div class="blog-cta">
@@ -599,9 +599,9 @@ const ARTICLE_CONTENT: BlogPost[] = [
 
 <p>Facebook and Instagram are useful tools. But they have three serious limitations for a restaurant business.</p>
 
-<p>First, the algorithm decides who sees your content. Organic reach on Facebook has declined by over 60% in the past five years. A post you spend an hour crafting might reach 3% of your followers. You are not in control of your own audience.</p>
+<p>First, the algorithm decides who sees your content. A post you spend an hour crafting may reach only a small share of your followers. You are not in control of your own audience.</p>
 
-<p>Second, social media does not appear when someone searches Google for \u201crestaurants near me\u201d or \u201cbest taverna Limassol.\u201d These are the highest-intent searches in the food industry  -  people who are hungry, ready to book, and looking for somewhere to go right now. A Facebook page is invisible to them.</p>
+<p>Second, a Facebook page rarely appears when someone searches Google for \u201crestaurants near me\u201d or \u201cbest taverna Limassol.\u201d These are the highest-intent searches in the food industry  -  people who are hungry, ready to book, and looking for somewhere to go right now. They see the map and restaurant websites first.</p>
 
 <p>Third, your account can be restricted, hacked, or banned with no warning. Restaurants that have built their entire online presence on a single platform have lost everything overnight. A website is an asset you own and control.</p>
 
@@ -637,7 +637,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 
 <p>Your website should make people want a table at your restaurant. Our <a href="/web-design-restaurants-cyprus/" class="blog-link">restaurant websites</a> put your food, atmosphere, and next step in focus. We agree the scope, features, and delivery schedule before starting, then handle the design and build.</p>
 
-<p>The Growth package at \u20ac749 adds a blog or news section (useful for posting specials and events), a WhatsApp reservation button, and more advanced SEO. For restaurants that want online ordering or a full booking system, the Pro package at \u20ac1,499 covers everything.</p>
+<p data-dm-prices>The Growth package at \u20ac749 gives you up to 4 pages, a contact form, Google Maps, a reviews section, and Search Console and Analytics setup. The Pro package at \u20ac1,499 adds up to 7 pages, a gallery, a full SEO structure, and a blog setup, useful for posting specials and events. Online ordering or a full booking system is Enterprise / Custom work, quoted to your scope. Hosting and care plans start at \u20ac69 per month.</p>
 
 <p>Every website we build is designed to work on mobile, load fast, and be found on Google. We handle the technical side completely  -  you provide your menu, photos, and opening hours, and we do the rest.</p>
 
@@ -727,7 +727,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 
 <h2>What Does It Actually Cost?</h2>
 <p>Wix and Squarespace are not free. Their paid plans - the ones you actually need to run a business - cost between €180 and €360 per year, every year, indefinitely. WordPress requires you to pay for hosting separately, typically €80 to €200 per year, plus the time and cost of setting everything up and keeping it maintained.</p>
-<p>A professionally built website from DM-Labs.io is an investment in how customers see and choose your business. We include hosting setup guidance and manage the technical side for you. You own your domain - we always recommend that clients register their own domain name so it is fully theirs, independent of any platform or agency. The website itself is built and delivered to you, and we are here for updates whenever you need them.</p>
+<p>A professionally built website from DM-Labs.io is an investment in how customers see and choose your business. We host and manage the technical side for you through a hosting and care plan. We always recommend that you register your own domain name, so it is fully yours, independent of any platform or agency. Once the build is paid in full, you keep the website as delivered, as set out in our terms, and updates are handled through your care plan.</p>
 <p>When you factor in the ongoing annual costs of website builders, the 20 to 40 hours most business owners spend trying to build their own site, and the SEO limitations that quietly cost you customers you never knew you were missing - a professionally built website is often the more economical choice over a two to three year period.</p>
 
 <figure class="blog-image">
@@ -772,7 +772,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 
 <h2>Why Web Design Has Changed</h2>
 <p>Five years ago, having any website was enough to stand out. Today, your competitors have websites too and many of them are good. The bar has risen significantly, and Greek consumers have become more discerning. A slow, outdated, or mobile-unfriendly website does not just fail to impress; it actively drives customers away.</p>
-<p>According to Google, 53% of mobile users abandon a site that takes more than 3 seconds to load. Your website needs to be fast, clean, and built for the phone first.</p>
+<p>In a Google study, 53% of mobile site visits were abandoned when a page took longer than 3 seconds to load. Your website needs to be fast, clean, and built for the phone first.</p>
 
 <h2>What Growing Businesses Actually Need From a Website</h2>
 <p>The needs vary by industry, but across the Greek market, the businesses that get the best results from their websites share a few common characteristics. Their sites load in under 2 seconds. They are fully optimised for mobile. They appear on the first page of Google for their local search terms. And they make it easy for a visitor to take the next step, whether that is calling, booking, or sending a message.</p>
@@ -801,9 +801,9 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <p>Most affordable web design packages skip all of this. You get a website, but not a website that works.</p>
 
 <h2>Greek vs English: Should Your Website Be Bilingual?</h2>
-<p>For most businesses, the answer is yes, especially if you serve tourists, expats, or international clients. A bilingual website (Greek and English) doubles your potential audience and signals professionalism to international visitors.</p>
+<p>For most businesses, the answer is yes, especially if you serve tourists, expats, or international clients. A bilingual website (Greek and English) opens your business to people who do not read Greek and signals professionalism to international visitors.</p>
 <p>The key is doing it properly. A bilingual website is not just a translated version of the same page. It needs separate URLs for each language (e.g., <code>/el/</code> for Greek and <code>/en/</code> for English), correct <code>hreflang</code> tags so Google knows which version to show to which user, and content that reads naturally in both languages rather than machine-translated.</p>
-<p>At DM-Labs.io, every website we build is fully bilingual by default, Greek and English, with proper SEO setup for both languages. This is included in every package, not an add-on.</p>
+<p>At DM-Labs.io, websites in more than one language are an Enterprise / Custom project, so the languages, content, SEO setup and editing needs are scoped and quoted properly.</p>
 
 <h2>What to Look for When Choosing a Web Design Agency</h2>
 <p>There are many web design providers, from one-person freelancers to large agencies. Here is what actually matters when choosing one:</p>
@@ -820,9 +820,9 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <p>The mistake many businesses make is hiring a generalist who builds the same website for everyone. The best results come from working with someone who understands your industry and has built websites for businesses like yours before.</p>
 
 <h2>How DM-Labs.io Works With Growing Businesses</h2>
-<p>We are a web design agency that works with businesses worldwide. Our team builds professional, fast, bilingual websites that are designed to be found on Google and to convert visitors into customers.</p>
+<p>We are a web design agency that works with businesses worldwide. Our team builds professional, fast websites that are designed to be found on Google and to turn visitors into enquiries.</p>
 <p data-dm-prices>Our <a href="/services/" class="blog-link">web design packages</a> give your business a clear, professional presence, with the scope matched to your goals. Every package includes a free consultation, mobile-first development, on-page SEO setup, and SSL certificate. No hidden fees, no surprises.</p>
-<p>We have worked with businesses in <a href="/web-design-thessaloniki/" class="blog-link">Thessaloniki</a>, Athens, and across the Greek islands including <a href="/web-design-crete/" class="blog-link">Crete</a>, as well as in <a href="/web-design-limassol/" class="blog-link">Limassol</a> and <a href="/web-design-nicosia/" class="blog-link">Nicosia</a>. If you are looking for a web design partner who understands your market and delivers on time, we would love to hear from you.</p>
+<p>We work remotely with businesses wherever they are. See how we approach <a href="/web-design-thessaloniki/" class="blog-link">Thessaloniki</a>, <a href="/web-design-crete/" class="blog-link">Crete</a>, <a href="/web-design-limassol/" class="blog-link">Limassol</a> and <a href="/web-design-nicosia/" class="blog-link">Nicosia</a>. If you are looking for a web design partner with a clear process and an agreed schedule, we would love to hear from you.</p>
 
 <h2>The Bottom Line</h2>
 <p>Web design in 2026 is not just about having a website. It is about having a website that loads fast, looks professional on every device, can be found on Google for the right search terms, and makes it easy for customers to take action. That combination, design, performance, and SEO, is what separates a website that works from one that just exists.</p>
@@ -881,10 +881,9 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <h2>What Does a GEO Mention Actually Look Like?</h2>
 <p>When someone asks ChatGPT <em>"who does web design in Limassol?"</em>, a GEO-optimised business might appear like this in the answer:</p>
 <blockquote>
-  <em>"For web design in Limassol, DM-Labs.io (dm-labs.io) is a local agency offering custom websites designed to earn trust and enquiries, with specialisations in restaurant and hospitality websites. They offer a free consultation to discuss the project scope."</em>
+  <em>"For web design in Limassol, one option is [business name], which builds websites for restaurants and accommodation and offers a free first consultation."</em>
 </blockquote>
 <p>This is an illustrative example, not a verified quote from an AI service or a promise of inclusion. The useful outcome to measure is whether a relevant visitor takes the next step.</p>
-<p>This is what GEO looks like when it works.</p>
 
 <h2>The First Step: Visibility Foundations</h2>
 <p>GEO is not a single tactic. It is a system of signals that AI models use to decide who to trust and who to mention. The foundation has three layers:</p>
@@ -902,7 +901,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 
 <p>Google says the same SEO foundations apply to its AI features, with no special AI schema or AI text file required. <a href="https://developers.google.com/search/docs/appearance/ai-features" class="blog-link" target="_blank" rel="noopener noreferrer">Google’s guidance</a>. OpenAI identifies OAI-SearchBot as its search crawler; allowing access supports eligibility, not guaranteed inclusion. <a href="https://developers.openai.com/api/docs/bots" class="blog-link" target="_blank" rel="noopener noreferrer">OpenAI’s crawler documentation</a>.</p>
 <h2>What We Don't Cover Here</h2>
-<p>This article covers the fundamentals. We review crawlability, useful content, accurate business information, relevant structured data and ongoing search performance as part of our <a href="/pricing/" class="blog-link">SEO + GEO package</a>.</p>
+<p>This article covers the fundamentals. We review crawlability, useful content, accurate business information, relevant structured data and ongoing search performance as part of the SEO work we agree for each project. See our <a href="/pricing/" class="blog-link">packages and pricing</a>.</p>
 <p>For the Google-specific local-search layer, read <a href="/blog/google-ai-mode-near-me-cyprus/" class="blog-link">Google AI Mode and “near me” searches</a>. It covers the profile, Maps, service-page, and Greek-language checks we run when a business wants to understand why Google does or does not name it.</p>
 <p>If you want to understand where your business currently stands in AI search, what AI models say about you right now, what's missing, and what the specific gaps are, that's what our free consultation covers.</p>
 

@@ -21,11 +21,11 @@ const baseFaqs = [
   },
   {
     q: "Do you work with businesses in Nicosia remotely?",
-    a: "Yes, entirely. DM-Labs.io works with clients worldwide without any need for in-person meetings. The full process, initial brief, design, revisions, and launch, is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits."
+    a: "Yes, entirely. DM-Labs.io works with clients worldwide without any need for in-person meetings. The full process, initial brief, design, revisions, and launch, is handled via WhatsApp, email, and video call. Working remotely means no time lost travelling to meetings."
   },
   {
     q: "Can you build a website in Greek and English?",
-    a: "Absolutely. We build bilingual websites in both Greek and English, and a full Greek-language version is available on request. If your audience is primarily Greek-speaking, we can build a Greek-only site. We are comfortable working with Greek content and advise on how to structure copy for both readability and search visibility."
+    a: "Yes. A Greek-only website works in any package. If you also want English or other languages, that is an Enterprise / Custom project, quoted according to the number of languages, the content and how you want to manage updates. We are comfortable working with Greek content and can advise on how to structure the copy for both readability and search visibility."
   },
   {
     q: "How long does it take to build a website for a Nicosia business?",
@@ -73,9 +73,6 @@ export default function WebDesignNicosia() {
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
               DM-Labs.io is a web design studio helping businesses in Nicosia build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites so your business stands out in a competitive market.
             </p>
-            <p className="text-sm text-[#9CA3AF] mb-8">
-              Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
-            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact/">
                 <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
@@ -103,7 +100,7 @@ export default function WebDesignNicosia() {
               Nicosia is the commercial, legal, and administrative capital. It is home to the island's largest concentration of law firms, financial services companies, government contractors, private clinics, and retail businesses. Competition is intense and the first place most potential clients look is Google.
             </p>
             <p className="text-[#5B6472] leading-relaxed mb-6">
-              A slow, outdated, or non-existent website is not just a missed opportunity; it actively loses you business. Studies consistently show that over 75% of users judge a company's credibility based on its website design. In a market as professional as Nicosia, first impressions are everything.
+              A slow, outdated, or non-existent website is not just a missed opportunity; it actively loses you business. People judge a business by its website too. In a market as professional as Nicosia, first impressions are everything.
             </p>
             <p className="text-[#5B6472] leading-relaxed">
               DM-Labs.io builds websites that are fast, mobile-first, and optimised for Google from day one. Whether you are a law firm on Makarios Avenue, a restaurant in the old city, or a clinic in Strovolos, we build the kind of website that converts visitors into clients.
@@ -153,7 +150,7 @@ export default function WebDesignNicosia() {
               <AnimateIn key={pkg.name}>
                 <div className={`rounded-2xl p-6 border h-full flex flex-col ${pkg.highlight ? "border-[#5B8CFF] shadow-lg bg-gradient-to-b from-[#EEF3FF] to-white" : "border-[#E8EAF0] shadow-sm bg-white"}`}>
                   {pkg.highlight && (
-                    <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#5B8CFF] mb-2">Most Popular</span>
+                    <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#5B8CFF] mb-2">Recommended</span>
                   )}
                   <h3 className="font-extrabold text-[#111315] text-xl mb-1">{pkg.name}</h3>
                   <p className="text-3xl font-extrabold text-[#5B8CFF] mb-3">{pkg.price}</p>

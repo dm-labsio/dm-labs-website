@@ -20,11 +20,11 @@ const baseFaqs = [
   },
   {
     q: "Do you work with businesses in Crete remotely?",
-    a: "Yes, entirely. DM-Labs.io works with clients across Crete - Heraklion, Chania, Rethymno, Agios Nikolaos, and everywhere in between - without any need for in-person meetings. The full process is handled via WhatsApp, email, and video call. Most clients find it faster and more convenient than scheduling office visits, and it means we can move quickly from brief to launch."
+    a: "Yes, entirely. DM-Labs.io works with clients across Crete - Heraklion, Chania, Rethymno, Agios Nikolaos, and everywhere in between - without any need for in-person meetings. The full process is handled via WhatsApp, email, and video call. Working remotely means no time lost travelling to meetings, which keeps the project moving from brief to launch."
   },
   {
     q: "Can you build a website in Greek for my Cretan business?",
-    a: "Absolutely. We build bilingual websites in both Greek and English, and a full Greek-language version is available on request. If your audience is primarily Greek-speaking - local residents, domestic tourists, or Greek-speaking customers - we can build a Greek-only site or a bilingual site with a language toggle. We are comfortable working with Greek content and can advise on how to structure it for both readability and Google visibility."
+    a: "Yes. A Greek-only website works in any package, which suits businesses whose customers are mainly local residents or Greek-speaking visitors. If you also want English or other languages, with a language switcher, that is an Enterprise / Custom project, quoted according to the number of languages, the content and how you want to manage updates. We are comfortable working with Greek content and can advise on how to structure it for both readability and Google visibility."
   },
   {
     q: "How long does it take to build a website for a business in Crete?",
@@ -32,7 +32,7 @@ const baseFaqs = [
   },
   {
     q: "My business depends on tourism. Can you build a website that attracts international visitors?",
-    a: "Yes - and this is something we do well. Many of our clients in different markets serve both local customers and international tourists. We build bilingual or multilingual websites that are optimised for both Greek and English search queries, load quickly on mobile (which is how most tourists browse), and include features like online booking forms, photo galleries, and Google Maps integration. A well-built website is one of the most effective ways to capture tourist bookings before they arrive on the island."
+    a: "Yes. A good website is one of the most effective ways to reach tourists before they arrive. It should load quickly on mobile, which is how many travellers browse, and it can include a photo gallery, Google Maps and a contact form. Websites in more than one language and online booking systems are Enterprise / Custom work, quoted to your scope."
   },
   {
     q: "What kinds of businesses in Crete do you work with?",
@@ -43,7 +43,7 @@ const baseFaqs = [
 const industries = [
   {
     title: "Restaurants and Tavernas",
-    desc: "A professional website with your menu, photos, location, and a booking form. Built to be found by both locals and tourists searching for the best food in your area.",
+    desc: "A professional website with your menu, photos, location, and a simple way to reserve a table. Built to be found by both locals and tourists searching for the best food in your area.",
     img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
     alt: "Traditional Greek taverna restaurant in Crete with outdoor seating"
   },
@@ -153,7 +153,7 @@ export default function WebDesignCrete() {
             Why Businesses in Crete Need a Professional Website
           </h2>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            Crete is a Mediterranean island with a busy tourism industry. Every year, millions of tourists arrive in Heraklion, Chania, and Rethymno - and the vast majority of them research where to eat, where to stay, and what to do before they ever set foot on the island. If your business does not have a professional website, you are invisible to that audience before they even arrive.
+            Crete is a Mediterranean island with a busy tourism industry. Every year, millions of tourists arrive in Heraklion, Chania, and Rethymno - and many of them research where to eat, where to stay, and what to do before they ever set foot on the island. If your business does not have a professional website, you are invisible to that audience before they even arrive.
           </p>
           <p className="text-[#5B6472] leading-relaxed mb-5">
             But it is not only about tourism. Crete has a thriving local economy - construction, professional services, retail, beauty, healthcare, and agriculture all depend on local customers who are increasingly searching on Google before making a decision. A business without a website, or with an outdated one, is simply not in the conversation.
@@ -204,7 +204,7 @@ export default function WebDesignCrete() {
             Transparent Pricing for Crete Businesses
           </h2>
           <p className="text-[#5B6472] mb-10">
-            No hidden fees. No hourly billing. One fixed price, everything included.{" "}
+            No hidden fees and no hourly billing. Each package has a fixed build price, agreed before we start.{" "}
             <Link href="/pricing/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               View full pricing breakdown
             </Link>
@@ -222,7 +222,7 @@ export default function WebDesignCrete() {
               >
                 {p.highlight && (
                   <span className="inline-block text-xs font-semibold text-[#5B8CFF] uppercase tracking-wider mb-2">
-                    Most Popular
+                    Recommended
                   </span>
                 )}
                 <div className="text-2xl font-extrabold text-[#111315] mb-1">{p.price}</div>
@@ -276,7 +276,7 @@ export default function WebDesignCrete() {
               },
               {
                 title: "Updates whenever you need them",
-                desc: "Your business changes. Your website should too. When you need to update prices, add a service, or change a photo, you contact us and we sort it - fast."
+                desc: "Your business changes. Your website should too. When you need to update prices, add a service, or change a photo, you contact us and we handle it within your care plan."
               }
             ].map((w) => (
               <div key={w.title} className="bg-white rounded-2xl p-6 border border-[#E8EAF0] shadow-sm">
@@ -321,10 +321,10 @@ export default function WebDesignCrete() {
                 Built for Crete's Tourism Economy
               </h2>
               <p className="text-[#5B6472] leading-relaxed mb-4">
-                Crete receives over 4 million visitors a year. Most of them plan their trip online - searching for restaurants, accommodation, activities, and services weeks before they arrive. A professionally built, bilingual website puts your business in front of that audience at exactly the right moment.
+                Crete welcomes millions of visitors every year, and many of them plan their trip online, searching for restaurants, accommodation, activities, and services before they arrive. A professionally built website puts your business in front of that audience at exactly the right moment.
               </p>
               <p className="text-[#5B6472] leading-relaxed mb-4">
-                We build websites that work for both local customers and international visitors - fast-loading on mobile, available in Greek and English, and optimised for the searches that bring tourists to your door.
+                We build websites that work for both local customers and international visitors: fast-loading on mobile and optimised for the searches that bring tourists to your door. If you need the site in more than one language, we scope it as an Enterprise / Custom project.
               </p>
               <Link href="/contact/">
                 <button className="mt-2 px-7 py-3 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-sm hover:opacity-90 transition-opacity">

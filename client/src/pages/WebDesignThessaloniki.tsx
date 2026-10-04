@@ -20,11 +20,11 @@ const baseFaqs = [
   },
   {
     q: "Do you work with businesses in Thessaloniki remotely?",
-    a: "Yes, entirely. DM-Labs.io works with clients worldwide without any need for in-person meetings. The full process - initial brief, design, revisions, and launch - is handled via WhatsApp, email, and video call. Most of our clients find it more convenient than scheduling office visits, and it means we can move faster. Being remote has never been a barrier to delivering a great result."
+    a: "Yes, entirely. DM-Labs.io works with clients worldwide without any need for in-person meetings. The full process - initial brief, design, revisions, and launch - is handled via WhatsApp, email, and video call. Working remotely means no time lost travelling to meetings, which keeps the project moving."
   },
   {
     q: "Can you build a website in Greek?",
-    a: "Absolutely. We build bilingual websites in both Greek and English, and a full Greek-language version of any site is available on request. If your audience is primarily Greek-speaking, we can also build a Greek-only site. We are comfortable working with Greek content and can advise on how to structure the copy for both readability and search visibility."
+    a: "Yes. A Greek-only website works in any package. If you also want English or other languages, that is an Enterprise / Custom project, quoted according to the number of languages, the content and how you want to manage updates. We are comfortable working with Greek content and can advise on how to structure the copy for both readability and search visibility."
   },
   {
     q: "How long does it take to build a website for a Thessaloniki business?",
@@ -61,9 +61,6 @@ export default function WebDesignThessaloniki() {
           <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">
             DM-Labs.io is a remote web design studio helping businesses in Thessaloniki build a strong, credible online presence. We deliver fast, mobile-first, and conversion-focused websites so your business stands out in a competitive market.
           </p>
-          <p className="text-sm text-[#9CA3AF] mb-8">
-            Η σελίδα είναι διαθέσιμη και στα ελληνικά κατόπιν αιτήματος. (A full Greek-language version of this page is available on request.)
-          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
@@ -86,10 +83,10 @@ export default function WebDesignThessaloniki() {
             Why Businesses in Thessaloniki Need a Professional Website
           </h2>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            Thessaloniki is a commercially active city. The business districts along Tsimiski Street and the historic neighbourhood of Ladadika are home to hundreds of restaurants, boutiques, law firms, and professional services all competing for the same local customers. Aristotle University brings over 100,000 students and academics into the city, and the Thessaloniki International Fair - one of the largest trade fairs in Southeast Europe - draws business visitors from across the continent every year.
+            Thessaloniki is a commercially active city. The business districts along Tsimiski Street and the historic neighbourhood of Ladadika are home to hundreds of restaurants, boutiques, law firms, and professional services all competing for the same local customers. Aristotle University brings tens of thousands of students into the city, and the Thessaloniki International Fair - one of the largest trade fairs in Southeast Europe - draws business visitors from across the continent every year.
           </p>
           <p className="text-[#5B6472] leading-relaxed mb-5">
-            That level of economic activity also means a highly competitive digital landscape. According to Google's own data, over 60% of Greek consumers research a business online before making contact. If your website is slow, outdated, or simply does not exist, you are not just missing out on visibility - you are actively sending potential clients to competitors who do have a professional online presence.
+            That level of economic activity also means a highly competitive digital landscape, and many customers look a business up online before making contact. If your website is slow, outdated, or simply does not exist, you are not just missing out on visibility - you are actively sending potential clients to competitors who do have a professional online presence.
           </p>
           <p className="text-[#5B6472] leading-relaxed mb-5">
             A well-built website does more than look good. It can help search engines understand your business for relevant searches, loads quickly on mobile, and turns visitors into enquiries without requiring any ongoing effort from you. For a business in Thessaloniki - where the market is dense and digital expectations are rising - that kind of presence is no longer a nice-to-have.
@@ -148,7 +145,7 @@ export default function WebDesignThessaloniki() {
             Transparent Pricing for Thessaloniki Businesses
           </h2>
           <p className="text-[#5B6472] mb-10">
-            No hidden fees. No hourly billing. One fixed price, everything included.{" "}
+            No hidden fees and no hourly billing. Each package has a fixed build price, agreed before we start.{" "}
             <Link href="/pricing/" className="text-[#5B8CFF] font-medium underline underline-offset-2 hover:text-[#8B5CFF]">
               View full pricing breakdown
             </Link>
@@ -166,7 +163,7 @@ export default function WebDesignThessaloniki() {
               >
                 {p.highlight && (
                   <span className="inline-block text-xs font-semibold text-[#5B8CFF] uppercase tracking-wider mb-2">
-                    Most Popular
+                    Recommended
                   </span>
                 )}
                 <div className="text-2xl font-extrabold text-[#111315] mb-1">{p.price}</div>
