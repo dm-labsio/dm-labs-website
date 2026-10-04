@@ -22,6 +22,11 @@ Owner's feedback on Batch C: "It still feels extremely forced. The creative writ
    - Instead: what the visitor sees, what the business gets, what we do.
 4. **Sayings only where a local would really use them.** One or two per page at most, and never forced into a headline. A plain headline beats a clever one that sounds translated.
 5. **Read it aloud.** If it sounds like an ad translated from English, write it plainer.
+6. **Check every claim before it goes in** (added in Batch E, where the legacy pages had the most problems):
+   - What we sell must match the Pricing page and the Terms: page counts, revision rounds, what each package includes, hosting and maintenance from €69/month while we manage the site, multilingual and booking as Enterprise / Custom, the timeline agreed per project.
+   - No statistic without a source we've checked. An old study goes in the past tense ("in a Google study, ... were abandoned").
+   - No claims about clients we can't show (where they are, how many, what they said), no "trusted by" rows, no "limited-time" prices.
+   - What another company does (Google, Wix, OpenAI) is described the way their own help pages describe it.
 
 Owner's word choices:
 
@@ -109,6 +114,9 @@ Small business owners: restaurants, salons, clinics, studios, shops, offices. Bu
 | η γέφυρα ανάμεσα σε... · μια σχέση που κρατάει | English marketing metaphors | say what happens: "εκεί ένας επισκέπτης γίνεται πελάτης" |
 | Πείτε μας τι σκέφτεστε (everywhere) | fine once, a translated habit when repeated | Γράψτε μας δυο λόγια |
 | σε καλά χέρια (more than once on the site) | fine once, a cliché when repeated | use it once (Security page title) |
+| πρακτορείο web design | πρακτορείο is a travel or ticket agency | στούντιο, γραφείο web design |
+| στη Google (for the search engine) | the company is feminine, the search engine is neuter | στο Google |
+| Πίσω στο Άρθρα | wrong article | Πίσω στα άρθρα |
 
 ## Hebrew
 
