@@ -5,6 +5,7 @@
    ============================================================ */
 
 import { DR_GEORGE_CASE_STUDY } from "./drGeorgeCaseStudy";
+import { GET_MORE_CUSTOMERS_CYPRUS } from "./getMoreCustomersCyprus";
 
 export interface BlogPost {
   slug: string;
@@ -29,6 +30,7 @@ export interface BlogPost {
 }
 
 const ARTICLE_CONTENT: BlogPost[] = [
+  GET_MORE_CUSTOMERS_CYPRUS,
   DR_GEORGE_CASE_STUDY,
   {
     slug: "google-ai-mode-near-me-cyprus",
@@ -547,6 +549,8 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <h2>Why Google Visibility Matters More Than Ever</h2>
 <p>Consumer behaviour has shifted dramatically. Before visiting a new restaurant, booking a salon, or hiring a contractor, people search Google first. The businesses at the top of the local results get most of the attention. Businesses that do not appear at all are simply not part of the decision.</p>
 <p>Local competition varies by business and market. Accurate business information, useful service pages, and a well-maintained Google Business Profile create a stronger foundation for search visibility.</p>
+
+<p>Being found is only the first step. If people reach your site but do not enquire, use our guide to <a href="/blog/get-more-customers-cyprus/" class="blog-link">finding where your customer journey is losing people</a> before deciding what to change.</p>
 
 <h2>Two Ways to Appear on Google: What Is the Difference?</h2>
 <p>When you search for a local business on Google, you typically see two types of results. The first is the <strong>local pack</strong> - the map with three business listings that appears near the top of the page. This is driven by your Google Business Profile. The second is <strong>organic search results</strong> - the regular blue links below the map. These are driven by your website.</p>

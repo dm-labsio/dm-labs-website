@@ -80,6 +80,7 @@ import GoogleVisibilityEl from "./pages/el/blog/GoogleVisibilityEl";
 import RestaurantEl from "./pages/el/blog/RestaurantEl";
 import WebDesignGreeceEl from "./pages/el/blog/WebDesignGreeceEl";
 import GeoEl from "./pages/el/blog/GeoEl";
+import MoreCustomersEl from "./pages/el/blog/MoreCustomersEl";
 import TemplatesEl from "./pages/el/TemplatesEl";
 import ServiceDetailEl from "./pages/el/ServiceDetailEl";
 
@@ -198,6 +199,7 @@ function MainRouter() {
         <Route path="/el/blog/istoselidha-estiatorio-kypros" component={RestaurantEl} />
         <Route path="/el/blog/web-design-ellada-odigos-2026" component={WebDesignGreeceEl} />
         <Route path="/el/blog/geo-vrethite-apo-chatgpt-kypros" component={GeoEl} />
+        <Route path="/el/blog/perissoteroi-pelates-kypros" component={MoreCustomersEl} />
         <Route path="/el/examples" component={TemplatesEl} />
         <Route path="/el/templates" component={TemplatesEl} />
         <Route path="/el/services/:serviceId" component={ServiceDetailEl} />

@@ -806,4 +806,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/blog/" />
     <lastmod>2026-10-04</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://dm-labs.io/blog/get-more-customers-cyprus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/blog/get-more-customers-cyprus/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/blog/perissoteroi-pelates-kypros/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/blog/get-more-customers-cyprus/" />
+    <lastmod>2026-10-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dm-labs.io/el/blog/perissoteroi-pelates-kypros/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dm-labs.io/blog/get-more-customers-cyprus/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://dm-labs.io/el/blog/perissoteroi-pelates-kypros/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dm-labs.io/blog/get-more-customers-cyprus/" />
+    <lastmod>2026-10-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
 </urlset>

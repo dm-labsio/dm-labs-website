@@ -17,6 +17,16 @@ export interface BlogPostEl {
 }
 
 export const POSTS_EL: BlogPostEl[] = [
+  {
+    slug: "get-more-customers-cyprus",
+    elSlug: "perissoteroi-pelates-kypros",
+    title: "Πώς θα βρείτε περισσότερους πελάτες για την επιχείρησή σας στην Κύπρο",
+    date: "2026-10-06",
+    readTime: "8 λεπτά",
+    category: "SEO και ανάπτυξη",
+    excerpt: "Δείτε σε ποιο σημείο χάνονται οι πιθανοί πελάτες και επιλέξτε την κατάλληλη πρακτική βελτίωση για την επιχείρησή σας.",
+    coverImage: "/media/get-more-customers-editorial-banner.webp",
+  },
   { ...DR_GEORGE_CASE_STUDY_EL, elSlug: DR_GEORGE_CASE_STUDY_EL.slug },
   {
     slug: "website-cost-cyprus-2026-guide",

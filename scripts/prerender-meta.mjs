@@ -73,6 +73,12 @@ const BLOG_POSTS = [
     description: "SEO is no longer enough. Learn what Generative Engine Optimization (GEO) is and why businesses need it to get found by ChatGPT, Perplexity, and Google AI.",
     elSlug: "geo-vrethite-apo-chatgpt-kypros",
   },
+  {
+    slug: "get-more-customers-cyprus",
+    title: "How to Get More Customers in Cyprus | DM Labs",
+    description: "Not getting enough customers in Cyprus? Find the gap between discovery, website visits and enquiries, then choose a practical next step.",
+    elSlug: "perissoteroi-pelates-kypros",
+  },
 ];
 
 // ─── English Static Routes ────────────────────────────────────────────────────
@@ -227,6 +233,12 @@ const EN_STATIC_ROUTES = [
 // ─── Greek Static Routes ──────────────────────────────────────────────────────
 
 const EL_STATIC_ROUTES = [
+  {
+    path: "/el/blog/perissoteroi-pelates-kypros",
+    title: "Περισσότεροι πελάτες για την επιχείρησή σας στην Κύπρο | DM Labs",
+    description: "Δείτε σε ποιο σημείο χάνονται οι πιθανοί πελάτες στην Κύπρο: στην αναζήτηση, στην ιστοσελίδα ή στην επικοινωνία. Πρακτικά βήματα και μέτρηση.",
+    enPath: "/blog/get-more-customers-cyprus",
+  },
   {
     path: "/el/blog/doctor-website-design-orthopaedics-case-study",
     title: "Κατασκευή ιστοσελίδας γιατρού: Δρ Γεώργιος Κωνσταντινίδης",

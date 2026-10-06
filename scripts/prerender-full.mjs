@@ -62,6 +62,7 @@ const EN_BLOG_SLUGS = [
   "website-leads-real-estate-construction-hospitality",
   "google-ai-mode-near-me-cyprus",
   "online-shop-cyprus-shopify-vs-woocommerce",
+  "get-more-customers-cyprus",
 ];
 
 const EL_BLOG_SLUGS = [
@@ -74,6 +75,7 @@ const EL_BLOG_SLUGS = [
   "istoselidha-estiatorio-kypros",
   "web-design-ellada-odigos-2026",
   "geo-vrethite-apo-chatgpt-kypros",
+  "perissoteroi-pelates-kypros",
 ];
 
 const ROUTES = [
@@ -163,7 +165,7 @@ const ROUTES = [
 ].map((route) => route === "/" ? route : `${route.replace(/\/+$/, "")}/`);
 
 // Preview demos are deliberate conversion assets, not canonical editorial pages.
-// They are emitted separately from the 69 indexable routes so Vercel can serve
+// They are emitted separately from the 71 indexable routes so Vercel can serve
 // each valid visitor-facing demo without a catch-all SPA rewrite.
 const PREVIEW_ROUTES = [
   "bella-salon",
@@ -354,7 +356,7 @@ async function main() {
     // Valid demos remain fully usable for visitors clicking “See example”, but
     // PreviewPage injects noindex and removes canonical/hreflang signals before
     // this static snapshot is captured. They intentionally do not change the
-    // 69-route canonical prerender count above.
+    // 71-route canonical prerender count above.
     let previewOk = 0;
     for (const route of PREVIEW_ROUTES) {
       const url = `http://127.0.0.1:${port}${route}`;
@@ -396,7 +398,7 @@ async function main() {
     }
 
     // Vercel serves a root-level 404.html with an actual HTTP 404 for unknown
-    // static paths. Capture the real hydrated NotFound route after all 69
+    // static paths. Capture the real hydrated NotFound route after all 71
     // canonical pages so this extra artifact does not alter the route count.
     const notFoundPage = await context.newPage();
     try {
