@@ -167,6 +167,7 @@ export function BlogArticle({ article, locale = "en" }: { article?: ArticleData;
               loading="eager"
               fetchPriority="high"
               className="w-full h-full object-cover"
+              style={{ objectPosition: post.coverImagePosition ?? "center" }}
             />
           </picture>
           <div className="blog-article-shade absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.7) 100%)" }} />

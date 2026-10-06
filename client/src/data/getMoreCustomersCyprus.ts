@@ -11,6 +11,7 @@ export const GET_MORE_CUSTOMERS_CYPRUS: BlogPost = {
   category: "SEO & Growth",
   excerpt: "A practical way to find where potential customers drop off, improve the right part of your online journey, and measure what changes.",
   coverImage: "/media/get-more-customers-editorial-banner.webp",
+  coverImagePosition: "center 24%",
   imageAlt: "A small business owner listens attentively to a customer in a welcoming, sunlit studio.",
   author: "DM-Labs.io",
   authorType: "Organization",

@@ -19,6 +19,7 @@ export interface BlogPost {
   excerpt: string;
   coverImage: string;
   coverImageMobile?: string; // Optional mobile-cropped variant of coverImage, swapped in below the 767px breakpoint
+  coverImagePosition?: string; // Optional focal position for the article hero image
   imageAlt?: string; // Optional custom alt text for cover image (defaults to post title)
   content: string; // HTML string
   author?: string; // Optional visible byline, e.g. "DM-Labs.io"

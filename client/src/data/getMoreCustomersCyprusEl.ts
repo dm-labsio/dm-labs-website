@@ -11,6 +11,7 @@ export const GET_MORE_CUSTOMERS_CYPRUS_EL: BlogPost = {
   category: "SEO και ανάπτυξη",
   excerpt: "Εντοπίστε σε ποιο σημείο χάνονται οι πιθανοί πελάτες και κάντε τη σωστή βελτίωση για την επιχείρησή σας.",
   coverImage: "/media/get-more-customers-editorial-banner.webp",
+  coverImagePosition: "center 24%",
   imageAlt: "Ένας επαγγελματίας ακούει προσεκτικά έναν πελάτη σε έναν φιλόξενο, φωτεινό χώρο.",
   author: "DM-Labs.io",
   authorType: "Organization",
