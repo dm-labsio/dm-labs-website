@@ -294,6 +294,7 @@ async function main() {
     let ok = 0;
     let errors = 0;
     const seoPages = [];
+    const guidePassages = { en: [], el: [], he: [] };
 
     for (const route of ROUTES) {
       const url = `http://127.0.0.1:${port}${route}`;
@@ -329,6 +330,36 @@ async function main() {
           !!document.getElementById("page-jsonld-schema"), `${BASE_URL}${route}`, { timeout: 15_000 });
         seoPages.push(await page.evaluate(inspectSeoDocument, `${BASE_URL}${route}`));
 
+        // Build the guide's public search index from the same rendered content
+        // being deployed. Exclude legal pages, forms, demos and site chrome.
+        if (!/\/(?:privacy|cookies|terms|contact|faq|templates|examples)\//.test(route)) {
+          const locale = route.startsWith("/el/") ? "el" : route.startsWith("/he/") ? "he" : "en";
+          const passages = await page.evaluate(routePath => {
+            const root = document.querySelector("#main-content");
+            if (!root) return [];
+            const clean = text => (text ?? "").replace(/\s+/g, " ").trim();
+            const title = clean(root.querySelector("h1")?.textContent);
+            let heading = title;
+            let anchor = "";
+            const result = [];
+            root.querySelectorAll("h2, h3, p, li").forEach(element => {
+              if (element.closest("form, nav, footer, pre, code, [hidden], .blog-cta-box, .dm-chat, [aria-hidden='true']")) return;
+              if (/^H/.test(element.tagName)) {
+                heading = clean(element.textContent) || title;
+                anchor = element.id ? `#${encodeURIComponent(element.id)}` : "";
+                return;
+              }
+              if (element.querySelector("p, li")) return;
+              const full = clean(element.textContent);
+              if (full.length < 65) return;
+              const text = full.length <= 900 ? full : `${full.slice(0, 880).replace(/\s+\S*$/, "")}…`;
+              result.push({ title: (heading === title ? title : `${title} · ${heading}`).slice(0, 500), path: routePath + anchor, text });
+            });
+            return result.slice(0, 150);
+          }, route);
+          guidePassages[locale].push(...passages);
+        }
+
         // Hero videos attach only after client-side viewport observation. Remove
         // any headless-browser attachment before persisting the static snapshot
         // so Vercel serves the lightweight fallback HTML on first paint.
@@ -351,6 +382,12 @@ async function main() {
       } finally {
         await page.close();
       }
+    }
+
+    const guideDir = join(DIST_DIR, "site-guide");
+    mkdirSync(guideDir, { recursive: true });
+    for (const [locale, passages] of Object.entries(guidePassages)) {
+      writeFileSync(join(guideDir, `${locale}.json`), JSON.stringify(passages), "utf8");
     }
 
     // Valid demos remain fully usable for visitors clicking “See example”, but

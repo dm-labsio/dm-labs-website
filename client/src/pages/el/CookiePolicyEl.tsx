@@ -1,3 +1,4 @@
+import ChatPrivacyNote from "@/components/chat/ChatPrivacyNote";
 import "@/styles/legal.css";
 /* D&M LABS - Πολιτική Cookies (Συμμόρφωση GDPR) */
 import { Link } from "wouter";
@@ -26,7 +27,7 @@ export default function CookiePolicyEl() {
             <div>
               <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Νομικά</p>
               <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Πολιτική cookies</h1>
-              <p className="text-sm text-[#5B6472]">Τελευταία ενημέρωση: 30 Σεπτεμβρίου 2026</p>
+              <p className="text-sm text-[#5B6472]">Τελευταία ενημέρωση: 6 Οκτωβρίου 2026</p>
             </div>
           </div>
         </div>
@@ -35,6 +36,7 @@ export default function CookiePolicyEl() {
         <div className="container max-w-3xl">
           <div>
             <div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">
+              <ChatPrivacyNote locale="el" />
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">1. Τι είναι τα cookies</h2>

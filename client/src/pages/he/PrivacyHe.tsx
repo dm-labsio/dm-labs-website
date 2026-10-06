@@ -1,3 +1,4 @@
+import ChatPrivacyNote from "@/components/chat/ChatPrivacyNote";
 import "@/styles/legal.css";
 import { Link } from "wouter";
 
@@ -27,13 +28,14 @@ export default function PrivacyHe() {
           <div className="text-center">
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">משפטי</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">מדיניות פרטיות</h1>
-            <p className="text-sm text-[#5B6472]">עודכנה לאחרונה: 30 בספטמבר 2026</p>
+            <p className="text-sm text-[#5B6472]">עודכנה לאחרונה: 6 באוקטובר 2026</p>
           </div>
         </div>
       </section>
       <section className="section-spacing bg-white">
         <div className="container max-w-3xl">
           <div className={bodyClass}>
+              <ChatPrivacyNote locale="he" />
             <div><h2 className={sectionTitle}>1. בעל השליטה בנתונים</h2><p>DM-Labs.io ("אנחנו", "אותנו", "שלנו") היא בעלת השליטה האחראית על הנתונים האישיים שלכם. אנו מספקים שירותי עיצוב ופיתוח אתרים לעסקים. ניתן ליצור איתנו קשר בכתובת <a href="mailto:info@dm-labs.io" className="text-[#5B8CFF] hover:underline" dir="ltr">info@dm-labs.io</a> או ב-WhatsApp במספר <span dir="ltr">+357 97472847</span>.</p></div>
             <div><h2 className={sectionTitle}>2. מידע שאנו אוספים</h2><p className="mb-3">אנו אוספים את הקטגוריות הבאות של נתונים אישיים:</p><ul className={listClass}>
               <li><strong className={strongClass}>פרטי קשר:</strong> שם, כתובת אימייל, מספר טלפון ושם העסק, הנמסרים בעת מילוי טופס יצירת הקשר או שליחת הודעה ב-WhatsApp.</li>

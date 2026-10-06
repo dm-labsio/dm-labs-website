@@ -5,6 +5,8 @@ export type ConsultationFields = { name: string; email: string; business: string
 export type ConsultationErrors = Partial<Record<keyof ConsultationFields, "required" | "email" | "long">>;
 export const EMPTY_CONSULTATION: ConsultationFields = { name: "", email: "", business: "", message: "" };
 export const CONSULTATION_LIMITS = { name: 120, email: 254, business: 200, message: 5000 };
+// Public Web3Forms form identifier; shared by consultation and chat enquiries.
+export const CONTACT_FORM_KEY = "bfd3c955-1bc9-4a43-b497-f4c6776db7d1";
 
 export function validateConsultation(fields: ConsultationFields): ConsultationErrors {
   const errors: ConsultationErrors = {};
@@ -26,7 +28,7 @@ export const submitConsultation: ConsultationTransport = async (fields, locale, 
     method: "POST", signal,
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify({
-      access_key: "bfd3c955-1bc9-4a43-b497-f4c6776db7d1",
+      access_key: CONTACT_FORM_KEY,
       subject: `${t.subject} | DM Labs`,
       name: fields.name.trim(), email: fields.email.trim(), business: fields.business.trim(),
       message: fields.message.trim() || t.defaultMessage,

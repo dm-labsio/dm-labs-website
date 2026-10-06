@@ -8,7 +8,7 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import Layout from "./components/Layout";
 import CookieBanner from "./components/CookieBanner";
 import PostHogAnalytics from "./components/PostHogAnalytics";
-import WhatsAppFloat from "./components/WhatsAppFloat";
+import WebsiteGuide from "./components/chat/WebsiteGuide";
 
 // ── English Pages ──
 import Home from "./pages/Home";
@@ -221,7 +221,7 @@ function AppRoutes() {
   return (
     <>
       <MainRouter />
-      <WhatsAppFloat />
+      <WebsiteGuide />
       <CookieBanner />
     </>
   );

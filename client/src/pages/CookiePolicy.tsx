@@ -1,3 +1,4 @@
+import ChatPrivacyNote from "@/components/chat/ChatPrivacyNote";
 import "@/styles/legal.css";
 /* D&M LABS - Cookie Policy (GDPR Compliant) */
 import { Link } from "wouter";
@@ -25,7 +26,7 @@ export default function CookiePolicy() {
           <div>
             <p className="text-sm font-medium text-[#8B7355] mb-3 tracking-wide uppercase">Legal</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#111315] mb-5">Cookie Policy</h1>
-            <p className="text-sm text-[#5B6472]">Last updated: 30 September 2026</p>
+            <p className="text-sm text-[#5B6472]">Last updated: 6 October 2026</p>
           </div>
           </div>
         </div>
@@ -34,6 +35,7 @@ export default function CookiePolicy() {
         <div className="container max-w-3xl">
           <div>
             <div className="space-y-8 text-[#5B6472] text-sm leading-relaxed">
+              <ChatPrivacyNote locale="en" />
 
               <div>
                 <h2 className="text-xl font-semibold text-[#111315] mb-3">1. What Are Cookies</h2>
