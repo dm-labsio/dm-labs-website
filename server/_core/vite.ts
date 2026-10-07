@@ -132,7 +132,6 @@ export const DYNAMIC_PATTERNS = [
   /^\/blog\/[a-z0-9-]+$/,
   /^\/services\/[a-z0-9-]+$/,
   /^\/el\/services\/[a-z0-9-]+$/,
-  /^\/previews\/[a-z0-9-]+\.html$/,
 ];
 
 // Valid visitor-facing demo pages are prerendered separately from the 69
@@ -144,12 +143,8 @@ export const VALID_PREVIEW_IDS = new Set([
   "pulse-gym",
   "dr-elara-dental",
   "nomad-coffee",
-  "serenity-yoga",
-  "luxe-realty",
-  "little-stars-nursery",
   "arcos-architecture",
   "olio-deli",
-  "horizon-law",
 ]);
 
 // ─── Permanent 301 redirects ──────────────────────────────────────────────────

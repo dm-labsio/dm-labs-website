@@ -25,12 +25,8 @@ const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
   "pulse-gym":            { name: "Pulse Gym",            url: "/previews/pulse-gym.html" },
   "dr-elara-dental":      { name: "Dr. Elara Dental",     url: "/previews/dr-elara-dental.html" },
   "nomad-coffee":         { name: "Nomad Coffee",         url: "/previews/nomad-coffee.html" },
-  "serenity-yoga":        { name: "Serenity Yoga",        url: "/previews/serenity-yoga.html" },
-  "luxe-realty":          { name: "Luxe Realty",          url: "/previews/luxe-realty.html" },
-  "little-stars-nursery": { name: "Little Stars Nursery", url: "/previews/little-stars-nursery.html" },
   "arcos-architecture":   { name: "Arcos Architecture",   url: "/previews/arcos-architecture.html" },
   "olio-deli":            { name: "Olio Deli",            url: "/previews/olio-deli.html" },
-  "horizon-law":          { name: "Horizon Law",          url: "/previews/horizon-law.html" },
 };
 
 const DEFAULT_RETURN_PATH = "/templates/";

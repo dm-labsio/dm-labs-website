@@ -173,12 +173,8 @@ const PREVIEW_ROUTES = [
   "pulse-gym",
   "dr-elara-dental",
   "nomad-coffee",
-  "serenity-yoga",
-  "luxe-realty",
-  "little-stars-nursery",
   "arcos-architecture",
   "olio-deli",
-  "horizon-law",
 ].map((id) => `/preview/${id}/`);
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

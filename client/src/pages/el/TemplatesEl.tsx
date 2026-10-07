@@ -296,88 +296,8 @@ const CARD_DESIGNS: Record<string, React.FC> = {
     </div>
   ),
 
-  "serenity-yoga": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a2420" }}>
-      <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.45 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(26,36,32,0.5) 0%, rgba(26,36,32,0.9) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "12px", fontWeight: 400, color: "#8bb5a8", letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Serenity Yoga</span>
-        <div style={{ display: "flex", gap: "12px" }}>
-          {["Μαθήματα","Πρόγραμμα","Δάσκαλοι","Τιμές"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(139,181,168,0.7)" }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#8bb5a8", marginBottom: "5px" }}>Στούντιο yoga · Λεμεσός</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f0f7f4", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Βρείτε<br/><em style={{ color: "#8bb5a8" }}>την ηρεμία</em> σας</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#4a7c6f", color: "#f0f7f4", fontSize: "8px", padding: "5px 12px" }}>Τα μαθήματα</div>
-          <div style={{ border: "1px solid rgba(139,181,168,0.4)", color: "#8bb5a8", fontSize: "8px", padding: "5px 12px" }}>Το πρόγραμμα</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#1a2420","#4a7c6f","#8bb5a8","#f0f7f4","#2d4a3e"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
 
-  "luxe-realty": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0a0a0a" }}>
-      <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.85) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "40px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(184,151,90,0.2)" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 400, color: "#b8975a", letterSpacing: "0.25em", textTransform: "uppercase" as const }}>Luxe.Realty</span>
-        <div style={{ display: "flex", gap: "14px" }}>
-          {["Ακίνητα","Σχετικά","Golden Visa"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.7)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Ακίνητα πολυτελείας · Αθήνα</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Το σπίτι που ψάχνετε,<br/>στην Αθήνα</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#b8975a", color: "#0a0a0a", fontSize: "8px", padding: "5px 14px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Τα ακίνητα</div>
-          <div style={{ border: "1px solid rgba(184,151,90,0.4)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Golden Visa</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#0a0a0a","#b8975a","#f8f4ec","#142035","#8a9ab5"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "46px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
 
-  "little-stars-nursery": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#fffbf5" }}>
-      <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "52%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #fffbf5 46%, transparent 72%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(255,251,245,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(240,106,80,0.12)" }}>
-        <span style={{ fontFamily: "Nunito, sans-serif", fontSize: "11px", fontWeight: 800, color: "#2d2416" }}>Little Stars</span>
-        <div style={{ display: "flex", gap: "10px" }}>
-          {["Σχετικά","Προγράμματα","Επίσκεψη"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a5a4a" }}>{l}</span>)}
-        </div>
-        <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "3px 10px", borderRadius: "20px", fontWeight: 700 }}>Κλείστε επίσκεψη</div>
-      </div>
-      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "48%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#f06a50", marginBottom: "5px" }}>Παιδικός σταθμός · Αθήνα</div>
-        <div style={{ fontFamily: "Nunito, sans-serif", fontSize: "20px", fontWeight: 800, color: "#2d2416", lineHeight: 1.2, marginBottom: "6px" }}>Ένα δεύτερο σπίτι<br/><span style={{ color: "#f06a50" }}>για τα παιδιά σας</span></div>
-        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>Ζεστό και ασφαλές περιβάλλον για<br/>παιδιά από 3 μηνών έως 5 ετών.</div>
-        <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", borderRadius: "20px", fontWeight: 700 }}>Κλείστε επίσκεψη</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#fffbf5","#f06a50","#5bb8d4","#f5c842","#2d2416"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
 
   "arcos-architecture": () => (
     <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f4f1ec" }}>
@@ -434,34 +354,6 @@ const CARD_DESIGNS: Record<string, React.FC> = {
     </div>
   ),
 
-  "horizon-law": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0c1524" }}>
-      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.3 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(12,21,36,0.6) 0%, rgba(12,21,36,0.92) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "40px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(184,151,90,0.15)" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 400, color: "#b8975a", letterSpacing: "0.2em", textTransform: "uppercase" as const }}>Horizon Law</span>
-        <div style={{ display: "flex", gap: "14px" }}>
-          {["Τομείς","Ομάδα","Άρθρα"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.65)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-        <div style={{ border: "1px solid #b8975a", color: "#b8975a", fontSize: "8px", padding: "3px 10px" }}>Ραντεβού</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Δικηγορικό γραφείο · Αθήνα</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Δίπλα σας<br/><em style={{ color: "#b8975a" }}>σε κάθε</em> βήμα.</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#b8975a", color: "#0c1524", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>Τομείς δικαίου</div>
-          <div style={{ border: "1px solid rgba(184,151,90,0.35)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Η ομάδα μας</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#0c1524","#b8975a","#f8f4ec","#142035","#8a9ab5"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "46px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
 };
 
 function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
@@ -491,11 +383,8 @@ const INDUSTRIES = [
   { id: "beauty", label: "Ομορφιά και ευεξία", icon: "✂" },
   { id: "clinic", label: "Ιατρεία και υγεία", icon: "+" },
   { id: "fitness", label: "Γυμναστήρια", icon: "◈" },
-  { id: "realestate", label: "Ακίνητα", icon: "◻" },
-  { id: "childcare", label: "Παιδικοί σταθμοί", icon: "◎" },
   { id: "architecture", label: "Αρχιτεκτονική", icon: "△" },
   { id: "deli", label: "Ντελικατέσεν και τρόφιμα", icon: "◇" },
-  { id: "legal", label: "Νομικές υπηρεσίες", icon: "▣" },
 ];
 
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
@@ -656,93 +545,7 @@ const TEMPLATES = [
     price: "€250",
     images: { card: "" },
   },
-  {
-    id: "serenity-yoga",
-    industry: "fitness",
-    name: "Serenity Yoga",
-    tagline: "Ήρεμο και ισορροπημένο",
-    tier: "Launch",
-    tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
-    domain: "serenityyoga.com",
-    palette: ["#1a2420", "#2d4a3e", "#4a7c6f", "#8bb5a8", "#f0f7f4"],
-    paletteNames: ["Σκούρο δάσος", "Βαθύ πράσινο", "Φασκομηλιά", "Μέντα", "Ανοιχτό πράσινο"],
-    styleLabel: "Ήρεμο και φυσικό",
-    livePreview: true,
-    previewUrl: "/previews/serenity-yoga.html",
-    features: [
-      "Ήρεμη αρχική ενότητα με κράτηση μαθήματος",
-      "Πρόγραμμα μαθημάτων yoga",
-      "Προφίλ εκπαιδευτών",
-      "Η φιλοσοφία του στούντιο",
-      "Επικοινωνία και φόρμα κράτησης",
-      "Τοποθεσία και ώρες λειτουργίας",
-      "Κουμπί WhatsApp",
-      "Άψογη εμφάνιση στο κινητό",
-    ],
-    pages: [
-      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
-    ],
-    style: "Ήρεμο, ισορροπημένο ύφος σε αποχρώσεις φασκόμηλου, με φυσικές υφές και καθαρή γραμματοσειρά. Ταιριάζει σε στούντιο yoga, pilates και χώρους ευεξίας.",
-    waMessage: "Γεια σας! Είδα το παράδειγμα Serenity Yoga στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
-    price: "€250",
-    images: { card: "" },
-  },
   // ── Fitness και Γυμναστήρια templates ──
-  // ── Batch 2: Athens / Greece ──
-  {
-    id: "luxe-realty",
-    industry: "realestate",
-    name: "Luxe Realty",
-    tagline: "Πολυτέλεια και επένδυση",
-    tier: "Pro",
-    tierGradient: "linear-gradient(135deg, #c9a96e, #9a7040)",
-    domain: "luxerealty.gr",
-    palette: ["#0a0a08", "#111110", "#c9a96e", "#f5f0e8", "#888880"],
-    paletteNames: ["Μαύρο", "Σκούρο", "Σαμπάνια", "Κρέμα", "Απαλό"],
-    features: [
-      "Αρχική ενότητα σε όλη την οθόνη με αναζήτηση ακινήτων",
-      "Επιλεγμένα ακίνητα",
-      "Υπηρεσίες Golden Visa",
-      "Επικοινωνία και φόρμα για αιτήματα",
-      "SEO για ακίνητα στην Αθήνα",
-    ],
-    pages: [
-      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
-    ],
-    style: "Σκούρο, πολυτελές ύφος με κλασική γραμματοσειρά, χρυσές πινελιές σαμπάνιας και φωτογραφία σε όλη την οθόνη. Ταιριάζει σε γραφεία ακινήτων υψηλών προδιαγραφών.",
-    waMessage: "Γεια σας! Είδα το παράδειγμα Luxe Realty στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
-    price: "€450",
-    images: { card: "" },
-    livePreview: true,
-    previewUrl: "/previews/luxe-realty.html",
-  },
-  {
-    id: "little-stars-nursery",
-    industry: "childcare",
-    name: "Little Stars Nursery",
-    tagline: "Ζεστό και παιχνιδιάρικο",
-    tier: "Growth",
-    tierGradient: "linear-gradient(135deg, #f06a50, #d04030)",
-    domain: "littlestarsnursery.gr",
-    palette: ["#2d2416", "#f06a50", "#5bb8d4", "#f5c842", "#fffbf5"],
-    paletteNames: ["Μελάνι", "Κοραλί", "Ουρανί", "Κίτρινο", "Κρέμα"],
-    features: [
-      "Προγράμματα ανά ηλικία",
-      "Ποιοι είμαστε και τι πιστεύουμε",
-      "Κριτικές γονέων",
-      "Φόρμα για να κλείσετε επίσκεψη",
-      "SEO για παιδικούς σταθμούς στην Αθήνα",
-    ],
-    pages: [
-      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
-    ],
-    style: "Ζεστή, στρογγυλεμένη γραμματοσειρά με κοραλί και γαλάζιες πινελιές σε κρεμ φόντο και απαλά σχήματα. Ταιριάζει σε παιδικούς σταθμούς και χώρους για μικρά παιδιά.",
-    waMessage: "Γεια σας! Είδα το παράδειγμα Little Stars Nursery στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
-    price: "€299",
-    images: { card: "" },
-    livePreview: true,
-    previewUrl: "/previews/little-stars-nursery.html",
-  },
   {
     id: "arcos-architecture",
     industry: "architecture",
@@ -796,33 +599,6 @@ const TEMPLATES = [
     images: { card: "" },
     livePreview: true,
     previewUrl: "/previews/olio-deli.html",
-  },
-  {
-    id: "horizon-law",
-    industry: "legal",
-    name: "Horizon Law",
-    tagline: "Επιβλητικό και σκούρο",
-    tier: "Pro",
-    tierGradient: "linear-gradient(135deg, #b8975a, #7a6030)",
-    domain: "horizonlaw.gr",
-    palette: ["#0c1524", "#142035", "#b8975a", "#f8f4ec", "#8a9ab5"],
-    paletteNames: ["Ναυτικό", "Σκούρο ναυτικό", "Χρυσό", "Κρέμα", "Απαλό"],
-    features: [
-      "Αρχική ενότητα σε όλη την οθόνη με ατμοσφαιρική φωτογραφία",
-      "6 τομείς δικαίου",
-      "Προφίλ δικηγόρων με φωτογραφίες",
-      "Κριτικές πελατών",
-      "SEO για δικηγορικά γραφεία στην Αθήνα",
-    ],
-    pages: [
-      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
-    ],
-    style: "Επιβλητικό, σκούρο ύφος σε βαθύ μπλε και ζεστό χρυσό, με κλασική γραμματοσειρά. Ταιριάζει σε δικηγορικά γραφεία και επαγγελματικές υπηρεσίες.",
-    waMessage: "Γεια σας! Είδα το παράδειγμα Horizon Law στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
-    price: "€450",
-    images: { card: "" },
-    livePreview: true,
-    previewUrl: "/previews/horizon-law.html",
   },
 ];
 // ─── Template Detail Modal ────────────────────────────────────────────────────
@@ -879,7 +655,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
 
           {/* Open Full Preview - primary CTA */}
           <a
-            href={`/preview/${template.id}/`}
+            href={`/preview/${template.id}/?from=%2Fel%2Ftemplates%2F`}
             className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
             style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
           >
@@ -1208,18 +984,10 @@ export default function TemplatesEl() {
     }
   }, []);
 
-  const filtered = (() => {
-    if (activeIndustry === "all") {
-      // Shuffle once using a stable seed so order is random but consistent per session
-      const arr = [...TEMPLATES];
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-    return TEMPLATES.filter(t => t.industry === activeIndustry);
-  })();
+  // Keep the curated order consistent when visitors filter or return from a demo.
+  const filtered = activeIndustry === "all"
+    ? TEMPLATES
+    : TEMPLATES.filter(t => t.industry === activeIndustry);
 
   return (
     <div className="min-h-screen" style={{ background: "#F6F6F4" }}>

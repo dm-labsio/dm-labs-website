@@ -95,7 +95,7 @@ describe("GitHub-backed static media migration", () => {
     expect(repositorySource).not.toContain(["/manus", "storage/"].join("-"));
   });
 
-  it("uses the two demo and seven existing cinematic cinematic Vercel Blob MP4 videos while leaving 79 Unsplash image objects unchanged in scope", () => {
+  it("preserves the two demo and seven cinematic Blob videos after curating the example collection", () => {
     const blobVideoReferences = new Set(
       clientSource.match(/https:\/\/zcqnftsc7hsxgrnx\.public\.blob\.vercel-storage\.com\/[^\s"'()]+\.mp4/g) ?? [],
     );
@@ -116,6 +116,7 @@ describe("GitHub-backed static media migration", () => {
         match => match[1],
       ),
     );
-    expect(unsplashObjects.size).toBe(79);
+    // Retiring four demos and the unused coffee template removes 14 unique objects.
+    expect(unsplashObjects.size).toBe(65);
   });
 });
