@@ -161,6 +161,12 @@ try {
           path: out + `${section.slice(1)}-${width}.png`,
         });
     }
+    // Lazy images may still be fetching on a real deployment. Scroll each into
+    // view and wait for decoding before distinguishing a slow load from a failure.
+    for (const img of await page.locator("img:not(dialog img)").all()) {
+      await img.scrollIntoViewIfNeeded();
+      await img.evaluate(element => element.decode());
+    }
     assert.equal(
       await page
         .locator("img")
@@ -201,7 +207,11 @@ try {
     report.errors.push({ wrapper: true, message: e.message })
   );
   await page.goto(base + "/preview/bella-salon/");
+  // Prerendered preview HTML is replaced when the outer SPA starts. Wait for
+  // the viewer effect before interacting with its live iframe.
+  await page.waitForFunction(() => window.history.state?.previewSentinel === true);
   const frame = page.frameLocator("iframe");
+  await frame.locator("[data-day]").first().waitFor();
   await frame.locator(".hero-photo").click();
   await frame.locator("#book-look").click();
   assert.equal(await frame.locator("#booking-service").inputValue(), "texture");
