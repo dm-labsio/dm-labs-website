@@ -1,0 +1,14 @@
+Bella Atelier fictional showcase, October 2026.
+
+Typography: Gambarino Regular and General Sans 400/500/600 by Indian Type Foundry, served unchanged from the official Fontshare CDN. Used to render this website under ITF Free Font License (FFL) v2.0, 17 August 2026. Copyright Indian Type Foundry. No license to redistribute as a font collection or to modify the font files is implied. Font binaries are not redistributed through the project repository.
+https://www.fontshare.com/fonts/gambarino
+https://www.fontshare.com/fonts/general-sans
+https://www.fontshare.com/licenses/itf-ffl
+
+Original HTML, CSS and JavaScript implementations inspired by interaction patterns reviewed on 21st.dev. No third-party component source copied:
+- Hover Image List, Edu Calvo / SmoothUI: https://21st.dev/@educalvolpz/components/hover-image-list
+- Gallery Modal Accordion, UI Layout: https://21st.dev/@uilayout.contact/components/gallery-modal-accordion (no license listed; inspiration only)
+- Appointment Picker, Origin UI: https://21st.dev/@originui/components/calendar/appointment-picker
+
+Concept photographs generated specifically for this fictional studio using the built-in image generator. Models, premises and services are fictional; no client-result or testimonial claims. Original prompts and masters are retained in the workspace output/website-refresh/bella-atelier. WebP exports are sized for this website.
+No new image generation in this implementation pass. First campaign face portrait intentionally omitted after user feedback; hair details and curly portrait retained.
