@@ -56,23 +56,23 @@ const materials = {
     description:
       "Rough-cut limestone gives the outer walls depth. The uneven surface holds shadow instead of hiding it.",
     x: 0.25,
-    y: 0.47,
+    y: 0.29,
   },
   lime: {
     name: "Limewash",
     title: "Light, softened.",
     description:
       "A quiet, chalky finish lets daylight travel across the inner walls. Small variations in the surface keep it from feeling flat.",
-    x: 0.57,
-    y: 0.44,
+    x: 0.53,
+    y: 0.67,
   },
   oak: {
     name: "Oak",
     title: "Warmth within reach.",
     description:
       "Oak brings a warmer texture to the parts you touch. Its grain continues through the sliding shutters and interior joinery.",
-    x: 0.82,
-    y: 0.43,
+    x: 0.84,
+    y: 0.46,
   },
 };
 const ideas = new Map();
@@ -228,6 +228,18 @@ selectSpace("courtyard");
 // It keeps the zoomed image aligned with the source and adds explicit touch controls.
 const surface = $("#lens-surface"),
   lens = $(".lens");
+let lensZoom = 2;
+function setLensZoom(zoom) {
+  lensZoom = zoom;
+  surface.classList.toggle("magnified", zoom > 2);
+  surface.setAttribute("aria-pressed", String(zoom > 2));
+  surface.setAttribute(
+    "aria-label",
+    zoom > 2
+      ? "Return to standard material magnification"
+      : "Enlarge material detail"
+  );
+}
 function positionLens(x, y) {
   const { width: w, height: h } = surface.getBoundingClientRect();
   if (!w || !h) return;
@@ -236,9 +248,9 @@ function positionLens(x, y) {
     py = Math.max(radius, Math.min(h - radius, y * h));
   lens.style.left = px + "px";
   lens.style.top = py + "px";
-  lens.style.backgroundSize = w * 2 + "px " + h * 2 + "px";
+  lens.style.backgroundSize = w * lensZoom + "px " + h * lensZoom + "px";
   lens.style.backgroundPosition =
-    radius - px * 2 + "px " + (radius - py * 2) + "px";
+    radius - x * w * lensZoom + "px " + (radius - y * h * lensZoom) + "px";
   lens.classList.add("ready");
 }
 function resetLens() {
@@ -250,11 +262,28 @@ surface.addEventListener("pointermove", e => {
   const r = surface.getBoundingClientRect();
   positionLens((e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height);
 });
+surface.addEventListener("click", e => {
+  setLensZoom(lensZoom > 2 ? 2 : 4);
+  const r = surface.getBoundingClientRect();
+  if (e.detail)
+    positionLens(
+      (e.clientX - r.left) / r.width,
+      (e.clientY - r.top) / r.height
+    );
+  else resetLens();
+});
+surface.addEventListener("keydown", e => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    surface.click();
+  }
+});
 surface.addEventListener("pointerleave", resetLens);
 new ResizeObserver(resetLens).observe(surface);
 reduced.addEventListener("change", resetLens);
 fine.addEventListener("change", resetLens);
 function selectMaterial(key) {
+  setLensZoom(4);
   selectedMaterial = key;
   const data = materials[key];
   $$("[data-material]").forEach(b =>
@@ -443,7 +472,8 @@ planDialog.addEventListener("close", () => {
 });
 const tourDialog = $("#tour-dialog");
 let disposeTour = null,
-  tourSession = 0;
+  tourSession = 0,
+  tourOpener = $("#open-tour");
 async function startTour() {
   const session = ++tourSession;
   tourDialog
@@ -464,10 +494,17 @@ async function startTour() {
       "The interactive view is unavailable on this device. You can still explore all the photographs on this page.";
   }
 }
-$("#open-tour").addEventListener("click", () => {
-  tourDialog.showModal();
-  document.body.style.overflow = "hidden";
-  startTour();
+$$("#open-tour,[data-open-tour]").forEach(button => {
+  button.addEventListener("click", () => {
+    tourOpener = button;
+    tourDialog.showModal();
+    document.body.style.overflow = "hidden";
+    startTour();
+  });
+  const prepare = () =>
+    import("./tour.mjs").then(module => module.prepareTour()).catch(() => {});
+  button.addEventListener("pointerenter", prepare, { once: true });
+  button.addEventListener("focus", prepare, { once: true });
 });
 $("#close-tour").addEventListener("click", () => tourDialog.close());
 tourDialog.addEventListener("close", () => {
@@ -475,5 +512,5 @@ tourDialog.addEventListener("close", () => {
   disposeTour?.();
   disposeTour = null;
   document.body.style.overflow = "";
-  $("#open-tour").focus({ preventScroll: true });
+  tourOpener.focus({ preventScroll: true });
 });

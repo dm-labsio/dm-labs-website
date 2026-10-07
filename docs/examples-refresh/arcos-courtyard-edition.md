@@ -73,3 +73,33 @@ keyboard and touch drag, scene controls and hotspots, lazy loading, cleanup,
 image-failure retry, early close during loading, landscape controls, enlarged
 plan access and control/drawing separation. scripts/qa-arcos.mjs retains coverage
 for the existing brief builder/download, material lens and photo gallery.
+
+## Tour movement and material close-ups (7 October 2026)
+
+The tour now follows the hero immediately and also opens directly from the hero
+CTA. Its heading explicitly identifies the house tour. Hover/focus intent warms
+the local viewer and two panorama assets; subsequent movement preloads the target
+before animating. A 600 ms camera push towards the opening leads into a short
+400 ms snapshot blend and arrival zoom. This is an animated transition between
+two illustrations, not continuous captured video or free movement through 3D
+geometry. No new images or video were generated for this refinement.
+
+The central text hotspot is replaced by a white ground chevron. The toolbar has
+left/right look arrows and forward/back viewpoint arrows with accessible names
+and explicit disabled states where no further viewpoint exists. Up/Down keys
+move between viewpoints; Left/Right turn. Reduced motion bypasses travel and
+blending. Closing or changing motion preferences cancels pending travel. The
+long visible technical note has been removed; the existing site footer continues
+to identify the fictional, AI-generated architectural concept.
+
+Removed the plan's “Ground floor · Furnished concept” caption. The furnished plan
+and enlargement are otherwise retained. Material selections now enable a larger
+4× lens with separate focal positions for stone, limewash and oak. Direct image
+click or Enter/Space toggles 2×/4×; pointer exploration remains available. Lens
+position clamping no longer changes which part of the photograph is sampled,
+which matters when magnifying the oak near the edge on mobile.
+
+Additional QA: scripts/qa-arcos-walkthrough.mjs exercises direct hero entry,
+section order, animated forward/back movement without an opaque loading flash,
+arrow states, distinct material positions and magnification, closing mid-glide,
+and switching to reduced motion during travel at desktop and mobile sizes.

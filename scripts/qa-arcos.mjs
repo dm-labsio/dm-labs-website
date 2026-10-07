@@ -143,12 +143,10 @@ try {
     await flow(p);
     for (const id of ["house", "materials", "brief"]) {
       await p.locator("#" + id).scrollIntoViewIfNeeded();
-      await p
-        .locator("#" + id)
-        .screenshot({
-          path: out + `${id}-${width}.png`,
-          style: ".site-header{visibility:hidden}",
-        });
+      await p.locator("#" + id).screenshot({
+        path: out + `${id}-${width}.png`,
+        style: ".site-header{visibility:hidden}",
+      });
     }
     for (const btn of await p.locator(".image-grid .image-open").all()) {
       await btn.click();
@@ -157,6 +155,7 @@ try {
     }
     await p.evaluate(async () => {
       for (const i of document.images) {
+        if (!i.getAttribute("src")) continue;
         i.loading = "eager";
         await i.decode();
       }
