@@ -45,21 +45,29 @@ describe("Nomad coffee concept", () => {
     expect(html).toContain("Fictional brand and café concept");
     expect(html).not.toContain('href="#"');
     expect(html).not.toContain("images.unsplash.com");
-    expect(html).not.toContain("autoplay");
+    expect(html).toContain("muted");
+    expect(html).toContain("loop");
     expect(html).toContain('preload="none"');
     expect(html.match(/<video[^>]*>/)?.[0]).not.toMatch(/\ssrc=/);
-    expect(script).toContain("else video.pause()");
+    expect(script).toContain("video.pause()");
+    expect(script).toContain("reducedMotion.matches");
+    expect(script).toContain("connection?.saveData");
   });
   it("keeps custom photographic assets within a small initial-load budget", () => {
     const assets = resolve(root, "nomad/assets");
     const images = readdirSync(assets).filter(name => name.endsWith(".webp"));
-    expect(images).toHaveLength(3);
+    expect(images).toHaveLength(6);
     expect(
       images.reduce(
         (size, name) => size + statSync(resolve(assets, name)).size,
         0
       )
-    ).toBeLessThan(300_000);
+    ).toBeLessThan(500_000);
+    const video = readFileSync(resolve(assets, "coffee-banner.mp4"));
+    expect(video.length).toBeLessThan(1_000_000);
+    expect(video.indexOf(Buffer.from("moov"))).toBeLessThan(
+      video.indexOf(Buffer.from("mdat"))
+    );
     expect(html).toContain('loading="lazy"');
     expect(html).toContain('fetchpriority="high"');
   });

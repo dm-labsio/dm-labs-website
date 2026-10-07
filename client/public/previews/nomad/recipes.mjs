@@ -16,7 +16,7 @@ export function makeRecipe(method, requestedDose) {
     method === "press"
       ? `Coarse grind. Add ${water} g of water, stir gently and steep for 4 minutes. Press slowly and pour into your cup.`
       : method === "iced"
-        ? `Medium-fine grind. Put ${ice} g of ice in the server. Bloom the coffee with ${bloom} g of hot water, then pour up to ${water} g hot water total. Swirl to chill.`
-        : `Medium-fine grind. Rinse the filter, bloom with ${bloom} g of water for 30 seconds, then pour slowly up to ${water} g total.`;
+        ? `Medium-fine grind. Put ${ice} g of ice in the server. Wet the grounds with ${bloom} g of hot water, wait 30 seconds, then pour up to ${water} g hot water total. Swirl to chill.`
+        : `Medium-fine grind. Rinse the filter, wet the grounds with ${bloom} g of water, wait 30 seconds, then pour slowly up to ${water} g total.`;
   return { dose, water, ice, time: config.time, detail };
 }

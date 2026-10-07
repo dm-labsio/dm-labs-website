@@ -16,6 +16,12 @@
       type="font/ttf"
       crossorigin
     />
+    <link
+      rel="preload"
+      as="image"
+      href="/previews/nomad/assets/coffee-banner-poster.webp"
+      fetchpriority="high"
+    />
     <link rel="stylesheet" href="/previews/nomad/nomad.css" />
     <script type="module" src="/previews/nomad/nomad.mjs"></script>
   </head>
@@ -42,22 +48,106 @@
           <a class="button light" href="#menu">Find your usual</a>
         </div>
         <figure class="hero-image">
-          <img
-            src="/previews/nomad/assets/coffee-still-life.webp"
-            srcset="
-              /previews/nomad/assets/coffee-still-life-720.webp  720w,
-              /previews/nomad/assets/coffee-still-life.webp     1440w
-            "
-            sizes="(max-width: 700px) 100vw, 55vw"
-            width="1440"
-            height="960"
-            fetchpriority="high"
-            alt="Nomad's red-labelled silver coffee bag beside a red espresso cup in warm sunlight"
-          />
+          <div class="hero-film-stage">
+            <video
+              id="coffee-banner"
+              muted
+              loop
+              playsinline
+              preload="none"
+              poster="/previews/nomad/assets/coffee-banner-poster.webp"
+              data-src="/previews/nomad/assets/coffee-banner.mp4"
+              aria-label="Coffee and cream swirling around a coffee bean"
+            ></video>
+          </div>
           <figcaption>
             <span>COME FOR THE COFFEE.</span><span>STAY A LITTLE.</span>
           </figcaption>
         </figure>
+      </section>
+      <section class="highlights section" aria-labelledby="highlights-title">
+        <div class="highlights-heading">
+          <div>
+            <p class="eyebrow">FOLLOW YOUR CRAVING</p>
+            <h2 id="highlights-title">A good place<br />to start.</h2>
+          </div>
+          <p>A warm cup, something iced,<br />or a bite on the side.</p>
+        </div>
+        <div
+          id="coffee-carousel"
+          class="carousel-track"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Coffee and food highlights"
+          tabindex="0"
+        >
+          <a class="highlight-card" href="#menu" data-menu-category="hot"
+            ><img
+              src="/previews/nomad/assets/coffee-still-life-720.webp"
+              width="720"
+              height="480"
+              loading="lazy"
+              alt="Nomad coffee bag and a red espresso cup"
+            />
+            <div>
+              <span class="eyebrow">THE EVERYDAY FAVOURITE</span>
+              <h3>A proper coffee.</h3>
+              <p>Espresso, flat white or a long, easy cup.</p>
+              <span class="card-link">Explore hot coffee</span>
+            </div></a
+          >
+          <a class="highlight-card" href="#menu" data-menu-category="cold"
+            ><img
+              src="/previews/nomad/assets/iced-coffee.webp"
+              width="800"
+              height="1000"
+              loading="lazy"
+              alt="Iced espresso on a red coaster in the afternoon sun"
+            />
+            <div>
+              <span class="eyebrow">A LITTLE COOLER</span>
+              <h3>Over ice, please.</h3>
+              <p>Freddo, cold brew and sunny-day favourites.</p>
+              <span class="card-link">Explore iced coffee</span>
+            </div></a
+          >
+          <a class="highlight-card" href="#menu" data-menu-category="food"
+            ><img
+              src="/previews/nomad/assets/croissant.webp"
+              width="800"
+              height="1000"
+              loading="lazy"
+              alt="A flaky butter croissant on a red ceramic plate"
+            />
+            <div>
+              <span class="eyebrow">BETTER TOGETHER</span>
+              <h3>And a little bite.</h3>
+              <p>Flaky pastry, something sweet, a slice of toast.</p>
+              <span class="card-link">Explore the food menu</span>
+            </div></a
+          >
+        </div>
+        <div class="carousel-controls" hidden>
+          <button
+            type="button"
+            id="carousel-previous"
+            aria-controls="coffee-carousel"
+            disabled
+          >
+            Previous
+          </button>
+          <div class="carousel-progress" aria-hidden="true"><span></span></div>
+          <button
+            type="button"
+            id="carousel-next"
+            aria-controls="coffee-carousel"
+          >
+            Next
+          </button>
+          <p class="sr-only" id="carousel-status" aria-live="polite">
+            Hot coffee
+          </p>
+        </div>
       </section>
       <section
         class="menu-section section"
@@ -126,13 +216,14 @@
             height="1200"
             loading="lazy"
           />
-          <figcaption>THE RITUAL IS HALF THE FUN.</figcaption>
+          <figcaption>GOOD COFFEE STARTS HERE.</figcaption>
         </figure>
         <div class="brew-panel">
-          <p class="eyebrow">TAKE THE RITUAL HOME</p>
-          <h2 id="brew-title">Your coffee.<br />Your rules.</h2>
+          <p class="eyebrow">A SIMPLE HOME-BREW GUIDE</p>
+          <h2 id="brew-title">Make a better<br />cup at home.</h2>
           <p class="brew-intro">
-            Pick a method. Set your dose.<br />We’ll do the coffee maths.
+            Choose how you make your coffee and how much ground coffee you use.
+            This guide works out the water, ice and brewing time.
           </p>
           <div class="method-controls" role="group" aria-label="Brewing method">
             <button type="button" data-method="filter" aria-pressed="true">
@@ -144,7 +235,7 @@
             </button>
           </div>
           <div class="dose-heading">
-            <label for="dose">Coffee dose</label
+            <label for="dose">Ground coffee</label
             ><output for="dose" id="dose-value">20 g</output>
           </div>
           <input
@@ -157,7 +248,7 @@
             aria-describedby="dose-help"
           />
           <p id="dose-help" class="dose-help">
-            15 g for a smaller brew, up to 40 g to share.
+            Move the slider to the amount of ground coffee you’re using.
           </p>
           <div id="recipe" aria-live="polite" aria-atomic="true">
             <dl class="recipe-stats">
@@ -171,13 +262,13 @@
               </div>
             </dl>
             <p id="recipe-detail">
-              Medium-fine grind. Rinse the filter, bloom with 40 g of water for
-              30 seconds, then pour slowly up to 320 g total.
+              Medium-fine grind. Rinse the filter, wet the grounds with 40 g of
+              water, wait 30 seconds, then pour slowly up to 320 g total.
             </p>
           </div>
           <p class="brew-tip">
-            A starting point, not a rulebook. Adjust the grind and ratio to your
-            taste.
+            New to brewing? Start with 20 g of coffee. Then adjust the recipe to
+            your taste.
           </p>
           <noscript
             ><p>
@@ -203,21 +294,6 @@
           </p>
           <a class="text-link" href="#brew">Find your home-brew recipe</a>
         </div>
-        <details class="film">
-          <summary>Watch the coffee film<span>Play on demand</span></summary>
-          <div class="film-inner">
-            <video
-              id="coffee-film"
-              controls
-              playsinline
-              preload="none"
-              poster="/previews/nomad/assets/coffee-still-life.webp"
-              aria-label="A visual coffee preparation film"
-              data-src="https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/nomad-coffee-scroll-video-all-intra_ab16c684.mp4"
-            ></video>
-            <p>A visual coffee study from the original Nomad concept.</p>
-          </div>
-        </details>
       </section>
     </main>
     <footer>

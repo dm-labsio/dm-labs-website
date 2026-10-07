@@ -95,13 +95,12 @@ describe("GitHub-backed static media migration", () => {
     expect(repositorySource).not.toContain(["/manus", "storage/"].join("-"));
   });
 
-  it("preserves the two demo and seven cinematic Blob videos after curating the example collection", () => {
+  it("preserves the remaining demo and seven cinematic Blob videos after curating the example collection", () => {
     const blobVideoReferences = new Set(
       clientSource.match(/https:\/\/zcqnftsc7hsxgrnx\.public\.blob\.vercel-storage\.com\/[^\s"'()]+\.mp4/g) ?? [],
     );
     expect(blobVideoReferences).toEqual(new Set([
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dr-elara-root-canal-treatment_dc985187.mp4",
-      "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/nomad-coffee-scroll-video-all-intra_ab16c684.mp4",
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_futuristic_conversation_animation.mp4",
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_futuristic_digitalflow_animation.mp4",
       "https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dm%20labs%20assets/create_a_seamless_10second_futuristic_herobackground_animation.mp4",

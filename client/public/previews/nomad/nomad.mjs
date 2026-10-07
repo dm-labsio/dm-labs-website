@@ -40,37 +40,40 @@ function animateChange(element) {
   element.classList.remove("content-change");
   requestAnimationFrame(() => element.classList.add("content-change"));
 }
-document.querySelectorAll("[data-category]").forEach(button =>
-  button.addEventListener("click", () => {
-    const category = menu[button.dataset.category];
-    if (!category) return;
-    document
-      .querySelectorAll("[data-category]")
-      .forEach(item =>
-        item.setAttribute("aria-pressed", String(item === button))
-      );
-    const content = document.getElementById("menu-content");
-    const note = document.createElement("p");
-    note.className = "menu-note";
-    note.textContent = category.note;
-    const list = document.createElement("dl");
-    list.className = "menu-items";
-    for (const [name, description, price] of category.items) {
-      const row = document.createElement("div");
-      const title = document.createElement("dt");
-      title.append(document.createTextNode(name));
-      const detail = document.createElement("span");
-      detail.textContent = description;
-      title.append(detail);
-      const value = document.createElement("dd");
-      value.textContent = price;
-      row.append(title, value);
-      list.append(row);
-    }
-    content.replaceChildren(note, list);
-    animateChange(content);
-  })
-);
+function selectMenu(key) {
+  const category = menu[key];
+  if (!category) return;
+  document
+    .querySelectorAll("[data-category]")
+    .forEach(item =>
+      item.setAttribute("aria-pressed", String(item.dataset.category === key))
+    );
+  const content = document.getElementById("menu-content");
+  const note = document.createElement("p");
+  note.className = "menu-note";
+  note.textContent = category.note;
+  const list = document.createElement("dl");
+  list.className = "menu-items";
+  for (const [name, description, price] of category.items) {
+    const row = document.createElement("div");
+    const title = document.createElement("dt");
+    title.append(document.createTextNode(name));
+    const detail = document.createElement("span");
+    detail.textContent = description;
+    title.append(detail);
+    const value = document.createElement("dd");
+    value.textContent = price;
+    row.append(title, value);
+    list.append(row);
+  }
+  content.replaceChildren(note, list);
+  animateChange(content);
+}
+document
+  .querySelectorAll("[data-category]")
+  .forEach(button =>
+    button.addEventListener("click", () => selectMenu(button.dataset.category))
+  );
 let method = "filter";
 const dose = document.getElementById("dose");
 function updateRecipe() {
@@ -104,13 +107,112 @@ document.querySelectorAll("[data-method]").forEach(button =>
     animateChange(document.getElementById("recipe"));
   })
 );
-const film = document.querySelector(".film");
-const video = document.getElementById("coffee-film");
-film.addEventListener("toggle", () => {
-  if (film.open) {
-    if (!video.hasAttribute("src")) video.src = video.dataset.src;
-  } else video.pause();
+// The banner never delays page content. Respect visitor preferences before loading it.
+const video = document.getElementById("coffee-banner");
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+const connection = navigator.connection;
+let heroVisible = false;
+function updateBanner() {
+  if (
+    reducedMotion.matches ||
+    connection?.saveData ||
+    !heroVisible ||
+    document.hidden
+  ) {
+    video.pause();
+    return;
+  }
+  if (!video.hasAttribute("src")) video.src = video.dataset.src;
+  video.muted = true;
+  video.play().catch(() => {
+    /* The poster remains when playback is blocked. */
+  });
+}
+const heroObserver = new IntersectionObserver(
+  entries => {
+    heroVisible = entries[0].isIntersecting;
+    updateBanner();
+  },
+  { threshold: 0.1 }
+);
+heroObserver.observe(video);
+reducedMotion.addEventListener("change", updateBanner);
+connection?.addEventListener?.("change", updateBanner);
+document.addEventListener("visibilitychange", updateBanner);
+
+// Native horizontal scrolling supports touch, trackpads and keyboard without a library.
+const track = document.getElementById("coffee-carousel");
+const cards = [...track.querySelectorAll(".highlight-card")];
+const previous = document.getElementById("carousel-previous");
+const next = document.getElementById("carousel-next");
+const progress = document.querySelector(".carousel-progress span");
+const status = document.getElementById("carousel-status");
+let activeCard = 0;
+function updateCarousel() {
+  const max = track.scrollWidth - track.clientWidth;
+  const left = track.scrollLeft;
+  activeCard =
+    max > 1 && left >= max - 2
+      ? cards.length - 1
+      : cards.reduce(
+          (best, card, index) =>
+            Math.abs(card.offsetLeft - cards[0].offsetLeft - left) <
+            Math.abs(cards[best].offsetLeft - cards[0].offsetLeft - left)
+              ? index
+              : best,
+          0
+        );
+  previous.disabled = left <= 2;
+  next.disabled = left >= max - 2;
+  progress.style.transform = `translateX(${max > 0 ? Math.min(1, Math.max(0, left / max)) * 200 : 0}%)`;
+  status.textContent = ["Hot coffee", "Iced coffee", "Something to eat"][
+    activeCard
+  ];
+}
+function moveCarousel(index) {
+  const target = cards[Math.max(0, Math.min(cards.length - 1, index))];
+  track.scrollTo({
+    left: target.offsetLeft - cards[0].offsetLeft,
+    behavior: reducedMotion.matches ? "instant" : "smooth",
+  });
+}
+function stepCarousel(direction) {
+  const step = cards[1].offsetLeft - cards[0].offsetLeft;
+  track.scrollTo({
+    left: track.scrollLeft + direction * step,
+    behavior: reducedMotion.matches ? "instant" : "smooth",
+  });
+}
+previous.addEventListener("click", () => stepCarousel(-1));
+next.addEventListener("click", () => stepCarousel(1));
+track.addEventListener("keydown", event => {
+  if (event.target !== track) return;
+  if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+    event.preventDefault();
+    stepCarousel(event.key === "ArrowLeft" ? -1 : 1);
+    return;
+  }
+  const target = {
+    Home: 0,
+    End: cards.length - 1,
+  }[event.key];
+  if (target === undefined) return;
+  event.preventDefault();
+  moveCarousel(target);
 });
+let scrollFrame;
+track.addEventListener(
+  "scroll",
+  () => {
+    cancelAnimationFrame(scrollFrame);
+    scrollFrame = requestAnimationFrame(updateCarousel);
+  },
+  { passive: true }
+);
+new ResizeObserver(updateCarousel).observe(track);
+document.querySelector(".carousel-controls").hidden = false;
+track.classList.add("enhanced");
+updateCarousel();
 // Anchor navigation works inside the gallery iframe without creating parent history entries.
 document.addEventListener(
   "click",
@@ -120,6 +222,7 @@ document.addEventListener(
     const target = document.getElementById(link.getAttribute("href").slice(1));
     if (!target) return;
     event.preventDefault();
+    if (link.dataset.menuCategory) selectMenu(link.dataset.menuCategory);
     target.scrollIntoView({
       behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
         ? "instant"
