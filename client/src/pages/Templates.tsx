@@ -1,3 +1,4 @@
+import NomadPreviewArtwork from "@/components/NomadPreviewArtwork";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
@@ -242,37 +243,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
     </div>
   ),
 
-  "nomad-coffee": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a1208" }}>
-      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,18,8,0.88) 40%, rgba(26,18,8,0.3) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "12px", fontWeight: 700, color: "#c8a96e", letterSpacing: "0.06em" }}>Nomad Co.</span>
-        <div style={{ display: "flex", gap: "12px" }}>
-          {["Menu","Story","Beans","Events"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,169,110,0.7)" }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "55%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "5px" }}>Specialty Coffee - Limassol</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "6px" }}>Coffee Worth<br/><em style={{ color: "#c8a96e" }}>Slow Down</em> For</div>
-        <div style={{ fontSize: "8px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "10px" }}>Single-origin beans, hand-roasted<br/>in small batches.</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "8px", padding: "5px 12px", fontWeight: 700 }}>View Our Menu</div>
-          <div style={{ border: "1px solid rgba(200,169,110,0.5)", color: "#c8a96e", fontSize: "8px", padding: "5px 12px" }}>Our Story</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#1a1208","#8b6914","#c8a96e","#f7f0e6","#3d2b1f"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-
-
-
+  "nomad-coffee": () => <NomadPreviewArtwork />,
 
   "arcos-architecture": () => (
     <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f4f1ec" }}>
@@ -461,29 +432,20 @@ const TEMPLATES = [
     id: "nomad-coffee",
     industry: "restaurant",
     name: "Nomad Coffee",
-    tagline: "Artisan & Minimal",
+    tagline: "Coffee with character",
     tier: "Launch",
     tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
-    domain: "nomadcoffee.com",
-    palette: ["#1a1208", "#3d2b1f", "#8b6914", "#c8a96e", "#f7f0e6"],
-    paletteNames: ["Espresso", "Dark Brown", "Gold", "Caramel", "Cream"],
-    styleLabel: "Artisan Minimal",
+    domain: "nomad.example",
+    palette: ["#b72d20", "#f1df9c", "#f6f0e4", "#28251e"],
+    paletteNames: ["Vermilion", "Butter", "Paper", "Ink"],
+    styleLabel: "Coffee-poster identity",
     livePreview: true,
     previewUrl: "/previews/nomad-coffee.html",
-    features: [
-      "Minimal hero with daily specials",
-      "Signature coffee showcase",
-      "Menu with categories",
-      "About / Our Story section",
-      "Contact & find us page",
-      "Phone number CTA",
-      "WhatsApp & social links",
-      "Mobile responsive",
-    ],
+    features: ["Original brand photography", "Interactive café menu", "Adjustable home-brew recipes", "Coffee, water and ice calculator", "Optional coffee film", "Clear text navigation", "Reduced-motion support", "Responsive layout"],
     pages: [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
-    style: "Artisan minimal aesthetic with espresso and gold tones, clean typography, and a warm, inviting feel. Great for specialty coffee shops, artisan roasters, and café bars.",
+    style: "Bold condensed typography, vermilion and butter-yellow colours, tactile brand imagery and a useful interactive brew guide. A fictional coffee-bar identity with a clear point of view.",
     waMessage: "Hello DM-Labs team! I'm interested in the Nomad Coffee website design.",
     price: "€250",
     images: { card: "" },

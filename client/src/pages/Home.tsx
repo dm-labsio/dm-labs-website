@@ -1,3 +1,4 @@
+import NomadPreviewArtwork from "@/components/NomadPreviewArtwork";
 import PackageOverview from "@/components/pricing/PackageOverview";
 import HomeIntroductionVideo from "@/components/home/HomeIntroductionVideo";
 import "@/components/home/HomePageDark.css";
@@ -19,28 +20,8 @@ import HomeHero from "@/components/home/HomeHero";
 
 // ─── Hand-crafted card mockups for homepage template showcase ────
 const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
-  "nomad-coffee": () => (
-    <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a1208" }}>
-      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80" alt="Nomad Coffee cafe interior with warm lighting" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,18,8,0.88) 40%, rgba(26,18,8,0.3) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 700, color: "#c8a96e", letterSpacing: "0.06em" }}>Nomad Co.</span>
-        <div style={{ display: "flex", gap: "10px" }}>
-          {["Menu","Story","Beans"].map(l => <span key={l} style={{ fontSize: "7px", color: "rgba(200,169,110,0.7)" }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "55%" }}>
-        <div style={{ fontSize: "7px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "4px" }}>Specialty Coffee</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "5px" }}>Coffee Worth<br/><em style={{ color: "#c8a96e" }}>Slow Down</em> For</div>
-        <div style={{ fontSize: "7px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "8px" }}>Single-origin beans, hand-roasted<br/>in small batches.</div>
-        <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "7px", padding: "4px 10px", fontWeight: 700, display: "inline-block" }}>View Our Menu</div>
-      </div>
-      <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
-        <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
+  "nomad-coffee": () => <NomadPreviewArtwork />,
+
   "bella-salon": () => (
     <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f7f0e8" }}>
       <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="Bella Salon beauty studio interior" style={{ position: "absolute", right: 0, top: 0, width: "55%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
@@ -116,11 +97,11 @@ const FEATURED_TEMPLATES = [
     industry: "restaurant",
     name: "Nomad Coffee",
     category: "Cafe & Coffee",
-    styleLabel: "Artisan Minimal",
+    styleLabel: "Coffee with character",
     previewUrl: "/previews/nomad-coffee.html",
-    imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80",
+    imageUrl: "/previews/nomad/assets/coffee-still-life-720.webp",
     imageAlt: "Nomad Coffee website example",
-    palette: ["#1a1208", "#2c1f0e"],
+    palette: ["#b72d20", "#f1df9c"],
   },
   {
     id: "bella-salon",

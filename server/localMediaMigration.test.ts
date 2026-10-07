@@ -117,6 +117,7 @@ describe("GitHub-backed static media migration", () => {
       ),
     );
     // The curated collection retains only the image objects still used by the site.
-    expect(unsplashObjects.size).toBe(61);
+    // Nomad now uses original local imagery instead of nine stock objects.
+    expect(unsplashObjects.size).toBe(52);
   });
 });

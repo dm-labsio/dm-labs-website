@@ -1,80 +1,66 @@
-import { readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { readFileSync, readdirSync, statSync } from "node:fs";
+import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+// The browser uses this same calculation module.
+// @ts-expect-error Standalone demo module is intentionally outside the TS application.
+import { makeRecipe } from "../client/public/previews/nomad/recipes.mjs";
+const root = resolve(import.meta.dirname, "../client/public/previews");
+const html = readFileSync(resolve(root, "nomad-coffee.html"), "utf8");
+const script = readFileSync(resolve(root, "nomad/nomad.mjs"), "utf8");
 
-const serverDirectory = dirname(fileURLToPath(import.meta.url));
-const previewSource = readFileSync(
-  resolve(serverDirectory, "../client/public/previews/nomad-coffee.html"),
-  "utf8",
-);
-
-describe("Nomad Coffee scroll-driven hero", () => {
-  it("uses the supplied Vercel Blob video as the page-first hero rather than a separate middle section", () => {
-    expect(previewSource).toContain('id="coffee-scroll-video"');
-    expect(previewSource).toContain('src="https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/nomad-coffee-scroll-video-all-intra_ab16c684.mp4"');
-    expect(previewSource).toContain('<section class="scroll-video-hero" id="coffee-film-hero"');
-    expect(previewSource).toContain("muted playsinline preload=\"auto\"");
-    expect(previewSource).not.toContain("autoplay muted loop");
-    expect(previewSource).not.toContain('<section class="coffee-film"');
-    expect(previewSource.indexOf('id="coffee-film-hero"')).toBeLessThan(previewSource.indexOf("<!-- HERO -->"));
+describe("Nomad coffee concept", () => {
+  it("calculates useful quantities for each method, including the ice dilution", () => {
+    expect(makeRecipe("filter", 20)).toMatchObject({
+      dose: 20,
+      water: 320,
+      ice: 0,
+      time: "3:00",
+    });
+    expect(makeRecipe("press", 30)).toMatchObject({
+      dose: 30,
+      water: 450,
+      ice: 0,
+      time: "4:00",
+    });
+    expect(makeRecipe("iced", 25)).toMatchObject({
+      dose: 25,
+      water: 250,
+      ice: 150,
+    });
+    expect(makeRecipe("iced", 25).detail).toContain("150 g of ice");
+    expect(makeRecipe("iced", 25).detail).toContain("250 g hot water total");
+    expect(makeRecipe("filter", 15).water).toBe(240);
+    expect(makeRecipe("filter", 40).water).toBe(640);
   });
-
-  it("keeps the hero fixed throughout the scroll span and releases it only when the existing page reaches the viewport", () => {
-    expect(previewSource).toContain(".scroll-video-hero { --hero-progress:0; position:relative; height:520vh;");
-    expect(previewSource).toContain(".scroll-video-hero-stage { position:fixed; inset:0; z-index:10;");
-    expect(previewSource).toContain('.scroll-video-hero[data-active="false"] .scroll-video-hero-stage { display:none; }');
-    expect(previewSource).toContain("var progress = clamp(-sceneRect.top / scrollSpan, 0, 1);");
-    expect(previewSource).toContain("scene.setAttribute('data-active', sceneRect.bottom > 0 ? 'true' : 'false');");
-    expect(previewSource).toContain("var targetTime = 0;");
-    expect(previewSource).toContain("function runSeekController() {");
-    expect(previewSource).toContain("if (!metadataReady || reducedMotion || !seekReady || video.seeking) return;");
-    expect(previewSource).toContain("seekReady = false;");
-    expect(previewSource).toContain("video.currentTime = targetTime;");
-    expect(previewSource).toContain("function updateTargetTime(nextTime) {");
-    expect(previewSource).toContain("targetTime = clamp(nextTime, 0, duration);");
-    expect(previewSource).toContain("function onSeeked() {");
-    expect(previewSource).toContain("seekReady = true;");
-    expect(previewSource).toContain("video.addEventListener('seeked', onSeeked);");
-    expect(previewSource).toContain("updateTargetTime(Math.min(Math.max(duration - 0.04, 0), duration * progress));");
-    expect(previewSource).toContain("window.addEventListener('scroll', onScrollOrResize, { passive:true });");
-    expect(previewSource).toContain("seekControllerRafId = window.requestAnimationFrame(runSeekController);");
-    expect(previewSource).toContain("window.cancelAnimationFrame(seekControllerRafId);");
+  it("bounds the dose and falls back safely for malformed input", () => {
+    expect(makeRecipe("filter", 0).dose).toBe(15);
+    expect(makeRecipe("press", 500).dose).toBe(40);
+    expect(makeRecipe("filter", "invalid").water).toBe(320);
+    expect(makeRecipe("unknown", 20).water).toBe(320);
   });
-
-  it("updates only the latest target during scroll and issues one guarded seek at a time", () => {
-    const scrollUpdateStart = previewSource.indexOf("function updateFromScroll() {");
-    const scrollUpdateEnd = previewSource.indexOf("function queueUpdate() {");
-    const seekControllerStart = previewSource.indexOf("function runSeekController() {");
-    const seekControllerEnd = previewSource.indexOf("function updateTargetTime(nextTime) {");
-
-    expect(scrollUpdateStart).toBeGreaterThan(-1);
-    expect(scrollUpdateEnd).toBeGreaterThan(scrollUpdateStart);
-    expect(seekControllerStart).toBeGreaterThan(-1);
-    expect(seekControllerEnd).toBeGreaterThan(seekControllerStart);
-
-    const scrollUpdate = previewSource.slice(scrollUpdateStart, scrollUpdateEnd);
-    const seekController = previewSource.slice(seekControllerStart, seekControllerEnd);
-
-    expect(scrollUpdate).toContain("updateTargetTime(");
-    expect(scrollUpdate).not.toContain("video.currentTime =");
-    expect(seekController).toContain("video.seeking");
-    expect(seekController).toContain("seekReady = false;");
-    expect(seekController).toContain("video.currentTime = targetTime;");
-    expect(previewSource).toContain("video.addEventListener('seeked', onSeeked);");
-    expect(previewSource).toContain("function onSeeked() {");
-    expect(previewSource).toContain("seekReady = true;");
+  it("keeps a readable page and working recipe before scripts or video load", () => {
+    expect(html).toContain("Small cup. Full character.");
+    expect(html).toContain("320<span>g</span>");
+    expect(html).toContain("noindex, nofollow");
+    expect(html).toContain("Fictional brand and café concept");
+    expect(html).not.toContain('href="#"');
+    expect(html).not.toContain("images.unsplash.com");
+    expect(html).not.toContain("autoplay");
+    expect(html).toContain('preload="none"');
+    expect(html.match(/<video[^>]*>/)?.[0]).not.toMatch(/\ssrc=/);
+    expect(script).toContain("else video.pause()");
   });
-
-  it("waits for valid metadata before scrubbing and retains the reduced-motion fallback", () => {
-    expect(previewSource).toContain("video.addEventListener('loadedmetadata', onLoadedMetadata, { once:true });");
-    expect(previewSource).toContain("if (!isFinite(video.duration) || video.duration <= 0) return;");
-    expect(previewSource).toContain("metadataReady = true;");
-    expect(previewSource).toContain("if (!metadataReady || reducedMotion) return;");
-    expect(previewSource).toContain("prefers-reduced-motion: reduce");
-    expect(previewSource).toContain("video.currentTime = Math.max(duration - 0.04, 0);");
-    expect(previewSource).toContain("video.pause();");
-    expect(previewSource).toContain("window.cancelAnimationFrame(scrollRafId);");
-    expect(previewSource).toContain("window.cancelAnimationFrame(seekControllerRafId);");
+  it("keeps custom photographic assets within a small initial-load budget", () => {
+    const assets = resolve(root, "nomad/assets");
+    const images = readdirSync(assets).filter(name => name.endsWith(".webp"));
+    expect(images).toHaveLength(3);
+    expect(
+      images.reduce(
+        (size, name) => size + statSync(resolve(assets, name)).size,
+        0
+      )
+    ).toBeLessThan(300_000);
+    expect(html).toContain('loading="lazy"');
+    expect(html).toContain('fetchpriority="high"');
   });
 });

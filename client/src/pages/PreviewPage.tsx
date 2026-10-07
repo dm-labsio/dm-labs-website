@@ -143,7 +143,8 @@ export default function PreviewPage() {
         const dest = doc.getElementById(id) || doc.querySelector(`[name="${id}"]`);
         if (!dest) return;
         // Scroll to the target section instead
-        dest.scrollIntoView({ behavior: "smooth", block: "start" });
+        const reducedMotion = iframe.contentWindow?.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        dest.scrollIntoView({ behavior: reducedMotion ? "instant" : "smooth", block: "start" });
       };
 
       // Use capture: true so we intercept before the browser's default handler

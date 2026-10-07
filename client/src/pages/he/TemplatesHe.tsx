@@ -1,3 +1,4 @@
+import NomadPreviewArtwork from "@/components/NomadPreviewArtwork";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
@@ -242,37 +243,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
     </div>
   ),
 
-  "nomad-coffee": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a1208" }}>
-      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,18,8,0.88) 40%, rgba(26,18,8,0.3) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "12px", fontWeight: 700, color: "#c8a96e", letterSpacing: "0.06em" }}>Nomad Co.</span>
-        <div style={{ display: "flex", gap: "12px" }}>
-          {["תפריט","עלינו","פולים","אירועים"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,169,110,0.7)" }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "55%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "5px" }}>בית קפה, לימסול</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "6px" }}>קפה טוב,<br/><em style={{ color: "#c8a96e" }}>בלי</em> למהר</div>
-        <div style={{ fontSize: "8px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "10px" }}>פולים ממקור אחד, קלויים אצלנו<br/>בכמויות קטנות.</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "8px", padding: "5px 12px", fontWeight: 700 }}>לתפריט</div>
-          <div style={{ border: "1px solid rgba(200,169,110,0.5)", color: "#c8a96e", fontSize: "8px", padding: "5px 12px" }}>עלינו</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#1a1208","#8b6914","#c8a96e","#f7f0e6","#3d2b1f"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-
-
-
+  "nomad-coffee": () => <NomadPreviewArtwork />,
 
   "arcos-architecture": () => (
     <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f4f1ec" }}>
@@ -461,29 +432,20 @@ const TEMPLATES = [
     id: "nomad-coffee",
     industry: "restaurant",
     name: "Nomad Coffee",
-    tagline: "אומנותי ומינימליסטי",
+    tagline: "קפה עם אופי",
     tier: "Launch",
     tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
-    domain: "nomadcoffee.com",
-    palette: ["#1a1208", "#3d2b1f", "#8b6914", "#c8a96e", "#f7f0e6"],
-    paletteNames: ["אספרסו", "חום עמוק", "זהב", "קרמל", "קרם"],
-    styleLabel: "מינימליזם אומנותי",
+    domain: "nomad.example",
+    palette: ["#b72d20", "#f1df9c", "#f6f0e4", "#28251e"],
+    paletteNames: ["אדום", "צהוב רך", "נייר", "דיו"],
+    styleLabel: "זהות בהשראת כרזות קפה",
     livePreview: true,
     previewUrl: "/previews/nomad-coffee.html",
-    features: [
-      "אזור פתיחה מינימליסטי עם מבצעים יומיים",
-      "הצגת קפה נבחר",
-      "תפריט לפי קטגוריות",
-      "עמוד אודות",
-      "עמוד קשר ומיקום",
-      "כפתור חיוג ישיר",
-      "WhatsApp וקישורים חברתיים",
-      "מותאם למובייל",
-    ],
+    features: ["דימויי מותג מקוריים", "תפריט קפה אינטראקטיבי", "מתכוני קפה בהתאמה אישית", "מחשבון קפה, מים וקרח", "סרטון קפה לפי בחירה", "ניווט ברור עם טקסט", "תמיכה בהפחתת תנועה", "פריסה מותאמת לכל מסך"],
     pages: [
       { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "סגנון מינימליסטי בגוני אספרסו וזהב, עם פונט נקי ותחושה חמה. מתאים לבתי קפה ולבתי קלייה קטנים.",
+    style: "טיפוגרפיה צרה ונועזת, אדום וצהוב רך, דימויי מותג עשירים במרקם ומדריך קפה אינטראקטיבי. זהות לבית קפה בדיוני עם אופי ברור.",
     waMessage: "היי! ראיתי אצלכם את הדוגמה של Nomad Coffee ואשמח לשמוע עוד.",
     price: "€250",
     images: { card: "" },
