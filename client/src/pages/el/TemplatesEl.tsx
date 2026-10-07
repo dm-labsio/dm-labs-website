@@ -185,31 +185,6 @@ const CARD_DESIGNS: Record<string, React.FC> = {
     </div>
   ),
 
-  "verde-restaurant": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0d1a0f" }}>
-      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.55 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(13,26,15,0.4) 0%, rgba(13,26,15,0.85) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "13px", fontWeight: 700, color: "#e8f0e0", letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Verde</span>
-        <div style={{ display: "flex", gap: "14px" }}>
-          {["Μενού","Ιστορία","Κράτηση"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(232,240,224,0.7)", letterSpacing: "0.08em" }}>{l}</span>)}
-        </div>
-        <div style={{ border: "1px solid #7ab060", color: "#7ab060", fontSize: "8px", padding: "3px 10px" }}>Κράτηση</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#7ab060", marginBottom: "5px" }}>Εστιατόριο · Λεμεσός</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "24px", fontWeight: 400, color: "#e8f0e0", lineHeight: 1.1, marginBottom: "8px", fontStyle: "italic" as const }}>Γεύση από<br/>τη Μεσόγειο</div>
-        <div style={{ background: "#7ab060", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block" }}>Δείτε το μενού</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#0d1a0f","#7ab060","#c8a96e","#e8f0e0","#2d4a20"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.15)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
 
   "pulse-gym": () => (
     <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0a0a0a" }}>
@@ -379,12 +354,11 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
   { id: "all", label: "Όλοι οι κλάδοι", icon: "✦" },
-  { id: "restaurant", label: "Εστιατόρια και καφέ", icon: "☕" },
+  { id: "restaurant", label: "Εστίαση και τρόφιμα", icon: "☕" },
   { id: "beauty", label: "Ομορφιά και ευεξία", icon: "✂" },
   { id: "clinic", label: "Ιατρεία και υγεία", icon: "+" },
   { id: "fitness", label: "Γυμναστήρια", icon: "◈" },
   { id: "architecture", label: "Αρχιτεκτονική", icon: "△" },
-  { id: "deli", label: "Ντελικατέσεν και τρόφιμα", icon: "◇" },
 ];
 
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
@@ -418,37 +392,6 @@ const TEMPLATES = [
     ],
     style: "Θηλυκό και πολυτελές ύφος σε αποχρώσεις δαμάσκηνου και ροζ, με κομψή γραμματοσειρά και ζεστή, φιλόξενη αίσθηση. Ταιριάζει σε κομμωτήρια, κέντρα αισθητικής και studio νυχιών.",
     waMessage: "Γεια σας! Είδα το παράδειγμα Bella Salon στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
-    price: "€350",
-    images: { card: "" },
-  },
-  {
-    id: "verde-restaurant",
-    industry: "restaurant",
-    name: "Εστιατόριο Verde",
-    tagline: "Φρέσκο και μεσογειακό",
-    tier: "Growth",
-    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
-    domain: "verderestaurant.com",
-    palette: ["#1a2e1a", "#2d5a27", "#4a8c3f", "#8bc34a", "#f5f9f0"],
-    paletteNames: ["Δάσος", "Βαθύ πράσινο", "Φύλλο", "Φρέσκο πράσινο", "Κρέμα"],
-    styleLabel: "Φρέσκο μεσογειακό",
-    livePreview: true,
-    previewUrl: "/previews/verde-restaurant.html",
-    features: [
-      "Μεγάλη αρχική ενότητα με κουμπί κράτησης",
-      "Τα αγαπημένα πιάτα",
-      "Σελίδα μενού με κατηγορίες",
-      "Σελίδα «Ποιοι είμαστε»",
-      "Επικοινωνία και φόρμα κράτησης",
-      "Ενσωματωμένος χάρτης Google Maps",
-      "WhatsApp και σύνδεσμοι social media",
-      "Άψογη εμφάνιση στο κινητό",
-    ],
-    pages: [
-      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
-    ],
-    style: "Μεσογειακό ύφος που αναπνέει, σε βαθιές πράσινες αποχρώσεις με ζεστό κρεμ φόντο και κομψή γραμματοσειρά. Ταιριάζει σε εστιατόρια με μεσογειακή κουζίνα και φρέσκα υλικά.",
-    waMessage: "Γεια σας! Είδα το παράδειγμα Verde στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€350",
     images: { card: "" },
   },
@@ -575,7 +518,7 @@ const TEMPLATES = [
   },
   {
     id: "olio-deli",
-    industry: "deli",
+    industry: "restaurant",
     name: "Olio Deli",
     tagline: "Ζεστή Μεσόγειος",
     tier: "Growth",

@@ -146,14 +146,14 @@ const FEATURED_TEMPLATES = [
     palette: ["#0a1628", "#0d2040"],
   },
   {
-    id: "verde-restaurant",
-    industry: "restaurant",
-    name: "Verde Restaurant",
-    styleLabel: "Φρέσκο μεσογειακό",
-    previewUrl: "/previews/verde-restaurant.html",
-    imageUrl: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80",
-    imageAlt: "Παράδειγμα ιστοσελίδας για το Verde Restaurant",
-    palette: ["#1a2e1a", "#2d5a27"],
+    id: "arcos-architecture",
+    industry: "architecture",
+    name: "Arcos Architecture",
+    styleLabel: "Αρχιτεκτονική και minimal",
+    previewUrl: "/previews/arcos-architecture.html",
+    imageUrl: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=700&q=80",
+    imageAlt: "Παράδειγμα ιστοσελίδας για το Arcos Architecture",
+    palette: ["#1a1916", "#2d2b27"],
   },
 ];
 

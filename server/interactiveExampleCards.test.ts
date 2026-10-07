@@ -9,7 +9,7 @@ const homeSource = readFileSync(resolve(projectDirectory, "client/src/pages/Home
 const greekHomeSource = readFileSync(resolve(projectDirectory, "client/src/pages/el/HomeEl.tsx"), "utf8");
 const cardSource = readFileSync(resolve(projectDirectory, "client/src/components/InteractiveExampleCard.tsx"), "utf8");
 
-const expectedExamples = ["nomad-coffee", "bella-salon", "dr-elara-dental", "verde-restaurant"];
+const expectedExamples = ["nomad-coffee", "bella-salon", "dr-elara-dental", "arcos-architecture"];
 
 function featuredExampleIds(source: string) {
   const match = source.match(/const FEATURED_TEMPLATES = \[([\s\S]*?)\n\];/);
@@ -29,7 +29,7 @@ describe("homepage interactive example cards", () => {
       "/previews/nomad-coffee.html",
       "/previews/bella-salon.html",
       "/previews/dr-elara-dental.html",
-      "/previews/verde-restaurant.html",
+      "/previews/arcos-architecture.html",
     ]) {
       expect(homeSource).toContain(`previewUrl: "${preview}"`);
       expect(greekHomeSource).toContain(`previewUrl: "${preview}"`);

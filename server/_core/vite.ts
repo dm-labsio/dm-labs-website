@@ -139,7 +139,6 @@ export const DYNAMIC_PATTERNS = [
 // scripts/prerender-full.mjs so unknown /preview/:id paths retain a real 404.
 export const VALID_PREVIEW_IDS = new Set([
   "bella-salon",
-  "verde-restaurant",
   "pulse-gym",
   "dr-elara-dental",
   "nomad-coffee",

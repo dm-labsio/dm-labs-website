@@ -21,7 +21,6 @@ import { X } from "lucide-react";
 
 const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
   "bella-salon":          { name: "Bella Salon",          url: "/previews/bella-salon.html" },
-  "verde-restaurant":     { name: "Verde Restaurant",     url: "/previews/verde-restaurant.html" },
   "pulse-gym":            { name: "Pulse Gym",            url: "/previews/pulse-gym.html" },
   "dr-elara-dental":      { name: "Dr. Elara Dental",     url: "/previews/dr-elara-dental.html" },
   "nomad-coffee":         { name: "Nomad Coffee",         url: "/previews/nomad-coffee.html" },

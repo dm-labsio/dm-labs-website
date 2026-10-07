@@ -1,5 +1,7 @@
 # Example websites: audit and rebuild roadmap
 
+**Selection update:** The user's subsequent clarification is recorded in [the current collection](./current-collection.md). That list supersedes the initial keep/remove decisions and build queue below. The following remains the historical first-pass audit and its QA record.
+
 Reviewed 7 October 2026. This release is Preview only, based on production commit `ab11a756d6300ba84b7aee5184ee6e8b6e0590cf`. Production and main are not part of this release.
 
 ## Decision

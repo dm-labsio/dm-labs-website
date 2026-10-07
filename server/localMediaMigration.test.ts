@@ -116,7 +116,7 @@ describe("GitHub-backed static media migration", () => {
         match => match[1],
       ),
     );
-    // Retiring four demos and the unused coffee template removes 14 unique objects.
-    expect(unsplashObjects.size).toBe(65);
+    // The curated collection retains only the image objects still used by the site.
+    expect(unsplashObjects.size).toBe(61);
   });
 });

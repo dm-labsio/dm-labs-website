@@ -169,7 +169,6 @@ const ROUTES = [
 // each valid visitor-facing demo without a catch-all SPA rewrite.
 const PREVIEW_ROUTES = [
   "bella-salon",
-  "verde-restaurant",
   "pulse-gym",
   "dr-elara-dental",
   "nomad-coffee",
