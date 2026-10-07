@@ -43,7 +43,7 @@ All four lead to existing demos and preserve the originating homepage language o
 
 ## Next working stage
 
-Nomad Coffee is the first active rebuild, following the user’s request to start with the first retained concept. Its initial visual identity, generated assets and interactive menu/brew guide are documented in [Nomad Coffee direction](nomad-coffee-direction.md). Review this Preview before expanding the case study or starting the next example.
+Nomad Coffee and Bella Atelier's monochrome gallery edition have been reviewed positively by the user. Pulse Gym is the next active example: the user likes its existing design and requested working one-page controls and different 21st.dev components, rather than a new identity. Scope is recorded in [Pulse interaction edition](pulse-interaction-edition.md). Keep all changes on Preview for review.
 
 Develop one brand/example at a time, starting with an available approved brand brief and the user's component references. Fish restaurant is a proposed first project, not a locked order. The new hospitality identities, real-estate identity and childcare identity should not be invented or confused with retired names merely to fill the roadmap.
 

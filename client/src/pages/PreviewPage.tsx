@@ -128,6 +128,9 @@ export default function PreviewPage() {
       if (!doc) return;
 
       const clickHandler = (e: Event) => {
+        // Interactive one-page demos manage focus/menu state themselves while
+        // preventing hash history entries. Keep the fallback for older demos.
+        if (doc.documentElement.dataset.previewNavigation === "managed") return;
         let el = e.target as HTMLElement | null;
         // Walk up to find the anchor element
         while (el && el.tagName !== "A") { el = el.parentElement; }
@@ -246,7 +249,7 @@ export default function PreviewPage() {
             border: "none",
             display: "block",
           }}
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          sandbox={`allow-scripts allow-same-origin allow-forms allow-popups${params.id === "pulse-gym" ? " allow-downloads" : ""}`}
         />
       )}
     </div>
