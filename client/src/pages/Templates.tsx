@@ -441,7 +441,7 @@ const TEMPLATES = [
     styleLabel: "Coffee-poster identity",
     livePreview: true,
     previewUrl: "/previews/nomad-coffee.html",
-    features: ["Original brand photography", "Interactive café menu", "Adjustable home-brew recipes", "Coffee, water and ice calculator", "Optional coffee film", "Clear text navigation", "Reduced-motion support", "Responsive layout"],
+    features: ["Original brand photography", "Interactive café menu", "Adjustable home-brew recipes", "Coffee, water and ice calculator", "Looping coffee video hero", "Swipeable coffee and food carousel", "Reduced-motion support", "Responsive layout"],
     pages: [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
