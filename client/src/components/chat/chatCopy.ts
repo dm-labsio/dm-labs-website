@@ -8,26 +8,13 @@ export const CHAT_COPY = {
       "Explore answers from our website, or tell Tom and Anastacia what you need.",
     articleIntro:
       "A question about this article? Let’s find a useful next step for your business.",
-    suggestions: [
-      "How do we get started?",
-      "How much does a website cost?",
-      "Is SEO included?",
-      "Can I see examples first?",
-    ],
-    labels: [
-      "A new website",
-      "Costs & packages",
-      "Being found online",
-      "See our work",
-    ],
-    articleQuestion: "How can I get more customers?",
-    articleLabel: "More enquiries",
     context: "You’re reading",
     source: "From our website",
     related: "Read the source",
     placeholder: "Ask about your website or our services…",
     send: "Send question",
     close: "Close chat",
+    closeLabel: "Close",
     reset: "Start a new conversation",
     resetConfirm:
       "Clear this conversation from this browser tab? Emails already sent will remain with DM Labs.",
@@ -42,9 +29,9 @@ export const CHAT_COPY = {
     whatsapp: "Continue on WhatsApp",
     whatsappHint:
       "Opens WhatsApp with your conversation. Press Send there to contact us.",
-    download: "Save conversation",
     copied: "Conversation copied. Paste it into WhatsApp.",
-    copyError: "Please save the conversation and attach it in WhatsApp.",
+    copyError:
+      "Copy the conversation from the field below, then paste it into WhatsApp.",
     longChat: "Copy full chat for WhatsApp",
     openWhatsApp: "Open WhatsApp",
     pending: "Sending conversation to DM Labs…",
@@ -57,15 +44,13 @@ export const CHAT_COPY = {
     fallback:
       "I couldn’t find a clear answer in our website content. Please tell us a little more, or continue on WhatsApp so Tom and Anastacia can help.",
     limit:
-      "You’ve reached the end of this chat. Continue on WhatsApp, save the conversation, or start a new one.",
+      "You’ve reached the end of this chat. Continue on WhatsApp or start a new conversation.",
     you: "You",
     guide: "DM Labs guide",
     emptyTranscript: "Hello DM Labs! I’d like to discuss my website.",
     currentPage: "Page",
     details: "Send my email with this conversation",
     detailsSent: "Your reply details were sent with the conversation.",
-    saved:
-      "Kept in this tab for up to 24 hours. Save a copy before closing it.",
   },
   el: {
     launcher: "Ρωτήστε την DM Labs",
@@ -76,26 +61,13 @@ export const CHAT_COPY = {
       "Βρείτε απαντήσεις από την ιστοσελίδα μας ή πείτε στον Tom και την Anastacia τι χρειάζεστε.",
     articleIntro:
       "Έχετε απορία για το άρθρο; Ας βρούμε ένα χρήσιμο επόμενο βήμα για την επιχείρησή σας.",
-    suggestions: [
-      "Πώς ξεκινάμε;",
-      "Πόσο κοστίζει μια ιστοσελίδα;",
-      "Περιλαμβάνεται SEO;",
-      "Μπορώ να δω παραδείγματα;",
-    ],
-    labels: [
-      "Νέα ιστοσελίδα",
-      "Κόστος & πακέτα",
-      "Ορατότητα online",
-      "Δείτε τη δουλειά μας",
-    ],
-    articleQuestion: "Πώς θα βρω περισσότερους πελάτες;",
-    articleLabel: "Περισσότερες επαφές",
     context: "Διαβάζετε",
     source: "Από την ιστοσελίδα μας",
     related: "Διαβάστε την πηγή",
     placeholder: "Ρωτήστε για την ιστοσελίδα ή τις υπηρεσίες μας…",
     send: "Αποστολή ερώτησης",
     close: "Κλείσιμο συνομιλίας",
+    closeLabel: "Κλείσιμο",
     reset: "Νέα συνομιλία",
     resetConfirm:
       "Να διαγραφεί η συνομιλία από αυτή την καρτέλα; Τα email που έχουν σταλεί παραμένουν στην DM Labs.",
@@ -110,9 +82,9 @@ export const CHAT_COPY = {
     whatsapp: "Συνέχεια στο WhatsApp",
     whatsappHint:
       "Ανοίγει το WhatsApp με τη συνομιλία σας. Πατήστε Αποστολή εκεί για να επικοινωνήσετε.",
-    download: "Αποθήκευση συνομιλίας",
     copied: "Η συνομιλία αντιγράφηκε. Επικολλήστε την στο WhatsApp.",
-    copyError: "Αποθηκεύστε τη συνομιλία και επισυνάψτε τη στο WhatsApp.",
+    copyError:
+      "Αντιγράψτε τη συνομιλία από το πεδίο παρακάτω και επικολλήστε τη στο WhatsApp.",
     longChat: "Αντιγραφή για WhatsApp",
     openWhatsApp: "Άνοιγμα WhatsApp",
     pending: "Αποστολή συνομιλίας στην DM Labs…",
@@ -125,7 +97,7 @@ export const CHAT_COPY = {
     fallback:
       "Δεν βρήκα σαφή απάντηση στο περιεχόμενο της ιστοσελίδας μας. Πείτε μας λίγα περισσότερα ή συνεχίστε στο WhatsApp για να σας βοηθήσουν ο Tom και η Anastacia.",
     limit:
-      "Φτάσατε στο τέλος αυτής της συνομιλίας. Συνεχίστε στο WhatsApp, αποθηκεύστε τη ή ξεκινήστε νέα.",
+      "Φτάσατε στο τέλος αυτής της συνομιλίας. Συνεχίστε στο WhatsApp ή ξεκινήστε νέα.",
     you: "Εσείς",
     guide: "Οδηγός DM Labs",
     emptyTranscript:
@@ -133,8 +105,6 @@ export const CHAT_COPY = {
     currentPage: "Σελίδα",
     details: "Αποστολή email με τη συνομιλία",
     detailsSent: "Τα στοιχεία σας στάλθηκαν μαζί με τη συνομιλία.",
-    saved:
-      "Παραμένει στην καρτέλα έως 24 ώρες. Αποθηκεύστε αντίγραφο πριν την κλείσετε.",
   },
   he: {
     launcher: "שאלו את DM Labs",
@@ -144,21 +114,13 @@ export const CHAT_COPY = {
     intro:
       "מצאו תשובות מתוך האתר שלנו, או ספרו ל-Tom ול-Anastacia מה אתם צריכים.",
     articleIntro: "יש שאלה על המאמר? בואו נמצא צעד שימושי לעסק שלכם.",
-    suggestions: [
-      "איך מתחילים?",
-      "כמה עולה אתר?",
-      "האם SEO כלול?",
-      "אפשר לראות דוגמאות?",
-    ],
-    labels: ["אתר חדש", "מחירים וחבילות", "נראות ברשת", "העבודות שלנו"],
-    articleQuestion: "איך להשיג יותר לקוחות?",
-    articleLabel: "יותר פניות",
     context: "אתם קוראים",
     source: "מתוך האתר שלנו",
     related: "לקריאת המקור",
     placeholder: "שאלו על האתר שלכם או על השירותים שלנו…",
     send: "שליחת שאלה",
     close: "סגירת השיחה",
+    closeLabel: "סגירה",
     reset: "שיחה חדשה",
     resetConfirm:
       "למחוק את השיחה מהכרטיסייה הזו? הודעות שכבר נשלחו יישארו אצל DM Labs.",
@@ -173,9 +135,8 @@ export const CHAT_COPY = {
     whatsapp: "להמשיך ב-WhatsApp",
     whatsappHint:
       "פותח את WhatsApp עם השיחה שלכם. לחצו שם על שליחה כדי ליצור קשר.",
-    download: "שמירת השיחה",
     copied: "השיחה הועתקה. הדביקו אותה ב-WhatsApp.",
-    copyError: "שמרו את השיחה וצרפו אותה ב-WhatsApp.",
+    copyError: "העתיקו את השיחה מהשדה למטה והדביקו אותה ב-WhatsApp.",
     longChat: "העתקת השיחה ל-WhatsApp",
     openWhatsApp: "פתיחת WhatsApp",
     pending: "שולחים את השיחה ל-DM Labs…",
@@ -187,15 +148,13 @@ export const CHAT_COPY = {
     error: "משהו השתבש. נסו שוב או פנו אלינו ב-WhatsApp.",
     fallback:
       "לא מצאתי תשובה ברורה בתוכן האתר שלנו. ספרו לנו קצת יותר, או המשיכו ב-WhatsApp כדי ש-Tom ו-Anastacia יוכלו לעזור.",
-    limit:
-      "הגעתם לסוף השיחה הזו. המשיכו ב-WhatsApp, שמרו את השיחה או התחילו חדשה.",
+    limit: "הגעתם לסוף השיחה הזו. המשיכו ב-WhatsApp או התחילו חדשה.",
     you: "אתם",
     guide: "המדריך של DM Labs",
     emptyTranscript: "שלום DM Labs! אשמח לדבר על האתר שלי.",
     currentPage: "עמוד",
     details: "שליחת האימייל שלי עם השיחה",
     detailsSent: "פרטי הקשר נשלחו עם השיחה.",
-    saved: "נשמר בכרטיסייה הזו עד 24 שעות. שמרו עותק לפני סגירתה.",
   },
 };
 export type ChatCopy = typeof CHAT_COPY.en;

@@ -154,14 +154,3 @@ export function whatsappUrl(session: ChatSession, full = true) {
       : `${CHAT_COPY[session.locale].emptyTranscript}\nhttps://dm-labs.io${session.entry}\nReference: ${session.id.slice(0, 8)}`;
   return `https://wa.me/35797472847?text=${encodeURIComponent(message)}`;
 }
-
-export function downloadTranscript(session: ChatSession) {
-  const url = URL.createObjectURL(
-    new Blob([transcript(session)], { type: "text/plain;charset=utf-8" })
-  );
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = `dm-labs-conversation-${session.id.slice(0, 8)}.txt`;
-  anchor.click();
-  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-}

@@ -10,7 +10,6 @@ import {
   ArrowUpRight,
   BookOpen,
   Check,
-  Download,
   Mail,
   MessageCircle,
   RefreshCw,
@@ -20,7 +19,6 @@ import {
   MAX_QUESTION,
   MAX_TURNS,
   type ChatSession,
-  downloadTranscript,
   transcript,
   whatsappUrl,
 } from "@/components/chat/conversation";
@@ -104,38 +102,8 @@ export function AIChatCard({
         )}
         {session.turns.length === 0 ? (
           <div className="dm-chat-welcome">
-            <div className="dm-chat-art" aria-hidden="true">
-              <img
-                src="/media/brand-refresh/v1/contact-folded-glass-desktop.webp"
-                alt=""
-              />
-            </div>
             <h3>{t.greeting}</h3>
             <p>{page.article ? t.articleIntro : t.intro}</p>
-            <div className="dm-chat-prompts">
-              {t.suggestions.map((question, index) => (
-                <button
-                  key={question}
-                  disabled={blocked}
-                  onClick={() => onSend(question)}
-                  type="button"
-                >
-                  <span>{t.labels[index]}</span>
-                  <ArrowUpRight size={15} aria-hidden="true" />
-                </button>
-              ))}
-            </div>
-            {page.article && (
-              <button
-                className="dm-chat-article-question"
-                disabled={blocked}
-                type="button"
-                onClick={() => onSend(t.articleQuestion)}
-              >
-                {t.articleLabel}
-                <ArrowUpRight size={15} aria-hidden="true" />
-              </button>
-            )}
           </div>
         ) : (
           <div
@@ -327,14 +295,6 @@ export function AIChatCard({
             <div className="dm-chat-utilities">
               <button
                 type="button"
-                onClick={() => downloadTranscript(session)}
-                title={t.download}
-                aria-label={t.download}
-              >
-                <Download size={17} aria-hidden="true" />
-              </button>
-              <button
-                type="button"
                 disabled={busy}
                 onClick={onReset}
                 title={t.reset}
@@ -349,6 +309,16 @@ export function AIChatCard({
           <p className="dm-chat-small" role="status">
             {copyStatus}
           </p>
+        )}
+        {copyStatus === t.copyError && (
+          <textarea
+            className="dm-chat-copy-fallback"
+            readOnly
+            rows={3}
+            value={transcript(session)}
+            aria-label={t.longChat}
+            onFocus={event => event.currentTarget.select()}
+          />
         )}
         <p className="dm-chat-notice">
           {t.notice}{" "}

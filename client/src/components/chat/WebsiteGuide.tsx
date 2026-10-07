@@ -248,7 +248,8 @@ export default function WebsiteGuide() {
                   className="dm-chat-close"
                   autoFocus
                 >
-                  <X size={20} aria-hidden="true" />
+                  <X size={22} strokeWidth={2.5} aria-hidden="true" />
+                  <span>{t.closeLabel}</span>
                 </button>
               </Dialog.Close>
             </header>

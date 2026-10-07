@@ -43,8 +43,8 @@
   z-index: 10002;
   inset-inline-end: 24px;
   bottom: 24px;
-  width: min(432px, calc(100vw - 32px));
-  height: min(790px, calc(100dvh - 48px));
+  width: min(400px, calc(100vw - 32px));
+  height: min(620px, calc(100dvh - 48px));
   border-radius: 25px;
   overflow: hidden;
   background: #f6f5f2;
@@ -101,17 +101,35 @@
   font: 400 12px/1.55 var(--font-body);
 }
 .dm-chat-close {
-  min-height: 36px;
-  width: 36px;
-  border-radius: 50%;
-  border: 1px solid #ffffff30;
-  background: #ffffff08;
-  display: grid;
-  place-items: center;
-  color: #e3e6f7;
+  min-height: 44px;
+  flex-shrink: 0;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid #dbe2ff;
+  background: #dbe2ff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #101729;
+  font: 700 12px/1.4 var(--font-body);
 }
 .dm-chat-close:hover {
-  background: #ffffff18;
+  background: #fff;
+  border-color: #fff;
+}
+.dm-chat-header {
+  gap: 12px;
+}
+.dm-chat-header > div {
+  min-width: 0;
+}
+.dm-chat-copy-fallback {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid #a8b0c7;
+  border-radius: 8px;
+  font-size: 14px;
 }
 .dm-chat-reading {
   flex: 1;
@@ -150,21 +168,6 @@
 .dm-chat-welcome {
   padding: 22px 22px 19px;
 }
-.dm-chat-art {
-  height: 65px;
-  width: 78px;
-  overflow: hidden;
-  border-radius: 17px;
-  background: #101729;
-  margin-bottom: 16px;
-}
-.dm-chat-art img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 68% 50%;
-  transform: scale(1.45);
-}
 .dm-chat-welcome h3 {
   font: 800 26px/1.2 var(--font-display);
   letter-spacing: -0.025em;
@@ -175,40 +178,6 @@
   margin: 0 0 17px;
   color: #526079;
   max-width: 340px;
-}
-.dm-chat-prompts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-.dm-chat-prompts button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: start;
-  gap: 8px;
-  padding: 10px 11px;
-  min-height: 46px;
-  background: #fff;
-  border: 1px solid #d6d9e5;
-  border-radius: 11px;
-  font: 600 12px/1.4 var(--font-body);
-}
-.dm-chat-prompts button svg {
-  flex-shrink: 0;
-  color: #5969a6;
-}
-.dm-chat-prompts button:hover {
-  background: #e8ebfa;
-  border-color: #a8b8ff;
-}
-.dm-chat-article-question {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 12px;
-  color: #4d528a;
-  font: 700 12px/1.5 var(--font-body);
 }
 .dm-chat-messages {
   padding: 20px;
@@ -505,7 +474,7 @@
     inset-inline-end: 8px;
     bottom: max(8px, env(safe-area-inset-bottom));
     width: calc(100vw - 16px);
-    height: calc(100dvh - max(16px, env(safe-area-inset-bottom)));
+    height: min(620px, calc(100dvh - max(16px, env(safe-area-inset-bottom))));
     border-radius: 20px;
   }
   .dm-chat-header {
@@ -521,11 +490,6 @@
   }
   .dm-chat-welcome {
     padding: 19px;
-  }
-  .dm-chat-art {
-    width: 62px;
-    height: 50px;
-    margin-bottom: 13px;
   }
   .dm-chat-welcome h3 {
     font-size: 24px;

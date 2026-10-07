@@ -7,7 +7,7 @@ Branch: `codex/website-guide-preview`. This feature is for review on a Vercel pr
 - A discreet Ask DM Labs launcher replaces the floating WhatsApp button across the marketing site. Example iframe previews remain untouched.
 - Articles have an end-of-page question invitation. Opening the guide captures the article title and path, without URL query parameters.
 - EN, EL and HE interfaces follow the route, including RTL. Prices use the site's existing currency context.
-- The UI adapts the supplied AIChatCard reference to the current navy `#101729`, pearl `#F6F5F2`, lavender `#A8B8FF`, approved logo and fonts. It uses existing Radix, React and Lucide dependencies. No fake typing, attachment control or simulated live agent.
+- The UI adapts the supplied AIChatCard reference to the current navy `#101729`, pearl `#F6F5F2`, lavender `#A8B8FF`, approved logo and fonts. It uses existing Radix, React and Lucide dependencies. The compact card has a prominent labelled Close control. Suggested questions, decorative welcome artwork and the transcript download button are omitted. No fake typing, attachment control or simulated live agent.
 
 ## How answers work
 
@@ -25,9 +25,9 @@ Each submitted question is answered and then sent, together with the complete tr
 
 The configured Web3Forms destination is inherited from the contact form; code cannot independently verify the receiving mailbox. A `success: true` provider response is required to show sent. This is an acknowledgement by the provider, not proof of inbox delivery. Errors and timeouts keep the conversation and offer retry/WhatsApp. A later successful cumulative email includes earlier questions even if an earlier request failed. A timeout followed by retry can produce a duplicate email; conversation IDs help identify it.
 
-WhatsApp uses `wa.me/35797472847` and requires the visitor to press Send. It is not automatic WhatsApp Business API delivery. For long encoded transcripts, offer full-copy/download plus a short WhatsApp link rather than silently truncating the conversation. Clicking the external WhatsApp link shares the prefilled text with WhatsApp. Drafts are not transmitted.
+WhatsApp uses `wa.me/35797472847` and requires the visitor to press Send. It is not automatic WhatsApp Business API delivery. For long encoded transcripts, offer full-copy plus a short WhatsApp link rather than silently truncating the conversation. Clicking the external WhatsApp link shares the prefilled text with WhatsApp. Drafts are not transmitted.
 
-Chats persist in sessionStorage across page navigation and reloads in the same tab; records older than 24 hours are discarded on the next load. Reset clears the local copy, not emails. Visitors can download a plain text transcript. The whole chat card has PostHog's `ph-no-capture` class (the installed replay SDK's default block class). No chat content is included in custom analytics.
+Chats persist in sessionStorage across page navigation and reloads in the same tab; records older than 24 hours are discarded on the next load. Reset clears the local copy, not emails. The whole chat card has PostHog's `ph-no-capture` class (the installed replay SDK's default block class). No chat content is included in custom analytics.
 
 ## Limits and operational notes
 
@@ -43,7 +43,7 @@ Real sends notify the existing contact inbox. Use a clearly labelled test enquir
 1. Open the launcher on the homepage, pricing page, EN/EL article and Hebrew page. Check phone width, keyboard focus, Escape and reduced motion.
 2. Ask about pricing and SEO; follow the cited source. Try an unrelated question to see the fallback.
 3. Add your reply email and submit. Confirm the provider status and the actual inbox email with the complete transcript. Check reply-to.
-4. Continue to another page and reopen. Save the transcript. Open WhatsApp and confirm the prefilled conversation before sending.
+4. Continue to another page and reopen. Open WhatsApp and confirm the prefilled conversation before sending.
 5. Try a long chat, offline delivery, retry, clearing the chat and reloading. Ensure errors do not claim delivery.
 
 Reference: Web3Forms API https://docs.web3forms.com/getting-started/api-reference
