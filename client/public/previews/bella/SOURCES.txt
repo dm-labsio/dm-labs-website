@@ -1,14 +1,37 @@
-Bella Atelier fictional showcase, October 2026.
+Bella Atelier fictional showcase, October 2026. Rebuilt gallery edition.
 
-Typography: Gambarino Regular and General Sans 400/500/600 by Indian Type Foundry, served unchanged from the official Fontshare CDN. Used to render this website under ITF Free Font License (FFL) v2.0, 17 August 2026. Copyright Indian Type Foundry. No license to redistribute as a font collection or to modify the font files is implied. Font binaries are not redistributed through the project repository.
-https://www.fontshare.com/fonts/gambarino
-https://www.fontshare.com/fonts/general-sans
-https://www.fontshare.com/licenses/itf-ffl
+Typography: Melodrama 400/500 and Switzer 400/500, served unchanged from the official Fontshare CDN for website rendering. Copyright Indian Type Foundry; use subject to the respective Fontshare license. Font binaries are not redistributed through this repository.
+https://www.fontshare.com/fonts/melodrama
+https://www.fontshare.com/fonts/switzer
+https://www.fontshare.com/licenses
 
-Original HTML, CSS and JavaScript implementations inspired by interaction patterns reviewed on 21st.dev. No third-party component source copied:
-- Hover Image List, Edu Calvo / SmoothUI: https://21st.dev/@educalvolpz/components/hover-image-list
-- Gallery Modal Accordion, UI Layout: https://21st.dev/@uilayout.contact/components/gallery-modal-accordion (no license listed; inspiration only)
-- Appointment Picker, Origin UI: https://21st.dev/@originui/components/calendar/appointment-picker
+Gallery: native DOM/CSS adaptation of SmoothUI Hover Expand by Eduardo Calvo.
+Discovered: https://21st.dev/@educalvolpz/components/hover-expand
+Inspected source: https://smoothui.dev/r/hover-expand.json
+Documentation: https://smoothui.dev/docs/components/hover-expand
+Adaptation: client/public/previews/bella/hover-expand.mjs and the hair-gallery CSS.
+Retains flex expansion, pointer/focus selection and left/right keyboard navigation.
+Changes: equal-panel resting state, smaller expansion ratio, gallery/contact-sheet toggle, mobile two-column gallery, full-image lightbox, touch swipe and appointment handoff. Replaces React/Motion with native events and CSS transitions; respects reduced motion.
 
-Concept photographs generated specifically for this fictional studio using the built-in image generator. Models, premises and services are fictional; no client-result or testimonial claims. Original prompts and masters are retained in the workspace output/website-refresh/bella-atelier. WebP exports are sized for this website.
-No new image generation in this implementation pass. First campaign face portrait intentionally omitted after user feedback; hair details and curly portrait retained.
+MIT License
+Copyright (c) 2024 Eduardo Calvo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Photography: six new concept photographs created with the built-in image generator specifically for this fictional salon. Two monochrome salon photographs and four hair studies: graphic bob, platinum coils, copper twist and silver waves. No comparison or before/after claims. All people and premises are fictional. Original prompts and masters: workspace output/website-refresh/bella-atelier/round-03. Responsive WebP exports are project assets. No real appointments, messages or payments are made by the demo.

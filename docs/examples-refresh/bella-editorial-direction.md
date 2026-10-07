@@ -1,5 +1,20 @@
 # Bella editorial brand and photography direction
 
+## Current implementation: gallery edition
+
+7 October 2026, second implementation. This section supersedes the initial proposal below. The user rejected the aubergine/lilac palette, lowercase logo, model portraits, comparison-like interaction and layout similarity to Nomad.
+
+- Identity: ink `#20201F`, ivory `#EEEDE8`, neutral grey. Melodrama display typography and Switzer interface text, served by the official Fontshare CDN. A large uppercase wordmark over a monochrome salon photograph.
+- Structure: full-width architectural opening, four-image expanding gallery with contact-sheet alternative, salon photograph and compact service menu, short invitation. Booking moves into a side drawer rather than a large section in the page.
+- Imagery: six new assets, two black-and-white salon views and four hair-focused studies (graphic black bob, platinum coils, copper twist, silver waves). All first-round photographs are removed from the active page. No before/after presentation or implied client results.
+- Component: actual native DOM/CSS adaptation of SmoothUI Hover Expand, discovered at https://21st.dev/@educalvolpz/components/hover-expand and read at https://smoothui.dev/r/hover-expand.json. Source attribution and full MIT license retained in `client/public/previews/bella/SOURCES.txt`. This replaces the prior inspiration-only image swap with expanding gallery panels, keyboard movement and a separate mobile grid.
+- Gallery lightbox: full-image view, previous/next controls, keyboard and touch swipe, then handoff to a preselected service in the appointment drawer. Native dialogs trap focus, close with Escape and restore focus.
+- Appointment: tested date boundaries and duration-aware sample slots, editable review and explicit demo completion. No data submission or real booking. Reduced motion is respected throughout.
+- Assets/prompts: workspace `output/website-refresh/bella-atelier/round-03`. Six masters and responsive WebP exports. No original model photographs are required by the active page.
+- QA: `scripts/qa-bella.mjs` covers 320, 390, 700, 768, 1024 and 1440 px; all gallery looks, layout modes, focus return, service handoff, appointment review/edit/reset, image/font loading, console/network errors and the outer preview wrapper. Preview branch only; no main or production update.
+
+## Archived first proposal
+
 7 October 2026. Discussion brief for the second fictional showcase. No website edits or deployment in this phase. Hair and colour atelier is the recommended scope; a full beauty studio remains an alternative pending the user's preference.
 
 Bella should demonstrate an ownable identity, relevant imagery and useful interaction. The recommendation is an independent editorial hair studio, with expressive typography, aubergine and porcelain surfaces, precise service information and a small acid-yellow accent. The existing rose/gold, Cormorant Garamond/Lato treatment is replaced in the proposed direction.

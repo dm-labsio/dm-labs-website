@@ -4,503 +4,354 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <meta name="theme-color" content="#321d2f" />
+    <meta name="theme-color" content="#eeede8" />
     <meta
       name="description"
-      content="Bella Atelier: an editorial hair and colour studio concept. Explore cuts, curls and dimensional colour, then try the appointment experience."
+      content="Bella Atelier: an independent hair studio concept. Discover sculptural cuts, expressive texture and considered colour in an editorial hair gallery."
     />
-    <title>Bella Atelier | Hair with character. A DM-Labs concept.</title>
-    <link
-      rel="preload"
-      href="https://cdn.fontshare.com/wf/ZINX7PW4XMYISLZAZKYY4QHYYHYNPKAV/Z54IGKTR4PBLA5KTYL3IDQZHFQPJJVNZ/6KBHT5NXCZVM6GHTPKGIR6DXZLQAYIFK.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/previews/bella/assets/curls-detail-1200.webp"
-      as="image"
-      imagesrcset="/previews/bella/assets/curls-detail-600.webp 600w, /previews/bella/assets/curls-detail-1200.webp 1122w"
-      imagesizes="(max-width: 700px) 92vw, 46vw"
-      fetchpriority="high"
-    />
+    <title>Bella Atelier | Hair, as an expression. A DM-Labs concept.</title>
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
     <link rel="stylesheet" href="/previews/bella/bella.css" />
     <script type="module" src="/previews/bella/bella.mjs"></script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="wordmark" href="#main" aria-label="Bella Atelier home"
-        >bella<span>ATELIER</span></a
+      <a href="#main" class="mini-mark" aria-label="Bella Atelier home"
+        >B<span>ATELIER</span></a
       >
       <nav aria-label="Main navigation">
-        <a href="#looks">The hair edit</a><a href="#services">Our craft</a
-        ><a href="#appointment" class="nav-book">Find your chair</a>
+        <a href="#looks">The hair</a><a href="#studio">The studio</a
+        ><button data-book="" class="text-button">Take a seat</button>
       </nav>
     </header>
     <main id="main" tabindex="-1">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-top">
-          <p class="eyebrow">Independent hair & colour atelier</p>
-          <p class="hero-place">A little Limassol attitude.</p>
+        <img
+          class="hero-image"
+          src="/previews/bella/assets/salon-wide-1600.webp"
+          srcset="
+            /previews/bella/assets/salon-wide-700.webp   700w,
+            /previews/bella/assets/salon-wide-1600.webp 1536w
+          "
+          sizes="100vw"
+          width="1536"
+          height="1024"
+          alt="Sunlight across black leather chairs and tall mirrors in the Bella salon"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div class="hero-shade"></div>
+        <div class="hero-intro">
+          <p>Independent hair atelier<br />Limassol, Cyprus</p>
+          <p>Hair, as an expression.<br />Entirely your own.</p>
         </div>
-        <div class="hero-layout">
-          <div class="hero-copy">
-            <h1 id="hero-title">
-              Good hair.<br /><span>Great</span><br />character.
-            </h1>
-            <div class="hero-bottom">
-              <p>
-                Cuts with intention. Colour with depth.<br />Hair that feels
-                unmistakably yours.
-              </p>
-              <a class="button button-lime" href="#looks"
-                >Find your next look<span
-                  class="button-fill"
-                  aria-hidden="true"
-                ></span
-              ></a>
-            </div>
+        <div class="hero-brand">
+          <h1 id="hero-title">BELLA</h1>
+          <div class="hero-baseline">
+            <span>Cut. Colour. Character.</span
+            ><a href="#looks">Explore the hair edit</a>
           </div>
-          <button
-            class="hero-photo"
-            data-look="curls"
-            aria-label="Explore the sculpted curls look"
-          >
-            <img
-              src="/previews/bella/assets/curls-detail-1200.webp"
-              srcset="
-                /previews/bella/assets/curls-detail-600.webp   600w,
-                /previews/bella/assets/curls-detail-1200.webp 1122w
-              "
-              sizes="(max-width: 700px) 92vw, 46vw"
-              width="1122"
-              height="1402"
-              alt="Springy curls with espresso roots and soft cinnamon colour, seen from the side"
-              fetchpriority="high"
-            /><span class="photo-caption"
-              ><span>Texture, with a point of view.</span
-              ><span class="underlined">Explore this look</span></span
-            >
-          </button>
-        </div>
-        <div class="hero-foot">
-          <span>Shape / texture / colour</span><span>Designed around you.</span>
         </div>
       </section>
-
-      <section class="looks section" id="looks" aria-labelledby="looks-title">
-        <div class="section-heading reveal">
-          <div>
-            <p class="eyebrow">The hair edit</p>
-            <h2 id="looks-title">Same you.<br />New possibilities.</h2>
-          </div>
-          <p>
-            Start with what catches your eye.<br />Open a look to get into the
-            details.
+      <section id="looks" class="hair-edit">
+        <div class="edit-heading">
+          <p class="eyebrow">An ongoing study of hair</p>
+          <h2>Form. Feeling.<br /><em>A point of view.</em></h2>
+          <p class="edit-note">
+            A sharp line. An unexpected texture.<br />Find a look that feels
+            like you.
           </p>
         </div>
-        <div class="look-grid">
-          <button class="look-card look-curls reveal" data-look="curls">
-            <span class="image-wrap"
-              ><img
-                src="/previews/bella/assets/curls-portrait-1200.webp"
-                srcset="
-                  /previews/bella/assets/curls-portrait-600.webp   600w,
-                  /previews/bella/assets/curls-portrait-1200.webp 1122w
-                "
-                sizes="(max-width: 700px) 92vw, 48vw"
-                width="1122"
-                height="1402"
-                alt="A rounded curly cut with soft warm highlights and natural volume"
-                loading="lazy"
-              /><span class="image-label">The texture edit</span
-              ><span class="image-action">Explore the look</span></span
-            ><span class="look-meta"
-              ><span class="look-name">Let curls be curls.</span
-              ><span>Shape + movement</span></span
-            >
-          </button>
-          <button class="look-card look-bob reveal" data-look="bob">
-            <span class="image-wrap"
-              ><img
-                src="/previews/bella/assets/bob-detail-1200.webp"
-                srcset="
-                  /previews/bella/assets/bob-detail-600.webp   600w,
-                  /previews/bella/assets/bob-detail-1200.webp 1122w
-                "
-                sizes="(max-width: 700px) 92vw, 36vw"
-                width="1122"
-                height="1402"
-                alt="Close side view of a chestnut bob showing the soft cut line at the nape"
-                loading="lazy"
-              /><span class="image-label">The shape edit</span
-              ><span class="image-action">Explore the look</span></span
-            ><span class="look-meta"
-              ><span class="look-name">A softer kind of sharp.</span
-              ><span>Precision + ease</span></span
-            >
-          </button>
-        </div>
-        <div class="colour-story reveal">
-          <div>
-            <p class="eyebrow">A closer look at colour</p>
-            <h3>Depth. Not just<br />a different shade.</h3>
-            <p>
-              Dark roots. Warm ribbons. Light that catches the curve of a curl.
-              The interesting part is how it all works together.
-            </p>
-            <button class="text-link" data-look="colour">
-              Explore the colour story
+        <div class="gallery-toolbar">
+          <span>The current edit</span>
+          <div role="group" aria-label="Gallery layout">
+            <button data-layout="expand" aria-pressed="true">Gallery</button
+            ><button data-layout="sheet" aria-pressed="false">
+              Contact sheet
             </button>
           </div>
+        </div>
+        <div class="hair-gallery" role="group" aria-label="Hair look gallery">
           <button
-            class="colour-photo"
-            data-look="colour"
-            aria-label="Open the cinnamon colour detail"
+            class="hair-panel"
+            data-look="bob"
+            aria-label="View The graphic bob"
           >
             <img
-              src="/previews/bella/assets/curls-detail-1200.webp"
+              class=""
+              src="/previews/bella/assets/hair-bob-1200.webp"
               srcset="
-                /previews/bella/assets/curls-detail-600.webp   600w,
-                /previews/bella/assets/curls-detail-1200.webp 1122w
+                /previews/bella/assets/hair-bob-600.webp   600w,
+                /previews/bella/assets/hair-bob-1200.webp 1122w
               "
-              sizes="(max-width: 700px) 92vw, 48vw"
+              sizes="(max-width: 700px) 50vw, 40vw"
               width="1122"
               height="1402"
-              alt="Cinnamon ribbons woven through dark, naturally varied curls"
+              alt="Ink-black angular bob with a clean nape, seen in profile"
               loading="lazy"
-            />
+              decoding="async"
+            /><span class="panel-caption"
+              ><span>The graphic bob</span><small>Cut & shape</small></span
+            ><span class="view-label" aria-hidden="true"
+              >View look</span
+            ></button
+          ><button
+            class="hair-panel"
+            data-look="coils"
+            aria-label="View Light, in texture"
+          >
+            <img
+              class=""
+              src="/previews/bella/assets/hair-coils-1200.webp"
+              srcset="
+                /previews/bella/assets/hair-coils-600.webp   600w,
+                /previews/bella/assets/hair-coils-1200.webp 1122w
+              "
+              sizes="(max-width: 700px) 50vw, 40vw"
+              width="1122"
+              height="1402"
+              alt="Short platinum coils with dark roots and a tapered nape"
+              loading="lazy"
+              decoding="async"
+            /><span class="panel-caption"
+              ><span>Light, in texture</span><small>Curls & colour</small></span
+            ><span class="view-label" aria-hidden="true"
+              >View look</span
+            ></button
+          ><button
+            class="hair-panel"
+            data-look="twist"
+            aria-label="View A little sculpture"
+          >
+            <img
+              class=""
+              src="/previews/bella/assets/hair-twist-1200.webp"
+              srcset="
+                /previews/bella/assets/hair-twist-600.webp   600w,
+                /previews/bella/assets/hair-twist-1200.webp 1122w
+              "
+              sizes="(max-width: 700px) 50vw, 40vw"
+              width="1122"
+              height="1402"
+              alt="Copper hair shaped into an architectural French twist"
+              loading="lazy"
+              decoding="async"
+            /><span class="panel-caption"
+              ><span>A little sculpture</span
+              ><small>Style & finish</small></span
+            ><span class="view-label" aria-hidden="true"
+              >View look</span
+            ></button
+          ><button
+            class="hair-panel"
+            data-look="waves"
+            aria-label="View Silver in motion"
+          >
+            <img
+              class=""
+              src="/previews/bella/assets/hair-waves-1200.webp"
+              srcset="
+                /previews/bella/assets/hair-waves-600.webp   600w,
+                /previews/bella/assets/hair-waves-1200.webp 1122w
+              "
+              sizes="(max-width: 700px) 50vw, 40vw"
+              width="1122"
+              height="1402"
+              alt="Long ash-brown waves with natural silver strands"
+              loading="lazy"
+              decoding="async"
+            /><span class="panel-caption"
+              ><span>Silver in motion</span
+              ><small>Colour & dimension</small></span
+            ><span class="view-label" aria-hidden="true">View look</span>
           </button>
         </div>
-      </section>
-
-      <section
-        class="services section"
-        id="services"
-        aria-labelledby="services-title"
-      >
-        <div class="section-heading reveal">
-          <div>
-            <p class="eyebrow">Our craft</p>
-            <h2 id="services-title">The right kind<br />of change.</h2>
-          </div>
-          <p>A considered cut. A colour shift.<br />Or a very good hair day.</p>
+        <div class="gallery-foot">
+          <span>Cut, colour, texture & occasion hair</span
+          ><span>Open any look to see it in detail.</span>
         </div>
-        <div class="service-layout">
-          <figure class="service-visual">
+      </section>
+      <section class="studio" id="studio">
+        <div class="studio-top">
+          <p class="eyebrow">Inside the atelier</p>
+          <h2>A good place<br />to be <em>yourself.</em></h2>
+        </div>
+        <div class="studio-spread">
+          <figure class="studio-photo">
             <img
-              id="service-image"
-              src="/previews/bella/assets/bob-detail-600.webp"
-              width="600"
-              height="750"
-              alt="Close view of a softly shaped bob"
+              class=""
+              src="/previews/bella/assets/salon-chair-1200.webp"
+              srcset="
+                /previews/bella/assets/salon-chair-600.webp   600w,
+                /previews/bella/assets/salon-chair-1200.webp 1122w
+              "
+              sizes="(max-width: 700px) 50vw, 40vw"
+              width="1122"
+              height="1402"
+              alt="A black leather salon chair, chrome details and afternoon light"
               loading="lazy"
+              decoding="async"
             />
-            <figcaption id="service-caption">
-              A shape that works beyond the salon.
+            <figcaption>
+              Light, mirrors, a chair. The rest is personal.
             </figcaption>
           </figure>
-          <div class="service-list">
-            <article class="service-row is-active" data-service-row="cut">
-              <button
-                class="service-select"
-                data-service="cut"
-                aria-pressed="true"
-              >
-                <span class="service-name">Cut & shape</span
-                ><span class="service-price">from €65</span>
-              </button>
-              <div class="service-detail">
-                <p>
-                  A consultation, a considered cut and a finish that works with
-                  your texture. A useful reset, whether the change is subtle or
-                  big.
-                </p>
-                <div>
-                  <span>60 minutes</span
-                  ><button class="text-link" data-book="cut">
-                    Choose cut & shape
-                  </button>
-                </div>
-              </div>
-            </article>
-            <article class="service-row" data-service-row="colour">
-              <button
-                class="service-select"
-                data-service="colour"
-                aria-pressed="false"
-              >
-                <span class="service-name">Colour & dimension</span
-                ><span class="service-price">from €140</span>
-              </button>
-              <div class="service-detail">
-                <p>
-                  Face-framing colour, soft ribbons or a deeper tonal shift. We
-                  plan the placement around your cut and how you wear it.
-                </p>
-                <div>
-                  <span>150 minutes</span
-                  ><button class="text-link" data-book="colour">
-                    Choose colour & dimension
-                  </button>
-                </div>
-              </div>
-            </article>
-            <article class="service-row" data-service-row="texture">
-              <button
-                class="service-select"
-                data-service="texture"
-                aria-pressed="false"
-              >
-                <span class="service-name">Curls & texture</span
-                ><span class="service-price">from €85</span>
-              </button>
-              <div class="service-detail">
-                <p>
-                  Shape and definition that leave room for natural movement.
-                  Includes a curl-focused cut and a styling conversation.
-                </p>
-                <div>
-                  <span>90 minutes</span
-                  ><button class="text-link" data-book="texture">
-                    Choose curls & texture
-                  </button>
-                </div>
-              </div>
-            </article>
-            <article class="service-row" data-service-row="finish">
-              <button
-                class="service-select"
-                data-service="finish"
-                aria-pressed="false"
-              >
-                <span class="service-name">Style & finish</span
-                ><span class="service-price">from €40</span>
-              </button>
-              <div class="service-detail">
-                <p>
-                  A wash and a tailored finish. Soft volume, a smooth shape or
-                  defined texture, with a little extra attention to the details.
-                </p>
-                <div>
-                  <span>45 minutes</span
-                  ><button class="text-link" data-book="finish">
-                    Choose style & finish
-                  </button>
-                </div>
-              </div>
-            </article>
-            <p class="service-note">
-              Illustrative menu for this concept. Colour work starts with a
-              consultation; timing and price depend on the brief.
+          <div class="studio-content">
+            <p class="studio-intro">
+              Some things deserve your undivided attention. Your hair is one of
+              them.
             </p>
+            <p class="studio-description">
+              We work with its texture, the way you move and the way you live. A
+              conversation first. Then a cut, a colour or a finish with a clear
+              point of view.
+            </p>
+            <div class="service-menu" aria-labelledby="services-title">
+              <h3 id="services-title">In the chair</h3>
+              <button data-book="cut">
+                <span
+                  ><strong>Cut & shape</strong
+                  ><small>Consultation, precision cut & finish</small></span
+                ><span>from €65</span>
+              </button>
+              <button data-book="colour">
+                <span
+                  ><strong>Colour & dimension</strong
+                  ><small
+                    >Thoughtful colour, from subtle to expressive</small
+                  ></span
+                ><span>from €140</span>
+              </button>
+              <button data-book="texture">
+                <span
+                  ><strong>Curls & texture</strong
+                  ><small
+                    >Shape and definition for your natural texture</small
+                  ></span
+                ><span>from €85</span>
+              </button>
+              <button data-book="finish">
+                <span
+                  ><strong>Style & finish</strong
+                  ><small>Polished, sculpted or beautifully undone</small></span
+                ><span>from €40</span>
+              </button>
+              <p class="menu-note">
+                Choose a service to explore the appointment experience. These
+                are illustrative starting prices.
+              </p>
+            </div>
           </div>
         </div>
       </section>
-
-      <section class="approach section">
-        <p class="eyebrow reveal">The Bella approach</p>
-        <div class="approach-grid">
-          <h2 class="reveal">
-            Your hair has<br />a personality.<br /><span>We listen.</span>
-          </h2>
-          <div class="reveal">
-            <p class="large-copy">
-              Bring the reference.<br />Tell us what you love.<br />Tell us what
-              never works.
-            </p>
-            <p>
-              We start there. With your texture, your routine and the amount of
-              time you actually want to spend getting ready.
-            </p>
-            <a class="text-link" href="#appointment"
-              >Let's find your appointment</a
-            >
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="appointment section"
-        id="appointment"
-        aria-labelledby="appointment-title"
-      >
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">A chair with your name on it</p>
-            <h2 id="appointment-title">Make a little<br />time for you.</h2>
-          </div>
-          <p>
-            Try the booking experience.<br />This is a demo, so nothing is sent.
-          </p>
-        </div>
-        <div class="booking-layout">
-          <div class="booking-picker">
-            <label for="booking-service">What are we doing?</label
-            ><select id="booking-service">
-              <option value="cut">Cut & shape · from €65 · 60 min</option>
-              <option value="colour">
-                Colour & dimension · from €140 · 150 min
-              </option>
-              <option value="texture">
-                Curls & texture · from €85 · 90 min
-              </option>
-              <option value="finish">Style & finish · from €40 · 45 min</option>
-            </select>
-            <p id="selected-look" class="selected-look" hidden></p>
-            <div class="calendar-head">
-              <h3 id="calendar-month" aria-live="polite"></h3>
-              <div>
-                <button id="prev-month" aria-label="Previous month">Prev</button
-                ><button id="next-month" aria-label="Next month">Next</button>
-              </div>
-            </div>
-            <div class="weekdays" aria-hidden="true">
-              <span>M</span><span>T</span><span>W</span><span>T</span
-              ><span>F</span><span>S</span><span>S</span>
-            </div>
-            <div
-              id="calendar"
-              class="calendar"
-              role="group"
-              aria-labelledby="calendar-month"
-            ></div>
-            <fieldset class="time-field">
-              <legend id="time-label">Choose a day to see sample times</legend>
-              <div id="times" class="times"></div>
-            </fieldset>
-            <noscript
-              ><p>
-                Enable JavaScript to try the interactive appointment demo.
-              </p></noscript
-            >
-          </div>
-          <aside class="booking-summary" aria-label="Appointment summary">
-            <p class="eyebrow">Your appointment</p>
-            <h3 id="summary-service">Cut & shape</h3>
-            <dl>
-              <div>
-                <dt>Time together</dt>
-                <dd id="summary-duration">60 minutes</dd>
-              </div>
-              <div>
-                <dt>Starting price</dt>
-                <dd id="summary-price">€65</dd>
-              </div>
-              <div>
-                <dt>Day</dt>
-                <dd id="summary-date">Choose a day</dd>
-              </div>
-              <div>
-                <dt>Time</dt>
-                <dd id="summary-time">Choose a time</dd>
-              </div>
-            </dl>
-            <p id="booking-hint" aria-live="polite">
-              Pick a day and time to review your appointment.
-            </p>
-            <button id="review-booking" class="button button-lime" disabled>
-              Review appointment
-            </button>
-            <p class="demo-note">
-              Fictional studio. Sample availability.<br />No payment or contact
-              details needed.
-            </p>
-          </aside>
-        </div>
+      <section class="invitation">
+        <p class="eyebrow">Your next chapter</p>
+        <h2>Make yourself<br /><em>at home.</em></h2>
+        <button class="solid-button" data-book="">Find your appointment</button>
+        <p>Bring an idea. Or let’s find one together.</p>
       </section>
     </main>
-    <footer class="site-footer">
-      <div>
-        <p>Hair with character.</p>
-        <a href="#main">Back to the top</a>
-      </div>
-      <p class="footer-wordmark" aria-label="Bella Atelier">
-        bella<span>ATELIER</span>
+    <footer>
+      <a class="footer-mark" href="#main">BELLA<span>ATELIER</span></a>
+      <p>
+        A fictional salon concept by DM-Labs.<br />AI-created editorial imagery.
+        No real appointments.
       </p>
-      <div class="footer-small">
-        <span>A fictional studio by DM-Labs.</span
-        ><span>Concept photography. Made to explore.</span>
-      </div>
+      <a href="#looks">Back to the hair</a>
     </footer>
-
     <dialog id="look-dialog" class="look-dialog" aria-labelledby="look-title">
       <button class="dialog-close" data-close="look-dialog">Close</button>
-      <div class="look-dialog-layout">
-        <div class="dialog-photo">
-          <img id="look-image" width="1122" height="1402" alt="" />
-          <div
-            id="look-views"
-            class="look-views"
-            role="group"
-            aria-label="Photograph view"
-          >
-            <button data-view="portrait" aria-pressed="true">Portrait</button
-            ><button data-view="detail" aria-pressed="false">
-              Hair detail
-            </button>
-          </div>
+      <div class="look-layout">
+        <div class="lightbox-image">
+          <img
+            id="look-image"
+            src="/previews/bella/assets/hair-bob-1200.webp"
+            width="1122"
+            height="1402"
+            alt=""
+          />
         </div>
-        <div class="look-dialog-copy">
-          <p class="eyebrow" id="look-kicker"></p>
+        <div class="look-copy">
+          <p class="eyebrow" id="look-category"></p>
           <h2 id="look-title"></h2>
           <p id="look-description"></p>
-          <dl class="look-facts">
-            <div>
-              <dt>The shape</dt>
-              <dd id="look-shape"></dd>
-            </div>
-            <div>
-              <dt>The colour</dt>
-              <dd id="look-colour"></dd>
-            </div>
-            <div>
-              <dt>Everyday styling</dt>
-              <dd id="look-care"></dd>
-            </div>
-          </dl>
-          <button id="book-look" class="button button-dark">
-            I'd like this direction
+          <button class="solid-button" id="book-look">
+            Bring this inspiration
           </button>
-          <p class="demo-note">
-            A starting point for a consultation.<br />Concept imagery, not
-            client results.
-          </p>
+          <div class="lightbox-nav">
+            <button id="previous-look">Previous</button
+            ><span id="look-position" aria-live="polite"></span
+            ><button id="next-look">Next</button>
+          </div>
         </div>
       </div>
     </dialog>
     <dialog
-      id="review-dialog"
-      class="review-dialog"
-      aria-labelledby="review-title"
+      id="booking-dialog"
+      class="booking-dialog"
+      aria-labelledby="booking-title"
     >
-      <button class="dialog-close" data-close="review-dialog">Close</button>
-      <div id="review-stage">
-        <p class="eyebrow">One last look</p>
-        <h2 id="review-title">Your time<br />at Bella.</h2>
-        <p id="review-details"></p>
-        <p class="demo-note">
-          This is a demonstration. No real appointment will be booked.
-        </p>
-        <button class="button button-dark" id="confirm-booking">
-          Confirm demo appointment</button
-        ><button class="text-link" data-close="review-dialog">
-          Keep editing
+      <div class="booking-top">
+        <span class="eyebrow">Bella Atelier</span
+        ><button class="dialog-close" data-close="booking-dialog">Close</button>
+      </div>
+      <h2 id="booking-title">Your time.<br /><em>Your chair.</em></h2>
+      <p class="demo-note">
+        Explore a sample appointment. Nothing is sent or reserved.
+      </p>
+      <div id="booking-flow">
+        <label for="booking-service">What brings you in?</label
+        ><select id="booking-service">
+          <option value="cut">Cut & shape · from €65</option>
+          <option value="colour">Colour & dimension · from €140</option>
+          <option value="texture">Curls & texture · from €85</option>
+          <option value="finish">Style & finish · from €40</option>
+        </select>
+        <p id="selected-look" hidden></p>
+        <div class="calendar-heading">
+          <button id="prev-month" aria-label="Previous month">Prev</button>
+          <h3 id="calendar-month" aria-live="polite"></h3>
+          <button id="next-month" aria-label="Next month">Next</button>
+        </div>
+        <div class="weekdays" aria-hidden="true">
+          <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span
+          ><span>S</span><span>S</span>
+        </div>
+        <div
+          class="calendar-days"
+          id="calendar-days"
+          role="group"
+          aria-label="Choose an appointment date"
+        ></div>
+        <p id="time-hint">Choose a day to see available times.</p>
+        <div
+          id="time-slots"
+          role="group"
+          aria-label="Available appointment times"
+        ></div>
+        <div
+          class="booking-summary"
+          id="booking-summary"
+          aria-live="polite"
+        ></div>
+        <button class="solid-button" id="review-booking" disabled>
+          Review appointment
         </button>
       </div>
-      <div id="complete-stage" hidden>
-        <p class="eyebrow">Demo complete</p>
-        <h2 tabindex="-1" id="complete-title">
-          That’s your<br />next chapter.
-        </h2>
-        <p id="complete-details"></p>
-        <p>
-          This was a preview of the Bella booking experience. Nothing has been
-          sent or reserved.
-        </p>
-        <button class="button button-dark" id="start-again">
+      <div id="booking-review" hidden>
+        <h3>Make it yours.</h3>
+        <p id="review-summary"></p>
+        <div class="review-actions">
+          <button class="solid-button" id="confirm-booking">
+            Complete demo</button
+          ><button class="text-button" id="edit-booking">Edit selection</button>
+        </div>
+      </div>
+      <div id="booking-done" hidden role="status">
+        <h3>That’s your moment.</h3>
+        <p>You’ve reached the end of the demo. No appointment has been made.</p>
+        <button class="solid-button" id="reset-booking">
           Try another appointment
         </button>
       </div>

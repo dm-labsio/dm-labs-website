@@ -3,33 +3,21 @@ export const services = {
     name: "Cut & shape",
     minutes: 60,
     price: 65,
-    image: "bob-detail",
-    caption: "A shape that works beyond the salon.",
-    alt: "Close view of a softly shaped chestnut bob",
   },
   colour: {
     name: "Colour & dimension",
     minutes: 150,
     price: 140,
-    image: "curls-detail",
-    caption: "Warmth, placed where the light finds it.",
-    alt: "Cinnamon highlights through dark textured curls",
   },
   texture: {
     name: "Curls & texture",
     minutes: 90,
     price: 85,
-    image: "curls-portrait",
-    caption: "Definition without losing the movement.",
-    alt: "Rounded curly cut with natural volume",
   },
   finish: {
     name: "Style & finish",
     minutes: 45,
     price: 40,
-    image: "tools",
-    caption: "The considered finishing touches.",
-    alt: "Aubergine comb, scissors and linen in the studio",
   },
 };
 export function dayKey(date) {

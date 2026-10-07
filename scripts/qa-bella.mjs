@@ -10,15 +10,18 @@ import {
 } from "../client/public/previews/bella/booking.mjs";
 const base = process.env.BELLA_QA_URL || "http://127.0.0.1:5173";
 const out = fileURLToPath(
-  new URL("../../output/website-refresh/bella-atelier/qa/", import.meta.url)
+  new URL("../../output/website-refresh/bella-atelier/qa-v2/", import.meta.url)
 );
 await mkdir(out, { recursive: true });
 const now = new Date(2026, 9, 7, 12);
-assert.equal(isBookable("2026-10-07", now), false);
-assert.equal(isBookable("2026-10-04", now), false);
-assert.equal(isBookable("2026-10-11", now), false);
-assert.equal(isBookable("2026-02-30", now), false);
-assert.equal(isBookable("2027-01-01", now), false);
+for (const key of [
+  "2026-10-07",
+  "2026-10-04",
+  "2026-10-11",
+  "2026-02-30",
+  "2027-01-01",
+])
+  assert.equal(isBookable(key, now), false);
 assert.equal(isBookable("2026-10-08", now), true);
 for (const key of ["2026-10-08", "2026-10-10"])
   for (const service of Object.keys(services))
@@ -46,64 +49,76 @@ assert.equal(
 const browser = await chromium.launch({ headless: true });
 const report = {
   base,
-  bookingBoundaryChecks: "passed",
+  bookingBoundaries: "passed",
   views: [],
   errors: [],
   assetFailures: [],
 };
+function observe(page) {
+  page.on("pageerror", e => report.errors.push(e.message));
+  page.on("response", r => {
+    if (r.status() >= 400 && r.url().includes("/previews/bella"))
+      report.assetFailures.push({ url: r.url(), status: r.status() });
+  });
+}
 try {
   for (const width of [320, 390, 700, 768, 1024, 1440]) {
     const page = await browser.newPage({
       viewport: { width, height: width < 700 ? 844 : 1000 },
       reducedMotion: "reduce",
+      hasTouch: width < 700,
+      isMobile: width < 700,
     });
-    page.on("pageerror", e =>
-      report.errors.push({ width, message: e.message })
-    );
-    page.on("response", r => {
-      if (r.status() >= 400 && r.url().includes("/previews/bella"))
-        report.assetFailures.push({ url: r.url(), status: r.status() });
-    });
+    observe(page);
     await page.goto(base + "/previews/bella-salon.html");
+    await page.waitForFunction(
+      () => document.documentElement.dataset.bellaReady === "true"
+    );
     await page.evaluate(() => document.fonts.ready);
+    const fonts = await page.evaluate(() =>
+      [...document.fonts].filter(f => f.status === "loaded").map(f => f.family)
+    );
+    assert.ok(
+      fonts.includes("Melodrama") && fonts.includes("Switzer"),
+      JSON.stringify(fonts)
+    );
     assert.ok(
       await page.evaluate(
-        () =>
-          document.fonts.check("20px Gambarino") &&
-          document.fonts.check('20px "General Sans"')
-      )
+        () => document.documentElement.scrollWidth <= innerWidth + 1
+      ),
+      `Overflow at ${width}`
     );
-    const overflow = await page.evaluate(() => ({
-      width: innerWidth,
-      scroll: document.documentElement.scrollWidth,
-      offenders: [...document.querySelectorAll("body *")]
-        .filter(e => {
-          const r = e.getBoundingClientRect();
-          return (
-            r.width &&
-            (r.right > innerWidth + 1 || r.left < -1) &&
-            getComputedStyle(e).position !== "fixed" &&
-            e.tagName !== "IMG"
-          );
-        })
-        .map(e => e.className)
-        .slice(0, 10),
-    }));
-    assert.ok(overflow.scroll <= width + 1, JSON.stringify(overflow));
-    await page.locator(".hero-photo").click();
-    assert.ok(await page.locator("#look-dialog").isVisible());
-    await page.locator('[data-view="detail"]').click();
-    assert.match(
-      await page.locator("#look-image").getAttribute("src"),
-      /curls-detail/
-    );
-    await page.locator("#book-look").click();
-    await page.waitForFunction(
-      () => document.activeElement.id === "booking-service"
-    );
+    await page.locator("[data-layout=sheet]").click();
     assert.equal(
-      await page.locator("#booking-service").inputValue(),
-      "texture"
+      await page.locator("[data-layout=sheet]").getAttribute("aria-pressed"),
+      "true"
+    );
+    await page.locator("[data-layout=expand]").click();
+    for (const id of ["bob", "coils", "twist", "waves"]) {
+      await page.locator(`[data-look=${id}]`).click();
+      assert.ok(await page.locator("#look-dialog").isVisible());
+      assert.match(
+        await page.locator("#look-image").getAttribute("src"),
+        new RegExp(`hair-${id}`)
+      );
+      await page.locator("#look-image").evaluate(el => el.decode());
+      await page.locator("[data-close=look-dialog]").click();
+      assert.equal(
+        await page.evaluate(() => document.activeElement.dataset.look),
+        id
+      );
+    }
+    await page.locator("[data-look=bob]").click();
+    await page.locator("#next-look").click();
+    assert.match(await page.locator("#look-title").textContent(), /Light/);
+    await page.keyboard.press("ArrowRight");
+    assert.match(await page.locator("#look-title").textContent(), /sculpture/);
+    await page.locator("#book-look").click();
+    assert.ok(await page.locator("#booking-dialog").isVisible());
+    assert.equal(await page.locator("#booking-service").inputValue(), "finish");
+    assert.match(
+      await page.locator("#selected-look").textContent(),
+      /sculpture/
     );
     assert.ok(await page.locator("#review-booking").isDisabled());
     await page.locator("[data-day]:not(:disabled)").first().click();
@@ -111,119 +126,89 @@ try {
     assert.ok(await page.locator("#review-booking").isEnabled());
     await page.locator("#booking-service").selectOption("colour");
     assert.ok(await page.locator("#review-booking").isDisabled());
-    assert.equal(
-      await page.locator("[data-time][aria-pressed=true]").count(),
-      0
-    );
+    assert.ok(await page.locator("#selected-look").isHidden());
     await page.locator("[data-time]").first().click();
     await page.locator("#review-booking").click();
     assert.match(
-      await page.locator("#review-details").innerText(),
+      await page.locator("#review-summary").textContent(),
       /Colour & dimension/
     );
+    await page.locator("#edit-booking").click();
+    assert.ok(await page.locator("#booking-flow").isVisible());
+    await page.locator("#review-booking").click();
     await page.locator("#confirm-booking").click();
-    assert.ok(await page.locator("#complete-stage").isVisible());
-    if (width === 390 || width === 1440)
-      await page.screenshot({ path: out + `confirmation-${width}.png` });
-    await page.locator("#start-again").click();
+    assert.ok(await page.locator("#booking-done").isVisible());
+    await page
+      .locator("#booking-dialog")
+      .screenshot({ path: out + `booking-${width}.png` });
+    await page.locator("#reset-booking").click();
     assert.ok(await page.locator("#review-booking").isDisabled());
-    await page.locator('[data-service="finish"]').click();
-    assert.match(
-      await page.locator("#service-image").getAttribute("src"),
-      /tools/
-    );
-    if (width <= 700)
-      assert.equal(
-        await page
-          .locator(".service-visual")
-          .evaluate(e => e.parentElement.dataset.serviceRow),
-        "finish"
-      );
-    await page.locator('[data-service="colour"]').click();
-    assert.match(
-      await page.locator("#service-image").getAttribute("src"),
-      /curls-detail/
-    );
-    await page.locator(".look-bob").click();
-    assert.ok(await page.locator("#look-views").isHidden());
     await page.keyboard.press("Escape");
-    assert.ok(await page.locator("#look-dialog").isHidden());
-    assert.equal(
-      await page
-        .locator(".look-bob")
-        .evaluate(e => e === document.activeElement),
-      true
-    );
-    for (const section of ["#looks", "#services", "#appointment"]) {
-      await page.locator(section).scrollIntoViewIfNeeded();
-      if (width === 390 || width === 1440)
-        await page.screenshot({
-          path: out + `${section.slice(1)}-${width}.png`,
-        });
+    assert.ok(await page.locator("#booking-dialog").isHidden());
+    for (const service of Object.keys(services)) {
+      await page.locator(`.service-menu [data-book=${service}]`).click();
+      assert.equal(
+        await page.locator("#booking-service").inputValue(),
+        service
+      );
+      await page.locator("[data-close=booking-dialog]").click();
     }
-    // Lazy images may still be fetching on a real deployment. Scroll each into
-    // view and wait for decoding before distinguishing a slow load from a failure.
-    for (const img of await page.locator("img:not(dialog img)").all()) {
+    for (const img of await page.locator("main img").all()) {
       await img.scrollIntoViewIfNeeded();
-      await img.evaluate(element => element.decode());
+      await img.evaluate(el => el.decode());
     }
-    assert.equal(
-      await page
-        .locator("img")
-        .evaluateAll(
-          images =>
-            images.filter(
-              img =>
-                img.getAttribute("src") &&
-                !img.closest("dialog") &&
-                (!img.complete || !img.naturalWidth)
-            ).length
-        ),
-      0
-    );
-    await page.evaluate(() => window.scrollTo(0, 0));
-    if (width === 390 || width === 1440) {
-      await page.screenshot({ path: out + `hero-${width}.png` });
+    await page.locator("#looks").scrollIntoViewIfNeeded();
+    await page
+      .locator("#looks")
+      .screenshot({ path: out + `gallery-${width}.png` });
+    await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
+    await page.screenshot({ path: out + `hero-${width}.png` });
+    if ([390, 1440].includes(width))
       await page.screenshot({
-        path: out + `full-${width}.png`,
+        path: out + `page-${width}.png`,
         fullPage: true,
       });
-    }
     report.views.push({
       width,
+      fonts,
       overflow: false,
+      gallery: "passed",
       booking: "passed",
-      lookbook: "passed",
-      servicePreview: "passed",
-      fonts: "loaded",
+      focusReturn: "passed",
     });
     await page.close();
   }
-  // Real wrapper route, including srcdoc module resolution and return navigation.
   const page = await browser.newPage({
     viewport: { width: 1440, height: 1000 },
   });
-  page.on("pageerror", e =>
-    report.errors.push({ wrapper: true, message: e.message })
-  );
+  observe(page);
   await page.goto(base + "/preview/bella-salon/");
-  // Prerendered preview HTML is replaced when the outer SPA starts. Wait for
-  // the viewer effect before interacting with its live iframe.
-  await page.waitForFunction(() => window.history.state?.previewSentinel === true);
+  await page.waitForFunction(() => history.state?.previewSentinel === true);
   const frame = page.frameLocator("iframe");
-  await frame.locator("[data-day]").first().waitFor();
-  await frame.locator(".hero-photo").click();
+  await frame.locator("html[data-bella-ready=true]").waitFor();
+  await frame.locator(".hair-gallery").scrollIntoViewIfNeeded();
+  await frame.locator("[data-look=bob]").hover();
+  await page.waitForTimeout(750);
+  const a = await frame.locator("[data-look=bob]").boundingBox(),
+    b = await frame.locator("[data-look=coils]").boundingBox();
+  assert.ok(a.width > b.width * 1.8, "Desktop gallery expands on hover");
+  await frame.locator("[data-look=bob]").focus();
+  await page.keyboard.press("ArrowRight");
+  assert.equal(
+    await frame
+      .locator("[data-look=coils]")
+      .evaluate(el => document.activeElement === el),
+    true
+  );
+  await frame.locator("[data-look=coils]").click();
   await frame.locator("#book-look").click();
   assert.equal(await frame.locator("#booking-service").inputValue(), "texture");
-  await frame.locator("[data-day]:not(:disabled)").first().click();
-  await frame.locator("[data-time]").first().click();
-  await frame.locator("#review-booking").click();
-  await frame.locator("#confirm-booking").click();
-  assert.ok(await frame.locator("#complete-stage").isVisible());
-  await frame.locator('.dialog-close[data-close="review-dialog"]').click();
-  await frame.locator(".wordmark").click();
+  await frame.locator("[data-close=booking-dialog]").click();
+  const iframe = page.frames().find(f => f.parentFrame());
+  await iframe.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
   await page.screenshot({ path: out + "wrapper-desktop.png" });
   report.wrapper = "passed";
+  report.desktopMotion = "passed";
   await page.close();
   assert.equal(report.errors.length, 0, JSON.stringify(report.errors));
   assert.equal(
@@ -231,8 +216,8 @@ try {
     0,
     JSON.stringify(report.assetFailures)
   );
-  console.log(JSON.stringify(report, null, 2));
   await writeFile(out + "report.json", JSON.stringify(report, null, 2));
+  console.log(JSON.stringify(report, null, 2));
 } finally {
   await browser.close();
 }
