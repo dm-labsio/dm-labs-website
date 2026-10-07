@@ -699,26 +699,16 @@ footer > p {
   font-size: 17px;
   padding-bottom: 5px;
 }
-.carousel-track {
-  display: flex;
+.highlights-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  overscroll-behavior-x: contain;
-  padding: 4px 0 20px;
-  position: relative;
-  scrollbar-width: thin;
-  scrollbar-color: var(--red) transparent;
-}
-.carousel-track:focus-visible {
-  outline: 3px solid var(--red);
-  outline-offset: 6px;
 }
 .highlight-card {
-  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   text-decoration: none;
-  scroll-snap-align: start;
   background: var(--butter);
   color: var(--ink);
 }
@@ -733,6 +723,13 @@ footer > p {
 }
 .highlight-card > div {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.highlight-card .card-link {
+  margin-top: auto;
+  padding-top: 20px;
 }
 .highlight-card .eyebrow {
   display: block;
@@ -760,60 +757,8 @@ footer > p {
 .highlight-card:focus-visible {
   outline-offset: -4px;
 }
-.carousel-controls {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-top: 14px;
-}
-.carousel-controls[hidden] {
-  display: none;
-}
-.carousel-controls button {
-  border: 1px solid var(--ink);
-  background: transparent;
-  color: var(--ink);
-  min-width: 100px;
-  min-height: 44px;
-  padding: 10px 18px;
-  font-size: 13px;
-  font-weight: 700;
-}
-.carousel-controls button:hover:not(:disabled) {
-  background: var(--ink);
-  color: var(--paper);
-}
-.carousel-controls button:disabled {
-  opacity: 0.35;
-  cursor: default;
-}
-.carousel-progress {
-  flex: 1;
-  height: 3px;
-  background: var(--line);
-  overflow: hidden;
-}
-.carousel-progress span {
-  display: block;
-  height: 100%;
-  width: 33.333%;
-  background: var(--red);
-}
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
 .menu-section {
   border-top: 1px solid var(--line);
-}
-@media (max-width: 1000px) and (min-width: 701px) {
-  .highlight-card {
-    flex-basis: 48%;
-  }
 }
 @media (max-width: 700px) {
   .hero-film-stage {
@@ -821,48 +766,47 @@ footer > p {
     aspect-ratio: 16/9;
   }
   .highlights {
-    padding-right: 0;
     padding-bottom: 38px;
   }
   .highlights-heading {
     display: block;
-    padding-right: 24px;
     margin-bottom: 26px;
   }
   .highlights-heading > p {
     font-size: 15px;
     margin-top: 18px;
   }
-  .carousel-track {
+  .highlights-gallery {
+    grid-template-columns: minmax(0, 1fr);
     gap: 16px;
-    padding-right: 24px;
-    scroll-padding-right: 24px;
   }
   .highlight-card {
-    flex-basis: 86%;
+    display: grid;
+    grid-template-columns: 38% minmax(0, 1fr);
+  }
+  .highlight-card img {
+    height: 100%;
+    min-height: 210px;
+    aspect-ratio: auto;
   }
   .highlight-card > div {
-    padding: 22px;
+    padding: 20px 16px;
+  }
+  .highlight-card .eyebrow {
+    font-size: 8px;
+    margin-bottom: 10px;
   }
   .highlight-card h3 {
-    font-size: 37px;
+    font-size: clamp(27px, 6vw, 36px);
   }
-  .carousel-controls {
-    margin-right: 24px;
-    gap: 16px;
+  .highlight-card p {
+    font-size: 13px;
   }
-  .carousel-controls button {
-    min-width: 86px;
-    padding: 10px 13px;
+  .highlight-card .card-link {
+    padding-top: 16px;
+    font-size: 12px;
   }
   .brew-panel h2 {
     font-size: 55px;
   }
-}
-
-.carousel-track.enhanced {
-  scrollbar-width: none;
-}
-.carousel-track.enhanced::-webkit-scrollbar {
-  display: none;
 }
