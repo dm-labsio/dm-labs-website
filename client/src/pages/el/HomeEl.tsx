@@ -132,7 +132,7 @@ const FEATURED_TEMPLATES = [
     name: "Arcos Architecture",
     styleLabel: "Αρχιτεκτονική και minimal",
     previewUrl: "/previews/arcos-architecture.html",
-    imageUrl: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=700&q=80",
+    imageUrl: "/media/examples/arcos/courtyard-768.webp",
     imageAlt: "Παράδειγμα ιστοσελίδας για το Arcos Architecture",
     palette: ["#1a1916", "#2d2b27"],
   },

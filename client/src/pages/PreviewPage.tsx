@@ -249,7 +249,7 @@ export default function PreviewPage() {
             border: "none",
             display: "block",
           }}
-          sandbox={`allow-scripts allow-same-origin allow-forms allow-popups${params.id === "pulse-gym" ? " allow-downloads" : ""}`}
+          sandbox={`allow-scripts allow-same-origin allow-forms allow-popups${["pulse-gym", "arcos-architecture"].includes(params.id ?? "") ? " allow-downloads" : ""}`}
         />
       )}
     </div>

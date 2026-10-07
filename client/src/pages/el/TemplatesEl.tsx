@@ -1,3 +1,4 @@
+import ArcosPreviewArtwork from "@/components/ArcosPreviewArtwork";
 import NomadPreviewArtwork from "@/components/NomadPreviewArtwork";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
@@ -245,31 +246,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
 
   "nomad-coffee": () => <NomadPreviewArtwork />,
 
-  "arcos-architecture": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f4f1ec" }}>
-      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "55%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f4f1ec 44%, transparent 68%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(244,241,236,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(26,25,22,0.1)" }}>
-        <span style={{ fontSize: "11px", fontWeight: 800, color: "#1a1916", letterSpacing: "0.15em", textTransform: "uppercase" as const }}>ARCOS</span>
-        <div style={{ display: "flex", gap: "14px" }}>
-          {["Έργα","Studio","Υπηρεσίες","Επικοινωνία"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a7568", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "46%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4613a", marginBottom: "5px" }}>Αρχιτεκτονικό γραφείο</div>
-        <div style={{ fontSize: "22px", fontWeight: 800, color: "#1a1916", lineHeight: 1.1, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "8px" }}>ΧΩΡΟΙ<br/>ΓΙΑ<br/><span style={{ color: "#c4613a" }}>ΖΩΗ</span></div>
-        <div style={{ fontSize: "8px", color: "#7a7568", lineHeight: 1.5, marginBottom: "10px" }}>Από το πρώτο σκίτσο<br/>μέχρι το κλειδί στο χέρι.</div>
-        <div style={{ background: "#1a1916", color: "#f4f1ec", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Τα έργα μας</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#f4f1ec","#c4613a","#1a1916","#2d2b27","#7a7568"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
+  "arcos-architecture": () => <ArcosPreviewArtwork />,
 
   "olio-deli": () => (
     <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1e1c17" }}>
@@ -455,23 +432,17 @@ const TEMPLATES = [
     id: "arcos-architecture",
     industry: "architecture",
     name: "Arcos Architecture",
-    tagline: "Brutalist και minimal",
+    tagline: "Ένα αρχιτεκτονικό ημερολόγιο",
     tier: "Pro",
     tierGradient: "linear-gradient(135deg, #c4613a, #8a3a1a)",
     domain: "arcosarchitecture.gr",
-    palette: ["#1a1916", "#2d2b27", "#c4613a", "#f4f1ec", "#7a7568"],
+    palette: ["#242521", "#e6e5db", "#a44129", "#f2f0e9", "#5a5c52"],
     paletteNames: ["Ανθρακί", "Σκούρο", "Τερακότα", "Χαρτί", "Απαλό"],
-    features: [
-      "Αρχική ενότητα σε δύο στήλες με μεγάλη φωτογραφία",
-      "Τα έργα μας",
-      "Υπηρεσίες σε αριθμημένη λίστα",
-      "Το γραφείο σε αριθμούς",
-      "SEO για αρχιτεκτονικά γραφεία στην Αθήνα",
-    ],
+    features: ["Διαδραστική κάτοψη κατοικίας με αυλή", "Πρωτότυπες εικόνες του ίδιου σχεδιαστικού concept", "Μεγεθυντικός φακός υλικών με χειρισμό αφής", "Φωτογραφίες έργου σε πλήρη οθόνη", "Δημιουργία και λήψη ενδεικτικού brief έργου"],
     pages: [
       { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Λιτό, brutalist ύφος σε αποχρώσεις χαρτιού με πινελιές τερακότας και ασύμμετρη διάταξη. Ταιριάζει σε αρχιτεκτονικά γραφεία.",
+    style: "Αρχιτεκτονικό ημερολόγιο με τυπογραφία Syne, απαλούς τόνους πέτρας και τερακότα. Εξερευνήστε μια φανταστική κατοικία μέσα από την κάτοψη, τις εικόνες και τα υλικά της.",
     waMessage: "Γεια σας! Είδα το παράδειγμα Arcos Architecture στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€450",
     images: { card: "" },

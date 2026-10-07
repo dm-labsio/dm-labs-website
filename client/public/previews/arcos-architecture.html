@@ -1,447 +1,515 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="robots" content="noindex, nofollow" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arcos Architecture Athens | Architectural Design Studio</title>
-  <meta name="description" content="Arcos Architecture is an Athens-based design studio specialising in residential, commercial, and interior architecture. Award-winning projects worldwide." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    /* Design: Brutalist Minimal  -  Syne display + Inter body, off-white with deep charcoal and terracotta */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --paper: #f4f1ec;
-      --white: #ffffff;
-      --charcoal: #1a1916;
-      --charcoal-2: #2d2b27;
-      --terra: #c4613a;
-      --terra-light: #d4775a;
-      --text-muted: #7a7568;
-      --border: #ddd9d0;
-    }
-    html { font-size: 16px; scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--paper); color: var(--charcoal); line-height: 1.6; }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px; height: 64px;
-      background: var(--paper); border-bottom: 1px solid var(--border);
-    }
-    .nav-logo { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800; color: var(--charcoal); letter-spacing: -0.02em; }
-    .nav-logo span { color: var(--terra); }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--charcoal); }
-    .nav-cta {
-      font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
-      padding: 9px 22px; border: 1px solid var(--charcoal); color: var(--charcoal);
-      background: transparent; cursor: pointer; transition: all 0.2s;
-    }
-    .nav-cta:hover { background: var(--charcoal); color: var(--paper); }
-
-    /* HERO */
-    .hero {
-      padding-top: 64px;
-      display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh;
-    }
-    .hero-left {
-      padding: 80px 48px; display: flex; flex-direction: column; justify-content: flex-end;
-      background: var(--charcoal-2);
-    }
-    .hero-label {
-      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
-      color: var(--terra); margin-bottom: 24px; display: flex; align-items: center; gap: 12px;
-    }
-    .hero-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--terra); }
-    .hero-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(48px, 5vw, 72px); font-weight: 800; line-height: 1.0;
-      color: var(--white); letter-spacing: -0.03em; margin-bottom: 32px;
-    }
-    .hero-sub { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.55); max-width: 380px; margin-bottom: 48px; line-height: 1.8; }
-    .hero-actions { display: flex; gap: 16px; }
-    .btn-terra {
-      padding: 14px 32px; background: var(--terra); color: white;
-      font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-      border: none; cursor: pointer; transition: background 0.2s;
-    }
-    .btn-terra:hover { background: var(--terra-light); }
-    .btn-ghost-white {
-      padding: 14px 32px; background: transparent; color: rgba(255,255,255,0.7);
-      font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: all 0.2s;
-    }
-    .btn-ghost-white:hover { border-color: rgba(255,255,255,0.6); color: white; }
-    .hero-right {
-      position: relative; overflow: hidden;
-    }
-    .hero-right img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-    }
-    .hero-project-tag {
-      position: absolute; bottom: 32px; right: 32px;
-      background: var(--paper); padding: 16px 20px;
-    }
-    .project-tag-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
-    .project-tag-name { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--charcoal); margin-top: 4px; }
-
-    /* PROJECTS */
-    .projects-section { padding: 100px 48px; background: var(--paper); }
-    .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
-    .section-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terra); margin-bottom: 12px; }
-    .section-title { font-family: 'Syne', sans-serif; font-size: clamp(32px, 3.5vw, 48px); font-weight: 800; color: var(--charcoal); letter-spacing: -0.02em; line-height: 1.1; }
-    .section-link { font-size: 13px; font-weight: 500; color: var(--terra); text-decoration: none; letter-spacing: 0.06em; border-bottom: 1px solid var(--terra); padding-bottom: 2px; }
-
-    .projects-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: 3px; }
-    .project-card { position: relative; overflow: hidden; cursor: pointer; background: var(--charcoal-2); }
-    .project-card:first-child { grid-row: span 2; }
-    .project-img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; display: block; transition: transform 0.6s ease; }
-    .project-card:first-child .project-img { min-height: 560px; }
-    .project-card:hover .project-img { transform: scale(1.04); }
-    .project-info {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 24px; background: linear-gradient(to top, rgba(26,25,22,0.9) 0%, transparent 100%);
-    }
-    .project-cat { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; }
-    .project-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: white; }
-    .project-loc { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px; }
-
-    /* SERVICES */
-    .services-section { padding: 100px 48px; background: var(--charcoal-2); }
-    .services-section .section-label { color: var(--terra); }
-    .services-section .section-title { color: var(--white); }
-    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.06); margin-top: 60px; }
-    .service-item { padding: 40px 32px; background: var(--charcoal-2); }
-    .service-num { font-family: 'Syne', sans-serif; font-size: 40px; font-weight: 800; color: rgba(196,97,58,0.2); line-height: 1; margin-bottom: 20px; }
-    .service-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
-    .service-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.7; }
-
-    /* ABOUT */
-    .about-section { padding: 100px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .about-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
-    .about-text .section-title { margin-bottom: 24px; }
-    .about-body { font-size: 15px; font-weight: 300; color: var(--text-muted); line-height: 1.9; margin-bottom: 20px; }
-    .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; border-top: 1px solid var(--border); padding-top: 40px; }
-    .stat-num { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; color: var(--charcoal); line-height: 1; }
-    .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
-
-    /* CONTACT */
-    .contact-section { padding: 100px 48px; background: var(--charcoal); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-    .contact-info h2 { font-family: 'Syne', sans-serif; font-size: 40px; font-weight: 800; color: var(--white); margin-bottom: 40px; letter-spacing: -0.02em; }
-    .contact-detail { margin-bottom: 24px; }
-    .contact-detail-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terra); margin-bottom: 8px; }
-    .contact-detail-value { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.75); }
-    .contact-form { display: flex; flex-direction: column; gap: 14px; }
-    .form-input {
-      padding: 14px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-      color: white; font-family: 'Inter', sans-serif; font-size: 14px; outline: none;
-      transition: border-color 0.2s;
-    }
-    .form-input::placeholder { color: rgba(255,255,255,0.3); }
-    .form-input:focus { border-color: var(--terra); }
-    textarea.form-input { resize: vertical; min-height: 120px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-submit {
-      padding: 16px 40px; background: var(--terra); color: white;
-      font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
-      letter-spacing: 0.12em; text-transform: uppercase; border: none; cursor: pointer;
-      align-self: flex-start; transition: background 0.2s;
-    }
-    .form-submit:hover { background: var(--terra-light); }
-
-    /* FOOTER */
-    footer {
-      padding: 32px 48px; background: var(--charcoal-2); border-top: 1px solid rgba(255,255,255,0.06);
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .footer-logo { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800; color: white; }
-    .footer-logo span { color: var(--terra); }
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
-    .footer-links { display: flex; gap: 20px; }
-    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: white; }
-
-    @media (max-width: 768px) {
-      nav { padding: 0 16px; }
-      .nav-links, .nav-cta { display: none; }
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 48px 20px; min-height: 60vh; }
-      .hero-right { height: 50vw; }
-      .projects-section, .about-section { padding: 60px 20px; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-card:first-child { grid-row: span 1; }
-      .services-section { padding: 60px 20px; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .about-section { grid-template-columns: 1fr; }
-      .about-stats { grid-template-columns: repeat(3, 1fr); }
-      .contact-section { grid-template-columns: 1fr; padding: 60px 20px; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
-    }
-  
-    /* === DM Labs: Universal Mobile Safety === */
-    html, body { overflow-x: hidden; max-width: 100%; }
-    img, video, iframe { max-width: 100%; }
-    /* Forced-colors / high-contrast accessibility */
-    @media (forced-colors: active) {
-      * { border-color: ButtonText !important; }
-      a { color: LinkText !important; }
-      button, .btn, [class*="btn"], [class*="cta"] {
-        forced-color-adjust: none;
-        background: ButtonFace !important;
-        color: ButtonText !important;
-        border: 2px solid ButtonText !important;
-      }
-    }
-
-  
-    /* === DM Labs: Arcos Mobile Fix === */
-    @media (max-width: 768px) {
-      nav { padding: 0 16px; }
-      .nav-links, .nav-cta { display: none; }
-      .hero { grid-template-columns: 1fr; min-height: 70vh; }
-      .hero-content { padding: 80px 20px 40px; }
-      .hero-image { min-height: 280px; }
-      .projects-section { padding: 48px 16px; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-card:first-child { grid-row: span 1; }
-      .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .services-section { padding: 48px 16px; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .about-section { padding: 48px 16px; grid-template-columns: 1fr; gap: 32px; }
-      .about-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-      .contact-section { padding: 48px 16px; grid-template-columns: 1fr; gap: 40px; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 16px; }
-      .footer-links { flex-wrap: wrap; justify-content: center; }
-    }
-
-  </style>
-</head>
-<body>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Arcos Architecture Athens",
-    "description": "Award-winning architectural design studio based in Athens. Specialising in residential, commercial, and interior architecture.",
-    "url": "https://arcosarchitecture.gr",
-    "telephone": "+30 210 345 6789",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Skoufa 28",
-      "addressLocality": "Kolonaki, Athens",
-      "postalCode": "106 73",
-      "addressCountry": "GR"
-    }
-  }
-  </script>
-
-  <nav>
-    <div class="nav-logo">ARCOS<span>.</span></div>
-    <ul class="nav-links">
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">Studio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="nav-cta">Start a Project</button>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-left">
-      <p class="hero-label">Athens Architecture Studio</p>
-      <h1 class="hero-title">Design<br>That<br>Endures</h1>
-      <p class="hero-sub">Residential, commercial, and interior architecture rooted in craft, context, and a deep respect for the built environment.</p>
-      <div class="hero-actions">
-        <button class="btn-terra">View Projects</button>
-        <button class="btn-ghost-white">Our Services</button>
-      </div>
-    </div>
-    <div class="hero-right">
-      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&q=80" alt="Arcos Architecture Athens project" />
-      <div class="hero-project-tag">
-        <div class="project-tag-label">Featured Project</div>
-        <div class="project-tag-name">Kolonaki Residence, 2024</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="projects-section" id="projects">
-    <div class="section-header">
-      <div>
-        <p class="section-label">Selected Work</p>
-        <h2 class="section-title">Recent Projects</h2>
-      </div>
-      <a href="#" class="section-link">View All Projects</a>
-    </div>
-    <div class="projects-grid">
-      <div class="project-card">
-        <img class="project-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="Luxury villa Athens architecture" loading="lazy" />
-        <div class="project-info">
-          <div class="project-cat">Residential</div>
-          <div class="project-name">Ekali Private Villa</div>
-          <div class="project-loc">Ekali, Athens  -  2024</div>
+<!doctype html>
+<html lang="en" data-preview-navigation="managed">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARCOS | The Courtyard House · Design concept</title>
+    <meta
+      name="description"
+      content="Explore the Courtyard House, an original fictional architectural concept by ARCOS. An interactive studio showcase by DM Labs."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/previews/arcos/arcos.css" />
+    <script type="module" src="/previews/arcos/arcos.mjs"></script>
+  </head>
+  <body>
+    <a href="#home" class="skip-link">Skip to content</a>
+    <header class="site-header">
+      <a href="#home" class="wordmark" aria-label="Arcos home"
+        >arcos<span>·</span></a
+      ><span class="header-note">Architecture, considered.</span
+      ><button
+        id="menu-toggle"
+        aria-expanded="false"
+        aria-controls="navigation"
+      >
+        Menu
+      </button>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#house">The house</a><a href="#materials">Materials</a
+        ><a href="#studio">Studio</a
+        ><a class="nav-brief" href="#brief">Start a project</a>
+      </nav>
+      <div class="reading-line" aria-hidden="true"></div>
+    </header>
+    <main>
+      <section
+        class="hero"
+        id="home"
+        tabindex="-1"
+        aria-labelledby="hero-title"
+      >
+        <div class="hero-heading">
+          <div>
+            <p class="eyebrow">ARCOS / An Athens studio concept</p>
+            <h1 id="hero-title">The shape of<br /><span>everyday.</span></h1>
+          </div>
+          <div class="hero-intro">
+            <p>
+              Light across a wall.<br />A door left open.<br />A house that
+              feels like yours.
+            </p>
+            <a href="#house" class="text-link">Explore the Courtyard House</a>
+          </div>
+        </div>
+        <button
+          class="hero-image image-open"
+          data-image="courtyard"
+          aria-label="Open the Courtyard House photograph"
+        >
+          <img
+            src="/media/examples/arcos/courtyard-1536.webp"
+            srcset="
+              /media/examples/arcos/courtyard-768.webp   768w,
+              /media/examples/arcos/courtyard-1536.webp 1536w
+            "
+            sizes="100vw"
+            width="1536"
+            height="1024"
+            alt="A pale limestone courtyard house set around an olive tree on an Attica hillside"
+            fetchpriority="high"
+          /><span class="image-label"
+            >A house around a tree <span>View photograph</span></span
+          >
+        </button>
+        <div class="project-caption">
+          <span>The Courtyard House</span><span>Attica, Greece</span
+          ><span>Residential concept / 2026</span>
+        </div>
+      </section>
+      <section
+        class="house section"
+        id="house"
+        tabindex="-1"
+        aria-labelledby="house-title"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">Inside the idea</p>
+          <h2 id="house-title">Everything begins<br />with an opening.</h2>
+          <p>
+            Three quiet wings frame a courtyard. Living spaces open toward the
+            tree; the sleeping wing sits behind a deeper stone edge.
+          </p>
+        </div>
+        <div class="explorer">
+          <div class="drawing-panel">
+            <div class="drawing-caption">
+              <span>Explore the plan</span
+              ><span>Concept drawing · Not to scale</span>
+            </div>
+            <div class="plan">
+              <svg
+                viewBox="0 0 720 570"
+                role="img"
+                aria-labelledby="plan-title plan-desc"
+              >
+                <title id="plan-title">Courtyard house concept plan</title>
+                <desc id="plan-desc">
+                  A U-shaped single-storey house. Living wing to the left,
+                  kitchen and dining along the back, sleeping wing to the right,
+                  and an open courtyard in the centre. Use the three buttons to
+                  explore the design.
+                </desc>
+                <defs>
+                  <pattern
+                    id="stone-hatch"
+                    width="9"
+                    height="9"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <path
+                      d="M0 9L9 0"
+                      stroke="currentColor"
+                      opacity=".16"
+                      stroke-width=".8"
+                    />
+                  </pattern>
+                </defs>
+                <g
+                  class="plan-base"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    class="outline"
+                    d="M100 105H620V475H475V245H245V475H100Z"
+                    fill="url(#stone-hatch)"
+                    stroke-width="6"
+                  />
+                  <path d="M117 122H603V458H492V228H228V458H117Z" />
+                  <path
+                    d="M117 245H228M492 285H603M492 365H603M245 122V213M475 122V213"
+                  />
+                  <path
+                    d="M245 233H475M233 255V440M487 255V440"
+                    stroke-width="4"
+                    stroke="var(--terra)"
+                  />
+                  <path
+                    d="M250 219H470M220 260V435M500 295V350M500 378V440"
+                    stroke-width="1"
+                  />
+                  <rect x="300" y="156" width="120" height="42" rx="14" />
+                  <path d="M320 144H400M320 210H400" />
+                  <rect x="134" y="320" width="34" height="90" />
+                  <rect x="182" y="340" width="28" height="52" />
+                  <rect x="534" y="300" width="54" height="45" />
+                  <path d="M534 313H588" />
+                  <rect x="534" y="384" width="54" height="48" />
+                  <path d="M534 398H588" />
+                  <circle cx="361" cy="359" r="43" stroke-dasharray="3 4" />
+                  <circle cx="361" cy="359" r="18" />
+                  <path
+                    d="M70 105V475M62 105H78M62 475H78M100 75H620M100 67V83M620 67V83"
+                    opacity=".45"
+                  />
+                  <path d="M659 137V89L650 103M659 89L668 103" />
+                  <text
+                    x="654"
+                    y="75"
+                    stroke="none"
+                    fill="currentColor"
+                    font-size="15"
+                  >
+                    N
+                  </text>
+                </g>
+                <g class="plan-zones" fill="var(--terra)" opacity=".13">
+                  <path data-zone="living" d="M118 247H227V457H118Z" />
+                  <path data-zone="courtyard" d="M245 248H473V475H245Z" />
+                  <path data-zone="threshold" d="M475 247H492V457H475Z" />
+                </g>
+                <g
+                  font-size="13"
+                  letter-spacing="1"
+                  fill="currentColor"
+                  text-anchor="middle"
+                >
+                  <text x="360" y="136">KITCHEN / DINING</text>
+                  <text x="553" y="266">SLEEPING</text>
+                  <text x="360" y="525">OPEN TO THE LANDSCAPE</text>
+                </g>
+              </svg>
+              <button
+                class="plan-point point-courtyard"
+                data-space="courtyard"
+                aria-pressed="true"
+              >
+                Courtyard</button
+              ><button
+                class="plan-point point-living"
+                data-space="living"
+                aria-pressed="false"
+              >
+                Living</button
+              ><button
+                class="plan-point point-threshold"
+                data-space="threshold"
+                aria-pressed="false"
+              >
+                Threshold
+              </button>
+            </div>
+            <p class="drawing-hint">Choose a place on the plan.</p>
+          </div>
+          <div class="space-story" aria-live="polite" aria-atomic="true">
+            <button
+              class="space-image image-open"
+              data-image="courtyard"
+              aria-label="Open courtyard photograph"
+            >
+              <img
+                id="space-image"
+                src="/media/examples/arcos/courtyard-768.webp"
+                width="768"
+                height="512"
+                loading="lazy"
+                alt="An olive tree at the centre of the open courtyard"
+              />
+            </button>
+            <div class="space-copy">
+              <p class="eyebrow" id="space-label">The heart of the house</p>
+              <h3 id="space-title">Life around a tree.</h3>
+              <p id="space-description">
+                The courtyard brings daylight and a view of the olive tree into
+                the surrounding spaces. A sheltered place for a morning coffee
+                or a long evening.
+              </p>
+              <button class="text-link" data-save-space="courtyard">
+                Add this idea to my brief
+              </button>
+              <p class="save-status" role="status"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="gallery section" aria-labelledby="gallery-title">
+        <div class="section-heading gallery-heading">
+          <p class="eyebrow">A closer look</p>
+          <h2 id="gallery-title">One house.<br />Different perspectives.</h2>
+          <p>Explore the whole, then the smallest detail.</p>
+        </div>
+        <div class="image-grid">
+          <button class="image-open gallery-wide" data-image="interior">
+            <img
+              src="/media/examples/arcos/interior-1536.webp"
+              srcset="
+                /media/examples/arcos/interior-768.webp   768w,
+                /media/examples/arcos/interior-1536.webp 1536w
+              "
+              sizes="(min-width: 800px) 65vw, 100vw"
+              width="1536"
+              height="1024"
+              loading="lazy"
+              alt="View from a limewashed living space toward the olive-tree courtyard"
+            /><span
+              >Living with the landscape <small>View photograph</small></span
+            ></button
+          ><button class="image-open gallery-detail" data-image="detail">
+            <img
+              src="/media/examples/arcos/detail-768.webp"
+              width="768"
+              height="512"
+              loading="lazy"
+              alt="Close-up of limestone, plaster and oak meeting at a window reveal"
+            /><span>Where materials meet <small>View photograph</small></span>
+          </button>
+        </div>
+      </section>
+      <section
+        class="materials section"
+        id="materials"
+        tabindex="-1"
+        aria-labelledby="materials-title"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">The material study</p>
+          <h2 id="materials-title">Less, but<br />more considered.</h2>
+          <p>
+            Stone for depth. Lime for light. Oak for warmth. Explore the
+            junction up close.
+          </p>
+        </div>
+        <div class="material-layout">
+          <div>
+            <div class="lens-surface" id="lens-surface">
+              <img
+                src="/media/examples/arcos/detail-1536.webp"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                alt="Three tactile surfaces: rough limestone, chalk limewash, and honey-coloured oak"
+              />
+              <div class="lens" aria-hidden="true"></div>
+            </div>
+            <p class="lens-hint">
+              Choose a material to magnify it. On desktop, move across the image
+              to explore.
+            </p>
+          </div>
+          <div class="material-index">
+            <div
+              class="material-choices"
+              role="group"
+              aria-label="Explore a material"
+            >
+              <button data-material="stone" aria-pressed="true">
+                <span>Limestone</span><small>Depth &amp; texture</small></button
+              ><button data-material="lime" aria-pressed="false">
+                <span>Limewash</span><small>Soft reflected light</small></button
+              ><button data-material="oak" aria-pressed="false">
+                <span>Oak</span><small>Grain &amp; warmth</small>
+              </button>
+            </div>
+            <div class="material-copy" aria-live="polite">
+              <h3 id="material-title">A wall with weight.</h3>
+              <p id="material-description">
+                Rough-cut limestone gives the outer walls depth. The uneven
+                surface holds shadow instead of hiding it.
+              </p>
+            </div>
+            <button class="text-link" id="save-material">
+              Add limestone to my brief
+            </button>
+            <p id="material-status" role="status"></p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="studio section"
+        id="studio"
+        tabindex="-1"
+        aria-labelledby="studio-title"
+      >
+        <p class="eyebrow">The studio approach</p>
+        <h2 id="studio-title">
+          A good house starts<br />with a good question.
+        </h2>
+        <div class="studio-columns">
+          <p class="studio-lead">How do you want<br />to live?</p>
+          <div>
+            <p>
+              We begin with everyday habits, the character of a site and the
+              things worth keeping. Drawings and materials turn those
+              conversations into places with a clear purpose.
+            </p>
+            <p>
+              New homes, thoughtful renovations and interiors. One continuous
+              conversation, from the first sketch to the smallest junction.
+            </p>
+            <a class="text-link" href="#brief">Shape your project brief</a>
+          </div>
+        </div>
+      </section>
+      <section
+        class="brief section"
+        id="brief"
+        tabindex="-1"
+        aria-labelledby="brief-title"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">Your starting point</p>
+          <h2 id="brief-title">Make it<br />your own.</h2>
+          <p>
+            A few choices make a better first conversation. Build a sample brief
+            and keep a copy.
+          </p>
+        </div>
+        <div class="brief-layout">
+          <form id="brief-form">
+            <fieldset>
+              <legend>What are you thinking about?</legend>
+              <div class="choice-row">
+                <label
+                  ><input
+                    type="radio"
+                    name="project"
+                    value="A new home"
+                    required
+                    checked
+                  /><span>A new home</span></label
+                ><label
+                  ><input
+                    type="radio"
+                    name="project"
+                    value="A renovation"
+                  /><span>A renovation</span></label
+                ><label
+                  ><input
+                    type="radio"
+                    name="project"
+                    value="An interior"
+                  /><span>An interior</span></label
+                >
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>What matters most to you?</legend>
+              <div class="choice-grid">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="priority"
+                    value="Natural light"
+                  /><span>Natural light</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    name="priority"
+                    value="Indoor-outdoor living"
+                  /><span>Indoor-outdoor living</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    name="priority"
+                    value="Quiet spaces"
+                  /><span>Quiet spaces</span></label
+                ><label
+                  ><input
+                    type="checkbox"
+                    name="priority"
+                    value="Keeping the original character"
+                  /><span>Keeping the original character</span></label
+                >
+              </div>
+            </fieldset>
+            <label class="note-label" for="brief-note"
+              >Anything else? <span>Optional</span></label
+            ><textarea
+              id="brief-note"
+              name="note"
+              rows="3"
+              maxlength="600"
+              placeholder="A place, a habit, something you want to keep…"
+            ></textarea
+            ><button class="button" type="submit">
+              Create my sample brief
+            </button>
+            <p class="demo-note">
+              Fictional studio showcase. Your brief stays in this page; nothing
+              is sent to a studio.
+            </p>
+          </form>
+          <aside class="brief-paper" aria-labelledby="brief-paper-title">
+            <div class="paper-head">
+              <span class="wordmark">arcos·</span><span>Project notes</span>
+            </div>
+            <h3 id="brief-paper-title">Your ideas,<br />taking shape.</h3>
+            <div id="saved-ideas">
+              <p class="empty-ideas">
+                Save a place or material as you explore, or start with the
+                choices alongside.
+              </p>
+            </div>
+            <div id="brief-result" hidden>
+              <dl id="brief-summary"></dl>
+              <button class="button" id="download-brief">
+                Download my brief</button
+              ><button class="text-link" id="edit-brief">
+                Edit my choices
+              </button>
+            </div>
+            <p id="brief-status" role="status"></p>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a href="#home" class="wordmark" aria-label="Back to Arcos home"
+        >arcos<span>·</span></a
+      >
+      <p>
+        A fictional architecture studio by DM Labs.<br />Original AI-generated
+        concept imagery. Not a built project.
+      </p>
+      <a href="#brief" class="text-link">Start a project</a>
+    </footer>
+    <dialog id="image-dialog" aria-labelledby="lightbox-title">
+      <div class="lightbox">
+        <div class="lightbox-toolbar">
+          <p id="lightbox-title">The Courtyard House</p>
+          <button id="close-image" autofocus>Close</button>
+        </div>
+        <img
+          id="lightbox-image"
+          src="/media/examples/arcos/courtyard-1536.webp"
+          width="1536"
+          height="1024"
+          alt=""
+        />
+        <div class="lightbox-bottom">
+          <button id="previous-image">Previous view</button>
+          <p id="lightbox-caption" aria-live="polite"></p>
+          <button id="next-image">Next view</button>
         </div>
       </div>
-      <div class="project-card">
-        <img class="project-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Office interior design Athens" loading="lazy" />
-        <div class="project-info">
-          <div class="project-cat">Commercial</div>
-          <div class="project-name">Syntagma Office</div>
-          <div class="project-loc">Syntagma, Athens  -  2023</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <img class="project-img" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80" alt="Interior design Athens apartment" loading="lazy" />
-        <div class="project-info">
-          <div class="project-cat">Interior</div>
-          <div class="project-name">Glyfada Apartment</div>
-          <div class="project-loc">Glyfada, Athens  -  2023</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <img class="project-img" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Modern building Athens architecture" loading="lazy" />
-        <div class="project-info">
-          <div class="project-cat">Residential</div>
-          <div class="project-name">Kifissia Townhouse</div>
-          <div class="project-loc">Kifissia, Athens  -  2022</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="services-section" id="services">
-    <p class="section-label">What We Do</p>
-    <h2 class="section-title">Our Services</h2>
-    <div class="services-grid">
-      <div class="service-item">
-        <div class="service-num">01</div>
-        <div class="service-name">Residential Architecture</div>
-        <div class="service-desc">New builds, extensions, and renovations for private homes across Athens and the wider Attica region.</div>
-      </div>
-      <div class="service-item">
-        <div class="service-num">02</div>
-        <div class="service-name">Commercial Design</div>
-        <div class="service-desc">Office spaces, retail environments, hospitality, and mixed-use developments designed for performance and identity.</div>
-      </div>
-      <div class="service-item">
-        <div class="service-num">03</div>
-        <div class="service-name">Interior Architecture</div>
-        <div class="service-desc">Considered interiors that balance aesthetics, function, and the specific character of each space and client.</div>
-      </div>
-      <div class="service-item">
-        <div class="service-num">04</div>
-        <div class="service-name">Urban Planning</div>
-        <div class="service-desc">Master planning, feasibility studies, and planning applications for larger-scale urban and mixed-use projects.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="about-section" id="about">
-    <img class="about-img" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="Arcos Architecture studio Athens" loading="lazy" />
-    <div class="about-text">
-      <p class="section-label">The Studio</p>
-      <h2 class="section-title">Architecture<br>as Craft</h2>
-      <p class="about-body">Arcos Architecture was founded in Athens in 2009 by Nikos Arcos. The studio operates at the intersection of rigorous design thinking and deep contextual sensitivity, producing work that is rooted in place and built to last.</p>
-      <p class="about-body">Based in Kolonaki, we work with private clients, developers, and institutions internationally.</p>
-      <div class="about-stats">
-        <div><div class="stat-num">85+</div><div class="stat-label">Projects Completed</div></div>
-        <div><div class="stat-num">15</div><div class="stat-label">Years in Practice</div></div>
-        <div><div class="stat-num">7</div><div class="stat-label">Design Awards</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-section" id="contact">
-    <div class="contact-info">
-      <p class="section-label">Get in Touch</p>
-      <h2>Start a<br>Conversation</h2>
-      <div class="contact-detail">
-        <div class="contact-detail-label">Studio Address</div>
-        <div class="contact-detail-value">Skoufa 28, Kolonaki<br>Athens 106 73</div>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-label">Phone</div>
-        <div class="contact-detail-value">+30 210 345 6789</div>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-label">Email</div>
-        <div class="contact-detail-value">studio@arcosarchitecture.gr</div>
-      </div>
-    </div>
-    <form class="contact-form">
-      <div class="form-row">
-        <input class="form-input" type="text" placeholder="Name" />
-        <input class="form-input" type="tel" placeholder="Phone" />
-      </div>
-      <input class="form-input" type="email" placeholder="Email" />
-      <select class="form-input">
-        <option value="" disabled selected>Project Type</option>
-        <option>Residential  -  New Build</option>
-        <option>Residential  -  Renovation</option>
-        <option>Commercial</option>
-        <option>Interior Architecture</option>
-        <option>Other</option>
-      </select>
-      <textarea class="form-input" placeholder="Tell us about your project..."></textarea>
-      <button type="submit" class="form-submit">Send Enquiry</button>
-    </form>
-  </section>
-
-  <footer>
-    <div class="footer-logo">ARCOS<span>.</span></div>
-    <div class="footer-copy">© 2025 Arcos Architecture Athens. All rights reserved.</div>
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
-    </div>
-  </footer>
-
-<script>
-/* DM Labs: prevent hash links from pushing browser history entries.
-   Uses history.replaceState() + scrollIntoView() so iframe nav never
-   adds entries to the parent page's history stack. */
-(function() {
-  function scrollToHash(id) {
-    if (!id) return false;
-    var dest = document.getElementById(id) ||
-               document.querySelector('[name="' + id + '"]');
-    if (!dest) return false;
-    dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // Replace instead of push - keeps the URL in sync without adding history
-    try { history.replaceState(null, '', '#' + id); } catch(e) {}
-    return true;
-  }
-
-  document.addEventListener('click', function(e) {
-    var el = e.target;
-    while (el && el.tagName !== 'A') { el = el.parentElement; }
-    if (!el) return;
-    var href = el.getAttribute('href');
-    if (!href || href.charAt(0) !== '#') return;
-    var id = href.slice(1);
-    if (!id) return;
-    if (scrollToHash(id)) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  }, true);
-
-  // Also handle initial hash on page load (e.g. if URL already has #section)
-  if (window.location.hash) {
-    window.addEventListener('load', function() {
-      scrollToHash(window.location.hash.slice(1));
-    });
-  }
-})();
-</script>
-</body>
+    </dialog>
+  </body>
 </html>

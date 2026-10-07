@@ -18,7 +18,7 @@ const examples = [
   ["nomad-coffee", "Nomad Coffee", "קפה עם אופי", "/media/examples/nomad/cover.webp", "דוגמה לאתר Nomad Coffee"],
   ["bella-salon", "Bella Salon", "אלגנטי ונשי", "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80", "דוגמה לאתר Bella Salon"],
   ["dr-elara-dental", "Dr. Elara Dental", "נקי ומקצועי", "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80", "דוגמה לאתר Dr. Elara Dental"],
-  ["arcos-architecture", "Arcos Architecture", "אדריכלות בקווים נקיים", "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=700&q=80", "דוגמה לאתר Arcos Architecture"],
+  ["arcos-architecture", "Arcos Architecture", "אדריכלות בקווים נקיים", "/media/examples/arcos/courtyard-768.webp", "דוגמה לאתר Arcos Architecture"],
 ] as const;
 
 

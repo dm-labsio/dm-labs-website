@@ -1,0 +1,23 @@
+{
+  "tool": "Built-in image_gen",
+  "created": "2026-10-07",
+  "assets": [
+    {
+      "name": "courtyard",
+      "prompt": "Use case: photorealistic-natural. Asset type: original architectural photograph for fictional ARCOS studio, full-width website hero. Create ONE ultra-realistic horizontal 3:2 architectural editorial photograph, not a website mockup. Subject: a modest, sophisticated single-storey U-shaped courtyard house on an Attica hillside, designed around one mature olive tree. Three rectilinear wings: a long rear wing and two side wings enclosing an open gravel courtyard toward camera. Flat thin parapets, rough pale local limestone walls, warm chalk limewash, deep rectangular openings with dark bronze slim window frames, honey oak shutters. The left wing contains the living room behind a floor-to-ceiling glass opening, the right wing two quiet bedrooms with smaller deep openings. The rear wing has shaded glazed kitchen/dining. View from slightly elevated human eye level outside the open south side looking north across courtyard. Dry grasses, rubble-stone retaining edge, quiet grey-green olive groves and low mountains. Unstyled lived-in realism, a simple timber chair, minimal objects, small construction imperfections, believable material grain, no people. Cloud-filtered late afternoon Mediterranean light, precise soft-edged shadows, natural neutral colours, not orange sunset. Editorial architecture magazine photograph, 35mm tilt-shift lens, corrected verticals, gentle film grain, wide composition with building and courtyard fully in view. No swimming pool, no curved sci-fi forms, no luxury hotel, no excessive landscaping, no text, no logos, no watermark, no collage."
+    },
+    {
+      "name": "interior",
+      "prompt": "Use case: photorealistic-natural. Asset type: second view of the SAME fictional ARCOS courtyard house. Reference image is the architectural identity, materials, proportions and lighting, not an edit target. Create a horizontal 3:2 architectural editorial photograph from inside the living room in the LEFT wing looking across the same gravel courtyard to the right wing and olive tree. Preserve the restrained rough pale limestone exterior, chalk limewash, dark bronze glazing and honey oak joinery. A low oatmeal linen sofa partially visible in foreground, one plain oak table with a closed book, limestone floor with believable fine joints, massive deep rectangular window reveal frames olive leaves and courtyard. Eye height 1.4m, 40mm tilt-shift architectural lens, straight verticals. Quiet asymmetric composition, subtle exposure difference between shade and daylight, fine material pores, non-repeating wood grain. No people, no random sculptures, no vases everywhere, no lush indoor plants, no text, no collages, no pool, no additional floors. Refined but lived in. Same neutral Mediterranean late afternoon light, not gold filter. It should convincingly belong to the house in the reference.",
+      "reference": "courtyard"
+    },
+    {
+      "name": "detail",
+      "prompt": "Use case: photorealistic-natural. Asset type: architectural material detail photograph for fictional ARCOS courtyard house. Use the attached house as the materials reference. ONE horizontal 3:2 close-up photograph, filling the image with the joint where rough pale warm-grey limestone blocks at left meet a deep chalk limewash reveal in the middle, a slender dark bronze door track and vertical-grained honey oak sliding shutter at right, limestone threshold along bottom. Same house, same materials, soft raking daylight. Tactile, sophisticated construction detail, real mortar and stone pores, restrained imperfect surfaces, subtle grain in timber, no polished marble. Composition is an abstract but readable architectural junction, vertical lines, slight three-quarter depth, sharp details, neutral white balance, photographed on a 65mm architectural lens. No text, people, logos, plants, invented objects, watermarks or collage. Enough resolution for an interactive magnifying lens.",
+      "reference": "courtyard"
+    }
+  ],
+  "originals": "output/website-refresh/arcos/originals (workspace, outside repository)",
+  "webAssets": "client/public/media/examples/arcos",
+  "optimization": "WebP at 768 and 1536 px; no compositional edits"
+}

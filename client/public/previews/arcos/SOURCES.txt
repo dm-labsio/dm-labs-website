@@ -1,0 +1,21 @@
+ARCOS concept showcase / 7 October 2026
+
+Interaction research:
+Aceternity Lens by Manu Arora, discovered through the 21st.dev collection:
+https://21st.dev/community/components/explore/parallax-components
+https://ui.aceternity.com/components/lens
+
+Aceternity Tracing Beam:
+https://ui.aceternity.com/components/tracing-beam
+
+These are interaction references. The native image magnifier, drawing reveal,
+reading-progress line, lightbox and project-brief builder are original DOM/CSS
+implementations. No Aceternity source or paid component is redistributed.
+The lens adds explicit material selectors for touch and keyboard access;
+reduced motion disables cursor tracking but retains static magnification.
+
+Imagery: three original AI-generated architectural concept views, created
+with the built-in image_gen tool. These depict a fictional, unbuilt project.
+The plan is a schematic illustration, not a measured construction drawing.
+Fonts: Syne and IBM Plex Sans, served by Google Fonts.
+Asset prompts are recorded in docs/examples-refresh/arcos-assets.json.
