@@ -9,6 +9,7 @@ export interface InteractiveExampleCardProps {
   imageAlt: string;
   href: string;
   actionText: string;
+  showcase?: boolean;
 }
 
 const FINE_POINTER_QUERY = "(hover: hover) and (pointer: fine)";
@@ -20,6 +21,7 @@ export default function InteractiveExampleCard({
   imageAlt,
   href,
   actionText,
+  showcase = false,
 }: InteractiveExampleCardProps) {
   const prefersReducedMotion = useReducedMotion();
   const pointerX = useMotionValue(0);
@@ -53,6 +55,7 @@ export default function InteractiveExampleCard({
           rotateX: prefersReducedMotion ? "0deg" : rotateX,
           rotateY: prefersReducedMotion ? "0deg" : rotateY,
           transformStyle: "preserve-3d",
+          ...(showcase ? { height: "21rem", minHeight: 0, aspectRatio: "auto" } : {}),
         }}
         whileHover={prefersReducedMotion ? undefined : { y: -4 }}
         transition={{ type: "spring", damping: 24, stiffness: 240 }}
@@ -61,16 +64,25 @@ export default function InteractiveExampleCard({
         <a
           href={href}
           aria-label={`${actionText}: ${title}`}
+          style={showcase ? { height: "21rem", minHeight: 0, aspectRatio: "auto" } : undefined}
           className="group relative block h-full min-h-[19rem] overflow-hidden rounded-2xl border border-white/20 bg-[#101827] shadow-[0_14px_38px_rgba(15,23,42,0.18)] outline-none [transform-style:preserve-3d] transition-shadow duration-300 focus-visible:ring-4 focus-visible:ring-[#6FE3FF]/70 sm:min-h-[21rem] hover:shadow-[0_22px_48px_rgba(91,140,255,0.28)]"
         >
           <img
             src={imageUrl}
             alt={imageAlt}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+            style={showcase ? { background: "#ead192" } : undefined}
+            className={showcase
+              ? "absolute inset-x-0 top-0 h-[calc(100%-5.5rem)] w-full bg-[#ead192] object-contain"
+              : "absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"}
           />
-          <span className="absolute inset-0 bg-gradient-to-b from-[#0B1220]/58 via-[#0B1220]/12 to-[#0B1220]/88" aria-hidden="true" />
+          {!showcase && <span className="absolute inset-0 bg-gradient-to-b from-[#0B1220]/58 via-[#0B1220]/12 to-[#0B1220]/88" aria-hidden="true" />}
 
-          <span className="absolute inset-0 flex flex-col justify-between p-5 text-white sm:p-6" style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }}>
+          <span className={showcase
+            ? "absolute inset-x-0 bottom-0 flex h-[5.5rem] items-center justify-between gap-3 bg-[#101827] px-5 text-white"
+            : "absolute inset-0 flex flex-col justify-between p-5 text-white sm:p-6"}
+            style={showcase ? undefined : { transform: "translateZ(30px)", transformStyle: "preserve-3d" }}>
             <span className="flex items-start justify-between gap-4">
               <span>
                 <span className="block text-xl font-bold leading-tight tracking-tight sm:text-2xl">{title}</span>
@@ -78,7 +90,9 @@ export default function InteractiveExampleCard({
               </span>
             </span>
 
-            <span className="inline-flex w-full items-center justify-center rounded-xl bg-white/12 px-4 py-3 text-sm font-semibold text-white backdrop-blur-md ring-1 ring-inset ring-white/30 transition-colors group-hover:bg-white/22">
+            <span className={showcase
+              ? "shrink-0 text-sm font-semibold text-[#b8bfff] underline underline-offset-4 group-hover:text-white"
+              : "inline-flex w-full items-center justify-center rounded-xl bg-white/12 px-4 py-3 text-sm font-semibold text-white backdrop-blur-md ring-1 ring-inset ring-white/30 transition-colors group-hover:bg-white/22"}>
               {actionText}
             </span>
           </span>

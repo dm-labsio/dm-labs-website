@@ -100,7 +100,7 @@ const FEATURED_TEMPLATES = [
     category: "Καφέ",
     styleLabel: "Καφές με χαρακτήρα",
     previewUrl: "/previews/nomad-coffee.html",
-    imageUrl: "/previews/nomad/assets/coffee-still-life-720.webp",
+    imageUrl: "/media/examples/nomad/cover.webp",
     imageAlt: "Παράδειγμα ιστοσελίδας για το Nomad Coffee",
     palette: ["#b72d20", "#f1df9c"],
   },
@@ -207,6 +207,7 @@ export default function HomeElPage() {
                   subtitle={tpl.styleLabel}
                   imageUrl={tpl.imageUrl}
                   imageAlt={tpl.imageAlt}
+                  showcase={tpl.id === "nomad-coffee"}
                 href={`/preview/${tpl.id}/?from=%2Fel%2F`}
                   actionText="Δείτε παράδειγμα"
                 />

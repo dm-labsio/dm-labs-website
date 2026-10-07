@@ -99,7 +99,7 @@ const FEATURED_TEMPLATES = [
     category: "Cafe & Coffee",
     styleLabel: "Coffee with character",
     previewUrl: "/previews/nomad-coffee.html",
-    imageUrl: "/previews/nomad/assets/coffee-still-life-720.webp",
+    imageUrl: "/media/examples/nomad/cover.webp",
     imageAlt: "Nomad Coffee website example",
     palette: ["#b72d20", "#f1df9c"],
   },
@@ -207,6 +207,7 @@ export default function HomePage() {
                   subtitle={tpl.styleLabel}
                   imageUrl={tpl.imageUrl}
                   imageAlt={tpl.imageAlt}
+                  showcase={tpl.id === "nomad-coffee"}
                   href={`/preview/${tpl.id}/?from=%2F`}
                   actionText="See example"
                 />
