@@ -32,8 +32,8 @@
         Menu
       </button>
       <nav id="navigation" aria-label="Main navigation">
-        <a href="#house">The house</a><a href="#materials">Materials</a
-        ><a href="#studio">Studio</a
+        <a href="#house">The house</a><a href="#tour">Tour</a
+        ><a href="#materials">Materials</a><a href="#studio">Studio</a
         ><a class="nav-brief" href="#brief">Start a project</a>
       </nav>
       <div class="reading-line" aria-hidden="true"></div>
@@ -104,120 +104,48 @@
               ><span>Concept drawing · Not to scale</span>
             </div>
             <div class="plan">
+              <img
+                src="/previews/arcos/floor-plan.svg"
+                width="800"
+                height="680"
+                alt="Furnished U-shaped house plan: living to the west, kitchen and dining to the north, two bedrooms and bathroom to the east, with clear circulation around the courtyard."
+              />
               <svg
-                viewBox="0 0 720 570"
-                role="img"
-                aria-labelledby="plan-title plan-desc"
+                viewBox="0 0 800 680"
+                class="plan-overlay"
+                aria-hidden="true"
               >
-                <title id="plan-title">Courtyard house concept plan</title>
-                <desc id="plan-desc">
-                  A U-shaped single-storey house. Living wing to the left,
-                  kitchen and dining along the back, sleeping wing to the right,
-                  and an open courtyard in the centre. Use the three buttons to
-                  explore the design.
-                </desc>
-                <defs>
-                  <pattern
-                    id="stone-hatch"
-                    width="9"
-                    height="9"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path
-                      d="M0 9L9 0"
-                      stroke="currentColor"
-                      opacity=".16"
-                      stroke-width=".8"
-                    />
-                  </pattern>
-                </defs>
                 <g
-                  class="plan-base"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
+                  class="plan-zones"
+                  fill="var(--terra)"
+                  fill-opacity=".12"
+                  stroke="var(--terra)"
+                  stroke-width="1.5"
                 >
-                  <path
-                    class="outline"
-                    d="M100 105H620V475H475V245H245V475H100Z"
-                    fill="url(#stone-hatch)"
-                    stroke-width="6"
-                  />
-                  <path d="M117 122H603V458H492V228H228V458H117Z" />
-                  <path
-                    d="M117 245H228M492 285H603M492 365H603M245 122V213M475 122V213"
-                  />
-                  <path
-                    d="M245 233H475M233 255V440M487 255V440"
-                    stroke-width="4"
-                    stroke="var(--terra)"
-                  />
-                  <path
-                    d="M250 219H470M220 260V435M500 295V350M500 378V440"
-                    stroke-width="1"
-                  />
-                  <rect x="300" y="156" width="120" height="42" rx="14" />
-                  <path d="M320 144H400M320 210H400" />
-                  <rect x="134" y="320" width="34" height="90" />
-                  <rect x="182" y="340" width="28" height="52" />
-                  <rect x="534" y="300" width="54" height="45" />
-                  <path d="M534 313H588" />
-                  <rect x="534" y="384" width="54" height="48" />
-                  <path d="M534 398H588" />
-                  <circle cx="361" cy="359" r="43" stroke-dasharray="3 4" />
-                  <circle cx="361" cy="359" r="18" />
-                  <path
-                    d="M70 105V475M62 105H78M62 475H78M100 75H620M100 67V83M620 67V83"
-                    opacity=".45"
-                  />
-                  <path d="M659 137V89L650 103M659 89L668 103" />
-                  <text
-                    x="654"
-                    y="75"
-                    stroke="none"
-                    fill="currentColor"
-                    font-size="15"
-                  >
-                    N
-                  </text>
+                  <path data-zone="courtyard" d="M278 258H522V576H278Z" />
+                  <path data-zone="living" d="M88 285H255V560H88Z" />
+                  <path data-zone="threshold" d="M518 474H541V533H518Z" />
                 </g>
-                <g class="plan-zones" fill="var(--terra)" opacity=".13">
-                  <path data-zone="living" d="M118 247H227V457H118Z" />
-                  <path data-zone="courtyard" d="M245 248H473V475H245Z" />
-                  <path data-zone="threshold" d="M475 247H492V457H475Z" />
-                </g>
-                <g
-                  font-size="13"
-                  letter-spacing="1"
-                  fill="currentColor"
-                  text-anchor="middle"
-                >
-                  <text x="360" y="136">KITCHEN / DINING</text>
-                  <text x="553" y="266">SLEEPING</text>
-                  <text x="360" y="525">OPEN TO THE LANDSCAPE</text>
+                <g fill="var(--terra)" stroke="#f8f6ef" stroke-width="3">
+                  <circle cx="400" cy="525" r="7" />
+                  <circle cx="192" cy="340" r="7" />
+                  <circle cx="530" cy="503" r="7" />
                 </g>
               </svg>
-              <button
-                class="plan-point point-courtyard"
-                data-space="courtyard"
-                aria-pressed="true"
-              >
-                Courtyard</button
-              ><button
-                class="plan-point point-living"
-                data-space="living"
-                aria-pressed="false"
-              >
-                Living</button
-              ><button
-                class="plan-point point-threshold"
-                data-space="threshold"
-                aria-pressed="false"
-              >
+            </div>
+            <div class="plan-choices" role="group" aria-label="Explore a space">
+              <button data-space="courtyard" aria-pressed="true">
+                Courtyard
+              </button>
+              <button data-space="living" aria-pressed="false">Living</button>
+              <button data-space="threshold" aria-pressed="false">
                 Threshold
               </button>
             </div>
-            <p class="drawing-hint">Choose a place on the plan.</p>
+            <div class="plan-foot">
+              <span>Ground floor · Furnished concept</span
+              ><button class="text-link" id="enlarge-plan">Enlarge plan</button>
+            </div>
           </div>
           <div class="space-story" aria-live="polite" aria-atomic="true">
             <button
@@ -249,6 +177,38 @@
             </div>
           </div>
         </div>
+      </section>
+      <section
+        class="tour-section section"
+        id="tour"
+        tabindex="-1"
+        aria-labelledby="tour-title"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">A different point of view</p>
+          <h2 id="tour-title">Stand inside<br />the idea.</h2>
+          <p>
+            Look around the living space. Step out into the courtyard. Explore
+            at your own pace.
+          </p>
+        </div>
+        <button class="tour-cover" id="open-tour" aria-haspopup="dialog">
+          <img
+            src="/media/examples/arcos/interior-1536.webp"
+            width="1536"
+            height="1024"
+            loading="lazy"
+            alt="Enter the living space for an interactive panoramic tour"
+          />
+          <span class="tour-cover-action"
+            >Enter the panoramic tour
+            <span>Living space + courtyard</span></span
+          >
+        </button>
+        <p class="tour-caption">
+          An imagined home, explored from within. AI-generated concept
+          panoramas.
+        </p>
       </section>
       <section class="gallery section" aria-labelledby="gallery-title">
         <div class="section-heading gallery-heading">
@@ -491,6 +451,78 @@
       </p>
       <a href="#brief" class="text-link">Start a project</a>
     </footer>
+    <dialog
+      id="plan-dialog"
+      class="plan-dialog"
+      aria-labelledby="large-plan-title"
+    >
+      <div class="tour-dialog-heading">
+        <div>
+          <p class="eyebrow">The Courtyard House</p>
+          <h2 id="large-plan-title">The ground floor.</h2>
+        </div>
+        <button id="close-plan" class="text-link">Close plan</button>
+      </div>
+      <div class="large-plan-scroll">
+        <img
+          src="/previews/arcos/floor-plan.svg"
+          width="800"
+          height="680"
+          alt="Enlarged furnished concept plan showing doors, glazing, kitchen, living space, two bedrooms, bathroom and courtyard."
+        />
+      </div>
+      <p class="tour-caption">
+        Concept drawing · Not to scale. On a small screen, scroll across the
+        drawing to explore the details.
+      </p>
+    </dialog>
+    <dialog
+      id="tour-dialog"
+      class="tour-dialog"
+      aria-labelledby="tour-dialog-title"
+    >
+      <div class="tour-dialog-heading">
+        <div>
+          <p class="eyebrow">The Courtyard House</p>
+          <h2 id="tour-dialog-title">A view from within.</h2>
+        </div>
+        <button id="close-tour" class="text-link">Close tour</button>
+      </div>
+      <div class="tour-stage" id="tour-stage" aria-busy="false">
+        <div
+          id="panorama"
+          tabindex="0"
+          role="region"
+          aria-label="Panoramic view. Drag to look around, use arrow keys to turn, plus and minus to zoom."
+          aria-describedby="tour-instructions"
+        ></div>
+        <div id="tour-loading" role="status">
+          <span>Opening the view…</span
+          ><button id="retry-tour" class="button" hidden>Try again</button>
+        </div>
+      </div>
+      <div class="tour-toolbar">
+        <div class="tour-places" role="group" aria-label="Choose a viewpoint">
+          <button data-tour-scene="living" aria-pressed="true">
+            Living space</button
+          ><button data-tour-scene="courtyard" aria-pressed="false">
+            Courtyard
+          </button>
+        </div>
+        <div class="tour-controls" role="group" aria-label="Adjust the view">
+          <button data-tour-action="left">Look left</button
+          ><button data-tour-action="right">Look right</button
+          ><button data-tour-action="in" aria-label="Zoom in">+</button
+          ><button data-tour-action="out" aria-label="Zoom out">−</button
+          ><button data-tour-action="reset">Reset view</button>
+        </div>
+      </div>
+      <p id="tour-status" class="sr-only" role="status"></p>
+      <p id="tour-instructions" class="tour-caption">
+        Drag to look around or use the controls. Two connected concept
+        viewpoints, not a measured 3D scan.
+      </p>
+    </dialog>
     <dialog id="image-dialog" aria-labelledby="lightbox-title">
       <div class="lightbox">
         <div class="lightbox-toolbar">

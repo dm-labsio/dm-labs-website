@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 680" role="img" aria-labelledby="title desc">
+<title id="title">Courtyard House, furnished concept plan</title>
+<desc id="desc">A U-shaped single-storey home. Kitchen and dining connect the living wing on the west to a bathroom and two bedrooms on the east. A continuous passage serves both bedrooms. Sliding glass opens the living and dining spaces onto a central olive-tree courtyard. Schematic, not to scale.</desc>
+<defs>
+ <pattern id="gravel" width="16" height="18" patternUnits="userSpaceOnUse"><circle cx="3" cy="5" r=".65" fill="#b9b5a4"/><circle cx="12" cy="13" r=".8" fill="#c8c4b6"/></pattern>
+ <pattern id="paving" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#d9d6cb" stroke-width=".6"/></pattern>
+ <pattern id="timber" width="8" height="10" patternUnits="userSpaceOnUse"><path d="M0 0V10" stroke="#d8d0bd" stroke-width=".7"/></pattern>
+</defs>
+<path d="M50 45H750V606H50Z" fill="#e7e6dc"/>
+<path d="M68 54H734V600H68Z" fill="url(#gravel)"/>
+<!-- Interior floors and the open court remain separate, legible areas. -->
+<path d="M80 70H720V580H530V250H270V580H80Z" fill="#f8f6ef"/>
+<path d="M80 70H720V250H270V580H80Z" fill="url(#paving)"/>
+<path d="M583 253H708V568H583Z" fill="url(#timber)"/>
+<rect x="278" y="258" width="244" height="318" fill="url(#gravel)"/>
+<!-- Section-cut walls. Gaps are real door and glazing openings. -->
+<g fill="none" stroke="#44483d" stroke-width="12" stroke-linecap="square">
+ <path d="M80 190V70H720V290M720 360V465M720 535V580H530V526M530 480V250H464M336 250H270V300M270 514V580H220M148 580H80V278"/>
+</g>
+<g fill="none" stroke="#44483d" stroke-width="7">
+ <path d="M578 82V159M578 200V283M578 320V456M578 493V568M578 247H708M578 413H708"/>
+</g>
+<!-- Glazing, sliding tracks and an inward opening entrance. -->
+<g fill="none" stroke="#718781" stroke-width="2">
+ <path d="M75 190V278M85 190V278M75 230H85M715 290V360M725 290V360M715 325H725M715 465V535M725 465V535M715 500H725"/>
+ <path d="M264 300V515M272 300V515M264 407H272M336 245H464M336 253H464M400 245V253M525 480V526M535 480V526"/>
+</g>
+<g fill="none" stroke="#777c6e" stroke-width="1.5">
+ <path d="M148 580V509A71 71 0 0 1 219 580M578 159H619A41 41 0 0 1 578 200M578 283H615A37 37 0 0 1 578 320M578 456H615A37 37 0 0 1 578 493"/>
+</g>
+<!-- Kitchen: workable L counter, sink, hob and island with circulation space. -->
+<g stroke="#899080" stroke-width="1.4" fill="#e5e2d5">
+ <path d="M97 87H298V115H125V211H97Z"/>
+ <rect x="175" y="150" width="100" height="38"/>
+ <rect x="139" y="92" width="42" height="17" rx="3" fill="#f8f6ef"/>
+ <rect x="218" y="91" width="38" height="19" fill="none"/>
+ <circle cx="226" cy="97" r="3" fill="none"/><circle cx="248" cy="103" r="3" fill="none"/>
+ <path d="M195 150V188M247 150V188M97 145H125M97 180H125" fill="none"/>
+</g>
+<!-- Dining and chairs: all pulled clear of glazing and doors. -->
+<g stroke="#899080" stroke-width="1.4" fill="#e7e0cf">
+ <rect x="360" y="141" width="135" height="53" rx="3"/>
+ <g fill="#f8f6ef"><rect x="370" y="118" width="26" height="18" rx="3"/><rect x="412" y="118" width="26" height="18" rx="3"/><rect x="454" y="118" width="26" height="18" rx="3"/><rect x="370" y="199" width="26" height="18" rx="3"/><rect x="412" y="199" width="26" height="18" rx="3"/><rect x="454" y="199" width="26" height="18" rx="3"/></g>
+ <path d="M360 154H495M360 181H495" opacity=".4"/>
+</g>
+<!-- Living furniture; shaded rug is distinct from the selected floor zone. -->
+<rect x="99" y="345" width="141" height="171" fill="#e6dfce" opacity=".55"/>
+<g stroke="#899080" stroke-width="1.4" fill="#f8f6ef">
+ <rect x="100" y="355" width="46" height="143" rx="5"/>
+ <path d="M111 355V498M111 403H146M111 450H146M100 367H146M100 486H146" fill="none"/>
+ <rect x="176" y="389" width="46" height="67" rx="3" fill="#d9caae"/>
+ <rect x="182" y="397" width="17" height="21" fill="#f8f6ef"/>
+ <rect x="179" y="470" width="45" height="30" rx="6"/>
+ <path d="M186 491H217"/>
+ <circle cx="118" cy="324" r="13" fill="#d4d8c6"/>
+</g>
+<!-- Bathroom and two sleeping spaces, with a continuous hall at their left. -->
+<g stroke="#899080" stroke-width="1.4" fill="#f8f6ef">
+ <rect x="646" y="87" width="58" height="69" fill="#e8ece5"/><path d="M646 87L704 156M704 87L646 156" opacity=".35"/>
+ <rect x="586" y="91" width="43" height="26" fill="#e5e2d5"/><ellipse cx="607" cy="103" rx="13" ry="7"/>
+ <rect x="669" y="205" width="27" height="24" rx="10"/><path d="M669 227H696V236H669Z"/>
+ <rect x="630" y="270" width="64" height="89" rx="2"/>
+ <rect x="635" y="275" width="23" height="17" rx="3"/><rect x="665" y="275" width="23" height="17" rx="3"/>
+ <path d="M630 299H694M630 347H694"/>
+ <rect x="612" y="270" width="13" height="19"/>
+ <rect x="621" y="389" width="82" height="15" fill="#e5e2d5"/><path d="M648 389V404M676 389V404"/>
+ <rect x="630" y="443" width="64" height="88" rx="2"/>
+ <rect x="635" y="448" width="23" height="17" rx="3"/><rect x="665" y="448" width="23" height="17" rx="3"/>
+ <path d="M630 472H694M630 518H694"/>
+ <rect x="612" y="443" width="13" height="19"/>
+ <rect x="621" y="551" width="82" height="15" fill="#e5e2d5"/><path d="M648 551V566M676 551V566"/>
+</g>
+<!-- Tree canopy and planting bed; no labels on top of furnishings. -->
+<ellipse cx="401" cy="414" rx="65" ry="62" fill="#d8dccb" opacity=".6"/>
+<path d="M399 354C420 340 432 361 443 366C468 368 465 388 459 400C480 418 464 438 450 445C453 466 429 474 414 466C395 482 379 466 368 462C341 466 337 444 345 429C327 414 341 396 345 384C346 360 373 362 380 355Z" fill="#d8ddc9" stroke="#98a086" stroke-width="1.2"/>
+<g stroke="#a9b099" fill="none" stroke-width="1"><path d="M401 414L378 384M401 414L429 382M401 414L440 430M401 414L379 447M401 414L399 365"/><circle cx="401" cy="414" r="9"/></g>
+<!-- Labels have reserved clear areas. -->
+<g font-family="Arial,sans-serif" font-size="12" letter-spacing="1.1" fill="#555e4b" text-anchor="middle">
+ <text x="221" y="224">KITCHEN</text><text x="426" y="101">DINING</text>
+ <text x="193" y="317">LIVING</text><text x="400" y="313">COURTYARD</text>
+ <text x="648" y="183">BATH</text><text x="658" y="380">BEDROOM</text><text x="658" y="545">BEDROOM</text>
+ <text x="554" y="377" transform="rotate(-90 554 377)" font-size="10">PASSAGE</text>
+ <text x="400" y="628" font-size="11" letter-spacing="2">OPEN TO THE LANDSCAPE</text>
+</g>
+<!-- Restrained drawing conventions, no fictitious measured dimensions. -->
+<g fill="none" stroke="#a3a799" stroke-width="1"><path d="M80 36H720M80 30V42M720 30V42M38 70V580M32 70H44M32 580H44"/></g>
+<g fill="none" stroke="#555e4b" stroke-width="1.5"><path d="M762 104V62L756 76M762 62L768 76"/></g><text x="762" y="52" text-anchor="middle" font-family="Arial,sans-serif" fill="#555e4b" font-size="12">N</text>
+</svg>

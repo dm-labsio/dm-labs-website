@@ -19,3 +19,21 @@ with the built-in image_gen tool. These depict a fictional, unbuilt project.
 The plan is a schematic illustration, not a measured construction drawing.
 Fonts: Syne and IBM Plex Sans, served by Google Fonts.
 Asset prompts are recorded in docs/examples-refresh/arcos-assets.json.
+
+Photo tour addition / 7 October 2026
+Pannellum 2.5.7 by Matthew Petroff, MIT licensed; pinned local build and license
+in vendor/. Loaded on demand only, with no third-party service or account.
+https://pannellum.org/documentation/reference/
+https://pannellum.org/documentation/examples/partial-panorama/
+https://github.com/mpetroff/pannellum
+
+Research also reviewed:
+https://www.marzipano.net/docs.html
+https://photo-sphere-viewer.js.org/plugins/virtual-tour.html
+https://docs.nerf.studio/quickstart/custom_dataset.html
+
+The two new concept panoramas are generated from the existing visual references.
+They are NOT a photogrammetric reconstruction or a seamless 360-degree capture.
+A bounded partial projection was chosen after visual testing of the generated
+images; the original full-sphere projection visibly distorted the architecture.
+The furnished floor plan is an original SVG schematic with no claimed dimensions.

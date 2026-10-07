@@ -30,3 +30,46 @@ Three images were generated with the built-in image_gen tool. Full prompts and r
 ## QA scope
 
 scripts/qa-arcos.mjs covers 320, 390, 768, 1024 and 1440 px: navigation, plan selection, material selection, saved ideas, removal, safe free-text rendering, brief editing and actual downloaded content, lightbox controls, image decoding, overflow, browser errors, iframe download/navigation, pointer lens and reduced motion. Artifacts and the report are saved to output/website-refresh/arcos/qa outside the repository. TypeScript, the full production build and localized gallery handoff are checked before Preview publication.
+
+## Panoramic tour and furnished plan refinement (7 October 2026)
+
+The house now has two connected, original concept panorama views: living space
+and courtyard. Pannellum 2.5.7 is vendored locally with its MIT license. The engine
+and images load only when the tour opens. The native dialog works inside the
+showcase wrapper without requesting fullscreen or device-sensor permissions.
+Visitors can drag, use touch, follow a viewpoint hotspot, select either viewpoint,
+turn with labeled controls or arrow keys, zoom, reset and close with Escape.
+Closing releases the renderer and returns focus. Failed image loads have a retry
+control; unsupported viewers leave the page's normal photographs available.
+Reduced motion removes scene fades and drag inertia. No automatic rotation.
+
+Research compared Marzipano, Photo Sphere Viewer, Pannellum and a real NeRF /
+photogrammetry workflow. Independent generated images are not a multiview capture
+of one physical building, so they cannot honestly produce a measured 3D model.
+Initial full-sphere rendering was visually unsuitable. Pannellum's partial
+panorama support gave a much cleaner bounded 180° horizontal / 90° vertical
+concept view. The UI calls this a panoramic concept tour, never a 3D scan or
+full 360° walkthrough. Source originals remain unmodified in the asset bank;
+web versions are format-compressed only. Prompts are in arcos-assets.json.
+
+The plan is now a reusable original SVG with clear section-cut walls, genuine
+openings in the wall drawing, sliding glazing, door swing arcs, kitchen counters,
+dining furniture, living furniture, a bathroom, two bedrooms and a continuous
+passage. Room labels occupy reserved empty areas. Selection controls sit below
+the drawing; selected areas highlight without covering labels. A separate native
+dialog enlarges the drawing, with horizontal scrolling on narrow screens.
+It remains a conceptual layout, explicitly not to scale and not construction
+information. The generated images are illustrative, not exact model renders.
+
+Sources:
+- https://pannellum.org/documentation/reference/
+- https://pannellum.org/documentation/examples/partial-panorama/
+- https://www.marzipano.net/docs.html
+- https://photo-sphere-viewer.js.org/plugins/virtual-tour.html
+- https://docs.nerf.studio/quickstart/custom_dataset.html
+
+Verification: scripts/qa-arcos-tour.mjs covers five widths, the wrapped preview,
+keyboard and touch drag, scene controls and hotspots, lazy loading, cleanup,
+image-failure retry, early close during loading, landscape controls, enlarged
+plan access and control/drawing separation. scripts/qa-arcos.mjs retains coverage
+for the existing brief builder/download, material lens and photo gallery.

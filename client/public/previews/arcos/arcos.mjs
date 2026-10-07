@@ -429,3 +429,51 @@ addEventListener(
 );
 selectMaterial("stone");
 document.documentElement.dataset.arcosReady = "true";
+
+// Native dialogs preserve keyboard focus and work in the showcase iframe on iOS.
+const planDialog = $("#plan-dialog");
+$("#enlarge-plan").addEventListener("click", () => {
+  planDialog.showModal();
+  document.body.style.overflow = "hidden";
+});
+$("#close-plan").addEventListener("click", () => planDialog.close());
+planDialog.addEventListener("close", () => {
+  document.body.style.overflow = "";
+  $("#enlarge-plan").focus({ preventScroll: true });
+});
+const tourDialog = $("#tour-dialog");
+let disposeTour = null,
+  tourSession = 0;
+async function startTour() {
+  const session = ++tourSession;
+  tourDialog
+    .querySelectorAll("[data-tour-scene],[data-tour-action]")
+    .forEach(b => (b.disabled = true));
+  $("#tour-loading").hidden = false;
+  $("#tour-loading span").textContent = "Opening the view…";
+  $("#retry-tour").hidden = true;
+  try {
+    const { mountTour } = await import("./tour.mjs");
+    if (session !== tourSession || !tourDialog.open) return;
+    const dispose = await mountTour(tourDialog);
+    if (session !== tourSession || !tourDialog.open) dispose();
+    else disposeTour = dispose;
+  } catch {
+    if (session !== tourSession || !tourDialog.open) return;
+    $("#tour-loading span").textContent =
+      "The interactive view is unavailable on this device. You can still explore all the photographs on this page.";
+  }
+}
+$("#open-tour").addEventListener("click", () => {
+  tourDialog.showModal();
+  document.body.style.overflow = "hidden";
+  startTour();
+});
+$("#close-tour").addEventListener("click", () => tourDialog.close());
+tourDialog.addEventListener("close", () => {
+  tourSession++;
+  disposeTour?.();
+  disposeTour = null;
+  document.body.style.overflow = "";
+  $("#open-tour").focus({ preventScroll: true });
+});

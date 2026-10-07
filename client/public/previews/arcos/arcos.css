@@ -288,38 +288,6 @@ h1 span {
 .plan-zones path.active {
   opacity: 1;
 }
-.plan-point {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  border: 1px solid var(--ink);
-  background: var(--paper);
-  font-size: 12px;
-  padding: 10px 12px;
-  min-height: 44px;
-  white-space: nowrap;
-}
-.plan-point[aria-pressed="true"] {
-  background: var(--terra);
-  color: white;
-  border-color: var(--terra);
-}
-.point-courtyard {
-  left: 50%;
-  top: 70%;
-}
-.point-living {
-  left: 24%;
-  top: 50%;
-}
-.point-threshold {
-  left: 72%;
-  top: 87%;
-}
-.drawing-hint {
-  font-size: 12px;
-  color: var(--muted);
-  text-align: center;
-}
 .space-story {
   min-width: 0;
   display: flex;
@@ -826,10 +794,6 @@ dialog::backdrop {
   .space-copy {
     padding: 24px;
   }
-  .plan-point {
-    font-size: 11px;
-    padding: 8px;
-  }
   .material-layout {
     grid-template-columns: 1.3fr 1fr;
   }
@@ -985,11 +949,6 @@ dialog::backdrop {
   .plan {
     margin-top: 12px;
   }
-  .plan-point {
-    font-size: 11px;
-    padding: 8px;
-    min-height: 44px;
-  }
   .space-copy {
     padding: 26px 22px;
   }
@@ -1140,13 +1099,400 @@ dialog::backdrop {
   .plan-zones {
     display: none;
   }
-  .plan-point[aria-pressed="true"] {
-    outline: 3px solid Highlight;
-  }
   .material-choices [aria-pressed="true"] {
     outline: 2px solid Highlight;
   }
   .lens {
     display: none;
+  }
+}
+
+/* The drawing is kept clear: selections and controls live outside its bounds. */
+.plan > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.plan .plan-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.plan-choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 14px;
+}
+.plan-choices button {
+  min-height: 46px;
+  padding: 10px 4px;
+  border: 1px solid #b8bbad;
+  background: transparent;
+  font-size: 12px;
+}
+.plan-choices button[aria-pressed="true"] {
+  color: #fff;
+  background: var(--terra);
+  border-color: var(--terra);
+}
+.plan-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.plan-foot .text-link {
+  font-size: 12px;
+  min-height: 44px;
+}
+.tour-section {
+  background: var(--ink);
+  color: var(--paper);
+}
+.tour-section .eyebrow {
+  color: #e5a48e;
+}
+.tour-section .section-heading > p:last-child {
+  color: #d0d1c7;
+}
+.tour-cover {
+  display: block;
+  position: relative;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  color: var(--paper);
+  background: #34372e;
+  overflow: hidden;
+}
+.tour-cover > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2.15;
+  object-fit: cover;
+  transition: transform 0.65s;
+}
+.tour-cover:hover > img {
+  transform: scale(1.025);
+}
+.tour-cover-action {
+  position: absolute;
+  left: 32px;
+  bottom: 30px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 20px 26px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.tour-cover-action > span {
+  display: block;
+  margin-top: 7px;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.tour-caption {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 16px;
+}
+.tour-section > .tour-caption {
+  color: #c4c7ba;
+}
+.tour-dialog,
+.plan-dialog {
+  width: min(1320px, calc(100vw - 40px));
+  max-width: none;
+  max-height: calc(100dvh - 40px);
+  margin: auto;
+  padding: 24px;
+  border: 1px solid #c1c3b6;
+  color: var(--ink);
+  background: var(--paper);
+}
+.tour-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - 40px);
+}
+.tour-dialog::backdrop,
+.plan-dialog::backdrop {
+  background: #141811db;
+}
+.tour-dialog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-shrink: 0;
+  padding-bottom: 20px;
+}
+.tour-dialog-heading .eyebrow {
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+.tour-dialog-heading h2 {
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+.tour-dialog-heading > button {
+  flex-shrink: 0;
+  min-height: 44px;
+}
+.tour-stage {
+  position: relative;
+  flex: 1;
+  min-height: 180px;
+  background: #25291f;
+  overflow: hidden;
+}
+#panorama {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+}
+#panorama:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -6px;
+}
+#tour-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px;
+  text-align: center;
+  color: var(--paper);
+  background: #25291f;
+}
+#tour-loading[hidden] {
+  display: none;
+}
+.tour-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  flex-shrink: 0;
+}
+.tour-places,
+.tour-controls {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.tour-toolbar button {
+  min-height: 44px;
+  min-width: 44px;
+  background: transparent;
+  border: 1px solid #aeb2a2;
+  padding: 9px 14px;
+  font-size: 12px;
+}
+.tour-places button[aria-pressed="true"] {
+  background: var(--terra);
+  border-color: var(--terra);
+  color: white;
+}
+.tour-toolbar button:hover:not(:disabled) {
+  border-color: var(--terra);
+}
+.tour-toolbar button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+.tour-dialog > .tour-caption {
+  margin-top: 12px;
+  flex-shrink: 0;
+  color: var(--muted);
+}
+.tour-hotspot {
+  background: #f2f0e9f5;
+  color: #242521;
+  border: 1px solid #fff;
+  padding: 12px 17px;
+  min-height: 44px;
+  white-space: nowrap;
+  font:
+    500 13px "IBM Plex Sans",
+    sans-serif;
+  box-shadow: 0 3px 20px #0002;
+}
+.tour-hotspot::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--terra);
+  margin-right: 9px;
+}
+.tour-hotspot:hover {
+  background: var(--terra);
+  color: white;
+}
+.tour-hotspot:hover::before {
+  background: white;
+}
+.tour-hotspot:focus-visible {
+  outline: 3px solid var(--terra);
+  outline-offset: 4px;
+}
+.plan-dialog {
+  width: min(960px, calc(100vw - 40px));
+}
+.large-plan-scroll {
+  overflow: auto;
+  max-height: calc(100dvh - 215px);
+  border: 1px solid var(--line);
+  background: #e9e8e0;
+}
+.large-plan-scroll img {
+  display: block;
+  width: 100%;
+  min-width: 640px;
+  height: auto;
+}
+@media (max-width: 700px) {
+  .tour-cover > img {
+    aspect-ratio: 4/5;
+    object-position: 52% center;
+  }
+  .tour-cover-action {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    padding: 18px;
+    font-size: 18px;
+  }
+  .tour-dialog,
+  .plan-dialog {
+    width: 100%;
+    max-height: 100dvh;
+    padding: 14px;
+    border: 0;
+  }
+  .tour-dialog[open] {
+    height: 100dvh;
+  }
+  .tour-dialog-heading {
+    gap: 12px;
+    padding-bottom: 14px;
+  }
+  .tour-dialog-heading h2 {
+    font-size: 23px;
+  }
+  .tour-dialog-heading .text-link {
+    font-size: 12px;
+  }
+  .tour-toolbar {
+    gap: 10px;
+    padding-top: 12px;
+  }
+  .tour-places {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .tour-controls {
+    width: 100%;
+    justify-content: space-between;
+    gap: 4px;
+  }
+  .tour-controls button {
+    padding: 8px;
+    font-size: 11px;
+  }
+  .tour-dialog > .tour-caption {
+    font-size: 11px;
+  }
+  .plan-dialog .tour-caption {
+    font-size: 11px;
+  }
+  .plan-foot {
+    margin-top: 10px;
+  }
+  .drawing-panel {
+    padding: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-cover:hover > img {
+    transform: none;
+  }
+}
+@media (forced-colors: active) {
+  .plan-choices button[aria-pressed="true"],
+  .tour-places button[aria-pressed="true"] {
+    outline: 3px solid Highlight;
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+#panorama.pnlm-container {
+  background: #25291f;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+.arcos-hotspot-anchor {
+  width: 0;
+  height: 0;
+}
+.arcos-hotspot-anchor .tour-hotspot {
+  transform: translate(-50%, -50%);
+}
+#panorama .pnlm-about-msg {
+  display: none;
+}
+@media (max-height: 500px) {
+  .tour-dialog {
+    padding: 10px 16px;
+    max-height: 100dvh;
+    width: 100%;
+  }
+  .tour-dialog[open] {
+    height: 100dvh;
+  }
+  .tour-dialog-heading {
+    padding-bottom: 8px;
+  }
+  .tour-dialog-heading h2 {
+    font-size: 21px;
+  }
+  .tour-dialog-heading .eyebrow {
+    display: none;
+  }
+  .tour-stage {
+    min-height: 100px;
+  }
+  .tour-toolbar {
+    padding-top: 8px;
+    gap: 6px;
+  }
+  .tour-dialog > .tour-caption {
+    font-size: 10px;
+    margin-top: 6px;
   }
 }
