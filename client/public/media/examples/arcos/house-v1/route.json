@@ -1,0 +1,57 @@
+{
+  "status": "proposed geometry study, not measured architecture",
+  "scaleAssumption": 0.025,
+  "eyeHeight": 1.6,
+  "orientation": "x east; y north; z up in Blender",
+  "nodes": [
+    {
+      "id": "living",
+      "plan": [
+        185,
+        330
+      ],
+      "label": "Living, facing east"
+    },
+    {
+      "id": "threshold",
+      "plan": [
+        270,
+        330
+      ],
+      "label": "Same opening"
+    },
+    {
+      "id": "court",
+      "plan": [
+        315,
+        330
+      ],
+      "label": "Courtyard, still facing east"
+    },
+    {
+      "id": "court-north",
+      "plan": [
+        320,
+        295
+      ],
+      "label": "Around the tree"
+    },
+    {
+      "id": "dining-door",
+      "plan": [
+        400,
+        265
+      ],
+      "label": "Dining threshold"
+    },
+    {
+      "id": "dining",
+      "plan": [
+        400,
+        230
+      ],
+      "label": "Dining, table ahead"
+    }
+  ],
+  "routeCheck": "Passed sampled clearance against plan walls, furniture and tree planting zone; not a full navigation mesh test"
+}

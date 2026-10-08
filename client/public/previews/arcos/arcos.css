@@ -1653,3 +1653,91 @@ dialog::backdrop {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+/* Shared 3D house: unobtrusive ground destinations and compact navigation. */
+#panorama canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+#panorama:active canvas {
+  cursor: grabbing;
+}
+.tour-ground-target {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+}
+.tour-ground-target:hover,
+.tour-ground-target:focus-visible {
+  outline: 2px solid white;
+  background: #ffffff15;
+}
+.tour-ground-target[hidden] {
+  display: none;
+}
+.tour-map {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 164px;
+  box-shadow: 0 6px 24px #0002;
+  background: #f0eee5;
+  pointer-events: none;
+}
+.tour-map[hidden] {
+  display: none;
+}
+.tour-map img {
+  display: block;
+  width: 100%;
+}
+.tour-map svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+#tour-location {
+  font-size: 12px;
+  min-width: 110px;
+  display: grid;
+  place-items: center;
+}
+.tour-controls {
+  align-items: center;
+}
+.tour-controls [data-tour-action="back"],
+.tour-controls [data-tour-action="forward"] {
+  font-size: 25px;
+  line-height: 1;
+  padding: 4px 12px;
+}
+@media (max-width: 700px) {
+  .tour-places {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .tour-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 3px;
+  }
+  #tour-location {
+    min-width: 78px;
+    font-size: 10px;
+  }
+  .tour-controls button {
+    min-width: 40px;
+    min-height: 44px;
+  }
+  .tour-map {
+    width: 120px;
+  }
+}

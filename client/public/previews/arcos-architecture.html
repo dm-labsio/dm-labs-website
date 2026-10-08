@@ -101,14 +101,14 @@
         </div>
         <button class="tour-cover" id="open-tour" aria-haspopup="dialog">
           <img
-            src="/media/examples/arcos/interior-1536.webp"
-            width="1536"
-            height="1024"
+            src="/media/examples/arcos/house-v1/cover.webp"
+            width="1270"
+            height="777"
             loading="lazy"
-            alt="Enter the living space for an interactive panoramic tour"
+            alt="Enter the living space for an interactive 3D house tour"
           />
           <span class="tour-cover-action"
-            >Enter the house tour <span>Living space + courtyard</span></span
+            >Enter the house tour <span>Living · courtyard · dining</span></span
           >
         </button>
       </section>
@@ -495,74 +495,65 @@
           role="region"
           aria-label="House tour. Drag to look around. Left and right arrow keys turn; up and down move between viewpoints. Plus and minus zoom."
         ></div>
-        <img id="tour-transition" alt="" aria-hidden="true" hidden />
+        <div class="tour-map" id="tour-map" hidden>
+          <img
+            src="/previews/arcos/floor-plan.svg"
+            alt="House floor plan"
+            width="800"
+            height="680"
+          />
+          <svg viewBox="0 0 800 680" aria-label="Your position in the house">
+            <polyline
+              points="185,330 270,330 315,330 320,295 400,265 400,230"
+              fill="none"
+              stroke="#ae482d"
+              stroke-width="8"
+            />
+            <circle
+              id="tour-map-dot"
+              cx="185"
+              cy="330"
+              r="15"
+              fill="#ae482d"
+              stroke="white"
+              stroke-width="5"
+            />
+          </svg>
+        </div>
         <div id="tour-loading" role="status">
           <span>Opening the view…</span
           ><button id="retry-tour" class="button" hidden>Try again</button>
         </div>
       </div>
       <div class="tour-toolbar">
-        <div class="tour-places" role="group" aria-label="Choose a viewpoint">
-          <button data-tour-scene="living" aria-pressed="true">
-            Living space</button
-          ><button data-tour-scene="courtyard" aria-pressed="false">
+        <div class="tour-places" role="group" aria-label="Choose a destination">
+          <button data-tour-scene="living" aria-pressed="true">Living</button>
+          <button data-tour-scene="courtyard" aria-pressed="false">
             Courtyard
           </button>
+          <button data-tour-scene="dining" aria-pressed="false">Dining</button>
         </div>
-        <div class="tour-controls" role="group" aria-label="Adjust the view">
-          <div
-            class="tour-directions"
-            role="group"
-            aria-label="Move through the house"
+        <div
+          class="tour-controls"
+          role="group"
+          aria-label="Move through the house"
+        >
+          <button data-tour-action="back" aria-label="Walk back" disabled>
+            ‹
+          </button>
+          <span id="tour-location">Living space</span>
+          <button data-tour-action="forward" aria-label="Walk forward">
+            ›
+          </button>
+          <button
+            id="toggle-tour-map"
+            aria-expanded="false"
+            aria-controls="tour-map"
           >
-            <button
-              data-tour-action="left"
-              aria-label="Look left"
-              title="Look left"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 19V5M5 12l7-7 7 7" />
-              </svg>
-            </button>
-            <button
-              data-tour-action="forward"
-              aria-label="Move into the courtyard"
-              title="Move into the courtyard"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 19V5M5 12l7-7 7 7" />
-              </svg>
-            </button>
-            <button
-              data-tour-action="back"
-              aria-label="Return to the living space"
-              title="Return to the living space"
-              disabled
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 19V5M5 12l7-7 7 7" />
-              </svg>
-            </button>
-            <button
-              data-tour-action="right"
-              aria-label="Look right"
-              title="Look right"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 19V5M5 12l7-7 7 7" />
-              </svg>
-            </button>
-          </div>
-          <button data-tour-action="in" aria-label="Zoom in">+</button
-          ><button data-tour-action="out" aria-label="Zoom out">−</button
-          ><button
-            data-tour-action="reset"
-            aria-label="Reset view"
-            title="Reset view"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 8a8 8 0 1 1-1 8M5 3v5h5" />
-            </svg>
+            Map
+          </button>
+          <button data-tour-action="reset" aria-label="Reset viewing direction">
+            Reset view
           </button>
         </div>
       </div>

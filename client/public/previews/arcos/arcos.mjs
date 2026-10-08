@@ -485,13 +485,17 @@ async function startTour() {
   try {
     const { mountTour } = await import("./tour.mjs");
     if (session !== tourSession || !tourDialog.open) return;
-    const dispose = await mountTour(tourDialog);
+    const dispose = await mountTour(
+      tourDialog,
+      () => session === tourSession && tourDialog.open
+    );
     if (session !== tourSession || !tourDialog.open) dispose();
     else disposeTour = dispose;
   } catch {
     if (session !== tourSession || !tourDialog.open) return;
     $("#tour-loading span").textContent =
-      "The interactive view is unavailable on this device. You can still explore all the photographs on this page.";
+      "The 3D view could not open. Try again, or close the tour to explore the photographs.";
+    $("#retry-tour").hidden = false;
   }
 }
 $$("#open-tour,[data-open-tour]").forEach(button => {
@@ -513,4 +517,15 @@ tourDialog.addEventListener("close", () => {
   disposeTour = null;
   document.body.style.overflow = "";
   tourOpener.focus({ preventScroll: true });
+});
+
+$("#toggle-tour-map").addEventListener("click", () => {
+  const map = $("#tour-map");
+  map.hidden = !map.hidden;
+  $("#toggle-tour-map").setAttribute("aria-expanded", String(!map.hidden));
+});
+$("#retry-tour").addEventListener("click", () => {
+  disposeTour?.();
+  disposeTour = null;
+  startTour();
 });
