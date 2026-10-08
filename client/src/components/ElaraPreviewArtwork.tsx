@@ -6,7 +6,7 @@ export default function ElaraPreviewArtwork() {
       style={{ height: 280, background: "#ffffff", overflow: "hidden" }}
     >
       <img
-        src="/media/examples/elara/cover.webp"
+        src="/media/examples/elara/cover-interactive.webp"
         alt=""
         width={1200}
         height={900}

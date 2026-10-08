@@ -43,7 +43,7 @@ All four lead to existing demos and preserve the originating homepage language o
 
 ## Next working stage
 
-Nomad Coffee, Bella Atelier, PulseGym and Arcos Architecture have been reviewed positively and released. Dr. Elara Dental is now the active Preview-only example, revised around a pure-white clinical identity, a perspective hero, magnetic buttons, a touch gallery and an appointment-request demonstration. See [Dr. Elara considered care](elara-considered-care.md). Olio Deli remains next in the existing-example backlog. Incoming brands still depend on their approved identities.
+Nomad Coffee, Bella Atelier, PulseGym and Arcos Architecture have been reviewed positively and released. Dr. Elara Dental is now the active Preview-only example, revised around a pure-white clinical identity, a particle-scan hero, magnetic buttons, a layered tooth explorer, visit preferences and an appointment-request demonstration. See [Dr. Elara considered care](elara-considered-care.md). Olio Deli remains next in the existing-example backlog. Incoming brands still depend on their approved identities.
 
 Develop one brand/example at a time, starting with an available approved brand brief and the user's component references. Fish restaurant is a proposed first project, not a locked order. The new hospitality identities, real-estate identity and childcare identity should not be invented or confused with retired names merely to fill the roadmap.
 

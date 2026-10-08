@@ -2,7 +2,7 @@ import { chromium } from "playwright";
 import assert from "node:assert/strict";
 import { mkdir, writeFile } from "node:fs/promises";
 const base = process.env.ELARA_QA_URL || "http://127.0.0.1:5175";
-const out = "../output/website-refresh/elara-clinical";
+const out = "../output/website-refresh/elara-interactive";
 await mkdir(out, { recursive: true });
 const browser = await chromium.launch();
 const report = { base, cases: [], errors: [] };
@@ -22,7 +22,7 @@ try {
     await p.locator("html[data-elara-ready=true]").waitFor();
     await p.evaluate(() => document.fonts.ready);
     await p.waitForFunction(
-      () => document.querySelector("#hero-image").naturalWidth > 0
+      () => document.querySelector("#scan-art").dataset.ready === "true"
     );
     assert.ok(
       await p.evaluate(
@@ -43,12 +43,6 @@ try {
         .evaluate(e => getComputedStyle(e).backgroundColor),
       "rgb(255, 255, 255)"
     );
-    assert.equal(
-      await p
-        .locator("#hero-perspective")
-        .evaluate(e => getComputedStyle(e).transform),
-      "none"
-    );
     assert.ok(
       await p.evaluate(
         () =>
@@ -57,34 +51,48 @@ try {
       )
     );
     await p.screenshot({ path: `${out}/${width}-hero.png` });
-    await p.locator('[data-view="1"]').click();
-    await p.waitForFunction(
-      () =>
-        document.querySelector("#hero-image").complete &&
-        document.querySelector("#hero-image").naturalWidth > 0
+    assert.equal(await p.locator("#gallery-dialog").count(), 0);
+    await p.locator("#scan-range").fill("100");
+    assert.equal(await p.locator("#scan-mode").innerText(), "Digital");
+    await p.locator("#scan-range").press("Home");
+    assert.equal(await p.locator("#scan-range").inputValue(), "0");
+    await p.locator("#anatomy-range").fill("100");
+    assert.equal(
+      await p
+        .locator("#tooth-diagram")
+        .evaluate(e => e.style.getPropertyValue("--reveal")),
+      "100%"
     );
-    assert.match(await p.locator("#hero-image").getAttribute("src"), /detail/);
-    await p.locator("#open-gallery").click();
-    await p.locator("#gallery-next").click();
-    assert.equal(await p.locator("#gallery-title").innerText(), "The practice");
-    await p.locator("#close-gallery").press("ArrowLeft");
-    assert.equal(await p.locator("#gallery-title").innerText(), "The detail");
-    // The same pointer gesture handles mouse drags and touch swipes.
-    const rect = await p.locator("#gallery-swipe").boundingBox();
-    await p.mouse.move(rect.x + rect.width * 0.75, rect.y + rect.height * 0.5);
+    await p.locator("#layer-enamel").click();
+    await p.locator("#layer-enamel").press("End");
+    assert.equal(
+      await p.locator("#layer-pulp").getAttribute("aria-selected"),
+      "true"
+    );
+    assert.match(
+      await p.locator("#layer-description").innerText(),
+      /blood vessels/
+    );
+    const d = await p.locator("#tooth-diagram").boundingBox();
+    await p.mouse.move(d.x + d.width * 0.8, d.y + d.height * 0.5);
     await p.mouse.down();
-    await p.mouse.move(rect.x + rect.width * 0.2, rect.y + rect.height * 0.5, {
+    await p.mouse.move(d.x + d.width * 0.25, d.y + d.height * 0.5, {
       steps: 8,
     });
     await p.mouse.up();
-    assert.equal(await p.locator("#gallery-title").innerText(), "The practice");
-    await p.locator("#close-gallery").press("Escape");
-    await p.waitForFunction(() => document.body.style.overflow === "");
-    assert.ok(
-      await p
-        .locator("#open-gallery")
-        .evaluate(e => e === document.activeElement)
+    assert.ok(Number(await p.locator("#anatomy-range").inputValue()) < 30);
+    await p
+      .locator("#anatomy")
+      .screenshot({ path: `${out}/${width}-anatomy.png` });
+    await p.getByLabel("Talk me through it.", { exact: false }).check();
+    await p.getByLabel("Take it at my pace.", { exact: false }).check();
+    assert.match(
+      await p.locator("#visit-notes").innerText(),
+      /Talk me through each step.*Take it at my pace/
     );
+    await p
+      .locator("#practice")
+      .screenshot({ path: `${out}/${width}-visit.png` });
     await p.getByRole("tab", { name: /Your smile/ }).click();
     await p.getByRole("tab", { name: /Your smile/ }).press("ArrowDown");
     assert.equal(
@@ -96,6 +104,10 @@ try {
       await p.locator("#request-care").inputValue(),
       "Repair & restore"
     );
+    assert.match(
+      await p.locator("#request-preferences").innerText(),
+      /Take it at my pace/
+    );
     await p.getByRole("button", { name: "Send demo request" }).click();
     assert.ok(await p.locator("#request-fields").isVisible());
     await p.locator("#request-name").fill("Alex Example");
@@ -104,6 +116,10 @@ try {
     await p.getByRole("button", { name: "Send demo request" }).click();
     await p.locator("#request-result").waitFor();
     assert.match(await p.locator("#request-summary").innerText(), /Afternoon/);
+    assert.match(
+      await p.locator("#request-summary").innerText(),
+      /Take it at my pace/
+    );
     await p.screenshot({ path: `${out}/${width}-request.png` });
     await p.locator("#edit-request").click();
     assert.equal(
@@ -128,7 +144,9 @@ try {
       layout: "pass",
       whitePalette: "pass",
       fonts: "pass",
-      gallery: "pass",
+      particleScan: "pass",
+      anatomyDragAndKeyboard: "pass",
+      visitPreferencesInRequest: "pass",
       tabs: "pass",
       requestValidation: "pass",
       requestFlow: "pass",
@@ -142,15 +160,18 @@ try {
   await p.goto(base + "/previews/dr-elara-dental.html");
   await p.evaluate(() => document.fonts.ready);
   await p.waitForTimeout(1000);
+  await p.locator("#scan-art[data-ready=true]").waitFor();
+  await p.waitForTimeout(2600);
+  assert.equal(await p.locator("#scan-range").inputValue(), "0");
+  await p.locator("#scan-range").fill("100");
   const initial = await p
-    .locator("#hero-perspective")
-    .evaluate(e => getComputedStyle(e).transform);
-  await p.evaluate(() => scrollTo(0, 550));
-  await p.waitForTimeout(450);
+    .locator("#tooth-particles")
+    .evaluate(e => e.toDataURL());
+  const art = await p.locator("#scan-art").boundingBox();
+  await p.mouse.move(art.x + art.width * 0.55, art.y + art.height * 0.4);
+  await p.waitForTimeout(300);
   assert.notEqual(
-    await p
-      .locator("#hero-perspective")
-      .evaluate(e => getComputedStyle(e).transform),
+    await p.locator("#tooth-particles").evaluate(e => e.toDataURL()),
     initial
   );
   const button = p.locator(".header .button");
@@ -169,7 +190,7 @@ try {
     "matrix(1, 0, 0, 1, 0, 0)"
   );
   report.motion =
-    "scroll perspective changes; magnetic label moves with stable hitbox";
+    "arrival scan settles; particles respond to pointer; magnetic label moves with stable hitbox";
   await p.locator("#play-film").click();
   await p.waitForFunction(
     () => document.querySelector("#care-video").currentTime > 0,

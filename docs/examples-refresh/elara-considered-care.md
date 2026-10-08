@@ -1,6 +1,6 @@
-# Dr. Elara: clinical clarity
+# Dr. Elara: interactive clinical clarity
 
-8 October 2026. Preview-only revision following the user's review. Replaces the initial porcelain/editorial direction. The real Dr. George case study is unchanged.
+8 October 2026. Preview-only revision following the user's review. Replaces the photo-viewer hero with a generated tooth sculpture and an interactive particle scan. Adds two complete sections: tooth anatomy and personal visit preferences. The real Dr. George case study is unchanged.
 
 ## Identity
 
@@ -8,11 +8,13 @@ Pure white #ffffff, ink #14212c, electric blue #185ce5, ice #f1f6fb. Sora displa
 
 ## Component references
 
-- [Container Scroll Animation by Aceternity](https://ui.aceternity.com/components/container-scroll-animation), [21st registry](https://21st.dev/r/aceternity/container-scroll-animation): perspective/scale pattern adapted into original vanilla JS. Native scroll transforms the photo from tilted to flat and expands it. No pinned scroll, wheel interception or long scrub. Reduced motion gives the final static view.
+- [Logo Particles by Vaibhav Kumar Singh on 21st](https://21st.dev/@vaib215/components/logo-particles): the image-to-particles and pointer-displacement pattern becomes an original tooth scan. A native slider dissolves the sculpture into a sampled point cloud. One 2.4-second arrival demonstration settles back to the sculpture; user input cancels it. Reduced motion disables automatic movement. Canvas work stops when settled, offscreen or hidden. A static image remains if canvas is unavailable.
+- [Compare by Aceternity](https://ui.aceternity.com/components/compare), also represented in the [Aceternity collection on 21st](https://preview.21st.dev/@manuarora700/library/aceternity-ui): the drag-to-reveal pattern becomes an original SVG tooth cross-section. The diagram handle and native range both work; keyboard-accessible tissue tabs update the reveal and explanation. This is a simplified illustration, not a patient scan. Text checked against the [American Dental Association tooth guide](https://www.mouthhealthy.org/all-topics-a-z/tooth).
+- [Expanding Cards on 21st](https://mcp.21st.dev/@vaib215/components/expanding-cards): selection/expansion feedback adapted into original native checkbox cards. Descriptions stay readable before selection. The chosen visit preferences appear in the appointment form and its demo confirmation. No data leaves the page.
 - [Button Magnetic by UI Layouts on 21st](https://21st.dev/@uilayout.contact/components/button-magnetic), [source reference](https://cursify.vercel.app/components/magnetic-cursor): original lightweight adaptation moves the text within a fixed clickable area; hover/focus gets a sliding background. Touch and reduced-motion labels stay still.
-- Original full-screen image gallery: two image views, crossfade, pointer/touch swipe, buttons, keyboard arrows, Escape and focus restoration. No autoplay.
+- The rejected perspective image viewer, its controls and full-screen gallery have been removed. The approved white clinic photograph is now part of visit preparation.
 
-These are original implementations of the referenced patterns fitted to the existing static iframe. No third-party source copied verbatim; no added runtime dependencies.
+These are original implementations of the referenced interaction patterns fitted to the existing static iframe, not installed React components. No third-party source copied verbatim; no added runtime dependencies. The sculpture adds a single optimised transparent WebP. Existing white/silver/cobalt identity and Sora/Source Sans 3 pairing are retained.
 
 ## Request, not booking
 
@@ -24,7 +26,7 @@ Existing supplied root-canal MP4, on-demand native controls, offscreen pause and
 
 ## Generated assets
 
-Built-in image-generation tool. Final project assets: client/public/previews/elara/assets/clinical-800.webp, clinical-1600.webp, detail-800.webp, detail-1600.webp. The real page capture at client/public/media/examples/elara/cover.webp is shared by all three gallery locales and homepages. Earlier warm imagery is no longer referenced by this demo.
+Built-in image-generation tool. Final project assets: client/public/previews/elara/assets/clinical-800.webp, clinical-1600.webp, detail-800.webp, detail-1600.webp. The real page capture at client/public/media/examples/elara/cover-interactive.webp is shared by all three gallery locales and homepages. Earlier warm imagery is no longer referenced by this demo.
 
 Clinic prompt:
 
@@ -36,6 +38,12 @@ Detail prompt:
 
 ## QA
 
-scripts/qa-elara.mjs checks 320/390/768/1440 px, valid section links, no overflow, white background, fonts, keyboard tabs, request validation/edit/reset with no network submission, gallery drag/navigation/focus, changing hero perspective, stable magnetic hitbox and video playback/retry. Reports: ../output/website-refresh/elara-clinical/.
+scripts/qa-elara.mjs checks 320/390/768/1440 px, valid section links, no overflow, white background, fonts, keyboard tabs and ranges, anatomical drag, visit preferences carried into the request, request validation/edit/reset with no network submission, particle movement and arrival settling, stable magnetic hitbox and video playback/retry. Reports: ../output/website-refresh/elara-interactive/.
 
 scripts/qa-elara-gallery.mjs checks EN/EL/HE homepages and galleries → iframe → appointment request → exact original scroll position. TypeScript, targeted tests and the full build run before preview release.
+
+## New sculpture asset and prompt
+
+Built-in image-generation tool; optimised with alpha preserved to `client/public/previews/elara/assets/tooth-sculpture.webp` (960 × 960). The shared gallery cover is recaptured from the actual updated page at `client/public/media/examples/elara/cover-interactive.webp`.
+
+> Use case: stylized-concept. Asset type: transparent hero sculpture for a high-end white clinical dental website. Create one exceptionally refined three-dimensional molar tooth, front three-quarter view, upright with crown above and two gently separated tapered roots below. Natural believable molar crown with organic cusps and grooves, smooth porcelain-white enamel with faint cool blue subsurface tones. Elegant scientific product photography, not a cartoon or icon. Soft large studio lighting with beautifully controlled silver-blue edges, tactile smooth surface. Centered full object filling 80% of a square frame with generous clear margins around roots. Genuinely transparent background, no floor, no cast shadow, no environment, no circular platform, no rings, no sparkles, no text, no labels, no branding. No beige or yellow, no pink gums, no blood, no face, no metallic chrome. Crisp realistic polished tooth sculpture, elegant museum object.

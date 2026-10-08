@@ -361,11 +361,11 @@ const TEMPLATES = [
     styleLabel: "Clinical clarity",
     livePreview: true,
     previewUrl: "/previews/dr-elara-dental.html",
-    features: ["3D expanding photo hero", "Full-screen touch gallery", "Magnetic appointment buttons", "Appointment request demonstration", "Educational treatment film", "Distinct Sora & Source Sans typography", "Keyboard & reduced-motion support"],
+    features: ["Interactive particle-scan hero", "Layered tooth explorer", "Personalised visit preferences", "Magnetic appointment buttons", "Appointment request demonstration", "Educational treatment film", "Distinct Sora & Source Sans typography", "Keyboard & reduced-motion support"],
     pages: [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
-    style: "Pure white, cool silver and electric blue. A distinctive clinical identity with a 3D expanding hero, touch gallery and an appointment-request flow.",
+    style: "Pure white, cool silver and electric blue. A distinctive clinical identity with a particle-scan hero, an interactive tooth explorer and visit preferences carried into the appointment request.",
     waMessage: "Hello DM-Labs team! I'm interested in the Dr. Elara Dental website design.",
     price: "€350",
     images: { card: "" },
