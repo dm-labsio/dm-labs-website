@@ -192,6 +192,10 @@ try {
       )
     );
     await p.goto(base + path);
+    await p.waitForFunction(() => {
+      const title = [...document.querySelectorAll("h2,h3")].find(e => e.textContent === "Luxe Realty");
+      return title && Object.keys(title).some(key => key.startsWith("__reactProps"));
+    });
     await p.getByRole("heading", { name: "Luxe Realty", exact: true }).click();
     const y = await p.evaluate(() => history.state.dmGalleryPosition.y);
     await p.locator('a[href^="/preview/luxe-realty/"]').click();
