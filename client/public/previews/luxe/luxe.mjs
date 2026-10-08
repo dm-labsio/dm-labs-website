@@ -113,6 +113,7 @@ function updateSaved() {
       String(saved.has(activeHome.id))
     );
   }
+  renderPortfolio();
   try {
     localStorage.setItem("dm-luxe-saved-v1", JSON.stringify([...saved]));
   } catch {}
@@ -126,14 +127,15 @@ function toggleSaved(id) {
     `${byId(id).name} ${removed ? "removed from" : "added to"} your shortlist.`
   );
 }
+const filters = { setting: "all", beds: 0, budget: 3000000, sort: "selected" };
 function renderCollection() {
   let result = homes.filter(
     h =>
-      ($("#setting").value === "all" || h.setting === $("#setting").value) &&
-      h.beds >= Number($("#bedrooms").value) &&
-      (!Number($("#budget").value) || h.price <= Number($("#budget").value))
+      (filters.setting === "all" || h.setting === filters.setting) &&
+      h.beds >= filters.beds &&
+      (!filters.budget || h.price <= filters.budget)
   );
-  const sort = $("#sort").value;
+  const sort = filters.sort;
   if (sort !== "selected")
     result.sort((a, b) =>
       sort === "ascending" ? a.price - b.price : b.price - a.price
@@ -149,10 +151,69 @@ function renderCollection() {
   $("#empty").hidden = !!result.length;
   updateSaved();
 }
-$("#filters").addEventListener("submit", e => e.preventDefault());
-$("#filters").addEventListener("change", renderCollection);
-$("#filters").addEventListener("reset", () => setTimeout(renderCollection, 0));
-$("#clear-filters").addEventListener("click", () => $("#filters").reset());
+function syncFilters() {
+  $$("[data-setting]").forEach(b =>
+    b.setAttribute(
+      "aria-pressed",
+      String(b.dataset.setting === filters.setting)
+    )
+  );
+  $$("[data-beds]").forEach(b =>
+    b.setAttribute(
+      "aria-pressed",
+      String(Number(b.dataset.beds) === filters.beds)
+    )
+  );
+  $("#budget").value = filters.budget;
+  const label =
+    filters.budget === 3000000 ? "Any price" : `Up to ${money(filters.budget)}`;
+  $("#budget-label").textContent = label;
+  $("#budget").setAttribute("aria-valuetext", label);
+  $("#budget").style.setProperty(
+    "--fill",
+    `${((filters.budget - 750000) / 2250000) * 100}%`
+  );
+  const order = {
+    selected: "Our selection",
+    ascending: "Price: low to high",
+    descending: "Price: high to low",
+  }[filters.sort];
+  $("#sort").textContent = order;
+  $("#sort").setAttribute("aria-label", `Sort homes. Current order: ${order}`);
+  renderCollection();
+}
+$$("[data-setting]").forEach(b =>
+  b.addEventListener("click", () => {
+    filters.setting = b.dataset.setting;
+    syncFilters();
+  })
+);
+$$("[data-beds]").forEach(b =>
+  b.addEventListener("click", () => {
+    filters.beds = Number(b.dataset.beds);
+    syncFilters();
+  })
+);
+$("#budget").addEventListener("input", e => {
+  filters.budget = Number(e.target.value);
+  syncFilters();
+});
+$("#sort").addEventListener("click", () => {
+  const order = ["selected", "ascending", "descending"];
+  filters.sort = order[(order.indexOf(filters.sort) + 1) % order.length];
+  syncFilters();
+});
+function resetFilters() {
+  Object.assign(filters, {
+    setting: "all",
+    beds: 0,
+    budget: 3000000,
+    sort: "selected",
+  });
+  syncFilters();
+}
+$("#reset-filters").addEventListener("click", resetFilters);
+$("#clear-filters").addEventListener("click", resetFilters);
 // Managed anchors leave the parent showcase's Back history untouched.
 function goTo(id) {
   const el = document.getElementById(id);
@@ -286,17 +347,51 @@ function openProperty(id) {
 $("#photo-next").addEventListener("click", () => showPhoto(photoIndex + 1));
 $("#photo-prev").addEventListener("click", () => showPhoto(photoIndex - 1));
 $("#detail-save").addEventListener("click", () => toggleSaved(activeHome.id));
-$("#detail-enquire").addEventListener("click", () => {
-  const id = activeHome.id;
-  closeDialog($("#property-dialog"));
-  $("#enquiry-home").value = id;
-  requestAnimationFrame(() => {
-    $("#enquire").scrollIntoView({
-      behavior: reduced.matches ? "instant" : "smooth",
-      block: "start",
-    });
-    $("#enquiry-form [name=name]").focus({ preventScroll: true });
+$("#detail-portfolio").addEventListener("click", () => {
+  if (!saved.has(activeHome.id)) toggleSaved(activeHome.id);
+  renderSaved();
+  openDialog($("#saved-dialog"));
+});
+function renderPortfolio() {
+  const cards = $("#portfolio-fan");
+  // Keep the fan's buttons in place so saving never steals keyboard focus.
+  if (!cards.children.length)
+    cards.innerHTML = homes
+      .map(
+        (h, i) =>
+          `<button class="fan-card" data-property="${h.id}" style="--i:${i}" aria-label="Explore ${h.name}"><img src="${asset(h, 800, true)}" width="800" height="533" loading="lazy" alt="${h.captions[1]}"><span><small>${h.area}</small><strong>${h.name}</strong><em data-fan-state="${h.id}">Explore home</em></span></button>`
+      )
+      .join("");
+  $$("[data-fan-state]").forEach(e => {
+    const selected = saved.has(e.dataset.fanState);
+    e.textContent = selected ? "In your collection" : "Explore home";
+    e.closest("button").classList.toggle("is-saved", selected);
   });
+  $("#portfolio-status").textContent = saved.size
+    ? `${saved.size} ${saved.size === 1 ? "home" : "homes"} saved. Yours to compare and keep.`
+    : "Save a home to start your collection.";
+  $("#download-shortlist").disabled = !saved.size;
+}
+$("#download-shortlist").addEventListener("click", () => {
+  const selected = homes.filter(h => saved.has(h.id));
+  if (!selected.length) return;
+  const content = [
+    "LUXE / YOUR PERSONAL PROPERTY COLLECTION",
+    "Fictional homes and illustrative prices. A DM Labs design concept.",
+    ...selected.map(
+      h =>
+        `${h.name} | ${h.area}\n${money(h.price)} | ${h.beds} bedrooms | ${h.baths} bathrooms | ${h.size} m²\n${h.description}\n${h.highlights.join("; ")}`
+    ),
+  ].join("\n\n");
+  const url = URL.createObjectURL(
+    new Blob([content], { type: "text/plain;charset=utf-8" })
+  );
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "Luxe-my-property-collection.txt";
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  toast("Your property collection is ready to keep.");
 });
 function renderSaved() {
   const items = homes.filter(h => saved.has(h.id));
@@ -331,83 +426,104 @@ document.addEventListener("click", e => {
     if (!saved.size) $("#browse-homes").focus();
   }
 });
+// A six-frame photographic reel. Manual selection holds the frame, and motion
+// stops offscreen, in a dialog, on hover/focus, or for reduced-motion visitors.
+const frames = homes.flatMap(h =>
+  [false, true].map(inside => ({ home: h, inside }))
+);
 let heroRequest = 0,
-  currentHero = "horizon";
-async function changeHero(id) {
-  const h = byId(id);
-  if (!h) return;
+  currentFrame = 0,
+  heroVisible = true,
+  heroHeld = false,
+  heroBusy = false;
+$(".hero-reel").innerHTML = frames
+  .map(
+    ({ home: h, inside }, i) =>
+      `<button data-frame="${i}" aria-pressed="${i === 0}" aria-label="${h.name}, ${inside ? "interior" : "exterior"}"><img src="${asset(h, 800, inside)}" width="800" height="533" alt="" decoding="async"></button>`
+  )
+  .join("");
+async function changeFrame(index) {
+  const target = (index + frames.length) % frames.length;
+  const { home: h, inside } = frames[target];
   const request = ++heroRequest;
-  $("#shutters").replaceChildren();
+  heroBusy = true;
   $("#hero-error").hidden = true;
-  $("#hero-media").setAttribute("aria-busy", "true");
   try {
-    const src = asset(h, 1600);
+    const src = asset(h, innerWidth <= 600 ? 800 : 1600, inside);
     await loadImage(src);
     if (request !== heroRequest) return;
-    const media = $("#hero-media"),
-      stage = $("#shutters");
-    stage.replaceChildren();
-    if (!reduced.matches && currentHero !== id) {
-      const box = media.getBoundingClientRect();
-      const position = innerWidth <= 600 ? 0.62 : 0.5;
-      const img = await loadImage(src);
-      const scale = Math.max(
-        box.width / img.naturalWidth,
-        box.height / img.naturalHeight
-      );
-      const bgW = img.naturalWidth * scale,
-        bgH = img.naturalHeight * scale;
-      const animations = Array.from({ length: 4 }, (_, i) => {
-        const strip = document.createElement("div");
-        strip.className = "shutter";
-        strip.style.left = `${i * 25}%`;
-        strip.style.backgroundImage = `url("${src}")`;
-        strip.style.backgroundSize = `${bgW}px ${bgH}px`;
-        strip.style.backgroundPosition = `${(box.width - bgW) * position - (i * box.width) / 4}px ${(box.height - bgH) * 0.6}px`;
-        stage.append(strip);
-        return strip.animate(
-          [{ clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0 0 0 0)" }],
-          {
-            duration: 700,
-            delay: i * 70,
-            easing: "cubic-bezier(.2,.75,.2,1)",
-            fill: "both",
-          }
-        ).finished;
-      });
-      await Promise.all(animations);
+    const incoming = $("#hero-incoming");
+    incoming.getAnimations().forEach(a => a.cancel());
+    incoming.src = src;
+    if (!reduced.matches && currentFrame !== target) {
+      await incoming
+        .animate(
+          [
+            { opacity: 0, transform: "scale(1.035)" },
+            { opacity: 1, transform: "scale(1)" },
+          ],
+          { duration: 420, easing: "ease-out", fill: "forwards" }
+        )
+        .finished.catch(() => {});
       if (request !== heroRequest) return;
     }
     $("#hero-image").src = src;
-    $("#hero-image").alt = `${h.name}: ${h.captions[0]}`;
-    stage.replaceChildren();
-    currentHero = id;
+    $("#hero-image").alt = `${h.name}: ${h.captions[Number(inside)]}`;
+    incoming.getAnimations().forEach(a => a.cancel());
+    currentFrame = target;
     $("#hero-detail").textContent = h.name;
-    $("#hero-detail").dataset.property = id;
-    $("#hero-location").textContent = `${h.area} · ${h.settingName}`;
-    $$("[data-hero]").forEach(b =>
-      b.setAttribute("aria-pressed", String(b.dataset.hero === id))
+    $("#hero-detail").dataset.property = h.id;
+    $("#hero-location").textContent =
+      `${h.area} · ${inside ? "Inside" : "Outside"}`;
+    $$("[data-frame]").forEach(b =>
+      b.setAttribute("aria-pressed", String(Number(b.dataset.frame) === target))
     );
   } catch {
     if (request === heroRequest) $("#hero-error").hidden = false;
   } finally {
-    if (request === heroRequest)
-      $("#hero-media").setAttribute("aria-busy", "false");
+    if (request === heroRequest) heroBusy = false;
   }
 }
-$$("[data-hero]").forEach(b =>
-  b.addEventListener("click", () => changeHero(b.dataset.hero))
+$$("[data-frame]").forEach(b =>
+  b.addEventListener("click", () => {
+    heroHeld = true;
+    changeFrame(Number(b.dataset.frame));
+  })
 );
+$(".hero").addEventListener("pointerenter", e => {
+  if (e.pointerType === "mouse") heroHeld = true;
+});
+$(".hero").addEventListener("pointerleave", () => {
+  heroHeld = false;
+});
+new IntersectionObserver(
+  ([entry]) => {
+    heroVisible = entry.isIntersecting;
+  },
+  { threshold: 0.2 }
+).observe($(".hero"));
+setInterval(() => {
+  if (
+    !reduced.matches &&
+    !document.hidden &&
+    heroVisible &&
+    !heroHeld &&
+    !heroBusy &&
+    !$("dialog[open]") &&
+    !$(".hero").contains(document.activeElement)
+  )
+    changeFrame(currentFrame + 1);
+}, 1400);
 let touchStart = null;
-$("#hero-media").parentElement.addEventListener(
+$(".hero").addEventListener(
   "touchstart",
   e => {
-    if (e.target.closest("button,a")) return;
-    touchStart = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    if (!e.target.closest("button,a"))
+      touchStart = { x: e.touches[0].clientX, y: e.touches[0].clientY };
   },
   { passive: true }
 );
-$("#hero-media").parentElement.addEventListener(
+$(".hero").addEventListener(
   "touchend",
   e => {
     if (!touchStart) return;
@@ -415,8 +531,8 @@ $("#hero-media").parentElement.addEventListener(
       dy = e.changedTouches[0].clientY - touchStart.y;
     touchStart = null;
     if (Math.abs(dx) > 65 && Math.abs(dx) > Math.abs(dy) * 1.5) {
-      const i = homes.findIndex(h => h.id === currentHero);
-      changeHero(homes[(i + (dx < 0 ? 1 : 2)) % 3].id);
+      heroHeld = true;
+      changeFrame(currentFrame + (dx < 0 ? 1 : -1));
     }
   },
   { passive: true }
@@ -433,31 +549,6 @@ $$("[data-place]").forEach(b =>
     $("#place-open").dataset.property = h.id;
   })
 );
-$("#enquiry-form").addEventListener("submit", e => {
-  e.preventDefault();
-  const form = e.currentTarget;
-  if (!form.reportValidity()) return;
-  const data = new FormData(form);
-  const values = [
-    ["Home", byId(data.get("home"))?.name || "Help me find my place"],
-    ["Name", data.get("name")],
-    ["Email", data.get("email")],
-    ["Preference", data.get("visit")],
-    ["What matters to you", data.get("message") || "To discuss together"],
-  ];
-  $("#request-summary").replaceChildren(
-    ...values.map(([key, value]) => {
-      const div = document.createElement("div"),
-        dt = document.createElement("dt"),
-        dd = document.createElement("dd");
-      dt.textContent = key;
-      dd.textContent = value;
-      div.append(dt, dd);
-      return div;
-    })
-  );
-  openDialog($("#request-dialog"));
-});
 renderCollection();
 if (!reduced.matches) {
   $(".hero-copy").animate(

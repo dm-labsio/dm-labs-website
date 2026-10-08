@@ -7,7 +7,7 @@
     <title>LUXE Realty | Places to live · Design concept</title>
     <meta
       name="description"
-      content="A fictional real-estate showcase. Discover three distinctive Athens homes, compare your favourites and try a viewing enquiry."
+      content="A fictional real-estate showcase. Discover three distinctive Athens homes, compare your favourites and build a personal property portfolio."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,7 +48,13 @@
             alt="A white cantilevered coastal home with an aubergine-framed terrace and sea view"
             fetchpriority="high"
           />
-          <div id="shutters" aria-hidden="true"></div>
+          <img
+            id="hero-incoming"
+            width="1600"
+            height="1067"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
         <div class="hero-shade"></div>
         <div class="hero-topline">
@@ -58,7 +64,7 @@
         <div class="hero-copy">
           <p class="eyebrow">Extraordinary homes. Everyday life.</p>
           <h1 id="hero-title">A different<br />point of <span>view.</span></h1>
-          <a class="button citron" href="#collection">Find your place</a>
+          <a class="button light" href="#collection">Find your place</a>
         </div>
         <div class="hero-bottom">
           <div class="hero-property">
@@ -68,17 +74,10 @@
             </button>
           </div>
           <div
-            class="hero-choices"
+            class="hero-reel"
             role="group"
-            aria-label="Explore a different setting"
-          >
-            <button data-hero="horizon" aria-pressed="true">By the sea</button
-            ><button data-hero="atelier" aria-pressed="false">
-              In the city</button
-            ><button data-hero="pine" aria-pressed="false">
-              Among the trees
-            </button>
-          </div>
+            aria-label="Choose a photograph"
+          ></div>
         </div>
         <p id="hero-error" class="hero-error" role="status" hidden>
           That view couldn’t load. Select it again to retry.
@@ -100,35 +99,46 @@
             home that fits the way you live.
           </p>
         </div>
-        <form class="filters" id="filters">
-          <label
-            >Setting<select id="setting">
-              <option value="all">Every setting</option>
-              <option value="coast">Coast</option>
-              <option value="city">City</option>
-              <option value="green">Green</option>
-            </select></label
-          ><label
-            >Bedrooms<select id="bedrooms">
-              <option value="0">Any size</option>
-              <option value="3">3 or more</option>
-              <option value="4">4 or more</option>
-            </select></label
-          ><label
-            >Price up to<select id="budget">
-              <option value="0">Any price</option>
-              <option value="1000000">€1,000,000</option>
-              <option value="2000000">€2,000,000</option>
-              <option value="3000000">€3,000,000</option>
-            </select></label
-          ><label
-            >Sort by<select id="sort">
-              <option value="selected">Our selection</option>
-              <option value="ascending">Price: low to high</option>
-              <option value="descending">Price: high to low</option>
-            </select></label
-          ><button type="reset" class="text-button">Reset</button>
-        </form>
+        <div class="discovery" id="filters">
+          <fieldset class="setting-pills">
+            <legend>Your surroundings</legend>
+            <button data-setting="all" aria-pressed="true">Everywhere</button>
+            <button data-setting="coast" aria-pressed="false">Coastal</button>
+            <button data-setting="city" aria-pressed="false">Urban</button>
+            <button data-setting="green" aria-pressed="false">Garden</button>
+          </fieldset>
+          <div class="filter-details">
+            <fieldset class="bed-pills">
+              <legend>Space for you</legend>
+              <button data-beds="0" aria-pressed="true">Any size</button>
+              <button data-beds="3" aria-pressed="false">3+ beds</button>
+              <button data-beds="4" aria-pressed="false">4+ beds</button>
+            </fieldset>
+            <div class="price-filter">
+              <label for="budget"
+                >Your budget
+                <output id="budget-label" for="budget">Any price</output></label
+              >
+              <input
+                type="range"
+                id="budget"
+                min="750000"
+                max="3000000"
+                step="50000"
+                value="3000000"
+                aria-valuetext="Any price"
+              />
+            </div>
+            <button
+              id="sort"
+              class="sort-button"
+              aria-label="Sort homes. Current order: our selection"
+            >
+              Our selection
+            </button>
+            <button id="reset-filters" class="text-button">Reset</button>
+          </div>
+        </div>
         <div class="results-line">
           <p id="results-count" role="status">
             Three homes. Three different lives.
@@ -225,110 +235,39 @@
           </button>
         </div>
       </section>
-      <section class="approach section" aria-labelledby="approach-title">
-        <p class="eyebrow">THE LUXE POINT OF VIEW</p>
-        <div class="approach-grid">
-          <h2 id="approach-title">A home should<br />move <span>you.</span></h2>
-          <div>
-            <p class="approach-lead">Not just your belongings.</p>
-            <p>
-              A quiet corner for the first coffee. Enough table for everyone. A
-              view you never quite get used to. We start with what matters to
-              you, then look at the address.
-            </p>
-            <a class="button" href="#enquire">Tell us what home looks like</a>
-          </div>
-        </div>
-        <div class="values">
-          <p>
-            <strong>Look a little closer.</strong>Explore the spaces, materials
-            and details behind each home.
-          </p>
-          <p>
-            <strong>Keep what speaks to you.</strong>Save your favourites and
-            compare them side by side.
-          </p>
-          <p>
-            <strong>Start a conversation.</strong>A viewing enquiry is a
-            beginning, not a commitment.
-          </p>
-        </div>
-      </section>
       <section
-        class="enquire section"
-        id="enquire"
+        class="portfolio section"
+        id="portfolio"
         tabindex="-1"
-        aria-labelledby="enquire-title"
+        aria-labelledby="portfolio-title"
       >
-        <div>
-          <p class="eyebrow">YOUR NEXT CHAPTER</p>
-          <h2 id="enquire-title">
-            Let’s find<br />your <span>kind of home.</span>
-          </h2>
+        <div class="portfolio-copy">
+          <p class="eyebrow">YOUR PRIVATE COLLECTION</p>
+          <h2 id="portfolio-title">Some places<br />stay with you.</h2>
           <p>
-            Tell us which place caught your eye and what you would like to
-            explore.
+            Keep the ones you can picture yourself in. Bring them together. Take
+            a closer look.
           </p>
-          <p class="demo-note">
-            This is a fictional showcase. The form demonstrates a viewing
-            request; nothing is sent or booked.
+          <div class="portfolio-actions">
+            <button class="button light" data-open-saved>
+              Compare your favourites</button
+            ><button class="text-button" id="download-shortlist" disabled>
+              Download shortlist
+            </button>
+          </div>
+          <p id="portfolio-status" role="status">
+            Save a home to start your collection.
           </p>
         </div>
-        <form id="enquiry-form">
-          <label
-            >Home<select name="home" id="enquiry-home">
-              <option value="general">Help me find my place</option>
-              <option value="horizon">The Horizon House</option>
-              <option value="atelier">The City Atelier</option>
-              <option value="pine">The Pine Residence</option>
-            </select></label
-          >
-          <div class="form-pair">
-            <label
-              >Your name<input
-                name="name"
-                required
-                maxlength="80"
-                autocomplete="name"
-                placeholder="Your name" /></label
-            ><label
-              >Email<input
-                name="email"
-                type="email"
-                required
-                maxlength="150"
-                autocomplete="email"
-                placeholder="you@example.com"
-            /></label>
-          </div>
-          <fieldset>
-            <legend>How would you like to explore?</legend>
-            <label class="radio"
-              ><input
-                type="radio"
-                name="visit"
-                value="In-person viewing"
-                checked
-              />In person</label
-            ><label class="radio"
-              ><input
-                type="radio"
-                name="visit"
-                value="Video conversation"
-              />Video conversation</label
-            >
-          </fieldset>
-          <label
-            >What matters to you?<textarea
-              name="message"
-              rows="3"
-              maxlength="600"
-              placeholder="A big kitchen, a quiet street, a little outdoor space…"
-            ></textarea></label
-          ><button class="button citron" type="submit">
-            Preview my viewing request
-          </button>
-        </form>
+        <div class="portfolio-stage">
+          <div
+            class="portfolio-fan"
+            id="portfolio-fan"
+            role="group"
+            aria-label="Property portfolio"
+          ></div>
+          <p class="fan-caption">A collection worth keeping.</p>
+        </div>
       </section>
     </main>
     <footer>
@@ -364,8 +303,8 @@
           <p id="detail-description"></p>
           <ul id="detail-highlights"></ul>
           <div class="detail-actions">
-            <button class="button" id="detail-enquire">
-              Ask about this home</button
+            <button class="button" id="detail-portfolio">
+              Add to my collection</button
             ><button class="text-button" id="detail-save">Save home</button>
           </div>
           <p class="sample-note">
@@ -400,22 +339,6 @@
         <p class="sample-note">
           Saved on this browser when storage is available. No account needed.
         </p>
-      </div>
-    </dialog>
-    <dialog id="request-dialog" aria-labelledby="request-title">
-      <div class="dialog-top">
-        <span>LUXE / DEMO REQUEST</span
-        ><button data-close class="close">Close</button>
-      </div>
-      <div class="request-content">
-        <p class="eyebrow">A PREVIEW OF YOUR ENQUIRY</p>
-        <h2 id="request-title">Your next chapter<br />starts with hello.</h2>
-        <dl id="request-summary"></dl>
-        <p>
-          This is a demonstration. No request has been sent, no viewing has been
-          booked and your contact details have not been saved.
-        </p>
-        <button class="button" data-close>Edit my request</button>
       </div>
     </dialog>
   </body>

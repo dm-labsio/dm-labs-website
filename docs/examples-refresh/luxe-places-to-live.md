@@ -4,28 +4,33 @@
 
 ## Identity
 
-Bricolage Grotesque 400–700 with Manrope 400–700. Wide, slightly irregular display typography; compact practical labels. Aubergine #302337, chalk #f6f5f2, citron #dbee91, lilac #e8e4ed and slate #6a626e. Wordmark with an original outlined two-pane window device; sharp edges. Photography has soft neutral light and coherent furnishings, without dramatic sun rays. This supersedes the old black/gold Cormorant/Jost concept.
+Bricolage Grotesque 400–700 with Manrope 400–700. Graphite #202529, white #f7f8f8, silver #dce2e5, mist #e9edf0 and slate #657077. Rounded pill controls, a small arched-window wordmark device and clear photographic surfaces. The previous aubergine/citron palette, square buttons and underline hover treatments have been removed. All six approved photographs are preserved.
 
 ## Composition and interactions
 
-A full-screen hero changes between three settings with a four-panel shutter reveal. Explicit buttons work with keyboard and touch; horizontal swipes also change the view. No automatic carousel or scroll hijacking. The image and associated listing update together after loading. The collection filters setting, bedrooms and asking price, sorts prices, handles empty results and supports reset. Saved homes can be compared side by side, persisted as validated IDs only in a versioned localStorage key; blocked storage retains in-memory functionality. Property dialogs contain exterior/interior photography and viewing CTAs. Enquiry fields and summary remain in memory; no network submission or personal-data storage. All dialogs support Escape, focus containment and return. Reduced motion bypasses animated transitions.
+The full-screen hero is now a six-frame photographic reel: exterior and interior views of each home. Frames advance every 1.4 seconds with a 420ms dissolve, leaving roughly one second to see each image. Image loading completes before committing a transition. Thumbnail selection and horizontal swipes hold a frame for closer inspection. Automatic motion stops on hover, focus, an open dialog, offscreen, hidden tabs or reduced-motion preference. Manual controls remain available with reduced motion.
+
+The collection uses rounded setting choices, bedroom chips, a continuously adjustable budget slider and a compact cycling sort control. Empty results and reset remain functional. The expanding interior gallery is retained and restyled. The repetitive approach text and the entire enquiry form have been removed. A personal property portfolio takes their place: three photographic cards fan out on hover or keyboard focus and open the matching property. Saved homes can be compared and downloaded as a plain-text collection containing their actual illustrative details. No personal data or requests are collected or submitted.
+
+Saved homes persist as validated IDs only in the versioned localStorage key; blocked storage retains in-memory functionality. Native dialogs support Escape, focus containment and return, plus exterior/interior photograph switching and retry after image failure. Page anchors remain managed so returning from the dummy preserves the source gallery's scroll position.
 
 ## Component research and adaptation
 
-- [Accordion 03 by Ali Imam on 21st](https://21st.dev/@designali-in/components/accordion-03), and [UI Layouts image accordion](https://www.ui-layouts.com/components/image-accordions): image-led expanding content reinterpreted as three lifestyle panels. Explicit selection, responsive vertical panels on mobile, and a visible associated property action.
-- [Expandable Cards by Aceternity](https://ui.aceternity.com/components/expandable-card), discovered through the [21st card reference](https://docs.21st.dev/blog/react-card-components): property cards expand into a native accessible dialog with gallery, property facts and enquiry action. No copied library source; this is an original implementation of the pattern.
-- [Infinite Drag + Scroll by Rylen Lobo on 21st](https://21st.dev/@rylenlobo/components/infinite-drag-scroll) evaluated but not used: infinite motion was less useful for a small finite property catalogue. Explicit browsing controls keep all homes discoverable.
-- Hero shutter transition, saved-home comparison and window wordmark are original components rather than imported 21st code.
+- [Image Stream Hero by Ruixen on 21st](https://21st.dev/@ruixen.ui/components/image-stream-hero): evaluated its continually moving photographic presentation. Adapted the image-led motion principle into a legible full-bleed reel, rather than importing the original perspective corridor.
+- [Image Fan Carousel by Ayushmaan Singh on 21st](https://21st.dev/@ayushmxxn/components/image-fan-carousel): informed the new fanned property portfolio, with original CSS, keyboard focus, explicit property buttons and saved states.
+- [Accordion 03 by Ali Imam on 21st](https://21st.dev/@designali-in/components/accordion-03), and [UI Layouts image accordion](https://www.ui-layouts.com/components/image-accordions): expanding lifestyle panels, vertical on mobile, retained from the first version.
+- [Expandable Cards by Aceternity](https://ui.aceternity.com/components/expandable-card): informed the property card to native detail-dialog pattern.
+- These are original lightweight adaptations, not copied component source or newly installed libraries.
 
 ## Assets
 
-Six original illustrations generated using the built-in image-generation tool. Exterior references guide each corresponding interior. These are illustrative paired views, not surveyed architecture or measured floor plans. Each is exported to 800px and 1600px WebP variants in `client/public/previews/luxe/assets/`: `coast`, `city`, `pine`, `coast-inside`, `city-inside`, `pine-inside`. Gallery cover: `client/public/media/examples/luxe/cover-v1.webp`, captured from the actual page. The source PNGs remain in the tool output directory. Final exact prompt set follows below.
+Six original illustrations generated using the built-in image-generation tool. Exterior references guide each corresponding interior. These are illustrative paired views, not surveyed architecture or measured floor plans. Each is exported to 800px and 1600px WebP variants in `client/public/previews/luxe/assets/`: `coast`, `city`, `pine`, `coast-inside`, `city-inside`, `pine-inside`. Gallery cover: `client/public/media/examples/luxe/cover-v2.webp`, captured from the actual page. The source PNGs remain in the tool output directory. Final exact prompt set follows below.
 
 ## Integration and verification
 
 Restored `luxe-realty` to the preview wrapper, server allowlist, prerender list and all three EN/EL/HE example galleries, with localized gallery copy and one shared current cover. The dummy itself is English. Other approved example designs are preserved. Olio remains paused, with possible removal recorded separately. Production requires a separate release decision.
 
-QA script: `scripts/qa-luxe.mjs`; reports and screenshots: `../output/website-refresh/luxe/`. Exercises 320/390/768/1440 widths; filters, sorting and empty states; saved-home persistence and blocked storage; detail photography and retry; rapid hero changes; enquiry validation and no submission; keyboard Escape; and the EN/EL/HE gallery → demo → original scroll position flow. Physical phones and Safari are not claimed as tested.
+QA script: `scripts/qa-luxe.mjs`; reports and screenshots: `../output/website-refresh/luxe/`. Exercises 320/390/768/1440 widths; filters, sorting and empty states; saved-home persistence and blocked storage; detail photography and retry; automatic and manual hero changes; portfolio download contents and no submission; keyboard Escape; and the EN/EL/HE gallery → demo → original scroll position flow. Physical phones and Safari are not claimed as tested.
 
 ## Coast
 
@@ -52,6 +57,12 @@ Use case: photorealistic-natural. A second photographic view of the EXACT SAME A
 Use case: photorealistic-natural. Create a second architectural photograph inside the EXACT SAME fictional pine-garden house shown in the reference. Camera stands in its ground-floor living room looking towards the large square garden glazing. Preserve the muted olive-green modular sofa, warm oak shelving, low rounded coffee table visible through the reference window, soft off-white brick and white plaster walls, dark olive metal window frames. Beyond the glass show the same pale gravel garden and mature Mediterranean pines, with the burgundy outdoor dining chairs and simple pergola glimpsed to one side. Comfortable contemporary family interior with one textured rug, a couple of books and ceramics, tactile upholstery and natural timber, no sterile emptiness. Overcast cool morning soft daylight, no sun rays, no dramatic shadows, no amber lighting. Fine architectural magazine photography, straight verticals, 28mm lens. Horizontal 3:2 full bleed. No people, no text, no logos, no arches, no water or pool, no impossible reflections. Cohesive companion photograph, not a different house.
 
 
-## Verification result
+## Verification result for the first version
 
 TypeScript passed; 13 targeted preview/navigation/gallery regression tests passed. Full build: 97 canonical routes, seven demo wrappers, zero rendering errors and zero SEO audit issues. The browser journey described above passed at all four widths, with no uncaught page errors. React review: the shared cover component is static, correctly sized, lazy-loaded and has decorative alt text; localized gallery data adds no hooks or global listeners.
+
+## Revision verification, 9 October 2026
+
+Browser checks passed at 320, 390, 768 and 1440px: no horizontal overflow; all six-frame manual controls; setting, bedroom and budget filtering; sorting and empty states; property galleries; shortlist comparison and persistence; portfolio download contents; Escape and restored body scrolling. Automatic movement, held manual selection, failed-image recovery and blocked storage passed. EN/EL/HE gallery entry and return preserve the original scroll position. No uncaught page errors or form POSTs. TypeScript and the 13 targeted navigation/gallery regression tests passed. Physical devices and Safari remain outside this verification.
+
+Native Chromium touch simulation inside the parent preview also passed: horizontal hero swipe, mobile filtering, property details and adding a home to comparison.

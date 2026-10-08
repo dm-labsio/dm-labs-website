@@ -3,13 +3,13 @@ export default function LuxePreviewArtwork() {
   return (
     <div
       aria-hidden="true"
-      style={{ height: 280, background: "#302337", overflow: "hidden" }}
+      style={{ height: 280, background: "#202529", overflow: "hidden" }}
     >
       <img
-        src="/media/examples/luxe/cover-v1.webp"
+        src="/media/examples/luxe/cover-v2.webp"
         alt=""
         width={1200}
-        height={900}
+        height={833}
         loading="lazy"
         decoding="async"
         style={{

@@ -290,11 +290,11 @@ const INDUSTRIES = [
 const TEMPLATES = [
   {
     id: "luxe-realty", industry: "realestate", name: "Luxe Realty",
-    tagline: "A different point of view", tier: "Pro", tierGradient: "linear-gradient(135deg, #302337, #62526e)", domain: "luxe.example",
-    palette: ["#302337", "#f6f5f2", "#dbee91", "#e8e4ed", "#6a626e"], paletteNames: ["Aubergine", "Chalk", "Citron", "Lilac", "Slate"],
-    features: ["Photographic shutter hero with three homes", "Property filters and price sorting", "Saved-home shortlist and comparison", "Exterior and interior photo galleries", "Viewing enquiry demonstration"],
-    pages: [{ label: "Live Preview", preview: "live", description: "Explore the homes, save favourites and try a viewing enquiry." }],
-    style: "Aubergine, chalk and citron with expressive Bricolage Grotesque typography. A fictional property collection with interactive discovery, comparison and viewing enquiries.", waMessage: "Hello DM-Labs team! I am interested in the Luxe Realty website design.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
+    tagline: "A different point of view", tier: "Pro", tierGradient: "linear-gradient(135deg, #202529, #657077)", domain: "luxe.example",
+    palette: ["#202529", "#f7f8f8", "#dce2e5", "#e9edf0", "#657077"], paletteNames: ["Graphite", "White", "Silver", "Mist", "Slate"],
+    features: ["Fast photographic hero reel", "Rounded filters and a live budget slider", "Saved-home shortlist and comparison", "Expanding interior gallery", "Interactive property portfolio and download"],
+    pages: [{ label: "Live Preview", preview: "live", description: "Explore the homes, compare favourites and keep your own property collection." }],
+    style: "Graphite, white and silver with Bricolage Grotesque typography. A photographic property showcase with a fast hero reel, expanding galleries and a personal property portfolio.", waMessage: "Hello DM-Labs team! I am interested in the Luxe Realty website design.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
   },
 
   // ── Live Preview templates ──

@@ -1,6 +1,6 @@
 import { chromium } from "playwright";
 import assert from "node:assert/strict";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, writeFile, readFile } from "node:fs/promises";
 const base = process.env.LUXE_QA_URL || "http://127.0.0.1:5175";
 const out = "../output/website-refresh/luxe";
 await mkdir(out, { recursive: true });
@@ -34,32 +34,32 @@ try {
       )
     );
     await p.screenshot({ path: `${out}/${width}-hero.png` });
-    for (const id of ["atelier", "pine", "horizon"]) {
-      await p.locator(`[data-hero=${id}]`).click();
-      await p.locator(`#hero-detail[data-property=${id}]`).waitFor();
-      assert.equal(
-        await p.locator(`[data-hero=${id}]`).getAttribute("aria-pressed"),
-        "true"
+    for (const index of [2, 4, 0]) {
+      await p.locator(`[data-frame="${index}"]`).click();
+      await p.waitForFunction(
+        i =>
+          document
+            .querySelector(`[data-frame="${i}"]`)
+            .getAttribute("aria-pressed") === "true",
+        index
       );
     }
-    await p.locator("#setting").selectOption("city");
+    await p.locator('[data-setting="city"]').click();
     assert.equal(await p.locator(".property-card").count(), 1);
     assert.match(await p.locator(".property-name").innerText(), /Atelier/);
-    await p.locator("#bedrooms").selectOption("4");
+    await p.locator('[data-beds="4"]').click();
     await p.locator("#empty").waitFor();
     await p.locator("#clear-filters").click();
-    await p.waitForFunction(
-      () => document.querySelectorAll(".property-card").length === 3
-    );
-    await p.locator("#budget").selectOption("2000000");
+    assert.equal(await p.locator(".property-card").count(), 3);
+    await p.locator("#budget").fill("2000000");
     assert.equal(await p.locator(".property-card").count(), 2);
-    await p.locator("#budget").selectOption("0");
-    await p.locator("#sort").selectOption("ascending");
+    await p.locator("#budget").fill("3000000");
+    await p.locator("#sort").click();
     assert.match(
       await p.locator(".property-name").first().innerText(),
       /Atelier/
     );
-    await p.locator("#sort").selectOption("descending");
+    await p.locator("#sort").click();
     assert.match(
       await p.locator(".property-name").first().innerText(),
       /Horizon/
@@ -86,30 +86,25 @@ try {
     await p.waitForFunction(
       () => document.querySelector("#photo-count").textContent === "1 / 2"
     );
-    await p.locator("#detail-enquire").click();
-    await p.locator("#property-dialog").waitFor({ state: "hidden" });
-    assert.equal(await p.locator("#enquiry-home").inputValue(), "atelier");
-    await p.locator("#enquiry-form button[type=submit]").click();
-    assert.equal(await p.locator("#request-dialog[open]").count(), 0);
-    await p.locator("[name=name]").fill("Alex Example");
-    await p.locator("[name=email]").fill("alex@example.com");
-    await p
-      .locator("[name=message]")
-      .fill("A quiet terrace <script>test</script>");
-    await p.getByLabel("Video conversation", { exact: true }).check();
-    await p.locator("#enquiry-form button[type=submit]").click();
-    await p.locator("#request-dialog[open]").waitFor();
-    assert.match(
-      await p.locator("#request-summary").innerText(),
-      /The City Atelier/
-    );
-    assert.match(
-      await p.locator("#request-summary").innerText(),
-      /Video conversation/
-    );
-    assert.equal(await p.locator("#request-summary script").count(), 0);
+    await p.locator("#detail-portfolio").click();
+    await p.locator("#saved-dialog[open]").waitFor();
+    assert.equal(await p.locator("#saved-grid article").count(), 2);
     await p.keyboard.press("Escape");
-    await p.locator("#request-dialog").waitFor({ state: "hidden" });
+    await p.waitForFunction(() => document.body.style.overflow === "");
+    assert.equal(await p.locator("form").count(), 0);
+    const download = p.waitForEvent("download");
+    await p.locator("#download-shortlist").click();
+    const file = await download;
+    assert.equal(file.suggestedFilename(), "Luxe-my-property-collection.txt");
+    const contents = await readFile(await file.path(), "utf8");
+    assert.match(contents, /The Horizon House/);
+    assert.match(contents, /The City Atelier/);
+    assert.doesNotMatch(contents, /The Pine Residence/);
+    await p.locator('.fan-card[data-property="pine"]').focus();
+    await p.keyboard.press("Enter");
+    await p.locator("#property-dialog[open]").waitFor();
+    assert.match(await p.locator("#property-title").innerText(), /Pine/);
+    await p.keyboard.press("Escape");
     await p.waitForFunction(() => document.body.style.overflow === "");
     assert.deepEqual(posts, []);
     for (const id of ["atelier", "pine"]) {
@@ -127,7 +122,7 @@ try {
     await p.reload();
     await p.locator("html[data-luxe-ready=true]").waitFor();
     assert.equal(await p.locator("[data-saved-count]").innerText(), "2");
-    assert.equal(await p.locator("[name=email]").inputValue(), "");
+    assert.equal(await p.locator("form").count(), 0);
     report.cases.push({
       width,
       overflow: "pass",
@@ -135,7 +130,7 @@ try {
       filters: "pass",
       shortlist: "pass",
       gallery: "pass",
-      request: "pass",
+      portfolioAndDownload: "pass",
       noSubmission: "pass",
       savedPersistence: "pass",
     });
@@ -145,16 +140,30 @@ try {
   p.on("pageerror", e => report.errors.push(e.message));
   await p.goto(base + "/previews/luxe-realty.html");
   await p.locator("html[data-luxe-ready=true]").waitFor();
-  await p.locator("[data-hero=atelier]").click();
-  await p.locator(".shutter").first().waitFor();
-  await p.locator("[data-hero=pine]").click();
-  await p.locator("#hero-detail[data-property=pine]").waitFor();
-  assert.equal(await p.locator(".shutter").count(), 0);
-  await p.locator(".property-photo[data-property=horizon]").click();
-  await p.route("**/coast-inside-1600.webp", r => r.abort());
+  await p.mouse.move(0, 0);
+  await p.waitForFunction(
+    () =>
+      document
+        .querySelector('[data-frame="1"]')
+        .getAttribute("aria-pressed") === "true"
+  );
+  await p.locator('[data-frame="4"]').click();
+  await p.waitForFunction(
+    () =>
+      document
+        .querySelector('[data-frame="4"]')
+        .getAttribute("aria-pressed") === "true"
+  );
+  await p.waitForTimeout(1700);
+  assert.equal(
+    await p.locator('[data-frame="4"]').getAttribute("aria-pressed"),
+    "true"
+  );
+  await p.locator(".property-photo[data-property=atelier]").click();
+  await p.route("**/city-inside-1600.webp", r => r.abort());
   await p.locator("#photo-next").click();
   await p.locator("#gallery-error").waitFor();
-  await p.unroute("**/coast-inside-1600.webp");
+  await p.unroute("**/city-inside-1600.webp");
   await p.locator("#photo-prev").click();
   await p.locator("#photo-next").click();
   await p.waitForFunction(
@@ -163,7 +172,7 @@ try {
   await p.keyboard.press("Escape");
   assert.equal(await p.locator("#property-dialog[open]").count(), 0);
   report.motionAndFailure =
-    "Shutter transition, rapid selection, failed image recovery and Escape close passed";
+    "Automatic reel, held manual selection, failed image recovery and Escape close passed";
   await p.close();
   const blocked = await b.newPage();
   await blocked.addInitScript(() =>
@@ -193,8 +202,12 @@ try {
     );
     await p.goto(base + path);
     await p.waitForFunction(() => {
-      const title = [...document.querySelectorAll("h2,h3")].find(e => e.textContent === "Luxe Realty");
-      return title && Object.keys(title).some(key => key.startsWith("__reactProps"));
+      const title = [...document.querySelectorAll("h2,h3")].find(
+        e => e.textContent === "Luxe Realty"
+      );
+      return (
+        title && Object.keys(title).some(key => key.startsWith("__reactProps"))
+      );
     });
     await p.getByRole("heading", { name: "Luxe Realty", exact: true }).click();
     const y = await p.evaluate(() => history.state.dmGalleryPosition.y);
