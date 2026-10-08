@@ -43,7 +43,7 @@ All four lead to existing demos and preserve the originating homepage language o
 
 ## Next working stage
 
-Nomad Coffee, Bella Atelier, PulseGym and Arcos Architecture have been reviewed positively and released. Dr. Elara Dental is now the active Preview-only example, rebuilt around considered care, a treatment explorer, personal comfort preferences and a sample visit planner. See [Dr. Elara considered care](elara-considered-care.md). Olio Deli remains next in the existing-example backlog. Incoming brands still depend on their approved identities.
+Nomad Coffee, Bella Atelier, PulseGym and Arcos Architecture have been reviewed positively and released. Dr. Elara Dental is now the active Preview-only example, revised around a pure-white clinical identity, a perspective hero, magnetic buttons, a touch gallery and an appointment-request demonstration. See [Dr. Elara considered care](elara-considered-care.md). Olio Deli remains next in the existing-example backlog. Incoming brands still depend on their approved identities.
 
 Develop one brand/example at a time, starting with an available approved brand brief and the user's component references. Fish restaurant is a proposed first project, not a locked order. The new hospitality identities, real-estate identity and childcare identity should not be invented or confused with retired names merely to fill the roadmap.
 
@@ -55,3 +55,9 @@ The initial audit's requirements still apply: coherent branded imagery, specific
 - All three galleries have the same six entries. All three homepages retain four valid example destinations with localized return paths.
 - Browser check: the desktop homepage remains a balanced 2 × 2 grid; Arcos opens and closes back to the homepage. Hebrew at 390px has all four localized destinations and no document overflow.
 - Full suite: 292 passed; the same eight pre-existing failures recorded in the first audit remain. No new test failures.
+
+## Standalone showcase rule (8 October 2026)
+
+Each dummy website must demonstrate a distinct brand, typography, page composition and signature interaction. Do not recolour or reuse the previous example's structure. Check existing display/body font choices before selecting the next pairing; user explicitly wants different fonts across examples. Match purposeful 21st.dev components to the business, and record the exact references and implementation.
+
+Current font inventory: Nomad uses locally named Nomad Condensed (Barlow Condensed) with Arial; Bella uses Melodrama/Switzer; PulseGym uses Barlow Condensed/Barlow; Arcos uses Syne/IBM Plex Sans; Elara now uses Sora/Source Sans 3; unrefreshed Olio uses Playfair Display/Lato. Elara's former Hanken Grotesk/Newsreader pairing is retired. Preserve existing approved demos in this task; apply the distinctiveness rule to subsequent work.

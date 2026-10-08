@@ -4,16 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <meta name="theme-color" content="#f6f5f0" />
-    <title>Dr. Elara | A little more at ease. A DM-Labs concept.</title>
+    <meta name="theme-color" content="#ffffff" />
+    <title>Dr. Elara | Dentistry in clear focus. A DM-Labs concept.</title>
     <meta
       name="description"
-      content="A considered dental practice concept: explore care, get to know your visit and try a personalised appointment experience."
+      content="A contemporary dental practice concept. Explore the practice, understand your care and request an appointment."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/previews/elara/elara.css" />
@@ -26,48 +26,65 @@
         >elara<span>DENTAL PRACTICE</span></a
       >
       <nav aria-label="Main navigation">
-        <a href="#care">Our care</a><a href="#visit">Your visit</a
+        <a href="#care">Our care</a><a href="#practice">The practice</a
         ><a href="#understand">A closer look</a>
       </nav>
-      <button class="button compact" data-book>
-        Plan a visit<span class="button-dot" aria-hidden="true"></span>
+      <button class="button compact" data-request>
+        Request an appointment<span
+          class="button-dot"
+          aria-hidden="true"
+        ></span>
       </button>
     </header>
     <main id="main" tabindex="-1">
-      <!-- HERO -->
+      <!-- HERO: perspective expansion adapted from the 21st / Aceternity pattern. -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-kicker">
-          <span>DR. ELARA DENTAL</span
-          ><span>A PRACTICE CONCEPT · LIMASSOL</span>
+          <span>DR. ELARA / DENTAL PRACTICE</span
+          ><span>LIMASSOL · CONCEPT</span>
         </div>
-        <h1 id="hero-title">
-          A little more<br /><em>at ease.</em
-          ><span class="smile" aria-hidden="true"></span>
-        </h1>
-        <div class="hero-baseline">
-          <p>
-            Good care starts with being heard.<br />Dentistry with time for you.
-          </p>
-          <a class="text-link" href="#care">Find your kind of care</a>
+        <div class="hero-title-row">
+          <h1 id="hero-title">Dentistry.<br /><span>In clear focus.</span></h1>
+          <div class="hero-intro">
+            <p>
+              A considered approach.<br />A clear understanding.<br />Care built
+              around you.
+            </p>
+            <button class="button" data-request>Request an appointment</button>
+          </div>
         </div>
-        <figure class="clinic">
-          <img
-            src="/previews/elara/assets/clinic-1600.webp"
-            srcset="
-              /previews/elara/assets/clinic-800.webp   800w,
-              /previews/elara/assets/clinic-1600.webp 1600w
-            "
-            sizes="(max-width: 700px) 100vw, 92vw"
-            width="1600"
-            height="1067"
-            alt="A quiet dental practice concept with blue joinery, soft seating and a treatment room beyond"
-            fetchpriority="high"
-          />
-          <figcaption>
-            <span>Considered care.<br />A calmer setting.</span
-            ><span>THE ELARA CONCEPT</span>
-          </figcaption>
-        </figure>
+        <div class="hero-stage" id="practice">
+          <div class="hero-perspective" id="hero-perspective">
+            <div class="hero-gallery" aria-label="Explore the dental practice">
+              <img
+                id="hero-image"
+                src="/previews/elara/assets/clinical-1600.webp"
+                srcset="
+                  /previews/elara/assets/clinical-800.webp   800w,
+                  /previews/elara/assets/clinical-1600.webp 1600w
+                "
+                sizes="100vw"
+                width="1600"
+                height="1067"
+                alt="Bright white dental practice with glass treatment rooms and a pale blue dental chair"
+                fetchpriority="high"
+              />
+              <div class="image-caption">
+                <span id="hero-caption">Clarity in every detail.</span
+                ><button class="gallery-open" id="open-gallery">
+                  Explore full screen <span aria-hidden="true">＋</span>
+                </button>
+              </div>
+            </div>
+            <div class="gallery-bar">
+              <div role="group" aria-label="Practice views">
+                <button data-view="0" aria-pressed="true">The practice</button
+                ><button data-view="1" aria-pressed="false">The detail</button>
+              </div>
+              <span>DESIGNED AROUND CARE</span>
+            </div>
+          </div>
+        </div>
       </section>
       <!-- SERVICES -->
       <section class="care section" id="care" aria-labelledby="care-title">
@@ -133,12 +150,6 @@
             aria-labelledby="tab-routine"
             tabindex="0"
           >
-            <div class="care-art" aria-hidden="true">
-              <div class="art-ring ring-one"></div>
-              <div class="art-ring ring-two"></div>
-              <div class="art-ring ring-three"></div>
-              <span id="art-word">everyday</span>
-            </div>
             <div class="care-content">
               <p class="eyebrow" id="care-label">A GOOD PLACE TO BEGIN</p>
               <h3 id="care-name">Make space for<br />the everyday.</h3>
@@ -154,56 +165,12 @@
               <button
                 class="text-link"
                 id="care-book"
-                data-book="Everyday care"
+                data-request="Everyday care"
               >
-                Plan an everyday care visit
+                Request an everyday care appointment
               </button>
             </div>
           </div>
-        </div>
-      </section>
-      <section class="visit section" id="visit" aria-labelledby="visit-title">
-        <div class="visit-intro">
-          <p class="eyebrow">Your visit, your way</p>
-          <h2 id="visit-title">
-            A person first.<br /><em>A patient second.</em>
-          </h2>
-          <p>
-            Maybe you want to know every detail. Maybe you need a pause. Tell us
-            what helps you feel comfortable.
-          </p>
-          <p class="quiet">
-            Try the preferences below. They will follow you into your sample
-            visit plan.
-          </p>
-        </div>
-        <div class="comfort">
-          <fieldset>
-            <legend>What would help you feel at ease?</legend>
-            <label
-              ><input type="checkbox" value="Talk me through each step" /><span
-                >Talk me through each step</span
-              ><i aria-hidden="true"></i></label
-            ><label
-              ><input type="checkbox" value="Make time for questions" /><span
-                >Make time for questions</span
-              ><i aria-hidden="true"></i></label
-            ><label
-              ><input type="checkbox" value="Agree on a pause signal" /><span
-                >Agree on a pause signal</span
-              ><i aria-hidden="true"></i
-            ></label>
-          </fieldset>
-          <div class="visit-note" aria-live="polite">
-            <span class="eyebrow">YOUR WELCOME NOTE</span>
-            <p id="comfort-note">“Let’s start with a conversation.”</p>
-          </div>
-          <button class="button" data-book>
-            Make this my visit<span
-              class="button-dot"
-              aria-hidden="true"
-            ></span>
-          </button>
         </div>
       </section>
       <!-- ROOT CANAL VIDEO -->
@@ -266,18 +233,12 @@
         </div>
       </section>
       <section class="invitation section" aria-labelledby="invite-title">
-        <p class="eyebrow">Let’s begin with hello</p>
-        <h2 id="invite-title">
-          Come as you are.<br /><em>We’ll start there.</em>
-        </h2>
-        <button class="button light" data-book>
-          Plan your first visit<span
-            class="button-dot"
-            aria-hidden="true"
-          ></span>
-        </button>
+        <p class="eyebrow">Your next step</p>
+        <h2 id="invite-title">Let’s talk<br /><span>about your care.</span></h2>
+        <button class="button" data-request>Request an appointment</button>
         <p>
-          Explore the appointment experience.<br />No personal details needed.
+          Tell us what you have in mind.<br />The practice would contact you to
+          confirm a time.
         </p>
       </section>
     </main>
@@ -289,79 +250,106 @@
       </p>
       <a class="text-link" href="#care">Back to our care</a>
     </footer>
-    <dialog id="booking" aria-labelledby="booking-title">
-      <div class="booking-shell">
+    <dialog id="appointment" aria-labelledby="appointment-title">
+      <div class="request-shell">
         <div class="dialog-top">
-          <span class="eyebrow">THE ELARA VISIT PLANNER</span
+          <span class="eyebrow">DR. ELARA / APPOINTMENTS</span
           ><button
-            id="close-booking"
-            aria-label="Close visit planner"
+            id="close-request"
+            aria-label="Close appointment request"
             class="close"
           >
             ×
           </button>
         </div>
-        <p class="demo-note">Interactive demo · nothing is booked or sent.</p>
-        <form id="booking-form">
-          <div id="booking-options">
-            <h2 id="booking-title">A good place<br /><em>to start.</em></h2>
-            <label class="field-label" for="visit-care"
-              >What brings you in?</label
-            ><select id="visit-care">
-              <option>Everyday care</option>
-              <option>Your smile</option>
-              <option>Repair &amp; restore</option>
-              <option>Growing smiles</option>
-              <option>I’d like to talk first</option>
-            </select>
-            <fieldset class="dates">
-              <legend>Choose a sample day</legend>
-              <div id="date-options"></div>
-            </fieldset>
-            <fieldset class="times">
-              <legend>A time that suits you</legend>
-              <div>
-                <label
-                  ><input type="radio" name="time" value="09:30" checked /><span
-                    >09:30</span
-                  ></label
-                ><label
-                  ><input type="radio" name="time" value="12:00" /><span
-                    >12:00</span
-                  ></label
-                ><label
-                  ><input type="radio" name="time" value="16:30" /><span
-                    >16:30</span
-                  ></label
-                >
-              </div>
-            </fieldset>
-            <p class="booking-comfort" id="booking-comfort"></p>
-            <button class="button" type="submit">
-              Preview my visit<span
-                class="button-dot"
-                aria-hidden="true"
-              ></span>
-            </button>
-          </div>
-          <div id="booking-result" hidden>
-            <p class="eyebrow">YOUR SAMPLE VISIT</p>
-            <h2 id="result-title" tabindex="-1">
-              A little more<br /><em>you.</em>
+        <p class="demo-note">
+          Showcase demo. Use sample details; nothing is sent or saved.
+        </p>
+        <form id="request-form">
+          <div id="request-fields">
+            <h2 id="appointment-title">
+              Request an<br /><span>appointment.</span>
             </h2>
-            <dl id="visit-summary"></dl>
+            <div class="field-row">
+              <label
+                >Your name<input
+                  name="name"
+                  id="request-name"
+                  autocomplete="off"
+                  placeholder="Alex Example"
+                  required
+                  maxlength="80" /></label
+              ><label
+                >Email address<input
+                  name="email"
+                  id="request-email"
+                  type="email"
+                  autocomplete="off"
+                  placeholder="alex@example.com"
+                  required
+                  maxlength="160"
+              /></label>
+            </div>
+            <label
+              >What would you like to discuss?<select id="request-care">
+                <option>Everyday care</option>
+                <option>Your smile</option>
+                <option>Repair &amp; restore</option>
+                <option>Growing smiles</option>
+                <option>I’d like to talk first</option>
+              </select></label
+            ><label
+              >When is it easiest to reach you?<select id="request-time">
+                <option>I’m flexible</option>
+                <option>Morning</option>
+                <option>Afternoon</option>
+              </select></label
+            >
             <p class="quiet">
-              This is a sample plan for a fictional practice. No appointment has
-              been made.
+              An appointment request starts a conversation. A time is only
+              confirmed after the practice gets in touch.
             </p>
-            <button type="button" id="save-plan" class="button">
-              Save my sample plan</button
-            ><button type="button" id="edit-plan" class="text-link">
-              Change my choices
+            <button class="button" type="submit">Send demo request</button>
+          </div>
+          <div id="request-result" hidden>
+            <p class="eyebrow">REQUEST DEMONSTRATION</p>
+            <h2 id="result-title" tabindex="-1">
+              The next step<br />is a conversation.
+            </h2>
+            <dl id="request-summary"></dl>
+            <p class="quiet">
+              On a live practice website, the team would contact you to confirm
+              availability. This demo has not sent a request or reserved an
+              appointment.
+            </p>
+            <button type="button" class="button" id="edit-request">
+              Edit request</button
+            ><button type="button" class="text-link" id="finish-request">
+              Back to the practice
             </button>
-            <p id="save-status" role="status"></p>
           </div>
         </form>
+      </div>
+    </dialog>
+    <dialog id="gallery-dialog" aria-labelledby="gallery-title">
+      <div class="gallery-dialog-top">
+        <h2 id="gallery-title">The practice</h2>
+        <button
+          class="close"
+          id="close-gallery"
+          aria-label="Close image gallery"
+        >
+          ×
+        </button>
+      </div>
+      <div id="gallery-swipe">
+        <img id="gallery-image" alt="" width="1600" height="1067" />
+      </div>
+      <div class="gallery-controls">
+        <button id="gallery-prev">Previous view</button
+        ><span id="gallery-description" aria-live="polite"
+          >A clear view of your care.</span
+        ><button id="gallery-next">Next view</button>
       </div>
     </dialog>
   </body>

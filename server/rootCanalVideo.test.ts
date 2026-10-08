@@ -32,8 +32,8 @@ describe("Dr. Elara educational film", () => {
   });
   it("keeps this fictional practice out of search and real booking flows", () => {
     expect(source).toContain('content="noindex, nofollow"');
-    expect(source).toContain("nothing is booked or sent");
-    expect(source).not.toMatch(/type="(?:email|tel)"|onsubmit="return false"/);
+    expect(source).toContain("nothing is sent or saved");
+    expect(source).not.toMatch(/input type="date"|onsubmit="return false"/);
     expect(script).not.toMatch(/fetch\(|XMLHttpRequest|localStorage/);
   });
 });

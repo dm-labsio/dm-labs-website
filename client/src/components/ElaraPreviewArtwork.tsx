@@ -3,7 +3,7 @@ export default function ElaraPreviewArtwork() {
   return (
     <div
       aria-hidden="true"
-      style={{ height: 280, background: "#f6f5f0", overflow: "hidden" }}
+      style={{ height: 280, background: "#ffffff", overflow: "hidden" }}
     >
       <img
         src="/media/examples/elara/cover.webp"

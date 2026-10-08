@@ -13,7 +13,7 @@ const treatments = {
     ],
     word: "everyday",
     name: "Everyday care",
-    cta: "Plan an everyday care visit",
+    cta: "Request an everyday care appointment",
   },
   smile: {
     label: "A conversation, not a prescription",
@@ -27,7 +27,7 @@ const treatments = {
     ],
     word: "confidence",
     name: "Your smile",
-    cta: "Plan a smile consultation",
+    cta: "Request a smile consultation",
   },
   restore: {
     label: "Understand your options",
@@ -41,7 +41,7 @@ const treatments = {
     ],
     word: "restore",
     name: "Repair & restore",
-    cta: "Plan a restorative consultation",
+    cta: "Request a restorative consultation",
   },
   family: {
     label: "A familiar face, from the start",
@@ -55,7 +55,7 @@ const treatments = {
     ],
     word: "together",
     name: "Growing smiles",
-    cta: "Plan a family visit",
+    cta: "Request a family appointment",
   },
 };
 const tabs = [...document.querySelectorAll("[data-care]")];
@@ -67,7 +67,6 @@ function selectCare(tab) {
   });
   $("#care-panel").setAttribute("aria-labelledby", tab.id);
   $("#care-panel").dataset.kind = tab.dataset.care;
-  $("#art-word").textContent = item.word;
   $("#care-label").textContent = item.label;
   $("#care-name").innerHTML = item.title;
   $("#care-description").textContent = item.description;
@@ -79,7 +78,7 @@ function selectCare(tab) {
     })
   );
   $("#care-book").textContent = item.cta;
-  $("#care-book").dataset.book = item.name;
+  $("#care-book").dataset.request = item.name;
   if (!reduced.matches)
     $(".care-content").animate(
       [
@@ -104,103 +103,39 @@ tabs.forEach((tab, index) => {
     selectCare(tabs[next]);
   });
 });
-const preferences = () =>
-  [...document.querySelectorAll(".comfort input:checked")].map(i => i.value);
-document.querySelectorAll(".comfort input").forEach(input =>
-  input.addEventListener("change", () => {
-    const notes = [];
-    if ($('.comfort input[value="Talk me through each step"]').checked)
-      notes.push("We’ll explain each step.");
-    if ($('.comfort input[value="Make time for questions"]').checked)
-      notes.push("There’s time for your questions.");
-    if ($('.comfort input[value="Agree on a pause signal"]').checked)
-      notes.push("We’ll agree on a signal to pause.");
-    $("#comfort-note").textContent =
-      "“" + (notes.join(" ") || "Let’s start with a conversation.") + "”";
-  })
-);
-const dialog = $("#booking");
-let opener;
-let previousOverflow;
-let plan = "";
-function makeDates() {
-  const dates = [];
-  const date = new Date();
-  while (dates.length < 4) {
-    date.setDate(date.getDate() + 1);
-    if (date.getDay() !== 0) dates.push(new Date(date));
-  }
-  $("#date-options").replaceChildren(
-    ...dates.map((date, i) => {
-      const label = document.createElement("label"),
-        input = document.createElement("input"),
-        span = document.createElement("span");
-      input.type = "radio";
-      input.name = "date";
-      input.value = date.toLocaleDateString("en-GB", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      });
-      input.checked = i === 0;
-      span.textContent = date.toLocaleDateString("en-GB", {
-        weekday: "short",
-        day: "numeric",
-        month: "short",
-      });
-      label.append(input, span);
-      return label;
-    })
-  );
-}
-document.querySelectorAll("[data-book]").forEach(button =>
+const requestDialog = $("#appointment");
+let requestOpener;
+let previousOverflow = "";
+document.querySelectorAll("[data-request]").forEach(button =>
   button.addEventListener("click", () => {
-    opener = button;
-    makeDates();
-    $("#visit-care").value = button.dataset.book || "I’d like to talk first";
-    $("#booking-comfort").textContent = preferences().length
-      ? "Your preferences: " + preferences().join(" · ")
-      : "You can add comfort preferences in “Your visit, your way”.";
-    $("#booking-options").hidden = false;
-    $("#booking-result").hidden = true;
-    $("#save-status").textContent = "";
+    requestOpener = button;
+    $("#request-care").value =
+      button.dataset.request || "I’d like to talk first";
+    $("#request-fields").hidden = false;
+    $("#request-result").hidden = true;
     previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    dialog.showModal();
-    dialog.scrollTop = 0;
+    requestDialog.showModal();
+    requestDialog.scrollTop = 0;
   })
 );
-$("#close-booking").addEventListener("click", () => dialog.close());
-dialog.addEventListener("click", e => {
-  if (e.target === dialog) {
-    const r = dialog.getBoundingClientRect();
-    if (
-      e.clientX < r.left ||
-      e.clientX > r.right ||
-      e.clientY < r.top ||
-      e.clientY > r.bottom
-    )
-      dialog.close();
-  }
+$("#close-request").addEventListener("click", () => requestDialog.close());
+$("#finish-request").addEventListener("click", () => requestDialog.close());
+requestDialog.addEventListener("close", () => {
+  document.body.style.overflow = previousOverflow;
+  $("#request-form").reset();
+  $("#request-summary").replaceChildren();
+  requestOpener?.focus({ preventScroll: true });
 });
-dialog.addEventListener("close", () => {
-  document.body.style.overflow = previousOverflow || "";
-  opener?.focus({ preventScroll: true });
-});
-$("#booking-form").addEventListener("submit", e => {
-  e.preventDefault();
+$("#request-form").addEventListener("submit", event => {
+  event.preventDefault();
   const rows = [
-    ["Your care", $("#visit-care").value],
-    [
-      "Sample appointment",
-      $("input[name=date]:checked").value +
-        " at " +
-        $("input[name=time]:checked").value,
-    ],
-    ["What helps", preferences().join(" · ") || "Start with a conversation"],
+    ["Name", $("#request-name").value],
+    ["Email", $("#request-email").value],
+    ["Regarding", $("#request-care").value],
+    ["Best time to contact", $("#request-time").value],
   ];
-  $("#visit-summary").replaceChildren(
+  $("#request-summary").replaceChildren(
     ...rows.flatMap(([label, value]) => {
       const dt = document.createElement("dt"),
         dd = document.createElement("dd");
@@ -209,31 +144,15 @@ $("#booking-form").addEventListener("submit", e => {
       return [dt, dd];
     })
   );
-  plan =
-    "DR. ELARA | SAMPLE VISIT PLAN\nFictional DM-Labs website concept. Nothing has been booked or sent.\n\n" +
-    rows.map(([label, value]) => label + ": " + value).join("\n\n");
-  $("#booking-options").hidden = true;
-  $("#booking-result").hidden = false;
-  dialog.scrollTop = 0;
+  $("#request-fields").hidden = true;
+  $("#request-result").hidden = false;
+  requestDialog.scrollTop = 0;
   $("#result-title").focus();
 });
-$("#edit-plan").addEventListener("click", () => {
-  $("#booking-options").hidden = false;
-  $("#booking-result").hidden = true;
-  $("#visit-care").focus();
-});
-$("#save-plan").addEventListener("click", () => {
-  const url = URL.createObjectURL(
-    new Blob([plan], { type: "text/plain;charset=utf-8" })
-  );
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "elara-sample-visit.txt";
-  document.body.append(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 10000);
-  $("#save-status").textContent = "Your sample plan is ready to save.";
+$("#edit-request").addEventListener("click", () => {
+  $("#request-fields").hidden = false;
+  $("#request-result").hidden = true;
+  $("#request-name").focus();
 });
 const video = $("#care-video");
 async function playFilm() {
@@ -282,3 +201,151 @@ document.addEventListener("click", e => {
     destination.focus({ preventScroll: true });
 });
 document.documentElement.dataset.elaraReady = "true";
+
+// The 21st/Aceternity container-scroll pattern, fitted to an unpinned photo hero.
+// Native scrolling stays native; one scheduled frame drives the transform.
+const heroStage = $("#hero-stage") || $(".hero-stage");
+const perspective = $("#hero-perspective");
+let scrollFrame = 0;
+function renderPerspective() {
+  scrollFrame = 0;
+  const progress = reduced.matches
+    ? 1
+    : Math.max(
+        0,
+        Math.min(1, (220 - heroStage.getBoundingClientRect().top) / 450)
+      );
+  perspective.style.setProperty("--tilt", `${18 * (1 - progress)}deg`);
+  perspective.style.setProperty("--scale", String(0.88 + 0.12 * progress));
+}
+function schedulePerspective() {
+  if (!scrollFrame) scrollFrame = requestAnimationFrame(renderPerspective);
+}
+addEventListener("scroll", schedulePerspective, { passive: true });
+addEventListener("resize", schedulePerspective);
+reduced.addEventListener("change", schedulePerspective);
+renderPerspective();
+
+// Magnetic feedback moves the label within a stable clickable button.
+const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
+document.querySelectorAll(".button").forEach(button => {
+  const label = document.createElement("span");
+  label.className = "magnetic-label";
+  label.textContent = button.textContent.trim();
+  button.replaceChildren(label);
+  button.addEventListener("pointermove", e => {
+    if (reduced.matches || !finePointer.matches) return;
+    const r = button.getBoundingClientRect();
+    label.style.setProperty(
+      "--mx",
+      `${(e.clientX - r.left - r.width / 2) * 0.09}px`
+    );
+    label.style.setProperty(
+      "--my",
+      `${(e.clientY - r.top - r.height / 2) * 0.14}px`
+    );
+  });
+  button.addEventListener("pointerleave", () => {
+    label.style.setProperty("--mx", "0px");
+    label.style.setProperty("--my", "0px");
+  });
+});
+const views = [
+  {
+    src: "/previews/elara/assets/clinical-1600.webp",
+    small: "/previews/elara/assets/clinical-800.webp",
+    title: "The practice",
+    caption: "Clarity in every detail.",
+    alt: "Bright white dental practice with glass treatment rooms and a pale blue dental chair",
+  },
+  {
+    src: "/previews/elara/assets/detail-1600.webp",
+    small: "/previews/elara/assets/detail-800.webp",
+    title: "The detail",
+    caption: "An eye for the detail.",
+    alt: "A stainless steel dental mirror and probe on a pristine white instrument tray",
+  },
+];
+let activeView = 0;
+const gallery = $("#gallery-dialog");
+let galleryOverflow = "";
+function setView(index) {
+  activeView = (index + views.length) % views.length;
+  const view = views[activeView];
+  const heroImage = $("#hero-image");
+  heroImage.src = view.src;
+  heroImage.srcset = `${view.small} 800w, ${view.src} 1600w`;
+  heroImage.alt = view.alt;
+  $("#hero-caption").textContent = view.caption;
+  document
+    .querySelectorAll("[data-view]")
+    .forEach(b =>
+      b.setAttribute(
+        "aria-pressed",
+        String(Number(b.dataset.view) === activeView)
+      )
+    );
+  $("#gallery-image").src = view.src;
+  $("#gallery-image").alt = view.alt;
+  $("#gallery-title").textContent = view.title;
+  $("#gallery-description").textContent = view.caption;
+  if (!reduced.matches) {
+    heroImage.animate(
+      [
+        { opacity: 0.35, transform: "scale(1.045)" },
+        { opacity: 1, transform: "scale(1)" },
+      ],
+      { duration: 550, easing: "cubic-bezier(.2,.8,.2,1)" }
+    );
+    if (gallery.open)
+      $("#gallery-image").animate(
+        [
+          { opacity: 0.2, transform: "translateX(18px)" },
+          { opacity: 1, transform: "translateX(0)" },
+        ],
+        { duration: 300 }
+      );
+  }
+}
+document
+  .querySelectorAll("[data-view]")
+  .forEach(b =>
+    b.addEventListener("click", () => setView(Number(b.dataset.view)))
+  );
+$("#open-gallery").addEventListener("click", () => {
+  galleryOverflow = document.body.style.overflow;
+  document.body.style.overflow = "hidden";
+  gallery.showModal();
+  setView(activeView);
+});
+$("#close-gallery").addEventListener("click", () => gallery.close());
+gallery.addEventListener("close", () => {
+  document.body.style.overflow = galleryOverflow;
+  $("#open-gallery").focus({ preventScroll: true });
+});
+$("#gallery-prev").addEventListener("click", () => setView(activeView - 1));
+$("#gallery-next").addEventListener("click", () => setView(activeView + 1));
+gallery.addEventListener("keydown", e => {
+  if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+    e.preventDefault();
+    setView(activeView + (e.key === "ArrowRight" ? 1 : -1));
+  }
+});
+let touchStart = null;
+const swipe = $("#gallery-swipe");
+swipe.addEventListener("pointerdown", e => {
+  if (e.pointerType === "mouse" && e.button !== 0) return;
+  touchStart = { x: e.clientX, y: e.clientY };
+  swipe.setPointerCapture(e.pointerId);
+});
+swipe.addEventListener("pointerup", e => {
+  if (!touchStart) return;
+  const dx = e.clientX - touchStart.x,
+    dy = e.clientY - touchStart.y;
+  if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy))
+    setView(activeView + (dx < 0 ? 1 : -1));
+  touchStart = null;
+});
+swipe.addEventListener("pointercancel", () => {
+  touchStart = null;
+});
