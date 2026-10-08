@@ -118,13 +118,21 @@ try {
   await moving.locator("#open-tour").click();
   await ready(moving);
   const before = await view(moving);
-  await moving.locator("[data-tour-action=forward]").click();
-  await moving.waitForTimeout(450);
-  const during = await view(moving);
-  assert.ok(during.x > before.x && during.x < -3.25);
-  assert.equal(during.y, before.y);
-  assert.equal(during.yaw, before.yaw);
-  await ready(moving);
+  const samples = await moving.locator("#tour-dialog").evaluate(async d => {
+    const positions = [];
+    document.querySelector("[data-tour-action=forward]").click();
+    await new Promise(resolve => {
+      function sample() {
+        positions.push(JSON.parse(d.dataset.view));
+        if (d.dataset.tourReady === "true") resolve();
+        else requestAnimationFrame(sample);
+      }
+      requestAnimationFrame(sample);
+    });
+    return positions;
+  });
+  assert.ok(samples.some(v => v.x > before.x && v.x < -3.25));
+  assert.ok(samples.every(v => v.y === before.y && v.yaw === before.yaw));
   assert.equal((await view(moving)).stop, 1);
   await moving.locator("[data-tour-action=forward]").click();
   await moving.waitForTimeout(100);

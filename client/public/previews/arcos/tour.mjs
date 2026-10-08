@@ -81,6 +81,9 @@ export async function mountTour(dialog, isCurrent = () => dialog.open) {
   renderer.toneMappingExposure = 1.2;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = T.PCFSoftShadowMap;
+  // The building, tree and sun are static: render their shadow map once.
+  renderer.shadowMap.autoUpdate = false;
+  renderer.shadowMap.needsUpdate = true;
   renderer.domElement.setAttribute("aria-hidden", "true");
   root.replaceChildren(renderer.domElement);
   const scene = new T.Scene();
@@ -133,14 +136,6 @@ export async function mountTour(dialog, isCurrent = () => dialog.open) {
   }
   const camera = new T.PerspectiveCamera(64, 1, 0.05, 160);
   camera.rotation.order = "YXZ";
-  const composer = new T.EffectComposer(renderer);
-  composer.addPass(new T.RenderPass(scene, camera));
-  const ao = new T.SSAOPass(scene, camera, 512, 512, 12);
-  ao.kernelRadius = 0.55;
-  ao.minDistance = 0.001;
-  ao.maxDistance = 0.15;
-  composer.addPass(ao);
-  composer.addPass(new T.OutputPass());
   const position = i =>
     new T.Vector3(
       (stops[i][1] - 400) * 0.025,
@@ -153,6 +148,8 @@ export async function mountTour(dialog, isCurrent = () => dialog.open) {
     movement = null,
     closed = false,
     dirty = true;
+  let lastDraw = 0,
+    slowFrames = 0;
   camera.position.copy(position(0));
   const ray = new T.Raycaster(),
     meshes = [];
@@ -356,7 +353,7 @@ export async function mountTour(dialog, isCurrent = () => dialog.open) {
       camera.aspect = root.clientWidth / root.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(root.clientWidth, root.clientHeight);
-      composer.setSize(root.clientWidth, root.clientHeight);
+
       dirty = true;
     });
   resize.observe(root);
@@ -394,6 +391,18 @@ export async function mountTour(dialog, isCurrent = () => dialog.open) {
       dirty = true;
     }
     if (dirty && !document.hidden) {
+      // Adapt to sustained rendering pressure, including software WebGL and older phones.
+      // Leave capable devices at their original resolution; keep the same geometry/route.
+      const interval = now - lastDraw;
+      if ((movement || pointer) && lastDraw && interval < 1000) {
+        slowFrames = interval > 45 ? slowFrames + 1 : 0;
+        if (slowFrames >= 2 && renderer.getPixelRatio() > 0.4) {
+          renderer.setPixelRatio(Math.max(0.4, renderer.getPixelRatio() * 0.7));
+          renderer.setSize(root.clientWidth, root.clientHeight);
+          slowFrames = 0;
+        }
+      }
+      lastDraw = now;
       camera.rotation.set(pitch, -yaw, 0);
       camera.updateMatrixWorld();
       gltf.scene.updateMatrixWorld(true);
@@ -428,7 +437,7 @@ export async function mountTour(dialog, isCurrent = () => dialog.open) {
       });
       dot.setAttribute("cx", camera.position.x / 0.025 + 400);
       dot.setAttribute("cy", camera.position.z / 0.025 + 414);
-      composer.render();
+      renderer.render(scene, camera);
       dirty = false;
     }
   }
@@ -446,8 +455,6 @@ export async function mountTour(dialog, isCurrent = () => dialog.open) {
     resize.disconnect();
     renderer.setAnimationLoop(null);
     sun.shadow.map?.dispose();
-    composer.passes.forEach(p => p.dispose?.());
-    composer.dispose();
     renderer.dispose();
     renderer.forceContextLoss();
     release();

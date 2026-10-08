@@ -40,7 +40,7 @@ The furnished floor plan is an original SVG schematic with no claimed dimensions
 
 Shared 3D tour / 8 October 2026
 The active viewer now uses Three.js 0.186.1 (MIT), with GLTFLoader, Meshopt
-decoding and screen-space ambient occlusion. Licenses are in vendor/.
+decoding and cached static shadows. Licenses are in vendor/.
 https://threejs.org/docs/pages/GLTFLoader.html
 https://github.com/zeux/meshoptimizer
 

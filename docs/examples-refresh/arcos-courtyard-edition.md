@@ -310,3 +310,9 @@ Run glTF Transform 4.3.0 `optimize` on the exported GLB using `--compress meshop
 output before replacing the public GLB. Do not publish raw PNG renders or the
 uncompressed model. `node scripts/qa-arcos-3d.mjs` checks the interactive flow;
 `ARCOS_QA_URL` can target a deployment.
+
+Hosted verification refinement: the initial screen-space ambient-occlusion pass
+was too expensive in software WebGL. Removed it, cached the static sun-shadow
+map, and added frame-pressure-based resolution scaling for slower devices.
+Movement tests now sample positions within the rendering loop rather than rely
+on one externally timed screenshot. This does not establish physical-phone FPS.
