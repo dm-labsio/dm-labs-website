@@ -1,23 +1,8 @@
-/**
- * PreviewPage - /preview/:id
- * Renders the mini-site HTML at full viewport.
- *
- * ROOT CAUSE: iframe anchor links (href="#section") push entries into the
- * parent page's history stack. The browser back button then steps through
- * each hash entry one-by-one instead of closing the preview.
- *
- * PROVEN FIX (tested and verified):
- * 1. srcdoc instead of src — loads HTML content directly, no URL-based history.
- * 2. After iframe loads, attach a CAPTURING click listener to the iframe's
- *    contentDocument. This fires BEFORE the browser processes the hash link,
- *    allowing us to call preventDefault() and use scrollIntoView() instead.
- *    This completely stops history entries from being pushed.
- * 3. goBack() always calls navigate("/templates/") — never history.back().
- * 4. popstate listener intercepts browser back button → navigate("/templates/").
- */
+/** Standalone demos use srcdoc so internal anchor navigation never pollutes browser history. */
 import { useParams, useLocation } from "wouter";
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import { X } from "lucide-react";
+import { PREVIEW_ORIGIN_KEY, safePreviewReturnPath } from "@/lib/previewNavigation";
 
 const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
   "bella-salon":          { name: "Bella Salon",          url: "/previews/bella-salon.html" },
@@ -27,8 +12,6 @@ const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
   "arcos-architecture":   { name: "Arcos Architecture",   url: "/previews/arcos-architecture.html" },
   "olio-deli":            { name: "Olio Deli",            url: "/previews/olio-deli.html" },
 };
-
-const DEFAULT_RETURN_PATH = "/templates/";
 
 function setPreviewNoindexHead() {
   let robots = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
@@ -44,10 +27,7 @@ function setPreviewNoindexHead() {
 
 function getReturnPath() {
   const requestedPath = new URLSearchParams(window.location.search).get("from");
-  if (!requestedPath || !requestedPath.startsWith("/") || requestedPath.startsWith("//")) {
-    return DEFAULT_RETURN_PATH;
-  }
-  return requestedPath;
+  return safePreviewReturnPath(requestedPath);
 }
 
 export default function PreviewPage() {
@@ -67,9 +47,13 @@ export default function PreviewPage() {
     setPreviewNoindexHead();
   }, []);
 
-  // Use the explicit source path passed by the entry point, never history.back().
+  // A site-opened example has a real source entry. Direct links use a safe fallback.
   const goBack = useCallback(() => {
-    navigate(returnPath);
+    if (window.history.state?.[PREVIEW_ORIGIN_KEY] === returnPath) {
+      window.history.back();
+    } else {
+      navigate(returnPath, { replace: true });
+    }
   }, [navigate, returnPath]);
 
   // Fetch HTML content for srcdoc (no URL = cleaner history baseline)
@@ -92,23 +76,12 @@ export default function PreviewPage() {
       });
   }, [entry]);
 
-  // Prevent body scroll + intercept browser back button
+  // Native Back returns to the source entry; no duplicate preview/sentinel entries.
   useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    // Push sentinel so the first back press is caught by our listener
-    window.history.pushState({ previewSentinel: true }, "");
-
-    const onPopState = () => {
-      // Any back press while preview is open returns to the explicit source route.
-      navigate(returnPath);
-    };
-    window.addEventListener("popstate", onPopState);
-
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("popstate", onPopState);
-    };
-  }, [navigate, returnPath]);
+    return () => { document.body.style.overflow = previousOverflow; };
+  }, []);
 
   // Escape key
   useEffect(() => {
@@ -162,7 +135,7 @@ export default function PreviewPage() {
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 gap-4">
         <p className="text-gray-500 text-lg">Preview not found.</p>
         <button
-          onClick={() => navigate(returnPath)}
+          onClick={goBack}
           className="px-6 py-3 rounded-full font-semibold text-white"
           style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
         >

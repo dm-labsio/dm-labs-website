@@ -1,30 +1,26 @@
-import { readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { readPreviewSource, safePreviewReturnPath, previewIndustry } from '../client/src/lib/previewNavigation';
 
-const serverDirectory = dirname(fileURLToPath(import.meta.url));
-const projectDirectory = resolve(serverDirectory, "..");
-const homeSource = readFileSync(resolve(projectDirectory, "client/src/pages/Home.tsx"), "utf8");
-const greekHomeSource = readFileSync(resolve(projectDirectory, "client/src/pages/el/HomeEl.tsx"), "utf8");
-const previewSource = readFileSync(resolve(projectDirectory, "client/src/pages/PreviewPage.tsx"), "utf8");
-
-describe("homepage preview return paths", () => {
-  it("opens English and Greek example cards in the in-app preview with explicit source paths", () => {
-    expect(homeSource).toContain('href={`/preview/${tpl.id}/?from=%2F`}');
-    expect(greekHomeSource).toContain('href={`/preview/${tpl.id}/?from=%2Fel%2F`}');
+function browser(state: unknown = null, path = '/he/templates/') {
+  const url = new URL(path, 'https://dm-labs.io');
+  vi.stubGlobal('window', {location:url,history:{state}});
+}
+afterEach(()=>vi.unstubAllGlobals());
+describe('example return navigation',()=>{
+  it('keeps the source language, query, and fragment',()=>{
+    browser();
+    expect(safePreviewReturnPath('/he/templates/?industry=beauty#examples')).toBe('/he/templates/?industry=beauty#examples');
   });
-
-  it("uses the passed source path for X close, Escape, error recovery, and browser back", () => {
-    expect(previewSource).toContain('const DEFAULT_RETURN_PATH = "/templates/";');
-    expect(previewSource).toContain('new URLSearchParams(window.location.search).get("from")');
-    expect(previewSource).toContain('const returnPath = useMemo(getReturnPath, []);');
-    expect(previewSource).toContain('navigate(returnPath);');
-    expect(previewSource).toContain('aria-label="Close preview"');
+  it.each([null,'https://evil.test','//evil.test','/\\evil.test','/preview/nomad-coffee/'])('uses a local gallery fallback for unsafe or recursive return %s',path=>{
+    browser();expect(safePreviewReturnPath(path)).toBe('/templates/');
   });
-
-  it("rejects unsafe return destinations and keeps the templates page as the safe fallback", () => {
-    expect(previewSource).toContain('!requestedPath.startsWith("/") || requestedPath.startsWith("//")');
-    expect(previewSource).toContain('return DEFAULT_RETURN_PATH;');
+  it('only restores the history entry matching the current page',()=>{
+    const source={url:'/he/templates/',x:0,y:1800,href:'/preview/bella-salon/',top:150,industry:'beauty'};
+    browser({dmPreviewSource:source});expect(readPreviewSource()).toEqual(source);expect(previewIndustry()).toBe('beauty');
+    browser({dmPreviewSource:source},'/');expect(readPreviewSource()).toBeNull();expect(previewIndustry()).toBe('all');
+  });
+  it('ignores invalid stored coordinates',()=>{
+    browser({dmPreviewSource:{url:'/he/templates/',x:0,y:'1800',top:0,href:'/preview/bella-salon/'}});
+    expect(readPreviewSource()).toBeNull();
   });
 });

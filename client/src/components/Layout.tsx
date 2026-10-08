@@ -1,5 +1,5 @@
 /* Shared marketing shell. Navigation and CTA styling live in shared components. */
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { Link, useLocation, useSearch } from "wouter";
 import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
@@ -13,6 +13,8 @@ import { pricingEnquiryQuery } from "@/lib/pricingEnquiry";
 import { openCookiePreferences } from "@/lib/cookieConsent";
 import { getRouteLanguage } from "@/lib/routeLanguage";
 import { getGreekLanguageTogglePath, getHebrewLanguageTogglePath, getHreflangRouteSet, normalizeRoutePath, withTrailingSlash } from "@/lib/seoRoutes";
+
+import { PREVIEW_ORIGIN_KEY, readPreviewSource, rememberPreviewSource, restorePreviewSource } from "@/lib/previewNavigation";
 
 // Screen readers announce these decorative videos, so their labels follow the page language.
 const BANNER_LABELS: Record<string, Partial<Record<"en" | "el" | "he", string>>> = {
@@ -76,7 +78,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const cinematicBanner = baseBanner && localizedBannerLabel ? { ...baseBanner, label: localizedBannerLabel } : baseBanner;
   const cinematicInterlude = languageNeutralPath === "/" || languageNeutralPath === "/contact" ? cinematicBanner : null;
 
+  // One entry handler covers example links on every marketing page and locale.
   useEffect(() => {
+    const openPreview = (event: MouseEvent) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const anchor = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[href]') : null;
+      if (!anchor || anchor.hasAttribute('download') || (anchor.target && anchor.target !== '_self')) return;
+      const url = new URL(anchor.href, window.location.href);
+      if (url.origin !== window.location.origin || !url.pathname.startsWith('/preview/')) return;
+      event.preventDefault();
+      const source = rememberPreviewSource(anchor);
+      url.searchParams.set('from', source.url);
+      navigate(url.pathname + url.search + url.hash, { state: { [PREVIEW_ORIGIN_KEY]: source.url } });
+    };
+    document.addEventListener('click', openPreview, true);
+    return () => document.removeEventListener('click', openPreview, true);
+  }, [navigate]);
+
+  useLayoutEffect(() => {
+    const source = readPreviewSource();
+    if (source) return restorePreviewSource(source);
     // Preserve reading position only for direct translations. A fallback such
     // as Blog -> Hebrew home deliberately starts at the top.
     const languageSwitchScroll = languageSwitchScrollRef.current;

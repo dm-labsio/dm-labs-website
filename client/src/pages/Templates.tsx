@@ -1,3 +1,4 @@
+import { previewIndustry } from "@/lib/previewNavigation";
 import ArcosPreviewArtwork from "@/components/ArcosPreviewArtwork";
 import NomadPreviewArtwork from "@/components/NomadPreviewArtwork";
 import { useState, useEffect, useRef } from "react";
@@ -811,7 +812,7 @@ export default function Templates() {
     canonicalPath: "/templates/",
   });
   const [location] = useLocation();
-  const [activeIndustry, setActiveIndustry] = useState("all");
+  const [activeIndustry, setActiveIndustry] = useState(previewIndustry);
   const [selectedTemplate, setSelectedTemplate] = useState<typeof TEMPLATES[0] | null>(null);
   // Guard so the ?open= / ?industry= effect only runs once on mount
   const urlParamHandled = useRef(false);
@@ -819,7 +820,7 @@ export default function Templates() {
   // Open modal: push a single history entry so browser back can close it
   const openModal = (tpl: typeof TEMPLATES[0]) => {
     setSelectedTemplate(tpl);
-    window.history.pushState({ modal: true }, "");
+    window.history.pushState({ modal: true, dmGalleryPosition: { x: window.scrollX, y: window.scrollY } }, "");
   };
 
   // Close modal: always close immediately — no async history.back() calls.
@@ -871,7 +872,7 @@ export default function Templates() {
     : TEMPLATES.filter(t => t.industry === activeIndustry);
 
   return (
-    <div className="min-h-screen templates-editorial" style={{ background: "#F6F6F4" }}>
+    <div data-example-industry={activeIndustry} className="min-h-screen templates-editorial" style={{ background: "#F6F6F4" }}>
       {/* Hero */}
       <section className="cinematic-hero-surface relative py-12 sm:py-16 lg:py-24 overflow-hidden">
         <CinematicHeroBackground kind="templates" />
