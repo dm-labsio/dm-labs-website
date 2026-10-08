@@ -252,6 +252,10 @@ document.querySelectorAll('[name="visit-preference"]').forEach(input =>
 const anatomyRange = $("#anatomy-range");
 const diagram = $("#tooth-diagram");
 function revealAnatomy() {
+  $("#anatomy-reveal-rect").setAttribute(
+    "width",
+    Number(anatomyRange.value) * 5
+  );
   diagram.style.setProperty("--reveal", `${anatomyRange.value}%`);
 }
 anatomyRange.addEventListener("input", revealAnatomy);

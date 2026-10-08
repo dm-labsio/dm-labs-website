@@ -218,7 +218,15 @@
                   id="outline"
                   d="M250 102 C220 108 213 59 162 72 C110 86 107 141 124 196 C139 246 135 304 142 365 C148 417 161 493 187 484 C207 477 211 370 235 328 C243 314 257 314 265 328 C289 370 293 477 313 484 C339 493 352 417 358 365 C365 304 361 246 376 196 C393 141 390 86 338 72 C287 59 280 108 250 102 Z"
                 />
-                <clipPath id="tooth-clip"><use href="#outline" /></clipPath>
+                <clipPath id="anatomy-reveal" clipPathUnits="userSpaceOnUse">
+                  <rect
+                    id="anatomy-reveal-rect"
+                    x="0"
+                    y="0"
+                    width="275"
+                    height="560"
+                  />
+                </clipPath>
               </defs>
               <g class="diagram-surface">
                 <use
@@ -240,7 +248,7 @@
                   stroke-width="3"
                 />
               </g>
-              <g class="diagram-inside" clip-path="url(#tooth-clip)">
+              <g class="diagram-inside" clip-path="url(#anatomy-reveal)">
                 <use
                   href="#outline"
                   fill="#f9fcff"

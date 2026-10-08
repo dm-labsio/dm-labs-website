@@ -84,6 +84,22 @@ try {
     await p
       .locator("#anatomy")
       .screenshot({ path: `${out}/${width}-anatomy.png` });
+    assert.ok(
+      await p.locator("#tooth-diagram").evaluate(e => {
+        const rect = e.querySelector("#anatomy-reveal-rect");
+        const edge = new DOMPoint(
+          Number(rect.getAttribute("width")),
+          0
+        ).matrixTransform(e.querySelector("svg").getScreenCTM());
+        return (
+          Math.abs(
+            edge.x -
+              e.querySelector(".reveal-divider").getBoundingClientRect().x
+          ) < 2
+        );
+      }),
+      "visible cutaway edge follows the drag handle"
+    );
     await p.getByLabel("Talk me through it.", { exact: false }).check();
     await p.getByLabel("Take it at my pace.", { exact: false }).check();
     assert.match(

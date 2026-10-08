@@ -916,7 +916,7 @@ input[type="range"]::-moz-range-thumb {
 }
 .tooth-diagram {
   position: relative;
-  aspect-ratio: 500/520;
+  aspect-ratio: 500/560;
   overflow: hidden;
   background-image:
     linear-gradient(#ffffff0c 1px, transparent 1px),
@@ -928,9 +928,6 @@ input[type="range"]::-moz-range-thumb {
   height: 100%;
   display: block;
   overflow: visible;
-}
-.diagram-inside {
-  clip-path: inset(0 calc(100% - var(--reveal)) 0 0);
 }
 .reveal-divider {
   position: absolute;
@@ -1328,8 +1325,7 @@ input[type="range"]::-moz-range-thumb {
     padding: 12px 20px 18px;
   }
   .tooth-diagram {
-    max-height: 410px;
-    aspect-ratio: 500/520;
+    aspect-ratio: 500/560;
   }
   .anatomy-details {
     width: 100%;
