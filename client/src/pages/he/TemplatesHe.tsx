@@ -1,3 +1,5 @@
+import ArcosPreviewArtwork from "@/components/ArcosPreviewArtwork";
+import NomadPreviewArtwork from "@/components/NomadPreviewArtwork";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
@@ -185,31 +187,6 @@ const CARD_DESIGNS: Record<string, React.FC> = {
     </div>
   ),
 
-  "verde-restaurant": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0d1a0f" }}>
-      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.55 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(13,26,15,0.4) 0%, rgba(13,26,15,0.85) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "13px", fontWeight: 700, color: "#e8f0e0", letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Verde</span>
-        <div style={{ display: "flex", gap: "14px" }}>
-          {["תפריט","עלינו","הזמנה"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(232,240,224,0.7)", letterSpacing: "0.08em" }}>{l}</span>)}
-        </div>
-        <div style={{ border: "1px solid #7ab060", color: "#7ab060", fontSize: "8px", padding: "3px 10px" }}>הזמנה</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#7ab060", marginBottom: "5px" }}>מסעדה, לימסול</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "24px", fontWeight: 400, color: "#e8f0e0", lineHeight: 1.1, marginBottom: "8px", fontStyle: "italic" as const }}>טעם של<br/>הים התיכון</div>
-        <div style={{ background: "#7ab060", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block" }}>לצפייה בתפריט</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#0d1a0f","#7ab060","#c8a96e","#e8f0e0","#2d4a20"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.15)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
 
   "pulse-gym": () => (
     <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0a0a0a" }}>
@@ -267,143 +244,9 @@ const CARD_DESIGNS: Record<string, React.FC> = {
     </div>
   ),
 
-  "nomad-coffee": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a1208" }}>
-      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,18,8,0.88) 40%, rgba(26,18,8,0.3) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "12px", fontWeight: 700, color: "#c8a96e", letterSpacing: "0.06em" }}>Nomad Co.</span>
-        <div style={{ display: "flex", gap: "12px" }}>
-          {["תפריט","עלינו","פולים","אירועים"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,169,110,0.7)" }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "55%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "5px" }}>בית קפה, לימסול</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "6px" }}>קפה טוב,<br/><em style={{ color: "#c8a96e" }}>בלי</em> למהר</div>
-        <div style={{ fontSize: "8px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "10px" }}>פולים ממקור אחד, קלויים אצלנו<br/>בכמויות קטנות.</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "8px", padding: "5px 12px", fontWeight: 700 }}>לתפריט</div>
-          <div style={{ border: "1px solid rgba(200,169,110,0.5)", color: "#c8a96e", fontSize: "8px", padding: "5px 12px" }}>עלינו</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#1a1208","#8b6914","#c8a96e","#f7f0e6","#3d2b1f"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
+  "nomad-coffee": () => <NomadPreviewArtwork />,
 
-  "serenity-yoga": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a2420" }}>
-      <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.45 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(26,36,32,0.5) 0%, rgba(26,36,32,0.9) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "12px", fontWeight: 400, color: "#8bb5a8", letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Serenity Yoga</span>
-        <div style={{ display: "flex", gap: "12px" }}>
-          {["שיעורים","לוח זמנים","מדריכים","מחירים"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(139,181,168,0.7)" }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#8bb5a8", marginBottom: "5px" }}>סטודיו יוגה, לימסול</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f0f7f4", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>קחו רגע<br/><em style={{ color: "#8bb5a8" }}>של</em> שקט לעצמכם</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#4a7c6f", color: "#f0f7f4", fontSize: "8px", padding: "5px 12px" }}>לשיעורים</div>
-          <div style={{ border: "1px solid rgba(139,181,168,0.4)", color: "#8bb5a8", fontSize: "8px", padding: "5px 12px" }}>ללוח הזמנים</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#1a2420","#4a7c6f","#8bb5a8","#f0f7f4","#2d4a3e"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-
-  "luxe-realty": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0a0a0a" }}>
-      <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.85) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "40px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(184,151,90,0.2)" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 400, color: "#b8975a", letterSpacing: "0.25em", textTransform: "uppercase" as const }}>Luxe.Realty</span>
-        <div style={{ display: "flex", gap: "14px" }}>
-          {["נכסים","אודות","מדריך ויזה"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.7)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>נדל״ן יוקרה, אתונה</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>הבית הבא שלכם<br/>מחכה באתונה</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#b8975a", color: "#0a0a0a", fontSize: "8px", padding: "5px 14px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>לנכסים</div>
-          <div style={{ border: "1px solid rgba(184,151,90,0.4)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>מדריך ויזה</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#0a0a0a","#b8975a","#f8f4ec","#142035","#8a9ab5"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "46px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-
-  "little-stars-nursery": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#fffbf5" }}>
-      <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "52%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #fffbf5 46%, transparent 72%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(255,251,245,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(240,106,80,0.12)" }}>
-        <span style={{ fontFamily: "Nunito, sans-serif", fontSize: "11px", fontWeight: 800, color: "#2d2416" }}>Little Stars</span>
-        <div style={{ display: "flex", gap: "10px" }}>
-          {["אודות","תוכניות","ביקור"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a5a4a" }}>{l}</span>)}
-        </div>
-        <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "3px 10px", borderRadius: "20px", fontWeight: 700 }}>קבעו ביקור</div>
-      </div>
-      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "48%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#f06a50", marginBottom: "5px" }}>גן ילדים, אתונה</div>
-        <div style={{ fontFamily: "Nunito, sans-serif", fontSize: "20px", fontWeight: 800, color: "#2d2416", lineHeight: 1.2, marginBottom: "6px" }}>בית שני<br/><span style={{ color: "#f06a50" }}>לקטנטנים</span></div>
-        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>גן חם ומחבק לילדים<br/>מגיל 3 חודשים עד 5.</div>
-        <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", borderRadius: "20px", fontWeight: 700 }}>קבעו ביקור</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#fffbf5","#f06a50","#5bb8d4","#f5c842","#2d2416"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-
-  "arcos-architecture": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f4f1ec" }}>
-      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "55%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f4f1ec 44%, transparent 68%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(244,241,236,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(26,25,22,0.1)" }}>
-        <span style={{ fontSize: "11px", fontWeight: 800, color: "#1a1916", letterSpacing: "0.15em", textTransform: "uppercase" as const }}>ARCOS</span>
-        <div style={{ display: "flex", gap: "14px" }}>
-          {["פרויקטים","סטודיו","שירותים","יצירת קשר"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a7568", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "46%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4613a", marginBottom: "5px" }}>משרד אדריכלות</div>
-        <div style={{ fontSize: "22px", fontWeight: 800, color: "#1a1916", lineHeight: 1.1, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "8px" }}>בונים<br/>מרחבים<br/><span style={{ color: "#c4613a" }}>לחיים</span></div>
-        <div style={{ fontSize: "8px", color: "#7a7568", lineHeight: 1.5, marginBottom: "10px" }}>מהסקיצה הראשונה<br/>ועד המפתח ביד.</div>
-        <div style={{ background: "#1a1916", color: "#f4f1ec", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>לפרויקטים</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#f4f1ec","#c4613a","#1a1916","#2d2b27","#7a7568"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
+  "arcos-architecture": () => <ArcosPreviewArtwork />,
 
   "olio-deli": () => (
     <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1e1c17" }}>
@@ -434,34 +277,6 @@ const CARD_DESIGNS: Record<string, React.FC> = {
     </div>
   ),
 
-  "horizon-law": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0c1524" }}>
-      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.3 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(12,21,36,0.6) 0%, rgba(12,21,36,0.92) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "40px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(184,151,90,0.15)" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 400, color: "#b8975a", letterSpacing: "0.2em", textTransform: "uppercase" as const }}>Horizon Law</span>
-        <div style={{ display: "flex", gap: "14px" }}>
-          {["תחומי עיסוק","הצוות","מאמרים"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.65)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-        <div style={{ border: "1px solid #b8975a", color: "#b8975a", fontSize: "8px", padding: "3px 10px" }}>ייעוץ</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>משרד עורכי דין, אתונה</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>ליווי משפטי<br/><em style={{ color: "#b8975a" }}>אישי</em> ומקצועי.</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#b8975a", color: "#0c1524", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>תחומי עיסוק</div>
-          <div style={{ border: "1px solid rgba(184,151,90,0.35)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>הכירו את הצוות</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#0c1524","#b8975a","#f8f4ec","#142035","#8a9ab5"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "46px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
 };
 
 function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
@@ -487,15 +302,11 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
   { id: "all", label: "כל התחומים", icon: "✦" },
-  { id: "restaurant", label: "מסעדות ובתי קפה", icon: "☕" },
+  { id: "restaurant", label: "מסעדות, בתי קפה ומזון", icon: "☕" },
   { id: "beauty", label: "יופי וטיפוח", icon: "✂" },
   { id: "clinic", label: "קליניקות ובריאות", icon: "+" },
   { id: "fitness", label: "כושר וספורט", icon: "◈" },
-  { id: "realestate", label: "נדל״ן", icon: "◻" },
-  { id: "childcare", label: "גנים ומעונות", icon: "◎" },
   { id: "architecture", label: "אדריכלות", icon: "△" },
-  { id: "deli", label: "מעדניות ומזון", icon: "◇" },
-  { id: "legal", label: "שירותים משפטיים", icon: "▣" },
 ];
 
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
@@ -529,37 +340,6 @@ const TEMPLATES = [
     ],
     style: "סגנון נשי ויוקרתי בגוני שזיף וורוד, עם פונט אלגנטי ותחושה חמה ומזמינה. מתאים לסלונים, לקוסמטיקאיות ולמכוני ציפורניים.",
     waMessage: "היי! ראיתי אצלכם את הדוגמה של Bella Salon ואשמח לשמוע עוד.",
-    price: "€350",
-    images: { card: "" },
-  },
-  {
-    id: "verde-restaurant",
-    industry: "restaurant",
-    name: "מסעדת Verde",
-    tagline: "רענן וים תיכוני",
-    tier: "Growth",
-    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
-    domain: "verderestaurant.com",
-    palette: ["#1a2e1a", "#2d5a27", "#4a8c3f", "#8bc34a", "#f5f9f0"],
-    paletteNames: ["יער", "ירוק עמוק", "עלה", "ירוק רענן", "קרם"],
-    styleLabel: "ים תיכוני ורענן",
-    livePreview: true,
-    previewUrl: "/previews/verde-restaurant.html",
-    features: [
-      "אזור פתיחה רחב עם כפתור הזמנה",
-      "הצגת מנות נבחרות",
-      "עמוד תפריט לפי קטגוריות",
-      "עמוד אודות",
-      "יצירת קשר וטופס הזמנה",
-      "מפת Google Maps משולבת",
-      "WhatsApp וקישורים חברתיים",
-      "מותאם למובייל",
-    ],
-    pages: [
-      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
-    ],
-    style: "סגנון ים תיכוני ונושם בגוני ירוק עמוק ורקע קרם חם, עם פונט אלגנטי. מתאים למסעדות עם מטבח ים תיכוני וחומרי גלם טריים.",
-    waMessage: "היי! ראיתי אצלכם את הדוגמה של מסעדת Verde ואשמח לשמוע עוד.",
     price: "€350",
     images: { card: "" },
   },
@@ -629,141 +409,40 @@ const TEMPLATES = [
     id: "nomad-coffee",
     industry: "restaurant",
     name: "Nomad Coffee",
-    tagline: "אומנותי ומינימליסטי",
+    tagline: "קפה עם אופי",
     tier: "Launch",
     tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
-    domain: "nomadcoffee.com",
-    palette: ["#1a1208", "#3d2b1f", "#8b6914", "#c8a96e", "#f7f0e6"],
-    paletteNames: ["אספרסו", "חום עמוק", "זהב", "קרמל", "קרם"],
-    styleLabel: "מינימליזם אומנותי",
+    domain: "nomad.example",
+    palette: ["#b72d20", "#f1df9c", "#f6f0e4", "#28251e"],
+    paletteNames: ["אדום", "צהוב רך", "נייר", "דיו"],
+    styleLabel: "זהות בהשראת כרזות קפה",
     livePreview: true,
     previewUrl: "/previews/nomad-coffee.html",
-    features: [
-      "אזור פתיחה מינימליסטי עם מבצעים יומיים",
-      "הצגת קפה נבחר",
-      "תפריט לפי קטגוריות",
-      "עמוד אודות",
-      "עמוד קשר ומיקום",
-      "כפתור חיוג ישיר",
-      "WhatsApp וקישורים חברתיים",
-      "מותאם למובייל",
-    ],
+    features: ["דימויי מותג מקוריים", "תפריט קפה אינטראקטיבי", "מתכוני קפה בהתאמה אישית", "מחשבון קפה, מים וקרח", "וידאו מתנגן באזור הפתיחה", "גלריית קפה ומאפים", "תמיכה בהפחתת תנועה", "פריסה מותאמת לכל מסך"],
     pages: [
       { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "סגנון מינימליסטי בגוני אספרסו וזהב, עם פונט נקי ותחושה חמה. מתאים לבתי קפה ולבתי קלייה קטנים.",
+    style: "טיפוגרפיה צרה ונועזת, אדום וצהוב רך, דימויי מותג עשירים במרקם ומדריך קפה אינטראקטיבי. זהות לבית קפה בדיוני עם אופי ברור.",
     waMessage: "היי! ראיתי אצלכם את הדוגמה של Nomad Coffee ואשמח לשמוע עוד.",
     price: "€250",
     images: { card: "" },
   },
-  {
-    id: "serenity-yoga",
-    industry: "fitness",
-    name: "Serenity Yoga",
-    tagline: "רגוע ומאוזן",
-    tier: "Launch",
-    tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
-    domain: "serenityyoga.com",
-    palette: ["#1a2420", "#2d4a3e", "#4a7c6f", "#8bb5a8", "#f0f7f4"],
-    paletteNames: ["יער כהה", "ירוק עמוק", "מרווה", "מנטה", "ירוק בהיר"],
-    styleLabel: "טבעי ורגוע",
-    livePreview: true,
-    previewUrl: "/previews/serenity-yoga.html",
-    features: [
-      "אזור פתיחה רגוע עם הזמנת שיעור",
-      "לוח שיעורי יוגה",
-      "פרופילי מדריכים",
-      "הגישה של הסטודיו",
-      "יצירת קשר וטופס הזמנה",
-      "מיקום ושעות פעילות",
-      "כפתור WhatsApp",
-      "מותאם למובייל",
-    ],
-    pages: [
-      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
-    ],
-    style: "סגנון רגוע ומאוזן בגוני ירוק מרווה, עם מרקמים טבעיים ופונט נקי. מתאים לסטודיו ליוגה, לפילאטיס ולמרכזי רווחה.",
-    waMessage: "היי! ראיתי אצלכם את הדוגמה של Serenity Yoga ואשמח לשמוע עוד.",
-    price: "€250",
-    images: { card: "" },
-  },
   // ── Fitness και Γυμναστήρια templates ──
-  // ── Batch 2: Athens / Greece ──
-  {
-    id: "luxe-realty",
-    industry: "realestate",
-    name: "Luxe Realty",
-    tagline: "יוקרה והשקעה",
-    tier: "Pro",
-    tierGradient: "linear-gradient(135deg, #c9a96e, #9a7040)",
-    domain: "luxerealty.gr",
-    palette: ["#0a0a08", "#111110", "#c9a96e", "#f5f0e8", "#888880"],
-    paletteNames: ["שחור", "כהה", "שמפניה", "קרם", "רך"],
-    features: [
-      "אזור פתיחה מלא עם חיפוש נכסים",
-      "נכסים נבחרים",
-      "שירותי Golden Visa",
-      "יצירת קשר וטופס פנייה",
-      "SEO מותאם לנדל״ן",
-    ],
-    pages: [
-      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
-    ],
-    style: "סגנון יוקרתי וכהה עם פונט קלאסי, נגיעות זהב שמפניה וצילומים במסך מלא. מתאים למשרדי נדל״ן יוקרה.",
-    waMessage: "היי! ראיתי אצלכם את הדוגמה של Luxe Realty ואשמח לשמוע עוד.",
-    price: "€450",
-    images: { card: "" },
-    livePreview: true,
-    previewUrl: "/previews/luxe-realty.html",
-  },
-  {
-    id: "little-stars-nursery",
-    industry: "childcare",
-    name: "Little Stars Nursery",
-    tagline: "חם ומשחקי",
-    tier: "Growth",
-    tierGradient: "linear-gradient(135deg, #f06a50, #d04030)",
-    domain: "littlestarsnursery.gr",
-    palette: ["#2d2416", "#f06a50", "#5bb8d4", "#f5c842", "#fffbf5"],
-    paletteNames: ["דיו", "קורל", "תכלת", "צהוב", "קרם"],
-    features: [
-      "כרטיסי תוכניות לפי קבוצות גיל",
-      "אודות וערכי המקום",
-      "המלצות הורים",
-      "טופס הזמנת ביקור בגן",
-      "SEO מותאם לשירותי ילדים",
-    ],
-    pages: [
-      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
-    ],
-    style: "פונט עגול וחם עם נגיעות קורל ותכלת על רקע קרם, וצורות רכות. מתאים לגנים ולמסגרות לגיל הרך.",
-    waMessage: "היי! ראיתי אצלכם את הדוגמה של Little Stars Nursery ואשמח לשמוע עוד.",
-    price: "€299",
-    images: { card: "" },
-    livePreview: true,
-    previewUrl: "/previews/little-stars-nursery.html",
-  },
   {
     id: "arcos-architecture",
     industry: "architecture",
     name: "Arcos Architecture",
-    tagline: "ברוטליסטי ומינימליסטי",
+    tagline: "יומן אדריכלי",
     tier: "Pro",
     tierGradient: "linear-gradient(135deg, #c4613a, #8a3a1a)",
     domain: "arcosarchitecture.gr",
-    palette: ["#1a1916", "#2d2b27", "#c4613a", "#f4f1ec", "#7a7568"],
+    palette: ["#242521", "#e6e5db", "#a44129", "#f2f0e9", "#5a5c52"],
     paletteNames: ["פחם", "כהה", "טרקוטה", "נייר", "רך"],
-    features: [
-      "אזור פתיחה מפוצל עם צילום מלא",
-      "תיק פרויקטים",
-      "שירותים בפריסה ממוספרת",
-      "אודות הסטודיו ומספרים",
-      "SEO מותאם לאדריכלות",
-    ],
+    features: ["תוכנית אינטראקטיבית לבית סביב חצר", "הדמיות מקוריות עם שפה חזותית אחידה", "זכוכית מגדלת לחומרים עם תמיכה במגע", "גלריית הפרויקט במסך מלא", "יצירה והורדה של בריף לדוגמה"],
     pages: [
       { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "סגנון מינימליסטי וחשוף בגוני נייר ונגיעות טרקוטה, עם פריסות לא סימטריות. מתאים למשרדי אדריכלות.",
+    style: "יומן אדריכלי עם טיפוגרפיית Syne, גוני אבן וטרקוטה. חקירה של בית בדיוני דרך התוכנית, ההדמיות והחומרים שלו.",
     waMessage: "היי! ראיתי אצלכם את הדוגמה של Arcos Architecture ואשמח לשמוע עוד.",
     price: "€450",
     images: { card: "" },
@@ -772,7 +451,7 @@ const TEMPLATES = [
   },
   {
     id: "olio-deli",
-    industry: "deli",
+    industry: "restaurant",
     name: "Olio Deli",
     tagline: "ים תיכוני חם",
     tier: "Growth",
@@ -796,33 +475,6 @@ const TEMPLATES = [
     images: { card: "" },
     livePreview: true,
     previewUrl: "/previews/olio-deli.html",
-  },
-  {
-    id: "horizon-law",
-    industry: "legal",
-    name: "Horizon Law",
-    tagline: "סמכותי וכהה",
-    tier: "Pro",
-    tierGradient: "linear-gradient(135deg, #b8975a, #7a6030)",
-    domain: "horizonlaw.gr",
-    palette: ["#0c1524", "#142035", "#b8975a", "#f8f4ec", "#8a9ab5"],
-    paletteNames: ["נייבי", "נייבי כהה", "זהב", "קרם", "רך"],
-    features: [
-      "אזור פתיחה מלא עם צילום אווירה",
-      "6 תחומי עיסוק",
-      "פרופילי עורכי דין עם צילומים",
-      "המלצות לקוחות",
-      "SEO מותאם למשרדים משפטיים",
-    ],
-    pages: [
-      { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
-    ],
-    style: "סגנון רציני וכהה בנייבי עמוק וזהב חם, עם פונט קלאסי. מתאים למשרדי עורכי דין ולשירותים מקצועיים.",
-    waMessage: "היי! ראיתי אצלכם את הדוגמה של Horizon Law ואשמח לשמוע עוד.",
-    price: "€450",
-    images: { card: "" },
-    livePreview: true,
-    previewUrl: "/previews/horizon-law.html",
   },
 ];
 // ─── Template Detail Modal ────────────────────────────────────────────────────
@@ -879,7 +531,7 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
 
           {/* Open Full Preview - primary CTA */}
           <a
-            href={`/preview/${template.id}/`}
+            href={`/preview/${template.id}/?from=%2Fhe%2Ftemplates%2F`}
             className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-semibold text-white text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
             style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)" }}
           >
@@ -1211,18 +863,10 @@ export default function TemplatesHe() {
     }
   }, []);
 
-  const filtered = (() => {
-    if (activeIndustry === "all") {
-      // Shuffle once using a stable seed so order is random but consistent per session
-      const arr = [...TEMPLATES];
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-    return TEMPLATES.filter(t => t.industry === activeIndustry);
-  })();
+  // Keep the curated order consistent when visitors filter or return from a demo.
+  const filtered = activeIndustry === "all"
+    ? TEMPLATES
+    : TEMPLATES.filter(t => t.industry === activeIndustry);
 
   return (
     <div className="min-h-screen hebrew-home templates-editorial" dir="rtl" style={{ background: "#F6F6F4" }}>

@@ -169,16 +169,11 @@ const ROUTES = [
 // each valid visitor-facing demo without a catch-all SPA rewrite.
 const PREVIEW_ROUTES = [
   "bella-salon",
-  "verde-restaurant",
   "pulse-gym",
   "dr-elara-dental",
   "nomad-coffee",
-  "serenity-yoga",
-  "luxe-realty",
-  "little-stars-nursery",
   "arcos-architecture",
   "olio-deli",
-  "horizon-law",
 ].map((id) => `/preview/${id}/`);
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

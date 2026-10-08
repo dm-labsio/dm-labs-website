@@ -1,0 +1,812 @@
+@font-face {
+  font-family: Nomad Condensed;
+  src: url("/previews/nomad/assets/barlow-condensed-800.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+:root {
+  --red: #b72d20;
+  --paper: #f6f0e4;
+  --butter: #f1df9c;
+  --ink: #28251e;
+  --line: #bfb9ab;
+  --display: "Nomad Condensed", "Arial Narrow", Impact, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+button,
+input,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button,
+a {
+  touch-action: manipulation;
+}
+a {
+  color: inherit;
+  text-underline-offset: 5px;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 5px;
+}
+button:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+figure,
+p,
+h1,
+h2,
+dl,
+dd {
+  margin: 0;
+}
+.skip {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 20;
+  padding: 12px;
+  background: var(--butter);
+}
+.skip:focus {
+  top: 12px;
+}
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 88px;
+  padding: 12px 4vw;
+  border-bottom: 1px solid var(--ink);
+}
+.wordmark {
+  font: 800 40px/0.85 var(--display);
+  letter-spacing: -1px;
+  text-decoration: none;
+}
+.wordmark span {
+  display: block;
+  font:
+    700 9px/1.6 Arial,
+    sans-serif;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+.header nav {
+  display: flex;
+  gap: clamp(20px, 3.5vw, 60px);
+}
+.header nav a {
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration-thickness: 1px;
+}
+.header nav a:hover {
+  text-decoration-color: var(--red);
+  color: var(--red);
+}
+.concept-label {
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: right;
+}
+.hero {
+  background: var(--red);
+  color: var(--butter);
+  display: grid;
+  grid-template-columns: 45% 55%;
+  min-height: 680px;
+}
+.hero-copy {
+  padding: 42px 2vw 48px 4vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+  margin-bottom: 26px;
+}
+h1 {
+  font: 800 clamp(74px, 8.55vw, 150px) / 0.87 var(--display);
+  letter-spacing: -0.015em;
+}
+.hero-intro {
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 24px 0;
+}
+.button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  border: 1px solid var(--butter);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+.button.light {
+  background: var(--butter);
+  color: var(--ink);
+}
+.button:hover {
+  background: var(--paper);
+  transform: translateY(-3px);
+}
+.hero-image {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+.hero-image img {
+  height: 100%;
+  flex: 1;
+  min-height: 0;
+  object-fit: cover;
+  object-position: 48% center;
+}
+.hero-image figcaption {
+  background: var(--butter);
+  color: var(--ink);
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.section {
+  padding: 90px 6vw;
+}
+.menu-section {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 8vw;
+}
+h2 {
+  font: 800 clamp(48px, 5.4vw, 88px) / 0.96 var(--display);
+  letter-spacing: -0.012em;
+}
+.section-heading > p:last-child {
+  margin-top: 24px;
+  font-size: 18px;
+}
+.menu-filters,
+.method-controls {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--ink);
+}
+.menu-filters button,
+.method-controls button {
+  border: 0;
+  background: none;
+  color: var(--ink);
+  padding: 15px 18px;
+  font-size: 14px;
+  line-height: 1.25;
+  font-weight: 700;
+  min-height: 50px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.menu-filters button:first-child,
+.method-controls button:first-child {
+  margin-left: 0;
+}
+.menu-filters button[aria-pressed="true"],
+.method-controls button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+.menu-filters button:hover,
+.method-controls button:hover {
+  background: var(--red);
+  color: var(--paper);
+}
+.menu-note {
+  font-size: 13px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  min-height: 20px;
+}
+.menu-items > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 19px 0;
+  border-bottom: 1px solid var(--line);
+}
+.menu-items dt {
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.menu-items dt span {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 7px;
+  line-height: 1.5;
+}
+.menu-items dd {
+  white-space: nowrap;
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+}
+.menu-footnote {
+  font-size: 12px;
+  margin-top: 22px;
+  max-width: 440px;
+}
+.brew-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--butter);
+}
+.brew-image {
+  position: relative;
+  overflow: hidden;
+}
+.brew-image img {
+  height: 100%;
+  object-fit: cover;
+}
+.brew-image figcaption {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  background: var(--paper);
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.brew-panel {
+  padding: 60px 5vw;
+}
+.brew-panel .eyebrow {
+  margin-bottom: 20px;
+}
+.brew-intro {
+  margin-top: 20px;
+  font-size: 17px;
+}
+.method-controls {
+  margin-top: 32px;
+}
+.method-controls button {
+  flex: 1;
+  padding: 14px 10px;
+  font-size: 13px;
+}
+.dose-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 28px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.dose-heading output {
+  font: 800 30px/1 var(--display);
+}
+input[type="range"] {
+  width: 100%;
+  height: 38px;
+  margin: 4px 0;
+  accent-color: var(--red);
+  cursor: ew-resize;
+}
+.dose-help {
+  font-size: 12px;
+}
+.recipe-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  margin-top: 24px;
+  padding: 20px 0;
+  gap: 20px;
+}
+.recipe-stats dt {
+  font-size: 12px;
+  font-weight: 700;
+}
+.recipe-stats dd {
+  font: 800 clamp(44px, 5vw, 72px) / 1 var(--display);
+  font-variant-numeric: tabular-nums;
+  margin-top: 8px;
+}
+.recipe-stats dd span {
+  font:
+    400 16px Arial,
+    sans-serif;
+  margin-left: 6px;
+}
+#recipe-detail {
+  margin-top: 18px;
+  font-size: 14px;
+  min-height: 64px;
+}
+.brew-tip {
+  font-size: 12px;
+  margin-top: 18px;
+}
+.about {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px 9vw;
+}
+.about-copy {
+  align-self: center;
+  max-width: 510px;
+  font-size: 19px;
+}
+.about-copy p + p {
+  margin-top: 18px;
+}
+.text-link {
+  display: inline-block;
+  margin-top: 22px;
+  font-size: 15px;
+  font-weight: 700;
+}
+footer {
+  background: var(--red);
+  color: var(--butter);
+  padding: 30px 4vw 22px;
+  overflow: hidden;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.footer-wordmark {
+  font: 800 clamp(140px, 28vw, 520px) / 0.93 var(--display);
+  letter-spacing: -0.03em;
+  text-align: center;
+  margin: 22px 0 30px;
+}
+footer > p {
+  font-size: 11px;
+  line-height: 1.6;
+  max-width: 680px;
+}
+.content-change {
+  animation: content-in 0.24s ease-out;
+}
+@keyframes content-in {
+  from {
+    opacity: 0.65;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 1500px) {
+  .hero {
+    min-height: 760px;
+  }
+  .hero-copy {
+    padding-left: 6vw;
+  }
+  .section {
+    padding-left: 9vw;
+    padding-right: 9vw;
+  }
+}
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 8.5vw;
+  }
+  .hero {
+    min-height: 590px;
+  }
+  .hero-copy {
+    padding-left: 5vw;
+  }
+  .hero-image img {
+    object-position: 43% center;
+  }
+  .section {
+    padding: 64px 5vw;
+  }
+  .menu-section {
+    gap: 5vw;
+    grid-template-columns: 0.85fr 1.3fr;
+  }
+  .menu-filters button {
+    padding: 14px 12px;
+  }
+  .brew-panel {
+    padding: 40px 4vw;
+  }
+  .header nav {
+    gap: 20px;
+  }
+  .concept-label {
+    display: none;
+  }
+  .hero-image figcaption {
+    font-size: 9px;
+    padding: 15px;
+  }
+  .method-controls button {
+    font-size: 12px;
+  }
+}
+@media (max-width: 700px) {
+  html {
+    scroll-padding-top: 104px;
+  }
+  .header {
+    padding: 12px 20px;
+    min-height: 90px;
+    gap: 18px;
+    align-items: center;
+  }
+  .wordmark {
+    font-size: 34px;
+  }
+  .wordmark span {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+  .header nav {
+    display: flex;
+    gap: 8px 18px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    max-width: 240px;
+  }
+  .header nav a {
+    font-size: 12px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .header nav a:last-child {
+    display: none;
+  }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .hero-copy {
+    padding: 32px 24px 34px;
+    position: relative;
+  }
+  .hero .eyebrow {
+    font-size: 10px;
+    margin-bottom: 22px;
+    letter-spacing: 1.2px;
+  }
+  h1 {
+    font-size: clamp(70px, 17.8vw, 122px);
+    line-height: 0.88;
+  }
+  .hero-intro {
+    font-size: 15px;
+    margin: 20px 0;
+  }
+  .button {
+    min-height: 48px;
+    padding: 12px 22px;
+  }
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+  }
+  .hero-image figcaption {
+    font-size: 9px;
+    padding: 14px 20px;
+  }
+  .section {
+    padding: 48px 24px;
+  }
+  .menu-section {
+    display: block;
+  }
+  .section-heading {
+    display: block;
+  }
+  .section-heading .eyebrow {
+    grid-column: 1/-1;
+    margin-bottom: 18px;
+  }
+  .section-heading h2 {
+    font-size: 51px;
+  }
+  .section-heading > p:last-child {
+    font-size: 15px;
+    margin: 18px 0 0;
+  }
+  .menu-board {
+    margin-top: 30px;
+  }
+  .menu-filters button {
+    flex: 1;
+    font-size: 12px;
+    padding: 13px 10px;
+  }
+  .menu-items dt {
+    font-size: 21px;
+  }
+  .menu-items dd {
+    font-size: 18px;
+  }
+  .menu-items dt span {
+    font-size: 13px;
+  }
+  .brew-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .brew-image {
+    height: 300px;
+  }
+  .brew-image img {
+    object-position: 50% 43%;
+  }
+  .brew-image figcaption {
+    left: 24px;
+    bottom: 18px;
+    padding: 10px 12px;
+    font-size: 9px;
+  }
+  .brew-panel {
+    padding: 34px 24px 40px;
+  }
+  .brew-panel h2 {
+    font-size: 60px;
+  }
+  .method-controls button {
+    font-size: 12px;
+    min-height: 48px;
+  }
+  .recipe-stats dd {
+    font-size: 60px;
+  }
+  .about {
+    display: block;
+  }
+  .about h2 {
+    font-size: 55px;
+  }
+  .about-copy {
+    font-size: 17px;
+    margin-top: 26px;
+  }
+  .footer-top {
+    font-size: 10px;
+    gap: 16px;
+  }
+  .footer-top a {
+    max-width: 150px;
+    text-align: right;
+  }
+  footer {
+    padding: 26px 24px 20px;
+  }
+  .footer-wordmark {
+    font-size: 28vw;
+    margin: 30px -8px 26px;
+  }
+  footer > p {
+    font-size: 10px;
+  }
+  .eyebrow {
+    font-size: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .button:hover {
+    transform: none;
+  }
+}
+
+/* The film occupies the former hero image area without affecting text contrast. */
+.hero-film-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background: #d6c6a5;
+}
+.hero-film-stage video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.highlights {
+  overflow: hidden;
+  padding-bottom: 58px;
+}
+.highlights-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 34px;
+}
+.highlights-heading > p {
+  font-size: 17px;
+  padding-bottom: 5px;
+}
+.highlights-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.highlight-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-decoration: none;
+  background: var(--butter);
+  color: var(--ink);
+}
+.highlight-card img {
+  width: 100%;
+  aspect-ratio: 5/4;
+  object-fit: cover;
+  transition: filter 0.2s;
+}
+.highlight-card:first-child img {
+  object-position: 45% center;
+}
+.highlight-card > div {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.highlight-card .card-link {
+  margin-top: auto;
+  padding-top: 20px;
+}
+.highlight-card .eyebrow {
+  display: block;
+  font-size: 10px;
+  margin-bottom: 12px;
+}
+.highlight-card h3 {
+  font: 800 clamp(30px, 3vw, 46px) / 1 var(--display);
+  margin: 0 0 12px;
+}
+.highlight-card p {
+  font-size: 14px;
+}
+.card-link {
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.highlight-card:hover img {
+  filter: brightness(1.05);
+}
+.highlight-card:focus-visible {
+  outline-offset: -4px;
+}
+.menu-section {
+  border-top: 1px solid var(--line);
+}
+@media (max-width: 700px) {
+  .hero-film-stage {
+    flex: none;
+    aspect-ratio: 16/9;
+  }
+  .highlights {
+    padding-bottom: 38px;
+  }
+  .highlights-heading {
+    display: block;
+    margin-bottom: 26px;
+  }
+  .highlights-heading > p {
+    font-size: 15px;
+    margin-top: 18px;
+  }
+  .highlights-gallery {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .highlight-card {
+    display: grid;
+    grid-template-columns: 38% minmax(0, 1fr);
+  }
+  .highlight-card img {
+    height: 100%;
+    min-height: 210px;
+    aspect-ratio: auto;
+  }
+  .highlight-card > div {
+    padding: 20px 16px;
+  }
+  .highlight-card .eyebrow {
+    font-size: 8px;
+    margin-bottom: 10px;
+  }
+  .highlight-card h3 {
+    font-size: clamp(27px, 6vw, 36px);
+  }
+  .highlight-card p {
+    font-size: 13px;
+  }
+  .highlight-card .card-link {
+    padding-top: 16px;
+    font-size: 12px;
+  }
+  .brew-panel h2 {
+    font-size: 55px;
+  }
+}

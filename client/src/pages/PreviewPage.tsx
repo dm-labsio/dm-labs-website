@@ -21,16 +21,11 @@ import { X } from "lucide-react";
 
 const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
   "bella-salon":          { name: "Bella Salon",          url: "/previews/bella-salon.html" },
-  "verde-restaurant":     { name: "Verde Restaurant",     url: "/previews/verde-restaurant.html" },
   "pulse-gym":            { name: "Pulse Gym",            url: "/previews/pulse-gym.html" },
   "dr-elara-dental":      { name: "Dr. Elara Dental",     url: "/previews/dr-elara-dental.html" },
   "nomad-coffee":         { name: "Nomad Coffee",         url: "/previews/nomad-coffee.html" },
-  "serenity-yoga":        { name: "Serenity Yoga",        url: "/previews/serenity-yoga.html" },
-  "luxe-realty":          { name: "Luxe Realty",          url: "/previews/luxe-realty.html" },
-  "little-stars-nursery": { name: "Little Stars Nursery", url: "/previews/little-stars-nursery.html" },
   "arcos-architecture":   { name: "Arcos Architecture",   url: "/previews/arcos-architecture.html" },
   "olio-deli":            { name: "Olio Deli",            url: "/previews/olio-deli.html" },
-  "horizon-law":          { name: "Horizon Law",          url: "/previews/horizon-law.html" },
 };
 
 const DEFAULT_RETURN_PATH = "/templates/";
@@ -133,6 +128,9 @@ export default function PreviewPage() {
       if (!doc) return;
 
       const clickHandler = (e: Event) => {
+        // Interactive one-page demos manage focus/menu state themselves while
+        // preventing hash history entries. Keep the fallback for older demos.
+        if (doc.documentElement.dataset.previewNavigation === "managed") return;
         let el = e.target as HTMLElement | null;
         // Walk up to find the anchor element
         while (el && el.tagName !== "A") { el = el.parentElement; }
@@ -148,7 +146,8 @@ export default function PreviewPage() {
         const dest = doc.getElementById(id) || doc.querySelector(`[name="${id}"]`);
         if (!dest) return;
         // Scroll to the target section instead
-        dest.scrollIntoView({ behavior: "smooth", block: "start" });
+        const reducedMotion = iframe.contentWindow?.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        dest.scrollIntoView({ behavior: reducedMotion ? "instant" : "smooth", block: "start" });
       };
 
       // Use capture: true so we intercept before the browser's default handler
@@ -250,7 +249,7 @@ export default function PreviewPage() {
             border: "none",
             display: "block",
           }}
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          sandbox={`allow-scripts allow-same-origin allow-forms allow-popups${["pulse-gym", "arcos-architecture"].includes(params.id ?? "") ? " allow-downloads" : ""}`}
         />
       )}
     </div>

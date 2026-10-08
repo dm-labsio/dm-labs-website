@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -17,13 +17,9 @@ const homePage = read("client/src/pages/Home.tsx");
 const templates = read("client/src/pages/Templates.tsx");
 const prerender = read("scripts/prerender-full.mjs");
 const app = read("client/src/App.tsx");
-const staticPreviews = [
-  "arcos-architecture",
-  "horizon-law",
-  "little-stars-nursery",
-  "luxe-realty",
-  "olio-deli",
-].map(name => read(`client/public/previews/${name}.html`));
+const staticPreviews = readdirSync(resolve(root, "client/public/previews"))
+  .filter(name => name.endsWith(".html"))
+  .map(name => read(`client/public/previews/${name}`));
 
 describe("SEO integrity", () => {
   it("keeps preview mock-ups discoverable by visitors but non-indexable without canonical or hreflang signals", () => {

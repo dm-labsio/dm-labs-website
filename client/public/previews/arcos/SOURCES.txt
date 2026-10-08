@@ -1,0 +1,56 @@
+ARCOS concept showcase / 7 October 2026
+
+Interaction research:
+Aceternity Lens by Manu Arora, discovered through the 21st.dev collection:
+https://21st.dev/community/components/explore/parallax-components
+https://ui.aceternity.com/components/lens
+
+Aceternity Tracing Beam:
+https://ui.aceternity.com/components/tracing-beam
+
+These are interaction references. The native image magnifier, drawing reveal,
+reading-progress line, lightbox and project-brief builder are original DOM/CSS
+implementations. No Aceternity source or paid component is redistributed.
+The lens adds explicit material selectors for touch and keyboard access;
+reduced motion disables cursor tracking but retains static magnification.
+
+Imagery: three original AI-generated architectural concept views, created
+with the built-in image_gen tool. These depict a fictional, unbuilt project.
+The plan is a schematic illustration, not a measured construction drawing.
+Fonts: Syne and IBM Plex Sans, served by Google Fonts.
+Asset prompts are recorded in docs/examples-refresh/arcos-assets.json.
+
+Photo tour addition / 7 October 2026
+Pannellum 2.5.7 by Matthew Petroff, MIT licensed; pinned local build and license
+in vendor/. Loaded on demand only, with no third-party service or account.
+https://pannellum.org/documentation/reference/
+https://pannellum.org/documentation/examples/partial-panorama/
+https://github.com/mpetroff/pannellum
+
+Research also reviewed:
+https://www.marzipano.net/docs.html
+https://photo-sphere-viewer.js.org/plugins/virtual-tour.html
+https://docs.nerf.studio/quickstart/custom_dataset.html
+
+The two new concept panoramas are generated from the existing visual references.
+They are NOT a photogrammetric reconstruction or a seamless 360-degree capture.
+A bounded partial projection was chosen after visual testing of the generated
+images; the original full-sphere projection visibly distorted the architecture.
+The furnished floor plan is an original SVG schematic with no claimed dimensions.
+
+Shared 3D tour / 8 October 2026
+The active viewer now uses Three.js 0.186.1 (MIT), with GLTFLoader, Meshopt
+decoding and cached static shadows. Licenses are in vendor/.
+https://threejs.org/docs/pages/GLTFLoader.html
+https://github.com/zeux/meshoptimizer
+
+House geometry, furnishings and tree are authored for this fictional concept
+from the existing SVG plan. Scale and heights are assumptions, not surveyed data.
+The cover is a capture of the same browser model. Other page gallery images
+remain earlier AI-generated mood studies; they are not exact model renders.
+
+Surface photographs: Poly Haven CC0, source URLs and checksums in
+scripts/arcos/sources.json. https://polyhaven.com/license
+Assets: sandy_gravel, white_plaster_02, oak_veneer_01, rough_linen,
+white_sandstone_blocks_02, bark_brown_02.
+Optimized with glTF Transform 4.3.0; Meshopt geometry + WebP textures.

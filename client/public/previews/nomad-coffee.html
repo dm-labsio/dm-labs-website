@@ -1,433 +1,283 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="robots" content="noindex, nofollow" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nomad Coffee Co. - Limassol</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    :root { --brown:#3E2A1E; --brown-mid:#5C3D2E; --caramel:#C4813A; --cream:#FAF6F0; --warm-white:#FDF9F4; --sand:#E8D9C5; --text-muted:#7A6355; --border:rgba(62,42,30,0.12); }
-    body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--brown); overflow-x:hidden; }
-    h1,h2,h3,h4 { font-family:'Lora',serif; }
-    a { text-decoration:none; color:inherit; }
-
-    /* NAV */
-    nav { position:sticky; top:0; z-index:100; background:var(--brown); padding:0 6%; display:flex; align-items:center; justify-content:space-between; height:68px; }
-    .nav-logo { font-family:'Lora',serif; font-size:1.3rem; font-weight:600; color:var(--cream); letter-spacing:0.02em; }
-    .nav-logo span { color:var(--caramel); }
-    .nav-links { display:flex; gap:2rem; list-style:none; }
-    .nav-links a { font-size:0.82rem; font-weight:400; color:rgba(250,246,240,0.65); transition:color .2s; }
-    .nav-links a:hover { color:var(--caramel); }
-    .nav-cta { background:var(--caramel); color:#fff; border:none; padding:0.6rem 1.4rem; font-size:0.8rem; font-weight:500; border-radius:4px; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; }
-    .nav-cta:hover { background:#b5722e; }
-    @media(max-width:768px){ .nav-links{display:none;} }
-
-    /* HERO */
-    .hero { display:grid; grid-template-columns:1fr 1fr; min-height:90vh; }
-    .hero-img { position:relative; overflow:hidden; }
-    .hero-img img { width:100%; height:100%; object-fit:cover; object-position:center; }
-    .hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to right, rgba(62,42,30,0.3) 0%, transparent 60%); }
-    .hero-content { background:var(--warm-white); display:flex; flex-direction:column; justify-content:center; padding:8% 8% 8% 6%; }
-    .hero-eyebrow { font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--caramel); font-weight:500; margin-bottom:1.5rem; }
-    .hero-title { font-size:clamp(2.5rem,4vw,3.8rem); font-weight:500; line-height:1.15; color:var(--brown); margin-bottom:1.5rem; }
-    .hero-title em { font-style:italic; color:var(--caramel); }
-    .hero-sub { font-size:0.95rem; color:var(--text-muted); line-height:1.9; max-width:420px; margin-bottom:2.5rem; }
-    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:3rem; }
-    .btn-brown { background:var(--brown); color:var(--cream); border:none; padding:0.9rem 2rem; font-size:0.85rem; font-weight:500; border-radius:4px; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; }
-    .btn-brown:hover { background:var(--brown-mid); }
-    .btn-outline { background:transparent; color:var(--brown); border:1.5px solid var(--brown); padding:0.9rem 2rem; font-size:0.85rem; font-weight:500; border-radius:4px; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s; }
-    .btn-outline:hover { background:var(--sand); }
-    .hero-hours { display:flex; gap:2rem; }
-    .hour-item { font-size:0.8rem; color:var(--text-muted); }
-    .hour-item strong { display:block; font-size:0.85rem; color:var(--brown); font-weight:600; }
-    @media(max-width:768px){ .hero{grid-template-columns:1fr;} .hero-img{height:55vw;} .hero-content{padding:3rem 1.5rem;} }
-
-    /* MENU STRIP */
-    .menu-strip { background:var(--brown); padding:2.5rem 8%; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:2rem; }
-    .menu-item { text-align:center; }
-    .menu-item-name { font-family:'Lora',serif; font-size:1rem; font-weight:500; color:var(--cream); margin-bottom:0.25rem; }
-    .menu-item-price { font-size:0.8rem; color:var(--caramel); font-weight:500; }
-    .menu-divider { width:1px; height:40px; background:rgba(250,246,240,0.15); }
-    @media(max-width:768px){ .menu-strip{padding:2rem 1.5rem; justify-content:center;} .menu-divider{display:none;} }
-
-    /* SCROLL VIDEO HERO */
-    .scroll-video-hero { --hero-progress:0; position:relative; height:520vh; }
-    .scroll-video-hero-stage { position:fixed; inset:0; z-index:10; height:100svh; min-height:28rem; overflow:hidden; isolation:isolate; background:#120b07; pointer-events:none; }
-    .scroll-video-hero[data-active="false"] .scroll-video-hero-stage { display:none; }
-    .scroll-video-hero video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; pointer-events:none; opacity:0; transition:opacity .25s ease-out; }
-    .scroll-video-hero[data-ready="true"] video { opacity:1; }
-    .scroll-video-hero::after { content:''; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(180deg, rgba(15,8,4,0.12) 0%, transparent 36%, rgba(15,8,4,0.32) 100%); }
-    .scroll-video-hero-cue { position:absolute; z-index:2; left:50%; bottom:2.25rem; transform:translateX(-50%); color:rgba(250,246,240,0.8); font-size:0.65rem; letter-spacing:0.24em; text-transform:uppercase; white-space:nowrap; opacity:calc(1 - var(--hero-progress)); transition:opacity .18s linear; }
-    .scroll-video-hero-cue::after { content:''; display:block; width:1px; height:2rem; margin:0.85rem auto 0; background:rgba(250,246,240,0.65); transform-origin:top; transform:scaleY(calc(1 - var(--hero-progress))); }
-    @media(max-width:768px){ .scroll-video-hero{height:390svh;} .scroll-video-hero-cue{bottom:1.5rem; font-size:0.58rem;} }
-    @media(prefers-reduced-motion:reduce){ .scroll-video-hero{height:100svh;} .scroll-video-hero-stage{position:relative; inset:auto; height:100svh;} .scroll-video-hero video{opacity:1!important;} .scroll-video-hero-cue{display:none;} }
-
-    /* STORY */
-    .story { padding:7rem 8%; display:grid; grid-template-columns:1fr 1fr; gap:7rem; align-items:center; }
-    .story-text .eyebrow { font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--caramel); font-weight:500; margin-bottom:1rem; }
-    .story-title { font-size:clamp(2rem,3.5vw,3rem); font-weight:500; color:var(--brown); margin-bottom:1.5rem; line-height:1.2; }
-    .story-title em { font-style:italic; }
-    .story-text p { font-size:0.9rem; color:var(--text-muted); line-height:1.9; margin-bottom:1.25rem; }
-    .story-img { position:relative; }
-    .story-img img { width:100%; border-radius:4px; aspect-ratio:4/5; object-fit:cover; }
-    .story-img-sm { position:absolute; bottom:-2rem; right:-2rem; width:45%; border-radius:4px; border:6px solid var(--cream); box-shadow:0 8px 24px rgba(62,42,30,0.15); }
-    @media(max-width:768px){ .story{grid-template-columns:1fr; gap:3rem; padding:4rem 1.5rem;} .story-img-sm{display:none;} }
-
-    /* MENU */
-    .menu { padding:7rem 8%; background:var(--warm-white); }
-    .section-header { margin-bottom:4rem; }
-    .section-header .eyebrow { font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--caramel); font-weight:500; margin-bottom:0.75rem; }
-    .section-header h2 { font-size:clamp(2rem,3.5vw,3rem); font-weight:500; color:var(--brown); }
-    .menu-tabs { display:flex; gap:0; border-bottom:1px solid var(--border); margin-bottom:3rem; }
-    .menu-tab { padding:0.75rem 1.5rem; font-size:0.85rem; font-weight:500; color:var(--text-muted); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; transition:all .2s; }
-    .menu-tab.active { color:var(--brown); border-bottom-color:var(--caramel); }
-    .menu-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; }
-    .menu-entry { display:flex; justify-content:space-between; align-items:flex-start; padding:1.25rem 0; border-bottom:1px solid var(--border); gap:1rem; }
-    .menu-entry-info h4 { font-family:'Lora',serif; font-size:1rem; font-weight:500; color:var(--brown); margin-bottom:0.25rem; }
-    .menu-entry-info p { font-size:0.78rem; color:var(--text-muted); line-height:1.6; }
-    .menu-entry-price { font-size:0.9rem; font-weight:600; color:var(--caramel); white-space:nowrap; }
-    @media(max-width:768px){ .menu-grid{grid-template-columns:1fr;} .menu{padding:4rem 1.5rem;} }
-
-    /* GALLERY */
-    .gallery { display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:auto auto; gap:4px; }
-    .gallery-item { overflow:hidden; }
-    .gallery-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s; aspect-ratio:1; }
-    .gallery-item:first-child { grid-column:span 2; grid-row:span 2; }
-    .gallery-item:first-child img { aspect-ratio:auto; height:100%; }
-    .gallery-item img:hover { transform:scale(1.05); }
-    @media(max-width:768px){ .gallery{grid-template-columns:1fr 1fr;} .gallery-item:first-child{grid-column:span 2; grid-row:span 1;} }
-
-    /* VISIT */
-    .visit { padding:7rem 8%; display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
-    .visit-map { background:var(--sand); border-radius:4px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; overflow:hidden; }
-    .visit-map img { width:100%; height:100%; object-fit:cover; border-radius:4px; }
-    .visit-text .eyebrow { font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--caramel); font-weight:500; margin-bottom:1rem; }
-    .visit-title { font-size:clamp(2rem,3vw,2.8rem); font-weight:500; color:var(--brown); margin-bottom:1.5rem; }
-    .visit-details { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; }
-    .visit-detail { display:flex; gap:1rem; align-items:flex-start; }
-    .visit-icon { font-size:1.1rem; flex-shrink:0; margin-top:0.1rem; }
-    .visit-detail-text strong { display:block; font-size:0.85rem; color:var(--brown); font-weight:600; margin-bottom:0.1rem; }
-    .visit-detail-text span { font-size:0.82rem; color:var(--text-muted); }
-    @media(max-width:768px){ .visit{grid-template-columns:1fr; gap:3rem; padding:4rem 1.5rem;} }
-
-    /* FOOTER */
-    footer { background:var(--brown); padding:4rem 8% 2rem; }
-    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:4rem; margin-bottom:3rem; }
-    .footer-logo { font-family:'Lora',serif; font-size:1.4rem; font-weight:500; color:var(--cream); margin-bottom:1rem; }
-    .footer-logo span { color:var(--caramel); }
-    .footer-desc { font-size:0.83rem; color:rgba(250,246,240,0.45); line-height:1.8; }
-    .footer-heading { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--caramel); margin-bottom:1.25rem; font-weight:500; }
-    .footer-list { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
-    .footer-list a { font-size:0.83rem; color:rgba(250,246,240,0.45); transition:color .2s; }
-    .footer-list a:hover { color:var(--caramel); }
-    .footer-bottom { border-top:1px solid rgba(250,246,240,0.1); padding-top:1.5rem; display:flex; justify-content:space-between; }
-    .footer-copy { font-size:0.75rem; color:rgba(250,246,240,0.25); }
-    @media(max-width:768px){ .footer-grid{grid-template-columns:1fr; gap:2rem;} footer{padding:3rem 1.5rem 2rem;} .footer-bottom{flex-direction:column; gap:0.5rem;} }
-  
-    /* === DM Labs: Universal Mobile Safety === */
-    html, body { overflow-x: hidden; max-width: 100%; }
-    img, video, iframe { max-width: 100%; }
-    /* Forced-colors / high-contrast accessibility */
-    @media (forced-colors: active) {
-      * { border-color: ButtonText !important; }
-      a { color: LinkText !important; }
-      button, .btn, [class*="btn"], [class*="cta"] {
-        forced-color-adjust: none;
-        background: ButtonFace !important;
-        color: ButtonText !important;
-        border: 2px solid ButtonText !important;
-      }
-    }
-
-  </style>
-</head>
-<body>
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo">Nomad <span>Coffee</span> Co.</div>
-    <ul class="nav-links">
-      <li><a href="#">Menu</a></li>
-      <li><a href="#">Our Story</a></li>
-      <li><a href="#">Beans</a></li>
-      <li><a href="#">Events</a></li>
-      <li><a href="#">Find Us</a></li>
-    </ul>
-    <button class="nav-cta">Order Online</button>
-  </nav>
-
-  <!-- SCROLL VIDEO HERO -->
-  <section class="scroll-video-hero" id="coffee-film-hero" aria-label="Nomad Coffee film introduction" data-ready="false" data-active="true">
-    <div class="scroll-video-hero-stage">
-      <video id="coffee-scroll-video" muted playsinline preload="auto" aria-hidden="true">
-        <source src="https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/nomad-coffee-scroll-video-all-intra_ab16c684.mp4" type="video/mp4" />
-      </video>
-      <span class="scroll-video-hero-cue" aria-hidden="true">Scroll to explore</span>
-    </div>
-  </section>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=85" alt="Nomad Coffee" />
-    </div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Specialty Coffee · Limassol</p>
-      <h1 class="hero-title">Coffee Worth <em>Slowing Down</em> For</h1>
-      <p class="hero-sub">Single-origin beans, hand-roasted in small batches. Every cup tells the story of where it came from and the people who grew it.</p>
-      <div class="hero-btns">
-        <button class="btn-brown">View Our Menu</button>
-        <button class="btn-outline">Our Story</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>NOMAD | Coffee, your way. A DM-Labs concept.</title>
+    <meta
+      name="description"
+      content="An independent coffee bar concept. Explore the menu and make your next cup with an adjustable brew guide."
+    />
+    <link
+      rel="preload"
+      href="/previews/nomad/assets/barlow-condensed-800.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/previews/nomad/assets/coffee-banner-poster.webp"
+      fetchpriority="high"
+    />
+    <link rel="stylesheet" href="/previews/nomad/nomad.css" />
+    <script type="module" src="/previews/nomad/nomad.mjs"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="header">
+      <a class="wordmark" href="#top" aria-label="Nomad, back to top"
+        >NOMAD<span>COFFEE BAR</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#menu">The menu</a><a href="#brew">Brew at home</a
+        ><a href="#about">Our kind of coffee</a>
+      </nav>
+      <span class="concept-label">A fictional café<br />by DM-Labs</span>
+    </header>
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">COFFEE BAR / LIMASSOL CONCEPT</p>
+          <h1 id="hero-title">GOOD<br />COFFEE.<br />FULL STOP.</h1>
+          <p class="hero-intro">
+            An espresso on the way.<br />A long coffee with nowhere to be.
+          </p>
+          <a class="button light" href="#menu">Find your usual</a>
+        </div>
+        <figure class="hero-image">
+          <div class="hero-film-stage">
+            <video
+              id="coffee-banner"
+              muted
+              loop
+              playsinline
+              preload="none"
+              poster="/previews/nomad/assets/coffee-banner-poster.webp"
+              data-src="/previews/nomad/assets/coffee-banner.mp4"
+              aria-label="Coffee and cream swirling around a coffee bean"
+            ></video>
+          </div>
+          <figcaption>
+            <span>COME FOR THE COFFEE.</span><span>STAY A LITTLE.</span>
+          </figcaption>
+        </figure>
+      </section>
+      <section class="highlights section" aria-labelledby="highlights-title">
+        <div class="highlights-heading">
+          <div>
+            <p class="eyebrow">FOLLOW YOUR CRAVING</p>
+            <h2 id="highlights-title">A good place<br />to start.</h2>
+          </div>
+          <p>A warm cup, something iced,<br />or a bite on the side.</p>
+        </div>
+        <div id="coffee-gallery" class="highlights-gallery">
+          <a class="highlight-card" href="#menu" data-menu-category="hot"
+            ><img
+              src="/previews/nomad/assets/coffee-still-life-720.webp"
+              width="720"
+              height="480"
+              loading="lazy"
+              alt="Nomad coffee bag and a red espresso cup"
+            />
+            <div>
+              <span class="eyebrow">THE EVERYDAY FAVOURITE</span>
+              <h3>A proper coffee.</h3>
+              <p>Espresso, flat white or a long, easy cup.</p>
+              <span class="card-link">Explore hot coffee</span>
+            </div></a
+          >
+          <a class="highlight-card" href="#menu" data-menu-category="cold"
+            ><img
+              src="/previews/nomad/assets/iced-coffee.webp"
+              width="800"
+              height="1000"
+              loading="lazy"
+              alt="Iced espresso on a red coaster in the afternoon sun"
+            />
+            <div>
+              <span class="eyebrow">A LITTLE COOLER</span>
+              <h3>Over ice, please.</h3>
+              <p>Freddo, cold brew and sunny-day favourites.</p>
+              <span class="card-link">Explore iced coffee</span>
+            </div></a
+          >
+          <a class="highlight-card" href="#menu" data-menu-category="food"
+            ><img
+              src="/previews/nomad/assets/croissant.webp"
+              width="800"
+              height="1000"
+              loading="lazy"
+              alt="A flaky butter croissant on a red ceramic plate"
+            />
+            <div>
+              <span class="eyebrow">BETTER TOGETHER</span>
+              <h3>And a little bite.</h3>
+              <p>Flaky pastry, something sweet, a slice of toast.</p>
+              <span class="card-link">Explore the food menu</span>
+            </div></a
+          >
+        </div>
+      </section>
+      <section
+        class="menu-section section"
+        id="menu"
+        aria-labelledby="menu-title"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">AT THE COUNTER</p>
+          <h2 id="menu-title">What are<br />you having?</h2>
+          <p>Short, long, over ice.<br />There’s no wrong usual.</p>
+        </div>
+        <div class="menu-board">
+          <div class="menu-filters" role="group" aria-label="Menu category">
+            <button type="button" data-category="hot" aria-pressed="true">
+              Hot coffee
+            </button>
+            <button type="button" data-category="cold" aria-pressed="false">
+              Over ice
+            </button>
+            <button type="button" data-category="food" aria-pressed="false">
+              Something to eat
+            </button>
+          </div>
+          <div id="menu-content" aria-live="polite" aria-atomic="true">
+            <p class="menu-note">
+              The everyday favourites. Oat milk available.
+            </p>
+            <dl class="menu-items">
+              <div>
+                <dt>Espresso <span>Small cup. Full character.</span></dt>
+                <dd>€2.80</dd>
+              </div>
+              <div>
+                <dt>
+                  Flat white <span>A double shot, silky milk, no fuss.</span>
+                </dt>
+                <dd>€3.80</dd>
+              </div>
+              <div>
+                <dt>
+                  Long black
+                  <span>Espresso with hot water. Clean and bold.</span>
+                </dt>
+                <dd>€3.20</dd>
+              </div>
+              <div>
+                <dt>
+                  Batch brew
+                  <span>A longer cup, brewed for easy drinking.</span>
+                </dt>
+                <dd>€3.50</dd>
+              </div>
+            </dl>
+          </div>
+          <p class="menu-footnote">
+            Sample menu and prices for this fictional café. No orders are taken.
+          </p>
+        </div>
+      </section>
+      <section class="brew-section" id="brew" aria-labelledby="brew-title">
+        <figure class="brew-image">
+          <img
+            src="/previews/nomad/assets/pour-over.webp"
+            alt="Water pouring into a red ceramic coffee dripper over a glass carafe"
+            width="960"
+            height="1200"
+            loading="lazy"
+          />
+          <figcaption>GOOD COFFEE STARTS HERE.</figcaption>
+        </figure>
+        <div class="brew-panel">
+          <p class="eyebrow">A SIMPLE HOME-BREW GUIDE</p>
+          <h2 id="brew-title">Make a better<br />cup at home.</h2>
+          <p class="brew-intro">
+            Choose how you make your coffee and how much ground coffee you use.
+            This guide works out the water, ice and brewing time.
+          </p>
+          <div class="method-controls" role="group" aria-label="Brewing method">
+            <button type="button" data-method="filter" aria-pressed="true">
+              Pour-over</button
+            ><button type="button" data-method="press" aria-pressed="false">
+              French press</button
+            ><button type="button" data-method="iced" aria-pressed="false">
+              Iced filter
+            </button>
+          </div>
+          <div class="dose-heading">
+            <label for="dose">Ground coffee</label
+            ><output for="dose" id="dose-value">20 g</output>
+          </div>
+          <input
+            type="range"
+            id="dose"
+            min="15"
+            max="40"
+            step="1"
+            value="20"
+            aria-describedby="dose-help"
+          />
+          <p id="dose-help" class="dose-help">
+            Move the slider to the amount of ground coffee you’re using.
+          </p>
+          <div id="recipe" aria-live="polite" aria-atomic="true">
+            <dl class="recipe-stats">
+              <div>
+                <dt>Water</dt>
+                <dd id="water">320<span>g</span></dd>
+              </div>
+              <div>
+                <dt id="second-label">Brew time</dt>
+                <dd id="second-value">3:00<span>min</span></dd>
+              </div>
+            </dl>
+            <p id="recipe-detail">
+              Medium-fine grind. Rinse the filter, wet the grounds with 40 g of
+              water, wait 30 seconds, then pour slowly up to 320 g total.
+            </p>
+          </div>
+          <p class="brew-tip">
+            New to brewing? Start with 20 g of coffee. Then adjust the recipe to
+            your taste.
+          </p>
+          <noscript
+            ><p>
+              Interactive controls need JavaScript. The recipe above is a
+              complete starting point for a 20 g pour-over.
+            </p></noscript
+          >
+        </div>
+      </section>
+      <section class="about section" id="about" aria-labelledby="about-title">
+        <div>
+          <p class="eyebrow">OUR KIND OF COFFEE</p>
+          <h2 id="about-title">Less ceremony.<br />More coffee.</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            We like coffee with character. We like people who know exactly how
+            they take it, and people still figuring that out.
+          </p>
+          <p>
+            So the idea is simple: a short menu, a good cup and a place to make
+            it your own.
+          </p>
+          <a class="text-link" href="#brew">Find your home-brew recipe</a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-top">
+        <span>COFFEE, YOUR WAY.</span
+        ><a href="#menu">One more look at the menu</a>
       </div>
-      <div class="hero-hours">
-        <div class="hour-item"><strong>Mon - Fri</strong>7:00 am - 8:00 pm</div>
-        <div class="hour-item"><strong>Sat - Sun</strong>8:00 am - 9:00 pm</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MENU STRIP -->
-  <div class="menu-strip">
-    <div class="menu-item"><div class="menu-item-name">Espresso</div><div class="menu-item-price">€2.50</div></div>
-    <div class="menu-divider"></div>
-    <div class="menu-item"><div class="menu-item-name">Flat White</div><div class="menu-item-price">€3.20</div></div>
-    <div class="menu-divider"></div>
-    <div class="menu-item"><div class="menu-item-name">Pour Over</div><div class="menu-item-price">€4.00</div></div>
-    <div class="menu-divider"></div>
-    <div class="menu-item"><div class="menu-item-name">Cold Brew</div><div class="menu-item-price">€4.50</div></div>
-    <div class="menu-divider"></div>
-    <div class="menu-item"><div class="menu-item-name">Matcha Latte</div><div class="menu-item-price">€4.20</div></div>
-    <div class="menu-divider"></div>
-    <div class="menu-item"><div class="menu-item-name">Avocado Toast</div><div class="menu-item-price">€7.50</div></div>
-  </div>
-
-  <!-- STORY -->
-  <section class="story">
-    <div class="story-text">
-      <p class="eyebrow">Our Story</p>
-      <h2 class="story-title">Rooted in <em>Craft</em>, Guided by Curiosity</h2>
-      <p>Nomad Coffee Co. was born from a simple belief: that great coffee deserves to be understood, not just consumed. We source directly from farmers in Ethiopia, Colombia, and Guatemala  -  building relationships that ensure quality and fairness at every step.</p>
-      <p>Our roastery in Limassol is open to visitors. Come see how we work, taste the difference between origins, and take home a bag of something extraordinary.</p>
-      <button class="btn-brown" style="margin-top:1rem;">Visit the Roastery</button>
-    </div>
-    <div class="story-img">
-      <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=700&q=80" alt="Coffee roasting" />
-      <img class="story-img-sm" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80" alt="Coffee cup" />
-    </div>
-  </section>
-
-  <!-- MENU -->
-  <section class="menu">
-    <div class="section-header">
-      <p class="eyebrow">What We Serve</p>
-      <h2>The Menu</h2>
-    </div>
-    <div class="menu-tabs">
-      <div class="menu-tab active">Coffee</div>
-      <div class="menu-tab">Tea & Other</div>
-      <div class="menu-tab">Food</div>
-      <div class="menu-tab">Beans to Go</div>
-    </div>
-    <div class="menu-grid">
-      <div>
-        <div class="menu-entry"><div class="menu-entry-info"><h4>Espresso</h4><p>Double shot, 18g, 28ml extraction</p></div><div class="menu-entry-price">€2.50</div></div>
-        <div class="menu-entry"><div class="menu-entry-info"><h4>Americano</h4><p>Espresso with hot water</p></div><div class="menu-entry-price">€2.80</div></div>
-        <div class="menu-entry"><div class="menu-entry-info"><h4>Flat White</h4><p>Double ristretto, velvety microfoam</p></div><div class="menu-entry-price">€3.20</div></div>
-        <div class="menu-entry"><div class="menu-entry-info"><h4>Cappuccino</h4><p>Espresso, steamed milk, dry foam</p></div><div class="menu-entry-price">€3.20</div></div>
-      </div>
-      <div>
-        <div class="menu-entry"><div class="menu-entry-info"><h4>Pour Over</h4><p>Single origin, filter method of the day</p></div><div class="menu-entry-price">€4.00</div></div>
-        <div class="menu-entry"><div class="menu-entry-info"><h4>Cold Brew</h4><p>12-hour cold extraction, served over ice</p></div><div class="menu-entry-price">€4.50</div></div>
-        <div class="menu-entry"><div class="menu-entry-info"><h4>Cortado</h4><p>Equal parts espresso and warm milk</p></div><div class="menu-entry-price">€3.00</div></div>
-        <div class="menu-entry"><div class="menu-entry-info"><h4>Oat Latte</h4><p>Espresso with oat milk, lightly textured</p></div><div class="menu-entry-price">€3.80</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <div class="gallery">
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&q=80" alt="Coffee" /></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&q=80" alt="Latte art" /></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?w=400&q=80" alt="Cafe interior" /></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&q=80" alt="Beans" /></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=400&q=80" alt="Barista" /></div>
-  </div>
-
-  <!-- VISIT -->
-  <section class="visit">
-    <div class="visit-map">
-      <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&q=80" alt="Cafe" />
-    </div>
-    <div class="visit-text">
-      <p class="eyebrow">Find Us</p>
-      <h2 class="visit-title">Come Visit</h2>
-      <div class="visit-details">
-        <div class="visit-detail"><span class="visit-icon"></span><div class="visit-detail-text"><strong>Address</strong><span>8 Anexartisias Street, Limassol Old Town</span></div></div>
-        <div class="visit-detail"><span class="visit-icon"></span><div class="visit-detail-text"><strong>Opening Hours</strong><span>Mon-Fri: 7am - 8pm · Sat-Sun: 8am - 9pm</span></div></div>
-        <div class="visit-detail"><span class="visit-icon"></span><div class="visit-detail-text"><strong>Phone</strong><span>+357 25 111 222</span></div></div>
-        <div class="visit-detail"><span class="visit-icon"></span><div class="visit-detail-text"><strong>Email</strong><span>hello@nomadcoffee.cy</span></div></div>
-      </div>
-      <button class="btn-brown">Get Directions</button>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">Nomad <span>Coffee</span> Co.</div>
-        <p class="footer-desc">Specialty coffee roasted with care in Limassol. Sourced directly. Brewed honestly.</p>
-      </div>
-      <div>
-        <p class="footer-heading">Explore</p>
-        <ul class="footer-list">
-          <li><a href="#">Menu</a></li>
-          <li><a href="#">Our Beans</a></li>
-          <li><a href="#">Roastery Tours</a></li>
-          <li><a href="#">Events</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-heading">Visit</p>
-        <ul class="footer-list">
-          <li><a href="#">8 Anexartisias St, Limassol</a></li>
-          <li><a href="#">Mon-Fri: 7am - 8pm</a></li>
-          <li><a href="#">+357 25 111 222</a></li>
-          <li><a href="#">hello@nomadcoffee.cy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2025 Nomad Coffee Co. All rights reserved.</span>
-      <span class="footer-copy">Website by DM-Labs.io</span>
-    </div>
-  </footer>
-<script>
-/* DM Labs: pinned scroll-driven coffee hero.
-   The visitor's scroll position maps to the stored video only after valid
-   metadata is available; the existing website begins after the final frame. */
-(function() {
-  var video = document.getElementById('coffee-scroll-video');
-  var scene = document.getElementById('coffee-film-hero');
-  if (!video || !scene || !window.requestAnimationFrame) return;
-
-  var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var scrollRafId = 0;
-  var seekControllerRafId = 0;
-  var metadataReady = false;
-  var duration = 0;
-  var targetTime = 0;
-  var seekReady = true;
-  var seekTolerance = 1 / 120;
-
-  function clamp(value, minimum, maximum) {
-    return Math.max(minimum, Math.min(maximum, value));
-  }
-
-  function runSeekController() {
-    seekControllerRafId = window.requestAnimationFrame(runSeekController);
-    if (!metadataReady || reducedMotion || !seekReady || video.seeking) return;
-    if (Math.abs(video.currentTime - targetTime) <= seekTolerance) return;
-    seekReady = false;
-    video.currentTime = targetTime;
-  }
-
-  function updateTargetTime(nextTime) {
-    targetTime = clamp(nextTime, 0, duration);
-  }
-
-  function onSeeked() {
-    seekReady = true;
-  }
-
-  function updateFromScroll() {
-    scrollRafId = 0;
-    var sceneRect = scene.getBoundingClientRect();
-    var scrollSpan = Math.max(scene.offsetHeight, 1);
-    var progress = clamp(-sceneRect.top / scrollSpan, 0, 1);
-    scene.style.setProperty('--hero-progress', progress.toFixed(4));
-    scene.setAttribute('data-active', sceneRect.bottom > 0 ? 'true' : 'false');
-
-    if (!metadataReady || reducedMotion) return;
-    updateTargetTime(Math.min(Math.max(duration - 0.04, 0), duration * progress));
-  }
-
-  function queueUpdate() {
-    if (scrollRafId) return;
-    scrollRafId = window.requestAnimationFrame(updateFromScroll);
-  }
-
-  function onScrollOrResize() {
-    queueUpdate();
-  }
-
-  function onLoadedMetadata() {
-    if (!isFinite(video.duration) || video.duration <= 0) return;
-    duration = video.duration;
-    metadataReady = true;
-    scene.setAttribute('data-ready', 'true');
-    if (reducedMotion) {
-      video.currentTime = Math.max(duration - 0.04, 0);
-      video.pause();
-    }
-    queueUpdate();
-  }
-
-  video.addEventListener('loadedmetadata', onLoadedMetadata, { once:true });
-  video.addEventListener('seeked', onSeeked);
-  window.addEventListener('scroll', onScrollOrResize, { passive:true });
-  window.addEventListener('resize', onScrollOrResize, { passive:true });
-  if (!reducedMotion) seekControllerRafId = window.requestAnimationFrame(runSeekController);
-  if (video.readyState >= 1) onLoadedMetadata();
-  queueUpdate();
-
-  window.addEventListener('pagehide', function() {
-    window.cancelAnimationFrame(scrollRafId);
-    window.cancelAnimationFrame(seekControllerRafId);
-    video.removeEventListener('seeked', onSeeked);
-    window.removeEventListener('scroll', onScrollOrResize);
-    window.removeEventListener('resize', onScrollOrResize);
-  }, { once:true });
-})();
-
-/* DM Labs: prevent hash links from pushing browser history entries.
-   Uses history.replaceState() + scrollIntoView() so iframe nav never
-   adds entries to the parent page's history stack. */
-(function() {
-  function scrollToHash(id) {
-    if (!id) return false;
-    var dest = document.getElementById(id) ||
-               document.querySelector('[name="' + id + '"]');
-    if (!dest) return false;
-    dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // Replace instead of push - keeps the URL in sync without adding history
-    try { history.replaceState(null, '', '#' + id); } catch(e) {}
-    return true;
-  }
-
-  document.addEventListener('click', function(e) {
-    var el = e.target;
-    while (el && el.tagName !== 'A') { el = el.parentElement; }
-    if (!el) return;
-    var href = el.getAttribute('href');
-    if (!href || href.charAt(0) !== '#') return;
-    var id = href.slice(1);
-    if (!id) return;
-    if (scrollToHash(id)) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  }, true);
-
-  // Also handle initial hash on page load (e.g. if URL already has #section)
-  if (window.location.hash) {
-    window.addEventListener('load', function() {
-      scrollToHash(window.location.hash.slice(1));
-    });
-  }
-})();
-</script>
-</body>
+      <div class="footer-wordmark" aria-hidden="true">NOMAD</div>
+      <p>
+        Fictional brand and café concept by DM-Labs. Generated brand imagery.
+        This is a design demonstration, not an operating café.
+      </p>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,74 @@
+import { chromium } from 'playwright';
+import assert from 'node:assert/strict';
+import { mkdir, writeFile } from 'node:fs/promises';
+const base = process.env.ARCOS_QA_URL || 'http://127.0.0.1:5173';
+const out = '../output/website-refresh/arcos/film-qa';
+await mkdir(out, {recursive:true});
+const browser = await chromium.launch();
+const report = {base, cases:[], errors:[]};
+try {
+  for (const [width,height] of [[390,844],[1440,1000],[844,390],[320,740]]) {
+    const p = await browser.newPage({viewport:{width,height},reducedMotion:'reduce',hasTouch:width<700});
+    p.on('pageerror', e => report.errors.push(e.message));
+    const requests=[];
+    p.on('request', r=>requests.push(r.url()));
+    await p.goto(base+'/preview/arcos-architecture/');
+    const s=p.frameLocator('iframe');
+    await s.locator('html[data-arcos-ready=true]').waitFor();
+    assert.equal(requests.filter(x=>/walk-\d+\.mp4/.test(x)).length,0);
+    await s.locator('#open-tour').click();
+    await s.locator('#tour-dialog[data-tour-ready=true]').waitFor();
+    const v=s.locator('#journey-video');
+    assert.equal(await v.evaluate(v=>v.paused),true);
+    await s.locator('#film-play').click();
+    await p.waitForTimeout(450);
+    assert.ok(await v.evaluate(v=>v.currentTime>0 && !v.paused));
+    await s.locator('#film-play').click();
+    await s.locator('#film-progress').fill('600');
+    await p.waitForTimeout(300);
+    assert.ok(await v.evaluate(v=>v.currentTime>8 && v.currentTime<10 && v.paused));
+    await v.press('Home');
+    await p.waitForTimeout(200);
+    const box=await v.boundingBox();
+    await p.mouse.move(box.x+box.width*0.3,box.y+box.height*0.5);
+    await p.mouse.down();
+    await p.mouse.move(box.x+box.width*0.6,box.y+box.height*0.5,{steps:12});
+    await p.mouse.up();
+    await p.waitForTimeout(300);
+    assert.ok(await v.evaluate(v=>v.currentTime>3));
+    assert.ok(await s.locator('#tour-dialog').evaluate(d=>{
+      const r=d.getBoundingClientRect();
+      return d.scrollWidth<=d.clientWidth+1 && r.bottom<=innerHeight+1 && [...d.querySelectorAll('button,input')].filter(e=>!e.hidden).every(e=>{const b=e.getBoundingClientRect(); return b.left>=r.left && b.right<=r.right+1 && b.bottom<=r.bottom+1;});
+    }));
+    await p.screenshot({path:`${out}/${width}.png`});
+    await s.locator('#close-tour').click();
+    await s.locator('#journey-video:not([src])').waitFor({state:'attached'});
+    assert.ok(await s.locator('#open-tour').evaluate(e=>e===document.activeElement));
+    await s.locator('#open-tour').click();
+    await s.locator('#tour-dialog[data-tour-ready=true]').waitFor();
+    await s.locator('#close-tour').press('Escape');
+    await s.locator('#journey-video:not([src])').waitFor({state:'attached'});
+    report.cases.push({width,height,status:'passed'});
+    await p.close();
+  }
+  const p=await browser.newPage();
+  await p.route('**/walk-*.mp4',r=>r.abort());
+  await p.goto(base+'/previews/arcos-architecture.html');
+  await p.locator('#open-tour').click();
+  await p.locator('#retry-tour').waitFor();
+  await p.unroute('**/walk-*.mp4');
+  await p.locator('#retry-tour').click();
+  await p.locator('#tour-dialog[data-tour-ready=true]').waitFor();
+  await p.waitForTimeout(500);
+  assert.ok(await p.locator('#journey-video').evaluate(v=>!v.paused && v.currentTime>0));
+  await p.locator('#film-fullscreen').click();
+  await p.waitForFunction(()=>!!document.fullscreenElement);
+  await p.evaluate(()=>document.exitFullscreen());
+  await p.locator('#close-tour').click();
+  report.retryAutoplayFullscreen='passed';
+  assert.deepEqual(report.errors,[]);
+} finally {
+  await writeFile(`${out}/report.json`,JSON.stringify(report,null,2));
+  await browser.close();
+}
+console.log(JSON.stringify(report,null,2));

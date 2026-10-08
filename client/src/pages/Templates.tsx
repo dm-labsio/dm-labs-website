@@ -1,3 +1,5 @@
+import ArcosPreviewArtwork from "@/components/ArcosPreviewArtwork";
+import NomadPreviewArtwork from "@/components/NomadPreviewArtwork";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
@@ -185,31 +187,6 @@ const CARD_DESIGNS: Record<string, React.FC> = {
     </div>
   ),
 
-  "verde-restaurant": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0d1a0f" }}>
-      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.55 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(13,26,15,0.4) 0%, rgba(13,26,15,0.85) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "13px", fontWeight: 700, color: "#e8f0e0", letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Verde</span>
-        <div style={{ display: "flex", gap: "14px" }}>
-          {["Menu","Story","Reserve"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(232,240,224,0.7)", letterSpacing: "0.08em" }}>{l}</span>)}
-        </div>
-        <div style={{ border: "1px solid #7ab060", color: "#7ab060", fontSize: "8px", padding: "3px 10px" }}>Reserve</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#7ab060", marginBottom: "5px" }}>Ristorante - Limassol</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "24px", fontWeight: 400, color: "#e8f0e0", lineHeight: 1.1, marginBottom: "8px", fontStyle: "italic" as const }}>Taste the<br/>Mediterranean</div>
-        <div style={{ background: "#7ab060", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block" }}>View Menu</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#0d1a0f","#7ab060","#c8a96e","#e8f0e0","#2d4a20"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.15)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
 
   "pulse-gym": () => (
     <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0a0a0a" }}>
@@ -267,143 +244,9 @@ const CARD_DESIGNS: Record<string, React.FC> = {
     </div>
   ),
 
-  "nomad-coffee": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a1208" }}>
-      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(26,18,8,0.88) 40%, rgba(26,18,8,0.3) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "12px", fontWeight: 700, color: "#c8a96e", letterSpacing: "0.06em" }}>Nomad Co.</span>
-        <div style={{ display: "flex", gap: "12px" }}>
-          {["Menu","Story","Beans","Events"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,169,110,0.7)" }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "55%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#c8a96e", marginBottom: "5px" }}>Specialty Coffee - Limassol</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f7f0e6", lineHeight: 1.2, marginBottom: "6px" }}>Coffee Worth<br/><em style={{ color: "#c8a96e" }}>Slow Down</em> For</div>
-        <div style={{ fontSize: "8px", color: "rgba(247,240,230,0.65)", lineHeight: 1.5, marginBottom: "10px" }}>Single-origin beans, hand-roasted<br/>in small batches.</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#c8a96e", color: "#1a1208", fontSize: "8px", padding: "5px 12px", fontWeight: 700 }}>View Our Menu</div>
-          <div style={{ border: "1px solid rgba(200,169,110,0.5)", color: "#c8a96e", fontSize: "8px", padding: "5px 12px" }}>Our Story</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#1a1208","#8b6914","#c8a96e","#f7f0e6","#3d2b1f"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
+  "nomad-coffee": () => <NomadPreviewArtwork />,
 
-  "serenity-yoga": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1a2420" }}>
-      <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.45 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(26,36,32,0.5) 0%, rgba(26,36,32,0.9) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "12px", fontWeight: 400, color: "#8bb5a8", letterSpacing: "0.12em", textTransform: "uppercase" as const }}>Serenity Yoga</span>
-        <div style={{ display: "flex", gap: "12px" }}>
-          {["Classes","Schedule","Teachers","Pricing"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(139,181,168,0.7)" }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#8bb5a8", marginBottom: "5px" }}>Yoga Studio - Limassol</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f0f7f4", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Find Your<br/><em style={{ color: "#8bb5a8" }}>Still</em> Place</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#4a7c6f", color: "#f0f7f4", fontSize: "8px", padding: "5px 12px" }}>View Classes</div>
-          <div style={{ border: "1px solid rgba(139,181,168,0.4)", color: "#8bb5a8", fontSize: "8px", padding: "5px 12px" }}>View Schedule</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#1a2420","#4a7c6f","#8bb5a8","#f0f7f4","#2d4a3e"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-
-  "luxe-realty": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0a0a0a" }}>
-      <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.85) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "40px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(184,151,90,0.2)" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 400, color: "#b8975a", letterSpacing: "0.25em", textTransform: "uppercase" as const }}>Luxe.Realty</span>
-        <div style={{ display: "flex", gap: "14px" }}>
-          {["Properties","About","Visa Guide"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.7)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Athens - Premium Properties</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Extraordinary<br/>Homes</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#b8975a", color: "#0a0a0a", fontSize: "8px", padding: "5px 14px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>View Properties</div>
-          <div style={{ border: "1px solid rgba(184,151,90,0.4)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Visa Guide</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#0a0a0a","#b8975a","#f8f4ec","#142035","#8a9ab5"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "46px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-
-  "little-stars-nursery": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#fffbf5" }}>
-      <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "52%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #fffbf5 46%, transparent 72%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(255,251,245,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(240,106,80,0.12)" }}>
-        <span style={{ fontFamily: "Nunito, sans-serif", fontSize: "11px", fontWeight: 800, color: "#2d2416" }}>Little Stars</span>
-        <div style={{ display: "flex", gap: "10px" }}>
-          {["About","Programmes","Visit"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a5a4a" }}>{l}</span>)}
-        </div>
-        <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "3px 10px", borderRadius: "20px", fontWeight: 700 }}>Book a Visit</div>
-      </div>
-      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "48%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#f06a50", marginBottom: "5px" }}>Nursery - Athens</div>
-        <div style={{ fontFamily: "Nunito, sans-serif", fontSize: "20px", fontWeight: 800, color: "#2d2416", lineHeight: 1.2, marginBottom: "6px" }}>Where Little<br/>Ones <span style={{ color: "#f06a50" }}>Thrive</span></div>
-        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>A nurturing environment for<br/>children aged 3 months to 5 years.</div>
-        <div style={{ background: "#f06a50", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", borderRadius: "20px", fontWeight: 700 }}>Book a Visit</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#fffbf5","#f06a50","#5bb8d4","#f5c842","#2d2416"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-
-  "arcos-architecture": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f4f1ec" }}>
-      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "55%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f4f1ec 44%, transparent 68%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(244,241,236,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(26,25,22,0.1)" }}>
-        <span style={{ fontSize: "11px", fontWeight: 800, color: "#1a1916", letterSpacing: "0.15em", textTransform: "uppercase" as const }}>ARCOS</span>
-        <div style={{ display: "flex", gap: "14px" }}>
-          {["Work","Studio","Services","Contact"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a7568", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", top: "52px", left: "18px", maxWidth: "46%" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4613a", marginBottom: "5px" }}>Architecture Studio</div>
-        <div style={{ fontSize: "22px", fontWeight: 800, color: "#1a1916", lineHeight: 1.1, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "8px" }}>SPACE<br/>THAT<br/><span style={{ color: "#c4613a" }}>SPEAKS</span></div>
-        <div style={{ fontSize: "8px", color: "#7a7568", lineHeight: 1.5, marginBottom: "10px" }}>Architecture that bridges<br/>concept and craft.</div>
-        <div style={{ background: "#1a1916", color: "#f4f1ec", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>View Projects</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#f4f1ec","#c4613a","#1a1916","#2d2b27","#7a7568"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
+  "arcos-architecture": () => <ArcosPreviewArtwork />,
 
   "olio-deli": () => (
     <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1e1c17" }}>
@@ -434,34 +277,6 @@ const CARD_DESIGNS: Record<string, React.FC> = {
     </div>
   ),
 
-  "horizon-law": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0c1524" }}>
-      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.3 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(12,21,36,0.6) 0%, rgba(12,21,36,0.92) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "40px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(184,151,90,0.15)" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 400, color: "#b8975a", letterSpacing: "0.2em", textTransform: "uppercase" as const }}>Horizon Law</span>
-        <div style={{ display: "flex", gap: "14px" }}>
-          {["Practice","Team","Insights"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(184,151,90,0.65)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-        <div style={{ border: "1px solid #b8975a", color: "#b8975a", fontSize: "8px", padding: "3px 10px" }}>Consult</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#b8975a", marginBottom: "5px" }}>Law Firm - Athens</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#f8f4ec", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Justice Pursued.<br/><em style={{ color: "#b8975a" }}>Excellence</em> Delivered.</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#b8975a", color: "#0c1524", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>Our Practice Areas</div>
-          <div style={{ border: "1px solid rgba(184,151,90,0.35)", color: "#b8975a", fontSize: "8px", padding: "5px 12px" }}>Meet the Team</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#0c1524","#b8975a","#f8f4ec","#142035","#8a9ab5"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "46px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
 };
 
 function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
@@ -487,15 +302,11 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
   { id: "all", label: "All Industries", icon: "✦" },
-  { id: "restaurant", label: "Restaurants & Cafés", icon: "☕" },
+  { id: "restaurant", label: "Restaurants, Cafés & Food", icon: "☕" },
   { id: "beauty", label: "Beauty & Wellness", icon: "✂" },
   { id: "clinic", label: "Clinics & Health", icon: "+" },
   { id: "fitness", label: "Fitness & Sport", icon: "◈" },
-  { id: "realestate", label: "Real Estate", icon: "◻" },
-  { id: "childcare", label: "Childcare", icon: "◎" },
   { id: "architecture", label: "Architecture", icon: "△" },
-  { id: "deli", label: "Deli & Food Store", icon: "◇" },
-  { id: "legal", label: "Legal Services", icon: "▣" },
 ];
 
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
@@ -529,37 +340,6 @@ const TEMPLATES = [
     ],
     style: "Luxury feminine aesthetic with deep plum and rose tones, elegant serif typography, and a warm, inviting feel. Perfect for hair salons, beauty studios, and nail bars.",
     waMessage: "Hello DM-Labs team! I'm interested in the Bella Salon website design.",
-    price: "€350",
-    images: { card: "" },
-  },
-  {
-    id: "verde-restaurant",
-    industry: "restaurant",
-    name: "Verde Restaurant",
-    tagline: "Fresh & Mediterranean",
-    tier: "Growth",
-    tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
-    domain: "verderestaurant.com",
-    palette: ["#1a2e1a", "#2d5a27", "#4a8c3f", "#8bc34a", "#f5f9f0"],
-    paletteNames: ["Forest", "Deep Green", "Leaf", "Fresh Green", "Cream"],
-    styleLabel: "Fresh Mediterranean",
-    livePreview: true,
-    previewUrl: "/previews/verde-restaurant.html",
-    features: [
-      "Full-width hero with reservation CTA",
-      "Signature dishes showcase",
-      "Menu page with categories",
-      "About / Our Story section",
-      "Contact & reservation form",
-      "Google Maps embed",
-      "WhatsApp & social links",
-      "Mobile responsive",
-    ],
-    pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
-    ],
-    style: "Fresh Mediterranean aesthetic with deep green tones, warm cream backgrounds, and elegant typography. Ideal for farm-to-table restaurants, Mediterranean cuisine, and healthy dining.",
-    waMessage: "Hello DM-Labs team! I'm interested in the Verde Restaurant website design.",
     price: "€350",
     images: { card: "" },
   },
@@ -629,141 +409,39 @@ const TEMPLATES = [
     id: "nomad-coffee",
     industry: "restaurant",
     name: "Nomad Coffee",
-    tagline: "Artisan & Minimal",
+    tagline: "Coffee with character",
     tier: "Launch",
     tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
-    domain: "nomadcoffee.com",
-    palette: ["#1a1208", "#3d2b1f", "#8b6914", "#c8a96e", "#f7f0e6"],
-    paletteNames: ["Espresso", "Dark Brown", "Gold", "Caramel", "Cream"],
-    styleLabel: "Artisan Minimal",
+    domain: "nomad.example",
+    palette: ["#b72d20", "#f1df9c", "#f6f0e4", "#28251e"],
+    paletteNames: ["Vermilion", "Butter", "Paper", "Ink"],
+    styleLabel: "Coffee-poster identity",
     livePreview: true,
     previewUrl: "/previews/nomad-coffee.html",
-    features: [
-      "Minimal hero with daily specials",
-      "Signature coffee showcase",
-      "Menu with categories",
-      "About / Our Story section",
-      "Contact & find us page",
-      "Phone number CTA",
-      "WhatsApp & social links",
-      "Mobile responsive",
-    ],
+    features: ["Original brand photography", "Interactive café menu", "Adjustable home-brew recipes", "Coffee, water and ice calculator", "Looping coffee video hero", "Coffee and food photo gallery", "Reduced-motion support", "Responsive layout"],
     pages: [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
-    style: "Artisan minimal aesthetic with espresso and gold tones, clean typography, and a warm, inviting feel. Great for specialty coffee shops, artisan roasters, and café bars.",
+    style: "Bold condensed typography, vermilion and butter-yellow colours, tactile brand imagery and a useful interactive brew guide. A fictional coffee-bar identity with a clear point of view.",
     waMessage: "Hello DM-Labs team! I'm interested in the Nomad Coffee website design.",
     price: "€250",
     images: { card: "" },
   },
   {
-    id: "serenity-yoga",
-    industry: "fitness",
-    name: "Serenity Yoga",
-    tagline: "Calm & Balanced",
-    tier: "Launch",
-    tierGradient: "linear-gradient(135deg, #5B8CFF, #3B6CDF)",
-    domain: "serenityyoga.com",
-    palette: ["#1a2420", "#2d4a3e", "#4a7c6f", "#8bb5a8", "#f0f7f4"],
-    paletteNames: ["Forest Dark", "Deep Teal", "Sage", "Mint", "Pale Green"],
-    styleLabel: "Calm Natural",
-    livePreview: true,
-    previewUrl: "/previews/serenity-yoga.html",
-    features: [
-      "Serene hero with class booking CTA",
-      "Yoga class schedule",
-      "Instructor profiles",
-      "Wellness philosophy section",
-      "Contact & booking form",
-      "Location & hours",
-      "WhatsApp CTA",
-      "Mobile responsive",
-    ],
-    pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
-    ],
-    style: "Calm, balanced aesthetic with deep teal and sage tones, natural textures, and clean typography. Ideal for yoga studios, pilates centres, and mindfulness spaces.",
-    waMessage: "Hello DM-Labs team! I'm interested in the Serenity Yoga website design.",
-    price: "€250",
-    images: { card: "" },
-  },
-  // ── Fitness templates ──
-  // ── Batch 2: Athens / Greece ──
-  {
-    id: "luxe-realty",
-    industry: "realestate",
-    name: "Luxe Realty",
-    tagline: "Luxury & Investment",
-    tier: "Pro",
-    tierGradient: "linear-gradient(135deg, #c9a96e, #9a7040)",
-    domain: "luxerealty.gr",
-    palette: ["#0a0a08", "#111110", "#c9a96e", "#f5f0e8", "#888880"],
-    paletteNames: ["Black", "Dark", "Champagne", "Cream", "Muted"],
-    features: [
-      "Full-screen hero with property search bar",
-      "Featured property listings grid",
-      "Golden Visa services section",
-      "Contact & enquiry form",
-      "SEO-optimised for Athens property",
-    ],
-    pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
-    ],
-    style: "Dark luxury editorial with Cormorant Garamond serif, champagne gold accents, and cinematic full-screen photography. Ideal for premium real estate agencies.",
-    waMessage: "Hello DM-Labs team! I'm interested in the Luxe Realty website design.",
-    price: "€450",
-    images: { card: "" },
-    livePreview: true,
-    previewUrl: "/previews/luxe-realty.html",
-  },
-  {
-    id: "little-stars-nursery",
-    industry: "childcare",
-    name: "Little Stars Nursery",
-    tagline: "Warm & Playful",
-    tier: "Growth",
-    tierGradient: "linear-gradient(135deg, #f06a50, #d04030)",
-    domain: "littlestarsnursery.gr",
-    palette: ["#2d2416", "#f06a50", "#5bb8d4", "#f5c842", "#fffbf5"],
-    paletteNames: ["Ink", "Coral", "Sky", "Yellow", "Cream"],
-    features: [
-      "Age-group programme cards",
-      "About & values section",
-      "Parent testimonials",
-      "Nursery visit booking form",
-      "SEO-optimised for Athens childcare",
-    ],
-    pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
-    ],
-    style: "Warm, rounded Nunito typography with coral and sky accents on a cream base. Friendly design with organic shapes. Ideal for nurseries and childcare.",
-    waMessage: "Hello DM-Labs team! I'm interested in the Little Stars Nursery website design.",
-    price: "€299",
-    images: { card: "" },
-    livePreview: true,
-    previewUrl: "/previews/little-stars-nursery.html",
-  },
-  {
     id: "arcos-architecture",
     industry: "architecture",
     name: "Arcos Architecture",
-    tagline: "Brutalist & Minimal",
+    tagline: "An architectural journal",
     tier: "Pro",
     tierGradient: "linear-gradient(135deg, #c4613a, #8a3a1a)",
     domain: "arcosarchitecture.gr",
-    palette: ["#1a1916", "#2d2b27", "#c4613a", "#f4f1ec", "#7a7568"],
+    palette: ["#242521", "#e6e5db", "#a44129", "#f2f0e9", "#5a5c52"],
     paletteNames: ["Charcoal", "Dark", "Terracotta", "Paper", "Muted"],
-    features: [
-      "Split-screen hero with full-bleed image",
-      "Masonry project portfolio grid",
-      "Services with numbered layout",
-      "Studio story & stats",
-      "SEO-optimised for Athens architecture",
-    ],
+    features: ["Interactive courtyard-house plan", "Original, coherent concept imagery", "Material magnifier with touch controls", "Full-screen project photography", "Build and download a sample project brief"],
     pages: [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
-    style: "Brutalist minimal with Syne display font, off-white paper tones, and terracotta accents. Asymmetric split layouts. Ideal for architecture studios.",
+    style: "An architectural journal with Syne typography, limestone paper tones and terracotta accents. Explore a fictional house through its plan, photography and materials.",
     waMessage: "Hello DM-Labs team! I'm interested in the Arcos Architecture website design.",
     price: "€450",
     images: { card: "" },
@@ -772,7 +450,7 @@ const TEMPLATES = [
   },
   {
     id: "olio-deli",
-    industry: "deli",
+    industry: "restaurant",
     name: "Olio Deli",
     tagline: "Warm Mediterranean",
     tier: "Growth",
@@ -796,33 +474,6 @@ const TEMPLATES = [
     images: { card: "" },
     livePreview: true,
     previewUrl: "/previews/olio-deli.html",
-  },
-  {
-    id: "horizon-law",
-    industry: "legal",
-    name: "Horizon Law",
-    tagline: "Authoritative & Dark",
-    tier: "Pro",
-    tierGradient: "linear-gradient(135deg, #b8975a, #7a6030)",
-    domain: "horizonlaw.gr",
-    palette: ["#0c1524", "#142035", "#b8975a", "#f8f4ec", "#8a9ab5"],
-    paletteNames: ["Navy", "Dark Navy", "Gold", "Cream", "Muted"],
-    features: [
-      "Full-screen hero with atmospheric photography",
-      "6 practice area cards",
-      "Attorney profiles with portraits",
-      "Client testimonials",
-      "SEO-optimised for Athens law firm",
-    ],
-    pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
-    ],
-    style: "Authoritative dark with EB Garamond serif, deep navy and warm gold. Ideal for law firms, legal consultancies, and professional services.",
-    waMessage: "Hello DM-Labs team! I'm interested in the Horizon Law website design.",
-    price: "€450",
-    images: { card: "" },
-    livePreview: true,
-    previewUrl: "/previews/horizon-law.html",
   },
 ];
 // ─── Template Detail Modal ────────────────────────────────────────────────────
@@ -1214,18 +865,10 @@ export default function Templates() {
     }
   }, []);
 
-  const filtered = (() => {
-    if (activeIndustry === "all") {
-      // Shuffle once using a stable seed so order is random but consistent per session
-      const arr = [...TEMPLATES];
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-    return TEMPLATES.filter(t => t.industry === activeIndustry);
-  })();
+  // Keep the curated order consistent when visitors filter or return from a demo.
+  const filtered = activeIndustry === "all"
+    ? TEMPLATES
+    : TEMPLATES.filter(t => t.industry === activeIndustry);
 
   return (
     <div className="min-h-screen templates-editorial" style={{ background: "#F6F6F4" }}>
