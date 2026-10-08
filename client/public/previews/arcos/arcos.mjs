@@ -483,7 +483,7 @@ async function startTour() {
   $("#tour-loading span").textContent = "Opening the view…";
   $("#retry-tour").hidden = true;
   try {
-    const { mountTour } = await import("./tour.mjs");
+    const { mountTour } = await import("./film.mjs");
     if (session !== tourSession || !tourDialog.open) return;
     const dispose = await mountTour(
       tourDialog,
@@ -494,7 +494,7 @@ async function startTour() {
   } catch {
     if (session !== tourSession || !tourDialog.open) return;
     $("#tour-loading span").textContent =
-      "The 3D view could not open. Try again, or close the tour to explore the photographs.";
+      "The film could not open. Try again, or close the tour to explore the photographs.";
     $("#retry-tour").hidden = false;
   }
 }
@@ -506,7 +506,7 @@ $$("#open-tour,[data-open-tour]").forEach(button => {
     startTour();
   });
   const prepare = () =>
-    import("./tour.mjs").then(module => module.prepareTour()).catch(() => {});
+    import("./film.mjs").then(module => module.prepareTour()).catch(() => {});
   button.addEventListener("pointerenter", prepare, { once: true });
   button.addEventListener("focus", prepare, { once: true });
 });
@@ -519,11 +519,6 @@ tourDialog.addEventListener("close", () => {
   tourOpener.focus({ preventScroll: true });
 });
 
-$("#toggle-tour-map").addEventListener("click", () => {
-  const map = $("#tour-map");
-  map.hidden = !map.hidden;
-  $("#toggle-tour-map").setAttribute("aria-expanded", String(!map.hidden));
-});
 $("#retry-tour").addEventListener("click", () => {
   disposeTour?.();
   disposeTour = null;

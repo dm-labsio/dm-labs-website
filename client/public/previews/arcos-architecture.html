@@ -95,20 +95,20 @@
           <p class="eyebrow">The house tour</p>
           <h2 id="tour-title">Explore the house.<br />Take the tour.</h2>
           <p>
-            Look around the living space. Step out into the courtyard. Explore
-            at your own pace.
+            Follow the living space into the courtyard and beyond. Play the film,
+            or drag through it at your own pace.
           </p>
         </div>
         <button class="tour-cover" id="open-tour" aria-haspopup="dialog">
           <img
-            src="/media/examples/arcos/house-v1/cover.webp"
-            width="1270"
-            height="777"
+            src="/media/examples/arcos/film-v1/poster.webp"
+            width="1920"
+            height="1080"
             loading="lazy"
-            alt="Enter the living space for an interactive 3D house tour"
+            alt="Living room opening onto the courtyard, from the house film"
           />
           <span class="tour-cover-action"
-            >Enter the house tour <span>Living · courtyard · dining</span></span
+            >Enter the house tour <span>A cinematic walk through the house</span></span
           >
         </button>
       </section>
@@ -488,75 +488,23 @@
         </div>
         <button id="close-tour" class="text-link">Close tour</button>
       </div>
-      <div class="tour-stage" id="tour-stage" aria-busy="false">
-        <div
-          id="panorama"
-          tabindex="0"
-          role="region"
-          aria-label="House tour. Drag to look around. Left and right arrow keys turn; up and down move between viewpoints. Plus and minus zoom."
-        ></div>
-        <div class="tour-map" id="tour-map" hidden>
-          <img
-            src="/previews/arcos/floor-plan.svg"
-            alt="House floor plan"
-            width="800"
-            height="680"
-          />
-          <svg viewBox="0 0 800 680" aria-label="Your position in the house">
-            <polyline
-              points="185,330 270,330 315,330 320,295 400,265 400,230"
-              fill="none"
-              stroke="#ae482d"
-              stroke-width="8"
-            />
-            <circle
-              id="tour-map-dot"
-              cx="185"
-              cy="330"
-              r="15"
-              fill="#ae482d"
-              stroke="white"
-              stroke-width="5"
-            />
-          </svg>
-        </div>
+      <div class="tour-stage film-stage" id="tour-stage" aria-busy="false">
+        <video id="journey-video" playsinline muted preload="none"
+          poster="/media/examples/arcos/film-v1/poster.webp"
+          tabindex="0" aria-label="House film. Space to play or pause. Left and right arrows to seek. Drag horizontally to explore."></video>
         <div id="tour-loading" role="status">
-          <span>Opening the view…</span
-          ><button id="retry-tour" class="button" hidden>Try again</button>
+          <span>Opening the film…</span>
+          <button id="retry-tour" class="button" hidden>Try again</button>
         </div>
       </div>
-      <div class="tour-toolbar">
-        <div class="tour-places" role="group" aria-label="Choose a destination">
-          <button data-tour-scene="living" aria-pressed="true">Living</button>
-          <button data-tour-scene="courtyard" aria-pressed="false">
-            Courtyard
-          </button>
-          <button data-tour-scene="dining" aria-pressed="false">Dining</button>
-        </div>
-        <div
-          class="tour-controls"
-          role="group"
-          aria-label="Move through the house"
-        >
-          <button data-tour-action="back" aria-label="Walk back" disabled>
-            ‹
-          </button>
-          <span id="tour-location">Living space</span>
-          <button data-tour-action="forward" aria-label="Walk forward">
-            ›
-          </button>
-          <button
-            id="toggle-tour-map"
-            aria-expanded="false"
-            aria-controls="tour-map"
-          >
-            Map
-          </button>
-          <button data-tour-action="reset" aria-label="Reset viewing direction">
-            Reset view
-          </button>
-        </div>
+      <div class="film-toolbar">
+        <button id="film-play" class="text-link" disabled>Play</button>
+        <label class="sr-only" for="film-progress">Position in the house film</label>
+        <input id="film-progress" type="range" min="0" max="1000" value="0" step="1" disabled />
+        <span id="film-time" aria-hidden="true">0:00 / 0:15</span>
+        <button id="film-fullscreen" class="text-link" hidden>Full screen</button>
       </div>
+      <p class="film-hint">Drag to explore · Tap to play or pause</p>
       <p id="tour-status" class="sr-only" role="status"></p>
     </dialog>
     <dialog id="image-dialog" aria-labelledby="lightbox-title">

@@ -1741,3 +1741,31 @@ dialog::backdrop {
     width: 120px;
   }
 }
+
+/* The submitted house film: preserve its whole composition at every width. */
+.film-stage { background: #171b17; min-height: 0; }
+#journey-video { width: 100%; height: 100%; display: block; object-fit: contain; touch-action: pan-y; cursor: grab; }
+#journey-video:active { cursor: grabbing; }
+#journey-video:focus-visible { outline: 2px solid var(--paper); outline-offset: -4px; }
+.film-toolbar { display: flex; align-items: center; gap: 20px; padding-top: 16px; flex-shrink: 0; }
+.film-toolbar button { min-height: 44px; min-width: 56px; white-space: nowrap; }
+#film-progress { flex: 1; min-width: 40px; width: 100%; height: 44px; accent-color: #ae482d; cursor: ew-resize; }
+#film-time { font-size: 12px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.film-hint { font-size: 11px; color: var(--muted); text-align: center; margin: 8px 0 0; }
+.tour-dialog:fullscreen { width: 100%; max-height: 100dvh; height: 100dvh; }
+@media (max-width: 700px) {
+  .tour-cover > img { aspect-ratio: 4/3; }
+  .tour-dialog[open] { height: fit-content; max-height: 100dvh; }
+  .film-stage { flex: none; aspect-ratio: 16/9; }
+  .film-toolbar { flex-wrap: wrap; column-gap: 10px; row-gap: 0; }
+  #film-fullscreen { margin-inline-start: auto; }
+  .tour-dialog:fullscreen { height: 100dvh; }
+  .tour-dialog:fullscreen .film-stage { flex: 1; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .tour-dialog[open] { height: 100dvh; padding: 10px 16px; }
+  .tour-dialog-heading { padding-bottom: 4px; }
+  .tour-dialog-heading .eyebrow, .film-hint { display: none; }
+  .film-stage { flex: 1; aspect-ratio: auto; }
+  .film-toolbar { padding-top: 0; flex-wrap: nowrap; }
+}
