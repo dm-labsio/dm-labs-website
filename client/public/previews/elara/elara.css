@@ -1011,16 +1011,6 @@ input[type="range"]::-moz-range-thumb {
 .anatomy-details .text-link {
   font-size: 12px;
 }
-.tissue-dentin,
-.tissue-pulp {
-  transition: filter 0.4s;
-}
-.tooth-diagram[data-layer="dentin"] .tissue-dentin {
-  filter: brightness(1.12);
-}
-.tooth-diagram[data-layer="pulp"] .tissue-pulp {
-  filter: brightness(1.18);
-}
 .visit {
   background: white;
 }
@@ -1451,10 +1441,6 @@ input[type="range"]::-moz-range-thumb {
   margin: 22px 0 12px;
   max-width: 390px;
 }
-.tooth-diagram[data-condition="infection"] .tissue-pulp {
-  fill: #df7e94;
-  stroke: #bd4c68;
-}
 .layer-tabs button {
   min-height: 48px;
   padding-inline: 6px;
@@ -1497,5 +1483,101 @@ input[type="range"]::-moz-range-thumb {
   }
   #layer-panel {
     min-height: 0;
+  }
+}
+/* Rendered specimens replace the flat diagram and grid. */
+.anatomy-board {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid #dce5f0;
+  padding: 18px 22px 24px;
+  align-self: start;
+}
+.tooth-diagram {
+  background-image: none;
+  aspect-ratio: 1;
+  isolation: isolate;
+}
+#condition-artwork,
+#condition-cutaway {
+  position: absolute;
+  inset: 0;
+}
+#condition-artwork img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+#condition-cutaway {
+  clip-path: inset(0 calc(100% - var(--reveal)) 0 0);
+}
+.diagram-view-labels {
+  color: #52657a;
+  z-index: 2;
+  inset: 8px 0 auto;
+}
+.diagram-note {
+  color: #5d7188;
+  font-size: 7px;
+  z-index: 2;
+}
+.reveal-divider {
+  background: #91aaca;
+  top: 8%;
+  height: 84%;
+  z-index: 2;
+}
+.reveal-divider span {
+  background: white;
+  color: var(--blue);
+  border: 1px solid #b2c8e4;
+  box-shadow: 0 3px 12px #16427512;
+}
+.anatomy-board input::-webkit-slider-runnable-track {
+  background: #b7c9e0;
+}
+.anatomy-board input::-moz-range-track {
+  background: #b7c9e0;
+}
+#condition-load-error {
+  grid-column: 1;
+  margin: 0;
+  font-size: 13px;
+  color: #8b3045;
+}
+#condition-load-error .text-link {
+  font-size: 13px;
+  margin-inline-start: 8px;
+}
+.tooth-diagram[aria-busy="true"]:after {
+  content: "Loading illustration…";
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #52657a;
+  z-index: 3;
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  .anatomy-board {
+    padding: 14px 17px 20px;
+  }
+  .tooth-diagram {
+    aspect-ratio: 1;
+  }
+  .diagram-note {
+    font-size: 6px;
+  }
+  .diagram-view-labels {
+    font-size: 8px;
   }
 }

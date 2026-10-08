@@ -252,10 +252,6 @@ document.querySelectorAll('[name="visit-preference"]').forEach(input =>
 const anatomyRange = $("#anatomy-range");
 const diagram = $("#tooth-diagram");
 function revealAnatomy() {
-  $("#anatomy-reveal-rect").setAttribute(
-    "width",
-    Number(anatomyRange.value) * 5
-  );
   diagram.style.setProperty("--reveal", `${anatomyRange.value}%`);
 }
 anatomyRange.addEventListener("input", revealAnatomy);
@@ -301,7 +297,55 @@ const layers = {
   },
 };
 const layerTabs = [...document.querySelectorAll("[data-layer]")];
-function selectLayer(tab) {
+let conditionRequest = 0;
+let pendingCondition = null;
+const conditionAssets = new Map();
+function loadConditionImage(src) {
+  if (!conditionAssets.has(src)) {
+    const pending = new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = async () => {
+        try {
+          await img.decode();
+          resolve(img);
+        } catch (error) {
+          reject(error);
+        }
+      };
+      img.onerror = () => reject(new Error("Illustration unavailable"));
+      img.src = src;
+    }).catch(error => {
+      conditionAssets.delete(src);
+      throw error;
+    });
+    conditionAssets.set(src, pending);
+  }
+  return conditionAssets.get(src);
+}
+async function selectLayer(tab) {
+  const request = ++conditionRequest;
+  pendingCondition = tab;
+  const kind = tab.dataset.layer;
+  const exterior = `/previews/elara/assets/${kind}-outside.webp`;
+  const interior = `/previews/elara/assets/${kind}-inside.webp`;
+  diagram.setAttribute("aria-busy", "true");
+  $("#condition-load-error").hidden = true;
+  try {
+    await Promise.all([
+      loadConditionImage(exterior),
+      loadConditionImage(interior),
+    ]);
+  } catch {
+    if (request === conditionRequest) {
+      $("#condition-load-error").hidden = false;
+      diagram.setAttribute("aria-busy", "false");
+    }
+    return;
+  }
+  if (request !== conditionRequest) return;
+  $("#condition-exterior").src = exterior;
+  $("#condition-interior").src = interior;
+  diagram.setAttribute("aria-busy", "false");
   const item = layers[tab.dataset.layer];
   layerTabs.forEach(t => {
     t.setAttribute("aria-selected", String(t === tab));
@@ -315,15 +359,8 @@ function selectLayer(tab) {
   $("#condition-context").textContent = item.context;
   $("#condition-source").href = item.source;
   $("#condition-source").textContent = item.link;
-  $("#tooth-diagram-title").textContent = item.alt;
-  diagram.dataset.condition = tab.dataset.layer;
-  diagram.querySelectorAll("[data-condition-art]").forEach(group => {
-    group.hidden = group.dataset.conditionArt !== tab.dataset.layer;
-    group.toggleAttribute(
-      "hidden",
-      group.dataset.conditionArt !== tab.dataset.layer
-    );
-  });
+  $("#condition-artwork").setAttribute("aria-label", item.alt);
+  diagram.dataset.condition = kind;
   anatomyRange.value = 55;
   revealAnatomy();
   if (!reduced.matches)
@@ -350,6 +387,15 @@ layerTabs.forEach((tab, index) => {
     selectLayer(layerTabs[next]);
   });
 });
+
+$("#retry-condition").addEventListener("click", () =>
+  selectLayer(pendingCondition || layerTabs[0])
+);
+[$("#condition-exterior"), $("#condition-interior")].forEach(img =>
+  img.addEventListener("error", () => {
+    $("#condition-load-error").hidden = false;
+  })
+);
 
 // Logo Particles pattern reinterpreted as a tactile dental sculpture, without a WebGL dependency.
 const art = $("#scan-art"),
@@ -522,7 +568,7 @@ diagram.addEventListener("pointercancel", () => {
   revealPointer = null;
 });
 
-// A gentle 14-second loop. Manual input, focus, reduced motion and visibility take priority.
+// A gentle 12-second loop. Manual input, focus, reduced motion and visibility take priority.
 let scanLoopFrame = 0,
   scanElapsed = 0,
   scanLastTime = 0,
@@ -531,7 +577,7 @@ function pauseForInput() {
   manualUntil = performance.now() + 6000;
   scanElapsed =
     (Math.acos(1 - (2 * Number(scanRange.value)) / 100) / (Math.PI * 2)) *
-    14000;
+    12000;
 }
 scanRange.addEventListener("pointerdown", pauseForInput);
 scanRange.addEventListener("keydown", pauseForInput);
@@ -556,7 +602,7 @@ function loopScan(now) {
   if (now >= manualUntil && document.activeElement !== scanRange) {
     scanElapsed += elapsed;
     const value = Math.round(
-      (0.5 - 0.5 * Math.cos((scanElapsed / 14000) * Math.PI * 2)) * 100
+      (0.5 - 0.5 * Math.cos((scanElapsed / 12000) * Math.PI * 2)) * 100
     );
     if (Number(scanRange.value) !== value) {
       scanRange.value = value;

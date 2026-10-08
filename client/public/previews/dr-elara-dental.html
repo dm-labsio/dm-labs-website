@@ -200,187 +200,32 @@
             data-condition="cavity"
             style="--reveal: 55%"
           >
-            <svg
-              viewBox="0 0 500 560"
+            <div
+              id="condition-artwork"
               role="img"
-              aria-labelledby="tooth-diagram-title"
+              aria-label="Illustrative cavity: a small opening at the surface with decay extending into the dentin"
             >
-              <title id="tooth-diagram-title">
-                Illustrative cavity: a small opening at the surface with decay
-                extending into the dentin
-              </title>
-              <defs>
-                <linearGradient id="shell" x1="0" x2="1">
-                  <stop stop-color="#c6d9ed" />
-                  <stop offset=".4" stop-color="#fff" />
-                  <stop offset="1" stop-color="#bbd0e8" />
-                </linearGradient>
-                <linearGradient id="dentin" x1="0" y1="0" x2="1" y2="1">
-                  <stop stop-color="#b2dafa" />
-                  <stop offset="1" stop-color="#609cd9" />
-                </linearGradient>
-                <path
-                  id="outline"
-                  d="M250 102 C220 108 213 59 162 72 C110 86 107 141 124 196 C139 246 135 304 142 365 C148 417 161 493 187 484 C207 477 211 370 235 328 C243 314 257 314 265 328 C289 370 293 477 313 484 C339 493 352 417 358 365 C365 304 361 246 376 196 C393 141 390 86 338 72 C287 59 280 108 250 102 Z"
+              <img
+                id="condition-exterior"
+                src="/previews/elara/assets/cavity-outside.webp"
+                width="960"
+                height="960"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <div id="condition-cutaway">
+                <img
+                  id="condition-interior"
+                  src="/previews/elara/assets/cavity-inside.webp"
+                  width="960"
+                  height="960"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
                 />
-                <clipPath id="anatomy-reveal" clipPathUnits="userSpaceOnUse">
-                  <rect
-                    id="anatomy-reveal-rect"
-                    x="0"
-                    y="0"
-                    width="275"
-                    height="560"
-                  />
-                </clipPath>
-              </defs>
-              <g class="diagram-surface">
-                <use
-                  href="#outline"
-                  fill="url(#shell)"
-                  stroke="#ecf5ff"
-                  stroke-width="3"
-                />
-                <path
-                  d="M143 143 Q184 105 220 137 Q250 163 279 135 Q324 103 358 140"
-                  stroke="#a9c4df"
-                  stroke-width="3"
-                  fill="none"
-                />
-                <path
-                  d="M252 139 Q234 186 250 220"
-                  fill="none"
-                  stroke="#b5cce4"
-                  stroke-width="3"
-                />
-              </g>
-              <g data-condition-art="cavity" data-side="outside">
-                <path
-                  d="M215 99 Q236 111 260 100 L270 119 Q246 141 219 120Z"
-                  fill="#66504b"
-                  stroke="#9a7c65"
-                  stroke-width="3"
-                />
-                <path
-                  d="M229 109 Q245 117 259 110"
-                  fill="none"
-                  stroke="#302d35"
-                  stroke-width="6"
-                  stroke-linecap="round"
-                />
-              </g>
-              <g data-condition-art="crack" data-side="outside" hidden>
-                <path
-                  d="M286 89 L264 129 L279 162 L253 196 L268 236 L249 278"
-                  fill="none"
-                  stroke="#fff"
-                  stroke-width="7"
-                />
-                <path
-                  d="M286 89 L264 129 L279 162 L253 196 L268 236 L249 278"
-                  fill="none"
-                  stroke="#44566a"
-                  stroke-width="3"
-                />
-              </g>
-              <g data-condition-art="infection" data-side="outside" hidden>
-                <path
-                  d="M215 101 Q250 116 283 99 L276 120 Q248 133 223 117Z"
-                  fill="#c6d0da"
-                  stroke="#9aaec1"
-                  stroke-width="2"
-                />
-              </g>
-              <g class="diagram-inside" clip-path="url(#anatomy-reveal)">
-                <use
-                  href="#outline"
-                  fill="#f9fcff"
-                  stroke="#bcd7f0"
-                  stroke-width="5"
-                />
-                <path
-                  class="tissue-dentin"
-                  d="M250 132 C211 136 206 96 166 108 C132 117 141 169 153 207 C165 248 159 299 169 365 L188 461 C190 401 204 335 224 302 Q250 270 276 302 C296 335 310 401 312 461 L331 365 C341 299 335 248 347 207 C359 169 368 117 334 108 C294 96 289 136 250 132Z"
-                  fill="url(#dentin)"
-                />
-                <path
-                  class="tissue-pulp"
-                  d="M183 177 C201 148 217 192 250 180 C283 192 299 148 317 177 L302 252 Q277 264 274 291 C289 343 302 392 309 449 C292 385 282 342 260 294 Q250 280 240 294 C218 342 208 385 191 449 C198 392 211 343 226 291 Q223 264 198 252Z"
-                  fill="#edb7b8"
-                  stroke="#d88e9e"
-                  stroke-width="2"
-                />
-                <path
-                  d="M250 200 V272 M250 263 Q218 318 195 438 M250 263 Q282 318 305 438"
-                  fill="none"
-                  stroke="#ad5576"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                />
-                <g data-condition-art="cavity" data-side="inside">
-                  <path
-                    d="M215 99 Q236 111 260 100 L274 137 Q305 157 283 185 Q262 201 244 177 Q208 167 218 140Z"
-                    fill="#b88b65"
-                    stroke="#855940"
-                    stroke-width="3"
-                  />
-                  <path
-                    d="M224 108 Q243 118 258 108 L254 144 Q278 153 264 167 Q238 166 230 146Z"
-                    fill="#5b4541"
-                  />
-                  <circle cx="281" cy="166" r="4" fill="#d5b294" />
-                  <circle cx="238" cy="174" r="3" fill="#d5b294" />
-                </g>
-                <g data-condition-art="crack" data-side="inside" hidden>
-                  <path
-                    d="M286 89 L264 129 L279 162 L251 206 L267 245 L246 295"
-                    fill="none"
-                    stroke="#fff"
-                    stroke-width="9"
-                  />
-                  <path
-                    d="M286 89 L264 129 L279 162 L251 206 L267 245 L246 295"
-                    fill="none"
-                    stroke="#44566a"
-                    stroke-width="4"
-                  />
-                  <ellipse
-                    cx="255"
-                    cy="233"
-                    rx="24"
-                    ry="35"
-                    fill="#d6637930"
-                    stroke="#d66379"
-                    stroke-width="2"
-                    stroke-dasharray="4 5"
-                  />
-                </g>
-                <g data-condition-art="infection" data-side="inside" hidden>
-                  <path
-                    d="M215 101 Q250 116 283 99 L276 120 Q248 133 223 117Z"
-                    fill="#c6d0da"
-                    stroke="#9aaec1"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M250 194 V270 Q218 335 188 479"
-                    fill="none"
-                    stroke="#b23f5e"
-                    stroke-width="7"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M159 462 C172 444 207 452 220 477 C233 501 206 520 179 511 C153 514 141 482 159 462Z"
-                    fill="#ffd9dc"
-                    stroke="#cf5b76"
-                    stroke-width="3"
-                  />
-                  <path
-                    d="M166 477 C176 464 197 467 204 481 C214 496 190 502 177 495 C167 494 161 485 166 477Z"
-                    fill="#e49caa"
-                  />
-                </g>
-              </g>
-            </svg>
+              </div>
+            </div>
             <div class="reveal-divider" aria-hidden="true"><span>↔</span></div>
             <div class="diagram-view-labels" aria-hidden="true">
               <span>INSIDE</span><span>OUTSIDE</span>
@@ -401,6 +246,10 @@
             aria-label="Compare the outside of the tooth with the condition inside"
           />
         </div>
+        <p id="condition-load-error" role="status" hidden>
+          That illustration could not load.
+          <button class="text-link" id="retry-condition">Try again</button>
+        </p>
         <div class="anatomy-details">
           <div
             class="layer-tabs"

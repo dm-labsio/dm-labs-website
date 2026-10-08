@@ -65,6 +65,11 @@ try {
     );
     await p.locator("#layer-cavity").click();
     await p.locator("#layer-cavity").press("End");
+    await p.waitForFunction(
+      () =>
+        document.querySelector("#tooth-diagram").dataset.condition ===
+        "infection"
+    );
     assert.equal(
       await p.locator("#layer-infection").getAttribute("aria-selected"),
       "true"
@@ -73,18 +78,32 @@ try {
     const conditionImages = [];
     for (const condition of ["cavity", "crack", "infection"]) {
       await p.locator(`#layer-${condition}`).click();
+      await p.waitForFunction(
+        c =>
+          document.querySelector("#tooth-diagram").dataset.condition === c &&
+          document.querySelector("#tooth-diagram").getAttribute("aria-busy") ===
+            "false",
+        condition
+      );
       assert.equal(
         await p.locator("#tooth-diagram").getAttribute("data-condition"),
         condition
       );
       assert.equal(await p.locator("#anatomy-range").inputValue(), "55");
-      assert.equal(
-        await p
-          .locator(`[data-condition-art="${condition}"]:not([hidden])`)
-          .count(),
-        2
+      await p.waitForFunction(() =>
+        [...document.querySelectorAll("#condition-artwork img")].every(
+          img => img.complete && img.naturalWidth > 0
+        )
       );
-      conditionImages.push(await p.locator("#tooth-diagram svg").screenshot());
+      assert.match(
+        await p.locator("#condition-exterior").getAttribute("src"),
+        new RegExp(`${condition}-outside`)
+      );
+      assert.match(
+        await p.locator("#condition-interior").getAttribute("src"),
+        new RegExp(`${condition}-inside`)
+      );
+      conditionImages.push(await p.locator("#condition-artwork").screenshot());
     }
     assert.notDeepEqual(conditionImages[0], conditionImages[1]);
     assert.notDeepEqual(conditionImages[1], conditionImages[2]);
@@ -101,15 +120,15 @@ try {
       .screenshot({ path: `${out}/${width}-anatomy.png` });
     assert.ok(
       await p.locator("#tooth-diagram").evaluate(e => {
-        const rect = e.querySelector("#anatomy-reveal-rect");
-        const edge = new DOMPoint(
-          Number(rect.getAttribute("width")),
-          0
-        ).matrixTransform(e.querySelector("svg").getScreenCTM());
+        const r = e.querySelector("#condition-cutaway").getBoundingClientRect();
+        const clip = getComputedStyle(
+          e.querySelector("#condition-cutaway")
+        ).clipPath;
+        const right = Number(clip.match(/inset\([^ ]+ ([\d.]+)%/)[1]);
+        const edge = r.x + r.width * (1 - right / 100);
         return (
           Math.abs(
-            edge.x -
-              e.querySelector(".reveal-divider").getBoundingClientRect().x
+            edge - e.querySelector(".reveal-divider").getBoundingClientRect().x
           ) < 2
         );
       }),
@@ -186,6 +205,32 @@ try {
     });
     await p.close();
   }
+  const loading = await browser.newPage({ reducedMotion: "reduce" });
+  await loading.goto(base + "/previews/dr-elara-dental.html");
+  await loading.route("**/crack-inside.webp", route => route.abort());
+  await loading.locator("#layer-crack").click();
+  await loading.locator("#condition-load-error").waitFor();
+  assert.equal(
+    await loading.locator("#tooth-diagram").getAttribute("data-condition"),
+    "cavity"
+  );
+  await loading.unroute("**/crack-inside.webp");
+  await loading.locator("#retry-condition").click();
+  await loading.locator('#tooth-diagram[data-condition="crack"]').waitFor();
+  await loading.route("**/infection-*.webp", async route => {
+    await new Promise(resolve => setTimeout(resolve, 350));
+    await route.continue();
+  });
+  await loading.locator("#layer-infection").click();
+  await loading.locator("#layer-cavity").click();
+  await loading.waitForTimeout(700);
+  assert.equal(
+    await loading.locator("#tooth-diagram").getAttribute("data-condition"),
+    "cavity"
+  );
+  report.imageLoading =
+    "failed pair retains the previous condition; retry succeeds; latest selection wins";
+  await loading.close();
   const p = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
   p.on("pageerror", e => report.errors.push(e.message));
   await p.goto(base + "/previews/dr-elara-dental.html");
