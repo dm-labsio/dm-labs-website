@@ -1416,3 +1416,86 @@ input[type="range"]::-moz-range-thumb {
     font-size: 14px;
   }
 }
+/* Every comparison now has distinct, registered outside/inside condition artwork. */
+.diagram-view-labels {
+  position: absolute;
+  inset: 12px 0 auto;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: #fff;
+}
+.condition-caption {
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 7px;
+  color: var(--blue);
+}
+.condition-explanation {
+  margin: 0 0 20px;
+}
+.condition-explanation > p:last-child {
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 400px;
+  margin: 0;
+}
+.condition-context {
+  font-size: 12px;
+  color: #526374;
+  line-height: 1.5;
+  margin: 22px 0 12px;
+  max-width: 390px;
+}
+.tooth-diagram[data-condition="infection"] .tissue-pulp {
+  fill: #df7e94;
+  stroke: #bd4c68;
+}
+.layer-tabs button {
+  min-height: 48px;
+  padding-inline: 6px;
+}
+.anatomy h2 {
+  font-size: clamp(38px, 4.1vw, 60px);
+}
+@media (max-width: 700px) {
+  .hero-copy {
+    padding: 22px 0 8px;
+  }
+  .hero-copy .eyebrow {
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-size: clamp(46px, 11.5vw, 66px);
+  }
+  .hero-description {
+    font-size: 14px;
+    margin: 14px 0;
+  }
+  .hero-discover {
+    margin-top: 14px;
+  }
+  .sculpture {
+    width: min(100%, 360px);
+    margin-top: 6px;
+  }
+  .scan-art {
+    aspect-ratio: 1.5;
+  }
+  .anatomy-intro h2 {
+    font-size: 37px;
+  }
+  .condition-explanation > p:last-child {
+    font-size: 15px;
+  }
+  .layer-tabs button {
+    font-size: 13px;
+  }
+  #layer-panel {
+    min-height: 0;
+  }
+}

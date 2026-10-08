@@ -186,23 +186,28 @@
         <div class="anatomy-intro">
           <p class="eyebrow">There’s more beneath the surface</p>
           <h2 id="anatomy-title">
-            Small tooth.<br /><em>Remarkable detail.</em>
+            One surface.<br /><em>A different story inside.</em>
           </h2>
           <p>
-            Peel back the surface. Get to know three of the tissues that make up
-            a tooth.
+            Choose an example. Slide between the outside of a tooth and the
+            problem hidden underneath.
           </p>
         </div>
         <div class="anatomy-board">
-          <div class="tooth-diagram" id="tooth-diagram" style="--reveal: 55%">
+          <div
+            class="tooth-diagram"
+            id="tooth-diagram"
+            data-condition="cavity"
+            style="--reveal: 55%"
+          >
             <svg
               viewBox="0 0 500 560"
               role="img"
               aria-labelledby="tooth-diagram-title"
             >
               <title id="tooth-diagram-title">
-                Simplified molar cross-section showing enamel on the crown,
-                dentin beneath it and pulp in the centre
+                Illustrative cavity: a small opening at the surface with decay
+                extending into the dentin
               </title>
               <defs>
                 <linearGradient id="shell" x1="0" x2="1">
@@ -248,6 +253,43 @@
                   stroke-width="3"
                 />
               </g>
+              <g data-condition-art="cavity" data-side="outside">
+                <path
+                  d="M215 99 Q236 111 260 100 L270 119 Q246 141 219 120Z"
+                  fill="#66504b"
+                  stroke="#9a7c65"
+                  stroke-width="3"
+                />
+                <path
+                  d="M229 109 Q245 117 259 110"
+                  fill="none"
+                  stroke="#302d35"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                />
+              </g>
+              <g data-condition-art="crack" data-side="outside" hidden>
+                <path
+                  d="M286 89 L264 129 L279 162 L253 196 L268 236 L249 278"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="7"
+                />
+                <path
+                  d="M286 89 L264 129 L279 162 L253 196 L268 236 L249 278"
+                  fill="none"
+                  stroke="#44566a"
+                  stroke-width="3"
+                />
+              </g>
+              <g data-condition-art="infection" data-side="outside" hidden>
+                <path
+                  d="M215 101 Q250 116 283 99 L276 120 Q248 133 223 117Z"
+                  fill="#c6d0da"
+                  stroke="#9aaec1"
+                  stroke-width="2"
+                />
+              </g>
               <g class="diagram-inside" clip-path="url(#anatomy-reveal)">
                 <use
                   href="#outline"
@@ -274,13 +316,81 @@
                   stroke-width="3"
                   stroke-linecap="round"
                 />
+                <g data-condition-art="cavity" data-side="inside">
+                  <path
+                    d="M215 99 Q236 111 260 100 L274 137 Q305 157 283 185 Q262 201 244 177 Q208 167 218 140Z"
+                    fill="#b88b65"
+                    stroke="#855940"
+                    stroke-width="3"
+                  />
+                  <path
+                    d="M224 108 Q243 118 258 108 L254 144 Q278 153 264 167 Q238 166 230 146Z"
+                    fill="#5b4541"
+                  />
+                  <circle cx="281" cy="166" r="4" fill="#d5b294" />
+                  <circle cx="238" cy="174" r="3" fill="#d5b294" />
+                </g>
+                <g data-condition-art="crack" data-side="inside" hidden>
+                  <path
+                    d="M286 89 L264 129 L279 162 L251 206 L267 245 L246 295"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="9"
+                  />
+                  <path
+                    d="M286 89 L264 129 L279 162 L251 206 L267 245 L246 295"
+                    fill="none"
+                    stroke="#44566a"
+                    stroke-width="4"
+                  />
+                  <ellipse
+                    cx="255"
+                    cy="233"
+                    rx="24"
+                    ry="35"
+                    fill="#d6637930"
+                    stroke="#d66379"
+                    stroke-width="2"
+                    stroke-dasharray="4 5"
+                  />
+                </g>
+                <g data-condition-art="infection" data-side="inside" hidden>
+                  <path
+                    d="M215 101 Q250 116 283 99 L276 120 Q248 133 223 117Z"
+                    fill="#c6d0da"
+                    stroke="#9aaec1"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M250 194 V270 Q218 335 188 479"
+                    fill="none"
+                    stroke="#b23f5e"
+                    stroke-width="7"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M159 462 C172 444 207 452 220 477 C233 501 206 520 179 511 C153 514 141 482 159 462Z"
+                    fill="#ffd9dc"
+                    stroke="#cf5b76"
+                    stroke-width="3"
+                  />
+                  <path
+                    d="M166 477 C176 464 197 467 204 481 C214 496 190 502 177 495 C167 494 161 485 166 477Z"
+                    fill="#e49caa"
+                  />
+                </g>
               </g>
             </svg>
             <div class="reveal-divider" aria-hidden="true"><span>↔</span></div>
-            <span class="diagram-note">ILLUSTRATION · NOT TO SCALE</span>
+            <div class="diagram-view-labels" aria-hidden="true">
+              <span>INSIDE</span><span>OUTSIDE</span>
+            </div>
+            <span class="diagram-note"
+              >ILLUSTRATIVE EXAMPLE · NOT TO SCALE</span
+            >
           </div>
           <label class="anatomy-range-label" for="anatomy-range"
-            >Reveal the inner layers</label
+            >Slide to see what’s underneath</label
           >
           <input
             type="range"
@@ -288,64 +398,81 @@
             min="0"
             max="100"
             value="55"
-            aria-label="Reveal tooth cross-section"
+            aria-label="Compare the outside of the tooth with the condition inside"
           />
         </div>
         <div class="anatomy-details">
           <div
             class="layer-tabs"
             role="tablist"
-            aria-label="Explore tooth tissues"
+            aria-label="Explore tooth conditions"
           >
             <button
               role="tab"
-              id="layer-enamel"
-              data-layer="enamel"
+              id="layer-cavity"
+              data-layer="cavity"
               aria-selected="true"
               aria-controls="layer-panel"
             >
-              Enamel
+              Cavity
             </button>
             <button
               role="tab"
-              id="layer-dentin"
-              data-layer="dentin"
+              id="layer-crack"
+              data-layer="crack"
               aria-selected="false"
               tabindex="-1"
               aria-controls="layer-panel"
             >
-              Dentin
+              Crack
             </button>
             <button
               role="tab"
-              id="layer-pulp"
-              data-layer="pulp"
+              id="layer-infection"
+              data-layer="infection"
               aria-selected="false"
               tabindex="-1"
               aria-controls="layer-panel"
             >
-              Pulp
+              Root infection
             </button>
           </div>
           <div
             id="layer-panel"
             role="tabpanel"
-            aria-labelledby="layer-enamel"
+            aria-labelledby="layer-cavity"
             tabindex="0"
           >
-            <p class="eyebrow" id="layer-kicker">The outer protection</p>
-            <h3 id="layer-title">Enamel.</h3>
-            <p id="layer-description">
-              The hard outer covering of the crown protects the dentin
-              underneath. Enamel has no living cells and cannot regrow.
+            <p class="eyebrow" id="layer-kicker">
+              A small opening. A deeper problem.
             </p>
+            <h3 id="layer-title">A cavity.</h3>
+            <div class="condition-explanation">
+              <p class="condition-caption">On the outside</p>
+              <p id="condition-outside">
+                A small hole or dark spot may be visible. Early decay can also
+                be difficult to notice.
+              </p>
+            </div>
+            <div class="condition-explanation">
+              <p class="condition-caption">On the inside</p>
+              <p id="layer-description">
+                In this example, decay has passed through the enamel and spread
+                into the dentin below.
+              </p>
+            </div>
           </div>
+          <p class="condition-context" id="condition-context">
+            These are examples, not a diagnosis. A dentist checks what’s
+            happening and how far it extends.
+          </p>
           <a
             class="text-link"
-            href="https://www.mouthhealthy.org/all-topics-a-z/tooth"
+            id="condition-source"
+            href="https://www.nhs.uk/conditions/tooth-decay/"
             target="_blank"
             rel="noopener noreferrer"
-            >Explore the ADA tooth guide</a
+            >Read the NHS guide to tooth decay</a
           >
         </div>
       </section>

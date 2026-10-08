@@ -260,38 +260,71 @@ function revealAnatomy() {
 }
 anatomyRange.addEventListener("input", revealAnatomy);
 const layers = {
-  enamel: [
-    "The outer protection",
-    "Enamel.",
-    "The hard outer covering of the crown protects the dentin underneath. Enamel has no living cells and cannot regrow.",
-    35,
-  ],
-  dentin: [
-    "Under the surface",
-    "Dentin.",
-    "Beneath enamel and cementum lies dentin. Its tiny tubules can transmit sensations to the inside of the tooth when the protective covering is lost.",
-    70,
-  ],
-  pulp: [
-    "The living centre",
-    "Pulp.",
-    "Soft tissue at the centre contains nerves, blood vessels and connective tissue. It extends from the pulp chamber into the root canals.",
-    100,
-  ],
+  cavity: {
+    kicker: "A small opening. A deeper problem.",
+    title: "A cavity.",
+    outside:
+      "A small hole or dark spot may be visible. Early decay can also be difficult to notice.",
+    inside:
+      "In this example, decay has passed through the enamel and spread into the dentin below.",
+    context:
+      "These are examples, not a diagnosis. A dentist checks what’s happening and how far it extends.",
+    source: "https://www.nhs.uk/conditions/tooth-decay/",
+    link: "Read the NHS guide to tooth decay",
+    alt: "Illustrative cavity: a small opening at the surface with decay extending into the dentin",
+  },
+  crack: {
+    kicker: "A fine line. More than surface deep.",
+    title: "A cracked tooth.",
+    outside:
+      "A fine fracture may run across the chewing surface. Some cracks are hard to see.",
+    inside:
+      "This example shows a crack extending through the hard tissues toward the pulp, where it can cause irritation.",
+    context:
+      "Cracks vary in depth and direction. A visible line alone cannot tell you how far it extends.",
+    source: "https://www.aae.org/patients/dental-symptoms/cracked-teeth/",
+    link: "Read the AAE guide to cracked teeth",
+    alt: "Illustrative cracked tooth: a fine surface fracture extends through dentin toward the pulp",
+  },
+  infection: {
+    kicker: "The surface doesn’t tell the whole story.",
+    title: "Around the root.",
+    outside:
+      "A tooth can look largely unchanged, including around an existing filling. The problem may be deeper inside.",
+    inside:
+      "In this example, infection has spread from the pulp to the root tip, forming a pocket of pus called an abscess.",
+    context:
+      "A suspected dental abscess needs urgent care from a real dentist. This showcase cannot provide treatment.",
+    source: "https://www.nhs.uk/conditions/dental-abscess/",
+    link: "Read the NHS guide to dental abscesses",
+    alt: "Illustrative root infection: an externally restored tooth with infected pulp and an abscess around a root tip",
+  },
 };
 const layerTabs = [...document.querySelectorAll("[data-layer]")];
 function selectLayer(tab) {
-  const [kicker, title, description, reveal] = layers[tab.dataset.layer];
+  const item = layers[tab.dataset.layer];
   layerTabs.forEach(t => {
     t.setAttribute("aria-selected", String(t === tab));
     t.tabIndex = t === tab ? 0 : -1;
   });
   $("#layer-panel").setAttribute("aria-labelledby", tab.id);
-  $("#layer-kicker").textContent = kicker;
-  $("#layer-title").textContent = title;
-  $("#layer-description").textContent = description;
-  anatomyRange.value = reveal;
-  diagram.dataset.layer = tab.dataset.layer;
+  $("#layer-kicker").textContent = item.kicker;
+  $("#layer-title").textContent = item.title;
+  $("#condition-outside").textContent = item.outside;
+  $("#layer-description").textContent = item.inside;
+  $("#condition-context").textContent = item.context;
+  $("#condition-source").href = item.source;
+  $("#condition-source").textContent = item.link;
+  $("#tooth-diagram-title").textContent = item.alt;
+  diagram.dataset.condition = tab.dataset.layer;
+  diagram.querySelectorAll("[data-condition-art]").forEach(group => {
+    group.hidden = group.dataset.conditionArt !== tab.dataset.layer;
+    group.toggleAttribute(
+      "hidden",
+      group.dataset.conditionArt !== tab.dataset.layer
+    );
+  });
+  anatomyRange.value = 55;
   revealAnatomy();
   if (!reduced.matches)
     $("#layer-panel").animate(
@@ -489,43 +522,70 @@ diagram.addEventListener("pointercancel", () => {
   revealPointer = null;
 });
 
-// One brief scan on arrival introduces the interaction, then settles into the sculpture.
-let introFrame = 0,
-  introStarted = false,
-  introCancelled = false;
-function stopIntro() {
-  introCancelled = true;
-  cancelAnimationFrame(introFrame);
-  introFrame = 0;
+// A gentle 14-second loop. Manual input, focus, reduced motion and visibility take priority.
+let scanLoopFrame = 0,
+  scanElapsed = 0,
+  scanLastTime = 0,
+  manualUntil = 0;
+function pauseForInput() {
+  manualUntil = performance.now() + 6000;
+  scanElapsed =
+    (Math.acos(1 - (2 * Number(scanRange.value)) / 100) / (Math.PI * 2)) *
+    14000;
 }
-scanRange.addEventListener("pointerdown", stopIntro);
-scanRange.addEventListener("keydown", stopIntro);
-function introduceScan() {
+scanRange.addEventListener("pointerdown", pauseForInput);
+scanRange.addEventListener("keydown", pauseForInput);
+scanRange.addEventListener("input", pauseForInput);
+function startScanLoop() {
   if (
-    introStarted ||
-    introCancelled ||
-    reduced.matches ||
-    !points.length ||
+    scanLoopFrame ||
     !visible ||
-    document.hidden
+    document.hidden ||
+    reduced.matches ||
+    !points.length
   )
     return;
-  introStarted = true;
-  const start = performance.now();
-  function tick(now) {
-    if (reduced.matches || document.hidden || !visible) {
-      scanRange.value = 0;
-      changeScan();
-      stopIntro();
-      return;
-    }
-    const progress = Math.min(1, (now - start) / 2400);
-    scanRange.value = Math.round(Math.sin(Math.PI * progress) * 100);
-    changeScan();
-    if (progress < 1) introFrame = requestAnimationFrame(tick);
-    else introFrame = 0;
-  }
-  introFrame = requestAnimationFrame(tick);
+  scanLastTime = performance.now();
+  scanLoopFrame = requestAnimationFrame(loopScan);
 }
-if (sculptureImage.complete && sculptureImage.naturalWidth) introduceScan();
-else sculptureImage.addEventListener("load", introduceScan, { once: true });
+function loopScan(now) {
+  scanLoopFrame = 0;
+  if (!visible || document.hidden || reduced.matches) return;
+  const elapsed = Math.min(now - scanLastTime, 50);
+  scanLastTime = now;
+  if (now >= manualUntil && document.activeElement !== scanRange) {
+    scanElapsed += elapsed;
+    const value = Math.round(
+      (0.5 - 0.5 * Math.cos((scanElapsed / 14000) * Math.PI * 2)) * 100
+    );
+    if (Number(scanRange.value) !== value) {
+      scanRange.value = value;
+      changeScan();
+    }
+  }
+  scanLoopFrame = requestAnimationFrame(loopScan);
+}
+new IntersectionObserver(
+  entries => {
+    if (entries[0].isIntersecting) startScanLoop();
+    else {
+      cancelAnimationFrame(scanLoopFrame);
+      scanLoopFrame = 0;
+    }
+  },
+  { threshold: 0.1 }
+).observe(art);
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    cancelAnimationFrame(scanLoopFrame);
+    scanLoopFrame = 0;
+  } else startScanLoop();
+});
+reduced.addEventListener("change", () => {
+  if (reduced.matches) {
+    cancelAnimationFrame(scanLoopFrame);
+    scanLoopFrame = 0;
+  } else startScanLoop();
+});
+if (sculptureImage.complete && sculptureImage.naturalWidth) startScanLoop();
+else sculptureImage.addEventListener("load", startScanLoop, { once: true });

@@ -63,16 +63,31 @@ try {
         .evaluate(e => e.style.getPropertyValue("--reveal")),
       "100%"
     );
-    await p.locator("#layer-enamel").click();
-    await p.locator("#layer-enamel").press("End");
+    await p.locator("#layer-cavity").click();
+    await p.locator("#layer-cavity").press("End");
     assert.equal(
-      await p.locator("#layer-pulp").getAttribute("aria-selected"),
+      await p.locator("#layer-infection").getAttribute("aria-selected"),
       "true"
     );
-    assert.match(
-      await p.locator("#layer-description").innerText(),
-      /blood vessels/
-    );
+    assert.match(await p.locator("#layer-description").innerText(), /abscess/);
+    const conditionImages = [];
+    for (const condition of ["cavity", "crack", "infection"]) {
+      await p.locator(`#layer-${condition}`).click();
+      assert.equal(
+        await p.locator("#tooth-diagram").getAttribute("data-condition"),
+        condition
+      );
+      assert.equal(await p.locator("#anatomy-range").inputValue(), "55");
+      assert.equal(
+        await p
+          .locator(`[data-condition-art="${condition}"]:not([hidden])`)
+          .count(),
+        2
+      );
+      conditionImages.push(await p.locator("#tooth-diagram svg").screenshot());
+    }
+    assert.notDeepEqual(conditionImages[0], conditionImages[1]);
+    assert.notDeepEqual(conditionImages[1], conditionImages[2]);
     const d = await p.locator("#tooth-diagram").boundingBox();
     await p.mouse.move(d.x + d.width * 0.8, d.y + d.height * 0.5);
     await p.mouse.down();
@@ -177,8 +192,9 @@ try {
   await p.evaluate(() => document.fonts.ready);
   await p.waitForTimeout(1000);
   await p.locator("#scan-art[data-ready=true]").waitFor();
-  await p.waitForTimeout(2600);
-  assert.equal(await p.locator("#scan-range").inputValue(), "0");
+  const firstScan = await p.locator("#scan-range").inputValue();
+  await p.waitForTimeout(1800);
+  assert.notEqual(await p.locator("#scan-range").inputValue(), firstScan);
   await p.locator("#scan-range").fill("100");
   const initial = await p
     .locator("#tooth-particles")
@@ -206,7 +222,7 @@ try {
     "matrix(1, 0, 0, 1, 0, 0)"
   );
   report.motion =
-    "arrival scan settles; particles respond to pointer; magnetic label moves with stable hitbox";
+    "gentle scan loop advances; distinct tooth conditions; particles respond to pointer; magnetic label moves with stable hitbox";
   await p.locator("#play-film").click();
   await p.waitForFunction(
     () => document.querySelector("#care-video").currentTime > 0,

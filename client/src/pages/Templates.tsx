@@ -361,7 +361,7 @@ const TEMPLATES = [
     styleLabel: "Clinical clarity",
     livePreview: true,
     previewUrl: "/previews/dr-elara-dental.html",
-    features: ["Interactive particle-scan hero", "Layered tooth explorer", "Personalised visit preferences", "Magnetic appointment buttons", "Appointment request demonstration", "Educational treatment film", "Distinct Sora & Source Sans typography", "Keyboard & reduced-motion support"],
+    features: ["Interactive particle-scan hero", "Outside/inside tooth-condition explorer", "Personalised visit preferences", "Magnetic appointment buttons", "Appointment request demonstration", "Educational treatment film", "Distinct Sora & Source Sans typography", "Keyboard & reduced-motion support"],
     pages: [
       { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
