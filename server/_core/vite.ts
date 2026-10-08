@@ -144,6 +144,7 @@ export const VALID_PREVIEW_IDS = new Set([
   "nomad-coffee",
   "arcos-architecture",
   "olio-deli",
+  "luxe-realty",
 ]);
 
 // ─── Permanent 301 redirects ──────────────────────────────────────────────────

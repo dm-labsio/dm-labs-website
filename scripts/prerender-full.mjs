@@ -174,6 +174,7 @@ const PREVIEW_ROUTES = [
   "nomad-coffee",
   "arcos-architecture",
   "olio-deli",
+  "luxe-realty",
 ].map((id) => `/preview/${id}/`);
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

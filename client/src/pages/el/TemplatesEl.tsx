@@ -1,3 +1,4 @@
+import LuxePreviewArtwork from "@/components/LuxePreviewArtwork";
 import ElaraPreviewArtwork from "@/components/ElaraPreviewArtwork";
 import { previewIndustry } from "@/lib/previewNavigation";
 import ArcosPreviewArtwork from "@/components/ArcosPreviewArtwork";
@@ -221,6 +222,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
   "nomad-coffee": () => <NomadPreviewArtwork />,
 
   "arcos-architecture": () => <ArcosPreviewArtwork />,
+  "luxe-realty": () => <LuxePreviewArtwork />,
 
   "olio-deli": () => (
     <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1e1c17" }}>
@@ -276,6 +278,7 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
   { id: "all", label: "Όλοι οι κλάδοι", icon: "✦" },
+  { id: "realestate", label: "Ακίνητα", icon: "" },
   { id: "restaurant", label: "Εστίαση και τρόφιμα", icon: "☕" },
   { id: "beauty", label: "Ομορφιά και ευεξία", icon: "✂" },
   { id: "clinic", label: "Ιατρεία και υγεία", icon: "+" },
@@ -285,6 +288,15 @@ const INDUSTRIES = [
 
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
+  {
+    id: "luxe-realty", industry: "realestate", name: "Luxe Realty",
+    tagline: "Μια διαφορετική οπτική", tier: "Pro", tierGradient: "linear-gradient(135deg, #302337, #62526e)", domain: "luxe.example",
+    palette: ["#302337", "#f6f5f2", "#dbee91", "#e8e4ed", "#6a626e"], paletteNames: ["Μελιτζανί", "Λευκό", "Λάιμ", "Λιλά", "Γκρι"],
+    features: ["Αρχική ενότητα με κινηματογραφική εναλλαγή τριών κατοικιών", "Φίλτρα ακινήτων και ταξινόμηση τιμών", "Αποθήκευση και σύγκριση αγαπημένων κατοικιών", "Φωτογραφίες εξωτερικών και εσωτερικών χώρων", "Επίδειξη αιτήματος επίσκεψης"],
+    pages: [{ label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Εξερευνήστε κατοικίες, αποθηκεύστε αγαπημένα και δοκιμάστε ένα αίτημα επίσκεψης." }],
+    style: "Μελιτζανί, λευκό και κίτρινο λάιμ με εκφραστική τυπογραφία Bricolage Grotesque. Φανταστική συλλογή κατοικιών με διαδραστική αναζήτηση, σύγκριση και αιτήματα επίσκεψης.", waMessage: "Γεια σας! Είδα το παράδειγμα Luxe Realty και θα ήθελα να μάθω περισσότερα.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
+  },
+
   // ── Live Preview templates ──
   {
     id: "bella-salon",

@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 import { PREVIEW_ORIGIN_KEY, safePreviewReturnPath } from "@/lib/previewNavigation";
 
 const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
+  "luxe-realty": { name: "Luxe Realty", url: "/previews/luxe-realty.html" },
   "bella-salon":          { name: "Bella Salon",          url: "/previews/bella-salon.html" },
   "pulse-gym":            { name: "Pulse Gym",            url: "/previews/pulse-gym.html" },
   "dr-elara-dental":      { name: "Dr. Elara Dental",     url: "/previews/dr-elara-dental.html" },

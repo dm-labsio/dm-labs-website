@@ -1,3 +1,4 @@
+import LuxePreviewArtwork from "@/components/LuxePreviewArtwork";
 import ElaraPreviewArtwork from "@/components/ElaraPreviewArtwork";
 import { previewIndustry } from "@/lib/previewNavigation";
 import ArcosPreviewArtwork from "@/components/ArcosPreviewArtwork";
@@ -221,6 +222,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
   "nomad-coffee": () => <NomadPreviewArtwork />,
 
   "arcos-architecture": () => <ArcosPreviewArtwork />,
+  "luxe-realty": () => <LuxePreviewArtwork />,
 
   "olio-deli": () => (
     <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1e1c17" }}>
@@ -276,6 +278,7 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
   { id: "all", label: "כל התחומים", icon: "✦" },
+  { id: "realestate", label: "נדל״ן", icon: "" },
   { id: "restaurant", label: "מסעדות, בתי קפה ומזון", icon: "☕" },
   { id: "beauty", label: "יופי וטיפוח", icon: "✂" },
   { id: "clinic", label: "קליניקות ובריאות", icon: "+" },
@@ -285,6 +288,15 @@ const INDUSTRIES = [
 
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
+  {
+    id: "luxe-realty", industry: "realestate", name: "Luxe Realty",
+    tagline: "נקודת מבט אחרת", tier: "Pro", tierGradient: "linear-gradient(135deg, #302337, #62526e)", domain: "luxe.example",
+    palette: ["#302337", "#f6f5f2", "#dbee91", "#e8e4ed", "#6a626e"], paletteNames: ["חציל", "לבן", "ליים", "לילך", "אפור"],
+    features: ["אזור פתיחה עם מעברים קולנועיים בין שלושה בתים", "סינון נכסים ומיון לפי מחיר", "שמירת בתים מועדפים והשוואה ביניהם", "גלריות של חללי פנים וחוץ", "הדגמה של בקשה לביקור בנכס"],
+    pages: [{ label: "תצוגה חיה", preview: "live", description: "גלו את הבתים, שמרו מועדפים ונסו לשלוח בקשה לדוגמה לביקור." }],
+    style: "סגול חציל, לבן וליים עם טיפוגרפיית Bricolage Grotesque. אוסף בתים בדיוני עם חיפוש אינטראקטיבי, השוואה ובקשות לביקור.", waMessage: "היי! ראיתי את הדוגמה של Luxe Realty ואשמח לשמוע עוד.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
+  },
+
   // ── Live Preview templates ──
   {
     id: "bella-salon",

@@ -1,3 +1,4 @@
+import LuxePreviewArtwork from "@/components/LuxePreviewArtwork";
 import ElaraPreviewArtwork from "@/components/ElaraPreviewArtwork";
 import { previewIndustry } from "@/lib/previewNavigation";
 import ArcosPreviewArtwork from "@/components/ArcosPreviewArtwork";
@@ -221,6 +222,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
   "nomad-coffee": () => <NomadPreviewArtwork />,
 
   "arcos-architecture": () => <ArcosPreviewArtwork />,
+  "luxe-realty": () => <LuxePreviewArtwork />,
 
   "olio-deli": () => (
     <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1e1c17" }}>
@@ -276,6 +278,7 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
   { id: "all", label: "All Industries", icon: "✦" },
+  { id: "realestate", label: "Real estate", icon: "" },
   { id: "restaurant", label: "Restaurants, Cafés & Food", icon: "☕" },
   { id: "beauty", label: "Beauty & Wellness", icon: "✂" },
   { id: "clinic", label: "Clinics & Health", icon: "+" },
@@ -285,6 +288,15 @@ const INDUSTRIES = [
 
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
+  {
+    id: "luxe-realty", industry: "realestate", name: "Luxe Realty",
+    tagline: "A different point of view", tier: "Pro", tierGradient: "linear-gradient(135deg, #302337, #62526e)", domain: "luxe.example",
+    palette: ["#302337", "#f6f5f2", "#dbee91", "#e8e4ed", "#6a626e"], paletteNames: ["Aubergine", "Chalk", "Citron", "Lilac", "Slate"],
+    features: ["Photographic shutter hero with three homes", "Property filters and price sorting", "Saved-home shortlist and comparison", "Exterior and interior photo galleries", "Viewing enquiry demonstration"],
+    pages: [{ label: "Live Preview", preview: "live", description: "Explore the homes, save favourites and try a viewing enquiry." }],
+    style: "Aubergine, chalk and citron with expressive Bricolage Grotesque typography. A fictional property collection with interactive discovery, comparison and viewing enquiries.", waMessage: "Hello DM-Labs team! I am interested in the Luxe Realty website design.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
+  },
+
   // ── Live Preview templates ──
   {
     id: "bella-salon",
