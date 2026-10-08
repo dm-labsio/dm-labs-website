@@ -43,7 +43,7 @@ All four lead to existing demos and preserve the originating homepage language o
 
 ## Next working stage
 
-Nomad Coffee, Bella Atelier's monochrome gallery edition and PulseGym's interaction edition have been reviewed positively by the user. Arcos Architecture is the next active example, with a coherent Courtyard House concept, an interactive plan, a material magnifier and a working sample-project-brief builder. Scope is recorded in [Arcos Courtyard House edition](arcos-courtyard-edition.md). Keep all changes on Preview for review. Dr. Elara Dental and Olio Deli remain in the existing-example backlog; incoming brands still depend on their approved identities.
+Nomad Coffee, Bella Atelier, PulseGym and Arcos Architecture have been reviewed positively and released. Dr. Elara Dental is now the active Preview-only example, rebuilt around considered care, a treatment explorer, personal comfort preferences and a sample visit planner. See [Dr. Elara considered care](elara-considered-care.md). Olio Deli remains next in the existing-example backlog. Incoming brands still depend on their approved identities.
 
 Develop one brand/example at a time, starting with an available approved brand brief and the user's component references. Fish restaurant is a proposed first project, not a locked order. The new hospitality identities, real-estate identity and childcare identity should not be invented or confused with retired names merely to fill the roadmap.
 

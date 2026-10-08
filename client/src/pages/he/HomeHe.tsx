@@ -17,7 +17,7 @@ const DARK_CTA_BG = "/media/brand-refresh/v1/faq-pearl-arcs-desktop.webp";
 const examples = [
   ["nomad-coffee", "Nomad Coffee", "קפה עם אופי", "/media/examples/nomad/cover.webp", "דוגמה לאתר Nomad Coffee"],
   ["bella-salon", "Bella Salon", "אלגנטי ונשי", "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80", "דוגמה לאתר Bella Salon"],
-  ["dr-elara-dental", "Dr. Elara Dental", "נקי ומקצועי", "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80", "דוגמה לאתר Dr. Elara Dental"],
+  ["dr-elara-dental", "Dr. Elara Dental", "נקי ומקצועי", "/media/examples/elara/cover.webp", "דוגמה לאתר Dr. Elara Dental"],
   ["arcos-architecture", "Arcos Architecture", "אדריכלות בקווים נקיים", "/media/examples/arcos/courtyard-768.webp", "דוגמה לאתר Arcos Architecture"],
 ] as const;
 

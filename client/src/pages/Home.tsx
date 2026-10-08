@@ -46,7 +46,7 @@ const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
   ),
   "dr-elara-dental": () => (
     <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f5f9ff" }}>
-      <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80" alt="Dr. Elara Dental modern dental clinic" style={{ position: "absolute", right: 0, top: 0, width: "50%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+      <img src="/media/examples/elara/cover.webp" alt="Dr. Elara Dental modern dental clinic" style={{ position: "absolute", right: 0, top: 0, width: "50%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f5f9ff 48%, transparent 72%)" }} />
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", background: "rgba(245,249,255,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(33,150,243,0.12)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
@@ -121,7 +121,7 @@ const FEATURED_TEMPLATES = [
     category: "Clinics & Health",
     styleLabel: "Clean & Professional",
     previewUrl: "/previews/dr-elara-dental.html",
-    imageUrl: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80",
+    imageUrl: "/media/examples/elara/cover.webp",
     imageAlt: "Dr. Elara Dental website example",
     palette: ["#0a1628", "#0d2040"],
   },

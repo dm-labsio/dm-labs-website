@@ -1,407 +1,368 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="robots" content="noindex, nofollow" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Elara Dental Clinic - Limassol</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    :root { --teal:#0E7C7B; --teal-light:#E8F5F5; --teal-mid:#1A9E9D; --white:#FFFFFF; --off-white:#F8FAFA; --dark:#0D1F1F; --mid:#4A6363; --border:rgba(14,124,123,0.15); }
-    body { font-family:'Plus Jakarta Sans',sans-serif; background:var(--white); color:var(--dark); overflow-x:hidden; }
-    h1,h2,h3 { font-family:'Fraunces',serif; }
-    a { text-decoration:none; color:inherit; }
-
-    /* NAV */
-    nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 6%; display:flex; align-items:center; justify-content:space-between; height:72px; }
-    .nav-brand { display:flex; align-items:center; gap:0.75rem; }
-    .nav-icon { width:36px; height:36px; background:var(--teal); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.1rem; }
-    .nav-name { font-family:'Plus Jakarta Sans',sans-serif; font-size:0.95rem; font-weight:700; color:var(--dark); }
-    .nav-name span { color:var(--teal); }
-    .nav-links { display:flex; gap:2rem; list-style:none; }
-    .nav-links a { font-size:0.82rem; font-weight:500; color:var(--mid); transition:color .2s; }
-    .nav-links a:hover { color:var(--teal); }
-    .nav-cta { background:var(--teal); color:#fff; border:none; padding:0.65rem 1.5rem; font-size:0.82rem; font-weight:600; border-radius:6px; cursor:pointer; font-family:'Plus Jakarta Sans',sans-serif; transition:all .2s; }
-    .nav-cta:hover { background:var(--teal-mid); }
-    @media(max-width:768px){ .nav-links{display:none;} }
-
-    /* HERO */
-    .hero { display:grid; grid-template-columns:1fr 1fr; min-height:88vh; }
-    .hero-left { display:flex; flex-direction:column; justify-content:center; padding:6% 6% 6% 8%; background:var(--off-white); }
-    .hero-badge { display:inline-flex; align-items:center; gap:0.5rem; background:var(--teal-light); color:var(--teal); font-size:0.75rem; font-weight:600; padding:0.4rem 1rem; border-radius:100px; margin-bottom:2rem; }
-    .hero-badge::before { content:''; background:var(--teal); color:#fff; width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.65rem; }
-    .hero-title { font-size:clamp(2.5rem,4.5vw,4rem); font-weight:400; line-height:1.15; color:var(--dark); margin-bottom:1.5rem; }
-    .hero-title em { font-style:italic; color:var(--teal); }
-    .hero-sub { font-size:1rem; font-weight:400; color:var(--mid); line-height:1.8; max-width:440px; margin-bottom:2.5rem; }
-    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:3rem; }
-    .btn-teal { background:var(--teal); color:#fff; border:none; padding:0.9rem 2rem; font-size:0.85rem; font-weight:600; border-radius:6px; cursor:pointer; font-family:'Plus Jakarta Sans',sans-serif; transition:all .2s; }
-    .btn-teal:hover { background:var(--teal-mid); }
-    .btn-outline { background:transparent; color:var(--teal); border:1.5px solid var(--teal); padding:0.9rem 2rem; font-size:0.85rem; font-weight:600; border-radius:6px; cursor:pointer; font-family:'Plus Jakarta Sans',sans-serif; transition:all .2s; }
-    .btn-outline:hover { background:var(--teal-light); }
-    .hero-trust { display:flex; gap:2rem; }
-    .trust-item { display:flex; align-items:center; gap:0.5rem; font-size:0.8rem; color:var(--mid); font-weight:500; }
-    .trust-icon { color:var(--teal); font-size:1rem; }
-    .hero-right { position:relative; overflow:hidden; }
-    .hero-right img { width:100%; height:100%; object-fit:cover; object-position:center; }
-    .hero-card { position:absolute; bottom:2rem; left:-1rem; background:#fff; border-radius:12px; padding:1.25rem 1.5rem; box-shadow:0 8px 32px rgba(14,124,123,0.15); display:flex; align-items:center; gap:1rem; }
-    .hero-card-icon { width:44px; height:44px; background:var(--teal-light); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; }
-    .hero-card-text strong { display:block; font-size:0.9rem; color:var(--dark); margin-bottom:0.15rem; }
-    .hero-card-text span { font-size:0.75rem; color:var(--mid); }
-    @media(max-width:768px){ .hero{grid-template-columns:1fr;} .hero-right{height:55vw;} .hero-left{padding:3rem 1.5rem;} .hero-card{display:none;} }
-
-    /* ROOT CANAL VIDEO */
-    .root-canal { padding:5rem 8%; background:linear-gradient(135deg,#fff 0%,#f8fcfc 52%,#e8f5f5 100%); overflow:hidden; }
-    .root-canal-inner { max-width:980px; margin:auto; display:grid; gap:2.25rem; padding:3rem; background:#fff; border:1px solid var(--border); border-radius:24px; box-shadow:0 24px 65px rgba(14,124,123,0.12); }
-    .root-canal-video-wrap { width:100%; max-width:760px; margin:auto; overflow:hidden; border:1px solid var(--border); border-radius:18px; background:var(--teal-light); box-shadow:0 14px 36px rgba(14,124,123,0.12); }
-    .root-canal-video { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--teal-light); }
-    .root-canal-copy { max-width:760px; margin:auto; text-align:center; }
-    .root-canal-copy .section-tag { margin-bottom:1.25rem; }
-    .root-canal-copy .section-title { margin-bottom:1rem; }
-    .root-canal-intro { max-width:670px; margin:0 auto; font-size:0.95rem; color:var(--mid); line-height:1.8; }
-    .root-canal-steps { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.85rem; margin:1.8rem 0 1.4rem; padding:0; list-style:none; text-align:left; }
-    .root-canal-steps li { padding:1rem 1.1rem; border:1px solid var(--border); border-radius:12px; background:var(--off-white); color:var(--mid); font-size:.83rem; line-height:1.65; }
-    .root-canal-steps strong { color:var(--dark); }
-    .root-canal-reassurance { max-width:670px; margin:0 auto; color:var(--teal); font-size:.88rem; line-height:1.7; font-weight:600; }
-    @media(max-width:768px){ .root-canal{padding:4rem 1.5rem;} .root-canal-inner{gap:1.75rem;padding:2rem 1.25rem;} .root-canal-steps{grid-template-columns:1fr;gap:.7rem;} }
-
-    /* SERVICES */
-    .services { padding:6rem 8%; background:var(--white); }
-    .section-header { text-align:center; margin-bottom:4rem; }
-    .section-tag { display:inline-block; background:var(--teal-light); color:var(--teal); font-size:0.72rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:0.35rem 1rem; border-radius:100px; margin-bottom:1rem; }
-    .section-title { font-size:clamp(2rem,3.5vw,3rem); font-weight:400; color:var(--dark); }
-    .section-title em { font-style:italic; color:var(--teal); }
-    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-    .service-card { background:var(--off-white); border:1px solid var(--border); border-radius:12px; padding:2rem; transition:all .3s; cursor:default; }
-    .service-card:hover { background:var(--teal-light); border-color:var(--teal); transform:translateY(-4px); box-shadow:0 12px 32px rgba(14,124,123,0.1); }
-    .service-emoji { font-size:2rem; margin-bottom:1.25rem; }
-    .service-name { font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:700; color:var(--dark); margin-bottom:0.5rem; }
-    .service-desc { font-size:0.83rem; color:var(--mid); line-height:1.7; }
-    @media(max-width:768px){ .services-grid{grid-template-columns:1fr 1fr;} .services{padding:4rem 1.5rem;} }
-
-    /* ABOUT */
-    .about { padding:6rem 8%; background:var(--off-white); display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
-    .about-img { position:relative; }
-    .about-img img { width:100%; border-radius:12px; aspect-ratio:4/5; object-fit:cover; object-position:top; }
-    .about-img-badge { position:absolute; top:2rem; right:-1.5rem; background:var(--teal); color:#fff; border-radius:12px; padding:1.25rem 1.5rem; text-align:center; }
-    .about-img-badge strong { display:block; font-size:2rem; font-family:'Fraunces',serif; }
-    .about-img-badge span { font-size:0.72rem; font-weight:500; opacity:0.85; }
-    .about-text .section-tag { text-align:left; }
-    .about-text .section-title { text-align:left; margin-bottom:1.5rem; }
-    .about-text p { font-size:0.9rem; color:var(--mid); line-height:1.9; margin-bottom:1.25rem; }
-    .about-creds { display:flex; flex-direction:column; gap:0.75rem; margin-top:1.5rem; }
-    .cred-item { display:flex; align-items:center; gap:0.75rem; font-size:0.85rem; color:var(--dark); font-weight:500; }
-    .cred-check { width:20px; height:20px; background:var(--teal); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:0.65rem; flex-shrink:0; }
-    @media(max-width:768px){ .about{grid-template-columns:1fr; gap:3rem; padding:4rem 1.5rem;} .about-img-badge{right:1rem;} }
-
-    /* TESTIMONIALS */
-    .testimonials { padding:6rem 8%; background:var(--white); }
-    .test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
-    .test-card { background:var(--off-white); border:1px solid var(--border); border-radius:12px; padding:2rem; }
-    .test-stars { color:var(--teal); font-size:0.9rem; margin-bottom:1rem; letter-spacing:0.05em; }
-    .test-text { font-size:0.88rem; color:var(--mid); line-height:1.8; margin-bottom:1.5rem; font-style:italic; }
-    .test-author { display:flex; align-items:center; gap:0.75rem; }
-    .test-avatar { width:40px; height:40px; border-radius:50%; object-fit:cover; }
-    .test-name { font-size:0.85rem; font-weight:600; color:var(--dark); }
-    .test-date { font-size:0.75rem; color:var(--mid); }
-    @media(max-width:768px){ .test-grid{grid-template-columns:1fr;} .testimonials{padding:4rem 1.5rem;} }
-
-    /* BOOKING */
-    .booking { padding:6rem 8%; background:var(--teal); }
-    .booking-inner { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
-    .booking-text .section-title { color:#fff; margin-bottom:1rem; }
-    .booking-text p { font-size:0.9rem; color:rgba(255,255,255,0.75); line-height:1.8; margin-bottom:2rem; }
-    .booking-info { display:flex; flex-direction:column; gap:0.75rem; }
-    .booking-info-item { display:flex; align-items:center; gap:0.75rem; font-size:0.85rem; color:rgba(255,255,255,0.85); font-weight:500; }
-    .booking-form { background:#fff; border-radius:16px; padding:2.5rem; display:flex; flex-direction:column; gap:1rem; }
-    .form-label { font-size:0.78rem; font-weight:600; color:var(--dark); margin-bottom:0.25rem; display:block; }
-    .form-input { width:100%; padding:0.85rem 1rem; border:1.5px solid var(--border); border-radius:8px; font-family:'Plus Jakarta Sans',sans-serif; font-size:0.85rem; color:var(--dark); outline:none; transition:border-color .2s; }
-    .form-input:focus { border-color:var(--teal); }
-    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-    @media(max-width:768px){ .booking-inner{grid-template-columns:1fr; gap:3rem;} .booking{padding:4rem 1.5rem;} .form-row{grid-template-columns:1fr;} }
-
-    /* FOOTER */
-    footer { background:var(--dark); padding:4rem 8% 2rem; }
-    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:4rem; margin-bottom:3rem; }
-    .footer-brand { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
-    .footer-icon { width:32px; height:32px; background:var(--teal); border-radius:6px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1rem; }
-    .footer-name { font-size:0.9rem; font-weight:700; color:#fff; }
-    .footer-desc { font-size:0.83rem; color:rgba(255,255,255,0.4); line-height:1.8; }
-    .footer-heading { font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--teal); margin-bottom:1.25rem; font-weight:600; }
-    .footer-list { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
-    .footer-list a { font-size:0.83rem; color:rgba(255,255,255,0.45); transition:color .2s; }
-    .footer-list a:hover { color:var(--teal); }
-    .footer-bottom { border-top:1px solid rgba(255,255,255,0.08); padding-top:1.5rem; display:flex; justify-content:space-between; }
-    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.25); }
-    @media(max-width:768px){ .footer-grid{grid-template-columns:1fr; gap:2rem;} footer{padding:3rem 1.5rem 2rem;} .footer-bottom{flex-direction:column; gap:0.5rem;} }
-  
-    /* === DM Labs: Universal Mobile Safety === */
-    html, body { overflow-x: hidden; max-width: 100%; }
-    img, video, iframe { max-width: 100%; }
-    /* Forced-colors / high-contrast accessibility */
-    @media (forced-colors: active) {
-      * { border-color: ButtonText !important; }
-      a { color: LinkText !important; }
-      button, .btn, [class*="btn"], [class*="cta"] {
-        forced-color-adjust: none;
-        background: ButtonFace !important;
-        color: ButtonText !important;
-        border: 2px solid ButtonText !important;
-      }
-    }
-
-  </style>
-</head>
-<body>
-  <!-- NAV -->
-  <nav>
-    <div class="nav-brand">
-      <div class="nav-icon"></div>
-      <div class="nav-name">Dr. Elara <span>Dental</span></div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#">Services</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Treatments</a></li>
-      <li><a href="#">Reviews</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-    <button class="nav-cta">Book Appointment</button>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-left">
-      <div class="hero-badge">Accepting New Patients</div>
-      <h1 class="hero-title">Your Smile, <em>Perfected</em> with Care</h1>
-      <p class="hero-sub">Modern dentistry in a calm, comfortable environment. From routine check-ups to complete smile transformations  -  we're here for every step.</p>
-      <div class="hero-btns">
-        <button class="btn-teal">Book an Appointment</button>
-        <button class="btn-outline">View Treatments</button>
-      </div>
-      <div class="hero-trust">
-        <div class="trust-item"><span class="trust-icon"></span> 4.9/5 Rating</div>
-        <div class="trust-item"><span class="trust-icon"></span> 15+ Years Experience</div>
-        <div class="trust-item"><span class="trust-icon"></span> 3,000+ Patients</div>
-      </div>
-    </div>
-    <div class="hero-right">
-      <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=900&q=85" alt="Dr. Elara Dental Clinic" />
-      <div class="hero-card">
-        <div class="hero-card-icon"></div>
-        <div class="hero-card-text">
-          <strong>Same-Day Appointments</strong>
-          <span>Available Mon-Sat</span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#f6f5f0" />
+    <title>Dr. Elara | A little more at ease. A DM-Labs concept.</title>
+    <meta
+      name="description"
+      content="A considered dental practice concept: explore care, get to know your visit and try a personalised appointment experience."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/previews/elara/elara.css" />
+    <script type="module" src="/previews/elara/elara.mjs"></script>
+  </head>
+  <body>
+    <a href="#main" class="skip">Skip to content</a>
+    <header class="header">
+      <a class="wordmark" href="#main" aria-label="Dr. Elara home"
+        >elara<span>DENTAL PRACTICE</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#care">Our care</a><a href="#visit">Your visit</a
+        ><a href="#understand">A closer look</a>
+      </nav>
+      <button class="button compact" data-book>
+        Plan a visit<span class="button-dot" aria-hidden="true"></span>
+      </button>
+    </header>
+    <main id="main" tabindex="-1">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-kicker">
+          <span>DR. ELARA DENTAL</span
+          ><span>A PRACTICE CONCEPT · LIMASSOL</span>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ROOT CANAL VIDEO -->
-  <section class="root-canal" aria-labelledby="root-canal-title">
-    <div class="root-canal-inner">
-      <div class="root-canal-video-wrap">
-        <video class="root-canal-video" src="https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dr-elara-root-canal-treatment_dc985187.mp4" muted autoplay loop playsinline controls preload="metadata" aria-label="Animated explanation of root canal treatment"></video>
-      </div>
-      <div class="root-canal-copy">
-        <span class="section-tag">Endodontic Care</span>
-        <h2 class="section-title" id="root-canal-title">Root Canal <em>Treatment</em></h2>
-        <p class="root-canal-intro">Gentle, modern care to save your natural tooth. Here’s what to expect:</p>
-        <ol class="root-canal-steps">
-          <li><strong>Numbing &amp; Isolation</strong>: We numb the area completely and keep it clean and dry throughout.</li>
-          <li><strong>Cleaning</strong>: The infected tissue is carefully removed and the canal is disinfected.</li>
-          <li><strong>Filling</strong>: The canal is sealed with a safe, biocompatible material.</li>
-          <li><strong>Restoration</strong>: A crown protects and restores your tooth to full strength.</li>
-        </ol>
-        <p class="root-canal-reassurance">Most patients feel little to no discomfort and leave with the tooth saved, not extracted.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="services">
-    <div class="section-header">
-      <span class="section-tag">Our Treatments</span>
-      <h2 class="section-title">Everything Your Smile <em>Needs</em></h2>
-    </div>
-    <div class="services-grid">
-      <div class="service-card"><div class="service-emoji"></div><div class="service-name">Check-up & Cleaning</div><div class="service-desc">Comprehensive oral health examination and professional cleaning to keep your teeth healthy.</div></div>
-      <div class="service-card"><div class="service-emoji"></div><div class="service-name">Teeth Whitening</div><div class="service-desc">Professional-grade whitening treatments that deliver visible results in a single session.</div></div>
-      <div class="service-card"><div class="service-emoji"></div><div class="service-name">Dental Implants</div><div class="service-desc">Permanent, natural-looking tooth replacements that restore your smile and confidence.</div></div>
-      <div class="service-card"><div class="service-emoji"></div><div class="service-name">Orthodontics</div><div class="service-desc">Invisible aligners and traditional braces to straighten teeth at any age.</div></div>
-      <div class="service-card"><div class="service-emoji"></div><div class="service-name">Oral Surgery</div><div class="service-desc">Wisdom tooth removal and minor oral surgical procedures under local anaesthesia.</div></div>
-      <div class="service-card"><div class="service-emoji"></div><div class="service-name">Children's Dentistry</div><div class="service-desc">Gentle, friendly dental care for children from their very first visit onwards.</div></div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about">
-    <div class="about-img">
-      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=80" alt="Dr. Elara" />
-      <div class="about-img-badge">
-        <strong>15+</strong>
-        <span>Years of Practice</span>
-      </div>
-    </div>
-    <div class="about-text">
-      <span class="section-tag">About Dr. Elara</span>
-      <h2 class="section-title">Dentistry Built on <em>Trust</em></h2>
-      <p>Dr. Elara Charalambous graduated from the University of Athens School of Dentistry and completed her postgraduate training in implantology and cosmetic dentistry in London.</p>
-      <p>Since returning to Limassol in 2010, she has built a practice known for its calm atmosphere, transparent pricing, and exceptional clinical outcomes.</p>
-      <div class="about-creds">
-        <div class="cred-item"><div class="cred-check"></div>University of Athens, DDS</div>
-        <div class="cred-item"><div class="cred-check"></div>Postgraduate Certificate in Implantology, London</div>
-        <div class="cred-item"><div class="cred-check"></div>Member, Dental Association</div>
-        <div class="cred-item"><div class="cred-check"></div>Certified Invisalign Provider</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="section-header">
-      <span class="section-tag">Patient Reviews</span>
-      <h2 class="section-title">What Our Patients <em>Say</em></h2>
-    </div>
-    <div class="test-grid">
-      <div class="test-card">
-        <div class="test-stars">5/5</div>
-        <p class="test-text">"Dr. Elara completely transformed my smile with veneers. The whole process was painless and the results are beyond what I imagined. I can't stop smiling."</p>
-        <div class="test-author">
-          <img class="test-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80" alt="Anna" />
-          <div><div class="test-name">Anna Michaelides</div><div class="test-date">Veneers Patient</div></div>
+        <h1 id="hero-title">
+          A little more<br /><em>at ease.</em
+          ><span class="smile" aria-hidden="true"></span>
+        </h1>
+        <div class="hero-baseline">
+          <p>
+            Good care starts with being heard.<br />Dentistry with time for you.
+          </p>
+          <a class="text-link" href="#care">Find your kind of care</a>
         </div>
-      </div>
-      <div class="test-card">
-        <div class="test-stars">5/5</div>
-        <p class="test-text">"I was terrified of dentists for years. Dr. Elara's team made me feel completely at ease. My implant looks and feels completely natural."</p>
-        <div class="test-author">
-          <img class="test-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Stavros" />
-          <div><div class="test-name">Stavros Georgiou</div><div class="test-date">Implant Patient</div></div>
+        <figure class="clinic">
+          <img
+            src="/previews/elara/assets/clinic-1600.webp"
+            srcset="
+              /previews/elara/assets/clinic-800.webp   800w,
+              /previews/elara/assets/clinic-1600.webp 1600w
+            "
+            sizes="(max-width: 700px) 100vw, 92vw"
+            width="1600"
+            height="1067"
+            alt="A quiet dental practice concept with blue joinery, soft seating and a treatment room beyond"
+            fetchpriority="high"
+          />
+          <figcaption>
+            <span>Considered care.<br />A calmer setting.</span
+            ><span>THE ELARA CONCEPT</span>
+          </figcaption>
+        </figure>
+      </section>
+      <!-- SERVICES -->
+      <section class="care section" id="care" aria-labelledby="care-title">
+        <div class="section-heading">
+          <p class="eyebrow">Care, made clear</p>
+          <h2 id="care-title">Start with<br /><em>what matters to you.</em></h2>
+          <p>
+            Explore the possibilities.<br />Decide together, after a
+            conversation.
+          </p>
         </div>
-      </div>
-      <div class="test-card">
-        <div class="test-stars">5/5</div>
-        <p class="test-text">"My children actually look forward to their dental appointments here. The team is so gentle and patient with kids. Highly recommend for families."</p>
-        <div class="test-author">
-          <img class="test-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80" alt="Elena" />
-          <div><div class="test-name">Elena Papadaki</div><div class="test-date">Family Patient</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOOKING -->
-  <section class="booking">
-    <div class="booking-inner">
-      <div class="booking-text">
-        <h2 class="section-title">Book Your Appointment</h2>
-        <p>We offer same-day appointments for urgent cases and flexible scheduling for routine visits. New patients are always welcome.</p>
-        <div class="booking-info">
-          <div class="booking-info-item"> 14 Gladstonos Street, Limassol</div>
-          <div class="booking-info-item"> +357 25 222 333</div>
-          <div class="booking-info-item"> Mon-Fri: 8am - 7pm | Sat: 9am - 3pm</div>
-          <div class="booking-info-item"> appointments@elaradental.cy</div>
-        </div>
-      </div>
-      <form class="booking-form" onsubmit="return false">
-        <div>
-          <label class="form-label">Full Name</label>
-          <input class="form-input" type="text" placeholder="Your full name" />
-        </div>
-        <div class="form-row">
-          <div>
-            <label class="form-label">Phone</label>
-            <input class="form-input" type="tel" placeholder="+357 ..." />
+        <div class="care-explorer">
+          <div
+            class="care-tabs"
+            role="tablist"
+            aria-label="Explore dental care"
+            aria-orientation="vertical"
+          >
+            <button
+              id="tab-routine"
+              role="tab"
+              aria-selected="true"
+              aria-controls="care-panel"
+              data-care="routine"
+            >
+              Everyday care<span>Check-ups &amp; hygiene</span>
+            </button>
+            <button
+              id="tab-smile"
+              role="tab"
+              aria-selected="false"
+              tabindex="-1"
+              aria-controls="care-panel"
+              data-care="smile"
+            >
+              Your smile<span>Cosmetic consultations</span>
+            </button>
+            <button
+              id="tab-restore"
+              role="tab"
+              aria-selected="false"
+              tabindex="-1"
+              aria-controls="care-panel"
+              data-care="restore"
+            >
+              Repair &amp; restore<span>Restorative dentistry</span>
+            </button>
+            <button
+              id="tab-family"
+              role="tab"
+              aria-selected="false"
+              tabindex="-1"
+              aria-controls="care-panel"
+              data-care="family"
+            >
+              Growing smiles<span>Children &amp; families</span>
+            </button>
           </div>
-          <div>
-            <label class="form-label">Email</label>
-            <input class="form-input" type="email" placeholder="you@email.com" />
+          <div
+            class="care-panel"
+            id="care-panel"
+            role="tabpanel"
+            aria-labelledby="tab-routine"
+            tabindex="0"
+          >
+            <div class="care-art" aria-hidden="true">
+              <div class="art-ring ring-one"></div>
+              <div class="art-ring ring-two"></div>
+              <div class="art-ring ring-three"></div>
+              <span id="art-word">everyday</span>
+            </div>
+            <div class="care-content">
+              <p class="eyebrow" id="care-label">A GOOD PLACE TO BEGIN</p>
+              <h3 id="care-name">Make space for<br />the everyday.</h3>
+              <p id="care-description">
+                A check-up is a chance to talk about your teeth and gums, ask
+                questions and discuss any next steps.
+              </p>
+              <ul id="care-list">
+                <li>Dental check-ups</li>
+                <li>Hygiene appointments</li>
+                <li>At-home care conversations</li>
+              </ul>
+              <button
+                class="text-link"
+                id="care-book"
+                data-book="Everyday care"
+              >
+                Plan an everyday care visit
+              </button>
+            </div>
           </div>
         </div>
-        <div>
-          <label class="form-label">Treatment Needed</label>
-          <select class="form-input"><option>Select treatment</option><option>Check-up &amp; Cleaning</option><option>Whitening</option><option>Implants</option><option>Orthodontics</option><option>Other</option></select>
+      </section>
+      <section class="visit section" id="visit" aria-labelledby="visit-title">
+        <div class="visit-intro">
+          <p class="eyebrow">Your visit, your way</p>
+          <h2 id="visit-title">
+            A person first.<br /><em>A patient second.</em>
+          </h2>
+          <p>
+            Maybe you want to know every detail. Maybe you need a pause. Tell us
+            what helps you feel comfortable.
+          </p>
+          <p class="quiet">
+            Try the preferences below. They will follow you into your sample
+            visit plan.
+          </p>
         </div>
-        <div>
-          <label class="form-label">Preferred Date</label>
-          <input class="form-input" type="date" />
+        <div class="comfort">
+          <fieldset>
+            <legend>What would help you feel at ease?</legend>
+            <label
+              ><input type="checkbox" value="Talk me through each step" /><span
+                >Talk me through each step</span
+              ><i aria-hidden="true"></i></label
+            ><label
+              ><input type="checkbox" value="Make time for questions" /><span
+                >Make time for questions</span
+              ><i aria-hidden="true"></i></label
+            ><label
+              ><input type="checkbox" value="Agree on a pause signal" /><span
+                >Agree on a pause signal</span
+              ><i aria-hidden="true"></i
+            ></label>
+          </fieldset>
+          <div class="visit-note" aria-live="polite">
+            <span class="eyebrow">YOUR WELCOME NOTE</span>
+            <p id="comfort-note">“Let’s start with a conversation.”</p>
+          </div>
+          <button class="button" data-book>
+            Make this my visit<span
+              class="button-dot"
+              aria-hidden="true"
+            ></span>
+          </button>
         </div>
-        <button class="btn-teal" type="submit" style="width:100%;padding:1rem;font-size:0.9rem;">Confirm Appointment</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand"><div class="footer-icon"></div><div class="footer-name">Dr. Elara Dental</div></div>
-        <p class="footer-desc">Modern dentistry in Limassol. Gentle, professional care for the whole family since 2010.</p>
+      </section>
+      <!-- ROOT CANAL VIDEO -->
+      <section
+        class="learn section"
+        id="understand"
+        aria-labelledby="learn-title"
+      >
+        <div class="learn-heading">
+          <p class="eyebrow">A closer look</p>
+          <h2 id="learn-title">
+            Less mystery.<br /><em>More understanding.</em>
+          </h2>
+          <p>
+            See what happens inside a tooth during root canal treatment, in a
+            short visual explanation.
+          </p>
+        </div>
+        <div class="film">
+          <video
+            class="root-canal-video"
+            id="care-video"
+            src="https://zcqnftsc7hsxgrnx.public.blob.vercel-storage.com/dr-elara-root-canal-treatment_dc985187.mp4"
+            muted
+            playsinline
+            controls
+            preload="none"
+            aria-label="Animated explanation of root canal treatment"
+          ></video
+          ><button class="film-cover" id="play-film">
+            <span class="play-mark" aria-hidden="true">▶</span
+            ><strong>Inside a tooth.</strong
+            ><span>Watch the treatment film</span>
+          </button>
+          <p id="film-error" hidden>
+            That film could not load.
+            <button class="text-link" id="retry-film">Try again</button>
+          </p>
+        </div>
+        <div class="learn-detail">
+          <h3>Root canal treatment,<br /><em>explained simply.</em></h3>
+          <div>
+            <p>
+              Root canal treatment removes infected tissue from inside a tooth.
+              The canals are cleaned, filled and sealed. A filling or crown then
+              restores the tooth.
+            </p>
+            <p class="quiet">
+              The approach depends on the tooth and a dentist’s assessment. This
+              film is an illustration, not an individual treatment plan.
+            </p>
+            <a
+              class="text-link"
+              href="https://www.nhs.uk/tests-and-treatments/root-canal-treatment/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Read the NHS treatment guide</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="invitation section" aria-labelledby="invite-title">
+        <p class="eyebrow">Let’s begin with hello</p>
+        <h2 id="invite-title">
+          Come as you are.<br /><em>We’ll start there.</em>
+        </h2>
+        <button class="button light" data-book>
+          Plan your first visit<span
+            class="button-dot"
+            aria-hidden="true"
+          ></span>
+        </button>
+        <p>
+          Explore the appointment experience.<br />No personal details needed.
+        </p>
+      </section>
+    </main>
+    <footer>
+      <a class="wordmark" href="#main">elara<span>DENTAL PRACTICE</span></a>
+      <p>
+        A fictional practice, thoughtfully imagined by DM-Labs.<br />Concept
+        imagery. No real appointments or medical services.
+      </p>
+      <a class="text-link" href="#care">Back to our care</a>
+    </footer>
+    <dialog id="booking" aria-labelledby="booking-title">
+      <div class="booking-shell">
+        <div class="dialog-top">
+          <span class="eyebrow">THE ELARA VISIT PLANNER</span
+          ><button
+            id="close-booking"
+            aria-label="Close visit planner"
+            class="close"
+          >
+            ×
+          </button>
+        </div>
+        <p class="demo-note">Interactive demo · nothing is booked or sent.</p>
+        <form id="booking-form">
+          <div id="booking-options">
+            <h2 id="booking-title">A good place<br /><em>to start.</em></h2>
+            <label class="field-label" for="visit-care"
+              >What brings you in?</label
+            ><select id="visit-care">
+              <option>Everyday care</option>
+              <option>Your smile</option>
+              <option>Repair &amp; restore</option>
+              <option>Growing smiles</option>
+              <option>I’d like to talk first</option>
+            </select>
+            <fieldset class="dates">
+              <legend>Choose a sample day</legend>
+              <div id="date-options"></div>
+            </fieldset>
+            <fieldset class="times">
+              <legend>A time that suits you</legend>
+              <div>
+                <label
+                  ><input type="radio" name="time" value="09:30" checked /><span
+                    >09:30</span
+                  ></label
+                ><label
+                  ><input type="radio" name="time" value="12:00" /><span
+                    >12:00</span
+                  ></label
+                ><label
+                  ><input type="radio" name="time" value="16:30" /><span
+                    >16:30</span
+                  ></label
+                >
+              </div>
+            </fieldset>
+            <p class="booking-comfort" id="booking-comfort"></p>
+            <button class="button" type="submit">
+              Preview my visit<span
+                class="button-dot"
+                aria-hidden="true"
+              ></span>
+            </button>
+          </div>
+          <div id="booking-result" hidden>
+            <p class="eyebrow">YOUR SAMPLE VISIT</p>
+            <h2 id="result-title" tabindex="-1">
+              A little more<br /><em>you.</em>
+            </h2>
+            <dl id="visit-summary"></dl>
+            <p class="quiet">
+              This is a sample plan for a fictional practice. No appointment has
+              been made.
+            </p>
+            <button type="button" id="save-plan" class="button">
+              Save my sample plan</button
+            ><button type="button" id="edit-plan" class="text-link">
+              Change my choices
+            </button>
+            <p id="save-status" role="status"></p>
+          </div>
+        </form>
       </div>
-      <div>
-        <p class="footer-heading">Treatments</p>
-        <ul class="footer-list">
-          <li><a href="#">Check-up &amp; Cleaning</a></li>
-          <li><a href="#">Teeth Whitening</a></li>
-          <li><a href="#">Dental Implants</a></li>
-          <li><a href="#">Orthodontics</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-heading">Contact</p>
-        <ul class="footer-list">
-          <li><a href="#">14 Gladstonos St, Limassol</a></li>
-          <li><a href="#">Mon-Fri: 8am - 7pm</a></li>
-          <li><a href="#">+357 25 222 333</a></li>
-          <li><a href="#">appointments@elaradental.cy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2025 Dr. Elara Dental Clinic. All rights reserved.</span>
-      <span class="footer-copy">Website by DM-Labs.io</span>
-    </div>
-  </footer>
-<script>
-/* DM Labs: prevent hash links from pushing browser history entries.
-   Uses history.replaceState() + scrollIntoView() so iframe nav never
-   adds entries to the parent page's history stack. */
-(function() {
-  function scrollToHash(id) {
-    if (!id) return false;
-    var dest = document.getElementById(id) ||
-               document.querySelector('[name="' + id + '"]');
-    if (!dest) return false;
-    dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // Replace instead of push - keeps the URL in sync without adding history
-    try { history.replaceState(null, '', '#' + id); } catch(e) {}
-    return true;
-  }
-
-  document.addEventListener('click', function(e) {
-    var el = e.target;
-    while (el && el.tagName !== 'A') { el = el.parentElement; }
-    if (!el) return;
-    var href = el.getAttribute('href');
-    if (!href || href.charAt(0) !== '#') return;
-    var id = href.slice(1);
-    if (!id) return;
-    if (scrollToHash(id)) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  }, true);
-
-  // Also handle initial hash on page load (e.g. if URL already has #section)
-  if (window.location.hash) {
-    window.addEventListener('load', function() {
-      scrollToHash(window.location.hash.slice(1));
-    });
-  }
-})();
-
-</script>
-</body>
+    </dialog>
+  </body>
 </html>

@@ -1,3 +1,4 @@
+import ElaraPreviewArtwork from "@/components/ElaraPreviewArtwork";
 import { previewIndustry } from "@/lib/previewNavigation";
 import ArcosPreviewArtwork from "@/components/ArcosPreviewArtwork";
 import NomadPreviewArtwork from "@/components/NomadPreviewArtwork";
@@ -215,35 +216,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
     </div>
   ),
 
-  "dr-elara-dental": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f5f9ff" }}>
-      <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "50%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f5f9ff 48%, transparent 72%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(245,249,255,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(33,150,243,0.12)" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-          <div style={{ width: "16px", height: "16px", borderRadius: "4px", background: "#2196f3" }} />
-          <span style={{ fontSize: "10px", fontWeight: 700, color: "#0a1628" }}>Dr. Elara Dental</span>
-        </div>
-        <div style={{ background: "#2196f3", color: "#fff", fontSize: "8px", padding: "4px 10px", borderRadius: "4px", fontWeight: 600 }}>Κλείστε ραντεβού</div>
-      </div>
-      <div style={{ position: "absolute", top: "50px", left: "18px", maxWidth: "50%" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "5px", marginBottom: "8px" }}>
-          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80" }} />
-          <span style={{ fontSize: "8px", color: "#2196f3", fontWeight: 600 }}>Δεχόμαστε νέους ασθενείς</span>
-        </div>
-        <div style={{ fontSize: "20px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "6px" }}>Χαμογελάστε<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>ξανά</span><br/>με σιγουριά</div>
-        <div style={{ fontSize: "8px", color: "#4a6080", lineHeight: 1.5, marginBottom: "10px" }}>Σύγχρονη οδοντιατρική σε ήρεμο,<br/>άνετο περιβάλλον.</div>
-        <div style={{ background: "#2196f3", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", borderRadius: "4px", fontWeight: 600 }}>Οι θεραπείες μας</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#f5f9ff","#2196f3","#0a1628","#64b5f6","#1e3a5f"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
+  "dr-elara-dental": () => <ElaraPreviewArtwork />,
 
   "nomad-coffee": () => <NomadPreviewArtwork />,
 
@@ -379,29 +352,20 @@ const TEMPLATES = [
     id: "dr-elara-dental",
     industry: "clinic",
     name: "Dr. Elara Dental",
-    tagline: "Καθαρό και επαγγελματικό",
+    tagline: "Λίγο πιο άνετα",
     tier: "Growth",
     tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
-    domain: "elaradental.com",
-    palette: ["#0a1628", "#1e3a5f", "#2196f3", "#64b5f6", "#f5f9ff"],
-    paletteNames: ["Σκούρο ναυτικό", "Ναυτικό", "Μπλε", "Ανοιχτό μπλε", "Παγωμένο λευκό"],
-    styleLabel: "Καθαρό και ιατρικό",
+    domain: "elara.example",
+    palette: ["#f6f5f0", "#1c3049", "#244ccb", "#e7ecf5"],
+    paletteNames: ["Πορσελάνη", "Μελάνι", "Κοβάλτιο", "Ομίχλη"],
+    styleLabel: "Φροντίδα με προσοχή",
     livePreview: true,
     previewUrl: "/previews/dr-elara-dental.html",
-    features: [
-      "Επαγγελματική αρχική ενότητα με κουμπί για ραντεβού",
-      "Παρουσίαση οδοντιατρικών υπηρεσιών",
-      "Γνωρίστε τους γιατρούς",
-      "Κριτικές ασθενών",
-      "Επικοινωνία και φόρμα για ραντεβού",
-      "Τοποθεσία και ώρες λειτουργίας",
-      "Κουμπί WhatsApp",
-      "Άψογη εμφάνιση στο κινητό",
-    ],
+    features: ["Διαδραστική εξερεύνηση υπηρεσιών", "Προσωπικές προτιμήσεις άνεσης", "Δοκιμαστικός προγραμματισμός επίσκεψης", "Λήψη σύνοψης επίσκεψης", "Εκπαιδευτικό βίντεο θεραπείας", "Πλοήγηση με πληκτρολόγιο και μειωμένη κίνηση", "Προσαρμογή σε κινητά"],
     pages: [
       { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
     ],
-    style: "Καθαρό, επαγγελματικό ύφος με μπλε πινελιές σε λευκό φόντο. Ταιριάζει σε οδοντιατρεία, ιατρεία και υπηρεσίες υγείας.",
+    style: "Λευκό της πορσελάνης, βαθύ μπλε και κοβάλτιο με εκλεπτυσμένη τυπογραφία. Ένα ήρεμο οδοντιατρικό concept με προσωπικό σχεδιασμό επίσκεψης και εκπαιδευτικό βίντεο.",
     waMessage: "Γεια σας! Είδα το παράδειγμα Dr. Elara Dental στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
     price: "€350",
     images: { card: "" },
