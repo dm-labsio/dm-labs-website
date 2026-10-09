@@ -27,9 +27,10 @@ try {
       path: out + "gallery-" + (prefix.slice(1) || "en") + ".png",
     });
     await heading.click();
+    const returnY = await p.evaluate(() => history.state.dmGalleryPosition.y);
     const preview = p.locator('a[href^="/preview/arcos-architecture/"]');
     await preview.click();
-    await p.waitForFunction(() => history.state?.previewSentinel === true);
+    await p.waitForURL(/\/preview\/arcos-architecture\//);
     await p
       .frameLocator("iframe")
       .locator("html[data-arcos-ready=true]")
@@ -40,6 +41,7 @@ try {
     );
     await p.getByRole("button", { name: "Close preview", exact: true }).click();
     await p.waitForURL(base + path);
+    await p.waitForFunction(y => Math.abs(scrollY - y) < 12, returnY);
     assert.ok(await heading.isVisible());
     report.push({
       language: prefix.slice(1) || "en",
