@@ -10,27 +10,29 @@ Bricolage Grotesque 400–700 with Manrope 400–700. Graphite #202529, white #f
 
 The full-screen hero is now a six-frame photographic reel: exterior and interior views of each home. Frames advance every 1.4 seconds with a 420ms dissolve, leaving roughly one second to see each image. Image loading completes before committing a transition. Thumbnail selection and horizontal swipes hold a frame for closer inspection. Automatic motion stops on hover, focus, an open dialog, offscreen, hidden tabs or reduced-motion preference. Manual controls remain available with reduced motion.
 
-The collection uses rounded setting choices, bedroom chips, a continuously adjustable budget slider and a compact cycling sort control. Empty results and reset remain functional. The expanding interior gallery is retained and restyled. The repetitive approach text and the entire enquiry form have been removed. A personal property portfolio takes their place: three photographic cards fan out on hover or keyboard focus and open the matching property. Saved homes can be compared and downloaded as a plain-text collection containing their actual illustrative details. No personal data or requests are collected or submitted.
+The property listings now use six styled dropdowns: location, home type, bedrooms, price range, multi-select features and sorting (featured, price ascending/descending, floor area ascending/descending). Native radio/checkbox inputs preserve keyboard behaviour. Menus close on single selection, Escape or outside click; only one opens at a time. Multi-select features match every chosen tag, and applied-filter chips can be individually removed. Empty results and clear-all remain functional.
 
-Saved homes persist as validated IDs only in the versioned localStorage key; blocked storage retains in-memory functionality. Native dialogs support Escape, focus containment and return, plus exterior/interior photograph switching and retry after image failure. Page anchors remain managed so returning from the dummy preserves the source gallery's scroll position.
+Each fictional listing has four visible sample feature tags, also present in its detail dialog. Horizon: sea view, private pool, private garden, terrace. Atelier: rooftop terrace, home office, terrace, city views. Pine: private garden, home office, terrace, private parking. All feature options match at least one home. The core photographs, hero reel and expanding interior gallery are preserved.
+
+At the user's request, all saved-home buttons, comparison, portfolio/fan section, download, associated dialog and localStorage logic were removed. No enquiry form is present. The property details dialog supports Escape, focus return and image retry. Page anchors remain managed so returning from the dummy preserves the source gallery's scroll position.
 
 ## Component research and adaptation
 
 - [Image Stream Hero by Ruixen on 21st](https://21st.dev/@ruixen.ui/components/image-stream-hero): evaluated its continually moving photographic presentation. Adapted the image-led motion principle into a legible full-bleed reel, rather than importing the original perspective corridor.
-- [Image Fan Carousel by Ayushmaan Singh on 21st](https://21st.dev/@ayushmxxn/components/image-fan-carousel): informed the new fanned property portfolio, with original CSS, keyboard focus, explicit property buttons and saved states.
+- [Image Fan Carousel by Ayushmaan Singh on 21st](https://21st.dev/@ayushmxxn/components/image-fan-carousel): informed an earlier portfolio treatment, now removed at the user’s request.
 - [Accordion 03 by Ali Imam on 21st](https://21st.dev/@designali-in/components/accordion-03), and [UI Layouts image accordion](https://www.ui-layouts.com/components/image-accordions): expanding lifestyle panels, vertical on mobile, retained from the first version.
 - [Expandable Cards by Aceternity](https://ui.aceternity.com/components/expandable-card): informed the property card to native detail-dialog pattern.
 - These are original lightweight adaptations, not copied component source or newly installed libraries.
 
 ## Assets
 
-Six original illustrations generated using the built-in image-generation tool. Exterior references guide each corresponding interior. These are illustrative paired views, not surveyed architecture or measured floor plans. Each is exported to 800px and 1600px WebP variants in `client/public/previews/luxe/assets/`: `coast`, `city`, `pine`, `coast-inside`, `city-inside`, `pine-inside`. Gallery cover: `client/public/media/examples/luxe/cover-v2.webp`, captured from the actual page. The source PNGs remain in the tool output directory. Final exact prompt set follows below.
+Six original illustrations generated using the built-in image-generation tool. Exterior references guide each corresponding interior. These are illustrative paired views, not surveyed architecture or measured floor plans. Each is exported to 800px and 1600px WebP variants in `client/public/previews/luxe/assets/`: `coast`, `city`, `pine`, `coast-inside`, `city-inside`, `pine-inside`. Gallery cover: `client/public/media/examples/luxe/cover-v3.webp`, captured from the actual page. The source PNGs remain in the tool output directory. Final exact prompt set follows below.
 
 ## Integration and verification
 
 Restored `luxe-realty` to the preview wrapper, server allowlist, prerender list and all three EN/EL/HE example galleries, with localized gallery copy and one shared current cover. The dummy itself is English. Other approved example designs are preserved. Olio remains paused, with possible removal recorded separately. Production requires a separate release decision.
 
-QA script: `scripts/qa-luxe.mjs`; reports and screenshots: `../output/website-refresh/luxe/`. Exercises 320/390/768/1440 widths; filters, sorting and empty states; saved-home persistence and blocked storage; detail photography and retry; automatic and manual hero changes; portfolio download contents and no submission; keyboard Escape; and the EN/EL/HE gallery → demo → original scroll position flow. Physical phones and Safari are not claimed as tested.
+QA script: `scripts/qa-luxe.mjs`; reports and screenshots: `../output/website-refresh/luxe/`. Covers 320/390/768/1440px, dropdown bounds and dismissal, every feature tag, combined filters and no matches, all sort orders, property photography and retry, hero motion, removal of saved controls, and EN/EL/HE gallery return-scroll behaviour. Physical phones and Safari are not claimed as tested.
 
 ## Coast
 
@@ -66,3 +68,9 @@ TypeScript passed; 13 targeted preview/navigation/gallery regression tests passe
 Browser checks passed at 320, 390, 768 and 1440px: no horizontal overflow; all six-frame manual controls; setting, bedroom and budget filtering; sorting and empty states; property galleries; shortlist comparison and persistence; portfolio download contents; Escape and restored body scrolling. Automatic movement, held manual selection, failed-image recovery and blocked storage passed. EN/EL/HE gallery entry and return preserve the original scroll position. No uncaught page errors or form POSTs. TypeScript and the 13 targeted navigation/gallery regression tests passed. Physical devices and Safari remain outside this verification.
 
 Native Chromium touch simulation inside the parent preview also passed: horizontal hero swipe, mobile filtering, property details and adding a home to comparison.
+
+## Filter-focused revision
+
+The user approved the overall design and requested removal of all personal-collection/compare controls, plus dropdown filtering and sorting with useful sample tags. Implementation is scoped to Luxe and its localized example-card descriptions and cover. Preview only.
+
+Verification for the filter-focused revision: TypeScript, all 13 targeted navigation/gallery tests and full prerender passed (97 canonical pages, seven previews, zero errors or SEO audit issues). Chromium checks passed at 320/390/768/1440px for every tag, combined/no-result filters, all five sort orders, dropdown bounds/dismissal, removed controls, photograph switching, failure recovery and EN/EL/HE return position. A phone-sized iframe check also passed native keyboard selection and touch filtering/sorting.

@@ -292,9 +292,9 @@ const TEMPLATES = [
     id: "luxe-realty", industry: "realestate", name: "Luxe Realty",
     tagline: "A different point of view", tier: "Pro", tierGradient: "linear-gradient(135deg, #202529, #657077)", domain: "luxe.example",
     palette: ["#202529", "#f7f8f8", "#dce2e5", "#e9edf0", "#657077"], paletteNames: ["Graphite", "White", "Silver", "Mist", "Slate"],
-    features: ["Fast photographic hero reel", "Rounded filters and a live budget slider", "Saved-home shortlist and comparison", "Expanding interior gallery", "Interactive property portfolio and download"],
-    pages: [{ label: "Live Preview", preview: "live", description: "Explore the homes, compare favourites and keep your own property collection." }],
-    style: "Graphite, white and silver with Bricolage Grotesque typography. A photographic property showcase with a fast hero reel, expanding galleries and a personal property portfolio.", waMessage: "Hello DM-Labs team! I am interested in the Luxe Realty website design.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
+    features: ["Fast photographic hero reel", "Dropdown filters for location, type, bedrooms and price", "Multiple property-feature filters with visible listing tags", "Price and floor-area sorting", "Expanding interior gallery and property details"],
+    pages: [{ label: "Live Preview", preview: "live", description: "Explore three homes, choose property features and browse exterior and interior photography." }],
+    style: "Graphite, white and silver with Bricolage Grotesque typography. A photographic property showcase with a fast hero reel, dropdown discovery tools and expanding galleries.", waMessage: "Hello DM-Labs team! I am interested in the Luxe Realty website design.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
   },
 
   // ── Live Preview templates ──

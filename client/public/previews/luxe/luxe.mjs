@@ -13,6 +13,8 @@ export const homes = [
     baths: 3,
     size: 285,
     asset: "coast",
+    type: "house",
+    tags: ["sea-view", "pool", "garden", "terrace"],
     description:
       "A broad white canopy, open horizons and a terrace that draws everyday life outside. The living spaces open towards the sea; quieter bedrooms sit behind the shaded upper façade.",
     highlights: [
@@ -36,6 +38,8 @@ export const homes = [
     baths: 2,
     size: 148,
     asset: "city",
+    type: "penthouse",
+    tags: ["rooftop", "office", "terrace", "city-view"],
     description:
       "An urban retreat above the rooftops. A broad terrace extends the living room, while terrazzo, deep burgundy and warm timber bring a personal, collected character to the interior.",
     highlights: [
@@ -59,6 +63,8 @@ export const homes = [
     baths: 3,
     size: 310,
     asset: "pine",
+    type: "house",
+    tags: ["garden", "office", "terrace", "parking"],
     description:
       "Dark green zinc, pale brick and the soft movement of pine trees. A family home with generous shared spaces, a garden for long lunches and green views from the living room.",
     highlights: [
@@ -81,136 +87,238 @@ const money = n =>
   }).format(n);
 const asset = (h, width = 800, inside = false) =>
   `/previews/luxe/assets/${h.asset}${inside ? "-inside" : ""}-${width}.webp`;
-let saved = new Set();
-try {
-  const raw = JSON.parse(localStorage.getItem("dm-luxe-saved-v1") || "[]");
-  if (Array.isArray(raw)) saved = new Set(raw.filter(id => byId(id)));
-} catch {}
-let toastTimer;
-function toast(text) {
-  $("#toast").textContent = text;
-  $("#toast").classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => $("#toast").classList.remove("show"), 2600);
+const tagLabels = {
+  "sea-view": "Sea view",
+  pool: "Private pool",
+  garden: "Private garden",
+  terrace: "Terrace",
+  rooftop: "Rooftop terrace",
+  office: "Home office",
+  "city-view": "City views",
+  parking: "Private parking",
+};
+const filterDefinitions = [
+  {
+    key: "location",
+    title: "Location",
+    options: [["all", "All locations"], ...homes.map(h => [h.id, h.area])],
+  },
+  {
+    key: "type",
+    title: "Home type",
+    options: [
+      ["all", "Any home type"],
+      ["house", "Detached house"],
+      ["penthouse", "Penthouse"],
+    ],
+  },
+  {
+    key: "beds",
+    title: "Bedrooms",
+    options: [
+      ["all", "Any bedrooms"],
+      ["2", "2 bedrooms"],
+      ["3plus", "3+ bedrooms"],
+      ["4plus", "4+ bedrooms"],
+    ],
+  },
+  {
+    key: "price",
+    title: "Price range",
+    options: [
+      ["all", "Any price"],
+      ["under1", "Under €1 million"],
+      ["1to2", "€1–2 million"],
+      ["over2", "Over €2 million"],
+    ],
+  },
+  {
+    key: "tags",
+    title: "Must-haves",
+    multiple: true,
+    options: Object.entries(tagLabels),
+  },
+  {
+    key: "sort",
+    title: "Sort by",
+    options: [
+      ["featured", "Featured homes"],
+      ["price-up", "Price: low to high"],
+      ["price-down", "Price: high to low"],
+      ["size-down", "Size: largest first"],
+      ["size-up", "Size: smallest first"],
+    ],
+  },
+];
+const filters = {
+  location: "all",
+  type: "all",
+  beds: "all",
+  price: "all",
+  tags: new Set(),
+  sort: "featured",
+};
+function matches(h, key, value) {
+  if (value === "all") return true;
+  if (key === "location") return h.id === value;
+  if (key === "type") return h.type === value;
+  if (key === "beds")
+    return value.endsWith("plus")
+      ? h.beds >= parseInt(value)
+      : h.beds === Number(value);
+  if (key === "price")
+    return value === "under1"
+      ? h.price < 1000000
+      : value === "1to2"
+        ? h.price >= 1000000 && h.price <= 2000000
+        : h.price > 2000000;
+  if (key === "tags") return h.tags.includes(value);
+  return true;
 }
-function updateSaved() {
-  $$("[data-saved-count]").forEach(e => (e.textContent = saved.size));
-  $$("[data-save]").forEach(b => {
-    const active = saved.has(b.dataset.save);
-    b.setAttribute("aria-pressed", String(active));
-    b.textContent = active ? "Saved" : "Save";
-    b.setAttribute(
-      "aria-label",
-      `${active ? "Remove" : "Save"} ${byId(b.dataset.save).name}${active ? " from shortlist" : ""}`
-    );
-  });
-  if (activeHome) {
-    $("#detail-save").textContent = saved.has(activeHome.id)
-      ? "Remove from saved"
-      : "Save home";
-    $("#detail-save").setAttribute(
-      "aria-pressed",
-      String(saved.has(activeHome.id))
-    );
-  }
-  renderPortfolio();
-  try {
-    localStorage.setItem("dm-luxe-saved-v1", JSON.stringify([...saved]));
-  } catch {}
+function tagsMarkup(h) {
+  return h.tags.map(tag => `<span>${tagLabels[tag]}</span>`).join("");
 }
-function toggleSaved(id) {
-  if (!byId(id)) return;
-  const removed = saved.delete(id);
-  if (!removed) saved.add(id);
-  updateSaved();
-  toast(
-    `${byId(id).name} ${removed ? "removed from" : "added to"} your shortlist.`
-  );
-}
-const filters = { setting: "all", beds: 0, budget: 3000000, sort: "selected" };
 function renderCollection() {
-  let result = homes.filter(
+  const result = homes.filter(
     h =>
-      (filters.setting === "all" || h.setting === filters.setting) &&
-      h.beds >= filters.beds &&
-      (!filters.budget || h.price <= filters.budget)
+      ["location", "type", "beds", "price"].every(key =>
+        matches(h, key, filters[key])
+      ) && [...filters.tags].every(tag => matches(h, "tags", tag))
   );
-  const sort = filters.sort;
-  if (sort !== "selected")
-    result.sort((a, b) =>
-      sort === "ascending" ? a.price - b.price : b.price - a.price
-    );
+  const sorters = {
+    "price-up": (a, b) => a.price - b.price,
+    "price-down": (a, b) => b.price - a.price,
+    "size-down": (a, b) => b.size - a.size,
+    "size-up": (a, b) => a.size - b.size,
+  };
+  if (sorters[filters.sort]) result.sort(sorters[filters.sort]);
   $("#property-grid").innerHTML = result
     .map(
       (h, i) =>
-        `<article class="property-card reveal-item" style="animation-delay:${i * 60}ms"><button class="property-photo" data-property="${h.id}" aria-label="Explore ${h.name}"><img src="${asset(h)}" width="800" height="533" alt="${h.captions[0]}" loading="lazy" decoding="async"><span class="photo-label">Explore this home</span></button><button class="save" data-save="${h.id}" aria-pressed="false">Save</button><p class="property-location">${h.area} · ${h.settingName}</p><button class="property-name" data-property="${h.id}">${h.name}</button><div class="property-meta"><span>${h.beds} beds · ${h.baths} baths · ${h.size} m²</span><strong>${money(h.price)}</strong></div></article>`
+        `<article class="property-card reveal-item" data-home="${h.id}" style="animation-delay:${i * 60}ms"><button class="property-photo" data-property="${h.id}" aria-label="Explore ${h.name}"><img src="${asset(h)}" width="800" height="533" alt="${h.captions[0]}" loading="lazy" decoding="async"><span class="photo-label">Explore this home</span></button><p class="property-location">${h.area} · ${h.type === "house" ? "Detached house" : "Penthouse"}</p><button class="property-name" data-property="${h.id}">${h.name}</button><div class="property-meta"><span>${h.beds} beds · ${h.baths} baths · ${h.size} m²</span><strong>${money(h.price)}</strong></div><div class="property-tags" aria-label="Property features">${tagsMarkup(h)}</div></article>`
     )
     .join("");
   $("#results-count").textContent =
-    `${result.length} ${result.length === 1 ? "home" : "homes"} in this collection`;
+    `${result.length} of ${homes.length} homes${result.length < homes.length ? " match your filters" : " to explore"}`;
   $("#empty").hidden = !!result.length;
-  updateSaved();
 }
+$("#filter-menus").innerHTML = filterDefinitions
+  .map(
+    def =>
+      `<details class="filter-menu" data-filter="${def.key}"><summary><span class="filter-label">${def.title}</span><span class="filter-value"></span><span class="filter-toggle" aria-hidden="true"></span></summary><div class="filter-panel"><fieldset><legend>${def.title}${def.multiple ? " · match every selected feature" : ""}</legend>${def.options.map(([value, label]) => `<label class="filter-option"><input type="${def.multiple ? "checkbox" : "radio"}" name="${def.key}" value="${value}"><span>${label}</span>${def.key !== "sort" ? `<small aria-label="${homes.filter(h => matches(h, def.key, value)).length} sample homes">${homes.filter(h => matches(h, def.key, value)).length}</small>` : ""}</label>`).join("")}</fieldset>${def.multiple ? '<button class="button filter-done" type="button">Done</button>' : ""}</div></details>`
+  )
+  .join("");
 function syncFilters() {
-  $$("[data-setting]").forEach(b =>
-    b.setAttribute(
-      "aria-pressed",
-      String(b.dataset.setting === filters.setting)
-    )
-  );
-  $$("[data-beds]").forEach(b =>
-    b.setAttribute(
-      "aria-pressed",
-      String(Number(b.dataset.beds) === filters.beds)
-    )
-  );
-  $("#budget").value = filters.budget;
-  const label =
-    filters.budget === 3000000 ? "Any price" : `Up to ${money(filters.budget)}`;
-  $("#budget-label").textContent = label;
-  $("#budget").setAttribute("aria-valuetext", label);
-  $("#budget").style.setProperty(
-    "--fill",
-    `${((filters.budget - 750000) / 2250000) * 100}%`
-  );
-  const order = {
-    selected: "Our selection",
-    ascending: "Price: low to high",
-    descending: "Price: high to low",
-  }[filters.sort];
-  $("#sort").textContent = order;
-  $("#sort").setAttribute("aria-label", `Sort homes. Current order: ${order}`);
+  const chips = [];
+  filterDefinitions.forEach(def => {
+    const selected = def.multiple ? [...filters.tags] : [filters[def.key]];
+    const menu = $(`[data-filter="${def.key}"]`);
+    menu
+      .querySelectorAll("input")
+      .forEach(input => (input.checked = selected.includes(input.value)));
+    menu.querySelector(".filter-value").textContent = def.multiple
+      ? selected.length
+        ? `${selected.length} selected`
+        : "Any features"
+      : def.options.find(([value]) => value === selected[0])[1];
+    menu.classList.toggle(
+      "has-selection",
+      def.multiple
+        ? !!selected.length
+        : filters[def.key] !== (def.key === "sort" ? "featured" : "all")
+    );
+    if (def.key !== "sort")
+      selected
+        .filter(value => value !== "all")
+        .forEach(value => {
+          const label = def.options.find(([v]) => v === value)[1];
+          chips.push(
+            `<button class="filter-chip" data-clear-key="${def.key}" data-clear-value="${value}" aria-label="Remove ${label} filter">${label}<span aria-hidden="true">×</span></button>`
+          );
+        });
+  });
+  $("#active-filters").innerHTML = chips.join("");
+  $("#reset-filters").hidden = !chips.length && filters.sort === "featured";
   renderCollection();
 }
-$$("[data-setting]").forEach(b =>
-  b.addEventListener("click", () => {
-    filters.setting = b.dataset.setting;
-    syncFilters();
-  })
-);
-$$("[data-beds]").forEach(b =>
-  b.addEventListener("click", () => {
-    filters.beds = Number(b.dataset.beds);
-    syncFilters();
-  })
-);
-$("#budget").addEventListener("input", e => {
-  filters.budget = Number(e.target.value);
+function closeFilter(menu, focus = false) {
+  menu.open = false;
+  if (focus) menu.querySelector("summary").focus({ preventScroll: true });
+}
+$("#filter-menus").addEventListener("change", e => {
+  const input = e.target.closest("input");
+  if (!input) return;
+  const key = input.name;
+  if (key === "tags") {
+    input.checked
+      ? filters.tags.add(input.value)
+      : filters.tags.delete(input.value);
+  } else {
+    filters[key] = input.value;
+    closeFilter(input.closest("details"), true);
+  }
   syncFilters();
 });
-$("#sort").addEventListener("click", () => {
-  const order = ["selected", "ascending", "descending"];
-  filters.sort = order[(order.indexOf(filters.sort) + 1) % order.length];
-  syncFilters();
+$$(".filter-menu").forEach(menu =>
+  menu.querySelector("summary").addEventListener("click", () => {
+    $$(".filter-menu[open]")
+      .filter(other => other !== menu)
+      .forEach(other => closeFilter(other));
+  })
+);
+function positionFilter(menu) {
+  const box = menu.querySelector("summary").getBoundingClientRect();
+  const below = innerHeight - box.bottom - 20;
+  const above = box.top - $(".header").offsetHeight - 20;
+  const up = below < 230 && above > below;
+  menu.classList.toggle("opens-up", up);
+  menu.style.setProperty(
+    "--panel-height",
+    `${Math.max(150, Math.min(410, up ? above : below))}px`
+  );
+}
+$$(".filter-menu").forEach(menu =>
+  menu.addEventListener("toggle", () => {
+    if (menu.open) positionFilter(menu);
+  })
+);
+addEventListener("resize", () =>
+  $$(".filter-menu[open]").forEach(positionFilter)
+);
+$(".filter-done").addEventListener("click", e =>
+  closeFilter(e.target.closest("details"), true)
+);
+document.addEventListener("click", e => {
+  $$(".filter-menu[open]")
+    .filter(menu => !menu.contains(e.target))
+    .forEach(menu => closeFilter(menu));
+  const chip = e.target.closest("[data-clear-key]");
+  if (chip) {
+    const key = chip.dataset.clearKey;
+    if (key === "tags") filters.tags.delete(chip.dataset.clearValue);
+    else filters[key] = "all";
+    syncFilters();
+    $(`[data-filter="${key}"] summary`).focus({ preventScroll: true });
+  }
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && $(".filter-menu[open]")) {
+    e.preventDefault();
+    closeFilter($(".filter-menu[open]"), true);
+  }
 });
 function resetFilters() {
   Object.assign(filters, {
-    setting: "all",
-    beds: 0,
-    budget: 3000000,
-    sort: "selected",
+    location: "all",
+    type: "all",
+    beds: "all",
+    price: "all",
+    tags: new Set(),
+    sort: "featured",
   });
+  $$(".filter-menu[open]").forEach(menu => closeFilter(menu));
   syncFilters();
+  $("[data-filter=location] summary").focus({ preventScroll: true });
 }
 $("#reset-filters").addEventListener("click", resetFilters);
 $("#clear-filters").addEventListener("click", resetFilters);
@@ -341,90 +449,14 @@ function openProperty(id) {
   $("#photo-count").textContent = "1 / 2";
   $("#photo-caption").textContent = h.captions[0];
   showPhoto(0);
-  updateSaved();
+  $("#detail-tags").innerHTML = tagsMarkup(h);
   openDialog($("#property-dialog"));
 }
 $("#photo-next").addEventListener("click", () => showPhoto(photoIndex + 1));
 $("#photo-prev").addEventListener("click", () => showPhoto(photoIndex - 1));
-$("#detail-save").addEventListener("click", () => toggleSaved(activeHome.id));
-$("#detail-portfolio").addEventListener("click", () => {
-  if (!saved.has(activeHome.id)) toggleSaved(activeHome.id);
-  renderSaved();
-  openDialog($("#saved-dialog"));
-});
-function renderPortfolio() {
-  const cards = $("#portfolio-fan");
-  // Keep the fan's buttons in place so saving never steals keyboard focus.
-  if (!cards.children.length)
-    cards.innerHTML = homes
-      .map(
-        (h, i) =>
-          `<button class="fan-card" data-property="${h.id}" style="--i:${i}" aria-label="Explore ${h.name}"><img src="${asset(h, 800, true)}" width="800" height="533" loading="lazy" alt="${h.captions[1]}"><span><small>${h.area}</small><strong>${h.name}</strong><em data-fan-state="${h.id}">Explore home</em></span></button>`
-      )
-      .join("");
-  $$("[data-fan-state]").forEach(e => {
-    const selected = saved.has(e.dataset.fanState);
-    e.textContent = selected ? "In your collection" : "Explore home";
-    e.closest("button").classList.toggle("is-saved", selected);
-  });
-  $("#portfolio-status").textContent = saved.size
-    ? `${saved.size} ${saved.size === 1 ? "home" : "homes"} saved. Yours to compare and keep.`
-    : "Save a home to start your collection.";
-  $("#download-shortlist").disabled = !saved.size;
-}
-$("#download-shortlist").addEventListener("click", () => {
-  const selected = homes.filter(h => saved.has(h.id));
-  if (!selected.length) return;
-  const content = [
-    "LUXE / YOUR PERSONAL PROPERTY COLLECTION",
-    "Fictional homes and illustrative prices. A DM Labs design concept.",
-    ...selected.map(
-      h =>
-        `${h.name} | ${h.area}\n${money(h.price)} | ${h.beds} bedrooms | ${h.baths} bathrooms | ${h.size} m²\n${h.description}\n${h.highlights.join("; ")}`
-    ),
-  ].join("\n\n");
-  const url = URL.createObjectURL(
-    new Blob([content], { type: "text/plain;charset=utf-8" })
-  );
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "Luxe-my-property-collection.txt";
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-  toast("Your property collection is ready to keep.");
-});
-function renderSaved() {
-  const items = homes.filter(h => saved.has(h.id));
-  $("#saved-empty").hidden = !!items.length;
-  $("#saved-grid").innerHTML = items
-    .map(
-      h =>
-        `<article><img src="${asset(h)}" width="800" height="533" alt="${h.name}" loading="lazy"><h3>${h.name}</h3><dl><div><dt>Setting</dt><dd>${h.settingName}</dd></div><div><dt>Asking price</dt><dd>${money(h.price)}</dd></div><div><dt>Bedrooms</dt><dd>${h.beds}</dd></div><div><dt>Bathrooms</dt><dd>${h.baths}</dd></div><div><dt>Interior</dt><dd>${h.size} m²</dd></div></dl><button class="text-button" data-property="${h.id}">Explore home</button><button class="text-button" data-remove="${h.id}" aria-label="Remove ${h.name} from shortlist">Remove</button></article>`
-    )
-    .join("");
-}
-$$("[data-open-saved]").forEach(b =>
-  b.addEventListener("click", () => {
-    renderSaved();
-    openDialog($("#saved-dialog"));
-  })
-);
-$("#browse-homes").addEventListener("click", () => {
-  closeDialog($("#saved-dialog"));
-  requestAnimationFrame(() => goTo("collection"));
-});
 document.addEventListener("click", e => {
   const prop = e.target.closest("[data-property]");
   if (prop) openProperty(prop.dataset.property);
-  const save = e.target.closest("[data-save]");
-  if (save) toggleSaved(save.dataset.save);
-  const remove = e.target.closest("[data-remove]");
-  if (remove) {
-    toggleSaved(remove.dataset.remove);
-    renderSaved();
-    $("#saved-grid [data-remove]")?.focus();
-    if (!saved.size) $("#browse-homes").focus();
-  }
 });
 // A six-frame photographic reel. Manual selection holds the frame, and motion
 // stops offscreen, in a dialog, on hover/focus, or for reduced-motion visitors.
@@ -549,7 +581,7 @@ $$("[data-place]").forEach(b =>
     $("#place-open").dataset.property = h.id;
   })
 );
-renderCollection();
+syncFilters();
 if (!reduced.matches) {
   $(".hero-copy").animate(
     [

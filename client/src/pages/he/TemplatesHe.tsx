@@ -292,9 +292,9 @@ const TEMPLATES = [
     id: "luxe-realty", industry: "realestate", name: "Luxe Realty",
     tagline: "נקודת מבט אחרת", tier: "Pro", tierGradient: "linear-gradient(135deg, #202529, #657077)", domain: "luxe.example",
     palette: ["#202529", "#f7f8f8", "#dce2e5", "#e9edf0", "#657077"], paletteNames: ["גרפיט", "לבן", "כסף", "ערפל", "אפור"],
-    features: ["גלריית פתיחה עם חילופי תמונות מהירים", "מסננים מעוגלים ובחירת תקציב בזמן אמת", "שמירת בתים מועדפים והשוואה ביניהם", "גלריית חללי פנים מתרחבת", "אוסף נכסים אישי שניתן להוריד"],
-    pages: [{ label: "תצוגה חיה", preview: "live", description: "גלו את הבתים, השוו מועדפים ושמרו את אוסף הנכסים שלכם." }],
-    style: "גרפיט, לבן וכסף עם טיפוגרפיית Bricolage Grotesque. תצוגת נכסים עשירה בצילום, עם גלריית פתיחה מהירה, גלריות מתרחבות ואוסף נכסים אישי.", waMessage: "היי! ראיתי את הדוגמה של Luxe Realty ואשמח לשמוע עוד.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
+    features: ["גלריית פתיחה עם חילופי תמונות מהירים", "תפריטי סינון לפי מיקום, סוג נכס, חדרי שינה ומחיר", "סינון לפי כמה מאפיינים עם תגיות גלויות בנכסים", "מיון לפי מחיר ושטח הנכס", "גלריית חללי פנים מתרחבת ופרטי נכסים"],
+    pages: [{ label: "תצוגה חיה", preview: "live", description: "גלו שלושה בתים, בחרו מאפיינים וצפו בתמונות של חללי הפנים והחוץ." }],
+    style: "גרפיט, לבן וכסף עם טיפוגרפיית Bricolage Grotesque. תצוגת נכסים עשירה בצילום, עם גלריית פתיחה מהירה, תפריטי סינון וגלריות מתרחבות.", waMessage: "היי! ראיתי את הדוגמה של Luxe Realty ואשמח לשמוע עוד.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
   },
 
   // ── Live Preview templates ──

@@ -6,7 +6,7 @@ export default function LuxePreviewArtwork() {
       style={{ height: 280, background: "#202529", overflow: "hidden" }}
     >
       <img
-        src="/media/examples/luxe/cover-v2.webp"
+        src="/media/examples/luxe/cover-v3.webp"
         alt=""
         width={1200}
         height={833}

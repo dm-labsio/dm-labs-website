@@ -7,7 +7,7 @@
     <title>LUXE Realty | Places to live · Design concept</title>
     <meta
       name="description"
-      content="A fictional real-estate showcase. Discover three distinctive Athens homes, compare your favourites and build a personal property portfolio."
+      content="A fictional real-estate showcase. Discover three distinctive Athens homes, filter homes by location, price and features, and explore their interiors."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,12 +25,9 @@
         >LUXE<span class="brand-mark" aria-hidden="true"></span></a
       ><span class="descriptor">Places to live.</span>
       <nav aria-label="Main">
-        <a href="#collection">The collection</a
+        <a href="#collection">Homes</a
         ><a href="#perspectives">A way of living</a>
       </nav>
-      <button class="saved-toggle" data-open-saved>
-        Saved <span data-saved-count>0</span>
-      </button>
     </header>
     <main>
       <section
@@ -91,7 +88,7 @@
       >
         <div class="section-heading">
           <div>
-            <p class="eyebrow">A SMALL COLLECTION. A BIG DIFFERENCE.</p>
+            <p class="eyebrow">THREE HOMES. DISTINCTLY DIFFERENT.</p>
             <h2 id="collection-title">Where do you<br />want to wake up?</h2>
           </div>
           <p>
@@ -99,66 +96,33 @@
             home that fits the way you live.
           </p>
         </div>
-        <div class="discovery" id="filters">
-          <fieldset class="setting-pills">
-            <legend>Your surroundings</legend>
-            <button data-setting="all" aria-pressed="true">Everywhere</button>
-            <button data-setting="coast" aria-pressed="false">Coastal</button>
-            <button data-setting="city" aria-pressed="false">Urban</button>
-            <button data-setting="green" aria-pressed="false">Garden</button>
-          </fieldset>
-          <div class="filter-details">
-            <fieldset class="bed-pills">
-              <legend>Space for you</legend>
-              <button data-beds="0" aria-pressed="true">Any size</button>
-              <button data-beds="3" aria-pressed="false">3+ beds</button>
-              <button data-beds="4" aria-pressed="false">4+ beds</button>
-            </fieldset>
-            <div class="price-filter">
-              <label for="budget"
-                >Your budget
-                <output id="budget-label" for="budget">Any price</output></label
-              >
-              <input
-                type="range"
-                id="budget"
-                min="750000"
-                max="3000000"
-                step="50000"
-                value="3000000"
-                aria-valuetext="Any price"
-              />
-            </div>
-            <button
-              id="sort"
-              class="sort-button"
-              aria-label="Sort homes. Current order: our selection"
-            >
-              Our selection
+        <div class="discovery" id="filters" aria-label="Filter and sort homes">
+          <div class="filter-menus" id="filter-menus"></div>
+          <div class="filter-status">
+            <div id="active-filters" aria-label="Applied filters"></div>
+            <button id="reset-filters" class="text-button" hidden>
+              Clear filters
             </button>
-            <button id="reset-filters" class="text-button">Reset</button>
           </div>
         </div>
         <div class="results-line">
-          <p id="results-count" role="status">
-            Three homes. Three different lives.
+          <p id="results-count" role="status" aria-live="polite">
+            Three homes to explore.
           </p>
-          <button class="text-button" data-open-saved>
-            Compare saved homes
-          </button>
+          <span>Illustrative listings</span>
         </div>
         <div class="property-grid" id="property-grid"></div>
         <div class="empty" id="empty" hidden>
           <h3>A little too specific?</h3>
           <p>
-            There isn’t a home in this sample collection that matches those
+            There isn’t a home in this sample selection that matches those
             filters.
           </p>
           <button class="button" id="clear-filters">See all three homes</button>
         </div>
         <noscript
           ><p>
-            Enable JavaScript to explore the interactive property collection.
+            Enable JavaScript to explore the interactive property listings.
           </p></noscript
         >
         <p class="sample-note">
@@ -235,53 +199,18 @@
           </button>
         </div>
       </section>
-      <section
-        class="portfolio section"
-        id="portfolio"
-        tabindex="-1"
-        aria-labelledby="portfolio-title"
-      >
-        <div class="portfolio-copy">
-          <p class="eyebrow">YOUR PRIVATE COLLECTION</p>
-          <h2 id="portfolio-title">Some places<br />stay with you.</h2>
-          <p>
-            Keep the ones you can picture yourself in. Bring them together. Take
-            a closer look.
-          </p>
-          <div class="portfolio-actions">
-            <button class="button light" data-open-saved>
-              Compare your favourites</button
-            ><button class="text-button" id="download-shortlist" disabled>
-              Download shortlist
-            </button>
-          </div>
-          <p id="portfolio-status" role="status">
-            Save a home to start your collection.
-          </p>
-        </div>
-        <div class="portfolio-stage">
-          <div
-            class="portfolio-fan"
-            id="portfolio-fan"
-            role="group"
-            aria-label="Property portfolio"
-          ></div>
-          <p class="fan-caption">A collection worth keeping.</p>
-        </div>
-      </section>
     </main>
     <footer>
       <a href="#home" class="footer-brand" aria-label="Luxe home">LUXE</a>
       <div>
         <span>Places to live. A life to love.</span
         ><span>Fictional brand & website concept by DM Labs.</span
-        ><a href="#collection">Back to the collection</a>
+        ><a href="#collection">Explore the homes</a>
       </div>
     </footer>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <dialog id="property-dialog" aria-labelledby="property-title">
       <div class="dialog-top">
-        <span>LUXE / THE COLLECTION</span
+        <span>LUXE / THE HOMES</span
         ><button data-close class="close">Close</button>
       </div>
       <div class="property-detail">
@@ -302,11 +231,11 @@
           <dl id="detail-facts"></dl>
           <p id="detail-description"></p>
           <ul id="detail-highlights"></ul>
-          <div class="detail-actions">
-            <button class="button" id="detail-portfolio">
-              Add to my collection</button
-            ><button class="text-button" id="detail-save">Save home</button>
-          </div>
+          <div
+            id="detail-tags"
+            class="property-tags"
+            aria-label="Property features"
+          ></div>
           <p class="sample-note">
             Illustrative property. Images, details and prices are part of this
             fictional concept.
@@ -316,30 +245,6 @@
       <p id="gallery-error" role="status" hidden>
         That photograph couldn’t load. Please try Next or Previous again.
       </p>
-    </dialog>
-    <dialog id="saved-dialog" aria-labelledby="saved-title">
-      <div class="dialog-top">
-        <span>LUXE / YOUR SHORTLIST</span
-        ><button data-close class="close">Close</button>
-      </div>
-      <div class="saved-content">
-        <p class="eyebrow">A LITTLE CLOSER TO HOME</p>
-        <h2 id="saved-title">The ones you love.</h2>
-        <p>Compare the details. Then explore your favourite.</p>
-        <div id="saved-grid"></div>
-        <div id="saved-empty">
-          <p>
-            Your shortlist is waiting. Save a home from the collection to
-            compare it here.
-          </p>
-          <button class="button" id="browse-homes">
-            Explore the collection
-          </button>
-        </div>
-        <p class="sample-note">
-          Saved on this browser when storage is available. No account needed.
-        </p>
-      </div>
     </dialog>
   </body>
 </html>
