@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { createPortal } from "react-dom";
 import type { SiteLanguage } from "@/lib/routeLanguage";
 import {
   isSeasonActive,
@@ -9,17 +10,23 @@ import "./HalloweenLayer.css";
 
 const COPY = {
   en: {
-    text: "A little Halloween magic.",
+    text: "Happy Halloween!",
+    offer:
+      "Contact us this October for 10% off your one-time website build. Monthly fees excluded.",
     link: "Let’s talk",
     close: "Hide Halloween decorations",
   },
   el: {
-    text: "Στολίσαμε για το Halloween.",
+    text: "Καλό Halloween!",
+    offer:
+      "Μιλήστε μας μέσα στον Οκτώβριο και κερδίστε 10% έκπτωση στην κατασκευή της ιστοσελίδας σας. Δεν ισχύει για τις μηνιαίες χρεώσεις.",
     link: "Επικοινωνία",
     close: "Απόκρυψη διακόσμησης Halloween",
   },
   he: {
-    text: "קצת אווירת האלווין.",
+    text: "האלווין שמח!",
+    offer:
+      "פנו אלינו באוקטובר ותקבלו 10% הנחה על התשלום החד־פעמי לבניית האתר. ההנחה לא חלה על התשלומים החודשיים.",
     link: "צרו קשר",
     close: "הסתרת קישוטי האלווין",
   },
@@ -27,14 +34,14 @@ const COPY = {
 const PLAYED_KEY = `dm-season-played:${SEASONAL_CONFIG.id}`;
 const HIDDEN_KEY = `dm-season-hidden:${SEASONAL_CONFIG.id}`;
 
-function Bat() {
+export function Bat() {
   return (
     <svg viewBox="0 0 80 36" fill="currentColor" focusable="false">
       <path d="M40 15 35 6 33 14C23 14 13 5 3 2c4 7 3 14-2 21 10-3 18-1 22 6 7-3 12-2 17 7 5-9 10-10 17-7 4-7 12-9 22-6-5-7-6-14-2-21-10 3-20 12-30 12L45 6Z" />
     </svg>
   );
 }
-function Ghost() {
+export function Ghost() {
   return (
     <svg viewBox="0 0 40 52" fill="currentColor" focusable="false">
       <path d="M5 23C5 1 35 1 35 23v25l-8-5-7 6-7-6-8 5Z" />
@@ -43,7 +50,7 @@ function Ghost() {
     </svg>
   );
 }
-function Web({ className }: { className: string }) {
+export function Web({ className }: { className: string }) {
   return (
     <svg
       className={className}
@@ -73,7 +80,19 @@ export default function HalloweenLayer({
   const [running, setRunning] = useState(false);
   const [mobile, setMobile] = useState(false);
   const root = useRef<HTMLDivElement>(null);
+  const [sections, setSections] = useState<Element[]>([]);
   const copy = COPY[language];
+
+  useEffect(() => {
+    // Portals add ornaments to existing section gutters without duplicating content.
+    setSections(
+      Array.from(
+        document.querySelectorAll(
+          ".home-film, .home-examples, .home-overview-services, .home-overview-process, .home-stories, .industry-gallery, .home-team"
+        )
+      )
+    );
+  }, []);
 
   useEffect(() => {
     if (!visible) return;
@@ -161,6 +180,7 @@ export default function HalloweenLayer({
       ?.querySelector<HTMLAnchorElement>(".home-hero-primary")
       ?.focus({ preventScroll: true });
     setVisible(false);
+    window.dispatchEvent(new Event("dm-season-hide"));
   };
   return (
     <div
@@ -178,7 +198,10 @@ export default function HalloweenLayer({
           <span className="seasonal-banner-mark" aria-hidden="true">
             ✦
           </span>
-          <span>{copy.text}</span>
+          <div className="seasonal-banner-copy">
+            <strong>{copy.text}</strong>
+            <span>{copy.offer}</span>
+          </div>
           <a href={language === "en" ? "/contact/" : `/${language}/contact/`}>
             {copy.link}
             <span aria-hidden="true">{language === "he" ? "↖" : "↗"}</span>
@@ -239,6 +262,40 @@ export default function HalloweenLayer({
           ) : null}
         </div>
       </div>
+      {sections.map((section, index) =>
+        createPortal(
+          <div
+            className={`seasonal-section-decor seasonal-section-decor--${index % 3}`}
+            data-seasonal-runtime="ornament"
+            aria-hidden="true"
+            key={index}
+          >
+            {SEASONAL_CONFIG.webs ? (
+              <Web className="seasonal-section-web" />
+            ) : null}
+            {SEASONAL_CONFIG.artwork ? (
+              index % 2 === 0 ? (
+                <img
+                  className="seasonal-section-glass"
+                  src="/media/seasonal/halloween-2026/glass-pumpkins-280.webp"
+                  width="280"
+                  height="280"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
+                />
+              ) : (
+                <span className="seasonal-section-ghost">
+                  <Ghost />
+                </span>
+              )
+            ) : null}
+          </div>,
+          section,
+          `seasonal-section-${index}`
+        )
+      )}
     </div>
   );
 }

@@ -88,12 +88,29 @@ describe("Optional homepage seasonal layer", () => {
     expect(source).not.toMatch(
       /requestAnimationFrame|setInterval\([^,]+,\s*(?:16|30)|posthog|fetch\(/
     );
-    expect(source).not.toMatch(/discount|sale|limited.time|Κύπρος|קפריסין|—/i);
+    expect(source).not.toMatch(/limited.time|Κύπρος|קפריסין|—/i);
+    expect(source).toContain("Monthly fees excluded.");
+    expect(source).toContain("Contact us this October for 10% off");
     expect(
       readFileSync(
         "client/src/components/home/seasonal/HalloweenLayer.css",
         "utf8"
       )
     ).not.toContain("infinite");
+  });
+  it("keeps the authorised offer manual and homepage-only", () => {
+    expect(SEASONAL_CONFIG.offer).toEqual({
+      oneTimePercent: 10,
+      monthlyPercent: 0,
+      enquiryMonth: "2026-10",
+    });
+    const bats = readFileSync(
+      "client/src/components/home/seasonal/SeasonalBats.tsx",
+      "utf8"
+    );
+    expect(bats).not.toMatch(/COPY|seasonal-banner|10%|glass-pumpkins/);
+    expect(bats).toContain("dm-season-hide");
+    expect(bats).toContain("prefers-reduced-motion");
+    expect(bats).toContain("connection?.saveData");
   });
 });

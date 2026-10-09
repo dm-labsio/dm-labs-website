@@ -7,7 +7,13 @@ import {
 } from "./seasonalConfig";
 
 /** Decorations are progressive enhancement. Nothing blocks the original hero. */
-export default function SeasonalHome({ language }: { language: SiteLanguage }) {
+export default function SeasonalHome({
+  language,
+  sitewide = false,
+}: {
+  language: SiteLanguage;
+  sitewide?: boolean;
+}) {
   const [Layer, setLayer] = useState<ComponentType<{
     language: SiteLanguage;
   }> | null>(null);
@@ -19,7 +25,12 @@ export default function SeasonalHome({ language }: { language: SiteLanguage }) {
         .__DM_STATIC_SNAPSHOT__
     )
       return;
-    if (!isSeasonalHomepage(location.pathname) || !isSeasonActive()) return;
+    if (
+      (!sitewide && !isSeasonalHomepage(location.pathname)) ||
+      !isSeasonActive()
+    )
+      return;
+    if (sitewide && !SEASONAL_CONFIG.sitewideBats) return;
     let cancelled = false;
     let idle: number | undefined;
     let timer: ReturnType<typeof setTimeout> | undefined;
@@ -31,7 +42,7 @@ export default function SeasonalHome({ language }: { language: SiteLanguage }) {
     }
     const load = () => {
       if (cancelled || !isSeasonActive()) return;
-      void import("./HalloweenLayer")
+      void (sitewide ? import("./SeasonalBats") : import("./HalloweenLayer"))
         .then(module => {
           if (!cancelled && isSeasonActive()) setLayer(() => module.default);
         })
@@ -52,6 +63,6 @@ export default function SeasonalHome({ language }: { language: SiteLanguage }) {
       if (idle !== undefined) window.cancelIdleCallback(idle);
       if (timer !== undefined) clearTimeout(timer);
     };
-  }, []);
+  }, [sitewide]);
   return Layer ? <Layer language={language} /> : null;
 }

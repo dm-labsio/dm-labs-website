@@ -1,4 +1,4 @@
-/* Entirely scoped enhancement: no layout dimensions or typography are changed. */
+/* Scoped, pointer-transparent decoration. Permanent hero CSS reserves banner room. */
 .seasonal-layer {
   position: absolute;
   inset: 0;
@@ -12,13 +12,14 @@
   transform: translateX(-50%);
   width: max-content;
   max-width: calc(100% - 48px);
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto 34px;
   align-items: center;
   gap: 12px;
   min-height: 34px;
-  padding: 0 4px 0 14px;
+  padding: 8px 4px 8px 18px;
   border: 1px solid #d99b593b;
-  border-radius: 30px;
+  border-radius: 18px;
   background: #181d30f5;
   color: #ece6e1;
   font-size: 12px;
@@ -27,8 +28,17 @@
   box-shadow: 0 4px 22px #00000014;
 }
 .seasonal-banner-mark {
-  color: #efb67b;
-  font-size: 16px;
+  display: none;
+}
+.seasonal-banner-copy {
+  display: contents;
+}
+.seasonal-banner-copy strong {
+  color: #ffd39f;
+  white-space: nowrap;
+}
+.seasonal-banner-copy > span {
+  max-width: 600px;
 }
 .seasonal-banner {
   font-family: var(--font-body, Arial, sans-serif);
@@ -200,9 +210,30 @@
   .seasonal-banner {
     top: 7px;
     max-width: calc(100% - 24px);
-    gap: 8px;
+    gap: 4px 10px;
     font-size: 11px;
-    padding-inline-start: 10px;
+    padding: 6px 10px 10px;
+    width: calc(100% - 24px);
+    grid-template-columns: 1fr auto 28px;
+  }
+  .seasonal-banner-copy strong {
+    grid-row: 1;
+    font-size: 12px;
+  }
+  .seasonal-banner-copy > span {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+  .seasonal-banner a {
+    grid-row: 1;
+    grid-column: 2;
+    min-height: 28px;
+  }
+  .seasonal-banner button {
+    grid-row: 1;
+    grid-column: 3;
+    width: 28px;
+    height: 28px;
   }
   .seasonal-banner-mark {
     display: none;
@@ -229,11 +260,155 @@
     height: 24px;
   }
 }
+
+/* Ornaments live in the padding and outer edges of existing homepage sections. */
+.home-page--dark
+  :is(
+    .home-film,
+    .home-examples,
+    .home-overview,
+    .home-stories,
+    .industry-gallery,
+    .home-team
+  ) {
+  position: relative;
+}
+.seasonal-section-decor {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  pointer-events: none;
+  z-index: 1;
+}
+.seasonal-section-web {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 130px;
+  color: #b6a6d0;
+  opacity: 0.24;
+}
+.seasonal-section-glass {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  inset-block-end: -18px;
+  inset-inline-end: 0;
+  opacity: 0.82;
+  object-fit: contain;
+}
+.seasonal-section-ghost {
+  position: absolute;
+  width: 36px;
+  height: 48px;
+  inset-inline-end: 20px;
+  inset-block-end: 24px;
+  color: #c7c1e0;
+  opacity: 0.32;
+  transform: rotate(12deg);
+}
+.seasonal-section-decor--1 .seasonal-section-web {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+  transform: scaleX(-1);
+}
+.seasonal-section-decor--2 .seasonal-section-glass {
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+}
+.seasonal-bats {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  overflow: clip;
+}
+.seasonal-edge-bat {
+  position: absolute;
+  width: 46px;
+  height: 24px;
+  color: #9a85ba;
+  opacity: 0.19;
+}
+.seasonal-edge-bat--0 {
+  left: 5px;
+  top: 27%;
+  transform: rotate(-14deg);
+}
+.seasonal-edge-bat--1 {
+  right: 10px;
+  top: 49%;
+  transform: rotate(12deg);
+  width: 34px;
+}
+.seasonal-edge-bat--2 {
+  left: 14px;
+  top: 73%;
+  width: 28px;
+}
+.seasonal-edge-bat--3 {
+  right: 6px;
+  top: 87%;
+  transform: rotate(-18deg);
+}
+.seasonal-bats[data-motion="playing"] .seasonal-edge-bat {
+  animation: seasonal-edge-flight var(--bat-duration) ease-out both;
+}
+@keyframes seasonal-edge-flight {
+  0% {
+    opacity: 0;
+    translate: 0 55px;
+  }
+  35% {
+    opacity: 0.34;
+    translate: 8px -15px;
+  }
+  100% {
+    opacity: 0.19;
+    translate: 0 0;
+  }
+}
+@media (max-width: 767px) {
+  .seasonal-section-web {
+    width: 64px;
+    opacity: 0.2;
+  }
+  .seasonal-section-glass {
+    width: 94px;
+    height: 94px;
+    inset-block-end: -16px;
+  }
+  .seasonal-section-ghost {
+    width: 25px;
+    height: 33px;
+    inset-inline-end: 7px;
+    inset-block-end: 8px;
+  }
+  .seasonal-edge-bat {
+    width: 22px;
+    height: 12px;
+    opacity: 0.13;
+  }
+  .seasonal-edge-bat--0 {
+    left: -5px;
+  }
+  .seasonal-edge-bat--1 {
+    right: -4px;
+    width: 22px;
+  }
+  .seasonal-edge-bat--2,
+  .seasonal-edge-bat--3 {
+    display: none;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .seasonal-particles {
     display: none;
   }
   .seasonal-particle {
     animation: none;
+  }
+  .seasonal-edge-bat {
+    animation: none !important;
   }
 }

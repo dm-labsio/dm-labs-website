@@ -16,6 +16,12 @@ const heading = {
 async function newPage(options = {}, date = "2026-10-15T12:00:00+03:00") {
   const context = await browser.newContext(options);
   const page = await context.newPage();
+  await page.addInitScript(() =>
+    localStorage.setItem(
+      "dm_cookie_consent",
+      '{"essential":true,"analytics":false}'
+    )
+  );
   await page.clock.setFixedTime(new Date(date));
   return { page, context };
 }
@@ -75,6 +81,23 @@ try {
         "Close control must not be obscured"
       );
       await page.screenshot({ path: `${out}/${language}-${width}-hero.png` });
+      // Hebrew intentionally has no client-stories section.
+      assert.equal(
+        await page.locator(".seasonal-section-decor").count(),
+        language === "he" ? 6 : 7
+      );
+      for (const section of [
+        ".home-examples",
+        ".home-overview-process",
+        ".home-team",
+      ]) {
+        await page.locator(section).scrollIntoViewIfNeeded();
+        await page.waitForTimeout(350);
+        await page.screenshot({
+          path: `${out}/${language}-${width}-${section.slice(1)}.png`,
+        });
+      }
+      await page.evaluate(() => scrollTo(0, 0));
       await page.waitForFunction(
         () =>
           document.querySelector(".seasonal-layer")?.dataset.motion === "still"
@@ -89,6 +112,29 @@ try {
         "**" + (language === "en" ? "/contact/" : `/${language}/contact/`)
       );
       assert.equal(await page.locator(".seasonal-layer").count(), 0);
+      await page.locator(".seasonal-bats").waitFor();
+      assert.equal(await page.locator(".seasonal-banner").count(), 0);
+      await page.goto(
+        base + (language === "en" ? "/pricing/" : `/${language}/pricing/`)
+      );
+      await page.locator(".seasonal-bats").waitFor();
+      assert.equal(
+        await page
+          .locator(".seasonal-banner, .seasonal-section-decor, .seasonal-glass")
+          .count(),
+        0
+      );
+      assert.equal(
+        await page
+          .locator("body")
+          .innerText()
+          .then(t => t.includes("10%")),
+        false,
+        "No offer on pricing"
+      );
+      await page.screenshot({
+        path: `${out}/${language}-${width}-pricing.png`,
+      });
       await page.goto(base + paths[language]);
       await page.locator(".seasonal-layer").waitFor();
       assert.equal(
@@ -98,6 +144,10 @@ try {
       );
       await page.locator(".seasonal-banner button").click();
       assert.equal(await page.locator(".seasonal-layer").count(), 0);
+      assert.equal(
+        await page.locator(".seasonal-bats, .seasonal-section-decor").count(),
+        0
+      );
       assert(
         await page
           .locator(".home-hero-primary")
@@ -127,6 +177,7 @@ try {
     "expired",
     "before",
     "other-route",
+    "demo-route",
     "blocked-storage",
     "module-failure",
     "save-data",
@@ -161,23 +212,50 @@ try {
       );
     if (scenario === "module-failure")
       await page.route(/HalloweenLayer/, route => route.abort());
-    await page.goto(base + (scenario === "other-route" ? "/services/" : "/"));
+    await page.goto(
+      base +
+        (scenario === "other-route"
+          ? "/services/"
+          : scenario === "demo-route"
+            ? "/preview/bella-salon/"
+            : "/")
+    );
     await page.locator("h1").waitFor();
     if (
-      ["expired", "before", "other-route", "module-failure"].includes(scenario)
+      [
+        "expired",
+        "before",
+        "other-route",
+        "demo-route",
+        "module-failure",
+      ].includes(scenario)
     ) {
       await page.waitForTimeout(1800);
       assert.equal(await page.locator(".seasonal-layer").count(), 0);
-      if (scenario !== "module-failure")
+      if (scenario === "other-route") {
+        await page.locator(".seasonal-bats").waitFor();
+        assert.equal(
+          seasonalRequests.filter(url => /glass-pumpkins/.test(url)).length,
+          0
+        );
+      }
+      if (!["module-failure", "other-route"].includes(scenario))
         assert.equal(
           seasonalRequests.length,
           0,
           "Inactive theme downloads nothing"
         );
+      if (scenario !== "other-route")
+        assert.equal(await page.locator(".seasonal-bats").count(), 0);
     } else {
       await page.locator(".seasonal-layer").waitFor();
-      if (["reduced", "save-data"].includes(scenario))
+      if (["reduced", "save-data"].includes(scenario)) {
         assert.equal(await page.locator(".seasonal-particle").count(), 0);
+        assert.equal(
+          await page.locator(".seasonal-bats").getAttribute("data-motion"),
+          "still"
+        );
+      }
       if (scenario === "offscreen") {
         await page.evaluate(() => scrollTo(0, 1600));
         await page.waitForFunction(

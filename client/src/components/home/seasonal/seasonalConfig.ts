@@ -11,6 +11,9 @@ export const SEASONAL_CONFIG = {
   banner: true,
   artwork: true,
   webs: true,
+  sitewideBats: true,
+  // Manual quote adjustment for October enquiries; never changes pricing data.
+  offer: { oneTimePercent: 10, monthlyPercent: 0, enquiryMonth: "2026-10" },
   particles: {
     enabled: true,
     desktopCount: 12,

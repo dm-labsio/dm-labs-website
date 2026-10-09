@@ -1,4 +1,4 @@
-# Homepage seasonal layer
+# Seasonal layer and October offer
 
 Preview-only work on `codex/seasonal-halloween`, based on main `14a6c28`.
 
@@ -9,16 +9,25 @@ Edit `client/src/components/home/seasonal/seasonalConfig.ts` and deploy a review
 - `enabled: false`: master off switch. No decoration chunk, stylesheet or artwork is requested.
 - `startsAt` / `endsAt`: absolute dates with timezone offsets. The end is exclusive. This campaign runs 9 October through 31 October 2026, ending at midnight on 1 November in the owner's timezone. It does not recur next year.
 - `banner`, `artwork`, `webs`: independently disable each element.
+- `sitewideBats`: subtle bats on the main marketing site's pages, including pricing. Standalone `/preview/` demos are deliberately untouched.
 - `particles`: enable/disable, mobile and desktop counts, bat/ghost counts, duration, and once-per-session behavior. The renderer caps particles at 24 and the sequence at 4.5 seconds.
 - A future theme needs a new decorative module/artwork, not a rewrite of homepage text or structure.
 
-Only `/`, `/el/` and `/he/` are eligible. No country targeting, offers, discounts, prices, claims, headings, metadata, links or schema were changed. The banner links to the existing localized contact page.
+Only `/`, `/el/` and `/he/` show the Halloween banner and pumpkin/ghost/web decorations. Ornaments are placed in existing section gutters throughout those pages. English and Greek have seven decorated sections after the hero; Hebrew has six because it has no client-stories section. Bats remain visible at the viewport edges on main-site pages while visitors scroll, with one short flight per route per session. No country targeting, permanent headings, metadata, pricing data or schema changed. The banner links to the existing localized contact page.
+
+## Tom's October 2026 offer: apply manually when quoting
+
+Owner-approved on 9 October 2026: **10% off the one-time website build price for people who contact DM Labs during October 2026.** This is based on the enquiry month, not an invented booking or payment deadline. **Monthly hosting/maintenance fees are excluded and remain unchanged.**
+
+Remember to apply this reduction to the one-time build amount when discussing/quoting eligible October leads. There is no automatic checkout discount, no change to package prices, and no discount announcement on pricing pages. The offer is advertised only in the homepage banner, in English, Greek and Hebrew, with the monthly exclusion visible. The configuration records `oneTimePercent: 10`, `monthlyPercent: 0`, `enquiryMonth: "2026-10"` as an internal reminder; the banner copy must stay consistent with those facts. Do not extend this offer to another month without approval.
 
 ## Runtime and accessibility
 
 The permanent page renders normally without JavaScript. The optional module loads after window load and an idle opportunity. It fails silently if unavailable. Decorations never receive pointer events; the small banner has an accessible close button. Closing restores focus to the main consultation link and stores only a session dismissal preference. The short sequence also remembers that it played for the session. Storage denial does not break rendering.
 
 Reduced motion and Save-Data disable the sequence. Scrolling the hero out of view or hiding the document stops it. Expiry is checked on page entry, visibility changes and once per minute while mounted. An already-open tab can retain the static decoration for up to one minute after expiry; a new visit after expiry never loads the module.
+
+The sitewide bats have their own bounded flight and then settle into still silhouettes; hidden tabs and reduced motion stop it. Dismissing the homepage banner also dismisses section ornaments and sitewide bats for that session. No extra images are requested on non-home pages. Small section ornaments reuse the existing 280px artwork and lazy loading. The permanent hero CSS reserves slightly more breathing room above the text on tablet/mobile so the longer offer cannot shift content as it loads or closes. This space remains when the seasonal layer is disabled.
 
 Prerender sets `window.__DM_STATIC_SNAPSHOT__` in its own browser. This prevents decorations and their dynamic stylesheet from being frozen into cached HTML; the runtime rechecks the schedule. This is not user-agent/bot detection. Normal users and crawlers get the same permanent homepage and the same public runtime logic.
 
