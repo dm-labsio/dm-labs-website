@@ -83,7 +83,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     const openPreview = (event: MouseEvent) => {
       if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       const anchor = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[href]') : null;
-      if (!anchor || anchor.dataset.previewReady === 'false' || anchor.hasAttribute('download') || (anchor.target && anchor.target !== '_self')) return;
+      if (!anchor || (anchor.dataset.previewReady === 'false' && event.detail !== 0) || anchor.hasAttribute('download') || (anchor.target && anchor.target !== '_self')) return;
       const url = new URL(anchor.href, window.location.href);
       if (url.origin !== window.location.origin || !url.pathname.startsWith('/preview/')) return;
       event.preventDefault();

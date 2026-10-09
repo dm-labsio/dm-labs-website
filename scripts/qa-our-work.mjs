@@ -66,9 +66,19 @@ try {
       "pause at selection"
     );
     const scroll = await p.evaluate(() => scrollY);
-    if (touch) await card.tap();
-    else await card.click();
+    const openBox = await card.boundingBox();
+    if (touch)
+      await p.touchscreen.tap(
+        openBox.x + openBox.width / 2,
+        openBox.y + openBox.height / 3
+      );
+    else
+      await p.mouse.click(
+        openBox.x + openBox.width / 2,
+        openBox.y + openBox.height / 3
+      );
     await p.waitForURL(/\/preview\/sunday-boat\//);
+    await p.locator("iframe").waitFor();
     assert.equal(await p.locator("iframe").count(), 1);
     await p.getByRole("button", { name: "Close preview", exact: true }).click();
     await p.waitForURL(base + locale + "/templates/");
