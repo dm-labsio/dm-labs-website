@@ -2279,3 +2279,45 @@ legend {
     display: none !important;
   }
 }
+
+/* Keep the wordmark and its one tagline in the same flow at every screen size. */
+.hero-heading {
+  position: absolute;
+  z-index: 3;
+  top: clamp(150px, 22%, 240px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(84%, 1120px);
+  text-align: center;
+}
+.hero-heading .hero-brand {
+  position: relative;
+  inset: auto;
+  width: 100%;
+}
+.hero-heading .hero-copy {
+  position: relative;
+  inset: auto;
+  margin-top: clamp(20px, 2.4vw, 34px);
+}
+.hero-heading .hero-copy h1 {
+  font-size: clamp(30px, 3.7vw, 56px);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: 0 0 14px;
+}
+.hero-heading .text-link {
+  margin-inline: auto;
+}
+@media (max-width: 700px) {
+  .hero-heading {
+    top: 29%;
+    width: calc(100% - 50px);
+  }
+  .hero-heading .hero-copy {
+    margin-top: 22px;
+  }
+  .hero-heading .hero-copy h1 {
+    font-size: clamp(28px, 7.4vw, 43px);
+  }
+}
