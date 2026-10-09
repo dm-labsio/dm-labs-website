@@ -84,6 +84,20 @@ try {
         "true"
       );
       if (width <= 600) {
+        // The first tea is already selected before its photo has decoded.
+        // Wait for the resulting scroll, not just its initial data-selection.
+        await p.waitForFunction(() => {
+          const image = document.querySelector("#tea-photo");
+          const r = document
+            .querySelector(".tea-visual")
+            .getBoundingClientRect();
+          return (
+            image.complete &&
+            image.naturalWidth > 0 &&
+            r.top >= 0 &&
+            r.bottom <= innerHeight + 1
+          );
+        });
         const picture = await p.locator(".tea-visual").boundingBox();
         assert.ok(
           picture.y >= 0 && picture.y + picture.height <= 901,
