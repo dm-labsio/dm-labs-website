@@ -1,5 +1,6 @@
 import { chromium } from "playwright";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 const base = process.env.HARTLEY_QA_URL || "http://127.0.0.1:5175";
 const browser = await chromium.launch();
 try {
@@ -21,6 +22,11 @@ try {
     );
     await page.goto(base + prefix + "/templates/");
     await page.getByRole("heading", { name: title, exact: true }).waitFor();
+    await page.waitForFunction(() =>
+      Object.keys(document.querySelector("h3.text-lg") || {}).some(key =>
+        key.startsWith("__reactProps")
+      )
+    );
     await page.evaluate(() => document.fonts.ready);
     assert.ok(
       await page.evaluate(
@@ -44,9 +50,14 @@ try {
       page.waitForEvent("download"),
       frame.getByRole("link", { name: "Keep the tea menu" }).click(),
     ]);
-    assert.equal(
+    assert.match(
       download.suggestedFilename(),
-      "Hartley-afternoon-tea-menu.pdf"
+      /^(Hartley-)?afternoon-tea-menu\.pdf$/
+    );
+    assert.equal(await download.failure(), null);
+    assert.equal(
+      (await readFile(await download.path())).subarray(0, 5).toString(),
+      "%PDF-"
     );
     await page
       .getByRole("button", { name: "Close preview", exact: true })

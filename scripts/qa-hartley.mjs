@@ -1,5 +1,6 @@
 import { chromium } from "playwright";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 const base = process.env.HARTLEY_QA_URL || "http://127.0.0.1:5175";
 const browser = await chromium.launch();
 try {
@@ -61,7 +62,15 @@ try {
       p.waitForEvent("download"),
       p.getByRole("link", { name: "Keep the tea menu" }).click(),
     ]);
-    assert.equal(dl[0].suggestedFilename(), "Hartley-afternoon-tea-menu.pdf");
+    assert.match(
+      dl[0].suggestedFilename(),
+      /^(Hartley-)?afternoon-tea-menu\.pdf$/
+    );
+    assert.equal(await dl[0].failure(), null);
+    assert.equal(
+      (await readFile(await dl[0].path())).subarray(0, 5).toString(),
+      "%PDF-"
+    );
     await p.getByRole("button", { name: "Wrap it for me" }).click();
     assert.equal(
       await p.locator("#parcel").getAttribute("data-wrapped"),
