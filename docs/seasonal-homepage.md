@@ -47,3 +47,18 @@ Keep build folders immutable during performance tests. The performance script ru
 ## Existing main-branch test debt
 
 A clean `git archive 14a6c28` baseline has 292 passing / 12 failing tests. This branch initially has 297 passing / the same 12 failures (five new seasonal tests; no new failing test names). The existing failures concern stale page/media counts, old blog dates, demo SEO/copy assertions, country-name guards and punctuation. They were not repaired or weakened as part of this scoped feature. The complete build and its SEO audit pass. Do not represent the full test suite as green or automatically release this branch.
+
+## Measured preview checks, 9 October 2026
+
+The initial complete preview (`4996145`) passed the deployed browser suite across EN/EL/HE at 1440, 390 and 320 pixels, including navigation, dismissal, reduced motion, date boundaries, blocked storage, failed optional chunk, Save-Data and offscreen cancellation. The follow-up polish only reduces the mobile ornament from 140 to 120 CSS pixels so the ghost clears the main CTA; it uses the same 280px image file.
+
+Three-run paired lab medians against unchanged main:
+
+| Metric | Desktop baseline / Halloween | Throttled mobile baseline / Halloween |
+| --- | --- | --- |
+| Largest contentful paint | 384 / 380 ms | 1824 / 1816 ms |
+| Layout shift (unrounded) | 0.00013736 / 0.00013736 | 0.00006546 / 0.00006546 |
+| Long-task blocking during observation | 10 / 2 ms | 324 / 380 ms |
+| Transferred bytes | 1,242,479 / 1,305,505 | 1,310,993 / 1,333,729 |
+
+Main-content loading and layout were essentially unchanged in this sample. The mobile run incurred an additional 56ms median long-task blocking under 4x CPU slowdown. This is a bounded enhancement, not a zero-cost or field-performance guarantee. The optional JS/CSS is about 3.5KB gzip; the bootstrap adds about 0.9KB gzip. The two responsive artwork files are approximately 17KB and 57KB. Pre-rendered headline, title, description and canonical match the baseline in all three languages.

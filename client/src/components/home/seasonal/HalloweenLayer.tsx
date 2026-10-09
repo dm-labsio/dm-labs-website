@@ -204,7 +204,7 @@ export default function HalloweenLayer({
               className="seasonal-glass"
               src="/media/seasonal/halloween-2026/glass-pumpkins-560.webp"
               srcSet="/media/seasonal/halloween-2026/glass-pumpkins-280.webp 280w, /media/seasonal/halloween-2026/glass-pumpkins-560.webp 560w"
-              sizes="(max-width: 767px) 140px, (max-width: 1023px) 220px, 340px"
+              sizes="(max-width: 767px) 120px, (max-width: 1023px) 220px, 340px"
               width="560"
               height="560"
               alt=""
