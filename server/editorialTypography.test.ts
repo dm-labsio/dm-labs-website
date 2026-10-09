@@ -65,7 +65,7 @@ describe("Examples index editorial typography", () => {
   it("uses the semantic display and label roles without hero gradient text", () => {
     expect(templatesSource).toContain("templates-editorial-label");
     expect(templatesSource).toContain("templates-editorial-title");
-    expect(templatesSource).toContain("website <em>style</em>");
+    expect(templatesSource).toContain(">Our Work</h1>");
     expect(templatesSource).toContain("templates-editorial-cta-heading");
     expect(templatesSource).not.toContain("WebkitTextFillColor");
     expect(stylesheet).toContain('.templates-editorial .templates-editorial-label');
@@ -85,7 +85,7 @@ describe("Examples index editorial typography", () => {
   });
 
   it("preserves the Examples index metadata and its existing preview links", () => {
-    expect(templatesSource).toContain('title: "Website Examples | See Our Work | DM-Labs.io"');
+    expect(templatesSource).toContain('title: "Our Work | Website Demos | DM-Labs.io"');
     expect(templatesSource).toContain('canonicalPath: "/templates/"');
     expect(templatesSource).toContain('href={`/preview/${template.id}/`}');
   });

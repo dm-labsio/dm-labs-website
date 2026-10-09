@@ -12,7 +12,7 @@ const labels = {
     fullProcess: "See the full process", industries: "Made for your world", industryTitle: "Different businesses. Distinctive websites.",
     industryIntro: "Explore a few design concepts. Your website starts with your brand, your customers, and your goals.",
     categories: ["Restaurants", "Beauty & salons", "Clinics", "Fitness"], example: "Explore concept",
-    allExamples: "See all examples", other: "Have something else in mind?", contact: "Ask us anything",
+    allExamples: "All Website Demos", other: "Have something else in mind?", contact: "Ask us anything",
   },
   el: {
     services: "Τι κάνουμε", serviceTitle: "Τίποτα δεν είναι τυχαίο.",
@@ -21,8 +21,8 @@ const labels = {
     processIntro: "Πέντε ξεκάθαρα βήματα και γρήγορες απαντήσεις. Ξέρετε πάντα τι ακολουθεί, και τίποτα δεν μένει στη μέση.",
     fullProcess: "Δείτε όλη τη διαδικασία", industries: "Για τον δικό σας κλάδο", industryTitle: "Κάθε επιχείρηση θέλει άλλη ιστοσελίδα.",
     industryIntro: "Πάρτε μια ιδέα από ενδεικτικά σχέδια. Η δική σας ιστοσελίδα ξεκινά από το brand, τους πελάτες και τους στόχους σας.",
-    categories: ["Εστιατόρια", "Ομορφιά και κομμωτήρια", "Ιατρεία", "Γυμναστήρια"], example: "Δείτε το παράδειγμα",
-    allExamples: "Όλα τα παραδείγματα", other: "Έχετε κάτι άλλο στο μυαλό σας;", contact: "Ρωτήστε μας ό,τι θέλετε",
+    categories: ["Εστιατόρια", "Ομορφιά και κομμωτήρια", "Ιατρεία", "Γυμναστήρια"], example: "Δείτε το demo",
+    allExamples: "Όλα τα demo ιστοσελίδων", other: "Έχετε κάτι άλλο στο μυαλό σας;", contact: "Ρωτήστε μας ό,τι θέλετε",
   },
   he: {
     services: "מה אנחנו עושים", serviceTitle: "שום דבר פה לא במקרה.",
@@ -31,8 +31,8 @@ const labels = {
     processIntro: "חמישה שלבים ברורים ותשובות בגובה העיניים. אתם תמיד יודעים מה הלאה, ואנחנו דואגים שהכול יתקדם.",
     fullProcess: "לתהליך המלא", industries: "לכל תחום", industryTitle: "כל עסק צריך אתר אחר.",
     industryIntro: "כמה סגנונות להשראה. את האתר שלכם נעצב לפי המותג, הלקוחות והמטרות שלכם.",
-    categories: ["מסעדות", "יופי וטיפוח", "קליניקות", "כושר"], example: "לצפייה בדוגמה",
-    allExamples: "לכל הדוגמאות", other: "יש לכם משהו אחר בראש?", contact: "שאלו אותנו כל דבר",
+    categories: ["מסעדות", "יופי וטיפוח", "קליניקות", "כושר"], example: "לצפייה באתר ההדגמה",
+    allExamples: "לכל אתרי ההדגמה", other: "יש לכם משהו אחר בראש?", contact: "שאלו אותנו כל דבר",
   },
 } as const;
 

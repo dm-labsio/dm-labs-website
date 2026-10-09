@@ -1,0 +1,11 @@
+HARTLEY Café & Bakery website demo, October 2026.
+All brand artwork, photography, outlined logos, fonts and menu artwork supplied by the user in HARTLEY-complete-library.zip. WebP derivatives preserve original colour. Original library remains outside public website files. Font OFL licences accompany the fonts.
+Brand guide: navy #082438, warm white #FAF7F2, dusty pink #DDB8AD, periwinkle #899ACA. Rubik Black and Jost. No added texture, decorative shadow, gradients or replacement handwriting.
+
+21st.dev interaction references, reviewed 9 October 2026:
+Arc Gallery Hero Component by Le Thanh: https://21st.dev/@minhxthanh/components/arc-gallery-hero-component
+Book slider by Aaris Khan: https://21st.dev/@aarispathan15/components/book-slider
+Flip Gallery by Le Thanh: https://21st.dev/@minhxthanh/components/flip-gallery
+These public descriptions and usage examples informed original vanilla HTML/CSS/JavaScript adaptations. No upstream component implementation copied, no unverified source licence assumed, and no React page-flip runtime installed. The menu uses a short perspective page transition; it is not a simulation of a physical bound book. The arc, menu and flip interactions are new to the DM Labs demo collection.
+
+This standalone demo sends no orders, reservations, messages or payments. Menu prices are illustrative; downloaded tea artwork is the supplied concept menu. No loyalty offer activated. Reduced-motion alternatives, keyboard controls, touch navigation and native photo dialogs are included.

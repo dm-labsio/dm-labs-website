@@ -462,7 +462,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <p>A properly built nail salon website must be designed for mobile first. That means large text, tap-friendly buttons, fast loading times, and a WhatsApp or booking button that is always visible.</p>
 
 <h2>What a Good Beauty Salon Website Looks Like</h2>
-<p>At DM-Labs.io, we have built website examples specifically designed for beauty businesses. The <strong>Bella Salon</strong> interactive demo on our <a href="/templates/" class="blog-link">Examples page</a> shows exactly what a professional beauty salon website looks like in practice: clean layout, gallery section, service menu, booking CTA, and mobile-first design. These are not generic designs - they are built around how beauty clients actually browse and decide.</p>
+<p>At DM-Labs.io, we have built website examples specifically designed for beauty businesses. The <strong>Bella Salon</strong> interactive demo on our <a href="/templates/" class="blog-link">Our Work page</a> shows exactly what a professional beauty salon website looks like in practice: clean layout, gallery section, service menu, booking CTA, and mobile-first design. These are not generic designs - they are built around how beauty clients actually browse and decide.</p>
 
 <h2>How DM-Labs.io Builds Beauty Salon Websites</h2>
 <p>We build beauty salon and nail salon websites that make your work the reason to book. We agree a clear scope and delivery schedule before starting. Every site includes a mobile-first design, your service menu, a WhatsApp contact button, and on-page SEO setup so Google can find you from day one. Growth adds Google Maps and client reviews, and Pro adds a gallery.</p>

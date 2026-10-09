@@ -21,7 +21,7 @@ Verde Restaurant is removed completely from the Preview gallery, public demo fil
 | --- | --- | --- |
 | Hospitality | New hospitality brand | Build from scratch after the user supplies its assets and brief. |
 | Restaurants | Fish restaurant | Build from scratch using the incoming brand assets. |
-| Cafés | English-style coffee place | Build from scratch using the incoming brand assets. Keep Nomad Coffee as a separate example. |
+| Cafés | Hartley Café & Bakery | User supplied the complete asset library. New standalone demo built in Preview; see [Hartley direction](hartley-cafe.md). Nomad remains separate. |
 
 Work through these one at a time; order will follow the available assets and the user's preference. Do not invent the identities or publish placeholder cards before the examples exist.
 

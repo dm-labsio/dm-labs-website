@@ -1,3 +1,4 @@
+import HartleyPreviewArtwork from "@/components/HartleyPreviewArtwork";
 import LuxePreviewArtwork from "@/components/LuxePreviewArtwork";
 import ElaraPreviewArtwork from "@/components/ElaraPreviewArtwork";
 import { previewIndustry } from "@/lib/previewNavigation";
@@ -223,6 +224,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
 
   "arcos-architecture": () => <ArcosPreviewArtwork />,
   "luxe-realty": () => <LuxePreviewArtwork />,
+  "hartley": () => <HartleyPreviewArtwork />,
 
 
 };
@@ -261,6 +263,49 @@ const INDUSTRIES = [
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
   {
+    "id": "hartley",
+    "industry": "restaurant",
+    "name": "Hartley Café & Bakery",
+    "tagline": "Καφές, γλυκά και καλή παρέα",
+    "tier": "Custom",
+    "tierGradient": "linear-gradient(135deg, #082438, #899ACA)",
+    "domain": "HARTLEY",
+    "palette": [
+      "#082438",
+      "#FAF7F2",
+      "#DDB8AD",
+      "#899ACA"
+    ],
+    "paletteNames": [
+      "Navy",
+      "Warm white",
+      "Dusty pink",
+      "Periwinkle"
+    ],
+    "features": [
+      "Καμπύλη συλλογή φωτογραφιών",
+      "Διαδραστικό μενού καφέ",
+      "Συνδυασμοί τσαγιού και μενού για λήψη",
+      "Κινούμενη παρουσίαση συσκευασίας",
+      "Φωτογραφίες καφέ σε πλήρη οθόνη"
+    ],
+    "pages": [
+      {
+        "label": "Demo ιστοσελίδας",
+        "preview": "live",
+        "description": "Καφές, γλυκά και καλή παρέα"
+      }
+    ],
+    "style": "Ένα αγγλικό καφέ με δικό του εικονογραφημένο κόσμο, τη γραφή Hartley, τον σκύλο, τα λουλούδια και τις γραμματοσειρές Rubik Black και Jost.",
+    "waMessage": "Γεια σας DM-Labs! Θα ήθελα να συζητήσουμε μια ιστοσελίδα με τον χαρακτήρα του demo Hartley.",
+    "price": "",
+    "images": {
+      "card": ""
+    },
+    "livePreview": true,
+    "previewUrl": "/previews/hartley.html"
+  },
+  {
     id: "luxe-realty", industry: "realestate", name: "Luxe Realty",
     tagline: "Μια διαφορετική οπτική", tier: "Pro", tierGradient: "linear-gradient(135deg, #202529, #657077)", domain: "luxe.example",
     palette: ["#202529", "#f7f8f8", "#dce2e5", "#e9edf0", "#657077"], paletteNames: ["Γραφίτης", "Λευκό", "Ασημί", "Ομίχλη", "Γκρι"],
@@ -269,7 +314,7 @@ const TEMPLATES = [
     style: "Γραφίτης, λευκό και ασημί με τυπογραφία Bricolage Grotesque. Φωτογραφική παρουσίαση ακινήτων με γρήγορη εναλλαγή εικόνων, φίλτρα πολλαπλών επιλογών, κινούμενες κάρτες ακινήτων και διαδραστικές γκαλερί.", waMessage: "Γεια σας! Είδα το παράδειγμα Luxe Realty και θα ήθελα να μάθω περισσότερα.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
   },
 
-  // ── Live Preview templates ──
+  // ── Demo ιστοσελίδας templates ──
   {
     id: "bella-salon",
     industry: "beauty",
@@ -723,8 +768,8 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function TemplatesEl() {
   useSEO({
-    title: "Παραδείγματα ιστοσελίδων για επιχειρήσεις | DM-Labs.io",
-    description: "Παραδείγματα ιστοσελίδων για εστιατόρια, σαλόνια ομορφιάς, ιατρεία, στούντιο yoga και άλλα. Δείτε πώς θα μπορούσε να είναι και η δική σας.",
+    title: "Η δουλειά μας | Demo ιστοσελίδων | DM-Labs.io",
+    description: "Demo ιστοσελίδων για εστιατόρια, σαλόνια ομορφιάς, ιατρεία, στούντιο yoga και άλλα. Δείτε πώς θα μπορούσε να είναι και η δική σας.",
     canonicalPath: "/el/templates/",
   });
   const [location] = useLocation();
@@ -797,18 +842,13 @@ export default function TemplatesEl() {
         <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(139,92,255,0.07)" }} />
         <div className="relative container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>Παραδείγματα ιστοσελίδων</p>
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
-              Βρείτε το στυλ
-              <span className="block" style={{ background: "linear-gradient(135deg, #5B8CFF, #6FE3FF, #8B5CFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                που σας ταιριάζει
-              </span>
-            </h1>
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>Demo ιστοσελίδων</p>
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">Η δουλειά μας</h1>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
-              Δείτε τα παραδείγματα ανά κλάδο και κρατήστε ιδέες. Όποιο κι αν σας αρέσει, το προσαρμόζουμε στην επιχείρησή σας: στο λογότυπο, στα χρώματα και στο περιεχόμενό σας.
+              Δείτε τα demo ιστοσελίδων ανά κλάδο και κρατήστε ιδέες. Όποιο κι αν σας αρέσει, το προσαρμόζουμε στην επιχείρησή σας: στο λογότυπο, στα χρώματα και στο περιεχόμενό σας.
             </p>
             <p className="text-sm text-gray-400 max-w-xl mx-auto">
-              Αυτά είναι <strong className="text-gray-500">διαδραστικά παραδείγματα</strong>, όχι έτοιμα πακέτα. Κάθε ιστοσελίδα τη φτιάχνουμε από την αρχή για την επιχείρησή σας.
+              Αυτά είναι <strong className="text-gray-500">διαδραστικά demo ιστοσελίδων</strong>, όχι έτοιμα πακέτα. Κάθε ιστοσελίδα τη φτιάχνουμε από την αρχή για την επιχείρησή σας.
             </p>
           </motion.div>
         </div>
@@ -836,10 +876,10 @@ export default function TemplatesEl() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" className="w-8 h-8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
               </div>
               <h3 className="text-gray-900 text-2xl font-bold mb-3">
-                Παραδείγματα: {INDUSTRIES.find(i => i.id === activeIndustry)?.label}
+                Demo ιστοσελίδων: {INDUSTRIES.find(i => i.id === activeIndustry)?.label}
               </h3>
               <p className="text-gray-500 max-w-md mx-auto mb-8 leading-relaxed">
-                Για αυτόν τον κλάδο δεν έχουμε ακόμα παραδείγματα εδώ, αλλά μπορούμε να σχεδιάσουμε για εσάς μια ιστοσελίδα από την αρχή. Απλώς στείλτε μας μήνυμα.
+                Για αυτόν τον κλάδο δεν έχουμε ακόμα demo ιστοσελίδων εδώ, αλλά μπορούμε να σχεδιάσουμε για εσάς μια ιστοσελίδα από την αρχή. Απλώς στείλτε μας μήνυμα.
               </p>
               <a
                 href="/el/contact/"

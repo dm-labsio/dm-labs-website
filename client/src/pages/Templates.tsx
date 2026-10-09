@@ -1,3 +1,4 @@
+import HartleyPreviewArtwork from "@/components/HartleyPreviewArtwork";
 import LuxePreviewArtwork from "@/components/LuxePreviewArtwork";
 import ElaraPreviewArtwork from "@/components/ElaraPreviewArtwork";
 import { previewIndustry } from "@/lib/previewNavigation";
@@ -223,6 +224,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
 
   "arcos-architecture": () => <ArcosPreviewArtwork />,
   "luxe-realty": () => <LuxePreviewArtwork />,
+  "hartley": () => <HartleyPreviewArtwork />,
 
 
 };
@@ -261,15 +263,58 @@ const INDUSTRIES = [
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
   {
+    "id": "hartley",
+    "industry": "restaurant",
+    "name": "Hartley Café & Bakery",
+    "tagline": "Coffee, bakes & good company",
+    "tier": "Custom",
+    "tierGradient": "linear-gradient(135deg, #082438, #899ACA)",
+    "domain": "HARTLEY",
+    "palette": [
+      "#082438",
+      "#FAF7F2",
+      "#DDB8AD",
+      "#899ACA"
+    ],
+    "paletteNames": [
+      "Navy",
+      "Warm white",
+      "Dusty pink",
+      "Periwinkle"
+    ],
+    "features": [
+      "Curved, swipeable photo hero",
+      "Interactive café menu",
+      "Tea pairings and downloadable menu",
+      "Animated packaging reveal",
+      "Full-screen café gallery"
+    ],
+    "pages": [
+      {
+        "label": "Website Demo",
+        "preview": "live",
+        "description": "Coffee, bakes & good company"
+      }
+    ],
+    "style": "An English café with its own illustrated world. Original Hartley lettering, a spotted dog, periwinkle artwork, Rubik Black and Jost.",
+    "waMessage": "Hello DM-Labs team! I'd love to discuss a website with the character of the Hartley demo.",
+    "price": "",
+    "images": {
+      "card": ""
+    },
+    "livePreview": true,
+    "previewUrl": "/previews/hartley.html"
+  },
+  {
     id: "luxe-realty", industry: "realestate", name: "Luxe Realty",
     tagline: "A different point of view", tier: "Pro", tierGradient: "linear-gradient(135deg, #202529, #657077)", domain: "luxe.example",
     palette: ["#202529", "#f7f8f8", "#dce2e5", "#e9edf0", "#657077"], paletteNames: ["Graphite", "White", "Silver", "Mist", "Slate"],
     features: ["Fast photographic hero reel", "Multi-select dropdowns for location, type, bedrooms and price", "Multiple property-feature filters with visible listing tags", "Separate price and floor-area sorting", "Moving property cards and expanding interior gallery"],
-    pages: [{ label: "Live Preview", preview: "live", description: "Explore three homes, choose property features and browse exterior and interior photography." }],
+    pages: [{ label: "Website Demo", preview: "live", description: "Explore three homes, choose property features and browse exterior and interior photography." }],
     style: "Graphite, white and silver with Bricolage Grotesque typography. A photographic property showcase with a fast hero reel, multi-select filters, flowing property cards and expanding galleries.", waMessage: "Hello DM-Labs team! I am interested in the Luxe Realty website design.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
   },
 
-  // ── Live Preview templates ──
+  // ── Website Demo templates ──
   {
     id: "bella-salon",
     industry: "beauty",
@@ -294,7 +339,7 @@ const TEMPLATES = [
       "Mobile responsive",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
+      { label: "Website Demo", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Luxury feminine aesthetic with deep plum and rose tones, elegant serif typography, and a warm, inviting feel. Perfect for hair salons, beauty studios, and nail bars.",
     waMessage: "Hello DM-Labs team! I'm interested in the Bella Salon website design.",
@@ -325,7 +370,7 @@ const TEMPLATES = [
       "Mobile responsive",
     ],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
+      { label: "Website Demo", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "High-energy dark aesthetic with black and orange accents, bold typography, and dynamic layouts. Perfect for gyms, CrossFit boxes, and strength training studios.",
     waMessage: "Hello DM-Labs team! I'm interested in the PulseGym website design.",
@@ -347,7 +392,7 @@ const TEMPLATES = [
     previewUrl: "/previews/dr-elara-dental.html",
     features: ["Interactive particle-scan hero", "Outside/inside tooth-condition explorer", "Personalised visit preferences", "Magnetic appointment buttons", "Appointment request demonstration", "Educational treatment film", "Distinct Sora & Source Sans typography", "Keyboard & reduced-motion support"],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
+      { label: "Website Demo", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Pure white, cool silver and electric blue. A distinctive clinical identity with a particle-scan hero, an interactive tooth explorer and visit preferences carried into the appointment request.",
     waMessage: "Hello DM-Labs team! I'm interested in the Dr. Elara Dental website design.",
@@ -369,7 +414,7 @@ const TEMPLATES = [
     previewUrl: "/previews/nomad-coffee.html",
     features: ["Original brand photography", "Interactive café menu", "Adjustable home-brew recipes", "Coffee, water and ice calculator", "Looping coffee video hero", "Coffee and food photo gallery", "Reduced-motion support", "Responsive layout"],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
+      { label: "Website Demo", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "Bold condensed typography, vermilion and butter-yellow colours, tactile brand imagery and a useful interactive brew guide. A fictional coffee-bar identity with a clear point of view.",
     waMessage: "Hello DM-Labs team! I'm interested in the Nomad Coffee website design.",
@@ -388,7 +433,7 @@ const TEMPLATES = [
     paletteNames: ["Charcoal", "Dark", "Terracotta", "Paper", "Muted"],
     features: ["Interactive courtyard-house plan", "Original, coherent concept imagery", "Material magnifier with touch controls", "Full-screen project photography", "Build and download a sample project brief"],
     pages: [
-      { label: "Live Preview", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
+      { label: "Website Demo", preview: "live", description: "Fully interactive live preview  -  scroll, click, and explore the full website" },
     ],
     style: "An architectural journal with Syne typography, limestone paper tones and terracotta accents. Explore a fictional house through its plan, photography and materials.",
     waMessage: "Hello DM-Labs team! I'm interested in the Arcos Architecture website design.",
@@ -728,7 +773,7 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function Templates() {
   useSEO({
-    title: "Website Examples | See Our Work | DM-Labs.io",
+    title: "Our Work | Website Demos | DM-Labs.io",
     description: "Explore concept website designs by DM-Labs.io for restaurants, salons, dental clinics, yoga studios, and more. Explore the design possibilities for your brand.",
     canonicalPath: "/templates/",
   });
@@ -802,16 +847,13 @@ export default function Templates() {
         <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(139,92,255,0.07)" }} />
         <div className="relative container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4 templates-editorial-label">Website examples</p>
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight templates-editorial-title">
-              <span>Find your perfect</span>
-              <span>website <em>style</em></span>
-            </h1>
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-4 templates-editorial-label">Website Demos</p>
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight templates-editorial-title">Our Work</h1>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4 templates-editorial-lead">
               Browse curated designs by industry. Each example is fully customised for your business, with your logo, colours, and content.
             </p>
             <p className="text-sm text-gray-400 max-w-xl mx-auto templates-editorial-note">
-              These are <strong className="text-gray-500">interactive demo concepts</strong>, not fixed packages. Every website we build is tailored from scratch for your business.
+              These are <strong className="text-gray-500">Website Demos</strong>, not fixed packages. Every website we build is tailored from scratch for your business.
             </p>
           </motion.div>
         </div>
@@ -839,10 +881,10 @@ export default function Templates() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" className="w-8 h-8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
               </div>
               <h3 className="text-gray-900 text-2xl font-bold mb-3 templates-editorial-empty-title">
-                {INDUSTRIES.find(i => i.id === activeIndustry)?.label} Examples
+                {INDUSTRIES.find(i => i.id === activeIndustry)?.label} Website Demos
               </h3>
               <p className="text-gray-500 max-w-md mx-auto mb-8 leading-relaxed templates-editorial-empty-copy">
-                We're crafting beautiful examples for this industry. In the meantime, we can build a completely custom design for your business, so please reach out.
+                We're creating Website Demos for this industry. In the meantime, we can build a completely custom design for your business, so please reach out.
               </p>
               <a
                 href="/contact/"

@@ -190,7 +190,7 @@ export default function HomePage() {
         <div className="container relative z-10">
           {/* -- Template Showcase Grid -- */}
           <AnimateIn className="text-center mb-10">
-            <p className="editorial-label mb-4">Design Inspiration</p>
+            <p className="editorial-label mb-4">Website Demos</p>
             <h2 className="editorial-section-heading mb-5">
               Make Your First Impression <span className="editorial-serif">Count</span>
             </h2>
@@ -209,7 +209,7 @@ export default function HomePage() {
                   imageAlt={tpl.imageAlt}
                   showcase={tpl.id === "nomad-coffee"}
                   href={`/preview/${tpl.id}/?from=%2F`}
-                  actionText="See example"
+                  actionText="View demo"
                 />
               </StaggerItem>
             ))}
@@ -217,7 +217,7 @@ export default function HomePage() {
 
           <AnimateIn className="text-center mb-16">
             <StarButton asChild><Link href="/templates/" className="btn-primary">
-              View All Examples
+              All Website Demos
 
             </Link></StarButton>
           </AnimateIn>

@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 import { PREVIEW_ORIGIN_KEY, safePreviewReturnPath } from "@/lib/previewNavigation";
 
 const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
+  "hartley": { name: "Hartley Café & Bakery", url: "/previews/hartley.html" },
   "luxe-realty": { name: "Luxe Realty", url: "/previews/luxe-realty.html" },
   "bella-salon":          { name: "Bella Salon",          url: "/previews/bella-salon.html" },
   "pulse-gym":            { name: "Pulse Gym",            url: "/previews/pulse-gym.html" },
@@ -222,7 +223,7 @@ export default function PreviewPage() {
             border: "none",
             display: "block",
           }}
-          sandbox={`allow-scripts allow-same-origin allow-forms allow-popups${["pulse-gym", "arcos-architecture"].includes(params.id ?? "") ? " allow-downloads" : ""}`}
+          sandbox={`allow-scripts allow-same-origin allow-forms allow-popups${["pulse-gym", "arcos-architecture", "hartley"].includes(params.id ?? "") ? " allow-downloads" : ""}`}
         />
       )}
     </div>

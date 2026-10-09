@@ -1,3 +1,4 @@
+import HartleyPreviewArtwork from "@/components/HartleyPreviewArtwork";
 import LuxePreviewArtwork from "@/components/LuxePreviewArtwork";
 import ElaraPreviewArtwork from "@/components/ElaraPreviewArtwork";
 import { previewIndustry } from "@/lib/previewNavigation";
@@ -223,6 +224,7 @@ const CARD_DESIGNS: Record<string, React.FC> = {
 
   "arcos-architecture": () => <ArcosPreviewArtwork />,
   "luxe-realty": () => <LuxePreviewArtwork />,
+  "hartley": () => <HartleyPreviewArtwork />,
 
 
 };
@@ -261,6 +263,49 @@ const INDUSTRIES = [
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
   {
+    "id": "hartley",
+    "industry": "restaurant",
+    "name": "Hartley Café & Bakery",
+    "tagline": "קפה, מאפים וחברה טובה",
+    "tier": "Custom",
+    "tierGradient": "linear-gradient(135deg, #082438, #899ACA)",
+    "domain": "HARTLEY",
+    "palette": [
+      "#082438",
+      "#FAF7F2",
+      "#DDB8AD",
+      "#899ACA"
+    ],
+    "paletteNames": [
+      "Navy",
+      "Warm white",
+      "Dusty pink",
+      "Periwinkle"
+    ],
+    "features": [
+      "גלריית פתיחה מעוגלת עם החלקה",
+      "תפריט בית קפה אינטראקטיבי",
+      "התאמות תה ותפריט להורדה",
+      "אריזה שנחשפת באנימציה",
+      "גלריית בית הקפה במסך מלא"
+    ],
+    "pages": [
+      {
+        "label": "אתר הדגמה",
+        "preview": "live",
+        "description": "קפה, מאפים וחברה טובה"
+      }
+    ],
+    "style": "בית קפה אנגלי עם עולם איורים משלו: לוגו Hartley המקורי, הכלב המנוקד, פרחי הווינקה והגופנים Rubik Black ו־Jost.",
+    "waMessage": "שלום צוות DM-Labs! אשמח לדבר על אתר עם האופי של אתר ההדגמה Hartley.",
+    "price": "",
+    "images": {
+      "card": ""
+    },
+    "livePreview": true,
+    "previewUrl": "/previews/hartley.html"
+  },
+  {
     id: "luxe-realty", industry: "realestate", name: "Luxe Realty",
     tagline: "נקודת מבט אחרת", tier: "Pro", tierGradient: "linear-gradient(135deg, #202529, #657077)", domain: "luxe.example",
     palette: ["#202529", "#f7f8f8", "#dce2e5", "#e9edf0", "#657077"], paletteNames: ["גרפיט", "לבן", "כסף", "ערפל", "אפור"],
@@ -269,7 +314,7 @@ const TEMPLATES = [
     style: "גרפיט, לבן וכסף עם טיפוגרפיית Bricolage Grotesque. תצוגת נכסים עשירה בצילום, עם גלריית פתיחה מהירה, מסננים עם בחירה מרובה, כרטיסי נכסים נעים וגלריות מתרחבות.", waMessage: "היי! ראיתי את הדוגמה של Luxe Realty ואשמח לשמוע עוד.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
   },
 
-  // ── Live Preview templates ──
+  // ── אתר הדגמה templates ──
   {
     id: "bella-salon",
     industry: "beauty",
@@ -724,8 +769,8 @@ function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: s
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function TemplatesHe() {
   useSEO({
-    title: "דוגמאות לאתרים לעסקים | השראה לעיצוב | DM-Labs.io",
-    description: "דוגמאות לאתרים של מסעדות, סלונים, מרפאות, סטודיו ליוגה ועוד. תגללו, תלחצו ותראו איך האתר של העסק שלכם יכול להיראות.",
+    title: "העבודות שלנו | אתרי הדגמה | DM-Labs.io",
+    description: "אתרי הדגמה של מסעדות, סלונים, מרפאות, סטודיו ליוגה ועוד. תגללו, תלחצו ותראו איך האתר של העסק שלכם יכול להיראות.",
     canonicalPath: "/he/templates/",
     ogLocale: "he_IL",
     noindex: true,
@@ -800,13 +845,13 @@ export default function TemplatesHe() {
         <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(139,92,255,0.07)" }} />
         <div className="relative container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <p className="templates-editorial-label text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>דוגמאות לאתרים</p>
-            <h1 className="templates-editorial-title text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight"><span>איזה סגנון</span><span><em>מתאים</em> לעסק שלכם?</span></h1>
+            <p className="templates-editorial-label text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#5B8CFF" }}>אתרי הדגמה</p>
+            <h1 className="templates-editorial-title text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">העבודות שלנו</h1>
             <p className="templates-editorial-lead text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
-              תסתכלו על הדוגמאות לפי תחום ותקחו מהן רעיונות. כל עיצוב כאן אפשר להתאים לעסק שלכם: ללוגו, לצבעים ולתוכן.
+              תסתכלו על אתרי ההדגמה לפי תחום ותקחו מהן רעיונות. כל עיצוב כאן אפשר להתאים לעסק שלכם: ללוגו, לצבעים ולתוכן.
             </p>
             <p className="templates-editorial-note text-sm text-gray-400 max-w-xl mx-auto">
-              אלה <strong className="text-gray-500">דוגמאות להשראה</strong>, לא חבילות מוכנות. כל אתר נבנה מאפס בשביל העסק שלכם.
+              אלה <strong className="text-gray-500">אתרי הדגמה</strong>, לא חבילות מוכנות. כל אתר נבנה מאפס בשביל העסק שלכם.
             </p>
           </motion.div>
         </div>
@@ -834,10 +879,10 @@ export default function TemplatesHe() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" className="w-8 h-8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
               </div>
               <h3 className="text-gray-900 text-2xl font-bold mb-3">
-                דוגמאות: {INDUSTRIES.find(i => i.id === activeIndustry)?.label}
+                אתרי הדגמה: {INDUSTRIES.find(i => i.id === activeIndustry)?.label}
               </h3>
               <p className="text-gray-500 max-w-md mx-auto mb-8 leading-relaxed">
-                לתחום הזה עוד אין כאן דוגמאות, אבל זה לא מפריע לנו לעצב לכם אתר מאפס.
+                לתחום הזה עוד אין כאן אתרי הדגמה, אבל זה לא מפריע לנו לעצב לכם אתר מאפס.
               </p>
               <a
                 href="/he/contact/"

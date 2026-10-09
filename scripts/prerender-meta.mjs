@@ -122,7 +122,7 @@ const EN_STATIC_ROUTES = [
   },
   {
     path: "/examples",
-    title: "Website Examples | See Our Work | DM-Labs.io",
+    title: "Our Work | Website Demos | DM-Labs.io",
     description: "Explore concept website designs by DM-Labs.io for restaurants, salons, dental clinics, yoga studios, and more. Explore the design possibilities for your brand.",
     elPath: "/el/examples",
   },

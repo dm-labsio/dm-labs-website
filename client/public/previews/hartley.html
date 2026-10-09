@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en" data-preview-navigation="managed">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#DDB8AD" />
+    <title>HARTLEY | Café & Bakery</title>
+    <meta
+      name="description"
+      content="Coffee, bakes and good company. Discover the Hartley café, its afternoon tea and the little things worth slowing down for."
+    />
+    <link
+      rel="preload"
+      href="/previews/hartley/assets/Rubik.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/previews/hartley/hartley.css" />
+    <script type="module" src="/previews/hartley/hartley.mjs"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the café</a>
+    <header class="header">
+      <a href="#home" aria-label="Hartley home"
+        ><img
+          src="/previews/hartley/assets/logo.svg"
+          width="172"
+          height="55"
+          alt="Hartley Café & Bakery"
+      /></a>
+      <nav aria-label="Café navigation">
+        <a href="#menu">On the menu</a><a href="#tea">Time for tea</a
+        ><a href="#about">Our kind of place</a>
+      </nav>
+      <a class="pill header-cta" href="#menu"><span>Find your usual</span></a>
+    </header>
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Coffee, bakes & good company</p>
+          <h1 id="hero-title">A little time.<br />A very good time.</h1>
+          <p>Come for the coffee. Stay for the company.</p>
+        </div>
+        <div
+          class="arc"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="A day at Hartley"
+          tabindex="0"
+        >
+          <div class="arc-track">
+            <button
+              class="arc-card"
+              data-scene="0"
+              aria-label="View the café exterior"
+            >
+              <img
+                src="/previews/hartley/assets/exterior-small.webp"
+                alt="Hartley's navy storefront with a spotted dog beside the entrance"
+                width="480"
+                height="853"
+                fetchpriority="high"
+              />
+            </button>
+            <button
+              class="arc-card"
+              data-scene="1"
+              aria-label="View a morning coffee"
+            >
+              <img
+                src="/previews/hartley/assets/milk-small.webp"
+                alt="Milk poured into a navy Hartley cup"
+                width="480"
+                height="853"
+              />
+            </button>
+            <button
+              class="arc-card"
+              data-scene="2"
+              aria-label="View afternoon tea"
+            >
+              <img
+                src="/previews/hartley/assets/tea-small.webp"
+                alt="Afternoon tea laid on a marble café table"
+                width="480"
+                height="853"
+              />
+            </button>
+            <button
+              class="arc-card"
+              data-scene="3"
+              aria-label="View a little good company"
+            >
+              <img
+                src="/previews/hartley/assets/company-small.webp"
+                alt="A spotted dog beside the café's navy banquette"
+                width="480"
+                height="853"
+              />
+            </button>
+            <button
+              class="arc-card"
+              data-scene="4"
+              aria-label="View something to take home"
+            >
+              <img
+                src="/previews/hartley/assets/packaging-small.webp"
+                alt="Hartley's pink bags, navy cups and illustrated packaging"
+                width="480"
+                height="853"
+              />
+            </button>
+          </div>
+        </div>
+        <div class="hero-bottom">
+          <button
+            class="text-button"
+            id="scene-prev"
+            aria-label="Previous café photograph"
+          >
+            Previous
+          </button>
+          <div>
+            <p id="scene-caption" aria-live="polite">
+              A familiar face. A favourite corner.
+            </p>
+            <span class="gesture-hint">Drag to explore</span>
+          </div>
+          <button
+            class="text-button"
+            id="scene-next"
+            aria-label="Next café photograph"
+          >
+            Next
+          </button>
+        </div>
+        <img
+          class="hero-flower"
+          src="/previews/hartley/assets/flower.webp"
+          alt=""
+          width="130"
+          height="190"
+        />
+      </section>
+      <section class="hello section" id="about">
+        <div class="hello-title">
+          <p class="eyebrow">Make yourself at Hartley</p>
+          <h2>A good day<br />starts small.</h2>
+        </div>
+        <div class="hello-copy">
+          <p>
+            That first proper coffee. Something still warm from the oven. A
+            table you don’t want to leave.
+          </p>
+          <p>
+            Hartley is a café for the everyday things that make a day. Familiar
+            favourites, an English sense of occasion, and always a little
+            something extra.
+          </p>
+          <a class="text-button" href="#menu">See what’s good today</a>
+        </div>
+        <img
+          class="hello-dog"
+          src="/previews/hartley/assets/dog.webp"
+          alt="Hartley's pen-drawn spotted dog"
+          width="280"
+          height="170"
+          loading="lazy"
+        />
+      </section>
+      <section
+        class="menu-section section"
+        id="menu"
+        aria-labelledby="menu-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Something good, whatever the hour</p>
+            <h2 id="menu-title">Your usual.<br />Or your new usual.</h2>
+          </div>
+          <p>A proper cup, a generous slice,<br />and absolutely no hurry.</p>
+        </div>
+        <div class="menu-tabs" role="tablist" aria-label="Menu chapters">
+          <button
+            role="tab"
+            aria-selected="true"
+            aria-controls="menu-panel"
+            id="tab-coffee"
+            data-menu="coffee"
+          >
+            Coffee & company</button
+          ><button
+            role="tab"
+            aria-selected="false"
+            aria-controls="menu-panel"
+            id="tab-bakes"
+            data-menu="bakes"
+            tabindex="-1"
+          >
+            From the oven</button
+          ><button
+            role="tab"
+            aria-selected="false"
+            aria-controls="menu-panel"
+            id="tab-tea"
+            data-menu="tea"
+            tabindex="-1"
+          >
+            A little tea
+          </button>
+        </div>
+        <div class="menu-book">
+          <div class="menu-photo">
+            <img
+              id="menu-photo"
+              src="/previews/hartley/assets/milk.webp"
+              alt="A carefully poured flat white"
+              width="1000"
+              height="1778"
+              loading="lazy"
+            /><span id="menu-photo-label">Made with a little more care.</span>
+          </div>
+          <div
+            class="menu-paper"
+            id="menu-panel"
+            role="tabpanel"
+            aria-labelledby="tab-coffee"
+          >
+            <img
+              src="/previews/hartley/assets/logo.svg"
+              alt=""
+              width="150"
+              height="48"
+              loading="lazy"
+            />
+            <div id="menu-content">
+              <h3>Coffee & company</h3>
+              <p class="menu-intro">Your day, with a better beginning.</p>
+              <dl>
+                <div>
+                  <dt>
+                    Espresso <small>Short, rich, beautifully simple.</small>
+                  </dt>
+                  <dd>€2.80</dd>
+                </div>
+                <div>
+                  <dt>
+                    Flat white <small>A double shot, silky steamed milk.</small>
+                  </dt>
+                  <dd>€3.80</dd>
+                </div>
+                <div>
+                  <dt>
+                    Cappuccino <small>A little more foam. Just enough.</small>
+                  </dt>
+                  <dd>€3.80</dd>
+                </div>
+                <div>
+                  <dt>
+                    Slow filter
+                    <small>A changing coffee, brewed by hand.</small>
+                  </dt>
+                  <dd>€4.20</dd>
+                </div>
+              </dl>
+            </div>
+            <p class="menu-note">
+              A sample café menu. Ask about ingredients and allergens.
+            </p>
+            <div class="menu-paging">
+              <button class="text-button" id="menu-prev">Previous page</button
+              ><span id="menu-page" aria-live="polite">Coffee & company</span
+              ><button class="text-button" id="menu-next">Turn the page</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="tea-section" id="tea" aria-labelledby="tea-title">
+        <div class="tea-visual">
+          <img
+            src="/previews/hartley/assets/tea-pour.webp"
+            alt="Tea poured into a china cup beside a tier of sandwiches and cakes"
+            width="1000"
+            height="1778"
+            loading="lazy"
+          />
+        </div>
+        <div class="tea-copy">
+          <img
+            class="tea-bloom"
+            src="/previews/hartley/assets/bloom.webp"
+            alt=""
+            width="140"
+            height="140"
+            loading="lazy"
+          />
+          <p class="eyebrow">An afternoon well spent</p>
+          <h2 id="tea-title">Make a little<br />time for tea.</h2>
+          <p>
+            A pot to share, delicate sandwiches, warm scones and something
+            sweet. The conversation can take as long as it likes.
+          </p>
+          <fieldset class="tea-picker">
+            <legend>What’s in your pot?</legend>
+            <button type="button" aria-pressed="true" data-tea="breakfast">
+              English Breakfast</button
+            ><button type="button" aria-pressed="false" data-tea="grey">
+              Earl Grey</button
+            ><button type="button" aria-pressed="false" data-tea="mint">
+              Garden Mint
+            </button>
+          </fieldset>
+          <div class="tea-pairing" aria-live="polite">
+            <h3 id="tea-name">A proper classic.</h3>
+            <p id="tea-detail">
+              Full-bodied and reassuring. Lovely with a warm scone, a spoon of
+              jam and a little clotted cream.
+            </p>
+          </div>
+          <a
+            href="/previews/hartley/assets/afternoon-tea-menu.pdf"
+            download="Hartley-afternoon-tea-menu.pdf"
+            class="pill"
+            ><span>Keep the tea menu</span></a
+          >
+        </div>
+      </section>
+      <section class="takeaway section" id="takeaway">
+        <div class="takeaway-copy">
+          <p class="eyebrow">A little Hartley, to go</p>
+          <h2>Good things.<br />Beautifully<br />wrapped.</h2>
+          <p>
+            For a friend. For later. For the walk home that somehow takes the
+            scenic route.
+          </p>
+          <button
+            id="wrap-button"
+            class="pill"
+            aria-pressed="false"
+            aria-controls="parcel"
+          >
+            <span>Wrap it for me</span>
+          </button>
+          <p class="parcel-status" id="parcel-status" aria-live="polite">
+            A little something before the ribbon.
+          </p>
+          <img
+            src="/previews/hartley/assets/baked-note.svg"
+            class="baked-note"
+            alt="Baked this morning"
+            width="220"
+            height="80"
+            loading="lazy"
+          />
+        </div>
+        <div class="parcel" id="parcel">
+          <div class="parcel-inner">
+            <img
+              class="parcel-front"
+              src="/previews/hartley/assets/cake.webp"
+              alt="A cake being placed into a floral Hartley box"
+              width="1000"
+              height="1778"
+              loading="lazy"
+            /><img
+              class="parcel-back"
+              src="/previews/hartley/assets/wrapped.webp"
+              alt="A finished cake box in Hartley's periwinkle wrapping"
+              width="1000"
+              height="1778"
+              loading="lazy"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="visit section" aria-labelledby="visit-title">
+        <div class="visit-head">
+          <p class="eyebrow">Pull up a chair</p>
+          <h2 id="visit-title">
+            Same good company.<br />A different little corner.
+          </h2>
+          <p>Take a look around. There’s a favourite spot waiting to happen.</p>
+        </div>
+        <div class="visit-gallery">
+          <button
+            data-photo="room"
+            data-caption="A table for your own little ritual."
+          >
+            <img
+              src="/previews/hartley/assets/room.webp"
+              alt="A café table with pastry and a navy banquette"
+              width="1000"
+              height="1778"
+              loading="lazy"
+            /><span>The window table</span></button
+          ><button
+            data-photo="gallery"
+            data-caption="Familiar faces. Favourite flowers."
+          >
+            <img
+              src="/previews/hartley/assets/gallery.webp"
+              alt="Hartley's illustrated dog and botanical gallery wall"
+              width="1000"
+              height="1778"
+              loading="lazy"
+            /><span>A little character</span></button
+          ><button
+            data-photo="counter"
+            data-caption="Something good is always close by."
+          >
+            <img
+              src="/previews/hartley/assets/counter.webp"
+              alt="Hartley's café counter and pink and navy seating"
+              width="1000"
+              height="1778"
+              loading="lazy"
+            /><span>Stay a little longer</span>
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-top">
+        <img
+          class="footer-dog"
+          src="/previews/hartley/assets/dog-portrait.webp"
+          alt=""
+          width="150"
+          height="200"
+          loading="lazy"
+        />
+        <h2>Good company.<br />Always.</h2>
+        <a class="pill" href="#home"><span>Back to Hartley</span></a>
+      </div>
+      <img
+        class="footer-logo"
+        src="/previews/hartley/assets/logo-white.svg"
+        alt="Hartley Café & Bakery"
+        width="650"
+        height="208"
+        loading="lazy"
+      />
+      <p>Coffee, bakes & good company.</p>
+    </footer>
+    <dialog id="photo-dialog" aria-labelledby="photo-caption">
+      <button class="dialog-close" autofocus>Close</button>
+      <figure>
+        <img id="large-photo" alt="" width="1000" height="1778" />
+        <figcaption id="photo-caption"></figcaption>
+      </figure>
+    </dialog>
+  </body>
+</html>

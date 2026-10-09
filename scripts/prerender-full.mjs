@@ -168,6 +168,7 @@ const ROUTES = [
 // They are emitted separately from the 71 indexable routes so Vercel can serve
 // each valid visitor-facing demo without a catch-all SPA rewrite.
 const PREVIEW_ROUTES = [
+  "hartley",
   "bella-salon",
   "pulse-gym",
   "dr-elara-dental",

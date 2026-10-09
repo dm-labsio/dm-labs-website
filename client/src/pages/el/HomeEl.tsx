@@ -190,7 +190,7 @@ export default function HomeElPage() {
         <div className="container relative z-10">
           {/* -- Template Showcase Grid -- */}
           <AnimateIn className="text-center mb-10">
-            <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Ιδέες σχεδιασμού</p>
+            <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Demo ιστοσελίδων</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#edf2ff] mb-3">
               Δεύτερη ευκαιρία για πρώτη εντύπωση δεν υπάρχει
             </h2>
@@ -217,7 +217,7 @@ export default function HomeElPage() {
 
           <AnimateIn className="text-center mb-16">
             <StarButton asChild><Link href="/el/templates/" className="btn-primary">
-              Όλα τα παραδείγματα
+              Όλα τα demo ιστοσελίδων
 
             </Link></StarButton>
           </AnimateIn>
