@@ -40,58 +40,76 @@
     </header>
     <main id="main">
       <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-art" aria-hidden="true">
+          <div class="floating-piece float-coffee" data-depth="1.5">
+            <img
+              src="/previews/hartley/assets/milk-small.webp"
+              alt=""
+              width="480"
+              height="853"
+              fetchpriority="high"
+            />
+          </div>
+          <div class="floating-piece float-tea" data-depth="-1.1">
+            <img
+              src="/previews/hartley/assets/tea-small.webp"
+              alt=""
+              width="480"
+              height="853"
+              fetchpriority="high"
+            />
+          </div>
+          <div class="floating-piece float-bakes" data-depth=".8">
+            <img
+              src="/previews/hartley/assets/cake.webp"
+              alt=""
+              width="900"
+              height="1600"
+            />
+          </div>
+          <div class="floating-piece float-place" data-depth="-1.6">
+            <img
+              src="/previews/hartley/assets/exterior-small.webp"
+              alt=""
+              width="480"
+              height="853"
+            />
+          </div>
+          <div class="floating-piece float-flower" data-depth="2">
+            <img
+              src="/previews/hartley/assets/flower.webp"
+              alt=""
+              width="130"
+              height="190"
+            />
+          </div>
+          <div class="floating-piece float-dog" data-depth="-1">
+            <img
+              src="/previews/hartley/assets/dog.webp"
+              alt=""
+              width="280"
+              height="170"
+            />
+          </div>
+        </div>
         <div class="hero-copy">
-          <p class="eyebrow">Coffee, bakes & good company</p>
-          <h1 id="hero-title">A little time.<br />A very <br />good time.</h1>
-          <p>Come for the coffee.<br />Stay for the company.</p>
+          <p class="eyebrow">Hartley Café & Bakery</p>
+          <h1
+            id="hero-title"
+            aria-label="A little time for coffee, cake and company."
+          >
+            <span class="hero-lead" aria-hidden="true">A little time for</span>
+            <span class="hero-word" aria-hidden="true"
+              ><span id="hero-word">coffee.</span></span
+            >
+          </h1>
+          <p>
+            Very good coffee. Something sweet.<br />Your favourite kind of
+            company.
+          </p>
           <a class="print-button" href="#menu"><span>See the menu</span></a>
-          <img
-            class="hero-flower"
-            src="/previews/hartley/assets/flower.webp"
-            alt=""
-            width="130"
-            height="190"
-          />
         </div>
-        <div class="hero-windows" aria-label="A little of life at Hartley">
-          <div class="picture-window">
-            <img
-              class="window-base"
-              src="/previews/hartley/assets/milk.webp"
-              alt="Milk poured into a navy Hartley cup"
-              width="1000"
-              height="1778"
-              fetchpriority="high"
-            />
-            <img
-              class="window-reveal"
-              src="/previews/hartley/assets/milk.webp"
-              alt=""
-              aria-hidden="true"
-              width="1000"
-              height="1778"
-            />
-          </div>
-          <div class="picture-window">
-            <img
-              class="window-base"
-              src="/previews/hartley/assets/tea.webp"
-              alt="Afternoon tea on a marble café table"
-              width="1000"
-              height="1778"
-              fetchpriority="high"
-            />
-            <img
-              class="window-reveal"
-              src="/previews/hartley/assets/tea.webp"
-              alt=""
-              aria-hidden="true"
-              width="1000"
-              height="1778"
-            />
-          </div>
-          <p class="window-note">The everyday, made lovely.</p>
-        </div>
+        <p class="hero-signoff">Come for the coffee. Stay for the company.</p>
       </section>
       <section class="hello section" id="about">
         <div class="hello-title">
@@ -227,16 +245,7 @@
         </div>
       </section>
       <section class="tea-section" id="tea" aria-labelledby="tea-title">
-        <div class="tea-visual">
-          <img
-            src="/previews/hartley/assets/tea-pour.webp"
-            alt="Tea poured into a china cup beside a tier of sandwiches and cakes"
-            width="1000"
-            height="1778"
-            loading="lazy"
-          />
-        </div>
-        <div class="tea-copy">
+        <div class="tea-intro">
           <img
             class="tea-bloom"
             src="/previews/hartley/assets/bloom.webp"
@@ -251,30 +260,64 @@
             A pot to share, delicate sandwiches, warm scones and something
             sweet. The conversation can take as long as it likes.
           </p>
-          <fieldset class="tea-picker">
-            <legend>What’s in your pot?</legend>
-            <button type="button" aria-pressed="true" data-tea="breakfast">
-              English Breakfast</button
-            ><button type="button" aria-pressed="false" data-tea="grey">
-              Earl Grey</button
-            ><button type="button" aria-pressed="false" data-tea="mint">
-              Garden Mint
-            </button>
-          </fieldset>
-          <div class="tea-pairing" aria-live="polite">
-            <h3 id="tea-name">A proper classic.</h3>
-            <p id="tea-detail">
-              Full-bodied and reassuring. Lovely with a warm scone, a spoon of
-              jam and a little clotted cream.
-            </p>
-          </div>
-          <a
-            href="/previews/hartley/assets/afternoon-tea-menu.pdf"
-            download="Hartley-afternoon-tea-menu.pdf"
-            class="print-button"
-            ><span>Keep the tea menu</span></a
-          >
         </div>
+        <fieldset class="tea-picker">
+          <legend>Choose your tea. Find its perfect partner.</legend>
+          <button
+            type="button"
+            aria-pressed="true"
+            data-tea="breakfast"
+            aria-controls="tea-photo tea-pairing"
+          >
+            English Breakfast
+          </button>
+          <button
+            type="button"
+            aria-pressed="false"
+            data-tea="grey"
+            aria-controls="tea-photo tea-pairing"
+          >
+            Earl Grey
+          </button>
+          <button
+            type="button"
+            aria-pressed="false"
+            data-tea="mint"
+            aria-controls="tea-photo tea-pairing"
+          >
+            Garden Mint
+          </button>
+        </fieldset>
+        <div class="tea-visual" data-selection="breakfast">
+          <img
+            id="tea-photo"
+            src="/previews/hartley/assets/tea-breakfast.webp"
+            alt="English Breakfast tea with a warm scone, clotted cream and strawberry jam"
+            width="900"
+            height="1350"
+            loading="lazy"
+          />
+          <p class="tea-photo-label" id="tea-photo-label">
+            English Breakfast & warm scones
+          </p>
+        </div>
+        <div class="tea-pairing" id="tea-pairing" aria-live="polite">
+          <h3 id="tea-name">A proper classic.</h3>
+          <p id="tea-detail">
+            Full-bodied and reassuring. Lovely with a warm scone, a spoon of jam
+            and a little clotted cream.
+          </p>
+          <p class="tea-notes">
+            <span id="tea-character">Rich & malty</span
+            ><span id="tea-partner">Scones, jam & cream</span>
+          </p>
+        </div>
+        <a
+          href="/previews/hartley/assets/afternoon-tea-menu.pdf"
+          download="Hartley-afternoon-tea-menu.pdf"
+          class="print-button tea-download"
+          ><span>Keep the tea menu</span></a
+        >
       </section>
       <section class="takeaway section" id="takeaway">
         <div class="takeaway-copy">

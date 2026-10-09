@@ -55,8 +55,52 @@ try {
     await p
       .getByRole("heading", { name: "Coffee & company", exact: true })
       .waitFor();
-    await p.getByRole("button", { name: "Garden Mint", exact: true }).click();
-    assert.match(await p.locator("#tea-detail").innerText(), /caffeine-free/);
+    for (const [name, key, food] of [
+      ["English Breakfast", "breakfast", "scone"],
+      ["Earl Grey", "grey", "lemon"],
+      ["Garden Mint", "mint", "cucumber"],
+    ]) {
+      await p.getByRole("button", { name, exact: true }).click();
+      await p.waitForFunction(
+        key => document.querySelector(".tea-visual").dataset.selection === key,
+        key
+      );
+      assert.match(
+        await p.locator("#tea-photo").getAttribute("src"),
+        new RegExp("tea-" + key + "\\.webp$")
+      );
+      assert.match(
+        await p.locator("#tea-photo").getAttribute("alt"),
+        new RegExp(food, "i")
+      );
+      assert.match(
+        await p.locator("#tea-photo-label").innerText(),
+        new RegExp(name)
+      );
+      assert.equal(
+        await p
+          .locator('[data-tea="' + key + '"]')
+          .getAttribute("aria-pressed"),
+        "true"
+      );
+      if (width <= 600) {
+        const picture = await p.locator(".tea-visual").boundingBox();
+        assert.ok(
+          picture.y >= 0 && picture.y + picture.height <= 901,
+          "Mobile selection keeps photograph in view"
+        );
+      }
+    }
+    await p.locator('[data-tea="grey"]').click();
+    await p.locator('[data-tea="breakfast"]').click();
+    await p.waitForFunction(
+      () =>
+        document.querySelector(".tea-visual").dataset.selection === "breakfast"
+    );
+    assert.match(
+      await p.locator("#tea-photo").getAttribute("src"),
+      /tea-breakfast/
+    );
     const dl = await Promise.all([
       p.waitForEvent("download"),
       p.getByRole("link", { name: "Keep the tea menu" }).click(),
@@ -144,7 +188,7 @@ try {
     console.log(
       "PASS",
       width,
-      "hero menu link, straight-edged buttons, menu keyboard controls, tea pairing, PDF, parcel flip, complete non-clickable gallery, no overflow or errors"
+      "hero menu link, straight-edged buttons, menu keyboard controls, three tea photographs, rapid switching, PDF, parcel flip, complete non-clickable gallery, no overflow or errors"
     );
     await p.close();
   }
@@ -152,12 +196,21 @@ try {
   await p.goto(base + "/previews/hartley.html");
   await p.mouse.move(1, 1);
   await p.waitForFunction(() => document.documentElement.dataset.hartleyReady);
+  await p.mouse.move(1100, 300);
+  await p.waitForTimeout(100);
+  assert.notEqual(
+    await p
+      .locator(".float-coffee")
+      .evaluate(e => e.style.getPropertyValue("--px")),
+    "0px"
+  );
   const before = await p.locator(".hero").getAttribute("data-scene");
   await p.waitForFunction(
     previous => document.querySelector(".hero").dataset.scene !== previous,
     before,
     { timeout: 10000 }
   );
+  await p.waitForTimeout(1000);
   await p.emulateMedia({ reducedMotion: "reduce" });
   const stable = await p.locator(".hero").getAttribute("data-scene");
   await p.waitForTimeout(7200);
@@ -169,7 +222,7 @@ try {
   assert.equal(await p.locator(".hero").getAttribute("data-scene"), offscreen);
   await p.close();
   console.log(
-    "PASS shutter slideshow, reduced-motion fallback and offscreen pause"
+    "PASS kinetic headline, reduced-motion fallback and offscreen pause"
   );
 } finally {
   await browser.close();

@@ -1,13 +1,16 @@
 HARTLEY Café & Bakery website demo, October 2026.
-All brand artwork, photography, outlined logos, fonts and menu artwork supplied by the user in HARTLEY-complete-library.zip. WebP derivatives preserve original colour. Original library remains outside public website files. Font OFL licences accompany the fonts.
+Original brand artwork, photography, outlined logos, fonts and menu artwork supplied by the user in HARTLEY-complete-library.zip. WebP derivatives preserve original colour. Original library remains outside public website files. Font OFL licences accompany the fonts.
 Brand guide: navy #082438, warm white #FAF7F2, dusty pink #DDB8AD, periwinkle #899ACA. Rubik Black and Jost. No added texture, decorative shadow, gradients or replacement handwriting.
 
 21st.dev interaction references, reviewed 9 October 2026:
-Slideshow by Jod: https://21st.dev/@jod49034/components/slideshow
+Text Rotate / Landing Hero by Daniel Petho: https://21st.dev/@danielpetho/components/text-rotate/landing-hero
+Parallax Floating by Daniel Petho: https://21st.dev/@danielpetho/components/parallax-floating
 Text Roll by Julien Thibeaut: https://21st.dev/@ibelick/components/text-roll
 Animated Link by Ruixen: https://21st.dev/@ruixen.ui/components/animated-link
 Book slider by Aaris Khan: https://21st.dev/@aarispathan15/components/book-slider
 Flip Gallery by Le Thanh: https://21st.dev/@minhxthanh/components/flip-gallery
-These public descriptions and usage examples informed original vanilla HTML/CSS/JavaScript adaptations. No upstream component implementation copied, no unverified source licence assumed, and no React page-flip runtime installed. The menu uses a short perspective page transition; it is not a simulation of a physical bound book. The original arc carousel was replaced after feedback with an automatic two-image shutter reveal. The page uses original straight-edged, double-rule buttons with rolling labels and understated underline motion. Reference descriptions informed the interactions; component source was not copied.
+These public descriptions and usage examples informed original vanilla HTML/CSS/JavaScript adaptations. No upstream component implementation copied, no unverified source licence assumed, and no React page-flip runtime installed. The menu uses a short perspective page transition; it is not a simulation of a physical bound book. The arc and two-image slideshow were replaced after feedback with a kinetic typographic hero and floating imagery. Characters rotate into coffee, cake and company, with cursor/touch depth and an automatic floating fallback. The full sentence remains accessible as a fixed heading label. The page uses original straight-edged, double-rule buttons with rolling labels and understated underline motion. Reference descriptions informed the interactions; component source was not copied.
 
 This standalone demo sends no orders, reservations, messages or payments. Menu prices are illustrative; downloaded tea artwork is the supplied concept menu. No loyalty offer activated. Reduced-motion alternatives, keyboard controls and touch-friendly actions are included. The complete café photographs are non-clickable and move gently on scroll. There are no image dialogs.
+
+Three matching tea-selection photographs (tea-breakfast.webp, tea-grey.webp, tea-mint.webp) were generated using the built-in image_gen tool on 9 October 2026. The supplied tea-pour image was the style/location reference. Subjects: English Breakfast with scones, Earl Grey with lemon drizzle cake, Garden Mint with cucumber sandwiches. Original PNG files and complete prompts are preserved in workspace output/hartley-tea. Only optimized WebP derivatives ship to the website.

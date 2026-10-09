@@ -233,79 +233,157 @@ button:disabled {
   min-height: 44px;
   padding: 11px 22px;
 }
+
 .hero {
   position: relative;
+  isolation: isolate;
   background: var(--pink);
+  min-height: 620px;
+  height: min(48vw, 680px);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4vw;
-  padding: 20px 4vw 36px;
+  place-items: center;
   overflow: hidden;
+  touch-action: pan-y;
 }
 .hero-copy {
   position: relative;
-  align-self: center;
-  padding: 20px 2vw 35px;
+  z-index: 2;
+  text-align: center;
+  width: min(72%, 890px);
+  padding: 18px 0 40px;
+  pointer-events: none;
 }
-.hero h1 {
-  font-size: clamp(60px, 6.3vw, 100px);
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 1;
-}
-.hero-copy > p:not(.eyebrow) {
-  font-size: 19px;
-  margin-bottom: 25px;
+.hero-copy a {
+  pointer-events: auto;
 }
 .hero .eyebrow {
   margin-bottom: 22px;
+  font-size: 11px;
 }
-.hero-flower {
-  position: absolute;
-  right: 1%;
-  bottom: 32px;
-  width: clamp(70px, 8vw, 120px);
-  height: auto;
-  transform: rotate(12deg);
-  pointer-events: none;
+.hero h1 {
+  margin: 0;
 }
-.hero-windows {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  position: relative;
-  padding-bottom: 27px;
-  height: clamp(440px, 41vw, 590px);
-  align-self: center;
+.hero-lead {
+  display: block;
+  font-size: clamp(36px, 4.3vw, 66px);
+  letter-spacing: -0.055em;
 }
-.picture-window {
-  position: relative;
+.hero-word {
+  display: block;
+  font-size: clamp(90px, 10.7vw, 164px);
+  line-height: 1.25;
+  height: 1.3em;
+  letter-spacing: -0.065em;
+  perspective: 650px;
   overflow: hidden;
-  background: var(--navy);
 }
-.picture-window:nth-child(2) {
-  margin-top: 38px;
-  margin-bottom: -16px;
+#hero-word {
+  display: inline-flex;
+  white-space: nowrap;
 }
-.picture-window img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+#hero-word > span {
+  display: inline-block;
+  transform-origin: center 75%;
+}
+.hero-copy > p:not(.eyebrow) {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 4px 0 25px;
+}
+.hero-art {
   position: absolute;
   inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
-.window-reveal {
-  clip-path: inset(0 0 100% 0);
-}
-.picture-window:nth-child(2) .window-reveal {
-  clip-path: inset(100% 0 0 0);
-}
-.window-note {
+.floating-piece {
+  --px: 0px;
+  --py: 0px;
+  --angle: 0deg;
   position: absolute;
-  bottom: -10px;
-  left: 0;
+  transform: translate(var(--px), var(--py));
+  transition: transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.floating-piece img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotate(var(--angle));
+  animation: cafe-float 6s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+.hero.is-visible .floating-piece img {
+  animation-play-state: running;
+}
+@keyframes cafe-float {
+  from {
+    transform: translateY(-7px) rotate(var(--angle));
+  }
+  to {
+    transform: translateY(8px) rotate(calc(var(--angle) + 3deg));
+  }
+}
+.float-coffee {
+  top: 8%;
+  left: 3%;
+  width: 15%;
+  height: 37%;
+  --angle: -12deg;
+}
+.float-tea {
+  top: 5%;
+  right: 4%;
+  width: 13%;
+  height: 33%;
+  --angle: 10deg;
+}
+.float-bakes {
+  bottom: 10%;
+  left: 11%;
+  width: 12%;
+  height: 29%;
+  --angle: 9deg;
+}
+.float-place {
+  bottom: 8%;
+  right: 8%;
+  width: 14%;
+  height: 35%;
+  --angle: -9deg;
+}
+.float-flower {
+  left: 29%;
+  top: 1%;
+  width: 58px;
+  height: 92px;
+  --angle: -16deg;
+}
+.float-flower img,
+.float-dog img {
+  object-fit: contain;
+}
+.float-dog {
+  right: 38%;
+  bottom: 7%;
+  width: 130px;
+  height: 82px;
+  --angle: -2deg;
+}
+.float-tea img,
+.float-dog img {
+  animation-delay: -2s;
+}
+.float-bakes img,
+.float-place img {
+  animation-delay: -4s;
+}
+.hero-signoff {
+  position: absolute;
+  bottom: 18px;
+  left: 25%;
+  right: 25%;
   font-size: 12px;
-  letter-spacing: 0.03em;
+  text-align: center;
 }
 .hello {
   display: grid;
@@ -468,37 +546,52 @@ button:disabled {
 .tea-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas: "visual intro" "visual picker" "visual pairing" "visual download";
   background: var(--blue);
 }
-.tea-visual {
-  overflow: hidden;
-  min-height: 0;
+.tea-intro {
+  grid-area: intro;
+  padding: 42px 6vw 0;
   position: relative;
 }
-.tea-visual img {
+.tea-intro > p:last-child {
+  margin-top: 22px;
+  max-width: 450px;
+}
+.tea-intro h2 {
+  font-size: clamp(40px, 4.5vw, 64px);
+}
+.tea-visual {
+  grid-area: visual;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+.tea-visual > img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 62%;
 }
-.tea-copy {
-  padding: 50px 6vw;
-  position: relative;
-  align-self: center;
-}
-.tea-copy > p:not(.eyebrow) {
-  margin-top: 28px;
-  max-width: 450px;
-}
-.tea-copy h2 {
-  font-size: clamp(40px, 4.5vw, 64px);
+.tea-photo-label {
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+  right: 22px;
+  width: fit-content;
+  max-width: calc(100% - 44px);
+  padding: 10px 15px;
+  background: var(--paper);
+  color: var(--navy);
+  font-size: 14px;
 }
 .tea-bloom {
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   animation: bloom 10s ease-in-out infinite alternate;
 }
 @keyframes bloom {
@@ -507,9 +600,10 @@ button:disabled {
   }
 }
 .tea-picker {
+  grid-area: picker;
   border: 0;
   padding: 0;
-  margin: 24px 0 0;
+  margin: 22px 6vw 0;
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
@@ -525,15 +619,16 @@ button:disabled {
   background: transparent;
   padding: 9px 15px;
   font-size: 13px;
-  min-height: 42px;
+  min-height: 44px;
 }
 .tea-picker button[aria-pressed="true"] {
   background: var(--navy);
   color: var(--paper);
 }
 .tea-pairing {
-  margin: 18px 0 22px;
-  min-height: 104px;
+  grid-area: pairing;
+  margin: 22px 6vw;
+  min-height: 140px;
 }
 .tea-pairing h3 {
   font-size: 21px;
@@ -541,6 +636,23 @@ button:disabled {
 }
 .tea-pairing p {
   font-size: 16px;
+}
+.tea-notes {
+  display: flex;
+  gap: 10px 20px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.tea-notes span {
+  font-size: 12px;
+  font-weight: 500;
+  border-top: 1px solid #08243855;
+  padding-top: 7px;
+}
+.tea-download {
+  grid-area: download;
+  justify-self: start;
+  margin: 0 6vw 42px;
 }
 .takeaway {
   display: grid;
@@ -679,20 +791,7 @@ footer > p {
   .header nav {
     gap: 20px;
   }
-  .hero h1 {
-    font-size: clamp(48px, 6.6vw, 72px);
-  }
-  .hero-windows {
-    height: 425px;
-  }
-  .hero .eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.08em;
-  }
-  .hero-flower {
-    width: 65px;
-    right: -10px;
-  }
+
   .hello {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
@@ -710,9 +809,7 @@ footer > p {
     width: 90px;
     height: auto;
   }
-  .tea-copy {
-    padding: 40px 5vw;
-  }
+
   .section-heading > p {
     display: none;
   }
@@ -736,49 +833,7 @@ footer > p {
     padding: 10px 14px;
     min-height: 44px;
   }
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 26px;
-    padding: 16px 22px 32px;
-  }
-  .hero-copy {
-    padding: 0;
-  }
-  .hero h1 {
-    font-size: clamp(46px, 12vw, 67px);
-    margin-bottom: 15px;
-  }
-  .hero h1 br:nth-child(2) {
-    display: none;
-  }
-  .hero-copy > p:not(.eyebrow) {
-    font-size: 15px;
-    margin-bottom: 16px;
-  }
-  .hero-copy > p:not(.eyebrow) br {
-    display: none;
-  }
-  .hero .eyebrow {
-    margin-bottom: 16px;
-  }
-  .hero-flower {
-    width: 57px;
-    right: 0;
-    bottom: 2px;
-  }
-  .hero-windows {
-    height: 245px;
-    gap: 10px;
-    padding-bottom: 18px;
-  }
-  .picture-window:nth-child(2) {
-    margin-top: 18px;
-    margin-bottom: -10px;
-  }
-  .window-note {
-    font-size: 10px;
-    bottom: -11px;
-  }
+
   .section {
     padding: 44px 22px;
   }
@@ -858,47 +913,7 @@ footer > p {
   .menu-paging {
     margin-top: 12px;
   }
-  .tea-section {
-    display: flex;
-    flex-direction: column;
-  }
-  .tea-visual {
-    height: 225px;
-  }
-  .tea-visual img {
-    object-position: center 59%;
-  }
-  .tea-copy {
-    padding: 34px 22px 44px;
-    width: 100%;
-  }
-  .tea-copy h2 {
-    font-size: 41px;
-  }
-  .tea-copy > p:not(.eyebrow) {
-    margin-top: 18px;
-  }
-  .tea-bloom {
-    position: absolute;
-    width: 48px;
-    height: 48px;
-    right: 22px;
-    top: 30px;
-  }
-  .tea-copy .eyebrow {
-    max-width: 220px;
-  }
-  .tea-pairing {
-    min-height: 104px;
-  }
-  .tea-picker {
-    gap: 5px;
-  }
-  .tea-picker button {
-    padding: 8px 10px;
-    font-size: 12px;
-    min-height: 44px;
-  }
+
   .takeaway {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -955,7 +970,183 @@ footer > p {
     padding: 36px 22px 22px;
   }
 }
+@media (max-width: 1000px) and (min-width: 601px) {
+  .hero {
+    min-height: 560px;
+  }
+  .hero-word {
+    font-size: 11vw;
+  }
+  .hero-copy {
+    width: 76%;
+  }
+  .float-coffee {
+    left: -2%;
+    top: 10%;
+  }
+  .float-tea {
+    right: -1%;
+  }
+  .float-bakes {
+    left: 8%;
+    bottom: 12%;
+  }
+  .float-place {
+    right: 4%;
+    bottom: 10%;
+  }
+  .float-dog {
+    right: 40%;
+    bottom: 6%;
+    width: 105px;
+  }
+  .tea-intro {
+    padding: 36px 5vw 0;
+  }
+  .tea-picker,
+  .tea-pairing {
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+  .tea-download {
+    margin-left: 5vw;
+    margin-bottom: 36px;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    min-height: 0;
+    height: clamp(530px, calc(30vw + 413px), 600px);
+    display: block;
+  }
+  .hero-copy {
+    width: 100%;
+    padding: 32px 16px 0;
+  }
+  .hero .eyebrow {
+    margin-bottom: 22px;
+    font-size: 10px;
+  }
+  .hero-lead {
+    font-size: clamp(30px, 8.5vw, 46px);
+  }
+  .hero-word {
+    font-size: clamp(54px, 13.3vw, 80px);
+    height: 1.4em;
+    line-height: 1.4;
+  }
+  .hero-copy > p:not(.eyebrow) {
+    font-size: 15px;
+    margin: 8px 0 20px;
+  }
+  .float-coffee {
+    top: auto;
+    bottom: 58px;
+    left: -3%;
+    width: 25%;
+    height: 150px;
+    --angle: -12deg;
+  }
+  .float-tea {
+    top: auto;
+    bottom: 78px;
+    right: 27%;
+    width: 23%;
+    height: 139px;
+    --angle: 9deg;
+  }
+  .float-bakes {
+    left: 25%;
+    bottom: 49px;
+    width: 22%;
+    height: 133px;
+    --angle: -4deg;
+  }
+  .float-place {
+    right: -3%;
+    bottom: 50px;
+    width: 27%;
+    height: 161px;
+    --angle: 12deg;
+  }
+  .float-flower {
+    top: 8px;
+    left: auto;
+    right: 6px;
+    width: 38px;
+    height: 58px;
+  }
+  .float-dog {
+    display: none;
+  }
+  .hero-signoff {
+    left: 16px;
+    right: 16px;
+    bottom: 17px;
+    font-size: 11px;
+  }
+  .tea-section {
+    grid-template-columns: 1fr;
+    grid-template-areas: "intro" "picker" "visual" "pairing" "download";
+  }
+  .tea-intro {
+    padding: 34px 22px 0;
+  }
+  .tea-intro h2 {
+    font-size: 41px;
+  }
+  .tea-intro > p:last-child {
+    margin-top: 18px;
+  }
+  .tea-bloom {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    right: 22px;
+    top: 30px;
+  }
+  .tea-intro .eyebrow {
+    max-width: 220px;
+  }
+  .tea-picker {
+    margin: 22px 22px 18px;
+    gap: 5px;
+  }
+  .tea-picker button {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  .tea-picker legend {
+    font-size: 13px;
+  }
+  .tea-visual {
+    height: 245px;
+    margin: 0 22px;
+  }
+  .tea-visual > img {
+    object-position: center 64%;
+  }
+  .tea-photo-label {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    font-size: 11px;
+    padding: 7px 10px;
+  }
+  .tea-pairing {
+    margin: 20px 22px;
+    min-height: 148px;
+  }
+  .tea-download {
+    margin: 0 22px 40px;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
+  .floating-piece,
+  .floating-piece img {
+    transform: none !important;
+  }
   html {
     scroll-behavior: auto;
   }

@@ -1,79 +1,140 @@
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const reduce = matchMedia("(prefers-reduced-motion: reduce)");
-// A visual introduction, not a carousel visitors need to operate.
-const windows = $$(".picture-window");
-const scenes = [
-  [
-    ["milk", "Milk poured into a navy Hartley cup"],
-    ["tea", "Afternoon tea on a marble café table"],
-  ],
-  [
-    ["exterior-small", "Hartley's navy storefront"],
-    ["company-small", "A spotted dog beside the café banquette"],
-  ],
-  [
-    ["packaging-small", "Hartley's illustrated bags and coffee cups"],
-    ["counter", "The café counter and pink and navy seating"],
-  ],
-];
-let scene = 0,
-  changing = false,
-  heroVisible = true;
+// Original adaptation of Fancy Components' Text Rotate / Parallax Floating.
 const hero = $(".hero");
+const heroWord = $("#hero-word");
+const heroWords = ["coffee.", "cake.", "company."];
+let wordIndex = 0,
+  heroVisible = true,
+  wordBusy = false;
 hero.dataset.scene = "0";
 new IntersectionObserver(([entry]) => {
   heroVisible = entry.isIntersecting;
+  hero.classList.toggle("is-visible", heroVisible);
 }).observe(hero);
-async function nextScene() {
-  if (changing || reduce.matches || document.hidden || !heroVisible) return;
-  changing = true;
-  const next = (scene + 1) % scenes.length;
-  const overlays = windows.map((window, i) => {
-    const img = window.querySelector(".window-reveal");
-    img.src = "/previews/hartley/assets/" + scenes[next][i][0] + ".webp";
-    return img;
-  });
+function writeWord(word) {
+  heroWord.replaceChildren(
+    ...[...word].map(letter => {
+      const span = document.createElement("span");
+      span.textContent = letter;
+      return span;
+    })
+  );
+}
+writeWord(heroWords[0]);
+let wordAnimations = [];
+async function rotateWord() {
+  if (reduce.matches || document.hidden || !heroVisible || wordBusy) return;
+  wordBusy = true;
   try {
-    await Promise.all(overlays.map(img => img.decode()));
-    if (reduce.matches || document.hidden || !heroVisible) return;
-    const animations = overlays.map((img, i) =>
-      img.animate(
+    wordAnimations = [...heroWord.children].map((letter, i) =>
+      letter.animate(
         [
-          { clipPath: i ? "inset(100% 0 0 0)" : "inset(0 0 100% 0)" },
-          { clipPath: "inset(0)" },
+          { transform: "translateY(0) rotateX(0)", opacity: 1 },
+          { transform: "translateY(-110%) rotateX(75deg)", opacity: 0 },
         ],
         {
-          duration: 1150,
-          delay: i * 140,
-          easing: "cubic-bezier(.22,.8,.22,1)",
+          duration: 360,
+          delay: i * 25,
+          easing: "cubic-bezier(.6,0,.8,.4)",
           fill: "forwards",
         }
       )
     );
-    const stop = () => animations.forEach(a => a.finish());
-    reduce.addEventListener("change", stop, { once: true });
-    await Promise.all(animations.map(a => a.finished));
-    reduce.removeEventListener("change", stop);
-    windows.forEach((window, i) => {
-      const base = window.querySelector(".window-base");
-      base.src = overlays[i].src;
-      base.alt = scenes[next][i][1];
-    });
-    // Decode the underlying image before removing the reveal layer.
-    await Promise.all(
-      windows.map(w => w.querySelector(".window-base").decode())
-    );
-    animations.forEach(a => a.cancel());
-    scene = next;
-    hero.dataset.scene = String(scene);
+    await Promise.all(wordAnimations.map(a => a.finished));
+    wordIndex = (wordIndex + 1) % heroWords.length;
+    writeWord(heroWords[wordIndex]);
+    hero.dataset.scene = String(wordIndex);
+    if (!reduce.matches) {
+      wordAnimations = [...heroWord.children].map((letter, i) =>
+        letter.animate(
+          [
+            { transform: "translateY(115%) rotateX(-65deg)", opacity: 0 },
+            { transform: "translateY(0) rotateX(0)", opacity: 1 },
+          ],
+          { duration: 700, delay: i * 38, easing: "cubic-bezier(.16,1,.3,1)" }
+        )
+      );
+      await Promise.all(wordAnimations.map(a => a.finished));
+    }
   } catch {
-    // Keep the already loaded image if a later photograph is unavailable.
+    /* Reduced motion can cancel an in-flight transition. */
   } finally {
-    changing = false;
+    wordAnimations = [];
+    wordBusy = false;
   }
 }
-setInterval(nextScene, 5500);
+setInterval(rotateWord, 3800);
+const pieces = $$(".floating-piece");
+const entranceAnimations = reduce.matches
+  ? []
+  : [
+      ...pieces.map((piece, i) =>
+        piece.animate(
+          [
+            { opacity: 0, transform: "translateY(35px) scale(.72)" },
+            { opacity: 1, transform: "translateY(0) scale(1)" },
+          ],
+          {
+            duration: 1000,
+            delay: i * 80,
+            fill: "backwards",
+            easing: "cubic-bezier(.16,1,.3,1)",
+          }
+        )
+      ),
+      ...[...heroWord.children].map((letter, i) =>
+        letter.animate(
+          [
+            { transform: "translateY(120%) rotateX(-65deg)", opacity: 0 },
+            { transform: "translateY(0) rotateX(0)", opacity: 1 },
+          ],
+          {
+            duration: 800,
+            delay: 180 + i * 55,
+            fill: "backwards",
+            easing: "cubic-bezier(.16,1,.3,1)",
+          }
+        )
+      ),
+    ];
+let pointerFrame = 0,
+  pointerX = 0,
+  pointerY = 0;
+function floatArt() {
+  pointerFrame = 0;
+  if (reduce.matches || !heroVisible) return;
+  pieces.forEach(piece => {
+    const depth = Number(piece.dataset.depth);
+    piece.style.setProperty("--px", `${pointerX * depth * 32}px`);
+    piece.style.setProperty("--py", `${pointerY * depth * 24}px`);
+  });
+}
+hero.addEventListener(
+  "pointermove",
+  event => {
+    const r = hero.getBoundingClientRect();
+    pointerX = (event.clientX - r.left) / r.width - 0.5;
+    pointerY = (event.clientY - r.top) / r.height - 0.5;
+    if (!pointerFrame) pointerFrame = requestAnimationFrame(floatArt);
+  },
+  { passive: true }
+);
+hero.addEventListener("pointerleave", () => {
+  pointerX = pointerY = 0;
+  floatArt();
+});
+reduce.addEventListener("change", () => {
+  if (!reduce.matches) return;
+  wordAnimations.forEach(a => a.cancel());
+  entranceAnimations.forEach(a => a.cancel());
+  writeWord(heroWords[wordIndex]);
+  pieces.forEach(p => {
+    p.style.setProperty("--px", "0px");
+    p.style.setProperty("--py", "0px");
+  });
+});
 
 // Print-like buttons with a rolling label. The duplicate is visual only.
 function labelButton(button, label) {
@@ -178,6 +239,14 @@ function changeMenu(key, focus = false) {
     `<h3>${m.title}</h3><p class="menu-intro">${m.intro}</p><dl>${m.items.map(([name, desc, price]) => `<div><dt>${name}<small>${desc}</small></dt><dd>€${price}</dd></div>`).join("")}</dl>`;
   $("#menu-photo").src = "/previews/hartley/assets/" + m.photo + ".webp";
   $("#menu-photo").alt = m.alt;
+  if (!reduce.matches)
+    $("#menu-photo").animate(
+      [
+        { opacity: 0.4, transform: "translateX(-18px) scale(1.03)" },
+        { opacity: 1, transform: "translateX(0) scale(1)" },
+      ],
+      { duration: 500, easing: "ease-out" }
+    );
   $("#menu-photo-label").textContent = m.caption;
   $("#menu-page").textContent = m.title;
   $("#menu-panel").classList.remove("turning");
@@ -200,30 +269,113 @@ $$("[data-menu]").forEach(b => {
 $("#menu-next").onclick = () => changeMenu(menuKeys[(menuIndex + 1) % 3]);
 $("#menu-prev").onclick = () => changeMenu(menuKeys[(menuIndex + 2) % 3]);
 const teas = {
-  breakfast: [
-    "A proper classic.",
-    "Full-bodied and reassuring. Lovely with a warm scone, a spoon of jam and a little clotted cream.",
-  ],
-  grey: [
-    "A little more fragrant.",
-    "Bergamot, bright citrus and a gentle finish. Just the thing with a slice of lemon cake.",
-  ],
-  mint: [
-    "Something a little lighter.",
-    "Fresh mint, naturally caffeine-free. A bright partner for the savoury sandwiches on your afternoon stand.",
-  ],
+  breakfast: {
+    name: "A proper classic.",
+    detail:
+      "Full-bodied and reassuring. Lovely with a warm scone, a spoon of jam and a little clotted cream.",
+    character: "Rich & malty",
+    partner: "Scones, jam & cream",
+    caption: "English Breakfast & warm scones",
+    alt: "English Breakfast tea with a warm scone, clotted cream and strawberry jam",
+  },
+  grey: {
+    name: "A little more fragrant.",
+    detail:
+      "Bergamot, bright citrus and a gentle finish. Just the thing with a slice of lemon drizzle cake.",
+    character: "Citrus & floral",
+    partner: "Lemon drizzle cake",
+    caption: "Earl Grey & lemon drizzle",
+    alt: "Earl Grey tea beside lemon drizzle cake and fresh bergamot",
+  },
+  mint: {
+    name: "Something a little lighter.",
+    detail:
+      "Fresh mint, naturally caffeine-free. A bright partner for cucumber sandwiches and a long conversation.",
+    character: "Fresh & caffeine-free",
+    partner: "Cucumber sandwiches",
+    caption: "Garden Mint & cucumber sandwiches",
+    alt: "Fresh mint infusion in a glass cup beside cucumber finger sandwiches",
+  },
 };
-$$("[data-tea]").forEach(
-  b =>
-    (b.onclick = () => {
-      $$("[data-tea]").forEach(x =>
-        x.setAttribute("aria-pressed", String(x === b))
-      );
-      const [name, detail] = teas[b.dataset.tea];
-      $("#tea-name").textContent = name;
-      $("#tea-detail").textContent = detail;
-    })
+const teaImages = new Map();
+function loadTea(key) {
+  if (!teaImages.has(key)) {
+    const img = new Image();
+    img.src = `/previews/hartley/assets/tea-${key}.webp`;
+    teaImages.set(key, img);
+  }
+  return teaImages.get(key);
+}
+const teaObserver = new IntersectionObserver(
+  ([entry]) => {
+    if (!entry.isIntersecting) return;
+    Object.keys(teas).forEach(loadTea);
+    teaObserver.disconnect();
+  },
+  { rootMargin: "400px" }
 );
+teaObserver.observe($("#tea"));
+let teaRequest = 0;
+let teaMotion = [];
+async function chooseTea(key) {
+  const request = ++teaRequest;
+  const data = teas[key];
+  $$("[data-tea]").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.tea === key))
+  );
+  const photo = loadTea(key);
+  try {
+    await photo.decode();
+  } catch {
+    if (request === teaRequest)
+      $$("[data-tea]").forEach(b =>
+        b.setAttribute(
+          "aria-pressed",
+          String(b.dataset.tea === $(".tea-visual").dataset.selection)
+        )
+      );
+    return;
+  }
+  if (request !== teaRequest) return;
+  teaMotion.forEach(a => a.cancel());
+  $("#tea-photo").src = photo.src;
+  $("#tea-photo").alt = data.alt;
+  $(".tea-visual").dataset.selection = key;
+  $("#tea-name").textContent = data.name;
+  $("#tea-detail").textContent = data.detail;
+  $("#tea-character").textContent = data.character;
+  $("#tea-partner").textContent = data.partner;
+  $("#tea-photo-label").textContent = data.caption;
+  if (innerWidth <= 600) {
+    const photoBounds = $(".tea-visual").getBoundingClientRect();
+    if (photoBounds.bottom > innerHeight || photoBounds.top < 0)
+      $(".tea-picker").scrollIntoView({
+        block: "start",
+        behavior: reduce.matches ? "instant" : "smooth",
+      });
+  }
+  if (!reduce.matches)
+    teaMotion = [
+      $("#tea-photo").animate(
+        [
+          { opacity: 0.25, transform: "scale(1.045)" },
+          { opacity: 1, transform: "scale(1)" },
+        ],
+        { duration: 550, easing: "cubic-bezier(.22,.8,.22,1)" }
+      ),
+      $("#tea-pairing").animate(
+        [
+          { opacity: 0.3, transform: "translateY(10px)" },
+          { opacity: 1, transform: "translateY(0)" },
+        ],
+        { duration: 400, easing: "ease-out" }
+      ),
+    ];
+}
+$$("[data-tea]").forEach(b => (b.onclick = () => chooseTea(b.dataset.tea)));
+reduce.addEventListener("change", () => {
+  if (reduce.matches) teaMotion.forEach(a => a.cancel());
+});
 let wrapped = false;
 $("#wrap-button").onclick = () => {
   wrapped = !wrapped;
