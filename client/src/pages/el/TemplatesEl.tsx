@@ -154,6 +154,7 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
   { id: "all", label: "Όλοι οι κλάδοι", icon: "✦" },
+  { id: "hospitality", label: "Φιλοξενία", icon: "" },
   { id: "realestate", label: "Ακίνητα", icon: "" },
   { id: "restaurant", label: "Εστίαση και τρόφιμα", icon: "☕" },
   { id: "beauty", label: "Ομορφιά και ευεξία", icon: "✂" },
@@ -164,6 +165,48 @@ const INDUSTRIES = [
 
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
+{
+  "id": "away",
+  "industry": "hospitality",
+  "name": "AWAY",
+  "tagline": "Άνεση μέσα στη φύση",
+  "tier": "Custom",
+  "tierGradient": "linear-gradient(135deg, #6A303B, #526785)",
+  "domain": "AWAY",
+  "palette": [
+    "#6A303B",
+    "#DDE5ED",
+    "#3B261C",
+    "#F7F2F0"
+  ],
+  "paletteNames": [
+    "Μπορντό",
+    "Απαλό γαλάζιο",
+    "Ζεστό ξύλο",
+    "Απαλό λευκό"
+  ],
+  "features": [
+    "Τοπία με κυκλική αποκάλυψη",
+    "Διαδραστική εξερεύνηση ανά εποχή",
+    "Τρεις συλλογές φωτογραφιών σουιτών",
+    "Μενού και σχεδιασμός διαμονής"
+  ],
+  "pages": [
+    {
+      "label": "Demo ιστοσελίδας",
+      "preview": "live",
+      "description": "Άνεση μέσα στη φύση"
+    }
+  ],
+  "style": "Ένα καταφύγιο δίπλα στο ποτάμι με την ταυτότητα AWAY, γραμματοσειρές Thasadith και Pavanam και ήρεμο φωτογραφικό ρυθμό.",
+  "waMessage": "Γεια σας ομάδα DM-Labs! Θα ήθελα να συζητήσουμε μια ιστοσελίδα φιλοξενίας με τον χαρακτήρα του AWAY.",
+  "price": "",
+  "images": {
+    "card": ""
+  },
+  "livePreview": true,
+  "previewUrl": "/previews/away.html"
+},
   {
     "id": "hartley",
     "industry": "restaurant",

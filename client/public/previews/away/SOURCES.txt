@@ -1,0 +1,29 @@
+AWAY website demo
+
+Brand identity, photography, and supplied font binaries:
+AWAY-gallery-UPDATED-103-assets.zip, supplied by the project owner, 9 October 2026.
+Original source retained outside the repository at output/away-source/AWAY-UPDATED.
+Exact vector wordmark and symbol extracted from the library's embedded asset data.
+Selected photography optimized as responsive WebP exports. Original photographs are
+AI-generated brand concept imagery supplied by the owner, not documentary resort photos.
+The source PNGs for photography 5 and 30 were truncated; their intact supplied WebP
+previews were used instead. No original archive or generation scripts are shipped.
+Thasadith and Pavanam are distributed with their official SIL Open Font Licenses.
+
+Interaction references (original implementation, no third-party component source copied):
+Aperture Reveal Image Carousel by Kedhareswer Naidu, public listing marked MIT:
+https://21st.dev/@kedhareswer/components/aperture-carousel
+Circular photographic reveal adapted in original native Web Animations code.
+
+Curtain Button by iamsatish4564:
+https://21st.dev/community/components/iamsatish4564/curtain-button/default
+Original CSS split-curtain button fill, inspired by the interaction concept.
+
+Hospitality experience research:
+https://www.aman.com/resorts/amangiri/camp-sarika
+https://singita.com/lodges/
+https://singita.com/lodge/singita-ebony-lodge/information/
+
+All layout, copy, camp explorer, suite viewer, and demonstration stay planner are
+original website-demo work. No actual reservations, availability, prices, payments,
+location claims, or Indigenous ownership/affiliation claims are made.

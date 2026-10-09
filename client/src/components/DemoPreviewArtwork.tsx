@@ -1,6 +1,7 @@
 import "./DemoPreviewArtwork.css";
 
 const covers: Record<string, { height: number }> = {
+  away: { height: 900 },
   hartley: { height: 900 },
   "nomad-coffee": { height: 900 },
   "bella-salon": { height: 900 },

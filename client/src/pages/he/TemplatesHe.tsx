@@ -154,6 +154,7 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
   { id: "all", label: "כל התחומים", icon: "✦" },
+  { id: "hospitality", label: "אירוח", icon: "" },
   { id: "realestate", label: "נדל״ן", icon: "" },
   { id: "restaurant", label: "מסעדות, בתי קפה ומזון", icon: "☕" },
   { id: "beauty", label: "יופי וטיפוח", icon: "✂" },
@@ -164,6 +165,48 @@ const INDUSTRIES = [
 
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
+{
+  "id": "away",
+  "industry": "hospitality",
+  "name": "AWAY",
+  "tagline": "נוחות בלב הטבע",
+  "tier": "Custom",
+  "tierGradient": "linear-gradient(135deg, #6A303B, #526785)",
+  "domain": "AWAY",
+  "palette": [
+    "#6A303B",
+    "#DDE5ED",
+    "#3B261C",
+    "#F7F2F0"
+  ],
+  "paletteNames": [
+    "בורדו",
+    "תכלת בהיר",
+    "עץ חם",
+    "לבן רך"
+  ],
+  "features": [
+    "נופי פתיחה עם חשיפה מעגלית",
+    "סיור אינטראקטיבי בין עונות השנה",
+    "שלוש גלריות סוויטות אינטראקטיביות",
+    "תפריטים ותכנון שהייה"
+  ],
+  "pages": [
+    {
+      "label": "אתר הדגמה",
+      "preview": "live",
+      "description": "נוחות בלב הטבע"
+    }
+  ],
+  "style": "מתחם אירוח לצד נהר עם זהות המותג AWAY, גופני Thasadith ו-Pavanam וקצב צילומי רגוע.",
+  "waMessage": "שלום צוות DM-Labs! אשמח לדבר על אתר אירוח עם האופי של הדגמת AWAY.",
+  "price": "",
+  "images": {
+    "card": ""
+  },
+  "livePreview": true,
+  "previewUrl": "/previews/away.html"
+},
   {
     "id": "hartley",
     "industry": "restaurant",

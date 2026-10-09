@@ -154,6 +154,7 @@ function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
   { id: "all", label: "All Industries", icon: "✦" },
+  { id: "hospitality", label: "Hospitality", icon: "" },
   { id: "realestate", label: "Real estate", icon: "" },
   { id: "restaurant", label: "Restaurants, Cafés & Food", icon: "☕" },
   { id: "beauty", label: "Beauty & Wellness", icon: "✂" },
@@ -164,6 +165,48 @@ const INDUSTRIES = [
 
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
+{
+  "id": "away",
+  "industry": "hospitality",
+  "name": "AWAY",
+  "tagline": "Wildly comfortable",
+  "tier": "Custom",
+  "tierGradient": "linear-gradient(135deg, #6A303B, #526785)",
+  "domain": "AWAY",
+  "palette": [
+    "#6A303B",
+    "#DDE5ED",
+    "#3B261C",
+    "#F7F2F0"
+  ],
+  "paletteNames": [
+    "Wine",
+    "Pale blue",
+    "Warm timber",
+    "Soft white"
+  ],
+  "features": [
+    "Iris-reveal landscape hero",
+    "Seasonal camp explorer",
+    "Three interactive suite galleries",
+    "Dining menus and stay planner"
+  ],
+  "pages": [
+    {
+      "label": "Website Demo",
+      "preview": "live",
+      "description": "Wildly comfortable"
+    }
+  ],
+  "style": "A riverside canvas retreat with original AWAY identity, Thasadith and Pavanam typography, and a quiet photographic rhythm.",
+  "waMessage": "Hello DM-Labs team! I’d love to discuss a hospitality website with the character of the AWAY demo.",
+  "price": "",
+  "images": {
+    "card": ""
+  },
+  "livePreview": true,
+  "previewUrl": "/previews/away.html"
+},
   {
     "id": "hartley",
     "industry": "restaurant",
