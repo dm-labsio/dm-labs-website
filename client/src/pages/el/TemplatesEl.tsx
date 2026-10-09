@@ -456,78 +456,6 @@ function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; on
 }
 
 // ─── Προσαρμοσμένη Κατασκευή Card ──────────────────────────────────────────────────────
-function CustomBuildCard() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -6 }}
-      className="group bg-white rounded-2xl overflow-hidden transition-all duration-400 flex flex-col"
-      style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid rgba(226,229,234,0.8)" }}
-    >
-      {/* Gradient banner */}
-      <div
-        className="relative flex flex-col items-center justify-center px-8 py-12 text-center"
-        style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)", height: "280px" }}
-      >
-        {/* Subtle animated gradient orbs */}
-        <div className="absolute top-4 left-6 w-24 h-24 rounded-full blur-2xl" style={{ background: "rgba(91,140,255,0.25)" }} />
-        <div className="absolute bottom-4 right-6 w-20 h-20 rounded-full blur-2xl" style={{ background: "rgba(139,92,255,0.25)" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full blur-3xl" style={{ background: "rgba(111,227,255,0.12)" }} />
-
-        {/* Icon */}
-        <div className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)", boxShadow: "0 8px 24px rgba(91,140,255,0.4)" }}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-            <path d="M2 17l10 5 10-5" />
-            <path d="M2 12l10 5 10-5" />
-          </svg>
-        </div>
-
-        <h3 className="relative z-10 text-white font-bold text-xl leading-tight mb-1">Από την αρχή, για εσάς</h3>
-        <p className="relative z-10 text-blue-200/80 text-sm">Σχεδιασμός μόνο για εσάς</p>
-      </div>
-
-      {/* Card body */}
-      <div className="p-5 flex flex-col flex-1">
-        <p className="text-gray-600 text-sm leading-relaxed mb-4">
-          Κανένα παράδειγμα δεν σας κάνει; Κανένα πρόβλημα. Σχεδιάζουμε την ιστοσελίδα σας από την αρχή, με δική της διάταξη, γραφικά και ύφος, μόνο για εσάς.
-        </p>
-
-        {/* Feature list */}
-        <ul className="space-y-2 mb-5 flex-1">
-          {[
-            "Διάταξη φτιαγμένη μόνο για εσάς",
-            "Εικονογραφήσεις και γραφικά για το brand σας",
-            "Χρώματα και γραμματοσειρές με βάση το brand σας",
-            "Σχεδιασμένο με βάση τους στόχους της επιχείρησής σας",
-            "Είστε μέσα σε κάθε βήμα του σχεδιασμού",
-          ].map(f => (
-            <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
-              <Check size={14} className="text-[#5B8CFF] shrink-0 mt-0.5" />
-              {f}
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">Με βάση τους στόχους σας</span>
-          <a
-            href="/el/contact/"
-            className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
-            style={{ color: "#5B8CFF" }}
-            onClick={e => e.stopPropagation()}
-          >
-            Ζητήστε προσφορά
-          </a>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
 // ─── Industry Tabs with scroll arrows ────────────────────────────────────────
 function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: string; setActiveIndustry: (id: string) => void }) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -722,7 +650,6 @@ export default function TemplatesEl() {
               {filtered.map(template => (
                 <TemplateCard key={template.id} template={template} onClick={() => openModal(template)} />
               ))}
-              <CustomBuildCard />
             </div>
           ) : (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-24">
@@ -753,7 +680,7 @@ export default function TemplatesEl() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20" style={{ borderTop: "1px solid rgba(226,229,234,0.8)" }}>
+      <section className="py-12 sm:py-14 templates-editorial-cta-section" style={{ borderTop: "1px solid rgba(226,229,234,0.8)" }}>
         <div className="container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Δεν βρίσκετε αυτό που ψάχνετε;</h2>
