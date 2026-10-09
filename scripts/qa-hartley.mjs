@@ -27,18 +27,17 @@ try {
       ),
       "overflow " + width
     );
-    const old = await p.locator("#scene-caption").innerText();
-    await p.locator("#scene-next").click();
-    assert.notEqual(await p.locator("#scene-caption").innerText(), old);
-    await p.locator(".arc").focus();
-    await p.keyboard.press("ArrowLeft");
-    assert.equal(await p.locator("#scene-caption").innerText(), old);
-    const arc = await p.locator(".arc").boundingBox();
-    await p.mouse.move(arc.x + arc.width * 0.6, arc.y + 100);
-    await p.mouse.down();
-    await p.mouse.move(arc.x + arc.width * 0.2, arc.y + 100, { steps: 5 });
-    await p.mouse.up();
-    assert.notEqual(await p.locator("#scene-caption").innerText(), old);
+    assert.equal(await p.locator(".arc, .arc-card, dialog").count(), 0);
+    assert.equal(await p.locator(".hero button").count(), 0);
+    await p.getByRole("link", { name: "See the menu", exact: true }).click();
+    assert.equal(await p.evaluate(() => document.activeElement.id), "menu");
+    assert.ok(
+      await p
+        .locator(".print-button")
+        .evaluateAll(buttons =>
+          buttons.every(b => getComputedStyle(b).borderRadius === "0px")
+        )
+    );
     await p.getByRole("tab", { name: "From the oven" }).click();
     await p.getByRole("heading", { name: "From the oven" }).waitFor();
     assert.match(await p.locator("#menu-photo").getAttribute("src"), /cake/);
@@ -81,13 +80,29 @@ try {
       await p.locator("#parcel").getAttribute("data-wrapped"),
       "false"
     );
-    await p.locator('[data-photo="gallery"]').click();
-    assert.ok(await p.locator("dialog").isVisible());
-    await p.keyboard.press("Escape");
-    assert.ok(!(await p.locator("dialog").isVisible()));
+    await p.locator(".visit-gallery").scrollIntoViewIfNeeded();
     assert.equal(
-      await p.evaluate(() => document.activeElement.dataset.photo),
-      "gallery"
+      await p.locator(".visit-gallery button, .visit-gallery a").count(),
+      0
+    );
+    await p.waitForFunction(() =>
+      [...document.querySelectorAll(".visit-gallery img")].every(
+        i => i.complete && i.naturalWidth
+      )
+    );
+    assert.ok(
+      await p.locator(".visit-gallery img").evaluateAll(images =>
+        images.every(i => {
+          const r = i.getBoundingClientRect();
+          return (
+            getComputedStyle(i).objectFit === "contain" &&
+            Math.abs(
+              i.offsetWidth / i.offsetHeight - i.naturalWidth / i.naturalHeight
+            ) < 0.02
+          );
+        })
+      ),
+      "Gallery shows complete photographs"
     );
     for (const s of [
       ".hero",
@@ -103,7 +118,7 @@ try {
     }
     await p.waitForFunction(() =>
       [...document.images]
-        .filter(i => i.id !== "large-photo" && i.getClientRects().length)
+        .filter(i => i.getClientRects().length)
         .every(i => i.complete && i.naturalWidth > 0)
     );
     assert.equal(posts, 0);
@@ -129,7 +144,7 @@ try {
     console.log(
       "PASS",
       width,
-      "arc controls and swipe, menu tabs and keyboard, tea pairing, PDF, parcel flip, gallery, images, no overflow or errors"
+      "hero menu link, straight-edged buttons, menu keyboard controls, tea pairing, PDF, parcel flip, complete non-clickable gallery, no overflow or errors"
     );
     await p.close();
   }
@@ -137,15 +152,25 @@ try {
   await p.goto(base + "/previews/hartley.html");
   await p.mouse.move(1, 1);
   await p.waitForFunction(() => document.documentElement.dataset.hartleyReady);
-  const before = await p.locator("#scene-caption").innerText();
-  await p.waitForTimeout(6500);
-  assert.notEqual(await p.locator("#scene-caption").innerText(), before);
+  const before = await p.locator(".hero").getAttribute("data-scene");
+  await p.waitForFunction(
+    previous => document.querySelector(".hero").dataset.scene !== previous,
+    before,
+    { timeout: 10000 }
+  );
   await p.emulateMedia({ reducedMotion: "reduce" });
-  const stable = await p.locator("#scene-caption").innerText();
-  await p.waitForTimeout(6500);
-  assert.equal(await p.locator("#scene-caption").innerText(), stable);
+  const stable = await p.locator(".hero").getAttribute("data-scene");
+  await p.waitForTimeout(7200);
+  assert.equal(await p.locator(".hero").getAttribute("data-scene"), stable);
+  await p.emulateMedia({ reducedMotion: "no-preference" });
+  await p.locator(".visit-gallery").scrollIntoViewIfNeeded();
+  const offscreen = await p.locator(".hero").getAttribute("data-scene");
+  await p.waitForTimeout(7200);
+  assert.equal(await p.locator(".hero").getAttribute("data-scene"), offscreen);
   await p.close();
-  console.log("PASS motion loop and reduced-motion fallback");
+  console.log(
+    "PASS shutter slideshow, reduced-motion fallback and offscreen pause"
+  );
 } finally {
   await browser.close();
 }

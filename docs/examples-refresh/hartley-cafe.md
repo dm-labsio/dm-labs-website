@@ -10,17 +10,21 @@ Use the supplied outlined Hartley logo, Rubik Black headings, Jost supporting co
 
 A standalone one-page English café experience, reviewed in Preview before production. This is the English-style café among the three incoming projects. Hospitality and the fish restaurant remain pending their assets. The gallery is called Our Work, with Website Demos as the category, in English, Greek and Hebrew. Existing /templates/ URLs and canonical relationships remain stable. No branding carousel is added in this phase.
 
-- Curved photo hero, with swipe, drag, previous/next, keyboard and gentle automatic movement. Manual input pauses the cycle, and motion stops offscreen, with reduced motion, or while interacting.
+- Compact split hero with automatic paired photographic shutter reveals and an explicit See the menu link. No carousel controls or implied image actions. Motion pauses offscreen, in hidden tabs and with reduced motion.
 - Three illustrated menu chapters: coffee, bakes and tea. Keyboard tabs and page-turn controls update the photograph and menu together.
 - Tea pairing selector and the supplied downloadable afternoon-tea PDF.
 - Cake-wrapping flip using the matching supplied packing photographs.
-- Café corner gallery with native full-screen photo dialogs.
+- Complete café photographs in a compact three-print gallery with scroll drift and hover tilt. No pop-ups or click-to-open behavior.
+- Straight-edged double-rule buttons with rolling labels; menu and tea options use flat underlined controls. No capsule buttons.
 - No e-commerce, real booking, submission, invented address or testimonial. The source loyalty offer is not activated.
 
 ## Component research
 
 New reference patterns, not used in the prior demos:
-- [Arc Gallery Hero Component, Le Thanh](https://21st.dev/@minhxthanh/components/arc-gallery-hero-component).
+
+- [Slideshow, Jod](https://21st.dev/@jod49034/components/slideshow), adapted as automatic paired shutters with a fixed, clear menu CTA.
+- [Text Roll, Julien Thibeaut](https://21st.dev/@ibelick/components/text-roll), adapted for button labels.
+- [Animated Link, Ruixen](https://21st.dev/@ruixen.ui/components/animated-link), underline idea only, without arrows.
 - [Book slider, Aaris Khan](https://21st.dev/@aarispathan15/components/book-slider).
 - [Flip Gallery, Le Thanh](https://21st.dev/@minhxthanh/components/flip-gallery).
 
@@ -32,4 +36,10 @@ Our Work / Η δουλειά μας / העבודות שלנו names the page and
 
 ## QA
 
-TypeScript and 22 targeted typography, gallery and preview-navigation tests passed. Full production build: 97 canonical pages, seven demo wrappers, zero rendering errors and zero SEO audit issues. Hartley browser checks passed at 320, 390, 768 and 1440px: no overflow or uncaught errors, loaded visible imagery, hero drag/buttons/keyboard, menu keyboard controls and paging, tea choice updates, PDF download, parcel flip, native photo dialog and focus return. Automatic motion and reduced-motion fallback verified. EN/EL/HE gallery checks verify the renamed headings, seven cards, Hartley wrapper interaction/download and exact scroll restoration. Existing Elara journeys still pass from all three homepages and galleries. These are browser viewport checks, not physical-phone tests. Main is unchanged; review in Preview first.
+TypeScript and 22 targeted typography, gallery and preview-navigation tests passed. Full production build: 97 canonical pages, seven demo wrappers, zero rendering errors and zero SEO audit issues. Hartley browser checks passed at 320, 390, 768 and 1440px: no overflow or uncaught errors, loaded visible imagery, hero menu navigation, menu keyboard controls and paging, tea choice updates, PDF download, parcel flip, complete non-clickable photographs and straight-edged controls. Automatic motion and reduced-motion fallback verified. EN/EL/HE gallery checks verify the renamed headings, seven cards, Hartley wrapper interaction/download and exact scroll restoration. Existing Elara journeys still pass from all three homepages and galleries. These are browser viewport checks, not physical-phone tests. Main is unchanged; review in Preview first.
+
+## Compact-layout revision
+
+User feedback: shorten sections, replace the unclear hero carousel, remove photo dialogs and all capsule buttons. Revised 9 October 2026. At 390px the page measures about 4,490px versus 5,969px previously; at 1440px, 4,814px versus 6,685px. Original source assets and branding are unchanged. Smaller spacing, shorter photo sections, compact headings and a three-photo gallery reduce scrolling while preserving readable menu copy. The menu, tea selector, original menu PDF and parcel reveal remain functional.
+
+Revision browser QA: 320/390/768/1440px, no horizontal overflow or uncaught errors, all visible imagery loaded; hero CTA scroll/focus, menu tabs/keyboard/paging, tea options, PDF contents, parcel toggle, complete gallery aspect ratios and absence of modal interactions verified. Automatic shutter sequence, reduced-motion stop and offscreen pause verified.

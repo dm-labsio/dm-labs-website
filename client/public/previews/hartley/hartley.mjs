@@ -1,87 +1,122 @@
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const reduce = matchMedia("(prefers-reduced-motion: reduce)");
-const cards = $$(".arc-card");
-let scene = 2;
-let userUntil = 0;
-let heroVisible = true;
-const captions = [
-  "Come on in. The kettle’s on.",
-  "Your day, with a better beginning.",
-  "A little time. A pot for two.",
-  "A familiar face. A favourite corner.",
-  "Something good for the way home.",
+// A visual introduction, not a carousel visitors need to operate.
+const windows = $$(".picture-window");
+const scenes = [
+  [
+    ["milk", "Milk poured into a navy Hartley cup"],
+    ["tea", "Afternoon tea on a marble café table"],
+  ],
+  [
+    ["exterior-small", "Hartley's navy storefront"],
+    ["company-small", "A spotted dog beside the café banquette"],
+  ],
+  [
+    ["packaging-small", "Hartley's illustrated bags and coffee cups"],
+    ["counter", "The café counter and pink and navy seating"],
+  ],
 ];
-function drawArc() {
-  const gap = innerWidth < 600 ? 205 : Math.min(innerWidth * 0.235, 305);
-  cards.forEach((card, i) => {
-    let d = (i - scene + cards.length) % cards.length;
-    if (d > 2) d -= cards.length;
-    card.style.setProperty("--x", d * gap);
-    card.style.setProperty("--y", Math.abs(d) * (innerWidth < 600 ? 29 : 35));
-    card.style.setProperty("--r", d * 9);
-    card.style.zIndex = String(5 - Math.abs(d));
-    card.setAttribute("aria-current", String(d === 0));
+let scene = 0,
+  changing = false,
+  heroVisible = true;
+const hero = $(".hero");
+hero.dataset.scene = "0";
+new IntersectionObserver(([entry]) => {
+  heroVisible = entry.isIntersecting;
+}).observe(hero);
+async function nextScene() {
+  if (changing || reduce.matches || document.hidden || !heroVisible) return;
+  changing = true;
+  const next = (scene + 1) % scenes.length;
+  const overlays = windows.map((window, i) => {
+    const img = window.querySelector(".window-reveal");
+    img.src = "/previews/hartley/assets/" + scenes[next][i][0] + ".webp";
+    return img;
   });
-  $("#scene-caption").textContent = captions[scene];
-}
-function selectScene(n, user = true) {
-  scene = (n + cards.length) % cards.length;
-  if (user) userUntil = Date.now() + 12000;
-  drawArc();
-}
-$("#scene-prev").onclick = () => selectScene(scene - 1);
-$("#scene-next").onclick = () => selectScene(scene + 1);
-let start = null,
-  moved = false;
-$(".arc").addEventListener("pointerdown", e => {
-  if (e.button !== 0) return;
-  start = { x: e.clientX, y: e.clientY };
-  moved = false;
-  userUntil = Date.now() + 12000;
-});
-$(".arc").addEventListener("pointermove", e => {
-  if (start && Math.abs(e.clientX - start.x) > 12) moved = true;
-});
-window.addEventListener("pointerup", e => {
-  if (!start) return;
-  const dx = e.clientX - start.x,
-    dy = e.clientY - start.y;
-  start = null;
-  if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy))
-    selectScene(scene + (dx < 0 ? 1 : -1));
-});
-window.addEventListener("pointercancel", () => {
-  start = null;
-  moved = false;
-});
-cards.forEach((card, i) =>
-  card.addEventListener("click", () => {
-    if (!moved) selectScene(i);
-  })
-);
-$(".arc").addEventListener("keydown", e => {
-  if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-    e.preventDefault();
-    selectScene(scene + (e.key === "ArrowRight" ? 1 : -1));
+  try {
+    await Promise.all(overlays.map(img => img.decode()));
+    if (reduce.matches || document.hidden || !heroVisible) return;
+    const animations = overlays.map((img, i) =>
+      img.animate(
+        [
+          { clipPath: i ? "inset(100% 0 0 0)" : "inset(0 0 100% 0)" },
+          { clipPath: "inset(0)" },
+        ],
+        {
+          duration: 1150,
+          delay: i * 140,
+          easing: "cubic-bezier(.22,.8,.22,1)",
+          fill: "forwards",
+        }
+      )
+    );
+    const stop = () => animations.forEach(a => a.finish());
+    reduce.addEventListener("change", stop, { once: true });
+    await Promise.all(animations.map(a => a.finished));
+    reduce.removeEventListener("change", stop);
+    windows.forEach((window, i) => {
+      const base = window.querySelector(".window-base");
+      base.src = overlays[i].src;
+      base.alt = scenes[next][i][1];
+    });
+    // Decode the underlying image before removing the reveal layer.
+    await Promise.all(
+      windows.map(w => w.querySelector(".window-base").decode())
+    );
+    animations.forEach(a => a.cancel());
+    scene = next;
+    hero.dataset.scene = String(scene);
+  } catch {
+    // Keep the already loaded image if a later photograph is unavailable.
+  } finally {
+    changing = false;
   }
+}
+setInterval(nextScene, 5500);
+
+// Print-like buttons with a rolling label. The duplicate is visual only.
+function labelButton(button, label) {
+  button.setAttribute("aria-label", label);
+  const span = button.querySelector("span");
+  span.textContent = label;
+  span.dataset.label = label;
+  span.setAttribute("aria-hidden", "true");
+}
+$$(".print-button").forEach(button =>
+  labelButton(button, button.textContent.trim())
+);
+
+// The complete café photographs move as prints; nothing is cropped or opened.
+const gallery = $(".visit-gallery");
+let galleryVisible = false,
+  galleryFrame = 0;
+function moveGallery() {
+  galleryFrame = 0;
+  if (reduce.matches || !galleryVisible) return;
+  const r = gallery.getBoundingClientRect();
+  const progress = Math.max(
+    -1,
+    Math.min(1, (innerHeight / 2 - r.top - r.height / 2) / innerHeight)
+  );
+  gallery.style.setProperty("--drift", (progress * 32).toFixed(1) + "px");
+}
+new IntersectionObserver(([entry]) => {
+  galleryVisible = entry.isIntersecting;
+  moveGallery();
+}).observe(gallery);
+addEventListener(
+  "scroll",
+  () => {
+    if (galleryVisible && !galleryFrame)
+      galleryFrame = requestAnimationFrame(moveGallery);
+  },
+  { passive: true }
+);
+reduce.addEventListener("change", () => {
+  gallery.style.setProperty("--drift", "0px");
+  moveGallery();
 });
-window.addEventListener("resize", drawArc);
-new IntersectionObserver(
-  ([entry]) => (heroVisible = entry.isIntersecting)
-).observe($(".hero"));
-setInterval(() => {
-  if (
-    !reduce.matches &&
-    !document.hidden &&
-    heroVisible &&
-    Date.now() > userUntil &&
-    !$(".hero").matches(":hover") &&
-    !$(".hero").contains(document.activeElement)
-  )
-    selectScene(scene + 1, false);
-}, 6000);
-drawArc();
 const menus = {
   coffee: {
     title: "Coffee & company",
@@ -194,42 +229,16 @@ $("#wrap-button").onclick = () => {
   wrapped = !wrapped;
   $("#parcel").dataset.wrapped = wrapped;
   $("#wrap-button").setAttribute("aria-pressed", String(wrapped));
-  $("#wrap-button span").textContent = wrapped
-    ? "Have another peek"
-    : "Wrap it for me";
+  labelButton(
+    $("#wrap-button"),
+    wrapped ? "Have another peek" : "Wrap it for me"
+  );
   $("#parcel-status").textContent = wrapped
     ? "Ready for someone’s very good afternoon."
     : "A little something before the ribbon.";
   $(".parcel-front").setAttribute("aria-hidden", String(wrapped));
   $(".parcel-back").setAttribute("aria-hidden", String(!wrapped));
 };
-const dialog = $("#photo-dialog");
-let opener;
-$$("[data-photo]").forEach(
-  b =>
-    (b.onclick = () => {
-      opener = b;
-      $("#large-photo").src =
-        "/previews/hartley/assets/" + b.dataset.photo + ".webp";
-      $("#large-photo").alt = b.querySelector("img").alt;
-      $("#photo-caption").textContent = b.dataset.caption;
-      dialog.showModal();
-    })
-);
-$(".dialog-close").onclick = () => dialog.close();
-dialog.addEventListener("click", e => {
-  if (e.target === dialog) {
-    const r = dialog.getBoundingClientRect();
-    if (
-      e.clientX < r.left ||
-      e.clientX > r.right ||
-      e.clientY < r.top ||
-      e.clientY > r.bottom
-    )
-      dialog.close();
-  }
-});
-dialog.addEventListener("close", () => opener?.focus());
 $$('a[href^="#"]').forEach(a =>
   a.addEventListener("click", e => {
     const target = $(a.getAttribute("href"));
