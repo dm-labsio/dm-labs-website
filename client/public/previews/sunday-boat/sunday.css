@@ -550,6 +550,8 @@ button:focus-visible,
   width: 80px;
 }
 .table-section {
+  background: var(--green);
+  --paper: var(--green);
   display: grid;
   grid-template-columns: 0.7fr 1.3fr;
   padding: 85px 6% 100px;
@@ -570,7 +572,8 @@ button:focus-visible,
   align-items: center;
   gap: 18px;
 }
-.table-gallery button {
+.table-gallery figure {
+  margin: 0;
   padding: 0;
   position: relative;
   overflow: hidden;
@@ -579,7 +582,7 @@ button:focus-visible,
   object-fit: cover;
   transition: transform 0.7s var(--ease);
 }
-.table-gallery button:hover img {
+.table-gallery figure:hover img {
   transform: scale(1.05);
 }
 .table-tall {
@@ -588,7 +591,7 @@ button:focus-visible,
 .table-tall img {
   aspect-ratio: 0.75;
 }
-.table-small {
+.table-gallery .table-small {
   transform: rotate(6deg);
   margin-top: 95px;
 }
@@ -598,9 +601,7 @@ button:focus-visible,
 .table-sticker {
   position: absolute;
   right: 6%;
-  top: -20px;
-  background: var(--green);
-  border: 1px solid #154cdb20;
+  top: -42px;
   transform: rotate(12deg);
   padding: 15px 20px;
   text-align: center;
@@ -1217,11 +1218,11 @@ dialog::backdrop {
     margin-top: 45px;
     gap: 12px;
   }
-  .table-small {
+  .table-gallery .table-small {
     margin-top: 50px;
   }
   .table-sticker {
-    top: -24px;
+    top: -42px;
     padding: 12px;
     font-size: 20px;
   }
@@ -1395,7 +1396,7 @@ dialog::backdrop {
 }
 @media (prefers-reduced-motion: no-preference) {
   .place-scene.ready > .place-interior {
-    animation: restaurant-crossfade 8s ease-in-out infinite alternate;
+    animation: restaurant-crossfade 5s ease-in-out infinite alternate;
     animation-play-state: paused;
   }
   .place-scene.ready.playing > .place-interior {

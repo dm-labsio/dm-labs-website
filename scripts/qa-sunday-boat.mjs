@@ -88,17 +88,17 @@ try {
       if (!animation)
         return { reduced: true, opacity: getComputedStyle(img).opacity };
       animation.pause();
-      const samples = [
-        0, 2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000,
-      ].map(time => {
-        animation.currentTime = time;
-        return {
-          opacity: Number(getComputedStyle(img).opacity),
-          baseOpacity: Number(getComputedStyle(base).opacity),
-          top: img.getBoundingClientRect().top,
-          height: img.getBoundingClientRect().height,
-        };
-      });
+      const samples = [0, 1250, 2500, 3750, 5000, 6250, 7500, 8750, 10000].map(
+        time => {
+          animation.currentTime = time;
+          return {
+            opacity: Number(getComputedStyle(img).opacity),
+            baseOpacity: Number(getComputedStyle(base).opacity),
+            top: img.getBoundingClientRect().top,
+            height: img.getBoundingClientRect().height,
+          };
+        }
+      );
       animation.play();
       return { reduced: false, samples };
     });
@@ -122,6 +122,26 @@ try {
       assert.equal(fade.reduced, true);
       assert.equal(fade.opacity, "0");
     }
+    assert.equal(
+      await page
+        .locator(".table-gallery button,.table-gallery [data-gallery]")
+        .count(),
+      0
+    );
+    for (const photo of [".table-tall", ".table-small"]) {
+      await page.locator(photo).click();
+      assert.equal(await page.locator("#lightbox").isVisible(), false);
+    }
+    const tableStyle = await page.locator(".table-section").evaluate(el => ({
+      background: getComputedStyle(el).backgroundColor,
+      stickerBackground: getComputedStyle(el.querySelector(".table-sticker"))
+        .backgroundColor,
+      stickerBorder: getComputedStyle(el.querySelector(".table-sticker"))
+        .borderTopWidth,
+    }));
+    assert.equal(tableStyle.background, "rgb(220, 229, 186)");
+    assert.equal(tableStyle.stickerBackground, "rgba(0, 0, 0, 0)");
+    assert.equal(tableStyle.stickerBorder, "0px");
     // Removing the overlay must not remove the full-image interaction.
     await page.locator('[data-gallery="36-crispy-squid"]').click();
     await page.locator("#lightbox[open]").waitFor();

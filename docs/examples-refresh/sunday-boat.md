@@ -44,4 +44,6 @@ position on close. Delayed viewer loading starts the introduction once, and
 manual food selection is retained.
 
 Photo-view text overlays removed from the clickable food and dining images.
-Restaurant photos now crossfade continuously, with eight seconds per direction.
+Restaurant photos now crossfade continuously, with five seconds per direction.
+
+The Pass it round section uses the brand pistachio background. Its two photos keep their gentle hover zoom but are non-interactive figures. The fish / Good company artwork sits higher, with no square background or border.
