@@ -74,21 +74,58 @@ try {
       await page.locator('[data-menu="2"]').getAttribute("aria-selected"),
       "true"
     );
-    for (const where of ["inside", "outside"]) {
-      await page.locator(`[data-place="${where}"]`).click();
-      await page.waitForFunction(
-        where =>
-          document
-            .querySelector(`[data-place="${where}"]`)
-            .getAttribute("aria-pressed") === "true",
-        where
-      );
+    await page.locator(".place-scene").scrollIntoViewIfNeeded();
+    await page.locator(".place-scene.ready").waitFor();
+    assert.equal(await page.locator("[data-place],.view-photo").count(), 0);
+    assert.ok(
+      await page
+        .locator(".place-scene img")
+        .evaluateAll(imgs => imgs.every(i => i.complete && i.naturalWidth > 0))
+    );
+    const fade = await page.locator(".place-interior").evaluate(img => {
+      const animation = img.getAnimations()[0];
+      const base = img.parentElement.querySelector("#place-image");
+      if (!animation)
+        return { reduced: true, opacity: getComputedStyle(img).opacity };
+      animation.pause();
+      const samples = [
+        0, 2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000,
+      ].map(time => {
+        animation.currentTime = time;
+        return {
+          opacity: Number(getComputedStyle(img).opacity),
+          baseOpacity: Number(getComputedStyle(base).opacity),
+          top: img.getBoundingClientRect().top,
+          height: img.getBoundingClientRect().height,
+        };
+      });
+      animation.play();
+      return { reduced: false, samples };
+    });
+    if (width === 768) {
+      assert.equal(fade.reduced, false);
+      const v = fade.samples;
+      assert.equal(v[0].opacity, 0);
+      assert.equal(v[4].opacity, 1);
+      assert.equal(v[8].opacity, 0);
+      for (let i = 1; i < 5; i++) assert.ok(v[i].opacity > v[i - 1].opacity);
+      for (let i = 5; i < 9; i++) assert.ok(v[i].opacity < v[i - 1].opacity);
       assert.ok(
-        await page
-          .locator("#place-image")
-          .evaluate(i => i.complete && i.naturalWidth > 0)
+        v.every(
+          s =>
+            s.baseOpacity === 1 &&
+            s.top === v[0].top &&
+            s.height === v[0].height
+        )
       );
+    } else {
+      assert.equal(fade.reduced, true);
+      assert.equal(fade.opacity, "0");
     }
+    // Removing the overlay must not remove the full-image interaction.
+    await page.locator('[data-gallery="36-crispy-squid"]').click();
+    await page.locator("#lightbox[open]").waitFor();
+    await page.keyboard.press("Escape");
     await page.locator("#box-toggle").click();
     assert.equal(
       await page.locator("#box-toggle").getAttribute("aria-pressed"),
@@ -152,7 +189,7 @@ try {
     });
     assert.deepEqual(errors, []);
     console.log(
-      `Sunday Boat ${width}: menu, food fan, swipe, keyboard, restaurant views, takeaway, lightbox, focus and overflow passed`
+      `Sunday Boat ${width}: menu, food fan, swipe, keyboard, restaurant crossfade, takeaway, lightbox, focus and overflow passed`
     );
     await page.close();
   }

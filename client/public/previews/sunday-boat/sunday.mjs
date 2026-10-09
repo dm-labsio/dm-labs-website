@@ -96,35 +96,41 @@ $$("[data-menu]").forEach((b, i) => {
     }
   });
 });
-let placeVersion = 0;
-$$("[data-place]").forEach(b =>
-  b.addEventListener("click", async () => {
-    const version = ++placeVersion,
-      inside = b.dataset.place === "inside";
-    const name = inside ? "13-interior" : "12-exterior-table-details";
-    const incoming = new Image();
-    incoming.src = asset + name + "-full.webp";
+// Decode both fixed layers before starting the continuous crossfade. Pause the
+// same timeline offscreen or in a background tab rather than restarting it.
+const placeScene = $(".place-scene");
+let placeVisible = false,
+  placePreparing = false;
+function syncPlacePlayback() {
+  placeScene.classList.toggle(
+    "playing",
+    placeVisible && !document.hidden && !reduced.matches
+  );
+}
+const placeObserver = new IntersectionObserver(
+  async ([entry]) => {
+    placeVisible = entry.isIntersecting;
+    syncPlacePlayback();
+    if (!placeVisible || placePreparing) return;
+    placePreparing = true;
+    const images = [...placeScene.querySelectorAll("img")];
+    images.forEach(img => {
+      img.loading = "eager";
+    });
     try {
-      await incoming.decode();
+      await Promise.all(images.map(img => img.decode()));
+      placeScene.classList.add("ready");
+      syncPlacePlayback();
     } catch {
-      return;
+      // Retain the exterior if an interior request fails; never fade to an empty image.
+      placePreparing = false;
     }
-    if (version !== placeVersion) return;
-    const img = $("#place-image");
-    img.srcset = `${asset}${name}-768w.webp 768w, ${incoming.src} 1536w`;
-    img.src = asset + name + "-768w.webp";
-    img.alt = inside
-      ? "Sunday Boat dining room with pistachio seating and a seafood counter"
-      : "Sunday Boat terrace beneath a cobalt awning";
-    await img.decode().catch(() => {});
-    if (version !== placeVersion) return;
-    $$("[data-place]").forEach(x =>
-      x.setAttribute("aria-pressed", String(x === b))
-    );
-    $(".place-scene").classList.remove("changing");
-    requestAnimationFrame(() => $(".place-scene").classList.add("changing"));
-  })
+  },
+  { threshold: 0 }
 );
+placeObserver.observe(placeScene);
+document.addEventListener("visibilitychange", syncPlacePlayback);
+reduced.addEventListener("change", syncPlacePlayback);
 $("#box-toggle").addEventListener("click", () => {
   const b = $("#box-toggle"),
     open = b.getAttribute("aria-pressed") !== "true";

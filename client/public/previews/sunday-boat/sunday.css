@@ -434,15 +434,6 @@ button:focus-visible,
   transform: rotate(-7deg);
   color: var(--blue);
 }
-.view-photo {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  background: white;
-  color: var(--blue);
-  font-size: 12px;
-  padding: 8px 13px;
-}
 .menu-fish {
   display: flex;
   align-items: center;
@@ -546,25 +537,6 @@ button:focus-visible,
   height: 620px;
   object-fit: cover;
   object-position: center 52%;
-}
-.place-switch {
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  background: white;
-  padding: 5px;
-  gap: 4px;
-}
-.place-switch button {
-  padding: 11px 23px;
-  font-size: 14px;
-  min-width: 96px;
-}
-.place-switch [aria-pressed="true"] {
-  background: var(--blue);
-  color: white;
 }
 .place-foot {
   display: flex;
@@ -891,9 +863,6 @@ dialog::backdrop {
   .menu-pages.changing {
     animation: paper-in 0.5s var(--ease);
   }
-  .place-scene.changing > img {
-    animation: scene-in 0.65s var(--ease);
-  }
 }
 @keyframes type-in {
   from {
@@ -1164,12 +1133,6 @@ dialog::backdrop {
     top: 10px;
     padding: 5px 10px;
   }
-  .view-photo {
-    font-size: 10px;
-    left: 10px;
-    bottom: 10px;
-    padding: 5px 8px;
-  }
   .menu-fish {
     flex-direction: column;
     gap: 15px;
@@ -1222,14 +1185,6 @@ dialog::backdrop {
   .place-scene > img {
     height: 360px;
     object-position: center;
-  }
-  .place-switch {
-    bottom: 15px;
-  }
-  .place-switch button {
-    font-size: 12px;
-    padding: 9px 20px;
-    min-width: 85px;
   }
   .place-foot {
     padding: 18px 5%;
@@ -1427,5 +1382,31 @@ dialog::backdrop {
   }
   .hero-topline .script {
     font-size: 11px;
+  }
+}
+
+/* Keep the terrace opaque underneath the interior: no blank frame, source swap
+   or zoom. Alternate continuously with no held frames between fades. */
+.place-scene > .place-interior {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .place-scene.ready > .place-interior {
+    animation: restaurant-crossfade 8s ease-in-out infinite alternate;
+    animation-play-state: paused;
+  }
+  .place-scene.ready.playing > .place-interior {
+    animation-play-state: running;
+  }
+}
+@keyframes restaurant-crossfade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

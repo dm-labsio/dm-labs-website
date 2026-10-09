@@ -11,7 +11,9 @@ No new image generation, stock substitution, decorative sunshine or foliage.
   mode removes animation. Static preview snapshots cannot start the introduction.
 - Three editorial menu sections with accessible tabs and all supplied food dishes.
   No prices, location, booking details or hours invented.
-- Inside/outside restaurant view with decoded images before replacement.
+- Continuous inside/outside crossfade with two decoded image layers. No source
+  replacement, zoom or selector buttons; no fade to a blank background. Paused
+  offscreen and in hidden tabs; static exterior for reduced motion.
 - Dining gallery and contained full-photo lightbox, keyboard/previous/next controls.
 - A takeaway box that opens on tap; no online ordering or checkout.
 - Four merchandise photographs arranged on a clothesline; close-up viewing only.
@@ -40,3 +42,6 @@ Full build passed: 97 canonical pages, nine preview routes, zero SEO audit issue
 All three language galleries open Sunday Boat and restore the exact scroll
 position on close. Delayed viewer loading starts the introduction once, and
 manual food selection is retained.
+
+Photo-view text overlays removed from the clickable food and dining images.
+Restaurant photos now crossfade continuously, with eight seconds per direction.
