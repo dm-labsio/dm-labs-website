@@ -1,0 +1,18 @@
+Sunday Boat website demo
+All brand artwork, photographs and font files are from the user-supplied
+Sunday-Boat-Web-Designer-Handoff.zip (9 October 2026). Original assets retained
+outside the repository. The supplied 768px/full WebP exports are used unchanged.
+SVG wordmarks/symbols are the supplied vector masters. Fonts carry bundled OFL
+licenses. Cobalt/white/pistachio follows brand tokens; red is not used in this page.
+
+Photography is supplied concept imagery for a fictional portfolio brand.
+No real restaurant address, opening hours, reservations, payment processing,
+shopping cart or e-commerce is represented. Menu dishes follow the supplied
+04-menu/menu.html. Prices omitted because currency and prices are unconfirmed.
+
+Interaction reference: Card Fan Carousel by Aayush Duhan, 21st.dev
+https://21st.dev/@aayush-duhan/components/card-fan-carousel
+Reviewed 9 October 2026. Fanned layout and card-selection concept inspired the
+hero. Implementation is original CSS/JavaScript, not copied component source;
+no GSAP or third-party runtime is loaded. Ticket buttons, paper menu, package
+reveal and merchandise clothesline are original brand-specific implementations.

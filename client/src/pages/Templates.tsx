@@ -166,6 +166,48 @@ const INDUSTRIES = [
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
 {
+  "id": "sunday-boat",
+  "industry": "restaurant",
+  "name": "Sunday Boat",
+  "tagline": "Every day feels like Sunday",
+  "tier": "Custom",
+  "tierGradient": "linear-gradient(135deg, #154CDB, #262626)",
+  "domain": "SUNDAY BOAT",
+  "palette": [
+    "#154CDB",
+    "#FFFFFF",
+    "#DCE5BA",
+    "#262626"
+  ],
+  "paletteNames": [
+    "Cobalt",
+    "White",
+    "Pistachio",
+    "Charcoal"
+  ],
+  "features": [
+    "Interactive food-photo fan",
+    "Editorial food menu",
+    "Inside and outside restaurant views",
+    "Playful packaging and merchandise galleries"
+  ],
+  "pages": [
+    {
+      "label": "Website Demo",
+      "preview": "live",
+      "description": "Every day feels like Sunday"
+    }
+  ],
+  "style": "A bold neighbourhood seafood restaurant with the original Sunday Boat identity, Big Shoulders headlines, Literata accents and playful photographic interactions.",
+  "waMessage": "Hello DM-Labs team! I’d love to discuss a restaurant website with the character of Sunday Boat.",
+  "price": "",
+  "images": {
+    "card": ""
+  },
+  "livePreview": true,
+  "previewUrl": "/previews/sunday-boat.html"
+},
+{
   "id": "away",
   "industry": "hospitality",
   "name": "AWAY",

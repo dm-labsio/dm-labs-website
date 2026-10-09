@@ -6,6 +6,7 @@ import { X } from "lucide-react";
 import { PREVIEW_ORIGIN_KEY, safePreviewReturnPath } from "@/lib/previewNavigation";
 
 const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
+  "sunday-boat": { name: "Sunday Boat", url: "/previews/sunday-boat.html" },
   "away": { name: "AWAY", url: "/previews/away.html" },
   "hartley": { name: "Hartley Café & Bakery", url: "/previews/hartley.html" },
   "luxe-realty": { name: "Luxe Realty", url: "/previews/luxe-realty.html" },
@@ -106,6 +107,7 @@ export default function PreviewPage() {
     try {
       const doc = iframe.contentDocument;
       if (!doc) return;
+      doc.dispatchEvent(new Event("dm-preview-ready"));
 
       const clickHandler = (e: Event) => {
         // Interactive one-page demos manage focus/menu state themselves while

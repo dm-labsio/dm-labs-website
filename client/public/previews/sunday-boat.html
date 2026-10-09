@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en" data-preview-navigation="managed">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#154CDB" />
+    <title>Sunday Boat | Come hungry</title>
+    <meta
+      name="description"
+      content="Seafood, sharing plates and a very good excuse to stay a little longer. Every day feels like Sunday."
+    />
+    <link
+      rel="icon"
+      href="/previews/sunday-boat/assets/fish.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href="/previews/sunday-boat/assets/display.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/previews/sunday-boat/assets/body.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/previews/sunday-boat/sunday.css" />
+    <script type="module" src="/previews/sunday-boat/sunday.mjs"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the good stuff</a>
+    <header class="masthead">
+      <a class="brand" href="#top" aria-label="Sunday Boat home"
+        ><img
+          src="/previews/sunday-boat/assets/wordmark.svg"
+          alt="Sunday Boat"
+          width="300"
+          height="60"
+      /></a>
+      <nav aria-label="Main navigation">
+        <a href="#menu">The food</a><a href="#place">The place</a
+        ><a href="#off-menu">The extras</a>
+      </nav>
+      <a class="ticket header-ticket" href="#menu"
+        ><span data-label="The menu">The menu</span></a
+      >
+    </header>
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-topline">
+          <span>Seafood & sharing plates</span
+          ><span class="script">Every day feels like Sunday.</span>
+        </div>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <h1 id="hero-title">
+              COME<br />HUNGRY<span class="fullstop">.</span>
+            </h1>
+            <p>
+              Good fish. A table full of favourites.<br />And absolutely no
+              rush.
+            </p>
+            <a class="ticket" href="#menu"
+              ><span data-label="Find your favourite"
+                >Find your favourite</span
+              ></a
+            >
+          </div>
+          <div class="hero-stage" aria-label="A taste of Sunday Boat">
+            <div class="plate-fan">
+              <button
+                class="plate-card active"
+                data-plate="0"
+                aria-pressed="true"
+                aria-label="Show Sunday fish & chips"
+              >
+                <img
+                  class=""
+                  src="/previews/sunday-boat/assets/35-fish-and-chips-768w.webp"
+                  srcset="
+                    /previews/sunday-boat/assets/35-fish-and-chips-768w.webp  768w,
+                    /previews/sunday-boat/assets/35-fish-and-chips-full.webp 1536w
+                  "
+                  sizes="(max-width:700px) 90vw, 55vw"
+                  alt="Sunday fish &amp; chips"
+                  loading="eager"
+                  decoding="async"
+                  width="1536"
+                  height="1024"
+                /><span class="plate-caption"
+                  ><strong>Sunday fish & chips</strong
+                  ><span>Beer batter. Hand-cut chips. Mum’s tartar.</span></span
+                ></button
+              ><button
+                class="plate-card"
+                data-plate="1"
+                aria-pressed="false"
+                aria-label="Show Grilled market fish"
+              >
+                <img
+                  class=""
+                  src="/previews/sunday-boat/assets/38-grilled-fish-refined-768w.webp"
+                  srcset="
+                    /previews/sunday-boat/assets/38-grilled-fish-refined-768w.webp  768w,
+                    /previews/sunday-boat/assets/38-grilled-fish-refined-full.webp 1536w
+                  "
+                  sizes="(max-width:700px) 90vw, 55vw"
+                  alt="Grilled market fish"
+                  loading="eager"
+                  decoding="async"
+                  width="1536"
+                  height="1024"
+                /><span class="plate-caption"
+                  ><strong>Grilled market fish</strong
+                  ><span>Lemon potatoes. Greens. The good stuff.</span></span
+                ></button
+              ><button
+                class="plate-card"
+                data-plate="2"
+                aria-pressed="false"
+                aria-label="Show Crispy squid"
+              >
+                <img
+                  class=""
+                  src="/previews/sunday-boat/assets/36-crispy-squid-768w.webp"
+                  srcset="
+                    /previews/sunday-boat/assets/36-crispy-squid-768w.webp  768w,
+                    /previews/sunday-boat/assets/36-crispy-squid-full.webp 1536w
+                  "
+                  sizes="(max-width:700px) 90vw, 55vw"
+                  alt="Crispy squid"
+                  loading="eager"
+                  decoding="async"
+                  width="1536"
+                  height="1024"
+                /><span class="plate-caption"
+                  ><strong>Crispy squid</strong
+                  ><span>A little lemon. Another fork, please.</span></span
+                >
+              </button>
+            </div>
+            <div class="fan-controls">
+              <p class="script">Go on, have a look.</p>
+              <button class="text-button" id="next-plate">
+                Another plate <span aria-hidden="true">+</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="hero-end">
+          <span>Made for the middle of the table.</span
+          ><img
+            src="/previews/sunday-boat/assets/swim.svg"
+            alt=""
+            width="110"
+            height="68"
+            aria-hidden="true"
+          /><a href="#place">Come on in</a>
+        </div>
+      </section>
+      <section class="menu-section" id="menu" aria-labelledby="menu-title">
+        <div class="section-title">
+          <p class="eyebrow">The food</p>
+          <h2 id="menu-title">
+            A LITTLE OF<br /><span class="serif">everything.</span>
+          </h2>
+          <p>
+            Something crisp. Something from the grill.<br />Something you’ll
+            wish you’d ordered two of.
+          </p>
+        </div>
+        <div class="menu-layout">
+          <div class="menu-photo">
+            <button
+              data-gallery="36-crispy-squid"
+              data-caption="Crispy squid, parsley, lemon and garlic yoghurt"
+            >
+              <img
+                class=""
+                src="/previews/sunday-boat/assets/36-crispy-squid-768w.webp"
+                srcset="
+                  /previews/sunday-boat/assets/36-crispy-squid-768w.webp  768w,
+                  /previews/sunday-boat/assets/36-crispy-squid-full.webp 1536w
+                "
+                sizes="(max-width:700px) 90vw, 55vw"
+                alt="Crispy squid with lemon and garlic yoghurt"
+                loading="lazy"
+                decoding="async"
+                width="1536"
+                height="1024"
+              /><span class="photo-note script">For the table.</span
+              ><span class="view-photo">A closer look +</span>
+            </button>
+            <div class="menu-fish">
+              <img
+                src="/previews/sunday-boat/assets/fish.svg"
+                alt=""
+                width="110"
+                height="68"
+                aria-hidden="true"
+              /><span>Made for sharing.</span>
+            </div>
+          </div>
+          <div class="menu-paper">
+            <div class="menu-tabs" role="tablist" aria-label="Menu sections">
+              <button
+                id="menu-tab-0"
+                role="tab"
+                aria-selected="true"
+                aria-controls="menu-panel-0"
+                tabindex="0"
+                data-menu="0"
+              >
+                Small plates</button
+              ><button
+                id="menu-tab-1"
+                role="tab"
+                aria-selected="false"
+                aria-controls="menu-panel-1"
+                tabindex="-1"
+                data-menu="1"
+              >
+                From the sea</button
+              ><button
+                id="menu-tab-2"
+                role="tab"
+                aria-selected="false"
+                aria-controls="menu-panel-2"
+                tabindex="-1"
+                data-menu="2"
+              >
+                Sides & sweets
+              </button>
+            </div>
+            <div class="menu-pages">
+              <div
+                role="tabpanel"
+                id="menu-panel-0"
+                aria-labelledby="menu-tab-0"
+                tabindex="0"
+              >
+                <p class="script">A little of everything.</p>
+                <ul class="dishes">
+                  <li>
+                    <h3>Warm flatbread</h3>
+                    <p>Olive oil, oregano, flaky salt</p>
+                  </li>
+                  <li>
+                    <h3>Marinated olives</h3>
+                    <p>Lemon peel, fennel seed</p>
+                  </li>
+                  <li>
+                    <h3>Mum’s taramasalata</h3>
+                    <p>Pickled onion, warm flatbread</p>
+                  </li>
+                  <li>
+                    <h3>Beer-battered onion rings</h3>
+                    <p>Lemon salt, roasted garlic dip</p>
+                  </li>
+                  <li>
+                    <h3>Crispy squid</h3>
+                    <p>Parsley, lemon, garlic yoghurt</p>
+                  </li>
+                  <li>
+                    <h3>Saganaki</h3>
+                    <p>Pan-fried cheese, thyme honey</p>
+                  </li>
+                </ul>
+              </div>
+              <div
+                role="tabpanel"
+                id="menu-panel-1"
+                aria-labelledby="menu-tab-1"
+                tabindex="0"
+                hidden
+              >
+                <p class="script">Good fish. Good company.</p>
+                <ul class="dishes">
+                  <li>
+                    <h3>Sunday fish & chips</h3>
+                    <p>Beer batter, hand-cut chips, Mum’s tartar</p>
+                  </li>
+                  <li>
+                    <h3>Grilled market fish</h3>
+                    <p>Lemon potatoes, seasonal greens</p>
+                  </li>
+                  <li>
+                    <h3>Prawns in the pan</h3>
+                    <p>Tomato, garlic, grilled bread</p>
+                  </li>
+                  <li>
+                    <h3>Charred octopus</h3>
+                    <p>White beans, parsley, smoked paprika</p>
+                  </li>
+                </ul>
+              </div>
+              <div
+                role="tabpanel"
+                id="menu-panel-2"
+                aria-labelledby="menu-tab-2"
+                tabindex="0"
+                hidden
+              >
+                <p class="script">One more good thing.</p>
+                <ul class="dishes">
+                  <li>
+                    <h3>Tomatoes & feta</h3>
+                    <p>Capers, oregano, olive oil</p>
+                  </li>
+                  <li>
+                    <h3>Charred greens</h3>
+                    <p>Lemon dressing, toasted almonds</p>
+                  </li>
+                  <li>
+                    <h3>Hand-cut chips</h3>
+                    <p>Sea salt, oregano</p>
+                  </li>
+                  <li>
+                    <h3>Lemon potatoes</h3>
+                    <p>Slow-roasted with garlic</p>
+                  </li>
+                  <li>
+                    <h3>Lemon olive oil cake</h3>
+                    <p>Thick yoghurt, lemon zest</p>
+                  </li>
+                  <li>
+                    <h3>Greek yoghurt</h3>
+                    <p>Thyme honey, toasted walnuts</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <p class="menu-note">Please tell us about any allergies.</p>
+          </div>
+        </div>
+      </section>
+      <section id="place" class="place-section" aria-labelledby="place-title">
+        <div class="place-heading">
+          <p class="eyebrow">Pull up a chair</p>
+          <h2 id="place-title">
+            DAD’S JOKES.<br /><span class="serif">Mum’s recipes.</span>
+          </h2>
+          <p>
+            A proper neighbourhood spot. Blue chairs outside, a warm welcome
+            inside, and a table that always seems to need another plate.
+          </p>
+        </div>
+        <div class="place-scene">
+          <img
+            id="place-image"
+            src="/previews/sunday-boat/assets/12-exterior-table-details-768w.webp"
+            srcset="
+              /previews/sunday-boat/assets/12-exterior-table-details-768w.webp  768w,
+              /previews/sunday-boat/assets/12-exterior-table-details-full.webp 1536w
+            "
+            sizes="100vw"
+            width="1536"
+            height="1024"
+            loading="lazy"
+            alt="Sunday Boat terrace beneath a cobalt awning"
+          />
+          <div
+            class="place-switch"
+            role="group"
+            aria-label="Explore the restaurant"
+          >
+            <button data-place="outside" aria-pressed="true">Outside</button
+            ><button data-place="inside" aria-pressed="false">Inside</button>
+          </div>
+        </div>
+        <div class="place-foot">
+          <span>Seafood & sharing plates</span>
+          <p class="script">The kind of place you make your own.</p>
+          <img
+            src="/previews/sunday-boat/assets/swim.svg"
+            alt=""
+            width="110"
+            height="68"
+            aria-hidden="true"
+          />
+        </div>
+      </section>
+      <section class="table-section" aria-labelledby="table-title">
+        <div class="table-copy">
+          <p class="eyebrow">The Sunday state of mind</p>
+          <h2 id="table-title">
+            PASS<br />IT ROUND<span class="fullstop">.</span>
+          </h2>
+          <p>
+            A long lunch. An extra fork.<br />A little of yours, a little of
+            mine.
+          </p>
+          <a class="text-button" href="#menu"
+            >Let’s see that menu <span aria-hidden="true">+</span></a
+          >
+        </div>
+        <div class="table-gallery">
+          <button
+            class="table-tall"
+            data-gallery="40-terrace-lunch"
+            data-caption="A table on the terrace"
+          >
+            <img
+              class=""
+              src="/previews/sunday-boat/assets/40-terrace-lunch-768w.webp"
+              srcset="
+                /previews/sunday-boat/assets/40-terrace-lunch-768w.webp  768w,
+                /previews/sunday-boat/assets/40-terrace-lunch-full.webp 1536w
+              "
+              sizes="(max-width:700px) 90vw, 55vw"
+              alt="Fish, sharing plates and drinks on the terrace"
+              loading="lazy"
+              decoding="async"
+              width="1536"
+              height="1024"
+            /><span class="view-photo">A seat outside +</span></button
+          ><button
+            class="table-small"
+            data-gallery="41-terrace-overhead"
+            data-caption="Lunch, from above"
+          >
+            <img
+              class=""
+              src="/previews/sunday-boat/assets/41-terrace-overhead-768w.webp"
+              srcset="
+                /previews/sunday-boat/assets/41-terrace-overhead-768w.webp  768w,
+                /previews/sunday-boat/assets/41-terrace-overhead-full.webp 1536w
+              "
+              sizes="(max-width:700px) 90vw, 55vw"
+              alt="Overhead view of seafood and sharing plates"
+              loading="lazy"
+              decoding="async"
+              width="1536"
+              height="1024"
+            /><span class="view-photo">The whole table +</span></button
+          ><span class="table-sticker" aria-hidden="true"
+            ><img
+              src="/previews/sunday-boat/assets/fish.svg"
+              alt=""
+              width="110"
+              height="68"
+              aria-hidden="true"
+            /><span>GOOD<br />COMPANY</span></span
+          >
+        </div>
+      </section>
+      <section class="takeaway" id="takeaway" aria-labelledby="takeaway-title">
+        <div class="takeaway-object">
+          <button
+            id="box-toggle"
+            aria-pressed="false"
+            aria-label="Open the takeaway box"
+          >
+            <img
+              class="box-closed"
+              src="/previews/sunday-boat/assets/16-refined-wrap-box-768w.webp"
+              srcset="
+                /previews/sunday-boat/assets/16-refined-wrap-box-768w.webp  768w,
+                /previews/sunday-boat/assets/16-refined-wrap-box-full.webp 1536w
+              "
+              sizes="(max-width:700px) 90vw, 55vw"
+              alt="Closed pistachio Sunday Boat takeaway box"
+              loading="lazy"
+              decoding="async"
+              width="1536"
+              height="1024"
+            /><img
+              class="box-open"
+              src="/previews/sunday-boat/assets/14-main-takeaway-box-768w.webp"
+              srcset="
+                /previews/sunday-boat/assets/14-main-takeaway-box-768w.webp  768w,
+                /previews/sunday-boat/assets/14-main-takeaway-box-full.webp 1536w
+              "
+              sizes="(max-width:700px) 90vw, 55vw"
+              alt="An open Sunday Boat box of crispy squid"
+              loading="lazy"
+              decoding="async"
+              width="1536"
+              height="1024"
+            /><span class="box-hint">Lift the lid +</span>
+          </button>
+        </div>
+        <div class="takeaway-copy">
+          <p class="eyebrow">Same Sunday. Different table.</p>
+          <h2 id="takeaway-title">
+            SUNDAY,<br /><span class="serif">to go.</span>
+          </h2>
+          <p>
+            For the kitchen table. The picnic blanket.<br />Or wherever everyone
+            ends up.
+          </p>
+          <button
+            class="ticket"
+            data-gallery="39-takeaway-spread"
+            data-caption="Sunday, packed for sharing"
+          >
+            <span data-label="Unpack the good stuff"
+              >Unpack the good stuff</span
+            >
+          </button>
+        </div>
+      </section>
+      <section class="off-menu" id="off-menu" aria-labelledby="merch-title">
+        <div class="merch-heading">
+          <div>
+            <p class="eyebrow">A little Sunday, every day</p>
+            <h2 id="merch-title">
+              OFF THE MENU<span class="fullstop">.</span>
+            </h2>
+          </div>
+          <p class="script">Good taste. Not just on a plate.</p>
+        </div>
+        <div class="clothesline">
+          <button
+            class="merch-card"
+            data-gallery="31-merch-t-shirt"
+            data-caption="The Sunday tee"
+          >
+            <img
+              class=""
+              src="/previews/sunday-boat/assets/31-merch-t-shirt-768w.webp"
+              srcset="
+                /previews/sunday-boat/assets/31-merch-t-shirt-768w.webp  768w,
+                /previews/sunday-boat/assets/31-merch-t-shirt-full.webp 1536w
+              "
+              sizes="(max-width:700px) 90vw, 55vw"
+              alt="The Sunday tee"
+              loading="lazy"
+              decoding="async"
+              width="1536"
+              height="1024"
+            /><span>The Sunday tee</span></button
+          ><button
+            class="merch-card"
+            data-gallery="32-merch-cap"
+            data-caption="The good cap"
+          >
+            <img
+              class=""
+              src="/previews/sunday-boat/assets/32-merch-cap-768w.webp"
+              srcset="
+                /previews/sunday-boat/assets/32-merch-cap-768w.webp  768w,
+                /previews/sunday-boat/assets/32-merch-cap-full.webp 1536w
+              "
+              sizes="(max-width:700px) 90vw, 55vw"
+              alt="The good cap"
+              loading="lazy"
+              decoding="async"
+              width="1536"
+              height="1024"
+            /><span>The good cap</span></button
+          ><button
+            class="merch-card"
+            data-gallery="33-merch-tote"
+            data-caption="Something to carry home"
+          >
+            <img
+              class=""
+              src="/previews/sunday-boat/assets/33-merch-tote-768w.webp"
+              srcset="
+                /previews/sunday-boat/assets/33-merch-tote-768w.webp  768w,
+                /previews/sunday-boat/assets/33-merch-tote-full.webp 1536w
+              "
+              sizes="(max-width:700px) 90vw, 55vw"
+              alt="Something to carry home"
+              loading="lazy"
+              decoding="async"
+              width="1536"
+              height="1024"
+            /><span>Something to carry home</span></button
+          ><button
+            class="merch-card"
+            data-gallery="34-merch-apron"
+            data-caption="Mum’s kitchen uniform"
+          >
+            <img
+              class=""
+              src="/previews/sunday-boat/assets/34-merch-apron-768w.webp"
+              srcset="
+                /previews/sunday-boat/assets/34-merch-apron-768w.webp  768w,
+                /previews/sunday-boat/assets/34-merch-apron-full.webp 1536w
+              "
+              sizes="(max-width:700px) 90vw, 55vw"
+              alt="Mum’s kitchen uniform"
+              loading="lazy"
+              decoding="async"
+              width="1536"
+              height="1024"
+            /><span>Mum’s kitchen uniform</span>
+          </button>
+        </div>
+        <p class="merch-note">
+          The Sunday Boat collection. Take a closer look.
+        </p>
+      </section>
+      <footer>
+        <div class="footer-fish" aria-hidden="true">
+          <img
+            src="/previews/sunday-boat/assets/swim-white.svg"
+            alt=""
+            width="110"
+            height="68"
+            aria-hidden="true"
+          /><img
+            src="/previews/sunday-boat/assets/swim-white.svg"
+            alt=""
+            width="110"
+            height="68"
+            aria-hidden="true"
+          /><img
+            src="/previews/sunday-boat/assets/swim-white.svg"
+            alt=""
+            width="110"
+            height="68"
+            aria-hidden="true"
+          /><img
+            src="/previews/sunday-boat/assets/swim-white.svg"
+            alt=""
+            width="110"
+            height="68"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="footer-main">
+          <h2>SEA YOU<br /><span class="serif">at the table.</span></h2>
+          <a class="ticket light-ticket" href="#menu"
+            ><span data-label="One more look at the menu"
+              >One more look at the menu</span
+            ></a
+          >
+        </div>
+        <div class="footer-bottom">
+          <a href="#top" aria-label="Sunday Boat, back to top"
+            ><img
+              src="/previews/sunday-boat/assets/wordmark.svg"
+              alt="Sunday Boat"
+              width="250"
+              height="60" /></a
+          ><span>Seafood & sharing plates</span
+          ><a href="#top">Back to the top</a>
+        </div>
+      </footer>
+    </main>
+    <dialog id="lightbox" aria-labelledby="lightbox-caption">
+      <div class="lightbox-top">
+        <span>Sunday Boat</span
+        ><button data-close aria-label="Close photograph">Close ×</button>
+      </div>
+      <img id="lightbox-image" alt="" />
+      <div class="lightbox-bottom">
+        <button data-step="-1" aria-label="Previous photograph">
+          Previous
+        </button>
+        <p id="lightbox-caption"></p>
+        <button data-step="1" aria-label="Next photograph">Next</button>
+      </div>
+    </dialog>
+  </body>
+</html>

@@ -166,6 +166,48 @@ const INDUSTRIES = [
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
 {
+  "id": "sunday-boat",
+  "industry": "restaurant",
+  "name": "Sunday Boat",
+  "tagline": "כל יום מרגיש כמו יום חופש",
+  "tier": "Custom",
+  "tierGradient": "linear-gradient(135deg, #154CDB, #262626)",
+  "domain": "SUNDAY BOAT",
+  "palette": [
+    "#154CDB",
+    "#FFFFFF",
+    "#DCE5BA",
+    "#262626"
+  ],
+  "paletteNames": [
+    "כחול קובלט",
+    "לבן",
+    "פיסטוק",
+    "פחם"
+  ],
+  "features": [
+    "מניפת תמונות אוכל אינטראקטיבית",
+    "תפריט עם טיפוגרפיה ייחודית",
+    "מבט פנימה והחוצה על המסעדה",
+    "גלריות משחקיות של אריזות ופריטי המותג"
+  ],
+  "pages": [
+    {
+      "label": "אתר הדגמה",
+      "preview": "live",
+      "description": "כל יום מרגיש כמו יום חופש"
+    }
+  ],
+  "style": "מסעדת דגים שכונתית עם זהות המותג Sunday Boat, כותרות Big Shoulders, נגיעות Literata וחוויה צילומית משחקית.",
+  "waMessage": "שלום צוות DM-Labs! אשמח לדבר על אתר מסעדה עם האופי של Sunday Boat.",
+  "price": "",
+  "images": {
+    "card": ""
+  },
+  "livePreview": true,
+  "previewUrl": "/previews/sunday-boat.html"
+},
+{
   "id": "away",
   "industry": "hospitality",
   "name": "AWAY",

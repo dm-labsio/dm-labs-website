@@ -166,6 +166,48 @@ const INDUSTRIES = [
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
 {
+  "id": "sunday-boat",
+  "industry": "restaurant",
+  "name": "Sunday Boat",
+  "tagline": "Κάθε μέρα μοιάζει με Κυριακή",
+  "tier": "Custom",
+  "tierGradient": "linear-gradient(135deg, #154CDB, #262626)",
+  "domain": "SUNDAY BOAT",
+  "palette": [
+    "#154CDB",
+    "#FFFFFF",
+    "#DCE5BA",
+    "#262626"
+  ],
+  "paletteNames": [
+    "Μπλε κοβαλτίου",
+    "Λευκό",
+    "Φιστικί",
+    "Ανθρακί"
+  ],
+  "features": [
+    "Διαδραστική βεντάλια φωτογραφιών πιάτων",
+    "Μενού με ιδιαίτερη τυπογραφία",
+    "Εξωτερικός και εσωτερικός χώρος",
+    "Παιχνιδιάρικες συλλογές συσκευασίας και ειδών"
+  ],
+  "pages": [
+    {
+      "label": "Demo ιστοσελίδας",
+      "preview": "live",
+      "description": "Κάθε μέρα μοιάζει με Κυριακή"
+    }
+  ],
+  "style": "Ένα εστιατόριο θαλασσινών της γειτονιάς με την ταυτότητα Sunday Boat, δυνατούς τίτλους Big Shoulders, πινελιές Literata και διαδραστικές φωτογραφίες.",
+  "waMessage": "Γεια σας ομάδα DM-Labs! Θα ήθελα να συζητήσουμε μια ιστοσελίδα εστιατορίου με τον χαρακτήρα του Sunday Boat.",
+  "price": "",
+  "images": {
+    "card": ""
+  },
+  "livePreview": true,
+  "previewUrl": "/previews/sunday-boat.html"
+},
+{
   "id": "away",
   "industry": "hospitality",
   "name": "AWAY",

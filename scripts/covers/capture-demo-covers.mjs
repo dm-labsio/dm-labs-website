@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 
 const base = process.env.DEMO_CAPTURE_URL || 'http://127.0.0.1:5177';
 const output = resolve(process.env.DEMO_CAPTURE_OUTPUT || '../output/demo-covers');
-const ids = ['away', 'hartley', 'nomad-coffee', 'bella-salon', 'dr-elara-dental', 'pulse-gym', 'arcos-architecture', 'luxe-realty'];
+const ids = ['sunday-boat', 'away', 'hartley', 'nomad-coffee', 'bella-salon', 'dr-elara-dental', 'pulse-gym', 'arcos-architecture', 'luxe-realty'];
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch();
 try {

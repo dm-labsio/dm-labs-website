@@ -138,6 +138,7 @@ export const DYNAMIC_PATTERNS = [
 // canonical routes. Keep this explicit allowlist in sync with PreviewPage and
 // scripts/prerender-full.mjs so unknown /preview/:id paths retain a real 404.
 export const VALID_PREVIEW_IDS = new Set([
+  "sunday-boat",
   "away",
   "hartley",
   "bella-salon",
