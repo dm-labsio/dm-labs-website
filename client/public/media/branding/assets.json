@@ -1,0 +1,106 @@
+{
+  "hartley/collection": {
+    "width": 787,
+    "height": 1400
+  },
+  "hartley/sleeve": {
+    "width": 788,
+    "height": 1400
+  },
+  "hartley/bag": {
+    "width": 788,
+    "height": 1400
+  },
+  "hartley/loyalty": {
+    "width": 788,
+    "height": 1400
+  },
+  "hartley/menu": {
+    "width": 788,
+    "height": 1400
+  },
+  "hartley/poster": {
+    "width": 990,
+    "height": 1400
+  },
+  "hartley/exterior": {
+    "width": 787,
+    "height": 1400
+  },
+  "hartley/dog": {
+    "width": 1400,
+    "height": 966
+  },
+  "hartley/botanical": {
+    "width": 1400,
+    "height": 1296
+  },
+  "away/towels": {
+    "width": 1120,
+    "height": 1400
+  },
+  "away/label": {
+    "width": 1400,
+    "height": 933
+  },
+  "away/guide": {
+    "width": 1400,
+    "height": 933
+  },
+  "away/ceramics": {
+    "width": 1300,
+    "height": 867
+  },
+  "away/amenities": {
+    "width": 1300,
+    "height": 867
+  },
+  "away/welcome": {
+    "width": 1300,
+    "height": 867
+  },
+  "away/key": {
+    "width": 1040,
+    "height": 1300
+  },
+  "away/poster": {
+    "width": 990,
+    "height": 1400
+  },
+  "away/social": {
+    "width": 1080,
+    "height": 1350
+  },
+  "sunday-boat/box": {
+    "width": 1400,
+    "height": 933
+  },
+  "sunday-boat/bag": {
+    "width": 1400,
+    "height": 933
+  },
+  "sunday-boat/wrap": {
+    "width": 1400,
+    "height": 933
+  },
+  "sunday-boat/table": {
+    "width": 1400,
+    "height": 933
+  },
+  "sunday-boat/merch": {
+    "width": 1400,
+    "height": 933
+  },
+  "sunday-boat/tote": {
+    "width": 1400,
+    "height": 933
+  },
+  "sunday-boat/cap": {
+    "width": 1400,
+    "height": 933
+  },
+  "sunday-boat/exterior": {
+    "width": 1400,
+    "height": 933
+  }
+}

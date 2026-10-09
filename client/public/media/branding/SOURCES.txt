@@ -1,0 +1,27 @@
+Supplied identity libraries. Optimized exports only; no cropping or generative edits.
+hartley/collection.webp <- hartley-source/HARTLEY-library/assets/photography/hartley-04-7.png
+hartley/sleeve.webp <- hartley-source/HARTLEY-library/assets/packaging-mockups/01-morning-pastry-sleeve.png
+hartley/bag.webp <- hartley-source/HARTLEY-library/assets/packaging-mockups/04-takeaway-handover.png
+hartley/loyalty.webp <- hartley-source/HARTLEY-library/assets/stationery-mockups/02-regulars-loyalty-card.png
+hartley/menu.webp <- hartley-source/HARTLEY-library/assets/print-editorial-mockups/03-afternoon-tea-menu-wide-margins.png
+hartley/poster.webp <- hartley-source/HARTLEY-library/assets/posters/08-a-little-time-for-tea-small-crown.png
+hartley/exterior.webp <- hartley-source/HARTLEY-library/assets/photography/hartley-01-2.png
+hartley/dog.webp <- hartley-source/HARTLEY-library/assets/illustrations/png/04-dog-standing-profile.png
+hartley/botanical.webp <- hartley-source/HARTLEY-library/assets/illustrations/png/34-periwinkle-complete-study.png
+away/towels.webp <- away-source/AWAY-UPDATED/assets/mockup-new-5.png
+away/label.webp <- away-source/AWAY-UPDATED/assets/mockup-new-1.png
+away/guide.webp <- away-source/AWAY-UPDATED/assets/mockup-new-4.png
+away/ceramics.webp <- away-source/AWAY-UPDATED/assets/applications-4.png
+away/amenities.webp <- away-source/AWAY-UPDATED/assets/applications-6.png
+away/welcome.webp <- away-source/AWAY-UPDATED/assets/applications-0.png
+away/key.webp <- away-source/AWAY-UPDATED/assets/applications-1.png
+away/poster.webp <- away-source/AWAY-UPDATED/assets/AWAY-social-and-posters/09-the-great-outside-poster.png
+away/social.webp <- away-source/AWAY-UPDATED/assets/AWAY-social-and-posters/01-wildly-comfortable-feed.png
+sunday-boat/box.webp <- sunday-boat-source/Sunday-Boat-Web-Designer-Handoff/03-web-images/packaging/16-refined-wrap-box-full.webp
+sunday-boat/bag.webp <- sunday-boat-source/Sunday-Boat-Web-Designer-Handoff/03-web-images/packaging/22-takeaway-bag-pistachio-solid-full.webp
+sunday-boat/wrap.webp <- sunday-boat-source/Sunday-Boat-Web-Designer-Handoff/03-web-images/packaging/17-wrapping-paper-full.webp
+sunday-boat/table.webp <- sunday-boat-source/Sunday-Boat-Web-Designer-Handoff/03-web-images/tableware/27-placemat-napkin-full.webp
+sunday-boat/merch.webp <- sunday-boat-source/Sunday-Boat-Web-Designer-Handoff/03-web-images/merchandise/29-merch-collection-full.webp
+sunday-boat/tote.webp <- sunday-boat-source/Sunday-Boat-Web-Designer-Handoff/03-web-images/merchandise/33-merch-tote-full.webp
+sunday-boat/cap.webp <- sunday-boat-source/Sunday-Boat-Web-Designer-Handoff/03-web-images/merchandise/32-merch-cap-full.webp
+sunday-boat/exterior.webp <- sunday-boat-source/Sunday-Boat-Web-Designer-Handoff/03-web-images/restaurant/12-exterior-table-details-full.webp

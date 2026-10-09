@@ -1,3 +1,4 @@
+import BrandingGallery from "./BrandingGallery";
 import WorkGallery from "./WorkGallery";
 import { workCopy, type WorkLocale } from "./workData";
 import "./our-work.css";
@@ -18,6 +19,7 @@ export default function OurWorkPage({ locale }: { locale: WorkLocale }) {
         </div>
         <WorkGallery locale={locale} />
       </section>
+      <BrandingGallery locale={locale} />
       <section className="work-contact container">
         <div>
           <h2>{copy.cta}</h2>
