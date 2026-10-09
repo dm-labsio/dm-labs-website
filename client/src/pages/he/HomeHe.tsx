@@ -45,7 +45,7 @@ export default function HomeHe() {
     <HomeIndustries language="he" />
 
 
-    <section className="home-team section-spacing"><div className="container"><TeamProfiles language="he" /></div></section>
+    <section className="home-team section-spacing"><div className="container"><h2 className="text-center text-3xl sm:text-4xl font-bold text-white mb-8">מי אנחנו</h2><TeamProfiles language="he" /></div></section>
 
     <section className="relative overflow-hidden"><div className="absolute inset-0 bg-[#0F172A]"><img src={DARK_CTA_BG} alt="" role="presentation" className="absolute inset-0 h-full w-full object-cover opacity-40" /></div><div className="container relative z-10 section-spacing text-center"><AnimateIn><p className="text-sm font-medium text-[#6FE3FF] mb-4">יוצאים לדרך?</p><h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">תנו ללקוחות סיבה לבחור בכם</h2><p className="mx-auto mt-6 mb-10 max-w-xl text-lg text-[#94A3B8]">ספרו לנו לאן אתם רוצים לקחת את העסק, ונשב על זה יחד: איך האתר ייראה, מה ייכנס בו ומה הצעד הבא. ולאורך כל הדרך אתם מדברים ישירות עם מי שבונה אותו, בלי מתווכים ובלי טלפון שבור.</p><StarButton asChild><a href={WHATSAPP_HEBREW} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">לשיחת ייעוץ בחינם</a></StarButton></AnimateIn></div></section>
   </div>;

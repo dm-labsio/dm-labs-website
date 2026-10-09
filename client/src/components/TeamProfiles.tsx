@@ -1,5 +1,5 @@
-import { useId, useState } from "react";
-import AnimateIn from "./AnimateIn";
+import * as Dialog from "@radix-ui/react-dialog";
+import { Link } from "wouter";
 import "./TeamProfiles.css";
 
 const profiles = {
@@ -47,85 +47,126 @@ const profiles = {
   ],
 } as const;
 const labels = {
-  en: ["Read more", "Read less"],
-  he: ["קראו עוד", "הצגת פחות"],
-  el: ["Περισσότερα", "Λιγότερα"],
+  en: {
+    meet: "Meet",
+    approach: "How I work",
+    close: "Close profile",
+    contact: "Let’s talk about your website",
+    hint: "Two people. Direct collaboration.",
+    browse: "Meet the people behind DM Labs",
+  },
+  el: {
+    meet: "Γνωρίστε",
+    approach: "Πώς δουλεύω",
+    close: "Κλείσιμο προφίλ",
+    contact: "Ας μιλήσουμε για την ιστοσελίδα σας",
+    hint: "Δύο άνθρωποι. Άμεση συνεργασία.",
+    browse: "Γνωρίστε τους ανθρώπους της DM Labs",
+  },
+  he: {
+    meet: "נעים להכיר",
+    approach: "איך אני עובד/ת",
+    close: "סגירת הפרופיל",
+    contact: "בואו נדבר על האתר שלכם",
+    hint: "שני אנשים. עבודה ישירה יחד.",
+    browse: "האנשים שמאחורי DM Labs",
+  },
 } as const;
 const images = [
   "/media/manus/AtkkCmVLLZyIDtDx.webp",
   "/media/manus/DVIoYisVQvzbqoiR.webp",
 ];
-
 type Language = keyof typeof profiles;
 
-function ProfileCard({
-  profile,
-  image,
-  language,
-}: {
-  profile: readonly [string, string, string, string];
-  image: string;
-  language: Language;
-}) {
-  const [expanded, setExpanded] = useState(false);
-  const detailId = useId();
-  const [name, role, background, approach] = profile;
-  return (
-    <article className="team-profile">
-      <div className="team-profile-photo-frame"><img
-        className="team-profile-photo"
-        src={image}
-        alt={name}
-        width={image === images[0] ? 859 : 880}
-        height={1280}
-        loading="lazy"
-      /></div>
-      <header className="team-profile-heading">
-        <h3 className={language === "en" ? "editorial-card-title" : undefined}>
-          {name}
-        </h3>
-        <p className="team-profile-role">{role}</p>
-      </header>
-      <div className="team-profile-copy">
-        <p>{background}</p>
-        <p
-          id={detailId}
-          className="team-profile-detail"
-          data-expanded={expanded}
-        >
-          {approach}
-        </p>
-        <button
-          type="button"
-          className="team-profile-toggle"
-          aria-expanded={expanded}
-          aria-controls={detailId}
-          onClick={() => setExpanded(value => !value)}
-        >
-          {labels[language][expanded ? 1 : 0]}
-          <span className="sr-only">: {name}</span>
-        </button>
-      </div>
-    </article>
-  );
-}
-
 export default function TeamProfiles({ language }: { language: Language }) {
+  const t = labels[language];
   return (
     <div
-      className="team-profiles"
+      className="team-showcase"
       lang={language}
       dir={language === "he" ? "rtl" : "ltr"}
     >
-      {profiles[language].map((profile, index) => (
-        <AnimateIn key={profile[0]} delay={index * 0.1}>
-          <ProfileCard
-            profile={profile}
-            image={images[index]}
-            language={language}
-          />
-        </AnimateIn>
-      ))}
+      <p className="team-showcase-note">{t.hint}</p>
+      <div className="team-profiles" aria-label={t.browse}>
+        {profiles[language].map(([name, role, background, approach], index) => (
+          <article className="team-profile" key={name}>
+            <Dialog.Root>
+              <Dialog.Trigger asChild>
+                <button
+                  className="team-portrait-card"
+                  aria-label={`${t.meet} ${name}`}
+                >
+                  <span className="team-profile-photo-frame">
+                    <img
+                      className="team-profile-photo"
+                      src={images[index]}
+                      alt={name}
+                      width={index === 0 ? 859 : 880}
+                      height={1280}
+                      loading="lazy"
+                    />
+                  </span>
+                  <span className="team-portrait-caption">
+                    <span className="team-portrait-name">{name}</span>
+                    <span className="team-portrait-role">{role}</span>
+                    <span className="team-portrait-action">
+                      {t.meet} {name}
+                      <span aria-hidden="true">+</span>
+                    </span>
+                  </span>
+                </button>
+              </Dialog.Trigger>
+              <Dialog.Portal>
+                <Dialog.Overlay className="team-bio-backdrop" />
+                <Dialog.Content
+                  className="team-bio"
+                  lang={language}
+                  dir={language === "he" ? "rtl" : "ltr"}
+                  data-brand="dm-labs"
+                  aria-describedby={undefined}
+                >
+                  <Dialog.Close className="team-bio-close" aria-label={t.close}>
+                    <span aria-hidden="true">×</span>
+                  </Dialog.Close>
+                  <div className="team-bio-layout">
+                    <div className="team-bio-image">
+                      <img
+                        src={images[index]}
+                        alt={name}
+                        width={index === 0 ? 859 : 880}
+                        height={1280}
+                      />
+                    </div>
+                    <div className="team-bio-copy">
+                      <Dialog.Title className="team-bio-name">
+                        {name}
+                      </Dialog.Title>
+                      <p className="team-bio-role">{role}</p>
+                      <p>{background}</p>
+                      <h3>
+                        {language === "he"
+                          ? index === 0
+                            ? "איך אני עובדת"
+                            : "איך אני עובד"
+                          : t.approach}
+                      </h3>
+                      <p>{approach}</p>
+                      <Dialog.Close asChild>
+                        <Link
+                          className="team-bio-contact"
+                          href={`${language === "en" ? "" : `/${language}`}/contact/`}
+                        >
+                          {t.contact}
+                        </Link>
+                      </Dialog.Close>
+                    </div>
+                  </div>
+                </Dialog.Content>
+              </Dialog.Portal>
+            </Dialog.Root>
+          </article>
+        ))}
+      </div>
     </div>
   );
 }
