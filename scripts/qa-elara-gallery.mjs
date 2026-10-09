@@ -34,9 +34,7 @@ try {
     const gallery = path.includes("templates");
     const a = p.locator('a[href^="/preview/dr-elara-dental/"]');
     if (gallery) {
-      await p
-        .getByRole("heading", { name: "Dr. Elara Dental", exact: true })
-        .click();
+      await p.locator('[data-demo-card="dr-elara-dental"] button').click();
     } else await a.scrollIntoViewIfNeeded();
     const y = await p.evaluate(
       g => (g ? history.state.dmGalleryPosition.y : scrollY),

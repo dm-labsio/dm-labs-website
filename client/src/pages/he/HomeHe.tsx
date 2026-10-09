@@ -16,7 +16,7 @@ const DARK_CTA_BG = "/media/brand-refresh/v1/faq-pearl-arcs-desktop.webp";
 
 const examples = [
   ["nomad-coffee", "Nomad Coffee", "קפה עם אופי", "/media/examples/nomad/cover.webp", "דוגמה לאתר Nomad Coffee"],
-  ["bella-salon", "Bella Salon", "אלגנטי ונשי", "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80", "דוגמה לאתר Bella Salon"],
+  ["bella-salon", "Bella Salon", "שיער עם אמירה אישית", "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80", "דוגמה לאתר Bella Salon"],
   ["dr-elara-dental", "Dr. Elara Dental", "נקי ומקצועי", "/media/examples/elara/cover-interactive.webp", "דוגמה לאתר Dr. Elara Dental"],
   ["arcos-architecture", "Arcos Architecture", "אדריכלות בקווים נקיים", "/media/examples/arcos/courtyard-768.webp", "דוגמה לאתר Arcos Architecture"],
 ] as const;
@@ -34,7 +34,7 @@ export default function HomeHe() {
 
       <HomeIntroductionVideo language="he" />
 
-    <section id="examples" className="home-examples section-spacing relative overflow-hidden"><div className="container relative z-10"><AnimateIn className="text-center mb-10"><p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide">אתרי הדגמה</p><h2 className="text-3xl sm:text-4xl font-bold text-[#edf2ff]">אין הזדמנות שנייה לרושם ראשון</h2><p className="mt-4 mx-auto max-w-2xl text-lg text-[#bdc9df] leading-relaxed">לקוחות מחליטים עליכם כבר בשניות הראשונות באתר, עוד לפני שהרימו טלפון. הנה כמה דוגמאות שיתנו לכם כיוון, ואת האתר שלכם נבנה מאפס, לפי העסק, הלקוחות ומה שאתם רוצים שהם יעשו.</p></AnimateIn><StaggerContainer className="mx-auto grid max-w-5xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">{examples.map(([id, title, subtitle, imageUrl, imageAlt]) => <StaggerItem key={id}><InteractiveExampleCard title={title} subtitle={subtitle} imageUrl={imageUrl} imageAlt={imageAlt} showcase={id === "nomad-coffee"} href={`/preview/${id}/?from=%2Fhe%2F`} actionText="לצפייה באתר ההדגמה" /></StaggerItem>)}</StaggerContainer></div></section>
+    <section id="examples" className="home-examples section-spacing relative overflow-hidden"><div className="container relative z-10"><AnimateIn className="text-center mb-10"><p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide">אתרי הדגמה</p><h2 className="text-3xl sm:text-4xl font-bold text-[#edf2ff]">אין הזדמנות שנייה לרושם ראשון</h2><p className="mt-4 mx-auto max-w-2xl text-lg text-[#bdc9df] leading-relaxed">לקוחות מחליטים עליכם כבר בשניות הראשונות באתר, עוד לפני שהרימו טלפון. הנה כמה דוגמאות שיתנו לכם כיוון, ואת האתר שלכם נבנה מאפס, לפי העסק, הלקוחות ומה שאתם רוצים שהם יעשו.</p></AnimateIn><StaggerContainer className="mx-auto grid max-w-5xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">{examples.map(([id, title, subtitle, imageUrl, imageAlt]) => <StaggerItem key={id}><InteractiveExampleCard title={title} subtitle={subtitle} demoId={id} href={`/preview/${id}/?from=%2Fhe%2F`} actionText="לצפייה באתר ההדגמה" /></StaggerItem>)}</StaggerContainer></div></section>
 
     <HomeServices language="he" />
 

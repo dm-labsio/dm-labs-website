@@ -74,13 +74,8 @@ describe("Examples index editorial typography", () => {
   });
 
   it("keeps card surroundings readable and avoids standalone decorative dash copy", () => {
-    expect(templatesSource).toContain("templates-editorial-card-note");
-    expect(templatesSource).toContain("Design inspiration");
-    expect(templatesSource).toContain("Built around your brand");
     expect(templatesSource).not.toContain("Design inspiration - pricing from €299");
     expect(templatesSource).not.toContain("Pricing from €299 - quote on request");
-    expect(templatesSource).toContain("templates-editorial-custom-title");
-    expect(templatesSource).toContain("templates-editorial-custom-copy");
     expect(templatesSource).toContain("templates-editorial-cta-button");
   });
 

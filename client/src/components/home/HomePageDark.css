@@ -26,3 +26,23 @@
   .home-page--dark .home-team { background-image: linear-gradient(#10192de6, #10192de0), url('/media/brand-refresh/v1/contact-folded-glass-mobile.webp'); }
   .home-page--dark .home-overview-process { background-image: linear-gradient(#111b30db, #111b30e8), url('/media/brand-refresh/v1/studio-glass-mobile.webp'); }
 }
+
+/* A slightly tighter homepage rhythm; preserve content, artwork and tap targets. */
+.home-page--dark .section-spacing { padding-block: 4rem; }
+.home-page--dark .home-film { padding-block: clamp(3.5rem, 6vw, 5.5rem); }
+.home-page--dark .home-overview { padding-block: clamp(3.5rem, 7vw, 6rem); }
+.home-page--dark .package-overview { padding-block: clamp(2.625rem, 5.25vw, 5.25rem); }
+.home-page--dark .industry-gallery { padding-block: clamp(2.625rem, 6vw, 6rem); }
+.home-page--dark .home-overview .home-overview-intro { margin-block-end: clamp(2.25rem, 4.5vw, 3.5rem); }
+.home-page--dark .home-process-layout .home-overview-intro { margin-block-end: 0; }
+.home-page--dark :is(.home-examples, .home-stories, .home-team) > .container > .mb-14 { margin-bottom: 3rem; }
+.home-page--dark .home-examples > .container > .mb-16 { margin-bottom: 2rem; }
+.home-page--dark .home-hero .home-hero-grid { padding-block: clamp(3rem, 4.5vw, 4.5rem); min-height: min(45rem, calc(100svh - 72px)); }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home-page--dark .section-spacing { padding-block: 3rem; }
+  .home-page--dark .home-hero .home-hero-grid { min-height: 0; padding-block: 3.5rem; }
+}
+@media (max-width: 767px) {
+  .home-page--dark .section-spacing { padding-block: 2.25rem; }
+  .home-page--dark .home-hero .home-hero-grid { min-height: 0; padding-block: 2.625rem 2.25rem; }
+}

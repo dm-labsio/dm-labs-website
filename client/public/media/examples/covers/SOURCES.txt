@@ -1,0 +1,8 @@
+Website demo covers, captured 9 October 2026.
+
+Complete header-and-hero views of the seven actual local website demos: Hartley, Nomad Coffee, Bella Salon, Dr. Elara Dental, Pulse Gym, Arcos Architecture and Luxe Realty. Browser capture on a consistent 1440 × 900 canvas with reduced motion and loaded fonts/images. Capture-only hero sizing fills the canvas; Arcos uses a more compact heading and photo area. The live demo designs are unchanged. Reproduce with scripts/covers/capture-demo-covers.mjs. No fabricated device screens, generated cover artwork, altered UI text or stock mockups.
+
+WebP derivatives at 720px and 1200px width preserve the original aspect ratio and colours. PNG originals remain in the workspace output/demo-covers directory. Source photography and font licences remain those of the underlying demos. Shared website presentation displays each capture edge to edge at the shared 8:5 aspect ratio, without added background framing or padding, so headings and navigation are not cropped.
+
+Sunday Boat: composed capture of the real Sunday Boat demo, 9 October 2026.
+1440×900 source, full-bleed 1200×750 and 720×450 WebP exports.

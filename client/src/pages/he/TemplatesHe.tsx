@@ -1,9 +1,6 @@
-import HartleyPreviewArtwork from "@/components/HartleyPreviewArtwork";
-import LuxePreviewArtwork from "@/components/LuxePreviewArtwork";
-import ElaraPreviewArtwork from "@/components/ElaraPreviewArtwork";
+import DemoPreviewArtwork from "@/components/DemoPreviewArtwork";
+import DemoProjectCard from "@/components/DemoProjectCard";
 import { previewIndustry } from "@/lib/previewNavigation";
-import ArcosPreviewArtwork from "@/components/ArcosPreviewArtwork";
-import NomadPreviewArtwork from "@/components/NomadPreviewArtwork";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
@@ -149,109 +146,15 @@ const CDN = {
 
 
 
-// ─── Browser Chrome Frame ─────────────────────────────────────────────────────
-// Renders a mini-site inside a realistic phone shell at 390px viewport width.
-// The entire phone is then scaled down proportionally to fit the modal column.
-// Clean mobile preview: renders the iframe at 390px width (iPhone viewport) inside a
-// centered container. No phone shell - just the site at mobile width, scrollable.
-
-// ─── Template Card Preview ────────────────────────────────────────────────────
-// For live-preview templates: responsive iframe thumbnail that scales to actual card width.
-// Uses a ResizeObserver to compute the correct scale factor dynamically on any screen size.
-// ─── Template Card Preview ────────────────────────────────────────────────────
-// Static crafted visual: shows the template palette, style label, mock layout sketch,
-// and a "LIVE PREVIEW" badge. Fully responsive, no iframes, works on any screen size.
-// ─── Template Card Preview ────────────────────────────────────────────────────
-const CARD_DESIGNS: Record<string, React.FC> = {
-
-  "bella-salon": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f7f0e8" }}>
-      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="" style={{ position: "absolute", right: 0, top: 0, width: "55%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f7f0e8 45%, transparent 75%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", background: "rgba(247,240,232,0.95)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "13px", fontWeight: 700, color: "#2a1a14", letterSpacing: "0.04em" }}>Bella.</span>
-        <div style={{ display: "flex", gap: "12px" }}>
-          {["שירותים","אודות","גלריה","הזמנה"].map(l => <span key={l} style={{ fontSize: "8px", color: "#7a5a4a", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-        <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "3px 10px", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>קביעת תור</div>
-      </div>
-      <div style={{ position: "absolute", top: "56px", left: "18px", maxWidth: "48%" }}>
-        <div style={{ fontSize: "9px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "6px" }}>סטודיו ליופי</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>כי מגיע לך<br/><em style={{ color: "#c4735a" }}>להרגיש</em> יפה</div>
-        <div style={{ fontSize: "8px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "10px" }}>שיער, טיפוח פנים וציפורניים,<br/>באווירה פרטית ונעימה.</div>
-        <div style={{ background: "#c4735a", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", letterSpacing: "0.1em" }}>קבעו תור</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#f7f0e8","#c4735a","#2a1a14","#e8d5c4","#f0e8e0"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(0,0,0,0.1)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-
-
-  "pulse-gym": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#0a0a0a" }}>
-      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.35 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,10,10,0.7) 0%, rgba(255,107,53,0.15) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(255,107,53,0.2)" }}>
-        <span style={{ fontFamily: "Impact, sans-serif", fontSize: "14px", fontWeight: 900, color: "#ff6b35", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>PULSE</span>
-        <div style={{ display: "flex", gap: "12px" }}>
-          {["שיעורים","מאמנים","הרשמה"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(255,255,255,0.6)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-        <div style={{ background: "#ff6b35", color: "#fff", fontSize: "8px", padding: "3px 10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>הרשמה</div>
-      </div>
-      <div style={{ position: "absolute", top: "52px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "#ff6b35", marginBottom: "4px" }}>לימסול · מאז 2019</div>
-        <div style={{ fontFamily: "Impact, sans-serif", fontSize: "28px", fontWeight: 900, color: "#fff", lineHeight: 1.0, textTransform: "uppercase" as const, letterSpacing: "0.02em", marginBottom: "6px" }}>הגרסה<br/><span style={{ color: "#ff6b35" }}>הכי חזקה</span><br/>שלך</div>
-        <div style={{ background: "#ff6b35", color: "#fff", fontSize: "8px", padding: "5px 14px", display: "inline-block", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const }}>אימון ניסיון בחינם</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", left: "18px", display: "flex", gap: "4px" }}>
-        {["#0a0a0a","#ff6b35","#ffa500","#1a1a2e","#ffffff"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.15)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-
-  "dr-elara-dental": () => <ElaraPreviewArtwork />,
-
-  "nomad-coffee": () => <NomadPreviewArtwork />,
-
-  "arcos-architecture": () => <ArcosPreviewArtwork />,
-  "luxe-realty": () => <LuxePreviewArtwork />,
-  "hartley": () => <HartleyPreviewArtwork />,
-
-
-};
-
+// Complete captures shared with the homepage and detail modal.
 function TemplateCardPreview({ template }: { template: typeof TEMPLATES[0] }) {
-  const Design = CARD_DESIGNS[template.id];
-  if (Design) return <div className="hebrew-template-preview-mockup"><Design /></div>;
-  const t = template as any;
-  const palette: string[] = t.palette || ["#1a1a2e","#16213e","#0f3460","#e94560","#f5f5f5"];
-  const [bg, accent1] = palette;
-  return (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: `linear-gradient(145deg, ${bg} 0%, ${accent1} 100%)` }}>
-      <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column" as const, alignItems: "center", justifyContent: "center", gap: "8px" }}>
-        <div style={{ fontSize: "16px", fontWeight: 700, color: "#fff", opacity: 0.9 }}>{template.name}</div>
-        <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.6)", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>{t.tagline}</div>
-      </div>
-      <div style={{ position: "absolute", top: "10px", right: "10px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>הדגמה</span>
-      </div>
-    </div>
-  );
+  return <DemoPreviewArtwork id={template.id} />;
 }
 
 // ─── Industries ───────────────────────────────────────────────────────────────
 const INDUSTRIES = [
   { id: "all", label: "כל התחומים", icon: "✦" },
+  { id: "hospitality", label: "אירוח", icon: "" },
   { id: "realestate", label: "נדל״ן", icon: "" },
   { id: "restaurant", label: "מסעדות, בתי קפה ומזון", icon: "☕" },
   { id: "beauty", label: "יופי וטיפוח", icon: "✂" },
@@ -262,6 +165,90 @@ const INDUSTRIES = [
 
 // ─── Template data (live-preview only) ───────────────────────────────────────────────────────────
 const TEMPLATES = [
+{
+  "id": "sunday-boat",
+  "industry": "restaurant",
+  "name": "Sunday Boat",
+  "tagline": "כל יום מרגיש כמו יום חופש",
+  "tier": "Custom",
+  "tierGradient": "linear-gradient(135deg, #154CDB, #262626)",
+  "domain": "SUNDAY BOAT",
+  "palette": [
+    "#154CDB",
+    "#FFFFFF",
+    "#DCE5BA",
+    "#262626"
+  ],
+  "paletteNames": [
+    "כחול קובלט",
+    "לבן",
+    "פיסטוק",
+    "פחם"
+  ],
+  "features": [
+    "מניפת תמונות אוכל אינטראקטיבית",
+    "תפריט עם טיפוגרפיה ייחודית",
+    "מבט פנימה והחוצה על המסעדה",
+    "גלריות משחקיות של אריזות ופריטי המותג"
+  ],
+  "pages": [
+    {
+      "label": "אתר הדגמה",
+      "preview": "live",
+      "description": "כל יום מרגיש כמו יום חופש"
+    }
+  ],
+  "style": "מסעדת דגים שכונתית עם זהות המותג Sunday Boat, כותרות Big Shoulders, נגיעות Literata וחוויה צילומית משחקית.",
+  "waMessage": "שלום צוות DM-Labs! אשמח לדבר על אתר מסעדה עם האופי של Sunday Boat.",
+  "price": "",
+  "images": {
+    "card": ""
+  },
+  "livePreview": true,
+  "previewUrl": "/previews/sunday-boat.html"
+},
+{
+  "id": "away",
+  "industry": "hospitality",
+  "name": "AWAY",
+  "tagline": "נוחות בלב הטבע",
+  "tier": "Custom",
+  "tierGradient": "linear-gradient(135deg, #6A303B, #526785)",
+  "domain": "AWAY",
+  "palette": [
+    "#6A303B",
+    "#DDE5ED",
+    "#3B261C",
+    "#F7F2F0"
+  ],
+  "paletteNames": [
+    "בורדו",
+    "תכלת בהיר",
+    "עץ חם",
+    "לבן רך"
+  ],
+  "features": [
+    "נופי פתיחה עם חשיפה מעגלית",
+    "סיור אינטראקטיבי בין עונות השנה",
+    "שלוש גלריות סוויטות אינטראקטיביות",
+    "תפריטים ותכנון שהייה"
+  ],
+  "pages": [
+    {
+      "label": "אתר הדגמה",
+      "preview": "live",
+      "description": "נוחות בלב הטבע"
+    }
+  ],
+  "style": "מתחם אירוח לצד נהר עם זהות המותג AWAY, גופני Thasadith ו-Pavanam וקצב צילומי רגוע.",
+  "waMessage": "שלום צוות DM-Labs! אשמח לדבר על אתר אירוח עם האופי של הדגמת AWAY.",
+  "price": "",
+  "images": {
+    "card": ""
+  },
+  "livePreview": true,
+  "previewUrl": "/previews/away.html"
+},
   {
     "id": "hartley",
     "industry": "restaurant",
@@ -319,7 +306,7 @@ const TEMPLATES = [
     id: "bella-salon",
     industry: "beauty",
     name: "Bella Salon",
-    tagline: "אלגנטי ונשי",
+    tagline: "שיער עם אמירה אישית",
     tier: "Growth",
     tierGradient: "linear-gradient(135deg, #8B5CFF, #6B3CDF)",
     domain: "bellasalon.com",
@@ -341,7 +328,7 @@ const TEMPLATES = [
     pages: [
       { label: "תצוגה חיה", preview: "live", description: "אפשר לגלול, ללחוץ ולראות את כל האתר" },
     ],
-    style: "סגנון נשי ויוקרתי בגוני שזיף וורוד, עם פונט אלגנטי ותחושה חמה ומזמינה. מתאים לסלונים, לקוסמטיקאיות ולמכוני ציפורניים.",
+    style: "סטודיו לשיער בסגנון מגזין, בשחור, לבן ואפור חם. טיפוגרפיה גדולה, צילום סלון בשחור־לבן, גלריית שיער נפתחת והדגמה פעילה של בקשת תור.",
     waMessage: "היי! ראיתי אצלכם את הדוגמה של Bella Salon ואשמח לשמוע עוד.",
     price: "€350",
     images: { card: "" },
@@ -550,130 +537,10 @@ function TemplateModal({ template, onClose }: { template: typeof TEMPLATES[0]; o
 
 // ─── Template Card ────────────────────────────────────────────────────────────
 function TemplateCard({ template, onClick }: { template: typeof TEMPLATES[0]; onClick: () => void }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -6 }}
-      className="group bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-400"
-      style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid rgba(226,229,234,0.8)" }}
-      onClick={onClick}
-    >
-      <div className="relative overflow-hidden">
-        <TemplateCardPreview template={template} />
-        <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/8 transition-colors duration-300 flex items-center justify-center">
-          <motion.div
-            className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white text-gray-900 px-5 py-2.5 rounded-full font-semibold text-sm shadow-xl flex items-center gap-2"
-            style={{ transform: "translateY(8px)" }}
-          >
-            דוגמה אינטראקטיבית
-          </motion.div>
-        </div>
-      </div>
-
-      <div className="p-5">
-        <div className="mb-3">
-          <h3 className="text-gray-900 font-bold text-lg leading-tight">{template.name}</h3>
-          <p className="text-gray-500 text-sm">{template.tagline}</p>
-        </div>
-
-        <div className="flex items-center gap-2 mb-4">
-          <span className="px-2 py-0.5 bg-gray-100 rounded-md text-gray-500 text-xs font-medium">{template.styleLabel}</span>
-        </div>
-
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {template.features.slice(0, 3).map(f => (
-            <span key={f} className="px-2 py-0.5 bg-gray-100 rounded-md text-gray-500 text-xs">{f}</span>
-          ))}
-          <span className="px-2 py-0.5 bg-gray-100 rounded-md text-gray-400 text-xs">+{template.features.length - 3} נוספים</span>
-        </div>
-
-        <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">רעיונות לעיצוב של העסק שלכם</span>
-          <button className="flex items-center gap-1.5 text-sm font-semibold transition-colors" style={{ color: "#5B8CFF" }}>
-            תצוגה מקדימה
-          </button>
-        </div>
-      </div>
-    </motion.div>
-  );
+  return <DemoProjectCard id={template.id} name={template.name} tagline={template.tagline} actionLabel="לצפייה באתר" onClick={onClick} />;
 }
 
 // ─── Προσαρμοσμένη Κατασκευή Card ──────────────────────────────────────────────────────
-function CustomBuildCard() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -6 }}
-      className="group bg-white rounded-2xl overflow-hidden transition-all duration-400 flex flex-col"
-      style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid rgba(226,229,234,0.8)" }}
-    >
-      {/* Gradient banner */}
-      <div
-        className="relative flex flex-col items-center justify-center px-8 py-12 text-center"
-        style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)", height: "280px" }}
-      >
-        {/* Subtle animated gradient orbs */}
-        <div className="absolute top-4 left-6 w-24 h-24 rounded-full blur-2xl" style={{ background: "rgba(91,140,255,0.25)" }} />
-        <div className="absolute bottom-4 right-6 w-20 h-20 rounded-full blur-2xl" style={{ background: "rgba(139,92,255,0.25)" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full blur-3xl" style={{ background: "rgba(111,227,255,0.12)" }} />
-
-        {/* Icon */}
-        <div className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style={{ background: "linear-gradient(135deg, #5B8CFF, #8B5CFF)", boxShadow: "0 8px 24px rgba(91,140,255,0.4)" }}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-            <path d="M2 17l10 5 10-5" />
-            <path d="M2 12l10 5 10-5" />
-          </svg>
-        </div>
-
-        <h3 className="relative z-10 text-white font-bold text-xl leading-tight mb-1">בנייה מותאמת אישית</h3>
-        <p className="relative z-10 text-blue-200/80 text-sm">עיצוב מאפס, רק בשבילכם</p>
-      </div>
-
-      {/* Card body */}
-      <div className="p-5 flex flex-col flex-1">
-        <p className="text-gray-600 text-sm leading-relaxed mb-4">
-          לא מצאתם דוגמה שמתאימה בדיוק? אין בעיה. נעצב לכם אתר מאפס, עם פריסה, גרפיקה וסגנון שנבנים רק בשבילכם.
-        </p>
-
-        {/* Feature list */}
-        <ul className="space-y-2 mb-5 flex-1">
-          {[
-            "פריסה שנבנית רק בשבילכם",
-            "איורים וגרפיקת מותג מותאמים",
-            "צבעים ופונטים לפי המותג",
-            "מתוכנן לפי המטרות של העסק",
-            "אתם מעורבים בכל שלב",
-          ].map(f => (
-            <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
-              <Check size={14} className="text-[#5B8CFF] shrink-0 mt-0.5" />
-              {f}
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400 italic">עיצוב לפי המטרות שלכם</span>
-          <a
-            href="/he/contact/"
-            className="flex items-center gap-1.5 text-sm font-semibold transition-colors hover:gap-2"
-            style={{ color: "#5B8CFF" }}
-            onClick={e => e.stopPropagation()}
-          >
-            לקבלת הצעת מחיר
-          </a>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
 // ─── Industry Tabs with scroll arrows ────────────────────────────────────────
 function IndustryTabs({ activeIndustry, setActiveIndustry }: { activeIndustry: string; setActiveIndustry: (id: string) => void }) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -866,9 +733,8 @@ export default function TemplatesHe() {
       <section className="py-16">
         <div className="container">
           {filtered.length > 0 ? (
-            <div className="templates-editorial-grid-shell grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
+            <div className="templates-editorial-grid-shell grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-8 sm:gap-y-10">
               {/* Προσαρμοσμένη Κατασκευή card - always shown first */}
-              <CustomBuildCard />
               {filtered.map(template => (
                 <TemplateCard key={template.id} template={template} onClick={() => openModal(template)} />
               ))}
@@ -902,7 +768,7 @@ export default function TemplatesHe() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20" style={{ borderTop: "1px solid rgba(226,229,234,0.8)" }}>
+      <section className="py-12 sm:py-14 templates-editorial-cta-section" style={{ borderTop: "1px solid rgba(226,229,234,0.8)" }}>
         <div className="container text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">לא מצאתם מה שחיפשתם?</h2>

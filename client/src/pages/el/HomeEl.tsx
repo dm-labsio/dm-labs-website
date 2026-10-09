@@ -109,7 +109,7 @@ const FEATURED_TEMPLATES = [
     industry: "beauty",
     name: "Bella Salon",
     category: "Ομορφιά και ευεξία",
-    styleLabel: "Κομψό και θηλυκό",
+    styleLabel: "Μαλλιά με χαρακτήρα",
     previewUrl: "/previews/bella-salon.html",
     imageUrl: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80",
     imageAlt: "Παράδειγμα ιστοσελίδας για το Bella Salon",
@@ -205,9 +205,7 @@ export default function HomeElPage() {
                 <InteractiveExampleCard
                   title={tpl.name}
                   subtitle={tpl.styleLabel}
-                  imageUrl={tpl.imageUrl}
-                  imageAlt={tpl.imageAlt}
-                  showcase={tpl.id === "nomad-coffee"}
+                  demoId={tpl.id}
                 href={`/preview/${tpl.id}/?from=%2Fel%2F`}
                   actionText="Δείτε παράδειγμα"
                 />

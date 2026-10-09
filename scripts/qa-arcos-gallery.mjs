@@ -18,33 +18,19 @@ try {
     const path = prefix + "/templates/";
     await p.goto(base + path + "?qa=arcos");
     await p.waitForURL(base + path);
-    const heading = p.getByRole("heading", {
-      name: "Arcos Architecture",
-      exact: true,
-    });
+    const card = p.locator('[data-demo-card="arcos-architecture"]');
+    const heading = card.locator("button");
     await heading.waitFor();
     await heading.scrollIntoViewIfNeeded();
-    await heading.evaluate(
-      h =>
-        new Promise(resolve => {
-          const card = h.closest(".group");
-          const check = () =>
-            Number(getComputedStyle(card).opacity) > 0.99
-              ? resolve()
-              : requestAnimationFrame(check);
-          check();
-        })
-    );
-    await p
-      .locator('img[src="/media/examples/arcos/cover.webp"]')
-      .evaluate(i => i.decode());
+    await card.locator("img").evaluate(i => i.decode());
     await p.screenshot({
       path: out + "gallery-" + (prefix.slice(1) || "en") + ".png",
     });
     await heading.click();
+    const returnY = await p.evaluate(() => history.state.dmGalleryPosition.y);
     const preview = p.locator('a[href^="/preview/arcos-architecture/"]');
     await preview.click();
-    await p.waitForFunction(() => history.state?.previewSentinel === true);
+    await p.waitForURL(/\/preview\/arcos-architecture\//);
     await p
       .frameLocator("iframe")
       .locator("html[data-arcos-ready=true]")
@@ -55,6 +41,7 @@ try {
     );
     await p.getByRole("button", { name: "Close preview", exact: true }).click();
     await p.waitForURL(base + path);
+    await p.waitForFunction(y => Math.abs(scrollY - y) < 12, returnY);
     assert.ok(await heading.isVisible());
     report.push({
       language: prefix.slice(1) || "en",

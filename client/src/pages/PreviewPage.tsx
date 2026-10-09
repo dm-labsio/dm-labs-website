@@ -1,10 +1,13 @@
 /** Standalone demos use srcdoc so internal anchor navigation never pollutes browser history. */
 import { useParams, useLocation } from "wouter";
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
+import "./away-preview-poster.css";
 import { X } from "lucide-react";
 import { PREVIEW_ORIGIN_KEY, safePreviewReturnPath } from "@/lib/previewNavigation";
 
 const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
+  "sunday-boat": { name: "Sunday Boat", url: "/previews/sunday-boat.html" },
+  "away": { name: "AWAY", url: "/previews/away.html" },
   "hartley": { name: "Hartley Café & Bakery", url: "/previews/hartley.html" },
   "luxe-realty": { name: "Luxe Realty", url: "/previews/luxe-realty.html" },
   "bella-salon":          { name: "Bella Salon",          url: "/previews/bella-salon.html" },
@@ -35,6 +38,8 @@ export default function PreviewPage() {
   const params = useParams<{ id: string }>();
   const [, navigate] = useLocation();
   const [srcdoc, setSrcdoc] = useState<string | null>(null);
+  const [frameLoaded, setFrameLoaded] = useState(false);
+  const isAway = params.id === "away";
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -61,6 +66,7 @@ export default function PreviewPage() {
   useEffect(() => {
     if (!entry) return;
     setLoading(true);
+    setFrameLoaded(false);
     setError(false);
     fetch(entry.url)
       .then((r) => {
@@ -95,11 +101,13 @@ export default function PreviewPage() {
   // This fires BEFORE the browser processes the anchor navigation, so we can
   // call preventDefault() and use scrollIntoView() instead — no history push.
   const handleIframeLoad = useCallback(() => {
+    setFrameLoaded(true);
     const iframe = iframeRef.current;
     if (!iframe) return;
     try {
       const doc = iframe.contentDocument;
       if (!doc) return;
+      doc.dispatchEvent(new Event("dm-preview-ready"));
 
       const clickHandler = (e: Event) => {
         // Interactive one-page demos manage focus/menu state themselves while
@@ -183,8 +191,20 @@ export default function PreviewPage() {
         </div>
       </div>
 
+      {/* The same inert first frame is saved in the static preview. Never save
+          a running srcdoc: createRoot would replace it and replay the entrance. */}
+      {isAway && (
+        <div data-away-poster className="away-preview-poster"
+          hidden={frameLoaded || error} role="status" aria-label="Loading AWAY preview">
+          <div className="away-preview-poster-stage" aria-hidden="true">
+            <div className="away-preview-poster-left"><img src="/previews/away/assets/illustration-4.webp" alt="" /></div>
+            <div className="away-preview-poster-right"><img src="/previews/away/assets/illustration-4.webp" alt="" /></div>
+            <img className="away-preview-poster-logo" src="/previews/away/assets/wordmark.svg" alt="" />
+          </div>
+        </div>
+      )}
       {/* Loading state */}
-      {loading && (
+      {loading && !isAway && (
         <div className="flex-1 bg-gray-50 flex items-center justify-center">
           <div className="flex flex-col items-center gap-3">
             <div className="w-8 h-8 border-2 border-gray-200 border-t-[#5B8CFF] rounded-full animate-spin" />
@@ -222,6 +242,7 @@ export default function PreviewPage() {
             height: "100%",
             border: "none",
             display: "block",
+            visibility: isAway && !frameLoaded ? "hidden" : "visible",
           }}
           sandbox={`allow-scripts allow-same-origin allow-forms allow-popups${["pulse-gym", "arcos-architecture", "hartley"].includes(params.id ?? "") ? " allow-downloads" : ""}`}
         />

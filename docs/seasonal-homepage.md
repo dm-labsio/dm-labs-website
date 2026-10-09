@@ -1,8 +1,10 @@
 # Seasonal layer and October offer
 
-Preview-only work on `codex/seasonal-halloween`, based on main `14a6c28`.
+Seasonal work on `codex/seasonal-halloween`, originally based on main `14a6c28`.
 
-This preview continues the previously approved Halloween branch. On 9 October, remote main had advanced separately to `20422ca` with gallery/AWAY work. Those changes are not pulled into this scoped iteration. Performance and failure comparisons below use the explicit `14a6c28` baseline, not the newer production revision. Reconcile and recheck the latest main before any eventual merge.
+On 9 October, the owner approved merging this work to main. The branch was integrated with main `5eccb2c`, preserving the newer gallery presentation, tighter homepage spacing, AWAY and Sunday Boat demos. Historical performance comparisons below use `14a6c28`; release checks compare against a fresh build of `5eccb2c`.
+
+Integration checks: TypeScript and link integrity pass; 97 canonical pages and 9 demos prerender successfully with zero SEO audit issues. EN/EL/HE titles, descriptions, H1s and canonical URLs match current main. The full test suite has 302 passing tests and the same 11 failures reproduced on current main (293 passing), with no new failures.
 
 ## Individual cutouts, 9 October 2026
 

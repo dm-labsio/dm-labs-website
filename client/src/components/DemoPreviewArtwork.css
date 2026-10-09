@@ -1,0 +1,133 @@
+.demo-cover {
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.demo-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: none;
+}
+.demo-project-card {
+  position: relative;
+  min-width: 0;
+  align-self: start;
+  border-bottom: 1px solid #d1d6df;
+}
+.demo-project-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 132px;
+  padding: 22px 0 25px;
+}
+.demo-project-caption h3 {
+  margin: 0 0 5px;
+  color: #152033;
+  font-size: clamp(20px, 2vw, 25px);
+  line-height: 1.2;
+}
+.demo-project-caption p {
+  margin: 0;
+  color: #59687b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.demo-project-action,
+.demo-home-action {
+  flex-shrink: 0;
+  color: #b8bfff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+.demo-project-action {
+  color: #4351a5;
+  border: 0;
+  padding: 12px 0;
+  background: transparent;
+  cursor: pointer;
+}
+/* One real button makes the whole card clickable and keyboard accessible. */
+.demo-project-action::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.demo-project-action:focus-visible {
+  outline: none;
+}
+.demo-project-card:has(:focus-visible) {
+  outline: 2px solid #4351a5;
+  outline-offset: 6px;
+}
+.demo-home-link:focus-visible {
+  outline: 2px solid #6fe3ff;
+  outline-offset: 6px;
+}
+.demo-project-card:has(:focus-visible) .demo-project-action,
+.demo-project-card:hover .demo-project-action {
+  color: #182d81;
+}
+.demo-home-link:hover .demo-home-action {
+  color: #fff;
+}
+/* Equal rows accommodate the longest translated caption without clipping. */
+.grid:has(> div > .demo-home-card) {
+  grid-auto-rows: 1fr;
+}
+.demo-home-card {
+  height: 100%;
+}
+.demo-home-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-bottom: 1px solid rgb(184 191 255 / 24%);
+}
+.demo-home-caption {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 19px 0 23px;
+}
+.demo-home-title {
+  display: block;
+  font-family: var(--font-display);
+  color: #edf2ff;
+  font-size: 22px;
+  font-weight: 800;
+}
+.demo-home-subtitle {
+  display: block;
+  color: #bdc9df;
+  font-size: 14px;
+  margin-top: 3px;
+}
+@media (max-width: 1023px) {
+  .demo-project-caption {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 148px;
+    gap: 8px 18px;
+    padding: 17px 0 20px;
+  }
+  .demo-project-caption h3 {
+    font-size: 21px;
+  }
+  .demo-project-action {
+    justify-self: start;
+    padding: 8px 0;
+  }
+}
