@@ -182,6 +182,7 @@ try {
     "module-failure",
     "save-data",
     "offscreen",
+    "dismiss-while-loading",
   ]) {
     const { page, context } = await newPage(
       { reducedMotion: scenario === "reduced" ? "reduce" : "no-preference" },
@@ -212,6 +213,11 @@ try {
       );
     if (scenario === "module-failure")
       await page.route(/HalloweenLayer/, route => route.abort());
+    if (scenario === "dismiss-while-loading")
+      await page.route(/SeasonalBats/, async route => {
+        await new Promise(resolve => setTimeout(resolve, 1800));
+        await route.continue();
+      });
     await page.goto(
       base +
         (scenario === "other-route"
@@ -220,7 +226,7 @@ try {
             ? "/preview/bella-salon/"
             : "/")
     );
-    await page.locator("h1").waitFor();
+    await page.locator(scenario === "demo-route" ? "iframe" : "h1").waitFor();
     if (
       [
         "expired",
@@ -249,6 +255,15 @@ try {
         assert.equal(await page.locator(".seasonal-bats").count(), 0);
     } else {
       await page.locator(".seasonal-layer").waitFor();
+      if (scenario === "dismiss-while-loading") {
+        await page.locator(".seasonal-banner button").click();
+        await page.waitForTimeout(2200);
+        assert.equal(
+          await page.locator("[data-seasonal-runtime]").count(),
+          0,
+          "Closing cancels an in-flight bat module"
+        );
+      }
       if (["reduced", "save-data"].includes(scenario)) {
         assert.equal(await page.locator(".seasonal-particle").count(), 0);
         assert.equal(

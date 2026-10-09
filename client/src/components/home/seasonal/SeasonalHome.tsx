@@ -40,6 +40,13 @@ export default function SeasonalHome({
     } catch {
       /* Decorations also work when storage is unavailable. */
     }
+    // A sibling's optional chunk may still be in flight when the banner closes.
+    // Cancel that mount too, including when session storage is unavailable.
+    const hide = () => {
+      cancelled = true;
+      setLayer(null);
+    };
+    window.addEventListener("dm-season-hide", hide);
     const load = () => {
       if (cancelled || !isSeasonActive()) return;
       void (sitewide ? import("./SeasonalBats") : import("./HalloweenLayer"))
@@ -59,6 +66,7 @@ export default function SeasonalHome({
     else window.addEventListener("load", schedule, { once: true });
     return () => {
       cancelled = true;
+      window.removeEventListener("dm-season-hide", hide);
       window.removeEventListener("load", schedule);
       if (idle !== undefined) window.cancelIdleCallback(idle);
       if (timer !== undefined) clearTimeout(timer);
