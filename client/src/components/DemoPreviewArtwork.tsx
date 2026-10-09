@@ -1,16 +1,16 @@
 import "./DemoPreviewArtwork.css";
 
 const covers: Record<string, { height: number }> = {
-  hartley: { height: 766 },
-  "nomad-coffee": { height: 768 },
-  "bella-salon": { height: 916 },
-  "dr-elara-dental": { height: 856 },
-  "pulse-gym": { height: 960 },
-  "arcos-architecture": { height: 1189 },
-  "luxe-realty": { height: 916 },
+  hartley: { height: 900 },
+  "nomad-coffee": { height: 900 },
+  "bella-salon": { height: 900 },
+  "dr-elara-dental": { height: 900 },
+  "pulse-gym": { height: 900 },
+  "arcos-architecture": { height: 900 },
+  "luxe-realty": { height: 900 },
 };
 
-/** Complete captures of the real demos, displayed edge to edge without cropping their UI. */
+/** Consistently composed captures of the real demos, displayed edge to edge. */
 export default function DemoPreviewArtwork({ id }: { id: string }) {
   const cover = covers[id];
   if (!cover) return null;
