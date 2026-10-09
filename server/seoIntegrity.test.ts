@@ -14,7 +14,7 @@ const blogPost = read("client/src/pages/BlogPost.tsx");
 const serviceDetail = read("client/src/pages/ServiceDetail.tsx");
 const seoHook = read("client/src/hooks/useSEO.ts");
 const homePage = read("client/src/pages/Home.tsx");
-const templates = read("client/src/pages/Templates.tsx");
+const templates = read("client/src/components/work/WorkGallery.tsx");
 const prerender = read("scripts/prerender-full.mjs");
 const app = read("client/src/App.tsx");
 const staticPreviews = readdirSync(resolve(root, "client/public/previews"))
@@ -69,7 +69,7 @@ describe("SEO integrity", () => {
 
   it("keeps emitted preview links on their final slash-safe route while preserving the explicit legacy redirect map", () => {
     expect(homePage).toContain('href={`/preview/${tpl.id}/?from=%2F`}');
-    expect(templates).toContain('href={`/preview/${template.id}/`}');
+    expect(templates).toContain('href={`/preview/${project.id}/`}');
     expect(viteServer).toContain('"/examples": "/templates/"');
     expect(viteServer).toContain('"/cookie-policy": "/cookies/"');
   });

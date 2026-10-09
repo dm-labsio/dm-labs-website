@@ -1,0 +1,5 @@
+Our Work portrait covers, October 2026.
+Captured from the approved local website demos using scripts/covers/capture-work-portraits.mjs.
+Each capture is composed at 600×900 using the demo's real responsive header, hero, typography and assets. Capture-only CSS does not change the live demos.
+360×540 and 600×900 WebP exports preserve the exact 2:3 aspect ratio. Cards display the complete image with object-fit:contain; no landscape screenshot cropping, stretching, or background padding.
+Original demo assets and fonts retain the provenance/licenses in their respective /previews folders.

@@ -51,38 +51,22 @@ describe("Pricing metadata", () => {
   });
 });
 
-describe("Examples index editorial typography", () => {
-  it("limits the accent treatment to the /templates/ catalogue and its route-scoped shared footer", () => {
-    expect(templatesSource).toContain('className="min-h-screen templates-editorial"');
-    expect(layoutSource).toContain('const isStandalonePreview = normalizedLocation.startsWith("/preview/");');
-    expect(layoutSource).toContain('const isTemplatesIndex = normalizedLocation === "/templates";');
-    expect(layoutSource).toContain('isTemplatesIndex ? "templates-editorial-shell" : ""');
-    expect(stylesheet).toContain(".templates-editorial {");
-    expect(brandStyles).toContain("[data-brand] footer h4");
-    expect(stylesheet).not.toContain(".preview-editorial");
+describe("Our Work typography and metadata", () => {
+  const page = readFileSync(join(projectRoot, "client/src/components/work/OurWorkPage.tsx"), "utf8");
+  const gallery = readFileSync(join(projectRoot, "client/src/components/work/WorkGallery.tsx"), "utf8");
+  const workStyles = readFileSync(join(projectRoot, "client/src/components/work/our-work.css"), "utf8");
+  it("shares the brand type roles without gradient text or fixed price claims", () => {
+    expect(page).toContain('<h1>{copy.title}</h1>');
+    expect(page).toContain('className="brand-micro"');
+    expect(workStyles).not.toContain("WebkitTextFillColor");
+    expect(workStyles).toContain("var(--font-body)");
+    expect(page).not.toContain("€299");
   });
-
-  it("uses the semantic display and label roles without hero gradient text", () => {
-    expect(templatesSource).toContain("templates-editorial-label");
-    expect(templatesSource).toContain("templates-editorial-title");
-    expect(templatesSource).toContain(">Our Work</h1>");
-    expect(templatesSource).toContain("templates-editorial-cta-heading");
-    expect(templatesSource).not.toContain("WebkitTextFillColor");
-    expect(stylesheet).toContain('.templates-editorial .templates-editorial-label');
-    expect(stylesheet).toContain(".templates-editorial .templates-editorial-title");
-    expect(brandStyles).toContain("[data-brand] :is(h1, h2, h3, h4, h5, h6) :is(em, strong, span, a)");
-  });
-
-  it("keeps card surroundings readable and avoids standalone decorative dash copy", () => {
-    expect(templatesSource).not.toContain("Design inspiration - pricing from €299");
-    expect(templatesSource).not.toContain("Pricing from €299 - quote on request");
-    expect(templatesSource).toContain("templates-editorial-cta-button");
-  });
-
-  it("preserves the Examples index metadata and its existing preview links", () => {
+  it("preserves the index canonical and direct preview destinations", () => {
     expect(templatesSource).toContain('title: "Our Work | Website Demos | DM-Labs.io"');
     expect(templatesSource).toContain('canonicalPath: "/templates/"');
-    expect(templatesSource).toContain('href={`/preview/${template.id}/`}');
+    expect(gallery).toContain('href={`/preview/${project.id}/`}');
+    expect(page).not.toContain("TemplateModal");
   });
 });
 

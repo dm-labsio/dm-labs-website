@@ -7,6 +7,7 @@ export interface PreviewSource {
   y: number;
   href: string;
   industry?: string;
+  workGallery?: { position: number; selected: string };
   restoration?: ScrollRestoration;
 }
 export function safePreviewReturnPath(value: string | null): string {
@@ -30,12 +31,15 @@ export function previewIndustry(): string {
 }
 export function rememberPreviewSource(anchor: HTMLAnchorElement): PreviewSource {
   const gallery = window.history.state?.modal ? window.history.state.dmGalleryPosition : null;
+  const work = anchor.closest<HTMLElement>("[data-work-gallery]");
+  const position = Number(work?.dataset.carouselPosition);
   const source: PreviewSource = {
     url: window.location.pathname + window.location.search + window.location.hash,
     x: Number.isFinite(gallery?.x) ? gallery.x : window.scrollX,
     y: Number.isFinite(gallery?.y) ? gallery.y : window.scrollY,
     href: anchor.getAttribute('href') || '',
     restoration: window.history.scrollRestoration,
+    ...(work && Number.isFinite(position) ? { workGallery: { position, selected: anchor.dataset.project || "" } } : {}),
     industry: document.querySelector<HTMLElement>('[data-example-industry]')?.dataset.exampleIndustry,
   };
   window.history.scrollRestoration = 'manual';

@@ -17,16 +17,15 @@ try {
     await p.goto(base + prefix + "/templates/");
     await p.waitForFunction(() =>
       Object.keys(
-        document.querySelector('[data-demo-card="sunday-boat"] button') || {}
+        document.querySelector('[data-demo-card="sunday-boat"]') || {}
       ).some(k => k.startsWith("__reactProps"))
     );
     assert.equal(await p.locator("[data-demo-card]").count(), 9);
     const card = p.locator('[data-demo-card="sunday-boat"]');
     await card.scrollIntoViewIfNeeded();
     await card.locator("img").evaluate(i => i.decode());
-    await card.locator("button").click();
-    const y = await p.evaluate(() => history.state.dmGalleryPosition.y);
-    await p.locator('a[href^="/preview/sunday-boat/"]').click();
+    const y = await p.evaluate(() => scrollY);
+    await card.click();
     await p.waitForURL(/\/preview\/sunday-boat\//);
     const f = p.frameLocator("iframe");
     await f.locator("html.intro-ready").waitFor({ state: "attached" });
