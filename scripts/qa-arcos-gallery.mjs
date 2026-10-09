@@ -18,26 +18,11 @@ try {
     const path = prefix + "/templates/";
     await p.goto(base + path + "?qa=arcos");
     await p.waitForURL(base + path);
-    const heading = p.getByRole("heading", {
-      name: "Arcos Architecture",
-      exact: true,
-    });
+    const card = p.locator('[data-demo-card="arcos-architecture"]');
+    const heading = card.locator("button");
     await heading.waitFor();
     await heading.scrollIntoViewIfNeeded();
-    await heading.evaluate(
-      h =>
-        new Promise(resolve => {
-          const card = h.closest(".group");
-          const check = () =>
-            Number(getComputedStyle(card).opacity) > 0.99
-              ? resolve()
-              : requestAnimationFrame(check);
-          check();
-        })
-    );
-    await p
-      .locator('img[src="/media/examples/arcos/cover.webp"]')
-      .evaluate(i => i.decode());
+    await card.locator("img").evaluate(i => i.decode());
     await p.screenshot({
       path: out + "gallery-" + (prefix.slice(1) || "en") + ".png",
     });

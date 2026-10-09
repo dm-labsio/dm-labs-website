@@ -35,9 +35,7 @@ try {
     );
     assert.ok((await page.title()).includes(title));
     assert.equal(await page.locator("h3.text-lg").count(), 7);
-    await page
-      .getByRole("heading", { name: "Hartley Café & Bakery", exact: true })
-      .click();
+    await page.locator('[data-demo-card="hartley"] button').click();
     const y = await page.evaluate(() => history.state.dmGalleryPosition.y);
     await page.locator('a[href^="/preview/hartley/"]').click();
     await page.waitForURL(/\/preview\/hartley\//);

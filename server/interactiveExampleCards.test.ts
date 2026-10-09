@@ -38,12 +38,9 @@ describe("homepage interactive example cards", () => {
     expect(greekHomeSource).toContain('href={`/preview/${tpl.id}/?from=%2Fel%2F`}');
   });
 
-  it("uses controlled pointer tilt with keyboard access, reduced-motion support, and no state updates", () => {
-    expect(cardSource).toContain("useReducedMotion");
-    expect(cardSource).toContain("FINE_POINTER_QUERY");
-    expect(cardSource).toContain("onMouseLeave={resetTilt}");
-    expect(cardSource).toContain("translateZ(30px)");
+  it("keeps native keyboard navigation without per-pointer state updates", () => {
     expect(cardSource).toContain('aria-label={`${actionText}: ${title}`}');
     expect(cardSource).not.toContain("useState");
+    expect(cardSource).toContain("href={href}");
   });
 });

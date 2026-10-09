@@ -41,7 +41,7 @@ describe("SEO integrity", () => {
     expect(viteServer).toContain("const VALID_PREVIEW_IDS");
     expect(viteServer).toContain('VALID_PREVIEW_IDS.has(urlPath.slice("/preview/".length))');
     for (const html of staticPreviews) {
-      expect(html).toContain('name="robots" content="noindex, nofollow"');
+      expect(html).toMatch(/<meta\b[^>]*name="robots"\s+content="noindex,\s*nofollow"/);
       expect(html).not.toContain('rel="canonical"');
       expect(html).not.toContain('name="keywords"');
     }
