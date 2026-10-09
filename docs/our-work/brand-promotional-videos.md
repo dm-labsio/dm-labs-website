@@ -1,0 +1,43 @@
+# Our Work: brand and promotional videos
+
+## Direction and sources
+
+Use **Brand & promotional videos**, covering brand stories, social reels and campaigns. This describes the purchased output without presenting the production tool as the service. This is terminology research, not a search-volume study.
+
+Industry references:
+- https://housesparrowfilms.com/services/promotional-videos/ (brand films, launches, campaigns)
+- https://www.squaretwomedia.co.uk/brand-and-campaign-films (brand and campaign films)
+- https://www.blackgrousemedia.com/services/videography (brand films, promotional videos, social reels)
+
+Interaction reference:
+- https://21st.dev/@0xUrvish/components/expandable-gallery
+- https://uselayouts.com/docs/components/expandable-gallery
+
+The gallery uses an original implementation of the expanding-gallery pattern. No upstream component source was copied. Desktop posters gently expand on hover or keyboard focus; mobile uses a compact two-column gallery so all four projects remain visible. A controlled Radix dialog supplies focus trapping, Escape and restored focus. Native video controls retain browser audio, seek and fullscreen behavior.
+
+## Media inventory and covers
+
+Supplied October 10, 2026. Eight user-provided films, four collections:
+- Sunday Boat: social menu reel, 19.29 seconds; landscape brand identity film, 30 seconds. These are distinct films, not interchangeable crops.
+- Hartley: portrait café brand story, 48.53 seconds.
+- AWAY: portrait hospitality edit and landscape edit, 15 seconds each.
+- DM Labs: Boo, 12.6 seconds; Trick or treat, 14.2 seconds; Scarier than Halloween, 16.8 seconds. Grouped as promotional campaign work, not a current discount CTA on this page.
+
+Web H.264/AAC copies preserve complete duration, sound and framing, with MP4 metadata moved to the front for progressive playback. Hartley is 720 × 1280; other copies retain the supplied dimensions. All originals remain untouched in Downloads. Combined web copies are about 40.3 MB, versus about 122 MB supplied. Only the selected film downloads; the initial gallery loads no video.
+
+Posters deliberately differ from the branding gallery: Sunday Boat's graphic blue identity; Hartley's café moment selected from its film; an AWAY suite selected from its film; DM Labs' glass Halloween characters. Existing licensed/project brand artwork is reused in new compositions. No new generated imagery. Cover snapshots and film thumbnails are optimized WebP. Full playback always uses object-fit: contain.
+
+## Navigation, languages and discovery
+
+- EN, EL and HE copy; RTL layout, original English film artwork retained.
+- Opening a film adds `?film=project&clip=clip`; Back closes the viewer. Closing returns to the same page position and restores focus. Format/clip switches replace the viewer's history entry.
+- Deep links open the selected clip. Invalid projects safely leave the gallery visible; invalid clips fall back to the project's first clip.
+- One video exists at a time. Closing, changing clips, leaving the page or hiding the tab stops old playback.
+- Page titles/descriptions include video. Existing canonical, hreflang and locale indexing policy remain intact.
+- Each film has truthful VideoObject metadata: supplied title, description, duration, actual dimensions, thumbnail and first-party content URL. Upload date represents first addition to this portfolio on October 10, 2026. A portfolio gallery is not a dedicated watch page; no rich-result eligibility or ranking is promised.
+
+## QA
+
+`node scripts/qa-work-films.mjs` exercises all eight videos at desktop and mobile widths in all three languages, unloaded-by-default media, format switching, aspect ratios, playback, native controls, modal keyboard focus, history, scroll restoration, 320px RTL, direct linking and reduced motion. Build and the repository's SEO document audit remain required before release.
+
+Release scope: Preview only for this iteration. Production and unrelated Arcos work are preserved.

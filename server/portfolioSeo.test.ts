@@ -47,7 +47,13 @@ describe("Crawlable portfolio", () => {
         for (const language of ["en", "el", "he"] as const)
           expect(routes[language] + "/").toBe(brandPath(brand.id, language));
       }
-      expect(workCollectionSchema(locale).itemListElement).toHaveLength(12);
+      const items = workCollectionSchema(locale).itemListElement;
+      expect(
+        items.filter(({ item }) => item["@type"] === "CreativeWork")
+      ).toHaveLength(12);
+      expect(
+        items.filter(({ item }) => item["@type"] === "VideoObject")
+      ).toHaveLength(8);
     }
   );
   it("generates image sitemaps from actual canonical content and escapes XML", () => {

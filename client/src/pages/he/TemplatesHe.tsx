@@ -3,9 +3,9 @@ import OurWorkPage from "@/components/work/OurWorkPage";
 
 export default function TemplatesHe() {
   useSEO({
-    title: "העבודות שלנו | עיצוב אתרים ומיתוג | DM-Labs.io",
+    title: "העבודות שלנו | אתרים, מיתוג וסרטונים | DM-Labs.io",
     description:
-      "גלו אתרי הדגמה וזהויות מותג של DM-Labs.io. הכירו את Hartley, AWAY ו-Sunday Boat דרך לוגואים, איורים, אריזות ועוד.",
+      "גלו אתרים, זהויות מותג וסרטוני קידום של DM-Labs.io. צפו בסרטוני מותג, רילז וקמפיינים של Hartley, AWAY ו-Sunday Boat.",
     canonicalPath: "/he/templates/",
     ogLocale: "he_IL",
     noindex: true,

@@ -1,3 +1,4 @@
+import { filmProjects, filmSource, filmPoster } from "./filmData";
 import { brandProjects, type BrandProject } from "./brandingData";
 import { workCopy, workProjects, type WorkLocale } from "./workData";
 import dimensions from "../../../public/media/branding/assets.json";
@@ -226,6 +227,22 @@ export function workCollectionSchema(locale: WorkLocale) {
           ),
         },
       })),
+      ...filmProjects.flatMap(project =>
+        project.clips.map(clip => ({
+          "@type": "VideoObject",
+          "@id": `${url}#${clip.id}`,
+          name: `${project.name}: ${clip.title[locale]}`,
+          description: project.description[locale],
+          url: `${url}?film=${project.id}&clip=${clip.id}`,
+          contentUrl: SEO_BASE_URL + filmSource(clip),
+          thumbnailUrl: SEO_BASE_URL + filmPoster(clip),
+          uploadDate: "2026-10-10",
+          duration: `PT${clip.duration}S`,
+          width: clip.width,
+          height: clip.height,
+          creator: { "@id": ORGANIZATION_ID },
+        }))
+      ),
       ...brandProjects.map(brand => ({
         "@type": "CreativeWork",
         name: brand.name,

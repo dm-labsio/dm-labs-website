@@ -3,9 +3,9 @@ import OurWorkPage from "@/components/work/OurWorkPage";
 
 export default function Templates() {
   useSEO({
-    title: "Our Work | Web Design & Branding | DM-Labs.io",
+    title: "Our Work | Websites, Branding & Video | DM-Labs.io",
     description:
-      "Explore website demos and brand identities by DM-Labs.io. Discover Hartley, AWAY and Sunday Boat through logos, illustration, packaging and more.",
+      "Explore websites, brand identities and promotional videos by DM-Labs.io. Watch brand films, social reels and campaigns for Hartley, AWAY and Sunday Boat.",
     canonicalPath: "/templates/",
   });
   return <OurWorkPage locale="en" />;

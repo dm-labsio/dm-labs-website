@@ -63,7 +63,7 @@ describe("Our Work typography and metadata", () => {
     expect(page).not.toContain("€299");
   });
   it("preserves the index canonical and direct preview destinations", () => {
-    expect(templatesSource).toContain('title: "Our Work | Web Design & Branding | DM-Labs.io"');
+    expect(templatesSource).toContain('title: "Our Work | Websites, Branding & Video | DM-Labs.io"');
     expect(templatesSource).toContain('canonicalPath: "/templates/"');
     expect(gallery).toContain('href={`/preview/${project.id}/`}');
     expect(page).not.toContain("TemplateModal");
