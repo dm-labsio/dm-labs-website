@@ -101,7 +101,9 @@ const scenes = [
 ];
 let heroVersion = 0,
   heroAnimation;
-async function hero(index, event) {
+async function hero(index, event, automatic = false) {
+  if (!automatic) stopHeroLoop();
+  pressed("[data-hero]", $(`[data-hero="${index}"]`));
   const version = ++heroVersion;
   const [desktop, mobile, alt] = scenes[index];
   const reveal = $("#hero-reveal"),
@@ -115,7 +117,6 @@ async function hero(index, event) {
     .decode()
     .catch(() => {});
   if (version !== heroVersion) return;
-  pressed("[data-hero]", $(`[data-hero="${index}"]`));
   const bounds = $(".hero").getBoundingClientRect();
   const x = event?.clientX
     ? ((event.clientX - bounds.left) / bounds.width) * 100
@@ -524,3 +525,212 @@ if (!reduced.matches) {
   );
   $$(".reveal").forEach(el => observer.observe(el));
 }
+
+// The illustrated objects reveal the real textures and spaces behind each detail.
+const comforts = {
+  linen: [
+    "applications-5.webp",
+    "Soft landings",
+    "Made for a slower morning.",
+    "Woven blankets, soft towels, and the little details that make a place feel like yours.",
+    "AWAY's woven blanket with its wine and pale-blue motif",
+    "contain",
+  ],
+  chair: [
+    "photo-1-1600.webp",
+    "Your favourite seat",
+    "Stay for another chapter.",
+    "A proper chair, a soft throw, and the view just beyond the canvas. Nothing else on the list.",
+    "The furnished Canvas Suite with warm timber and woven textiles",
+    "cover",
+  ],
+  bed: [
+    "photo-7-1600.webp",
+    "A deeper sleep",
+    "Outside all day. Completely at rest.",
+    "Soft linen, a generous bed, and a quiet space that opens to the trees.",
+    "A king bed and freestanding bath inside the Bath Suite",
+    "cover",
+  ],
+  ritual: [
+    "applications-6.webp",
+    "Everyday rituals",
+    "A little care, everywhere.",
+    "Considered ceramics, fresh towels, and a place for the simplest daily rituals.",
+    "AWAY's pale-blue and cream bathroom amenities",
+    "contain",
+  ],
+  woods: [
+    "photo-27-1600.webp",
+    "Always outside",
+    "The river is your neighbour.",
+    "Step out, follow the water, and find the part of the day you want to keep for yourself.",
+    "The river path through the pines",
+    "cover",
+  ],
+  bath: [
+    "photo-8-1600.webp",
+    "A longer soak",
+    "Draw a bath. Let the day wait.",
+    "A deep freestanding bath beside the woods. The Bath Suite's most inviting corner.",
+    "The Bath Suite's freestanding bath overlooking woodland",
+    "contain",
+  ],
+};
+let comfortVersion = 0;
+$$("[data-comfort]").forEach(button =>
+  button.addEventListener("click", async () => {
+    const version = ++comfortVersion;
+    const [file, label, title, description, alt, fit] =
+      comforts[button.dataset.comfort];
+    pressed("[data-comfort]", button);
+    const image = $("#comfort-image"),
+      preload = new Image();
+    preload.src = root + file;
+    await preload.decode().catch(() => {});
+    if (version !== comfortVersion) return;
+    image.src = preload.src;
+    image.alt = alt;
+    image.style.objectFit = fit;
+    $("#comfort-label").textContent = label;
+    $("#comfort-title").textContent = title;
+    $("#comfort-description").textContent = description;
+    if (!reduced.matches) {
+      image.animate(
+        [
+          { opacity: 0.35, transform: "scale(1.045)" },
+          { opacity: 1, transform: "scale(1)" },
+        ],
+        { duration: 700, easing: "cubic-bezier(.22,1,.36,1)" }
+      );
+      $(".comfort-feature figcaption").animate(
+        [
+          { opacity: 0, transform: "translateY(10px)" },
+          { opacity: 1, transform: "translateY(0)" },
+        ],
+        { duration: 500 }
+      );
+    }
+  })
+);
+$("#comfort-image").style.objectFit = "contain";
+const comfortObserver = new IntersectionObserver(
+  entries =>
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        comfortObserver.unobserve(entry.target);
+      }
+    }),
+  { threshold: 0.15 }
+);
+comfortObserver.observe($(".comforts"));
+// Native scrolling stays intact. Pointer depth is an enhancement, never required.
+const heroStage = $(".hero"),
+  finePointer = matchMedia("(hover:hover) and (pointer:fine)");
+let pointerX = 0,
+  pointerY = 0,
+  depthFrame = 0;
+function drawDepth() {
+  depthFrame = 0;
+  const rect = heroStage.getBoundingClientRect();
+  const visible = rect.bottom > 0 && rect.top < innerHeight;
+  heroStage.style.setProperty(
+    "--look-x",
+    reduced.matches ? "0px" : `${pointerX}px`
+  );
+  heroStage.style.setProperty(
+    "--look-y",
+    reduced.matches ? "0px" : `${pointerY}px`
+  );
+  heroStage.style.setProperty(
+    "--scene-scroll",
+    reduced.matches || !visible
+      ? "0px"
+      : `${Math.min(95, Math.max(0, -rect.top * 0.14))}px`
+  );
+}
+function depth() {
+  if (!depthFrame) depthFrame = requestAnimationFrame(drawDepth);
+}
+heroStage.addEventListener("pointermove", event => {
+  if (reduced.matches || !finePointer.matches || event.pointerType === "touch")
+    return;
+  const rect = heroStage.getBoundingClientRect();
+  pointerX = (event.clientX / rect.width - 0.5) * -20;
+  pointerY = ((event.clientY - rect.top) / rect.height - 0.5) * -12;
+  depth();
+});
+heroStage.addEventListener("pointerleave", () => {
+  pointerX = pointerY = 0;
+  depth();
+});
+window.addEventListener("scroll", depth, { passive: true });
+reduced.addEventListener("change", () => {
+  pointerX = pointerY = 0;
+  depth();
+});
+let heroTouch;
+heroStage.addEventListener(
+  "touchstart",
+  event => {
+    if (event.target.closest("button,a")) return;
+    heroTouch = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+  },
+  { passive: true }
+);
+heroStage.addEventListener(
+  "touchend",
+  event => {
+    if (!heroTouch) return;
+    const dx = event.changedTouches[0].clientX - heroTouch.x,
+      dy = event.changedTouches[0].clientY - heroTouch.y;
+    heroTouch = null;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      const current = Number(
+        $('[data-hero][aria-pressed="true"]').dataset.hero
+      );
+      hero((current + (dx < 0 ? 1 : 2)) % 3);
+    }
+  },
+  { passive: true }
+);
+
+// A photographic sequence, with user selection taking priority permanently.
+let heroLoopTimer,
+  heroLoopStopped = false,
+  heroInView = true;
+function stopHeroLoop() {
+  heroLoopStopped = true;
+  clearTimeout(heroLoopTimer);
+}
+function scheduleHeroLoop() {
+  clearTimeout(heroLoopTimer);
+  if (heroLoopStopped || reduced.matches || document.hidden || !heroInView)
+    return;
+  heroLoopTimer = setTimeout(async () => {
+    if (
+      document.querySelector("dialog[open]") ||
+      document.body.classList.contains("menu-open") ||
+      heroStage.contains(document.activeElement)
+    ) {
+      scheduleHeroLoop();
+      return;
+    }
+    const current = Number($('[data-hero][aria-pressed="true"]').dataset.hero);
+    await hero((current + 1) % scenes.length, undefined, true);
+    scheduleHeroLoop();
+  }, 8500);
+}
+const heroObserver = new IntersectionObserver(
+  ([entry]) => {
+    heroInView = entry.isIntersecting;
+    scheduleHeroLoop();
+  },
+  { threshold: 0.5 }
+);
+heroObserver.observe(heroStage);
+document.addEventListener("visibilitychange", scheduleHeroLoop);
+reduced.addEventListener("change", scheduleHeroLoop);
+heroStage.addEventListener("focusin", stopHeroLoop);
+scheduleHeroLoop();

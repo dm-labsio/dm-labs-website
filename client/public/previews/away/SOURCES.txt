@@ -27,3 +27,11 @@ https://singita.com/lodge/singita-ebony-lodge/information/
 All layout, copy, camp explorer, suite viewer, and demonstration stay planner are
 original website-demo work. No actual reservations, availability, prices, payments,
 location claims, or Indigenous ownership/affiliation claims are made.
+
+October refinement: illustrated forest entrance, layered image depth, and cut-reveal
+typography use original code inspired by these additional 21st.dev references:
+https://21st.dev/@uniquesonu/components/modern-hero
+https://21st.dev/@danielpetho/components/vertical-cut-reveal
+The latter is listed under MIT. No third-party implementation source copied.
+All six comfort illustrations and the woven-label, blanket, and amenities mockups
+come from the same supplied AWAY library. Alpha transparency is preserved.

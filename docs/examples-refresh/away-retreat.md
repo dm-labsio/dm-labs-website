@@ -52,3 +52,19 @@ menus, planner dates and guest limits, itinerary editing, and reduced motion.
 Tested viewport widths 320, 390, 768, and 1440 pixels. These are browser emulations,
 not physical-device tests. Production build and deployed-preview smoke check are
 required before marking this release complete.
+
+## Illustrated arrival refinement
+
+The cup now retains its natural square proportions with no crop. The hero opens
+through two illustrated forest panels, reveals the exact oversized AWAY wordmark,
+and uses staggered cut-reveal type. Landscape selections have photographic
+previews, pointer depth, native-scroll parallax, and horizontal touch gestures.
+A slow photographic sequence runs while visible, stops after manual selection or
+keyboard focus, and suspends for hidden tabs, offscreen sections, and open dialogs.
+Reduced motion removes the entrance, depth, and automatic scene changes.
+
+A new comfort explorer uses all six supplied illustrations. Every selection
+reveals the corresponding space or branded object with its own description.
+Blanket, bathroom amenities, and woven-label photography make the brand tangible.
+The opening sequence is finite (under five seconds), with no scroll pinning or
+blocked interaction. Source references are recorded in SOURCES.txt.

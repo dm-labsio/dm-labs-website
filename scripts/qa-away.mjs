@@ -99,11 +99,12 @@ for (const width of [320, 390, 768, 1440]) {
   await p.screenshot({ path: `/tmp/away-planner-${width}.png` });
   await p.locator("#edit-stay").click();
   await p.locator("#stay-dialog > [data-close]").click();
-  for (const section of ["intro", "suites", "camp", "days", "table", "stay"]) {
+  for (const section of ["intro", "comforts", "suites", "camp", "days", "table", "stay"]) {
     await p.locator(`#${section}`).scrollIntoViewIfNeeded();
     await p.waitForTimeout(200);
   }
   await p.evaluate(async () => {
+    document.querySelectorAll("img[loading=lazy]").forEach(i => i.loading = "eager");
     await Promise.all(
       [...document.images]
         .filter(i => i.currentSrc)
@@ -123,6 +124,7 @@ for (const width of [320, 390, 768, 1440]) {
   );
   await p.screenshot({ path: `/tmp/away-${width}-loaded.png`, fullPage: true });
   report.push({ width, passed: true });
+  console.log(`AWAY ${width}: passed`);
   await p.close();
 }
 await browser.close();
