@@ -131,15 +131,9 @@
   position: absolute;
   bottom: 2%;
   right: -1%;
-  width: min(62%, 340px);
+  width: min(50%, 230px);
   height: auto;
   object-fit: contain;
-}
-.seasonal-glass {
-  mask-image:
-    linear-gradient(transparent, #000 10% 88%, transparent),
-    linear-gradient(90deg, transparent, #000 10% 90%, transparent);
-  mask-composite: intersect;
 }
 .seasonal-particles {
   position: absolute;
@@ -199,7 +193,7 @@
     inset-inline-end: -2%;
   }
   .seasonal-glass {
-    width: 220px;
+    width: 160px;
     max-width: none;
     bottom: 4px;
     right: -30px;
@@ -246,7 +240,7 @@
     width: 80px;
   }
   .seasonal-glass {
-    width: 120px;
+    width: 96px;
     right: 6px;
     bottom: -3px;
     opacity: 0.75;
@@ -306,6 +300,7 @@
     .home-examples,
     .home-overview,
     .home-stories,
+    .package-overview,
     .industry-gallery,
     .home-team
   ) {
@@ -326,33 +321,104 @@
   color: #b6a6d0;
   opacity: 0.24;
 }
-.seasonal-section-glass {
+.seasonal-scroll-scene {
   position: absolute;
-  width: 160px;
-  height: 160px;
-  inset-block-end: -18px;
-  inset-inline-end: 0;
-  opacity: 0.82;
-  object-fit: contain;
+  bottom: 0;
+  width: 150px;
+  height: 190px;
+  pointer-events: none;
 }
-.seasonal-section-ghost {
+.seasonal-scroll-scene--right {
+  right: 0;
+}
+.seasonal-scroll-scene--left {
+  left: 0;
+}
+.seasonal-single {
   position: absolute;
-  width: 36px;
-  height: 48px;
-  inset-inline-end: 20px;
-  inset-block-end: 24px;
-  color: #c7c1e0;
-  opacity: 0.32;
-  transform: rotate(12deg);
+  bottom: 4px;
+  left: 5px;
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+.seasonal-scroll-spider {
+  position: absolute;
+  width: 24px;
+  height: 66px;
+  top: 0;
+  right: 8px;
+  color: #b7a5d2;
+  opacity: 0.5;
+}
+.seasonal-scroll-bat {
+  position: absolute;
+  width: 38px;
+  height: 20px;
+  top: 22px;
+  left: 8px;
+  color: #b7a5d2;
+  opacity: 0.3;
+}
+.seasonal-scroll-scene svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.seasonal-scroll-scene[data-motion="playing"] .seasonal-single {
+  animation: seasonal-soft-float var(--scroll-duration) ease-in-out both;
+}
+.seasonal-scroll-scene[data-motion="playing"] .seasonal-scroll-spider {
+  animation: seasonal-spider-drop var(--scroll-duration) ease-in-out both;
+}
+.seasonal-scroll-scene[data-motion="playing"] .seasonal-scroll-bat {
+  animation: seasonal-bat-pass var(--scroll-duration) ease-in-out both;
+}
+@keyframes seasonal-soft-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-9px) rotate(2deg);
+  }
+}
+@keyframes seasonal-spider-drop {
+  0% {
+    transform: translateY(-45px);
+    opacity: 0;
+  }
+  45% {
+    transform: translateY(5px);
+    opacity: 0.65;
+  }
+  70% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+}
+@keyframes seasonal-bat-pass {
+  0% {
+    transform: translate(0, 15px) rotate(-16deg);
+    opacity: 0.15;
+  }
+  45% {
+    transform: translate(45px, -20px) rotate(12deg);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+    opacity: 0.3;
+  }
 }
 .seasonal-section-decor--1 .seasonal-section-web {
   inset-inline-start: auto;
   inset-inline-end: 0;
   transform: scaleX(-1);
-}
-.seasonal-section-decor--2 .seasonal-section-glass {
-  inset-inline-start: 0;
-  inset-inline-end: auto;
 }
 .seasonal-bats {
   position: fixed;
@@ -406,21 +472,89 @@
     translate: 0 0;
   }
 }
+@media (max-width: 1359px) {
+  /* Fit inside existing bottom padding when there is no wide side gutter.
+     No added section padding or layout shift when the optional layer loads. */
+  .seasonal-scroll-scene {
+    width: 96px;
+    height: 40px;
+  }
+  .seasonal-single {
+    width: 36px;
+    height: 36px;
+    left: 4px;
+    bottom: 0;
+  }
+  .seasonal-scroll-spider {
+    width: 12px;
+    height: 30px;
+    right: 28px;
+    top: 5px;
+  }
+  .seasonal-scroll-bat {
+    width: 24px;
+    height: 13px;
+    left: 48px;
+    top: 14px;
+  }
+  :is(.home-film, .home-overview) .seasonal-scroll-scene {
+    height: 64px;
+  }
+  :is(.home-film, .home-overview) .seasonal-single {
+    width: 56px;
+    height: 56px;
+  }
+  :is(.home-film, .home-overview) .seasonal-scroll-spider {
+    right: 8px;
+  }
+  :is(.home-film, .home-overview) .seasonal-scroll-bat {
+    left: 64px;
+  }
+  @keyframes seasonal-soft-float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0);
+    }
+    50% {
+      transform: translateY(-2px) rotate(2deg);
+    }
+  }
+  @keyframes seasonal-spider-drop {
+    0% {
+      transform: translateY(-4px);
+      opacity: 0;
+    }
+    45% {
+      transform: translateY(3px);
+      opacity: 0.65;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 0.5;
+    }
+  }
+  @keyframes seasonal-bat-pass {
+    0% {
+      transform: translate(0, 4px) rotate(-12deg);
+      opacity: 0.15;
+    }
+    45% {
+      transform: translate(5px, -4px) rotate(8deg);
+      opacity: 0.4;
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 0.3;
+    }
+  }
+}
 @media (max-width: 767px) {
   .seasonal-section-web {
     width: 64px;
     opacity: 0.2;
   }
-  .seasonal-section-glass {
-    width: 94px;
-    height: 94px;
-    inset-block-end: -16px;
-  }
-  .seasonal-section-ghost {
-    width: 25px;
-    height: 33px;
-    inset-inline-end: 7px;
-    inset-block-end: 8px;
+  .seasonal-scroll-spider {
+    opacity: 0.35;
   }
   .seasonal-edge-bat {
     width: 22px;
@@ -447,6 +581,9 @@
     animation: none;
   }
   .seasonal-edge-bat {
+    animation: none !important;
+  }
+  .seasonal-scroll-scene * {
     animation: none !important;
   }
 }

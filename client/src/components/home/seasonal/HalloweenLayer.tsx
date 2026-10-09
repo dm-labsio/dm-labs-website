@@ -7,6 +7,7 @@ import {
   seasonalParticles,
 } from "./seasonalConfig";
 import "./HalloweenLayer.css";
+import SeasonalSection from "./SeasonalSection";
 
 const COPY = {
   en: {
@@ -89,7 +90,7 @@ export default function HalloweenLayer({
     setSections(
       Array.from(
         document.querySelectorAll(
-          ".home-film, .home-examples, .home-overview-services, .home-overview-process, .home-stories, .industry-gallery, .home-team"
+          ".home-film, .home-examples, .home-overview-services, .home-overview-process, .home-stories, .package-overview, .industry-gallery, .home-team"
         )
       )
     );
@@ -231,11 +232,10 @@ export default function HalloweenLayer({
           {SEASONAL_CONFIG.artwork ? (
             <img
               className="seasonal-glass"
-              src="/media/seasonal/halloween-2026/glass-pumpkins-560.webp"
-              srcSet="/media/seasonal/halloween-2026/glass-pumpkins-280.webp 280w, /media/seasonal/halloween-2026/glass-pumpkins-560.webp 560w"
-              sizes="(max-width: 767px) 120px, (max-width: 1023px) 220px, 340px"
-              width="560"
-              height="560"
+              data-artwork="amber-pumpkin"
+              src="/media/seasonal/halloween-2026/amber-pumpkin-320.webp"
+              width="320"
+              height="320"
               alt=""
               fetchPriority="low"
               decoding="async"
@@ -287,34 +287,15 @@ export default function HalloweenLayer({
         : null}
       {sections.map((section, index) =>
         createPortal(
-          <div
-            className={`seasonal-section-decor seasonal-section-decor--${index % 3}`}
-            data-seasonal-runtime="ornament"
-            aria-hidden="true"
-            key={index}
-          >
-            {SEASONAL_CONFIG.webs ? (
-              <Web className="seasonal-section-web" />
-            ) : null}
-            {SEASONAL_CONFIG.artwork ? (
-              index % 2 === 0 ? (
-                <img
-                  className="seasonal-section-glass"
-                  src="/media/seasonal/halloween-2026/glass-pumpkins-280.webp"
-                  width="280"
-                  height="280"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  fetchPriority="low"
-                />
-              ) : (
-                <span className="seasonal-section-ghost">
-                  <Ghost />
-                </span>
-              )
-            ) : null}
-          </div>,
+          <SeasonalSection
+            index={index}
+            web={
+              SEASONAL_CONFIG.webs ? (
+                <Web className="seasonal-section-web" />
+              ) : null
+            }
+            bat={<Bat />}
+          />,
           section,
           `seasonal-section-${index}`
         )

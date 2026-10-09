@@ -84,7 +84,7 @@ try {
       // Hebrew intentionally has no client-stories section.
       assert.equal(
         await page.locator(".seasonal-section-decor").count(),
-        language === "he" ? 6 : 7
+        language === "he" ? 7 : 8
       );
       for (const section of [
         ".home-examples",
@@ -194,7 +194,7 @@ try {
     );
     const seasonalRequests = [];
     page.on("request", r => {
-      if (/HalloweenLayer|glass-pumpkins/.test(r.url()))
+      if (/HalloweenLayer|\/media\/seasonal\//.test(r.url()))
         seasonalRequests.push(r.url());
     });
     if (scenario === "blocked-storage")
@@ -241,7 +241,8 @@ try {
       if (scenario === "other-route") {
         await page.locator(".seasonal-bats").waitFor();
         assert.equal(
-          seasonalRequests.filter(url => /glass-pumpkins/.test(url)).length,
+          seasonalRequests.filter(url => /\/media\/seasonal\//.test(url))
+            .length,
           0
         );
       }

@@ -7,6 +7,8 @@ import {
   isSeasonalHomepage,
   SEASONAL_CONFIG,
   seasonalParticles,
+  seasonalArtwork,
+  SEASONAL_ARTWORK,
 } from "../client/src/components/home/seasonal/seasonalConfig";
 import SeasonalHome from "../client/src/components/home/seasonal/SeasonalHome";
 
@@ -127,5 +129,25 @@ describe("Optional homepage seasonal layer", () => {
     );
     expect(css).toContain(".seasonal-photo-ornament");
     expect(css).not.toContain(".team-profile-photo {");
+  });
+  it("distributes the three standalone assets evenly and bounds scroll motion", () => {
+    const cycle = Array.from({ length: 9 }, (_, i) => seasonalArtwork(i));
+    for (const name of SEASONAL_ARTWORK) {
+      expect(cycle.filter(n => n === name)).toHaveLength(3);
+      expect(
+        statSync(`client/public/media/seasonal/halloween-2026/${name}-320.webp`)
+          .size
+      ).toBeLessThan(30_000);
+    }
+    expect(SEASONAL_CONFIG.scrollMotion.durationMs).toBeLessThan(5000);
+    const source = readFileSync(
+      "client/src/components/home/seasonal/SeasonalSection.tsx",
+      "utf8"
+    );
+    expect(source).toContain("IntersectionObserver");
+    expect(source).toContain("observer.disconnect()");
+    expect(source).toContain("prefers-reduced-motion");
+    expect(source).toContain("connection?.saveData");
+    expect(source).not.toMatch(/requestAnimationFrame|setInterval/);
   });
 });

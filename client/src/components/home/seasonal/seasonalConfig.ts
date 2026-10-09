@@ -14,6 +14,7 @@ export const SEASONAL_CONFIG = {
   // Photo-frame overlay slot; future seasons can provide another ornament here.
   photoOrnament: "webs" as "webs" | null,
   sitewideBats: true,
+  scrollMotion: { enabled: true, durationMs: 4200 },
   // Manual quote adjustment for October enquiries; never changes pricing data.
   offer: { oneTimePercent: 10, monthlyPercent: 0, enquiryMonth: "2026-10" },
   particles: {
@@ -26,6 +27,17 @@ export const SEASONAL_CONFIG = {
     oncePerSession: true,
   },
 };
+
+export const SEASONAL_ARTWORK = [
+  "amber-pumpkin",
+  "violet-pumpkin",
+  "glass-ghost",
+] as const;
+export function seasonalArtwork(index: number) {
+  return SEASONAL_ARTWORK[
+    Math.abs(Math.trunc(index)) % SEASONAL_ARTWORK.length
+  ];
+}
 
 export function isSeasonActive(now = Date.now(), config = SEASONAL_CONFIG) {
   return (
