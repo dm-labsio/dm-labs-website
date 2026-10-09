@@ -7,7 +7,7 @@ try {
   const page=await browser.newPage({viewport:{width,height:900},isMobile:width<700,hasTouch:width<700});
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.addInitScript(()=>localStorage.setItem('dm_cookie_consent',JSON.stringify({essential:true,analytics:false})));
-  await page.goto(base+prefix+'/');await page.locator('.team-portrait-card').first().waitFor();
+  await page.goto(base+prefix+'/');await page.waitForLoadState('networkidle');await page.locator('.team-portrait-card').first().waitFor();
   await page.locator('.team-showcase').scrollIntoViewIfNeeded();await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(400);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   await page.screenshot({path:`/tmp/team-${prefix.slice(1)||'en'}-${width}.png`});
@@ -21,7 +21,7 @@ try {
    assert.equal(await trigger.evaluate(e=>document.activeElement===e),true);assert.ok(Math.abs((await page.evaluate(()=>scrollY))-scrollBefore)<3);
   }
   await page.locator('.team-portrait-card').first().click();await page.locator('.team-bio-contact').click();await page.waitForURL(base+prefix+'/contact/');
-  await page.goto(base+prefix+'/blog/');await page.locator('.blog-index-card').first().waitFor();await page.evaluate(()=>document.fonts.ready);
+  await page.goto(base+prefix+'/blog/');await page.waitForLoadState('networkidle');await page.locator('.blog-index-card').first().waitFor();await page.evaluate(()=>document.fonts.ready);
   assert.equal(await page.locator('h1').count(),1);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   const total=await page.locator('.blog-index-card').count();assert.ok(total>0);
   const dates=await page.locator('.blog-index-meta time').evaluateAll(es=>es.map(e=>e.getAttribute('datetime')));assert.deepEqual(dates,[...dates].sort().reverse());
@@ -41,5 +41,5 @@ try {
   await page.locator('.blog-index-card h2 a').first().click();await page.waitForURL(/\/blog\/.+\//);assert.equal(await page.locator('h1').count(),1);
   assert.deepEqual(errors,[]);console.log('PASS team dialogs, focus restore, blog previews/filter/search/order/navigation',prefix||'en',width);await page.close();
  }
- const page=await browser.newPage({viewport:{width:320,height:800},reducedMotion:'reduce'});await page.goto(base+'/he/blog/');await page.locator('.blog-preview-toggle').first().click();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.ok(await page.locator('.blog-inline-preview').first().evaluate(e=>parseFloat(getComputedStyle(e).transitionDuration)<=0.001));await page.close();console.log('PASS 320px Hebrew and reduced motion');
+ const page=await browser.newPage({viewport:{width:320,height:800},reducedMotion:'reduce'});await page.goto(base+'/he/blog/');await page.waitForLoadState('networkidle');await page.locator('.blog-preview-toggle').first().click();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.ok(await page.locator('.blog-inline-preview').first().evaluate(e=>parseFloat(getComputedStyle(e).transitionDuration)<=0.001));await page.close();console.log('PASS 320px Hebrew and reduced motion');
 }finally{await browser.close()}
