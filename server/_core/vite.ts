@@ -143,7 +143,6 @@ export const VALID_PREVIEW_IDS = new Set([
   "dr-elara-dental",
   "nomad-coffee",
   "arcos-architecture",
-  "olio-deli",
   "luxe-realty",
 ]);
 

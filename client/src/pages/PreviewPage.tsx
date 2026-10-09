@@ -11,7 +11,6 @@ const PREVIEW_MAP: Record<string, { name: string; url: string }> = {
   "dr-elara-dental":      { name: "Dr. Elara Dental",     url: "/previews/dr-elara-dental.html" },
   "nomad-coffee":         { name: "Nomad Coffee",         url: "/previews/nomad-coffee.html" },
   "arcos-architecture":   { name: "Arcos Architecture",   url: "/previews/arcos-architecture.html" },
-  "olio-deli":            { name: "Olio Deli",            url: "/previews/olio-deli.html" },
 };
 
 function setPreviewNoindexHead() {

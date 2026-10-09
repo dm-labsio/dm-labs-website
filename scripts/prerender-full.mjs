@@ -173,7 +173,6 @@ const PREVIEW_ROUTES = [
   "dr-elara-dental",
   "nomad-coffee",
   "arcos-architecture",
-  "olio-deli",
   "luxe-realty",
 ].map((id) => `/preview/${id}/`);
 

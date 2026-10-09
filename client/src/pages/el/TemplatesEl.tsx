@@ -224,34 +224,6 @@ const CARD_DESIGNS: Record<string, React.FC> = {
   "arcos-architecture": () => <ArcosPreviewArtwork />,
   "luxe-realty": () => <LuxePreviewArtwork />,
 
-  "olio-deli": () => (
-    <div style={{ height: "280px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#1e1c17" }}>
-      <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&q=80" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(30,28,23,0.85) 0%, rgba(74,94,42,0.3) 100%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "36px", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(200,151,58,0.2)" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "13px", fontWeight: 700, color: "#c8973a", letterSpacing: "0.08em", fontStyle: "italic" as const }}>Olio Deli</span>
-        <div style={{ display: "flex", gap: "12px" }}>
-          {["Μενού","Ιστορία","Προϊόντα"].map(l => <span key={l} style={{ fontSize: "8px", color: "rgba(200,151,58,0.7)" }}>{l}</span>)}
-        </div>
-        <div style={{ border: "1px solid #c8973a", color: "#c8973a", fontSize: "8px", padding: "3px 10px" }}>Παραγγείλτε</div>
-      </div>
-      <div style={{ position: "absolute", bottom: "28px", left: "18px" }}>
-        <div style={{ fontSize: "8px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c8973a", marginBottom: "5px" }}>Ντελικατέσεν · Αθήνα</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#faf6ef", lineHeight: 1.2, marginBottom: "8px", fontStyle: "italic" as const }}>Γεύσεις της Μεσογείου<br/>στο τραπέζι σας</div>
-        <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ background: "#c8973a", color: "#1e1c17", fontSize: "8px", padding: "5px 14px", fontWeight: 700 }}>Τα προϊόντα μας</div>
-          <div style={{ border: "1px solid rgba(200,151,58,0.4)", color: "#c8973a", fontSize: "8px", padding: "5px 12px" }}>Η ιστορία μας</div>
-        </div>
-      </div>
-      <div style={{ position: "absolute", bottom: "10px", right: "14px", display: "flex", gap: "4px" }}>
-        {["#1e1c17","#4a5e2a","#c8973a","#faf6ef","#7a7060"].map((c,i) => <div key={i} style={{ width: "12px", height: "12px", borderRadius: "50%", background: c, border: "1px solid rgba(255,255,255,0.12)" }} />)}
-      </div>
-      <div style={{ position: "absolute", top: "42px", right: "8px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "3px 8px", display: "flex", alignItems: "center", gap: "4px" }}>
-        <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "8px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
 
 };
 
@@ -425,33 +397,6 @@ const TEMPLATES = [
     images: { card: "" },
     livePreview: true,
     previewUrl: "/previews/arcos-architecture.html",
-  },
-  {
-    id: "olio-deli",
-    industry: "restaurant",
-    name: "Olio Deli",
-    tagline: "Ζεστή Μεσόγειος",
-    tier: "Growth",
-    tierGradient: "linear-gradient(135deg, #4a5e2a, #2a3a10)",
-    domain: "oliodeli.gr",
-    palette: ["#1e1c17", "#4a5e2a", "#c8973a", "#faf6ef", "#7a7060"],
-    paletteNames: ["Μελάνι", "Ελιά", "Χρυσό", "Κρέμα", "Απαλό"],
-    features: [
-      "Αρχική ενότητα σε δύο στήλες με φωτογραφία προϊόντων",
-      "Κατηγορίες προϊόντων",
-      "Επιλεγμένα προϊόντα με τιμές",
-      "Σελίδα «Ποιοι είμαστε»",
-      "SEO για ντελικατέσεν στην Αθήνα",
-    ],
-    pages: [
-      { label: "Ζωντανή προεπισκόπηση", preview: "live", description: "Μπορείτε να κάνετε scroll, να πατήσετε και να δείτε όλη την ιστοσελίδα" },
-    ],
-    style: "Ζεστό μεσογειακό ύφος σε πράσινο της ελιάς και χρυσό, με κλασική γραμματοσειρά. Ταιριάζει σε ντελικατέσεν, μπακάλικα και καταστήματα τροφίμων.",
-    waMessage: "Γεια σας! Είδα το παράδειγμα Olio Deli στη σελίδα σας και θα ήθελα να μάθω περισσότερα.",
-    price: "€299",
-    images: { card: "" },
-    livePreview: true,
-    previewUrl: "/previews/olio-deli.html",
   },
 ];
 // ─── Template Detail Modal ────────────────────────────────────────────────────
