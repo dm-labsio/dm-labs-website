@@ -11,6 +11,8 @@ export const SEASONAL_CONFIG = {
   banner: true,
   artwork: true,
   webs: true,
+  // Photo-frame overlay slot; future seasons can provide another ornament here.
+  photoOrnament: "webs" as "webs" | null,
   sitewideBats: true,
   // Manual quote adjustment for October enquiries; never changes pricing data.
   offer: { oneTimePercent: 10, monthlyPercent: 0, enquiryMonth: "2026-10" },

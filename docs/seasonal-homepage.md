@@ -10,6 +10,7 @@ Edit `client/src/components/home/seasonal/seasonalConfig.ts` and deploy a review
 - `startsAt` / `endsAt`: absolute dates with timezone offsets. The end is exclusive. This campaign runs 9 October through 31 October 2026, ending at midnight on 1 November in the owner's timezone. It does not recur next year.
 - `banner`, `artwork`, `webs`: independently disable each element.
 - `sitewideBats`: subtle bats on the main marketing site's pages, including pricing. Standalone `/preview/` demos are deliberately untouched.
+- `photoOrnament: "webs"`: static corner webs on the two homepage team portraits. Set to `null` to disable independently. The reusable `.seasonal-photo-ornament` overlay slot can hold a Christmas hat in a future Christmas theme; no Christmas campaign or hat is activated now. Photos, crops, names and biographies remain unchanged. These inline SVG overlays add no image requests or animation, stay out of the face area, and share seasonal expiry/dismissal.
 - `particles`: enable/disable, mobile and desktop counts, bat/ghost counts, duration, and once-per-session behavior. The renderer caps particles at 24 and the sequence at 4.5 seconds.
 - A future theme needs a new decorative module/artwork, not a rewrite of homepage text or structure.
 

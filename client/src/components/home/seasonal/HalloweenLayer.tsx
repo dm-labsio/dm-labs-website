@@ -81,6 +81,7 @@ export default function HalloweenLayer({
   const [mobile, setMobile] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const [sections, setSections] = useState<Element[]>([]);
+  const [photoFrames, setPhotoFrames] = useState<Element[]>([]);
   const copy = COPY[language];
 
   useEffect(() => {
@@ -90,6 +91,11 @@ export default function HalloweenLayer({
         document.querySelectorAll(
           ".home-film, .home-examples, .home-overview-services, .home-overview-process, .home-stories, .industry-gallery, .home-team"
         )
+      )
+    );
+    setPhotoFrames(
+      Array.from(
+        document.querySelectorAll(".home-team .team-profile-photo-frame")
       )
     );
   }, []);
@@ -262,6 +268,23 @@ export default function HalloweenLayer({
           ) : null}
         </div>
       </div>
+      {SEASONAL_CONFIG.webs && SEASONAL_CONFIG.photoOrnament === "webs"
+        ? photoFrames.map((frame, index) =>
+            createPortal(
+              <div
+                className="seasonal-photo-ornament"
+                data-seasonal-runtime="photo-ornament"
+                data-ornament="webs"
+                aria-hidden="true"
+              >
+                <Web className="seasonal-photo-web seasonal-photo-web--top" />
+                <Web className="seasonal-photo-web seasonal-photo-web--bottom" />
+              </div>,
+              frame,
+              `seasonal-photo-${index}`
+            )
+          )
+        : null}
       {sections.map((section, index) =>
         createPortal(
           <div

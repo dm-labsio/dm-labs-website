@@ -113,4 +113,19 @@ describe("Optional homepage seasonal layer", () => {
     expect(bats).toContain("prefers-reduced-motion");
     expect(bats).toContain("connection?.saveData");
   });
+  it("adds optional photo-frame ornaments without changing portraits", () => {
+    expect(SEASONAL_CONFIG.photoOrnament).toBe("webs");
+    const layer = readFileSync(
+      "client/src/components/home/seasonal/HalloweenLayer.tsx",
+      "utf8"
+    );
+    expect(layer).toContain(".home-team .team-profile-photo-frame");
+    expect(layer).toContain('data-seasonal-runtime="photo-ornament"');
+    const css = readFileSync(
+      "client/src/components/home/seasonal/HalloweenLayer.css",
+      "utf8"
+    );
+    expect(css).toContain(".seasonal-photo-ornament");
+    expect(css).not.toContain(".team-profile-photo {");
+  });
 });

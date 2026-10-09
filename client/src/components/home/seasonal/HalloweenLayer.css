@@ -261,6 +261,44 @@
   }
 }
 
+/* Reusable photo-frame overlay: never alters the portrait, crop or card layout.
+   Physical corners are intentional: portraits are not mirrored in RTL. */
+.seasonal-photo-ornament {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.seasonal-photo-web {
+  position: absolute;
+  width: min(40%, 110px);
+  height: auto;
+  color: #fff1db;
+  opacity: 0.8;
+  filter: drop-shadow(0 1px 1px #10172990);
+}
+.seasonal-photo-web g {
+  stroke-width: 1.2;
+}
+.seasonal-photo-web--top {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+.seasonal-photo-web--bottom {
+  bottom: 0;
+  left: 0;
+  transform: scaleY(-1);
+  width: min(30%, 78px);
+  opacity: 0.6;
+}
+@media print {
+  .seasonal-photo-ornament {
+    display: none;
+  }
+}
+
 /* Ornaments live in the padding and outer edges of existing homepage sections. */
 .home-page--dark
   :is(
