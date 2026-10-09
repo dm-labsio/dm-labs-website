@@ -7,38 +7,65 @@
 }
 .seasonal-banner {
   position: absolute;
-  top: 10px;
+  top: 16px;
   left: 50%;
   transform: translateX(-50%);
-  width: max-content;
+  width: min(1160px, calc(100% - 48px));
   max-width: calc(100% - 48px);
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto 34px;
+  grid-template-columns: 112px minmax(0, 1fr) auto 40px;
   align-items: center;
-  gap: 12px;
-  min-height: 34px;
-  padding: 8px 4px 8px 18px;
-  border: 1px solid #d99b593b;
-  border-radius: 18px;
-  background: #181d30f5;
-  color: #ece6e1;
-  font-size: 12px;
-  line-height: 1.4;
+  gap: 16px;
+  min-height: 144px;
+  padding: 16px;
+  border: 1px solid #d87f4970;
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 8% 65%, #a24b333b, transparent 46%),
+    linear-gradient(110deg, #301f2b, #191b30 70%);
+  color: #f1e7e3;
+  font-size: 15px;
+  line-height: 1.5;
   pointer-events: auto;
-  box-shadow: 0 4px 22px #00000014;
+  box-shadow:
+    0 12px 36px #00000030,
+    0 0 38px #e17b2412;
+  overflow: hidden;
+}
+.seasonal-banner-drips {
+  position: absolute;
+  inset: 0 0 auto;
+  width: 100%;
+  height: 22px;
+  color: #bd403d;
+  opacity: 0.9;
+  pointer-events: none;
 }
 .seasonal-banner-mark {
-  display: none;
+  display: block;
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
 }
 .seasonal-banner-copy {
-  display: contents;
+  display: grid;
+  gap: 6px;
+  min-width: 0;
 }
 .seasonal-banner-copy strong {
   color: #ffd39f;
-  white-space: nowrap;
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 800;
+  line-height: 1.15;
+  text-shadow: 0 2px 14px #e8792428;
 }
 .seasonal-banner-copy > span {
-  max-width: 600px;
+  max-width: 680px;
+}
+.seasonal-banner-copy b {
+  color: #ffd39f;
+  font-size: 1.2em;
+  font-weight: 800;
 }
 .seasonal-banner {
   font-family: var(--font-body, Arial, sans-serif);
@@ -47,19 +74,25 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: #ffd39f;
+  justify-content: center;
+  color: #281724;
+  background: #ffc389;
+  border: 1px solid #ffe0be;
+  border-radius: 12px;
+  padding: 10px 18px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 800;
   white-space: nowrap;
-  min-height: 34px;
+  min-height: 46px;
 }
 .seasonal-banner a:hover {
+  background: #ffdab0;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 .seasonal-banner button {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -187,6 +220,17 @@
   }
   .seasonal-banner {
     z-index: 4;
+    grid-template-columns: 80px minmax(0, 1fr) auto 32px;
+    gap: 12px;
+    font-size: 13px;
+  }
+  .seasonal-banner-mark {
+    width: 80px;
+    height: 80px;
+  }
+  .seasonal-banner button {
+    width: 32px;
+    height: 32px;
   }
   .seasonal-stage {
     width: 38%;
@@ -202,26 +246,32 @@
 }
 @media (max-width: 767px) {
   .seasonal-banner {
-    top: 7px;
+    top: 12px;
     max-width: calc(100% - 24px);
-    gap: 4px 10px;
-    font-size: 11px;
-    padding: 6px 10px 10px;
+    gap: 8px 10px;
+    font-size: 13px;
+    padding: 14px;
     width: calc(100% - 24px);
-    grid-template-columns: 1fr auto 28px;
+    grid-template-columns: 64px minmax(0, 1fr) 28px;
+  }
+  .seasonal-banner-copy {
+    display: contents;
   }
   .seasonal-banner-copy strong {
     grid-row: 1;
-    font-size: 12px;
+    grid-column: 2;
+    font-size: 23px;
   }
   .seasonal-banner-copy > span {
     grid-row: 2;
     grid-column: 1 / -1;
   }
   .seasonal-banner a {
-    grid-row: 1;
-    grid-column: 2;
-    min-height: 28px;
+    grid-row: 3;
+    grid-column: 1 / -1;
+    min-height: 44px;
+    padding: 8px 14px;
+    font-size: 14px;
   }
   .seasonal-banner button {
     grid-row: 1;
@@ -230,7 +280,10 @@
     height: 28px;
   }
   .seasonal-banner-mark {
-    display: none;
+    grid-row: 1;
+    grid-column: 1;
+    width: 64px;
+    height: 64px;
   }
   .seasonal-web {
     width: 78px;

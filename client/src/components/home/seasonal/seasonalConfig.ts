@@ -51,6 +51,19 @@ export function isSeasonalHomepage(path: string) {
   return /^(?:\/|\/(?:el|he)\/?)$/.test(path);
 }
 
+/** Tiny pre-paint head script, generated from the same campaign configuration.
+ * Only reserves space; artwork and offers still load as optional enhancement.
+ * No schedule/spacing state is frozen into our static build snapshots.
+ */
+export function seasonalSpaceBootstrap(config = SEASONAL_CONFIG) {
+  if (!config.enabled || !config.banner) return "";
+  const key = JSON.stringify(`dm-season-hidden:${config.id}`).replace(
+    /</g,
+    "\\u003c"
+  );
+  return `(()=>{if(window.__DM_STATIC_SNAPSHOT__)return;const n=Date.now();if(n<${Date.parse(config.startsAt)}||n>=${Date.parse(config.endsAt)})return;try{if(sessionStorage.getItem(${key}))return}catch{}document.documentElement.dataset.seasonalSpace="halloween"})()`;
+}
+
 /** Bounded deterministic particles: no random markup, animation loop or React frame updates. */
 export function seasonalParticles(
   mobile: boolean,

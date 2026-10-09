@@ -6,6 +6,16 @@ import {
   SEASONAL_CONFIG,
 } from "./seasonalConfig";
 
+// Both entry points share the same CSS chunk. A second Vite preload can see
+// the first link before it has loaded, so share the whole import promise too.
+// This caches only code, never a visitor's campaign/session preferences.
+let halloweenModule: Promise<typeof import("./HalloweenLayer")> | undefined;
+function loadHalloweenModule() {
+  // Keep failures cached too: don't retry into a partially loaded stylesheet
+  // on SPA navigation. A fresh page load can try the optional layer again.
+  return (halloweenModule ??= import("./HalloweenLayer"));
+}
+
 /** Decorations are progressive enhancement. Nothing blocks the original hero. */
 export default function SeasonalHome({
   language,
@@ -49,9 +59,12 @@ export default function SeasonalHome({
     window.addEventListener("dm-season-hide", hide);
     const load = () => {
       if (cancelled || !isSeasonActive()) return;
-      void (sitewide ? import("./SeasonalBats") : import("./HalloweenLayer"))
-        .then(module => {
-          if (!cancelled && isSeasonActive()) setLayer(() => module.default);
+      void loadHalloweenModule()
+        .then(async module =>
+          sitewide ? (await import("./SeasonalBats")).default : module.default
+        )
+        .then(Component => {
+          if (!cancelled && isSeasonActive()) setLayer(() => Component);
         })
         .catch(() => {
           /* A failed optional chunk must never break the page. */

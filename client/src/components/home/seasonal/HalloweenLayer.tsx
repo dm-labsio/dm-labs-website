@@ -202,12 +202,35 @@ export default function HalloweenLayer({
           data-nosnippet=""
           aria-label={language === "he" ? "האלווין" : "Halloween"}
         >
-          <span className="seasonal-banner-mark" aria-hidden="true">
-            ✦
-          </span>
+          <svg
+            className="seasonal-banner-drips"
+            viewBox="0 0 1000 24"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M0 0H1000V5H956v7a4 4 0 0 1-8 0V5H848v13a5 5 0 0 1-10 0V5H730v5a3 3 0 0 1-6 0V5H568v9a4 4 0 0 1-8 0V5H390v15a4 4 0 0 1-8 0V5H240v7a4 4 0 0 1-8 0V5H112v12a5 5 0 0 1-10 0V5H44v4a3 3 0 0 1-6 0V5H0Z"
+              fill="currentColor"
+            />
+          </svg>
+          <img
+            className="seasonal-banner-mark"
+            src="/media/seasonal/halloween-2026/glass-skeleton-320.webp"
+            width="320"
+            height="320"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+            fetchPriority="low"
+          />
           <div className="seasonal-banner-copy">
             <strong>{copy.text}</strong>
-            <span>{copy.offer}</span>
+            <span>
+              {copy.offer.split("10%")[0]}
+              <b>10%</b>
+              {copy.offer.split("10%")[1]}
+            </span>
           </div>
           <a href={language === "en" ? "/contact/" : `/${language}/contact/`}>
             {copy.link}

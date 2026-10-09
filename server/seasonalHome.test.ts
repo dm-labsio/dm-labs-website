@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { readFileSync, statSync } from "node:fs";
+import { runInNewContext } from "node:vm";
 import {
   isSeasonActive,
   isSeasonalHomepage,
@@ -9,10 +10,48 @@ import {
   seasonalParticles,
   seasonalArtwork,
   SEASONAL_ARTWORK,
+  seasonalSpaceBootstrap,
 } from "../client/src/components/home/seasonal/seasonalConfig";
 import SeasonalHome from "../client/src/components/home/seasonal/SeasonalHome";
 
 describe("Optional homepage seasonal layer", () => {
+  it("reserves banner space before paint only during the active, undismissed campaign", () => {
+    for (const [date, hidden, snapshot, denied, expected] of [
+      ["2026-10-15", false, false, false, "halloween"],
+      ["2026-10-15", false, false, true, "halloween"],
+      ["2026-10-15", true, false, false, undefined],
+      ["2026-10-15", false, true, false, undefined],
+      ["2026-10-08", false, false, false, undefined],
+      ["2026-11-02", false, false, false, undefined],
+    ] as const) {
+      const document = {
+        documentElement: { dataset: {} as Record<string, string> },
+      };
+      runInNewContext(seasonalSpaceBootstrap(), {
+        document,
+        window: { __DM_STATIC_SNAPSHOT__: snapshot },
+        Date: { now: () => Date.parse(date) },
+        sessionStorage: {
+          getItem: () => {
+            if (denied) throw new Error("Storage denied");
+            return hidden ? "1" : null;
+          },
+        },
+      });
+      expect(document.documentElement.dataset.seasonalSpace).toBe(expected);
+    }
+    expect(seasonalSpaceBootstrap({ ...SEASONAL_CONFIG, enabled: false })).toBe(
+      ""
+    );
+    expect(seasonalSpaceBootstrap({ ...SEASONAL_CONFIG, banner: false })).toBe(
+      ""
+    );
+    expect(
+      statSync(
+        "client/public/media/seasonal/halloween-2026/glass-skeleton-320.webp"
+      ).size
+    ).toBeLessThan(25_000);
+  });
   it("has an explicit off switch and non-recurring date boundaries", () => {
     expect(isSeasonActive(Date.parse("2026-10-08T20:59:59Z"))).toBe(false);
     expect(isSeasonActive(Date.parse("2026-10-08T21:00:00Z"))).toBe(true);

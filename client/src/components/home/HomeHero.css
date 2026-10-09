@@ -1,4 +1,10 @@
 html:has(.home-hero), body:has(.home-hero) { overflow-x: clip; }
+/* Set by the tiny schedule-aware head script before first paint. No extra
+   year-round gap, and no content jump when the optional banner arrives. */
+html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 12rem; }
+@media (max-width: 767px) {
+  html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 17rem; }
+}
 .home-hero {
   position: relative;
   isolation: isolate;

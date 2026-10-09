@@ -64,6 +64,22 @@ try {
         )
       );
       const banner = await page.locator(".seasonal-banner").boundingBox();
+      assert(banner.height >= 140, "Prominent Halloween banner");
+      await page.waitForFunction(() => {
+        const img = document.querySelector(".seasonal-banner-mark");
+        return img?.complete && img.naturalWidth > 0;
+      });
+      assert(
+        await page
+          .locator(".seasonal-banner-copy strong")
+          .evaluate(el => parseFloat(getComputedStyle(el).fontSize) >= 23)
+      );
+      assert.equal(await page.locator(".seasonal-banner b").innerText(), "10%");
+      const eyebrow = await page.locator(".home-hero-eyebrow").boundingBox();
+      assert(
+        banner.y + banner.height < eyebrow.y,
+        "Banner clears all permanent hero copy"
+      );
       const title = await page.locator("h1").boundingBox();
       assert(
         banner.y + banner.height < title.y,
@@ -142,7 +158,13 @@ try {
         0,
         "No replay in same session"
       );
+      const beforeClose = await page.locator("h1").boundingBox();
       await page.locator(".seasonal-banner button").click();
+      const afterClose = await page.locator("h1").boundingBox();
+      assert(
+        Math.abs(beforeClose.y - afterClose.y) < 1,
+        "Dismissal does not move the heading"
+      );
       assert.equal(await page.locator(".seasonal-layer").count(), 0);
       assert.equal(
         await page.locator(".seasonal-bats, .seasonal-section-decor").count(),
@@ -155,6 +177,11 @@ try {
       );
       await page.reload();
       await page.waitForTimeout(600);
+      assert.equal(
+        await page.locator("html").getAttribute("data-seasonal-space"),
+        null,
+        "No oversized reservation on dismissed reload"
+      );
       assert.equal(
         await page.locator(".seasonal-layer").count(),
         0,
