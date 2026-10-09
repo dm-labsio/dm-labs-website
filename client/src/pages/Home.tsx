@@ -7,7 +7,7 @@ import TeamProfiles from "@/components/TeamProfiles";
 /* ============================================================
    DM-Labs.io - Homepage
    Hero with gradient atmosphere + floating devices
-   Sections: Hero, Trust Strip, Template Showcase + Industries, Services, Process, Testimonials, Pricing, CTA
+   Sections: Hero, Trust Strip, Template Showcase + Industries, Services, Process, Pricing, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import StarButton from "@/components/ui/star-button";
@@ -137,30 +137,6 @@ const FEATURED_TEMPLATES = [
   },
 ];
 
-const TESTIMONIALS = [
-  {
-    name: "Maria K.",
-    role: "Restaurant Owner",
-    text: "Our new website brought in three new bookings within the first week. The team understood exactly what we needed and delivered faster than I expected. Highly recommend.",
-    rating: 5,
-    initial: "M",
-  },
-  {
-    name: "Andreas P.",
-    role: "Physiotherapy Clinic",
-    text: "Professional, responsive, and genuinely invested in making our clinic look its best online. The mobile version is perfect - most of our patients book from their phones.",
-    rating: 5,
-    initial: "A",
-  },
-  {
-    name: "Sophia L.",
-    role: "Beauty Salon Owner",
-    text: "I was nervous about getting a website built but DM-Labs.io made it completely stress-free. They handled everything and the result looks incredible. Worth every cent.",
-    rating: 5,
-    initial: "S",
-  },
-];
-
 export default function HomePage() {
   useSEO({
     title: "Best Web Design Agency for Growing Businesses | DM Labs",
@@ -231,47 +207,6 @@ export default function HomePage() {
           PROCESS OVERVIEW
           ═══════════════════════════════════════════ */}
       <HomeProcess language="en" />
-
-      {/* ═══════════════════════════════════════════
-          TESTIMONIALS
-          ═══════════════════════════════════════════ */}
-      <section className="home-stories section-spacing">
-        <div className="container">
-          <AnimateIn className="text-center mb-14">
-              <p className="editorial-label mb-4">Client Stories</p>
-            <h2 className="editorial-section-heading mb-5">
-              What Our Clients Say
-            </h2>
-            <p className="editorial-lead max-w-xl mx-auto">
-              Early feedback from the businesses we've worked with.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {TESTIMONIALS.map((t) => (
-              <StaggerItem key={t.name}>
-                <div className="dm-card h-full flex flex-col relative">
-
-                  {/* Quote text */}
-                  <p className="editorial-quote text-[#d5dff0] mb-6 flex-1">
-                    "{t.text}"
-                  </p>
-                  {/* Author */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-[#34435f]">
-                    <div className="w-10 h-10 rounded-full brand-gradient flex items-center justify-center text-white text-sm font-bold shrink-0">
-                      {t.initial}
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-[#edf2ff]">{t.name}</p>
-                      <p className="text-xs text-[#bdc9df]">{t.role}</p>
-                    </div>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════════════
           PRICING PREVIEW

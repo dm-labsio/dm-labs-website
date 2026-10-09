@@ -2,7 +2,6 @@
 .home-page--dark { background: #080f20; color: #edf2ff; }
 .home-page--dark .home-trust-strip { background: #10192d; }
 .home-page--dark .home-examples { background: linear-gradient(#080f20cc, #080f20ed), url('/media/brand-refresh/v1/faq-pearl-arcs-desktop.webp') center/cover; }
-.home-page--dark .home-stories { background: #0d1629; }
 .home-page--dark .home-pricing { background: linear-gradient(#0a1428e0, #0a1428e8), url('/media/brand-refresh/v1/pricing-glass-arcs-desktop.webp') center/cover; }
 .home-page--dark .home-team { background: linear-gradient(#10192de6, #10192de0), url('/media/brand-refresh/v1/contact-folded-glass-desktop.webp') center/cover; }
 .home-page--dark .home-overview { --overview-ink: #edf2ff; --overview-body: #bdc9df; --overview-accent: #b7c3ff; }
@@ -35,7 +34,7 @@
 .home-page--dark .industry-gallery { padding-block: clamp(2.625rem, 6vw, 6rem); }
 .home-page--dark .home-overview .home-overview-intro { margin-block-end: clamp(2.25rem, 4.5vw, 3.5rem); }
 .home-page--dark .home-process-layout .home-overview-intro { margin-block-end: 0; }
-.home-page--dark :is(.home-examples, .home-stories, .home-team) > .container > .mb-14 { margin-bottom: 3rem; }
+.home-page--dark :is(.home-examples, .home-team) > .container > .mb-14 { margin-bottom: 3rem; }
 .home-page--dark .home-examples > .container > .mb-16 { margin-bottom: 2rem; }
 .home-page--dark .home-hero .home-hero-grid { padding-block: clamp(2.5rem, 4vw, 3.75rem); min-height: min(40rem, calc(90svh - 72px)); }
 @media (min-width: 768px) and (max-width: 1023px) {

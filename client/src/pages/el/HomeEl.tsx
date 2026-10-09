@@ -7,7 +7,7 @@ import TeamProfiles from "@/components/TeamProfiles";
 /* ============================================================
    D&M LABS - Αρχικήpage
    Hero with gradient atmosphere + floating devices
-   Sections: Hero, Trust Strip, Template Showcase + Industries, Υπηρεσίες, Διαδικασία, Testimonials, Τιμές, CTA
+   Sections: Hero, Trust Strip, Template Showcase + Industries, Υπηρεσίες, Διαδικασία, Τιμές, CTA
    Brand: #5B8CFF→#6FE3FF→#8B5CFF, #F6F6F4 base, #0F172A dark
    ============================================================ */
 import StarButton from "@/components/ui/star-button";
@@ -138,30 +138,6 @@ const FEATURED_TEMPLATES = [
   },
 ];
 
-const TESTIMONIALS = [
-  {
-    name: "Μαρία Κ.",
-    role: "Ιδιοκτήτρια εστιατορίου",
-    text: "Η νέα ιστοσελίδα μάς έφερε τρεις κρατήσεις μέσα στην πρώτη εβδομάδα. Κατάλαβαν ακριβώς τι χρειαζόμασταν και την είχαμε έτοιμη πιο γρήγορα απ' ό,τι περίμενα. Τους συστήνω ανεπιφύλακτα.",
-    rating: 5,
-    initial: "Μ",
-  },
-  {
-    name: "Ανδρέας Π.",
-    role: "Κλινική φυσιοθεραπείας",
-    text: "Επαγγελματίες με άμεση ανταπόκριση. Νοιάστηκαν πραγματικά να δείχνει η κλινική μας όσο καλύτερα γίνεται online. Στο κινητό η ιστοσελίδα είναι τέλεια, και αυτό μετράει, γιατί οι περισσότεροι ασθενείς μας κλείνουν ραντεβού από το κινητό τους.",
-    rating: 5,
-    initial: "Α",
-  },
-  {
-    name: "Σοφία Λ.",
-    role: "Ιδιοκτήτρια κέντρου ομορφιάς",
-    text: "Με άγχωνε η ιδέα να φτιάξω ιστοσελίδα, αλλά με τη DM-Labs.io όλα έγιναν χωρίς κανένα άγχος. Ανέλαβαν τα πάντα και το αποτέλεσμα είναι εκπληκτικό. Άξιζε κάθε ευρώ.",
-    rating: 5,
-    initial: "Σ",
-  },
-];
-
 export default function HomeElPage() {
   useSEO({
     title: "Κατασκευή ιστοσελίδων για επιχειρήσεις | DM Labs",
@@ -231,47 +207,6 @@ export default function HomeElPage() {
           PROCESS OVERVIEW
           ═══════════════════════════════════════════ */}
       <HomeProcess language="el" />
-
-      {/* ═══════════════════════════════════════════
-          TESTIMONIALS
-          ═══════════════════════════════════════════ */}
-      <section className="home-stories section-spacing">
-        <div className="container">
-          <AnimateIn className="text-center mb-14">
-              <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Κριτικές πελατών</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#edf2ff] mb-4">
-              Τι λένε οι πελάτες μας
-            </h2>
-            <p className="text-lg text-[#bdc9df] max-w-xl mx-auto">
-              Πρώτες εντυπώσεις από τις επιχειρήσεις με τις οποίες έχουμε συνεργαστεί.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {TESTIMONIALS.map((t) => (
-              <StaggerItem key={t.name}>
-                <div className="dm-card h-full flex flex-col relative">
-
-                  {/* Quote text */}
-                  <p className="text-sm text-[#d5dff0] leading-relaxed mb-6 flex-1 italic">
-                    «{t.text}»
-                  </p>
-                  {/* Author */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-[#34435f]">
-                    <div className="w-10 h-10 rounded-full brand-gradient flex items-center justify-center text-white text-sm font-bold shrink-0">
-                      {t.initial}
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-[#edf2ff]">{t.name}</p>
-                      <p className="text-xs text-[#bdc9df]">{t.role}</p>
-                    </div>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════════════
           PRICING PREVIEW
