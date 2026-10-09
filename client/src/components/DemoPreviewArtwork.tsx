@@ -1,17 +1,16 @@
-import type { CSSProperties } from "react";
 import "./DemoPreviewArtwork.css";
 
-const covers: Record<string, { background: string; height: number }> = {
-  hartley: { background: "#cda79d", height: 766 },
-  "nomad-coffee": { background: "#dcc790", height: 768 },
-  "bella-salon": { background: "#bdbdb8", height: 916 },
-  "dr-elara-dental": { background: "#dbe6ef", height: 856 },
-  "pulse-gym": { background: "#292b25", height: 960 },
-  "arcos-architecture": { background: "#d8d1c5", height: 1189 },
-  "luxe-realty": { background: "#879295", height: 916 },
+const covers: Record<string, { height: number }> = {
+  hartley: { height: 766 },
+  "nomad-coffee": { height: 768 },
+  "bella-salon": { height: 916 },
+  "dr-elara-dental": { height: 856 },
+  "pulse-gym": { height: 960 },
+  "arcos-architecture": { height: 1189 },
+  "luxe-realty": { height: 916 },
 };
 
-/** Complete captures of the real demos, framed without cropping their UI. */
+/** Complete captures of the real demos, displayed edge to edge without cropping their UI. */
 export default function DemoPreviewArtwork({ id }: { id: string }) {
   const cover = covers[id];
   if (!cover) return null;
@@ -22,7 +21,6 @@ export default function DemoPreviewArtwork({ id }: { id: string }) {
       data-demo-cover={id}
       aria-hidden="true"
       dir="ltr"
-      style={{ "--demo-mat": cover.background } as CSSProperties}
     >
       <img
         src={`${base}-1200.webp`}
