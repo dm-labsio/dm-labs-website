@@ -1,0 +1,76 @@
+.away-preview-poster {
+  position: absolute;
+  inset: 44px 0 0;
+  overflow: hidden;
+  background: #dde5ed;
+  z-index: 1;
+}
+.away-preview-poster[hidden] {
+  display: none;
+}
+.away-preview-poster-stage {
+  height: min(980px, 100%);
+  min-height: 740px;
+  position: relative;
+  overflow: hidden;
+}
+.away-preview-poster-left,
+.away-preview-poster-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 51%;
+  overflow: hidden;
+}
+.away-preview-poster-left {
+  left: 0;
+}
+.away-preview-poster-right {
+  right: 0;
+}
+.away-preview-poster-left img,
+.away-preview-poster-right img {
+  position: absolute;
+  height: 91%;
+  width: auto;
+  max-width: none;
+  bottom: -12%;
+}
+.away-preview-poster-left img {
+  left: -13%;
+  transform: rotate(-6deg);
+}
+.away-preview-poster-right img {
+  right: -17%;
+  transform: scaleX(-1) rotate(-8deg);
+}
+.away-preview-poster-logo {
+  position: absolute;
+  top: 27%;
+  left: 30%;
+  width: 40%;
+  height: auto;
+}
+@media (max-width: 700px) {
+  .away-preview-poster-stage {
+    height: calc(100% - 20px);
+    min-height: 690px;
+    max-height: 950px;
+  }
+  .away-preview-poster-left img,
+  .away-preview-poster-right img {
+    height: 75%;
+    bottom: -6%;
+  }
+  .away-preview-poster-left img {
+    left: -90%;
+  }
+  .away-preview-poster-right img {
+    right: -105%;
+  }
+  .away-preview-poster-logo {
+    top: 26%;
+    left: 18%;
+    width: 64%;
+  }
+}

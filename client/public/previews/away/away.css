@@ -1657,14 +1657,10 @@ legend {
   min-height: 740px;
   background: var(--blue);
 }
+/* Keep the backdrop anchored: translated parallax exposed the hero edge on
+   fast reverse scrolling and repeatedly interrupted pointer transitions. */
 .hero-scene {
-  transform: translate3d(
-      var(--look-x, 0px),
-      calc(var(--look-y, 0px) + var(--scene-scroll, 0px)),
-      0
-    )
-    scale(1.055);
-  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform: scale(1.02);
 }
 .hero-shade {
   background:
@@ -2319,5 +2315,20 @@ legend {
   }
   .hero-heading .hero-copy h1 {
     font-size: clamp(28px, 7.4vw, 43px);
+  }
+}
+
+/* Hold the first frame until the viewer, critical artwork and fonts are ready. */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.hero-ready) .arrival-wing,
+  html:not(.hero-ready) .arrival-sign,
+  html:not(.hero-ready) .hero-brand,
+  html:not(.hero-ready) .hero-copy .cut-line > span,
+  html:not(.hero-ready) .hero-copy > .text-link,
+  html:not(.hero-ready) .hero-bottom,
+  html:not(.hero-ready) .hero-scene picture img,
+  html:not(.hero-ready) .site-header,
+  html:not(.hero-ready) .site-header .wordmark img {
+    animation-play-state: paused;
   }
 }

@@ -625,51 +625,9 @@ const comfortObserver = new IntersectionObserver(
   { threshold: 0.15 }
 );
 comfortObserver.observe($(".comforts"));
-// Native scrolling stays intact. Pointer depth is an enhancement, never required.
-const heroStage = $(".hero"),
-  finePointer = matchMedia("(hover:hover) and (pointer:fine)");
-let pointerX = 0,
-  pointerY = 0,
-  depthFrame = 0;
-function drawDepth() {
-  depthFrame = 0;
-  const rect = heroStage.getBoundingClientRect();
-  const visible = rect.bottom > 0 && rect.top < innerHeight;
-  heroStage.style.setProperty(
-    "--look-x",
-    reduced.matches ? "0px" : `${pointerX}px`
-  );
-  heroStage.style.setProperty(
-    "--look-y",
-    reduced.matches ? "0px" : `${pointerY}px`
-  );
-  heroStage.style.setProperty(
-    "--scene-scroll",
-    reduced.matches || !visible
-      ? "0px"
-      : `${Math.min(95, Math.max(0, -rect.top * 0.14))}px`
-  );
-}
-function depth() {
-  if (!depthFrame) depthFrame = requestAnimationFrame(drawDepth);
-}
-heroStage.addEventListener("pointermove", event => {
-  if (reduced.matches || !finePointer.matches || event.pointerType === "touch")
-    return;
-  const rect = heroStage.getBoundingClientRect();
-  pointerX = (event.clientX / rect.width - 0.5) * -20;
-  pointerY = ((event.clientY - rect.top) / rect.height - 0.5) * -12;
-  depth();
-});
-heroStage.addEventListener("pointerleave", () => {
-  pointerX = pointerY = 0;
-  depth();
-});
-window.addEventListener("scroll", depth, { passive: true });
-reduced.addEventListener("change", () => {
-  pointerX = pointerY = 0;
-  depth();
-});
+// The entrance and scene reveals own hero motion. Native scrolling and pointer
+// movement must not retarget a competing backdrop transform.
+const heroStage = $(".hero");
 let heroTouch;
 heroStage.addEventListener(
   "touchstart",
@@ -706,7 +664,13 @@ function stopHeroLoop() {
 }
 function scheduleHeroLoop() {
   clearTimeout(heroLoopTimer);
-  if (heroLoopStopped || reduced.matches || document.hidden || !heroInView)
+  if (
+    !document.documentElement.classList.contains("hero-ready") ||
+    heroLoopStopped ||
+    reduced.matches ||
+    document.hidden ||
+    !heroInView
+  )
     return;
   heroLoopTimer = setTimeout(async () => {
     if (
@@ -733,4 +697,30 @@ heroObserver.observe(heroStage);
 document.addEventListener("visibilitychange", scheduleHeroLoop);
 reduced.addEventListener("change", scheduleHeroLoop);
 heroStage.addEventListener("focusin", stopHeroLoop);
-scheduleHeroLoop();
+// The parent reveals the iframe on load. Start on the following painted frame,
+// after fonts and the opening artwork are decoded, so arrival never plays hidden.
+const viewerLoaded =
+  document.readyState === "complete"
+    ? Promise.resolve()
+    : new Promise(resolve =>
+        window.addEventListener("load", resolve, { once: true })
+      );
+Promise.all([
+  viewerLoaded,
+  Promise.race([
+    Promise.allSettled([
+      document.fonts.ready,
+      ...$$("#hero-base img, .arrival-wing img, .arrival-sign img").map(img =>
+        img.decode()
+      ),
+    ]),
+    new Promise(resolve => setTimeout(resolve, 4000)),
+  ]),
+]).then(() =>
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.add("hero-ready");
+      scheduleHeroLoop();
+    })
+  )
+);

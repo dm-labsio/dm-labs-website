@@ -418,6 +418,17 @@ async function main() {
           { timeout: 15_000 },
         );
 
+        // AWAY has a one-time opening sequence. A live srcdoc in this snapshot
+        // would run it before React mounts, then restart it when createRoot replaces
+        // the snapshot. Save the matching inert loading artwork instead.
+        if (route === "/preview/away/") {
+          await page.evaluate(() => {
+            document.querySelector("iframe[title]")?.remove();
+            const poster = document.querySelector("[data-away-poster]");
+            if (!poster) throw new Error("AWAY loading artwork is missing");
+            poster.removeAttribute("hidden");
+          });
+        }
         let html = await page.content();
         html = stripFallbackBlock(html);
         writeRouteHtml(route, html);
