@@ -16,6 +16,12 @@ async function choose(p, key, value) {
 async function ids(p, expected) {
   assert.deepEqual(
     await p
+      .locator("[data-fan-home]")
+      .evaluateAll(cards => cards.map(c => c.dataset.fanHome)),
+    expected
+  );
+  assert.deepEqual(
+    await p
       .locator(".property-card")
       .evaluateAll(cards => cards.map(c => c.dataset.home)),
     expected
@@ -79,6 +85,32 @@ try {
       await p.keyboard.press("Escape");
       assert.equal(await p.locator(".filter-menu[open]").count(), 0);
     }
+    for (const [key, values, expected] of [
+      ["location", ["horizon", "atelier"], ["horizon", "atelier"]],
+      ["type", ["house", "penthouse"], ["horizon", "atelier", "pine"]],
+      ["beds", ["2", "4plus"], ["horizon", "atelier", "pine"]],
+      ["price", ["under1", "1to2"], ["atelier", "pine"]],
+    ]) {
+      const menu = p.locator(`[data-filter="${key}"]`);
+      await menu.locator("summary").click();
+      for (const value of values) {
+        await menu.locator(`input[value="${value}"]`).check();
+        assert.ok(
+          await menu.evaluate(e => e.open),
+          key + " remains open for multiple choices"
+        );
+      }
+      await ids(p, expected);
+      await menu.locator(".filter-clear").click();
+      await ids(p, ["horizon", "atelier", "pine"]);
+      await menu.locator(".filter-done").click();
+      assert.equal(await menu.evaluate(e => e.open), false);
+    }
+    assert.equal(await p.locator('#sort-menu [data-filter="sort"]').count(), 1);
+    assert.equal(
+      await p.locator('#filter-menus input[type="radio"]').count(),
+      0
+    );
     await choose(p, "location", "atelier");
     await ids(p, ["atelier"]);
     await choose(p, "beds", "4plus");
@@ -166,6 +198,12 @@ try {
         id
       );
     }
+    await p.locator('.fan-card[data-property="pine"]').focus();
+    await p.keyboard.press("Enter");
+    await p.locator("#property-dialog[open]").waitFor();
+    assert.match(await p.locator("#property-title").innerText(), /Pine/);
+    await p.keyboard.press("Escape");
+    await p.waitForFunction(() => document.body.style.overflow === "");
     await p.screenshot({ path: `${out}/${width}-full.png`, fullPage: true });
     await p.reload();
     await p.locator("html[data-luxe-ready=true]").waitFor();
@@ -177,6 +215,7 @@ try {
       hero: "pass",
       filters: "pass",
       dropdownsAndTags: "pass",
+      multiSelectionAndSyncedFan: "pass",
       gallery: "pass",
       removedCollection: "pass",
       noSubmission: "pass",

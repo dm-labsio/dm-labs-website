@@ -97,7 +97,14 @@
           </p>
         </div>
         <div class="discovery" id="filters" aria-label="Filter and sort homes">
-          <div class="filter-menus" id="filter-menus"></div>
+          <div class="filter-layout">
+            <div class="filter-menus" id="filter-menus"></div>
+            <aside
+              class="sort-capsule"
+              id="sort-menu"
+              aria-label="Order the homes"
+            ></aside>
+          </div>
           <div class="filter-status">
             <div id="active-filters" aria-label="Applied filters"></div>
             <button id="reset-filters" class="text-button" hidden>
@@ -197,6 +204,27 @@
           ><button id="place-open" data-property="horizon" class="text-button">
             Explore this home
           </button>
+        </div>
+      </section>
+      <section class="home-folio section" aria-labelledby="folio-title">
+        <div class="folio-copy">
+          <p class="eyebrow">ANOTHER PERSPECTIVE</p>
+          <h2 id="folio-title">Step inside.<br />See yourself here.</h2>
+          <p>A different view of the homes that caught your eye.</p>
+          <a class="button" href="#collection">Explore the homes</a>
+          <p id="folio-status" role="status"></p>
+        </div>
+        <div class="folio-stage">
+          <div
+            class="home-fan"
+            id="home-fan"
+            role="group"
+            aria-label="Explore matching homes"
+          ></div>
+          <div id="folio-empty" hidden>
+            <p>No homes match these filters.</p>
+            <button class="button" id="folio-reset">Show all homes</button>
+          </div>
         </div>
       </section>
     </main>

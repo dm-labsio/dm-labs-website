@@ -100,11 +100,13 @@ const tagLabels = {
 const filterDefinitions = [
   {
     key: "location",
+    multiple: true,
     title: "Location",
     options: [["all", "All locations"], ...homes.map(h => [h.id, h.area])],
   },
   {
     key: "type",
+    multiple: true,
     title: "Home type",
     options: [
       ["all", "Any home type"],
@@ -114,6 +116,7 @@ const filterDefinitions = [
   },
   {
     key: "beds",
+    multiple: true,
     title: "Bedrooms",
     options: [
       ["all", "Any bedrooms"],
@@ -124,6 +127,7 @@ const filterDefinitions = [
   },
   {
     key: "price",
+    multiple: true,
     title: "Price range",
     options: [
       ["all", "Any price"],
@@ -151,10 +155,10 @@ const filterDefinitions = [
   },
 ];
 const filters = {
-  location: "all",
-  type: "all",
-  beds: "all",
-  price: "all",
+  location: new Set(),
+  type: new Set(),
+  beds: new Set(),
+  price: new Set(),
   tags: new Set(),
   sort: "featured",
 };
@@ -181,8 +185,10 @@ function tagsMarkup(h) {
 function renderCollection() {
   const result = homes.filter(
     h =>
-      ["location", "type", "beds", "price"].every(key =>
-        matches(h, key, filters[key])
+      ["location", "type", "beds", "price"].every(
+        key =>
+          !filters[key].size ||
+          [...filters[key]].some(value => matches(h, key, value))
       ) && [...filters.tags].every(tag => matches(h, "tags", tag))
   );
   const sorters = {
@@ -201,25 +207,55 @@ function renderCollection() {
   $("#results-count").textContent =
     `${result.length} of ${homes.length} homes${result.length < homes.length ? " match your filters" : " to explore"}`;
   $("#empty").hidden = !!result.length;
+  renderFolio(result);
+}
+function menuMarkup(def) {
+  return `<details class="filter-menu" data-filter="${def.key}"><summary><span class="filter-label">${def.title}</span><span class="filter-value"></span><span class="filter-toggle" aria-hidden="true"></span></summary><div class="filter-panel"><fieldset><legend>${def.title}${def.multiple ? (def.key === "tags" ? " · match every feature" : " · choose one or more") : ""}</legend>${def.options
+    .filter(([value]) => value !== "all")
+    .map(
+      ([value, label]) =>
+        `<label class="filter-option"><input type="${def.multiple ? "checkbox" : "radio"}" name="${def.key}" value="${value}"><span>${label}</span>${def.key !== "sort" ? `<small aria-label="${homes.filter(h => matches(h, def.key, value)).length} sample homes">${homes.filter(h => matches(h, def.key, value)).length}</small>` : ""}</label>`
+    )
+    .join(
+      ""
+    )}</fieldset>${def.multiple ? `<div class="filter-panel-actions"><button class="filter-clear" data-clear-group="${def.key}" type="button">Clear</button><button class="button filter-done" type="button">Done</button></div>` : ""}</div></details>`;
 }
 $("#filter-menus").innerHTML = filterDefinitions
-  .map(
-    def =>
-      `<details class="filter-menu" data-filter="${def.key}"><summary><span class="filter-label">${def.title}</span><span class="filter-value"></span><span class="filter-toggle" aria-hidden="true"></span></summary><div class="filter-panel"><fieldset><legend>${def.title}${def.multiple ? " · match every selected feature" : ""}</legend>${def.options.map(([value, label]) => `<label class="filter-option"><input type="${def.multiple ? "checkbox" : "radio"}" name="${def.key}" value="${value}"><span>${label}</span>${def.key !== "sort" ? `<small aria-label="${homes.filter(h => matches(h, def.key, value)).length} sample homes">${homes.filter(h => matches(h, def.key, value)).length}</small>` : ""}</label>`).join("")}</fieldset>${def.multiple ? '<button class="button filter-done" type="button">Done</button>' : ""}</div></details>`
-  )
+  .filter(def => def.key !== "sort")
+  .map(menuMarkup)
   .join("");
+$("#sort-menu").innerHTML = menuMarkup(
+  filterDefinitions.find(def => def.key === "sort")
+);
+function renderFolio(result) {
+  $("#home-fan").innerHTML = result
+    .map(
+      (h, i) =>
+        `<button class="fan-card" data-property="${h.id}" data-fan-home="${h.id}" style="--offset:${i - (result.length - 1) / 2}" aria-label="Explore ${h.name}"><img src="${asset(h, 800, true)}" width="800" height="533" loading="lazy" alt="${h.captions[1]}"><span><small>${h.area}</small><strong>${h.name}</strong><em>Explore this home</em></span></button>`
+    )
+    .join("");
+  $("#home-fan").hidden = !result.length;
+  $("#folio-empty").hidden = !!result.length;
+  const order = filterDefinitions
+    .find(def => def.key === "sort")
+    .options.find(([value]) => value === filters.sort)[1];
+  $("#folio-status").textContent =
+    `${result.length} matching ${result.length === 1 ? "home" : "homes"} · ${order}`;
+}
 function syncFilters() {
   const chips = [];
   filterDefinitions.forEach(def => {
-    const selected = def.multiple ? [...filters.tags] : [filters[def.key]];
+    const selected = def.multiple ? [...filters[def.key]] : [filters[def.key]];
     const menu = $(`[data-filter="${def.key}"]`);
     menu
       .querySelectorAll("input")
       .forEach(input => (input.checked = selected.includes(input.value)));
     menu.querySelector(".filter-value").textContent = def.multiple
       ? selected.length
-        ? `${selected.length} selected`
-        : "Any features"
+        ? selected.length === 1
+          ? def.options.find(([v]) => v === selected[0])[1]
+          : `${selected.length} selected`
+        : def.options.find(([v]) => v === "all")?.[1] || "Any features"
       : def.options.find(([value]) => value === selected[0])[1];
     menu.classList.toggle(
       "has-selection",
@@ -245,14 +281,14 @@ function closeFilter(menu, focus = false) {
   menu.open = false;
   if (focus) menu.querySelector("summary").focus({ preventScroll: true });
 }
-$("#filter-menus").addEventListener("change", e => {
+$("#filters").addEventListener("change", e => {
   const input = e.target.closest("input");
   if (!input) return;
   const key = input.name;
-  if (key === "tags") {
+  if (key !== "sort") {
     input.checked
-      ? filters.tags.add(input.value)
-      : filters.tags.delete(input.value);
+      ? filters[key].add(input.value)
+      : filters[key].delete(input.value);
   } else {
     filters[key] = input.value;
     closeFilter(input.closest("details"), true);
@@ -285,8 +321,16 @@ $$(".filter-menu").forEach(menu =>
 addEventListener("resize", () =>
   $$(".filter-menu[open]").forEach(positionFilter)
 );
-$(".filter-done").addEventListener("click", e =>
-  closeFilter(e.target.closest("details"), true)
+$$(".filter-done").forEach(button =>
+  button.addEventListener("click", e =>
+    closeFilter(e.target.closest("details"), true)
+  )
+);
+$$("[data-clear-group]").forEach(button =>
+  button.addEventListener("click", () => {
+    filters[button.dataset.clearGroup].clear();
+    syncFilters();
+  })
 );
 document.addEventListener("click", e => {
   $$(".filter-menu[open]")
@@ -295,8 +339,7 @@ document.addEventListener("click", e => {
   const chip = e.target.closest("[data-clear-key]");
   if (chip) {
     const key = chip.dataset.clearKey;
-    if (key === "tags") filters.tags.delete(chip.dataset.clearValue);
-    else filters[key] = "all";
+    filters[key].delete(chip.dataset.clearValue);
     syncFilters();
     $(`[data-filter="${key}"] summary`).focus({ preventScroll: true });
   }
@@ -309,10 +352,10 @@ document.addEventListener("keydown", e => {
 });
 function resetFilters() {
   Object.assign(filters, {
-    location: "all",
-    type: "all",
-    beds: "all",
-    price: "all",
+    location: new Set(),
+    type: new Set(),
+    beds: new Set(),
+    price: new Set(),
     tags: new Set(),
     sort: "featured",
   });
@@ -322,6 +365,7 @@ function resetFilters() {
 }
 $("#reset-filters").addEventListener("click", resetFilters);
 $("#clear-filters").addEventListener("click", resetFilters);
+$("#folio-reset").addEventListener("click", resetFilters);
 // Managed anchors leave the parent showcase's Back history untouched.
 function goTo(id) {
   const el = document.getElementById(id);

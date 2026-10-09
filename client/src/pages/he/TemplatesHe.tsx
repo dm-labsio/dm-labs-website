@@ -292,9 +292,9 @@ const TEMPLATES = [
     id: "luxe-realty", industry: "realestate", name: "Luxe Realty",
     tagline: "נקודת מבט אחרת", tier: "Pro", tierGradient: "linear-gradient(135deg, #202529, #657077)", domain: "luxe.example",
     palette: ["#202529", "#f7f8f8", "#dce2e5", "#e9edf0", "#657077"], paletteNames: ["גרפיט", "לבן", "כסף", "ערפל", "אפור"],
-    features: ["גלריית פתיחה עם חילופי תמונות מהירים", "תפריטי סינון לפי מיקום, סוג נכס, חדרי שינה ומחיר", "סינון לפי כמה מאפיינים עם תגיות גלויות בנכסים", "מיון לפי מחיר ושטח הנכס", "גלריית חללי פנים מתרחבת ופרטי נכסים"],
+    features: ["גלריית פתיחה עם חילופי תמונות מהירים", "סינון עם בחירה מרובה לפי מיקום, סוג נכס, חדרי שינה ומחיר", "סינון לפי כמה מאפיינים עם תגיות גלויות בנכסים", "תפריט מיון נפרד לפי מחיר ושטח הנכס", "כרטיסי נכסים נעים וגלריית חללי פנים מתרחבת"],
     pages: [{ label: "תצוגה חיה", preview: "live", description: "גלו שלושה בתים, בחרו מאפיינים וצפו בתמונות של חללי הפנים והחוץ." }],
-    style: "גרפיט, לבן וכסף עם טיפוגרפיית Bricolage Grotesque. תצוגת נכסים עשירה בצילום, עם גלריית פתיחה מהירה, תפריטי סינון וגלריות מתרחבות.", waMessage: "היי! ראיתי את הדוגמה של Luxe Realty ואשמח לשמוע עוד.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
+    style: "גרפיט, לבן וכסף עם טיפוגרפיית Bricolage Grotesque. תצוגת נכסים עשירה בצילום, עם גלריית פתיחה מהירה, מסננים עם בחירה מרובה, כרטיסי נכסים נעים וגלריות מתרחבות.", waMessage: "היי! ראיתי את הדוגמה של Luxe Realty ואשמח לשמוע עוד.", price: "€450", images: { card: "" }, livePreview: true, previewUrl: "/previews/luxe-realty.html",
   },
 
   // ── Live Preview templates ──
