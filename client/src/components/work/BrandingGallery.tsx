@@ -12,6 +12,7 @@ import {
   type BrandProject,
 } from "./brandingData";
 import { workCopy, type WorkLocale } from "./workData";
+import { brandAssetAlt, brandPath } from "./brandMetadata";
 import dimensions from "../../../public/media/branding/assets.json";
 import "./branding.css";
 
@@ -26,12 +27,14 @@ const tokens = (brand: BrandProject) =>
 function BrandImage({
   brand,
   name,
-  alt = "",
+  alt,
+  locale,
   className,
 }: {
   brand: string;
   name: string;
   alt?: string;
+  locale: WorkLocale;
   className?: string;
 }) {
   const size = dimensions[`${brand}/${name}` as keyof typeof dimensions];
@@ -39,7 +42,7 @@ function BrandImage({
     <img
       className={className}
       src={asset(brand, name)}
-      alt={alt}
+      alt={alt ?? brandAssetAlt(brand, name, locale)}
       width={size.width}
       height={size.height}
       loading="lazy"
@@ -48,17 +51,20 @@ function BrandImage({
   );
 }
 
-function BrandStory({
+export function BrandStory({
   brand,
   locale,
   close,
   next,
+  standalone = false,
 }: {
   brand: BrandProject;
   locale: WorkLocale;
   close: () => void;
   next: () => void;
+  standalone?: boolean;
 }) {
+  const Heading = standalone ? "h1" : "h2";
   return (
     <article
       className={`brand-story brand-story-${brand.typeClass}`}
@@ -83,12 +89,12 @@ function BrandStory({
         <BrandImage
           brand={brand.id}
           name={brand.cover}
-          alt={brand.name}
+          locale={locale}
           className="brand-story-cover"
         />
       </div>
       <section className="brand-story-intro">
-        <h2 id="brand-story-title">{brand.title[locale]}</h2>
+        <Heading id="brand-story-title">{standalone ? `${brand.name}: ` : ""}{brand.title[locale]}</Heading>
         <p>{brand.story[locale]}</p>
       </section>
       <section className="brand-system" aria-label={copy.identity[locale]}>
@@ -118,7 +124,7 @@ function BrandStory({
           <img
             className="brand-symbol"
             src={brand.symbol}
-            alt=""
+            alt={brandAssetAlt(brand.id, "symbol", locale)}
             loading="lazy"
           />
         </div>
@@ -128,7 +134,7 @@ function BrandStory({
           <h3>{copy.details[locale]}</h3>
           <img src={brand.symbol} alt="" loading="lazy" />
         </div>
-        <BrandImage brand={brand.id} name={brand.detail} />
+        <BrandImage brand={brand.id} name={brand.detail} locale={locale} />
       </section>
       <section className="brand-applications">
         <h3>{copy.applications[locale]}</h3>
@@ -138,7 +144,7 @@ function BrandStory({
               <BrandImage
                 brand={brand.id}
                 name={name}
-                alt={`${brand.name}: ${caption[locale]}`}
+                locale={locale}
               />
               <figcaption>{caption[locale]}</figcaption>
             </figure>
@@ -273,7 +279,8 @@ export default function BrandingGallery({ locale }: { locale: WorkLocale }) {
       </div>
       <div className="brand-projects container" ref={rail}>
         {brandProjects.map(brand => (
-          <button
+          <a
+            href={brandPath(brand.id, locale)}
             key={brand.id}
             data-brand-project
             data-active={active === brand.id}
@@ -282,14 +289,18 @@ export default function BrandingGallery({ locale }: { locale: WorkLocale }) {
             style={tokens(brand)}
             aria-label={`${brand.name}: ${copy.open[locale]}`}
             aria-haspopup="dialog"
-            onClick={event => open(brand, event.currentTarget)}
+            onClick={event => {
+              if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+              event.preventDefault();
+              open(brand, event.currentTarget);
+            }}
           >
-            <span className="brand-fan" aria-hidden="true">
+            <span className="brand-fan">
               {brand.stack.map((name, i) => (
                 <span key={name} className={`brand-sheet brand-sheet-${i}`}>
                   <img
                     src={asset(brand.id, name, true)}
-                    alt=""
+                    alt={brandAssetAlt(brand.id, name, locale)}
                     loading="lazy"
                     width="480"
                     height="600"
@@ -302,7 +313,7 @@ export default function BrandingGallery({ locale }: { locale: WorkLocale }) {
                 </span>
                 <img
                   src={asset(brand.id, brand.cover, true)}
-                  alt=""
+                  alt={brandAssetAlt(brand.id, brand.cover, locale)}
                   loading="lazy"
                   width="480"
                   height="600"
@@ -316,7 +327,7 @@ export default function BrandingGallery({ locale }: { locale: WorkLocale }) {
               </span>
               <span className="brand-project-open">{copy.open[locale]}</span>
             </span>
-          </button>
+          </a>
         ))}
       </div>
       <div className="brand-mobile-nav container" aria-label={copy.see[locale]}>

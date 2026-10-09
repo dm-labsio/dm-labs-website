@@ -41,6 +41,7 @@ import FormsHe from "./pages/he/FormsHe";
 import SocialHe from "./pages/he/SocialHe";
 import NotFound from "./pages/NotFound";
 import Templates from "./pages/Templates";
+import BrandCaseStudy from "./components/work/BrandCaseStudy";
 import ServiceDetail from "./pages/ServiceDetail";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -108,6 +109,15 @@ function MainRouter() {
         {/* /cookie-policy → /cookies: client-side redirect (server-level 301 handles hard navigation) */}
         <Route path="/cookie-policy"><Redirect to="/cookies/" /></Route>
         <Route path="/terms" component={Terms} />
+        <Route path="/templates/branding/hartley">{() => <BrandCaseStudy id="hartley" locale="en" />}</Route>
+        <Route path="/templates/branding/away">{() => <BrandCaseStudy id="away" locale="en" />}</Route>
+        <Route path="/templates/branding/sunday-boat">{() => <BrandCaseStudy id="sunday-boat" locale="en" />}</Route>
+        <Route path="/el/templates/branding/hartley">{() => <BrandCaseStudy id="hartley" locale="el" />}</Route>
+        <Route path="/el/templates/branding/away">{() => <BrandCaseStudy id="away" locale="el" />}</Route>
+        <Route path="/el/templates/branding/sunday-boat">{() => <BrandCaseStudy id="sunday-boat" locale="el" />}</Route>
+        <Route path="/he/templates/branding/hartley">{() => <BrandCaseStudy id="hartley" locale="he" />}</Route>
+        <Route path="/he/templates/branding/away">{() => <BrandCaseStudy id="away" locale="he" />}</Route>
+        <Route path="/he/templates/branding/sunday-boat">{() => <BrandCaseStudy id="sunday-boat" locale="he" />}</Route>
         <Route path="/templates" component={Templates} />
         <Route path="/examples" component={Templates} />
         <Route path="/services/:serviceId" component={ServiceDetail} />

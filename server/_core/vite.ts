@@ -10,6 +10,16 @@ import viteConfig from "../../vite.config";
 // Any path NOT in this set AND not matching a dynamic pattern returns HTTP 404.
 // Keep in sync with App.tsx Route definitions.
 export const STATIC_ROUTES = new Set([
+  "/templates/branding/hartley",
+  "/templates/branding/away",
+  "/templates/branding/sunday-boat",
+  "/el/templates/branding/hartley",
+  "/el/templates/branding/away",
+  "/el/templates/branding/sunday-boat",
+  "/he/templates/branding/hartley",
+  "/he/templates/branding/away",
+  "/he/templates/branding/sunday-boat",
+
   "/",
   "/services",
   "/process",

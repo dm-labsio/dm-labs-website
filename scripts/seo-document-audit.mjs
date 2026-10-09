@@ -35,6 +35,14 @@ export function inspectSeoDocument(expectedUrl) {
   expect(alternates.some(([lang, href]) => lang === locale && href === expectedUrl), "Missing self hreflang");
   const images = [...document.querySelectorAll("img")];
   images.forEach(el => expect(el.hasAttribute("alt"), `Missing image alt: ${el.getAttribute("src")}`));
+  const contentImages = images.filter(el => el.getAttribute("alt")?.trim() && !el.closest("nav, footer, .site-header, [aria-hidden='true']")).map(el => ({
+    src: el.getAttribute("src"), alt: el.getAttribute("alt"),
+    variants: (el.getAttribute("srcset") || "").split(",").map(part => part.trim().split(/\s+/)[0]).filter(Boolean),
+  }));
+  images.filter(el => el.matches(".brand-story img, .brand-fan img, .work-arc-card img, .demo-cover img, .blog-index-card img")).forEach(el => {
+    if (!el.closest(".brand-sheet-logo") && !el.matches(".brand-detail-pair div img"))
+      expect(!!el.getAttribute("alt")?.trim(), `Missing portfolio/content image description: ${el.getAttribute("src")}`);
+  });
   const ids = [...document.querySelectorAll("[id]")].map(el => el.id);
   expect(new Set(ids).size === ids.length, "Duplicate element IDs");
   const nodes = [];
@@ -80,7 +88,7 @@ export function inspectSeoDocument(expectedUrl) {
   assets.add(image);
   return { url: expectedUrl, title, description, locale, alternates, image, imageElements: images.length, faqAnswers: ofType("Question").length,
     schemaTypes: [...new Set(nodes.map(node => node["@type"]).filter(Boolean))],
-    assets: [...assets], links: [...document.querySelectorAll("a[href]")].map(el => el.getAttribute("href")), errors };
+    contentImages, assets: [...assets], links: [...document.querySelectorAll("a[href]")].map(el => el.getAttribute("href")), errors };
 }
 
 export function validateSeoCollection(pages, sitemapUrls) {

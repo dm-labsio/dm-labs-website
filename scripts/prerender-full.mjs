@@ -37,6 +37,7 @@ import { existsSync, mkdirSync, writeFileSync, readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { createServer } from "net";
+import { createImageSitemap } from "./image-sitemap.mjs";
 import { inspectSeoDocument, validateSeoCollection } from "./seo-document-audit.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -79,6 +80,16 @@ const EL_BLOG_SLUGS = [
 ];
 
 const ROUTES = [
+  "/templates/branding/hartley",
+  "/templates/branding/away",
+  "/templates/branding/sunday-boat",
+  "/el/templates/branding/hartley",
+  "/el/templates/branding/away",
+  "/el/templates/branding/sunday-boat",
+  "/he/templates/branding/hartley",
+  "/he/templates/branding/away",
+  "/he/templates/branding/sunday-boat",
+
   // EN static
   "/",
   "/services",
@@ -495,6 +506,7 @@ async function main() {
         if (url.origin === BASE_URL && !existsSync(join(DIST_DIR, decodeURIComponent(url.pathname)))) seoErrors.push(`${page.url}: missing SEO/image asset ${asset}`);
       }
     }
+    writeFileSync(join(DIST_DIR, "sitemap-images.xml"), createImageSitemap(seoPages), "utf8");
     writeFileSync(join(ROOT, "dist", "seo-audit.json"), JSON.stringify({ pages: seoPages, errors: seoErrors }, null, 2));
     console.log(`SEO audit: ${seoPages.length} pages, ${seoErrors.length} issues`);
     if (seoErrors.length) { console.error(seoErrors.join("\n")); errors += seoErrors.length; }

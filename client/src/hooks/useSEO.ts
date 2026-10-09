@@ -39,6 +39,8 @@ interface SEOOptions {
   ogImage?: string;
   ogImageAlt?: string; // Sets og:image:alt for accessibility and SEO
   ogType?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
   /** Override the canonical path if needed (e.g. for paginated pages). Defaults to current route. */
   canonicalPath?: string;
   /** Temporary preview staging pages may be rendered fully but remain noindex until approved. */
@@ -112,7 +114,9 @@ function setBreadcrumbSchema(cleanPath: string, finalPath: string, title: string
     : isHebrew
       ? cleanPath.slice(3) || "/"
       : cleanPath;
-  const category = pathWithoutLocale.startsWith("/services/")
+  const category = pathWithoutLocale.startsWith("/templates/branding/")
+    ? "templates"
+    : pathWithoutLocale.startsWith("/services/")
     ? "services"
     : pathWithoutLocale.startsWith("/blog/")
       ? "blog"
@@ -131,13 +135,13 @@ function setBreadcrumbSchema(cleanPath: string, finalPath: string, title: string
   const items: Array<{ "@type": string; position: number; name: string; item: string }> = [
     { "@type": "ListItem", position: 1, name: isGreek ? "Αρχική" : isHebrew ? "דף הבית" : "Home", item: `${BASE_URL}${homePath}` },
   ];
-  if (category === "services" || category === "blog") {
+  if (category === "services" || category === "blog" || category === "templates") {
     const localePrefix = isGreek ? "/el" : isHebrew ? "/he" : "";
     const parentPath = `${localePrefix}/${category}/`;
     items.push({
       "@type": "ListItem",
       position: 2,
-      name: category === "services"
+      name: category === "templates" ? (isGreek ? "Η δουλειά μας" : isHebrew ? "העבודות שלנו" : "Our Work") : category === "services"
         ? (isGreek ? "Υπηρεσίες" : isHebrew ? "שירותים" : "Services")
         : (isGreek ? "Άρθρα" : isHebrew ? "מאמרים" : "Blog"),
       item: `${BASE_URL}${parentPath}`,
@@ -172,6 +176,8 @@ export function useSEO(options: SEOOptions = {}) {
       ogImage = DEFAULT_OG_IMAGE,
       ogImageAlt,
       ogType = "website",
+      ogImageWidth,
+      ogImageHeight,
       canonicalPath,
       noindex = false,
       ogLocale,
@@ -217,6 +223,10 @@ export function useSEO(options: SEOOptions = {}) {
     } else {
       ["og:image:secure_url", "og:image:type", "og:image:width", "og:image:height"].forEach(removeOgTag);
     }
+    if (ogImageWidth && ogImageHeight) {
+      setOgTag("og:image:width", String(ogImageWidth));
+      setOgTag("og:image:height", String(ogImageHeight));
+    }
     setOgTag("og:type", ogType);
     setOgTag("og:site_name", "DM-Labs.io");
     setOgTag("og:locale", ogLocale ?? { en: "en_GB", el: "el_GR", he: "he_IL" }[locale]);
@@ -226,6 +236,7 @@ export function useSEO(options: SEOOptions = {}) {
     setMetaTag("twitter:description", description);
     setMetaTag("twitter:image", imageUrl);
     if (resolvedOgImageAlt) setMetaTag("twitter:image:alt", resolvedOgImageAlt);
+    else document.querySelector('meta[name="twitter:image:alt"]')?.remove();
 
     // Emit only reciprocal, real translation targets. Completed Hebrew routes
     // participate through the explicit route map, including completed articles.
@@ -241,7 +252,7 @@ export function useSEO(options: SEOOptions = {}) {
       document.getElementById("route-breadcrumb-jsonld")?.remove();
       document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
     };
-  }, [location, currency, options.title, options.description, options.ogImage, options.ogImageAlt, options.ogType, options.canonicalPath, options.noindex, options.ogLocale]);
+  }, [location, currency, options.title, options.description, options.ogImage, options.ogImageAlt, options.ogType, options.canonicalPath, options.noindex, options.ogLocale, options.ogImageWidth, options.ogImageHeight]);
 }
 
 export default useSEO;

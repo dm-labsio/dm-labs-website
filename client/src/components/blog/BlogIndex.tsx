@@ -7,7 +7,7 @@ import { newestFirst } from "@/lib/blogOrder";
 import "./BlogIndex.css";
 
 type BlogLocale = "en" | "el" | "he";
-type Article = { title: string; excerpt: string; category: string; date: string; readTime: string; coverImage: string; href: string };
+type Article = { title: string; excerpt: string; category: string; date: string; readTime: string; coverImage: string; imageAlt?: string; href: string };
 export function blogArticles(locale: BlogLocale): Article[] {
   if (locale === "he") return newestFirst(POSTS_HE.map(post => ({ ...post, href: `/he/blog/${post.slug}/` })));
   return newestFirst<Article>(locale === "en" ? POSTS.map(post => ({ ...post, href: `/blog/${post.slug}/` })) : POSTS_EL.map(post => ({ ...post, href: `/el/blog/${post.elSlug}/` })));
@@ -35,7 +35,7 @@ export default function BlogIndex({ locale }: { locale: BlogLocale }) {
     <section className="container blog-index-content" aria-label={t.label}>
       <div className="blog-index-tools"><div className="blog-index-search"><label htmlFor="article-search">{t.search}</label><input id="article-search" type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder={t.placeholder} aria-controls="blog-articles" /></div><p role="status" aria-live="polite">{t.count(articles.length)}</p></div>
       <div id="blog-articles" className="blog-index-grid">{articles.map(post => <article key={post.href} className="blog-index-card"><Link href={post.href}>
-        <img src={post.coverImage} alt="" width="600" height="360" loading="lazy" decoding="async" />
+        <img src={post.coverImage} alt={post.imageAlt || post.title} width="600" height="360" loading="lazy" decoding="async" />
         <div className="blog-index-card-copy"><span className="blog-index-category">{post.category}</span><h2>{post.title}</h2><p className="blog-index-excerpt">{post.excerpt}</p><div className="blog-index-meta"><time dateTime={post.date}>{new Date(`${post.date}T12:00:00Z`).toLocaleDateString({ en: "en-GB", el: "el-GR", he: "he-IL" }[locale], { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })}</time><span>{post.readTime}</span></div><span className="blog-index-read">{t.read}</span></div>
       </Link></article>)}</div>
       {!articles.length && <div className="blog-index-empty"><p>{t.empty}</p><button type="button" onClick={() => { setQuery(""); document.getElementById("article-search")?.focus(); }}>{t.clear}</button></div>}

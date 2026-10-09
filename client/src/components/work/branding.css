@@ -276,7 +276,7 @@
   padding: clamp(36px, 5vw, 72px) clamp(22px, 5vw, 72px);
   align-items: start;
 }
-[data-brand] .brand-story-intro h2 {
+[data-brand] .brand-story-intro :is(h1, h2) {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3vw, 3rem);
   line-height: 1.17;
@@ -550,7 +550,7 @@
     gap: 20px;
     padding: 30px 22px;
   }
-  .brand-story-intro h2 {
+  .brand-story-intro :is(h1, h2) {
     max-width: 22ch !important;
   }
   .brand-system {
@@ -621,3 +621,7 @@
     transform: translateY(-5px) rotate(0);
   }
 }
+
+.brand-case-page { padding-top: 24px; }
+.brand-case-page .brand-story { max-width: 1440px; margin-inline: auto; }
+.brand-project { text-decoration: none; }

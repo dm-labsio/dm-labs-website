@@ -35,6 +35,10 @@ export const EN_TO_EL_PATHS: Readonly<Record<string, string | null>> = {
  * hreflang and language-switch targets can never fabricate a translation.
  */
 export const EN_TO_HE_PATHS: Readonly<Record<string, string | null>> = {
+  "/templates/branding/hartley": "/he/templates/branding/hartley",
+  "/templates/branding/away": "/he/templates/branding/away",
+  "/templates/branding/sunday-boat": "/he/templates/branding/sunday-boat",
+
   "/blog": "/he/blog",
   "/blog/doctor-website-design-orthopaedics-case-study": "/he/blog/doctor-website-design-orthopaedics-case-study",
   "/": "/he",

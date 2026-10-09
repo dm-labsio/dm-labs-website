@@ -1,3 +1,4 @@
+import { workCollectionSchema } from "./brandMetadata";
 import BrandingGallery from "./BrandingGallery";
 import WorkGallery from "./WorkGallery";
 import { workCopy, type WorkLocale } from "./workData";
@@ -7,6 +8,7 @@ export default function OurWorkPage({ locale }: { locale: WorkLocale }) {
   const copy = workCopy[locale];
   return (
     <div className="our-work" dir={locale === "he" ? "rtl" : "ltr"}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(workCollectionSchema(locale)).replace(/</g, "\\u003c") }} />
       <header className="work-intro container">
         <p className="brand-micro">DM Labs Studio</p>
         <h1>{copy.title}</h1>

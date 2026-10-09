@@ -6,3 +6,5 @@ Allow: /
 # Keeping /previews/ crawlable so Googlebot can confirm the noindex tags.
 
 Sitemap: https://dm-labs.io/sitemap.xml
+
+Sitemap: https://dm-labs.io/sitemap-images.xml

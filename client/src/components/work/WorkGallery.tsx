@@ -1,3 +1,4 @@
+import { websiteCoverAlt } from "./brandMetadata";
 import { useLayoutEffect, useRef } from "react";
 import { readPreviewSource } from "@/lib/previewNavigation";
 import { workCopy, workProjects, type WorkLocale } from "./workData";
@@ -375,7 +376,7 @@ export default function WorkGallery({ locale }: { locale: WorkLocale }) {
                 sizes="(max-width: 699px) 66vw, 320px"
                 width="600"
                 height="900"
-                alt={`${project.name} · ${copy.categories[project.category]}`}
+                alt={websiteCoverAlt(project.name, copy.categories[project.category], locale)}
                 loading="eager"
                 decoding="async"
                 draggable={false}
