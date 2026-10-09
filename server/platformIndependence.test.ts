@@ -91,7 +91,13 @@ describe("platform-independent production stack", () => {
     forbiddenRuntimeTokens.forEach(token => expect(runtimeSource, token).not.toContain(token));
 
     expect(serverEntry).not.toMatch(/oauth|trpc|registerChatRoutes|createContext/i);
-    expect(viteConfig).not.toMatch(/transformIndexHtml|jsxLocPlugin/i);
+    expect(viteConfig).not.toMatch(/jsxLocPlugin/i);
+    // The old debug HTML injection stays removed. The only approved head hook
+    // now reserves campaign space before paint, with no external runtime.
+    expect(viteConfig.match(/transformIndexHtml/g)).toHaveLength(1);
+    expect(viteConfig).toContain('name: "seasonal-space-before-paint"');
+    expect(viteConfig).toContain("const script = seasonalSpaceBootstrap();");
+    expect(viteConfig).toContain('"data-seasonal-space-bootstrap": ""');
   });
 
   it("gates the one official Vercel Analytics component on consent", () => {

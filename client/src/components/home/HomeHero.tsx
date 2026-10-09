@@ -3,6 +3,7 @@ import BrandButton from "../ui/brand-button";
 import type { SiteLanguage } from "@/lib/routeLanguage";
 import { HOME_HERO_COPY } from "./homeHeroContent";
 import HomeHeroScene from "./HomeHeroScene";
+import SeasonalHome from "./seasonal/SeasonalHome";
 import "./HomeHero.css";
 
 /** Normal document flow and complete HTML content, independent of media or motion. */
@@ -24,6 +25,7 @@ export default function HomeHero({ language }: { language: SiteLanguage }) {
         </div>
         <HomeHeroScene />
       </div>
+      <SeasonalHome language={language} />
     </section>
   );
 }
