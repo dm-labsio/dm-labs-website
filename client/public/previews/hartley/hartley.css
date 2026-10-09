@@ -274,16 +274,16 @@ button:disabled {
   line-height: 1.25;
   height: 1.3em;
   letter-spacing: -0.065em;
-  perspective: 650px;
   overflow: hidden;
 }
 #hero-word {
-  display: inline-flex;
+  display: grid;
+  width: 100%;
   white-space: nowrap;
 }
-#hero-word > span {
-  display: inline-block;
-  transform-origin: center 75%;
+.hero-word-layer {
+  grid-area: 1 / 1;
+  justify-self: center;
 }
 .hero-copy > p:not(.eyebrow) {
   font-size: 18px;

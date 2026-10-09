@@ -13,51 +13,53 @@ new IntersectionObserver(([entry]) => {
   heroVisible = entry.isIntersecting;
   hero.classList.toggle("is-visible", heroVisible);
 }).observe(hero);
+function wordLayer(word) {
+  const span = document.createElement("span");
+  span.className = "hero-word-layer";
+  span.textContent = word;
+  return span;
+}
 function writeWord(word) {
-  heroWord.replaceChildren(
-    ...[...word].map(letter => {
-      const span = document.createElement("span");
-      span.textContent = letter;
-      return span;
-    })
-  );
+  heroWord.replaceChildren(wordLayer(word));
 }
 writeWord(heroWords[0]);
 let wordAnimations = [];
 async function rotateWord() {
   if (reduce.matches || document.hidden || !heroVisible || wordBusy) return;
   wordBusy = true;
+  const nextIndex = (wordIndex + 1) % heroWords.length;
+  const outgoing = heroWord.firstElementChild;
+  const incoming = wordLayer(heroWords[nextIndex]);
+  heroWord.append(incoming);
   try {
-    wordAnimations = [...heroWord.children].map((letter, i) =>
-      letter.animate(
+    // Shared grid cell keeps the heading still. Both words move together,
+    // so there is no empty beat, character jitter or width snap on phones.
+    const timing = {
+      duration: 950,
+      easing: "cubic-bezier(.4,0,.2,1)",
+      fill: "both",
+    };
+    wordAnimations = [
+      outgoing.animate(
         [
-          { transform: "translateY(0) rotateX(0)", opacity: 1 },
-          { transform: "translateY(-110%) rotateX(75deg)", opacity: 0 },
+          { transform: "translateY(0)", opacity: 1 },
+          { transform: "translateY(-24%)", opacity: 0 },
         ],
-        {
-          duration: 360,
-          delay: i * 25,
-          easing: "cubic-bezier(.6,0,.8,.4)",
-          fill: "forwards",
-        }
-      )
-    );
+        timing
+      ),
+      incoming.animate(
+        [
+          { transform: "translateY(24%)", opacity: 0 },
+          { transform: "translateY(0)", opacity: 1 },
+        ],
+        timing
+      ),
+    ];
     await Promise.all(wordAnimations.map(a => a.finished));
-    wordIndex = (wordIndex + 1) % heroWords.length;
-    writeWord(heroWords[wordIndex]);
+    wordIndex = nextIndex;
+    outgoing.remove();
+    wordAnimations.forEach(a => a.cancel());
     hero.dataset.scene = String(wordIndex);
-    if (!reduce.matches) {
-      wordAnimations = [...heroWord.children].map((letter, i) =>
-        letter.animate(
-          [
-            { transform: "translateY(115%) rotateX(-65deg)", opacity: 0 },
-            { transform: "translateY(0) rotateX(0)", opacity: 1 },
-          ],
-          { duration: 700, delay: i * 38, easing: "cubic-bezier(.16,1,.3,1)" }
-        )
-      );
-      await Promise.all(wordAnimations.map(a => a.finished));
-    }
   } catch {
     /* Reduced motion can cancel an in-flight transition. */
   } finally {
@@ -84,19 +86,17 @@ const entranceAnimations = reduce.matches
           }
         )
       ),
-      ...[...heroWord.children].map((letter, i) =>
-        letter.animate(
-          [
-            { transform: "translateY(120%) rotateX(-65deg)", opacity: 0 },
-            { transform: "translateY(0) rotateX(0)", opacity: 1 },
-          ],
-          {
-            duration: 800,
-            delay: 180 + i * 55,
-            fill: "backwards",
-            easing: "cubic-bezier(.16,1,.3,1)",
-          }
-        )
+      heroWord.firstElementChild.animate(
+        [
+          { transform: "translateY(24%)", opacity: 0 },
+          { transform: "translateY(0)", opacity: 1 },
+        ],
+        {
+          duration: 950,
+          delay: 180,
+          fill: "backwards",
+          easing: "cubic-bezier(.16,1,.3,1)",
+        }
       ),
     ];
 let pointerFrame = 0,

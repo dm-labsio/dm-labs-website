@@ -10,7 +10,7 @@ Use the supplied outlined Hartley logo, Rubik Black headings, Jost supporting co
 
 A standalone one-page English café experience, reviewed in Preview before production. This is the English-style café among the three incoming projects. Hospitality and the fish restaurant remain pending their assets. The gallery is called Our Work, with Website Demos as the category, in English, Greek and Hebrew. Existing /templates/ URLs and canonical relationships remain stable. No branding carousel is added in this phase.
 
-- Kinetic poster hero: staggered coffee/cake/company lettering, floating cafe photography and original dog/flower illustrations. Cursor/touch parallax, ambient floating on mobile, explicit See the menu link, fixed accessible heading text, and reduced-motion fallback.
+- Kinetic poster hero: smoothly overlapping coffee/cake/company lettering, floating cafe photography and original dog/flower illustrations. Cursor/touch parallax, ambient floating on mobile, explicit See the menu link, fixed accessible heading text, and reduced-motion fallback.
 - Three illustrated menu chapters: coffee, bakes and tea. Keyboard tabs and page-turn controls update the photograph and menu together.
 - Tea pairing selector now changes the large photograph, caption, tasting notes and food pairing together. On mobile the choices sit above the photograph, which stays visible after selection. Rapid selections cannot display stale images. The supplied afternoon-tea PDF remains downloadable.
 - Cake-wrapping flip using the matching supplied packing photographs.
@@ -50,3 +50,11 @@ Revision browser QA: 320/390/768/1440px, no horizontal overflow or uncaught erro
 The user approved the rest of the page but asked for a stronger, previously unused hero and meaningful tea-choice feedback. The paired slideshow is retired. The new hero adapts Fancy Components' rotating typography and parallax-floating composition in original vanilla JavaScript/CSS; no upstream implementation or dependencies were copied. New tea photos were generated with the built-in image_gen tool, using the supplied cafe photograph as a visual reference. Full prompts and original images: ../output/hartley-tea/prompts.json and breakfast.png, grey.png, mint.png. Published derivatives: client/public/previews/hartley/assets/tea-breakfast.webp, tea-grey.webp, tea-mint.webp.
 
 QA includes four responsive widths, all three tea choices and rapid switching, photo visibility after mobile selection, clear hero CTA and rotating-word fit, cursor parallax, reduced-motion and offscreen pause, and the existing gallery/menu/download/parcel flows. Main remains unchanged.
+
+## Food texture and smoother hero revision
+
+The user approved the kinetic hero but found the new food too artificial. Replaced the three tea photographs with closer food-led compositions: torn scone crumb and spread cream, lemon loaf with a thin sugar crust rather than thick icing, and simpler hand-cut cucumber sandwiches. The cafe/china reference remains consistent. Generated with the built-in image_gen tool, with an additional bread-texture refinement. Full prompts and final PNGs: ../output/hartley-tea/v2/prompts.json and breakfast.png, grey.png, mint.png. These are generated demo assets, not evidence of real food photography.
+
+Replaced sequential letter exits/entries and 3D flips with overlapping whole-word movement and a crossfade lasting 950ms. A shared grid cell and fixed-height stage prevent width/height changes. Gentle entrance uses the same movement language. The accessible fixed heading and reduced-motion handling remain. No section structure or other demo changes.
+
+Verification: browser checks at 320/390/768/1440px, all three food selections, rapid switching, menu controls, PDF and parcel interactions, loaded imagery, overflow and JavaScript errors. Additional frame sampling checks continuous word visibility, stationary CTA, longest-word fit, and reducing motion during a transition. Browser viewport/touch emulation, not physical-phone testing. Production build: 97 canonical pages, seven preview wrappers, zero errors and zero SEO audit issues. Preview only; main and unrelated Arcos work excluded.
