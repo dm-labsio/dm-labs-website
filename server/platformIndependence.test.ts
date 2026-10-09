@@ -91,7 +91,13 @@ describe("platform-independent production stack", () => {
     forbiddenRuntimeTokens.forEach(token => expect(runtimeSource, token).not.toContain(token));
 
     expect(serverEntry).not.toMatch(/oauth|trpc|registerChatRoutes|createContext/i);
-    expect(viteConfig).not.toMatch(/transformIndexHtml|jsxLocPlugin/i);
+    expect(viteConfig).not.toMatch(/jsxLocPlugin/i);
+    // The old debug HTML injection stays removed. The only approved head hook
+    // now reserves campaign space before paint, with no external runtime.
+    expect(viteConfig.match(/transformIndexHtml/g)).toHaveLength(1);
+    expect(viteConfig).toContain('name: "seasonal-space-before-paint"');
+    expect(viteConfig).toContain("const script = seasonalSpaceBootstrap();");
+    expect(viteConfig).toContain('"data-seasonal-space-bootstrap": ""');
   });
 
   it("gates the one official Vercel Analytics component on consent", () => {
@@ -114,7 +120,7 @@ describe("platform-independent production stack", () => {
     expect(cookieBannerSource).toContain('saveAnalyticsConsent(value)');
   });
 
-  it("preserves the production build, output directory, and 95-route prerender contract", () => {
+  it("preserves the production build, output directory, and sitemap-matched prerender contract", () => {
     expect(packageJson.scripts.build).toBe(
       "tsx scripts/check-link-integrity.ts && vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/prerender-full.mjs",
     );
@@ -127,7 +133,7 @@ describe("platform-independent production stack", () => {
     const literalRoutes = extractQuotedItems(prerenderSource, /const ROUTES = \[([\s\S]*?)\]\.map/)
       .filter(route => route.startsWith("/"));
 
-    expect(literalRoutes.length + englishBlogSlugs.length + greekBlogSlugs.length).toBe(95);
+    expect(literalRoutes.length + englishBlogSlugs.length + greekBlogSlugs.length).toBe((readFileSync(resolve(import.meta.dirname, "../client/public/sitemap.xml"), "utf8").match(/<loc>/g) ?? []).length);
     expect(prerenderSource).toContain('`${route.replace(/\\/+$/, "")}/`');
   });
 

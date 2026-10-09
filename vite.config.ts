@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { defineConfig, type Plugin } from "vite";
 import visitorCurrency from "./api/visitor-currency";
+import { seasonalSpaceBootstrap } from "./client/src/components/home/seasonal/seasonalConfig";
 
 const localCurrency: Plugin = {
   name: "local-visitor-currency",
@@ -14,7 +15,23 @@ const localCurrency: Plugin = {
     });
   },
 };
-const plugins = [react(), tailwindcss(), localCurrency];
+const seasonalSpace: Plugin = {
+  name: "seasonal-space-before-paint",
+  transformIndexHtml() {
+    const script = seasonalSpaceBootstrap();
+    return script
+      ? [
+          {
+            tag: "script",
+            attrs: { "data-seasonal-space-bootstrap": "" },
+            children: script,
+            injectTo: "head-prepend" as const,
+          },
+        ]
+      : [];
+  },
+};
+const plugins = [react(), tailwindcss(), localCurrency, seasonalSpace];
 
 export default defineConfig({
   plugins,

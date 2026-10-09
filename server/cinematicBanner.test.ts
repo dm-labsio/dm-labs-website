@@ -42,7 +42,7 @@ describe("cinematic banner delivery", () => {
     expect(layout).toContain('normalizedLocation.replace(/^\\/(?:el|he)(?=\\/|$)/, "") || "/"');
   });
 
-  it("keeps protected video on the remaining routes and shares static Contact and FAQ heroes", () => {
+  it("uses the approved Our Work gallery and shared Contact and FAQ heroes", () => {
     const heroKinds = ["templates"] as const;
     const pagesByLocale = [
       ["Templates.tsx"],
@@ -52,8 +52,8 @@ describe("cinematic banner delivery", () => {
 
     pagesByLocale.forEach((pages) => pages.forEach((page, index) => {
       const source = readFileSync(resolve(root, "client/src/pages", page), "utf8");
-      expect(source).toContain('className="cinematic-hero-surface');
-      expect(source).toContain(`<CinematicHeroBackground kind="${heroKinds[index]}" />`);
+      expect(source).toContain("<OurWorkPage locale=");
+      expect(source).not.toContain("<CinematicHeroBackground");
     }));
 
     [...heroKinds, "services", "process", "contact", "blog"].forEach((kind) => expect(heroComponent).toContain(`${kind}: "https://`));

@@ -8,6 +8,7 @@ import CinematicBanner, { type CinematicBannerProps } from "@/components/Cinemat
 import BrandLogo from "./BrandLogo";
 import ArticleChatPrompt from "./chat/ArticleChatPrompt";
 import SiteHeader from "./SiteHeader";
+import SeasonalHome from "./home/seasonal/SeasonalHome";
 import { getNavigation } from "./siteNavigation";
 import { pricingEnquiryQuery } from "@/lib/pricingEnquiry";
 import { openCookiePreferences } from "@/lib/cookieConsent";
@@ -146,6 +147,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div data-brand="dm-labs" className={`min-h-screen flex flex-col ${isEnglishHomepage ? "editorial-home-shell" : ""} ${isTemplatesIndex ? "templates-editorial-shell" : ""} ${isHebrew ? "hebrew-shell" : ""}`} dir={isHebrew ? "rtl" : undefined}>
       <SiteHeader location={location} getLanguageHref={getAltLangHref} onLanguageNavigate={navigateLanguage} onBrandClick={handleBrandClick} />
+      <SeasonalHome key={normalizedLocation} language={getRouteLanguage(location)} sitewide />
 
       {/* PAGE CONTENT (wrapped for contrast filter - does NOT include fixed elements) */}
       <div id="a11y-content-wrapper" className="flex-1 flex flex-col">

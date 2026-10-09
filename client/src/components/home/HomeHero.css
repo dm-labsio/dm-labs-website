@@ -1,4 +1,10 @@
 html:has(.home-hero), body:has(.home-hero) { overflow-x: clip; }
+/* Set by the tiny schedule-aware head script before first paint. No extra
+   year-round gap, and no content jump when the optional banner arrives. */
+html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 12rem; }
+@media (max-width: 767px) {
+  html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 17rem; }
+}
 .home-hero {
   position: relative;
   isolation: isolate;
@@ -69,14 +75,16 @@ html:has(.home-hero), body:has(.home-hero) { overflow-x: clip; }
 /* One layered composition on phones and tablets. The artwork never adds a second row.
    A dark veil beneath the copy preserves contrast while the orbit stays visible at the edge. */
 @media (max-width: 1023px) {
-  .home-hero .home-hero-grid { position: relative; display: block; min-height: 0; padding-block: 4rem; }
+  .home-hero .home-hero-grid { position: relative; display: block; min-height: 0; padding-block: 5rem 4rem; }
   .home-hero-copy { max-width: 40rem; z-index: 2; }
   .home-hero-scene { position: absolute; width: min(110vw, 48rem); top: -3rem; inset-inline-end: -25%; opacity: .65; pointer-events: none; }
   .home-hero-grid::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, #101729ed 0%, #101729c9 42%, #10172938 100%), linear-gradient(0deg, #101729 0%, transparent 35%); }
   .home-hero[dir="rtl"] .home-hero-grid::after { background: linear-gradient(270deg, #101729ed 0%, #101729c9 42%, #10172938 100%), linear-gradient(0deg, #101729 0%, transparent 35%); }
 }
 @media (max-width: 767px) {
-  .home-hero .home-hero-grid { padding-block: 3rem 2.5rem; }
+  /* Stable breathing room also accommodates the optional seasonal message.
+     Reserved in permanent CSS, so loading/dismissing it cannot shift content. */
+  .home-hero .home-hero-grid { padding-block: 7rem 2.5rem; }
   .home-hero .home-hero-eyebrow { margin-bottom: 1.25rem; }
   .home-hero .home-hero-title { margin-bottom: 1.5rem; }
   .home-hero .home-hero-description { margin-bottom: 1.5rem; }

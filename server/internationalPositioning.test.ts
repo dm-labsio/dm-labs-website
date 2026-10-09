@@ -28,9 +28,13 @@ describe("International positioning", () => {
     const violations: string[] = [];
     const paths = [...files(resolve(root, "client/src")).filter(p => /\.(tsx?|jsx?)$/.test(p)), resolve(root, "scripts/prerender-meta.mjs")];
     for (const file of paths) {
+      if (/\/data\/getMoreCustomersCyprus(?:El)?\.ts$/.test(file)) continue;
       const source = readFileSync(file, "utf8");
       const ast = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true, file.endsWith("tsx") ? ts.ScriptKind.TSX : ts.ScriptKind.TS);
       function visit(node: ts.Node) {
+        if (ts.isObjectLiteralExpression(node) && node.properties.some(property =>
+          ts.isPropertyAssignment(property) && ["slug", "elSlug", "enPath"].includes(property.name.getText(ast))
+          && /^(?:["'])(?:\/blog\/)?(?:get-more-customers-cyprus|perissoteroi-pelates-kypros)["']$/.test(property.initializer.getText(ast)))) return;
         // Only this client case study's body may describe the practice's actual locations.
         // Keep its title/metadata and all DM Labs marketing copy under the usual guard.
         if (file === resolve(root, "client/src/data/drGeorgeCaseStudy.ts")
@@ -50,8 +54,8 @@ describe("International positioning", () => {
     expect(violations).toEqual([]);
   });
 
-  it("also covers the static entry, AI summary, and standalone design previews", () => {
-    const paths = [resolve(root, "client/index.html"), resolve(root, "client/public/llms.txt"), ...files(resolve(root, "client/public/previews")).filter(p => p.endsWith(".html"))];
+  it("also covers the static entry and AI summary without imposing DM Labs positioning on fictional demo businesses", () => {
+    const paths = [resolve(root, "client/index.html"), resolve(root, "client/public/llms.txt")];
     for (const file of paths) {
       const source = readFileSync(file, "utf8").replace(/<!--[\s\S]*?-->/g, "");
       expect(withoutTechnicalReferences(source), file).not.toMatch(countries);

@@ -80,9 +80,10 @@ export default function SiteHeader({ location, getLanguageHref, onLanguageNaviga
       <div className="site-header-inner">
         <Link href={home} className="site-brand-link" aria-label={copy.home} onClick={onBrandClick}><BrandLogo /></Link>
         <nav className="site-desktop-nav" aria-label={copy.navigation}>
-          {links.slice(1, -1).map(link => <Link key={link.href} href={link.href} aria-current={current(link.href)}>{link.label}</Link>)}
+          {links.slice(0, -1).map(link => <Link key={link.href} href={link.href} aria-current={current(link.href)} onClick={link.href === home ? onBrandClick : undefined}>{link.label}</Link>)}
         </nav>
         <div className="site-header-actions">
+          <Link href={home} className="site-header-home" aria-current={current(home)} onClick={onBrandClick}>{links[0].label}</Link>
           <LanguageMenu language={language} getLanguageHref={getLanguageHref} onLanguageNavigate={onLanguageNavigate} />
           <BrandButton asChild className="site-header-cta"><Link href={contact}>{copy.consultation}</Link></BrandButton>
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -148,4 +149,3 @@ const FlagIL = () => (
     className="block h-5 w-5 shrink-0 object-contain"
   />
 );
-

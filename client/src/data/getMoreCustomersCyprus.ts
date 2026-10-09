@@ -62,7 +62,7 @@ export const GET_MORE_CUSTOMERS_CYPRUS: BlogPost = {
 
 <p>For an eligible business, keep the profile’s real category, hours, contact details and service area accurate. Google says local results depend mainly on <strong>relevance, distance and prominence</strong>. Those factors mean no profile can guarantee a fixed position across Cyprus, and there is no way to pay Google for a better organic local ranking. See <a href="https://support.google.com/business/answer/7091?hl=en" class="blog-link" target="_blank" rel="noopener noreferrer">Google’s guidance on local ranking</a>.</p>
 
-<p>Your service pages should be equally specific. “Garden maintenance in Paphos, including regular care and one-off clearance” tells a potential customer more than “quality solutions for every need”—provided that description is true of your business. Build a location page only when you have useful local information to offer, such as availability, completed work, or arrangements that differ by area.</p>
+<p>Your service pages should be equally specific. “Garden maintenance in Paphos, including regular care and one-off clearance” tells a potential customer more than “quality solutions for every need”, provided that description is true of your business. Build a location page only when you have useful local information to offer, such as availability, completed work, or arrangements that differ by area.</p>
 
 <p>For the Google setup itself, see our <a href="/blog/how-to-get-found-on-google-cyprus/" class="blog-link">step-by-step guide to getting your business found on Google</a>.</p>
 
@@ -146,7 +146,7 @@ export const GET_MORE_CUSTOMERS_CYPRUS: BlogPost = {
 <p>Before hiring a provider, ask what problem the work will solve, what is included, who will maintain the content and how you will assess the result. Read our <a href="/blog/website-cost-cyprus-2026-guide/" class="blog-link">website cost guide</a> and compare the current <a href="/services/" class="blog-link">DM Labs website services</a>.</p>
 
 <h2 id="next-step">Want help identifying the next useful improvement?</h2>
-<p>DM Labs builds custom websites around your services, your customers’ questions and the actions you want visitors to take. If you contact us, include your website address, the locations you serve, and the kind of enquiries you want. Tell us what is happening now—few visitors, few enquiries, or enquiries that do not fit—and we can discuss a suitable scope.</p>
+<p>DM Labs builds custom websites around your services, your customers’ questions and the actions you want visitors to take. If you contact us, include your website address, the locations you serve, and the kind of enquiries you want. Tell us what is happening now (few visitors, few enquiries, or enquiries that do not fit) and we can discuss a suitable scope.</p>
 <div class="blog-cta">
   <h3>Talk through the customer journey on your website</h3>
   <p>Share what customers are asking and where you think they are getting stuck. We’ll help you identify a practical next step.</p>

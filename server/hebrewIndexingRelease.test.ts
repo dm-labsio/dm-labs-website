@@ -15,6 +15,9 @@ const hebrewRoutes = [
   "/he/contact/",
   "/he/faq/",
   "/he/templates/",
+  "/he/templates/branding/hartley/",
+  "/he/templates/branding/away/",
+  "/he/templates/branding/sunday-boat/",
   "/he/privacy/",
   "/he/cookies/",
   "/he/terms/",
@@ -38,11 +41,11 @@ describe("Hebrew indexing release", () => {
     expect(seoHook).toContain("isIndexableHebrewRoute(cleanPath) ? false : noindex");
   });
 
-  it("lists precisely the 21 completed Hebrew canonical URLs, including the first article", () => {
+  it("lists precisely the completed Hebrew canonical URLs, including articles and branding", () => {
     const sitemap = readSource("client/public/sitemap.xml");
     const foundHebrewLocs = sitemap.match(/<loc>https:\/\/dm-labs\.io\/he\/[\s\S]*?<\/loc>/g) ?? [];
 
-    expect(foundHebrewLocs).toHaveLength(21);
+    expect(foundHebrewLocs).toHaveLength(hebrewRoutes.length);
     for (const path of hebrewRoutes) {
       expect(sitemap).toContain(`<loc>https://dm-labs.io${path}</loc>`);
       expect(sitemap).toContain(`hreflang="he" href="https://dm-labs.io${path}"`);

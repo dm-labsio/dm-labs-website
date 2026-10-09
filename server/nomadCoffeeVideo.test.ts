@@ -42,7 +42,7 @@ describe("Nomad coffee concept", () => {
     expect(html).toContain("Small cup. Full character.");
     expect(html).toContain("320<span>g</span>");
     expect(html).toContain("noindex, nofollow");
-    expect(html).toContain("Fictional brand and café concept");
+    expect(html).not.toContain("Fictional brand and café concept"); // Removed by the approved demo cleanup.
     expect(html).not.toContain('href="#"');
     expect(html).not.toContain("images.unsplash.com");
     expect(html).toContain("muted");

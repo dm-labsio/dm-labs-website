@@ -26,11 +26,11 @@ describe("Compact multilingual blog index", () => {
     expect(html).toContain(`href="${locale === "en" ? "" : `/${locale}`}/contact/"`);
     expect(html).not.toMatch(/<video|opacity:0|—/);
   });
-  it.each([["en", "2026-10-04"], ["el", "2026-10-04"], ["he", "2026-10-04"]] as const)("shows the latest %s publication first without changing the source data", (locale, latestDate) => {
+  it.each(["en", "el", "he"] as const)("shows the latest %s publication first without changing the source data", locale => {
     const source = locale === "en" ? POSTS : locale === "el" ? POSTS_EL : POSTS_HE;
     const originalOrder = source.map(post => post.slug);
     const articles = blogArticles(locale);
-    expect(articles[0].date).toBe(latestDate);
+    expect(articles[0].date).toBe(source.reduce((latest, post) => post.date > latest ? post.date : latest, ""));
     expect(articles.every((post, index) => index === 0 || post.date <= articles[index - 1].date)).toBe(true);
     expect(source.map(post => post.slug)).toEqual(originalOrder);
     const filtered = filterArticles(articles, "SEO");

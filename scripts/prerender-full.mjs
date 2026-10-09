@@ -299,6 +299,7 @@ async function main() {
       // Disable JS-triggered navigation away from the page
       javaScriptEnabled: true,
     });
+    await context.addInitScript(() => { window.__DM_STATIC_SNAPSHOT__ = true; });
 
     let ok = 0;
     let errors = 0;
@@ -377,6 +378,9 @@ async function main() {
         });
 
         // Get the full serialised DOM
+        // Seasonal content is runtime-only: a cached October snapshot must not
+        // retain a holiday after its end date. The full original hero is kept.
+        await page.locator("[data-seasonal-runtime]").evaluateAll(nodes => nodes.forEach(node => node.remove()));
         let html = await page.content();
 
         // Remove the fallback block if prerender-meta.mjs was also run
