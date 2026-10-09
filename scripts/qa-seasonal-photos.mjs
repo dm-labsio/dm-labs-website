@@ -93,10 +93,13 @@ try {
             return { width: r.width, height: r.height };
           })
         );
-      assert.deepEqual(
-        after,
-        before.map(({ width, height }) => ({ width, height })),
-        "Decorations must not alter card dimensions"
+      assert(
+        after.every(
+          (frame, index) =>
+            Math.abs(frame.width - before[index].width) < 0.1 &&
+            Math.abs(frame.height - before[index].height) < 0.1
+        ),
+        "Decorations must not alter card dimensions (allow subpixel rounding)"
       );
       assert.deepEqual(errors, []);
       console.log(
