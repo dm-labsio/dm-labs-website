@@ -77,7 +77,7 @@ try {
   }
   // Changing the preference mid-visit stops motion immediately and restores autoplay on opt-in.
   const p=await browser.newPage({viewport:{width:390,height:900},isMobile:true,hasTouch:true});
-  await p.addInitScript(consent);await p.goto(base+'/');await p.locator('.home-service-cards').scrollIntoViewIfNeeded();
+  await p.addInitScript(consent);await p.goto(base+'/');await p.waitForLoadState('networkidle');await p.locator('.home-service-cards').scrollIntoViewIfNeeded();
   await p.waitForFunction(()=>!document.querySelector('.home-service-card video').paused);
   await p.emulateMedia({reducedMotion:'reduce'});await p.waitForTimeout(200);
   assert.equal(await p.locator('.home-service-card video[src]').count(),0);
