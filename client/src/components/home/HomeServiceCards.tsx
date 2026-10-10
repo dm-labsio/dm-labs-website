@@ -71,7 +71,21 @@ export default function HomeServiceCards({ language }: { language: HomeLocale })
     el: { hint: "Σύρετε για να δείτε τις υπηρεσίες", previous: "Προηγούμενη υπηρεσία", next: "Επόμενη υπηρεσία", previousText: "Πίσω", nextText: "Επόμενο" },
     he: { hint: "החליקו כדי לגלות את השירותים", previous: "השירות הקודם", next: "השירות הבא", previousText: "הקודם", nextText: "הבא" },
   }[language];
-  useEffect(() => () => { if (frame.current !== null) cancelAnimationFrame(frame.current); }, []);
+  const settleTimer = useRef<number | undefined>(undefined);
+  useEffect(() => () => { if (frame.current !== null) cancelAnimationFrame(frame.current); window.clearTimeout(settleTimer.current); }, []);
+  // Swap the playing clip only once a swipe has come to rest. Loading one
+  // video and unloading another mid-swipe froze the scroll on phones.
+  useEffect(() => {
+    const root = track.current;
+    if (!root || !("onscrollend" in window)) return;
+    const done = () => { window.clearTimeout(settleTimer.current); updateCurrent(); };
+    root.addEventListener("scrollend", done);
+    return () => root.removeEventListener("scrollend", done);
+  }, [language]);
+  function onScroll() {
+    window.clearTimeout(settleTimer.current);
+    settleTimer.current = window.setTimeout(updateCurrent, 140);
+  }
   function updateCurrent() {
     if (frame.current !== null) cancelAnimationFrame(frame.current);
     frame.current = requestAnimationFrame(() => {
@@ -99,7 +113,7 @@ export default function HomeServiceCards({ language }: { language: HomeLocale })
   }
   return <div className="home-service-carousel">
     <div className="home-service-carousel-controls"><p>{controls.hint}</p><div><button type="button" aria-label={controls.previous} disabled={current === 0} onClick={() => moveTo(current - 1)}>{controls.previousText}</button><button type="button" aria-label={controls.next} disabled={current === 5} onClick={() => moveTo(current + 1)}>{controls.nextText}</button></div></div>
-    <div className="home-service-cards" ref={track} onScroll={updateCurrent} onKeyDown={event => { if (event.key === "Escape") { setActive(null); setPinned(false); } }}>
+    <div className="home-service-cards" ref={track} onScroll={onScroll} onKeyDown={event => { if (event.key === "Escape") { setActive(null); setPinned(false); } }}>
     {[0, 3].map(start => <div className="home-service-row" key={start} data-active={active !== null && active >= start && active < start + 3 ? active - start : "none"}>
       {[start, start + 1, start + 2].map(index => <HomeServiceCard key={index} language={language} index={index} open={active === index} play={mobile ? visibleMotion && current === index : active === index} onOpen={() => {
         if (active !== index) { setActive(index); setPinned(false); }

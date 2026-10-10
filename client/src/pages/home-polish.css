@@ -153,3 +153,11 @@
     height: 96px;
   }
 }
+
+/* Services carousel on phones: one card per swipe, like an app store row,
+   so a quick flick never skips past several services. */
+@media (max-width: 767px) {
+  .home-page--dark .home-service-card {
+    scroll-snap-stop: always;
+  }
+}

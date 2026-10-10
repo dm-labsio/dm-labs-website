@@ -29,21 +29,31 @@ export default function WorkGallery({ locale }: { locale: WorkLocale }) {
     let width = 0,
       cardWidth = 0,
       spacing = 0,
-      velocity = 0,
-      target: number | null = null;
+      compact = false;
+    // Motion state, in card units. A spring moves `position` to `target`
+    // and keeps `velocity` continuous, so a swipe hands its speed to the
+    // glide and any glide can be grabbed mid-flight.
+    let velocity = 0,
+      target: number | null = null,
+      response = 0.5,
+      damping = 1,
+      drift = 0,
+      painted = NaN,
+      fromGesture = false;
     let clickTimer = 0;
     let last = 0,
       frame = 0,
       timer = 0,
-      pauseUntil = saved ? performance.now() + 3500 : 0;
+      pauseUntil = saved ? performance.now() + 3500 : 0,
+      nextStep = performance.now() + 2600;
     let pointer: {
       id: number;
       x: number;
       y: number;
       lastX: number;
-      time: number;
       moved: boolean;
       vertical: boolean;
+      history: { t: number; p: number }[];
     } | null = null;
     let lastPointer = saved ? performance.now() : -Infinity,
       suppressClick = false;
@@ -51,6 +61,39 @@ export default function WorkGallery({ locale }: { locale: WorkLocale }) {
       ((value % cards.length) + cards.length) % cards.length;
     const offset = (index: number) =>
       wrap(index - position + cards.length / 2) - cards.length / 2;
+    const cardAt = (value: number) => cards[wrap(Math.round(value))];
+    const cardState = cards.map(() => ({ opacity: "", events: "", z: "" }));
+    // Decode every cover up front so a card never paints blank mid-swipe.
+    cards.forEach(card => {
+      void card.querySelector("img")?.decode().catch(() => {});
+    });
+    const paint = () => {
+      const radius = Math.max(1700, width * 2.8);
+      cards.forEach((card, i) => {
+        const x = offset(i) * spacing;
+        const y = (x * x) / (2 * radius);
+        const angle = (Math.atan(x / radius) * 180) / Math.PI;
+        card.style.transform = `translate3d(${x.toFixed(2)}px,${y.toFixed(2)}px,0) rotate(${angle.toFixed(3)}deg)`;
+        // Only touch the properties that changed: rewriting stacking order and
+        // opacity on every frame forces extra work on phones.
+        const shown = Math.abs(x) < width / 2 + cardWidth;
+        const opacity = shown ? "1" : "0";
+        const events = shown ? "auto" : "none";
+        // Offscreen cards remain keyboard-reachable; focus centers them first.
+        const z =
+          card.dataset.project === active
+            ? "20"
+            : String(10 - Math.round(Math.abs(offset(i))));
+        const prev = cardState[i];
+        if (prev.opacity !== opacity)
+          card.style.opacity = prev.opacity = opacity;
+        if (prev.events !== events)
+          card.style.pointerEvents = prev.events = events;
+        if (prev.z !== z) card.style.zIndex = prev.z = z;
+      });
+      painted = position;
+      root.dataset.carouselPosition = String(position);
+    };
     const select = (id: string) => {
       active = id;
       root.dataset.selected = active;
@@ -59,87 +102,122 @@ export default function WorkGallery({ locale }: { locale: WorkLocale }) {
         card.classList.toggle("is-selected", selected);
         card.dataset.previewReady = String(!touch.matches || selected);
       });
+      paint();
     };
     const settle = (delay = 4000) => {
       clearTimeout(timer);
       pauseUntil = performance.now() + delay;
+      nextStep = pauseUntil;
       timer = window.setTimeout(() => {
         if (!hovering && !keyboard && !pointer) select("");
       }, delay);
     };
-    const paint = () => {
-      const radius = Math.max(1700, width * 2.8);
-      cards.forEach((card, i) => {
-        const x = offset(i) * spacing;
-        const y = (x * x) / (2 * radius);
-        const angle = (Math.atan(x / radius) * 180) / Math.PI;
-        card.style.transform = `translate3d(${x.toFixed(3)}px,${y.toFixed(3)}px,0) rotate(${angle.toFixed(3)}deg)`;
-        card.style.opacity = Math.abs(x) < width / 2 + cardWidth ? "1" : "0";
-        card.style.pointerEvents =
-          Math.abs(x) < width / 2 + cardWidth ? "auto" : "none";
-        // Offscreen cards remain keyboard-reachable; focus centers them first.
-        card.style.zIndex =
-          card.dataset.project === active
-            ? "20"
-            : String(10 - Math.round(Math.abs(offset(i))));
-      });
-      root.dataset.carouselPosition = String(position);
+    /** Glide to a card. Damping 1 settles without overshoot; a flick uses a
+     * little bounce because the finger carried momentum into it. */
+    const glide = (to: number, options: { response?: number; damping?: number; velocity?: number } = {}) => {
+      target = to;
+      drift = 0;
+      response = options.response ?? 0.5;
+      damping = options.damping ?? 1;
+      if (options.velocity !== undefined) velocity = options.velocity;
+      if (motion.matches) {
+        position = to;
+        velocity = 0;
+        target = null;
+        paint();
+      }
     };
     const resize = () => {
       width = stage.clientWidth;
+      compact = width < 700;
       cardWidth = Math.min(
-        width < 700 ? width * 0.66 : width * 0.24,
-        width < 700 ? 270 : 320
+        compact ? width * 0.66 : width * 0.24,
+        compact ? 270 : 320
       );
-      spacing = cardWidth + (width < 700 ? 18 : 28);
+      spacing = cardWidth + (compact ? 18 : 28);
       stage.style.setProperty("--work-card-width", `${cardWidth}px`);
-      stage.style.height = `${cardWidth * 1.5 + (width < 700 ? 148 : 164)}px`;
+      stage.style.height = `${cardWidth * 1.5 + (compact ? 148 : 164)}px`;
       paint();
     };
     const tick = (now: number) => {
-      const dt = Math.min((now - last) / 1000 || 0, 0.04);
+      const dt = Math.min((now - last) / 1000 || 0, 0.05);
       last = now;
       if (visible && !document.hidden) {
-        if (target !== null) {
-          position +=
-            (target - position) * (motion.matches ? 1 : 1 - Math.exp(-12 * dt));
-          if (Math.abs(target - position) < 0.001) {
-            position = target;
-            target = null;
+        if (pointer?.moved) {
+          // The finger drives the position; paint happens in pointermove.
+        } else if (target !== null) {
+          const stiffness = ((2 * Math.PI) / response) ** 2;
+          const friction = 2 * damping * Math.sqrt(stiffness);
+          const steps = Math.max(1, Math.ceil(dt / 0.008));
+          const h = dt / steps;
+          for (let i = 0; i < steps; i++) {
+            velocity +=
+              (-stiffness * (position - target) - friction * velocity) * h;
+            position += velocity * h;
           }
-        } else if (!pointer && !hovering && !keyboard && now > pauseUntil) {
-          position += velocity * dt;
-          velocity *= Math.exp(-5 * dt);
-          if (!motion.matches) position += 0.065 * dt;
+          if (
+            Math.abs(position - target) < 0.0004 &&
+            Math.abs(velocity) < 0.004
+          ) {
+            position = target;
+            velocity = 0;
+            target = null;
+            // After a swipe on a phone, lift the card that landed in the
+            // middle so the next tap opens it.
+            if (fromGesture && compact && touch.matches)
+              select(cardAt(position).dataset.project!);
+            fromGesture = false;
+          }
+        } else if (!pointer && !hovering && !keyboard && !motion.matches) {
+          if (compact) {
+            // Phones show one card at a time: glide to the next card every
+            // few seconds instead of creeping, so the change is easy to see.
+            if (now > pauseUntil && now >= nextStep) {
+              glide(Math.round(position) + 1, { response: 0.8 });
+              nextStep = now + 3800;
+            }
+          } else {
+            // Wide screens keep the slow drift, eased in and out instead of
+            // starting and stopping at full speed.
+            const want = now > pauseUntil ? 1 : 0;
+            drift += (want - drift) * (1 - Math.exp(-2.5 * dt));
+            if (drift > 0.001) position += 0.065 * drift * dt;
+          }
         }
-        paint();
+        if (position !== painted) paint();
       }
       frame = requestAnimationFrame(tick);
     };
     const focusCard = (index: number) => {
-      target = position + offset(index);
-      velocity = 0;
+      glide(position + offset(index));
       select(cards[index].dataset.project!);
       settle();
     };
     controls.current.step = direction => {
-      focusCard(wrap(Math.round(position) + direction));
+      // Repeated presses stack onto the card already being travelled to.
+      const next = (target ?? Math.round(position)) + direction;
+      glide(next);
+      select(cardAt(next).dataset.project!);
+      settle();
     };
     const onPointerDown = (event: PointerEvent) => {
       if (event.button !== 0 || !(event.target instanceof Element)) return;
       lastPointer = performance.now();
       keyboard = false;
       hovering = false;
+      // Grab: stop exactly where the cards are, mid-glide included.
       target = null;
       velocity = 0;
+      drift = 0;
+      fromGesture = false;
       pointer = {
         id: event.pointerId,
         x: event.clientX,
         y: event.clientY,
         lastX: event.clientX,
-        time: event.timeStamp,
         moved: false,
         vertical: false,
+        history: [{ t: event.timeStamp, p: position }],
       };
       suppressClick = false;
     };
@@ -156,31 +234,38 @@ export default function WorkGallery({ locale }: { locale: WorkLocale }) {
         pointer.moved = true;
         dragging = true;
         select("");
-        stage.setPointerCapture(event.pointerId);
-        root.classList.add("is-dragging");
-      }
-      if (pointer.moved) {
-        const delta = (event.clientX - pointer.lastX) / spacing;
-        position -= delta;
-        velocity = Math.max(
-          -3,
-          Math.min(
-            3,
-            -delta / Math.max((event.timeStamp - pointer.time) / 1000, 0.016)
-          )
-        );
         cards.forEach(card => {
           card.dataset.previewReady = "false";
         });
+        stage.setPointerCapture(event.pointerId);
+        root.classList.add("is-dragging");
+        // Count the slop distance too, so the cards don't jump when they
+        // start to follow the finger.
+        pointer.lastX = pointer.x;
+      }
+      if (pointer.moved) {
+        // Coalesced events give every touch sample, not one per frame.
+        const samples =
+          typeof event.getCoalescedEvents === "function"
+            ? event.getCoalescedEvents()
+            : [];
+        const latest = samples.length ? samples : [event];
+        for (const sample of latest) {
+          position -= (sample.clientX - pointer.lastX) / spacing;
+          pointer.lastX = sample.clientX;
+          pointer.history.push({ t: sample.timeStamp, p: position });
+        }
+        const cutoff = event.timeStamp - 120;
+        while (pointer.history.length > 2 && pointer.history[0].t < cutoff)
+          pointer.history.shift();
         paint();
       }
-      pointer.lastX = event.clientX;
-      pointer.time = event.timeStamp;
     };
     const onPointerUp = (event: PointerEvent) => {
       if (!pointer || pointer.id !== event.pointerId) return;
+      const gesture = pointer;
       suppressClick =
-        pointer.moved || pointer.vertical || event.type === "pointercancel";
+        gesture.moved || gesture.vertical || event.type === "pointercancel";
       if (suppressClick)
         cards.forEach(card => {
           card.dataset.previewReady = "false";
@@ -190,13 +275,43 @@ export default function WorkGallery({ locale }: { locale: WorkLocale }) {
       pointer = null;
       dragging = false;
       root.classList.remove("is-dragging");
-      settle(suppressClick ? 700 : 4000);
+      if (gesture.moved) {
+        // Release velocity from the last ~100ms of movement, in cards per
+        // second. A finger that stopped before lifting throws nothing.
+        const first = gesture.history[0];
+        const lastSample = gesture.history[gesture.history.length - 1];
+        const span = (lastSample.t - first.t) / 1000;
+        const still = event.timeStamp - lastSample.t > 60;
+        let release =
+          span > 0.008 && !still ? (lastSample.p - first.p) / span : 0;
+        release = Math.max(-8, Math.min(8, release));
+        // Project where the throw would come to rest, then land on the card
+        // nearest to that point (Apple's deceleration projection, 0.996).
+        const projected = position + (release * 0.996) / (1 - 0.996) / 1000;
+        let landing = Math.round(projected);
+        if (Math.abs(release) > 0.6 && landing === Math.round(position))
+          landing = release > 0 ? Math.ceil(position + 0.001) : Math.floor(position - 0.001);
+        landing = Math.max(
+          Math.round(position) - 3,
+          Math.min(Math.round(position) + 3, landing)
+        );
+        fromGesture = true;
+        glide(landing, {
+          response: 0.42,
+          damping: Math.abs(release) > 1.5 ? 0.86 : 1,
+          velocity: release,
+        });
+      } else if (compact && target === null && Math.abs(position - Math.round(position)) > 0.002) {
+        // A tap that stopped a glide finishes it on the nearest card.
+        glide(Math.round(position), { response: 0.45 });
+      }
+      settle(4000);
       // Keep the generated click suppressed, then restore normal link behaviour.
       clearTimeout(clickTimer);
       clickTimer = window.setTimeout(() => {
         if (!pointer) {
           suppressClick = false;
-          select(active);
+          if (!fromGesture) select(active);
         }
       }, 100);
     };
@@ -228,9 +343,9 @@ export default function WorkGallery({ locale }: { locale: WorkLocale }) {
           ? event.target.closest<HTMLAnchorElement>(".work-arc-card")
           : null;
       if (card) {
+        // Hovering pauses the drift; a glide already under way still lands.
         hovering = true;
-        target = null;
-        velocity = 0;
+        drift = 0;
         select(card.dataset.project!);
       }
     };
@@ -290,7 +405,8 @@ export default function WorkGallery({ locale }: { locale: WorkLocale }) {
       target = null;
       hovering = false;
       keyboard = false;
-      select("");
+      drift = 0;
+      if (active) select("");
       position += event.deltaX / spacing;
       velocity = 0;
       settle(1200);

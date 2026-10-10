@@ -2,29 +2,33 @@
    Usage: <AnimateIn> wraps any element for fade-up on scroll
    Variants: fade-up, fade-left, fade-right, scale, stagger-children */
 
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
+
+// Full transform strings (not Motion's x/y/scale shorthands) let the browser
+// run the reveal on the compositor, so it stays smooth while a phone scrolls.
+const ENTRANCE_EASE = [0.23, 1, 0.32, 1] as const;
 
 const presets: Record<string, Variants> = {
   "fade-up": {
-    hidden: { opacity: 0, y: 32 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, transform: "translateY(32px)" },
+    visible: { opacity: 1, transform: "translateY(0px)" },
   },
   "fade-down": {
-    hidden: { opacity: 0, y: -24 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, transform: "translateY(-24px)" },
+    visible: { opacity: 1, transform: "translateY(0px)" },
   },
   "fade-left": {
-    hidden: { opacity: 0, x: -40 },
-    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, transform: "translateX(-40px)" },
+    visible: { opacity: 1, transform: "translateX(0px)" },
   },
   "fade-right": {
-    hidden: { opacity: 0, x: 40 },
-    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, transform: "translateX(40px)" },
+    visible: { opacity: 1, transform: "translateX(0px)" },
   },
   scale: {
-    hidden: { opacity: 0, scale: 0.92 },
-    visible: { opacity: 1, scale: 1 },
+    hidden: { opacity: 0, transform: "scale(0.92)" },
+    visible: { opacity: 1, transform: "scale(1)" },
   },
   fade: {
     hidden: { opacity: 0 },
@@ -51,16 +55,18 @@ export default function AnimateIn({
   once = true,
   amount = 0.15,
 }: AnimateInProps) {
+  // Reduced motion keeps the fade and drops the movement.
+  const reduce = useReducedMotion();
   return (
     <motion.div
-      variants={presets[variant]}
+      variants={reduce ? presets.fade : presets[variant]}
       initial="hidden"
       whileInView="visible"
       viewport={{ once, amount }}
       transition={{
         duration,
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: ENTRANCE_EASE,
       }}
       className={className}
     >
@@ -99,13 +105,18 @@ export function StaggerItem({
   children: ReactNode;
   className?: string;
 }) {
+  const reduce = useReducedMotion();
   return (
     <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 24 },
-        visible: { opacity: 1, y: 0 },
-      }}
-      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      variants={
+        reduce
+          ? presets.fade
+          : {
+              hidden: { opacity: 0, transform: "translateY(24px)" },
+              visible: { opacity: 1, transform: "translateY(0px)" },
+            }
+      }
+      transition={{ duration: 0.5, ease: ENTRANCE_EASE }}
       className={className}
     >
       {children}

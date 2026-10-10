@@ -80,6 +80,10 @@ export default function HalloweenLayer({
 }) {
   const [visible, setVisible] = useState(isSeasonActive);
   const [running, setRunning] = useState(false);
+  // Particles stay in the page once the burst has played: they finish fully
+  // transparent, and removing them made phones recheck the whole page's
+  // styles mid-scroll (a visible hitch about four seconds after load).
+  const [started, setStarted] = useState(false);
   const [mobile, setMobile] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const [sections, setSections] = useState<Element[]>([]);
@@ -155,6 +159,7 @@ export default function HalloweenLayer({
           /* Optional. */
         }
         setRunning(true);
+        setStarted(true);
         timer = setTimeout(
           stop,
           Math.min(4500, SEASONAL_CONFIG.particles.durationMs)
@@ -266,7 +271,7 @@ export default function HalloweenLayer({
               decoding="async"
             />
           ) : null}
-          {running ? (
+          {started ? (
             <div className="seasonal-particles">
               {seasonalParticles(mobile).map(particle => (
                 <span
