@@ -14,20 +14,31 @@ export function HomeServiceCard({ language, index, open, play, onOpen, onToggle 
   const copy = SERVICE_CARD_COPY[language];
   const video = useRef<HTMLVideoElement>(null);
   const [ready, setReady] = useState(false);
+  const [blocked, setBlocked] = useState(false);
+  const playLabel = { en: "Play video", el: "Αναπαραγωγή βίντεο", he: "הפעלת הסרטון" }[language];
   const id = `home-service-${item.slug}`;
 
   useEffect(() => {
     setReady(false);
+    setBlocked(false);
     if (!play || !video.current) return;
-    return attachCardVideo(video.current, media.video);
+    return attachCardVideo(video.current, media.video, () => setBlocked(true));
   }, [play, media.video]);
 
-  return <article className="home-service-card" data-open={open} data-playing={play && ready} onPointerEnter={event => {
+  const resumeFromTouch = () => {
+    const element = video.current;
+    if (!play || !element?.getAttribute("src") || !element.paused || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Call directly inside the trusted tap, not a later React effect.
+    void element.play().catch(() => setBlocked(true));
+  };
+
+  return <article className="home-service-card" data-open={open} data-playing={play && ready} onClickCapture={resumeFromTouch} onPointerEnter={event => {
     if (event.pointerType === "mouse" && window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 1000px)").matches) onOpen();
   }}>
-    <div className="home-service-card-media" aria-hidden="true">
+    <div className="home-service-card-media">
       <img src={media.poster} width={960} height={542} loading="lazy" decoding="async" alt="" />
-      <video ref={video} muted playsInline preload="none" tabIndex={-1} data-ready={play && ready} onLoadedData={() => setReady(true)} onError={() => setReady(false)} />
+      <video ref={video} autoPlay loop muted playsInline poster={media.poster} aria-hidden="true" preload="none" tabIndex={-1} data-ready={play && ready} onLoadedData={() => setReady(true)} onPlaying={() => { setReady(true); setBlocked(false); }} onError={() => setReady(false)} />
+      {play && blocked ? <button type="button" className="home-service-card-play" onClick={event => { event.stopPropagation(); resumeFromTouch(); }}>{playLabel}</button> : null}
     </div>
     <div className="home-service-card-copy">
       <h3><button type="button" aria-expanded={open} aria-controls={`${id}-detail`} onClick={onToggle}>{item.title}<span aria-hidden="true">{open ? "−" : "+"}</span></button></h3>

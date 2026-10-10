@@ -18,7 +18,7 @@ export default function HomeServiceRibbon({ language }: { language: SiteLanguage
     <button type="button" className="home-service-ribbon-control" onClick={() => setPaused(value => !value)} aria-label={`${paused ? copy.resume : copy.pause}: ${copy.items.join(" · ")}`} aria-pressed={paused}>
       <span className="home-service-ribbon-track">
         {[0, 1].map(repeat => <span key={repeat} className="home-service-ribbon-copy" aria-hidden={repeat === 1 ? true : undefined}>
-          {copy.items.map(item => <span className="home-service-ribbon-item" key={item}><span>{item}</span><span className="home-service-ribbon-spark" aria-hidden="true">✳</span></span>)}
+          {copy.items.map(item => <span className="home-service-ribbon-item" key={item}><span>{item}</span></span>)}
         </span>)}
       </span>
     </button>

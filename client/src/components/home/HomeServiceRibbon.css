@@ -1,10 +1,9 @@
-.home-service-ribbon { overflow: hidden; background: #a8b8ff; color: #101729; border-block: 1px solid #c0ccff; }
+.home-service-ribbon { overflow: hidden; background: #0b1222; color: #c0ccff; border-block: 1px solid #a8b8ff26; }
 .home-service-ribbon-control { display: block; width: 100%; overflow: hidden; padding-block: .8rem; cursor: pointer; text-align: start; }
-.home-service-ribbon-control:focus-visible { outline: 3px solid #101729; outline-offset: -4px; }
-.home-service-ribbon-track { display: flex; width: max-content; animation: service-ribbon-travel 32s linear infinite; animation-play-state: paused; }
+.home-service-ribbon-control:focus-visible { outline: 3px solid #a8b8ff; outline-offset: -4px; }
+.home-service-ribbon-track { display: flex; width: max-content; animation: service-ribbon-travel 10s linear infinite; animation-play-state: paused; }
 .home-service-ribbon-copy { display: flex; flex-shrink: 0; min-width: 100vw; justify-content: space-around; }
-.home-service-ribbon-item { display: flex; align-items: center; gap: clamp(1.5rem, 3vw, 3rem); padding-inline-end: clamp(1.5rem, 3vw, 3rem); font: 600 clamp(.85rem, 1.1vw, 1rem)/1.4 var(--font-body, sans-serif); white-space: nowrap; }
-.home-service-ribbon-spark { font-size: 1.5rem; color: #263b80; line-height: 1; }
+.home-service-ribbon-item { display: flex; align-items: center; gap: clamp(1.5rem, 3vw, 3rem); padding-inline-end: clamp(1.5rem, 3vw, 3rem); font: 900 clamp(1.25rem, 2.1vw, 2rem)/1.2 var(--font-display, sans-serif); letter-spacing: -.025em; white-space: nowrap; }
 .home-service-ribbon[data-motion="playing"] .home-service-ribbon-track { animation-play-state: running; }
 .home-service-ribbon[dir="rtl"] .home-service-ribbon-track { animation-name: service-ribbon-travel-rtl; }
 @media (hover: hover) { .home-service-ribbon:hover .home-service-ribbon-track { animation-play-state: paused; } }
@@ -14,5 +13,5 @@
   .home-service-ribbon-track { animation: none; width: 100%; }
   .home-service-ribbon-copy { flex-wrap: wrap; justify-content: center; gap: .65rem; width: 100%; }
   .home-service-ribbon-copy[aria-hidden="true"] { display: none; }
-  .home-service-ribbon-item { gap: .65rem; padding-inline-end: 0; font-size: .8rem; }
+  .home-service-ribbon-item { gap: .65rem; padding-inline-end: 0; font-size: 1rem; }
 }

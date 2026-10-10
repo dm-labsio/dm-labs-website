@@ -7,8 +7,9 @@
 .home-service-card[data-open="true"] { background: #202e49; border-color: #6fe3ff; box-shadow: 0 0 0 1px #6fe3ff; }
 .home-service-card-media { position: relative; height: 190px; background: #080f20; overflow: hidden; }
 .home-service-card-media :is(img,video) { width: 100%; height: 100%; object-fit: contain; }
-.home-service-card-media video { position: absolute; inset: 0; opacity: 0; transition: opacity 250ms ease; }
+.home-service-card-media video { position: absolute; inset: 0; opacity: 1; }
 .home-service-card-media video[data-ready="true"] { opacity: 1; }
+.home-service-card-play { position: absolute; z-index: 3; inset-inline-end: .65rem; bottom: .5rem; min-height: 44px; padding: .4rem .8rem; color: #e8edfa; background: #080f20e8; text-decoration: underline; text-underline-offset: .25em; cursor: pointer; font-size: .85rem; }
 .home-service-card-copy { padding: 1.5rem; }
 .home-service-card-meta { display: flex; justify-content: space-between; gap: .5rem; color: #b7c4df; font-size: .75rem; margin-bottom: .8rem; }
 [data-brand] .home-service-card h3 { font-size: clamp(1.25rem, 1.9vw, 1.75rem); line-height: 1.15; margin: 0; color: #edf2ff; }
