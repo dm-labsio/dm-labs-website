@@ -23,206 +23,53 @@
   line-height: 1.6;
 }
 .film-gallery {
+  display: grid;
+  gap: 16px;
+}
+.film-row {
   display: flex;
   gap: 16px;
-  min-height: 420px;
-}
-.film-card {
-  min-width: 0;
-  flex: 1;
-  transition: flex 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  align-items: start;
 }
 .film-cover {
+  display: block;
   position: relative;
-  isolation: isolate;
+  min-width: 0;
+  flex: var(--film-ratio) 1 0%;
+  aspect-ratio: var(--film-ratio);
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: #101b30;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.32s ease;
+}
+.film-cover > img {
   display: block;
   width: 100%;
-  height: 360px;
-  overflow: hidden;
-  text-align: start;
-  border: 1px solid #ffffff16;
-  border-radius: 3px;
-  background: #14203b;
-  cursor: pointer;
-  color: #fff;
-  box-shadow: 0 12px 32px #03081522;
-}
-.film-art {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.film-art-sunday {
-  background: #1648df;
-}
-.film-brand {
-  position: absolute;
-  inset-inline: 12%;
-  top: 24%;
-  width: 76%;
-  height: 36%;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.film-fish {
-  position: absolute;
-  bottom: 17%;
-  inset-inline-start: -9%;
-  width: 72%;
-  height: 22%;
-  filter: brightness(0) invert(1);
-  opacity: 0.22;
-  transform: rotate(-14deg);
-  transition: transform 0.8s ease;
-}
-.film-art-line {
-  position: absolute;
-  inset-inline: 12%;
-  top: 65%;
-  border-top: 1px solid #ffffff66;
-}
-.film-photo {
-  width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.film-art-hartley:after,
-.film-art-away:after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, #05121e55, transparent 55%, #04121d99);
-  pointer-events: none;
-}
-.film-art-hartley .film-brand,
-.film-art-away .film-brand {
-  top: 10%;
-  height: 23%;
-  z-index: 1;
-}
-.film-art-dm {
-  background: radial-gradient(
-    ellipse at 55% 55%,
-    #313157 0%,
-    #11192d 60%,
-    #0d1528
-  );
-}
-.film-boo {
-  position: absolute;
-  top: 20%;
-  inset-inline: 0;
-  text-align: center;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2.5rem, 5vw, 4.8rem);
-  letter-spacing: -0.055em;
-  color: #b6b9ff;
-  transform: rotate(-7deg);
-}
-.film-pumpkin {
-  position: absolute;
-  inset-inline-start: 3%;
-  bottom: 9%;
-  width: 96%;
-  height: 57%;
   object-fit: contain;
-  transition: transform 0.8s ease;
-}
-.film-ghost {
-  position: absolute;
-  inset-inline-end: 4%;
-  top: 7%;
-  width: 28%;
-  height: auto;
-  transform: rotate(13deg);
-  transition: transform 0.8s ease;
-}
-.film-format-label {
-  position: absolute;
-  top: 16px;
-  inset-inline-start: 16px;
-  z-index: 2;
-  font-size: 0.7rem;
-  line-height: 1.3;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  background: #081120ad;
-  color: #f5f6ff;
-  padding: 7px 9px;
-  backdrop-filter: blur(12px);
-  max-width: calc(100% - 32px);
-}
-.film-play {
-  position: absolute;
-  bottom: 18px;
-  inset-inline-start: 18px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 13px;
-  background: #f7f8ff;
-  color: #10182c;
-  box-shadow: 0 5px 20px #0003;
-  z-index: 2;
-  transition:
-    transform 0.35s ease,
-    background 0.35s ease;
-}
-.film-play svg {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-.film-play > span {
-  font-size: 0.78rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-.film-caption {
-  padding: 17px 2px 0;
-}
-.film-caption h3 {
-  font-size: 1.4rem;
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-align: start;
-  line-height: 1.25;
-}
-.film-caption p {
-  color: #bfc7db;
-  font-size: 0.85rem;
-  line-height: 1.45;
-  margin-top: 5px;
-}
-[dir="rtl"] .film-caption h3 {
-  text-align: right;
 }
 .film-cover:focus-visible {
   outline: 3px solid #b3b8ff;
   outline-offset: 5px;
 }
-@media (hover: hover) and (min-width: 900px) {
-  .film-card[data-active="true"] {
-    flex: 1.38;
-  }
-  .film-cover:is(:hover, :focus-visible) .film-photo {
-    transform: scale(1.045);
-  }
-  .film-cover:is(:hover, :focus-visible) .film-fish {
-    transform: translateX(20%) rotate(-7deg);
-  }
-  .film-cover:is(:hover, :focus-visible) .film-ghost {
-    transform: translateY(-8px) rotate(2deg);
-  }
-  .film-cover:is(:hover, :focus-visible) .film-pumpkin {
-    transform: rotate(-4deg) scale(1.03);
-  }
-  .film-cover:is(:hover, :focus-visible) .film-play {
+.film-cover:active {
+  transform: scale(0.986);
+}
+.film-gallery-hint {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #bfc7db;
+  margin: 16px 0 0;
+}
+@media (hover: hover) {
+  .film-cover:hover {
     transform: translateY(-5px);
-    background: #c9ceff;
+    box-shadow: 0 16px 28px #03081555;
   }
 }
 .film-overlay {
@@ -411,30 +258,13 @@
     opacity: 1;
   }
 }
-@media (min-width: 1400px) {
-  .film-cover {
-    height: 400px;
-  }
-}
 @media (max-width: 899px) {
-  .film-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 26px 16px;
-  }
-  .film-cover {
-    height: auto;
-    aspect-ratio: 3/4;
-  }
   .film-heading {
     display: block;
   }
   .film-heading > p {
     margin-top: 15px;
     max-width: 520px;
-  }
-  .film-boo {
-    font-size: clamp(2.5rem, 9vw, 5rem);
   }
   .film-cinema {
     grid-template-columns: minmax(0, 1fr) 285px;
@@ -447,9 +277,6 @@
   }
 }
 @media (max-width: 640px) {
-  .film-gallery {
-    gap: 23px 10px;
-  }
   .film-section {
     padding-block: 36px;
   }
@@ -459,39 +286,35 @@
   .film-heading > p {
     font-size: 0.93rem;
   }
-  .film-format-label {
-    font-size: 0.6rem;
-    top: 9px;
-    inset-inline-start: 9px;
-    max-width: calc(100% - 18px);
-    padding: 5px 6px;
+  .film-gallery {
+    gap: 12px;
   }
-  .film-play {
-    bottom: 10px;
-    inset-inline-start: 10px;
-    padding: 8px;
-    gap: 5px;
-    max-width: calc(100% - 20px);
+  .film-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
-  .film-play svg {
-    width: 16px;
-    height: 16px;
+  .film-cover {
+    width: 100%;
   }
-  .film-play > span {
-    font-size: 0.66rem;
+  .film-row-stories .film-wide {
+    grid-column: 1/-1;
+    grid-row: 1;
   }
-  .film-caption {
-    padding-top: 12px;
+  .film-row-campaigns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
   }
-  .film-caption h3 {
-    font-size: 1.15rem;
+  .film-row-campaigns .film-wide {
+    grid-column: 2/4;
+    grid-row: 1;
   }
-  .film-caption p {
-    font-size: 0.76rem;
+  .film-row-campaigns > .film-cover:first-child {
+    grid-column: 1;
+    grid-row: 1;
   }
-  .film-brand {
-    inset-inline: 9%;
-    width: 82%;
+  .film-gallery-hint {
+    font-size: 0.8rem;
   }
   .film-dialog {
     width: calc(100vw - 16px);
@@ -551,10 +374,6 @@
   }
   .film-contact {
     margin-top: 12px;
-  }
-  .film-art-hartley .film-brand,
-  .film-art-away .film-brand {
-    top: 20%;
   }
 }
 @media (prefers-reduced-motion: reduce) {

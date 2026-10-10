@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import {
   filmProjects,
@@ -12,74 +12,6 @@ import {
 } from "./filmData";
 import type { WorkLocale } from "./workData";
 import "./films.css";
-
-function FilmCover({ project }: { project: FilmProject }) {
-  if (project.id === "sunday-boat")
-    return (
-      <div className="film-art film-art-sunday" aria-hidden="true">
-        <img
-          className="film-fish"
-          src="/media/branding/sunday-boat/symbol.svg"
-          alt=""
-          width="300"
-          height="150"
-          loading="lazy"
-        />
-        <img
-          className="film-brand"
-          src="/media/branding/sunday-boat/logo.svg"
-          alt=""
-          width="400"
-          height="260"
-          loading="lazy"
-        />
-        <span className="film-art-line" />
-      </div>
-    );
-  if (project.id === "dm-labs")
-    return (
-      <div className="film-art film-art-dm" aria-hidden="true">
-        <span className="film-boo">BOO!</span>
-        <img
-          className="film-pumpkin"
-          src="/media/seasonal/halloween-2026/glass-pumpkins-560.webp"
-          alt=""
-          width="560"
-          height="420"
-          loading="lazy"
-        />
-        <img
-          className="film-ghost"
-          src="/media/seasonal/halloween-2026/glass-ghost-320.webp"
-          alt=""
-          width="320"
-          height="320"
-          loading="lazy"
-        />
-      </div>
-    );
-  return (
-    <div className={`film-art film-art-${project.id}`} aria-hidden="true">
-      <img
-        className="film-photo"
-        src={`/media/work-films/${project.id}-cover.webp`}
-        alt=""
-        width="600"
-        height="800"
-        loading="lazy"
-        decoding="async"
-      />
-      <img
-        className="film-brand"
-        src={`/media/branding/${project.id}/logo.svg`}
-        alt=""
-        width="400"
-        height="150"
-        loading="lazy"
-      />
-    </div>
-  );
-}
 
 function FilmPlayer({ clip, locale }: { clip: FilmClip; locale: WorkLocale }) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -137,7 +69,6 @@ export default function FilmGallery({ locale }: { locale: WorkLocale }) {
     project: FilmProject;
     clip: FilmClip;
   } | null>(null);
-  const [hover, setHover] = useState<string | null>(null);
   const trigger = useRef<HTMLButtonElement | null>(null);
   const pushed = useRef(false);
   useEffect(() => {
@@ -159,9 +90,12 @@ export default function FilmGallery({ locale }: { locale: WorkLocale }) {
     window.addEventListener("popstate", sync);
     return () => window.removeEventListener("popstate", sync);
   }, []);
-  const open = (project: FilmProject, button: HTMLButtonElement) => {
+  const open = (
+    project: FilmProject,
+    clip: FilmClip,
+    button: HTMLButtonElement
+  ) => {
     trigger.current = button;
-    const clip = project.clips[0];
     const url = new URL(location.href);
     url.searchParams.set("film", project.id);
     url.searchParams.set("clip", clip.id);
@@ -199,39 +133,48 @@ export default function FilmGallery({ locale }: { locale: WorkLocale }) {
         <h2 id="film-heading">{copy.title[locale]}</h2>
         <p>{copy.intro[locale]}</p>
       </div>
-      <div className="film-gallery" onMouseLeave={() => setHover(null)}>
-        {filmProjects.map(project => (
-          <article
-            key={project.id}
-            className="film-card"
-            data-active={hover === project.id}
-          >
-            <button
-              className="film-cover"
-              onMouseEnter={() => setHover(project.id)}
-              onFocus={() => setHover(project.id)}
-              onBlur={() => setHover(null)}
-              onClick={event => open(project, event.currentTarget)}
-              aria-label={`${copy.watch[locale]}: ${project.name}`}
+      <div className="film-gallery" aria-describedby="film-gallery-hint">
+        {[filmProjects.slice(0, 2), filmProjects.slice(2)].map(
+          (projects, row) => (
+            <div
+              className={`film-row film-row-${row === 0 ? "stories" : "campaigns"}`}
+              key={row}
             >
-              <FilmCover project={project} />
-              <span className="film-format-label">
-                {project.formats[locale]}
-              </span>
-              <span className="film-play">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M8 4.5v15L20 12z" />
-                </svg>
-                <span>{copy.watch[locale]}</span>
-              </span>
-            </button>
-            <div className="film-caption">
-              <h3 dir="ltr">{project.name}</h3>
-              <p>{project.category[locale]}</p>
+              {projects.flatMap(project =>
+                project.clips.map(clip => (
+                  <button
+                    type="button"
+                    key={clip.id}
+                    className={`film-cover ${clip.width > clip.height ? "film-wide" : "film-portrait"}`}
+                    style={
+                      {
+                        "--film-ratio": clip.width / clip.height,
+                      } as CSSProperties
+                    }
+                    data-clip={clip.id}
+                    data-project={project.id}
+                    aria-label={`${copy.watch[locale]}: ${project.name}, ${clip.title[locale]}`}
+                    aria-haspopup="dialog"
+                    onClick={event => open(project, clip, event.currentTarget)}
+                  >
+                    <img
+                      src={filmPoster(clip)}
+                      alt={`${project.name}: ${clip.title[locale]}`}
+                      width={clip.width}
+                      height={clip.height}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                ))
+              )}
             </div>
-          </article>
-        ))}
+          )
+        )}
       </div>
+      <p className="film-gallery-hint" id="film-gallery-hint">
+        {copy.galleryHint[locale]}
+      </p>
       <Dialog.Root
         open={!!selected}
         onOpenChange={value => {

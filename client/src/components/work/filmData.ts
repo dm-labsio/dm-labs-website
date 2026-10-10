@@ -5,6 +5,11 @@ const text = (
   he: string
 ): Record<WorkLocale, string> => ({ en, el, he });
 export const filmCopy = {
+  galleryHint: text(
+    "Choose a film to watch.",
+    "Επιλέξτε ένα βίντεο για προβολή.",
+    "בחרו סרטון לצפייה."
+  ),
   title: text(
     "Brand & promotional videos",
     "Βίντεο για brands & καμπάνιες",
@@ -200,7 +205,7 @@ export const filmProjects: FilmProject[] = [
 export const filmSource = (clip: FilmClip) =>
   `/media/work-films/${clip.id}.mp4`;
 export const filmPoster = (clip: FilmClip) =>
-  `/media/work-films/${clip.id}.webp`;
+  `/media/work-films/${clip.id}${clip.id === "sunday-landscape" ? "-v2" : ""}.webp`;
 export const filmDuration = (seconds: number) =>
   `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60)
     .toString()
