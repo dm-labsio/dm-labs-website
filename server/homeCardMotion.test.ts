@@ -10,7 +10,7 @@ function setup(reduced = false, saveData = false) {
   vi.stubGlobal("navigator",{ connection:{saveData} });
   vi.stubGlobal("document",doc);
   vi.stubGlobal("IntersectionObserver",class { constructor(callback:typeof observeCallback){observeCallback=callback;return observer;} });
-  const video = { src:"", muted:false, ended:false, play:vi.fn().mockResolvedValue(undefined),pause:vi.fn(),removeAttribute:vi.fn(),load:vi.fn() };
+  const video = { src:"", muted:false, loop:false, ended:false, play:vi.fn().mockResolvedValue(undefined),pause:vi.fn(),removeAttribute:vi.fn(),load:vi.fn() };
   const close = attachCardVideo(video as unknown as HTMLVideoElement,"/clip.mp4");
   return { video, close, preference, doc, observer, visibility:(value:boolean)=>observeCallback([{isIntersecting:value}]) };
 }
@@ -24,9 +24,10 @@ describe("Service card motion lifecycle",()=>{
     s.visibility(false);expect(s.video.pause).toHaveBeenCalled();
     s.doc.hidden=true;s.visibility(true);expect(s.video.play).toHaveBeenCalledOnce();s.close();
   });
-  it("stops for a changed motion preference and does not loop a finished clip",()=>{
+  it("loops the active clip but stops for a changed motion preference",()=>{
     const s=setup();s.preference.matches=true;s.visibility(true);expect(s.video.play).not.toHaveBeenCalled();
-    s.preference.matches=false;s.video.ended=true;s.visibility(true);expect(s.video.play).not.toHaveBeenCalled();s.close();
+    expect(s.video.loop).toBe(true);
+    s.preference.matches=false;s.video.ended=true;s.visibility(true);expect(s.video.play).toHaveBeenCalledOnce();s.close();
   });
   it("cancels loading and listeners on close or navigation, including late observer events",()=>{
     const s=setup();s.close();s.visibility(true);

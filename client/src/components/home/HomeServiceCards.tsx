@@ -25,7 +25,7 @@ export function HomeServiceCard({ language, index, open, onOpen, onToggle }: {
     if (event.pointerType === "mouse" && window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 1000px)").matches) onOpen();
   }}>
     <div className="home-service-card-media" aria-hidden="true">
-      <img src={media.poster} width={960} height={364} loading="lazy" decoding="async" alt="" />
+      <img src={media.poster} width={960} height={542} loading="lazy" decoding="async" alt="" />
       <video ref={video} muted playsInline preload="none" tabIndex={-1} data-ready={open && ready} onLoadedData={() => setReady(true)} onError={() => setReady(false)} />
     </div>
     <div className="home-service-card-copy">

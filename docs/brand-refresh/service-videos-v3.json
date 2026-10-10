@@ -1,0 +1,62 @@
+[
+  {
+    "service": "custom-design",
+    "source": "kling_20261010_VIDEO_Create_a_d_3970_0.mp4",
+    "video": "/media/brand-refresh/v3/service-custom-design-89438c1f3f.mp4",
+    "poster": "/media/brand-refresh/v3/service-custom-design-89438c1f3f.webp",
+    "originalBytes": 4059678,
+    "webBytes": 277065,
+    "width": 960,
+    "height": 542
+  },
+  {
+    "service": "mobile-first",
+    "source": "kling_20261010_VIDEO_Create_a_d_3940_0.mp4",
+    "video": "/media/brand-refresh/v3/service-mobile-first-402747f3d6.mp4",
+    "poster": "/media/brand-refresh/v3/service-mobile-first-402747f3d6.webp",
+    "originalBytes": 4422116,
+    "webBytes": 328627,
+    "width": 960,
+    "height": 542
+  },
+  {
+    "service": "seo",
+    "source": "kling_20261010_VIDEO_the_magnif_3968_0.mp4",
+    "video": "/media/brand-refresh/v3/service-seo-7d20af878d.mp4",
+    "poster": "/media/brand-refresh/v3/service-seo-7d20af878d.webp",
+    "originalBytes": 2515790,
+    "webBytes": 178227,
+    "width": 960,
+    "height": 542
+  },
+  {
+    "service": "performance",
+    "source": "kling_20261010_VIDEO_technology_3978_0.mp4",
+    "video": "/media/brand-refresh/v3/service-performance-e586f08749.mp4",
+    "poster": "/media/brand-refresh/v3/service-performance-e586f08749.webp",
+    "originalBytes": 3887110,
+    "webBytes": 269925,
+    "width": 960,
+    "height": 542
+  },
+  {
+    "service": "security",
+    "source": "kling_20261010_VIDEO_product_re_3995_0.mp4",
+    "video": "/media/brand-refresh/v3/service-security-bd95c9848b.mp4",
+    "poster": "/media/brand-refresh/v3/service-security-bd95c9848b.webp",
+    "originalBytes": 4822244,
+    "webBytes": 376550,
+    "width": 960,
+    "height": 542
+  },
+  {
+    "service": "turnaround",
+    "source": "kling_20261010_VIDEO_energetic__4075_0.mp4",
+    "video": "/media/brand-refresh/v3/service-turnaround-93d74e5c8d.mp4",
+    "poster": "/media/brand-refresh/v3/service-turnaround-93d74e5c8d.webp",
+    "originalBytes": 3117558,
+    "webBytes": 217776,
+    "width": 960,
+    "height": 542
+  }
+]

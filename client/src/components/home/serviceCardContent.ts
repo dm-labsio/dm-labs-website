@@ -2,28 +2,28 @@ import type { HomeLocale } from "./overviewContent";
 
 export const SERVICE_CARD_MEDIA = [
   {
-    "video": "/media/brand-refresh/v1/service-design-motion-3d74146a6c.mp4",
-    "poster": "/media/brand-refresh/v1/service-design-poster.webp"
+    "video": "/media/brand-refresh/v3/service-custom-design-89438c1f3f.mp4",
+    "poster": "/media/brand-refresh/v3/service-custom-design-89438c1f3f.webp"
   },
   {
-    "video": "/media/brand-refresh/v1/service-mobile-motion-3224da750f.mp4",
-    "poster": "/media/brand-refresh/v1/service-mobile-poster.webp"
+    "video": "/media/brand-refresh/v3/service-mobile-first-402747f3d6.mp4",
+    "poster": "/media/brand-refresh/v3/service-mobile-first-402747f3d6.webp"
   },
   {
-    "video": "/media/brand-refresh/v1/service-search-motion-0761052153.mp4",
-    "poster": "/media/brand-refresh/v1/service-search-poster.webp"
+    "video": "/media/brand-refresh/v3/service-seo-7d20af878d.mp4",
+    "poster": "/media/brand-refresh/v3/service-seo-7d20af878d.webp"
   },
   {
-    "video": "/media/brand-refresh/v1/service-speed-motion-7074228398.mp4",
-    "poster": "/media/brand-refresh/v1/service-speed-poster.webp"
+    "video": "/media/brand-refresh/v3/service-performance-e586f08749.mp4",
+    "poster": "/media/brand-refresh/v3/service-performance-e586f08749.webp"
   },
   {
-    "video": "/media/brand-refresh/v1/service-care-motion-00d9a422a4.mp4",
-    "poster": "/media/brand-refresh/v1/service-care-poster.webp"
+    "video": "/media/brand-refresh/v3/service-security-bd95c9848b.mp4",
+    "poster": "/media/brand-refresh/v3/service-security-bd95c9848b.webp"
   },
   {
-    "video": "/media/brand-refresh/v1/service-delivery-motion-21b4f26570.mp4",
-    "poster": "/media/brand-refresh/v1/service-delivery-poster.webp"
+    "video": "/media/brand-refresh/v3/service-turnaround-93d74e5c8d.mp4",
+    "poster": "/media/brand-refresh/v3/service-turnaround-93d74e5c8d.webp"
   }
 ] as const;
 
