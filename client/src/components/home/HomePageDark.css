@@ -19,6 +19,9 @@
 .home-page--dark .btn-secondary { color: #d8e2ff; }
 .home-page--dark .home-pricing :is(.editorial-price, p[dir="ltr"].text-4xl) { font-family: "Rubik", Arial, sans-serif; }
 .home-page--dark :is(a, button):focus-visible { outline: 3px solid #6fe3ff; outline-offset: 5px; }
+/* The shared carousel draws its focus ring on the lifted cover. */
+.home-page--dark .work-arc-card:focus-visible { outline: none; }
+.home-examples.work-service { scroll-margin-top: 96px; }
 @media (max-width: 767px) {
   .home-page--dark .home-examples { background-image: linear-gradient(#080f20cc, #080f20ed), url('/media/brand-refresh/v1/faq-pearl-arcs-mobile.webp'); }
   .home-page--dark .home-pricing { background-image: linear-gradient(#0a1428e0, #0a1428e8), url('/media/brand-refresh/v1/pricing-glass-arcs-mobile.webp'); }

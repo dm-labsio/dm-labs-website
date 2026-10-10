@@ -7,21 +7,12 @@ import "./HomeHe.css";
 import StarButton from "@/components/ui/star-button";
 
 import { useSEO } from "@/hooks/useSEO";
-import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
-import InteractiveExampleCard from "@/components/InteractiveExampleCard";
+import AnimateIn from "@/components/AnimateIn";
+import HomeWorkGallery from "@/components/home/HomeWorkGallery";
 import HomeHero from "@/components/home/HomeHero";
 
 const WHATSAPP_HEBREW = "https://wa.me/35797472847?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9C%D7%A6%D7%95%D7%95%D7%AA%20DM-Labs%21%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%9C%D7%92%D7%91%D7%99%20%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.";
 const DARK_CTA_BG = "/media/brand-refresh/v1/faq-pearl-arcs-desktop.webp";
-
-const examples = [
-  ["nomad-coffee", "Nomad Coffee", "קפה עם אופי", "/media/examples/nomad/cover.webp", "דוגמה לאתר Nomad Coffee"],
-  ["bella-salon", "Bella Salon", "שיער עם אמירה אישית", "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80", "דוגמה לאתר Bella Salon"],
-  ["dr-elara-dental", "Dr. Elara Dental", "נקי ומקצועי", "/media/examples/elara/cover-interactive.webp", "דוגמה לאתר Dr. Elara Dental"],
-  ["arcos-architecture", "Arcos Architecture", "אדריכלות בקווים נקיים", "/media/examples/arcos/courtyard-768.webp", "דוגמה לאתר Arcos Architecture"],
-] as const;
-
-
 
 export default function HomeHe() {
   useSEO({ title: "בניית אתרים לעסקים | עיצוב אתרים בהתאמה אישית | DM Labs", description: "אנחנו בונים לעסקים אתרים שמביאים פניות: עיצוב אישי, התאמה מלאה למובייל, קידום אורגני ותחזוקה שוטפת. לשיחת ייעוץ בחינם עם תום ואנסטסיה.", ogLocale: "he_IL", noindex: true });
@@ -34,7 +25,7 @@ export default function HomeHe() {
 
       <HomeIntroductionVideo language="he" />
 
-    <section id="examples" className="home-examples section-spacing relative overflow-hidden"><div className="container relative z-10"><AnimateIn className="text-center mb-10"><p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide">אתרי הדגמה</p><h2 className="text-3xl sm:text-4xl font-bold text-[#edf2ff]">אין הזדמנות שנייה לרושם ראשון</h2><p className="mt-4 mx-auto max-w-2xl text-lg text-[#bdc9df] leading-relaxed">לקוחות מחליטים עליכם כבר בשניות הראשונות באתר, עוד לפני שהרימו טלפון. הנה כמה דוגמאות שיתנו לכם כיוון, ואת האתר שלכם נבנה מאפס, לפי העסק, הלקוחות ומה שאתם רוצים שהם יעשו.</p></AnimateIn><StaggerContainer className="mx-auto grid max-w-5xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">{examples.map(([id, title, subtitle, imageUrl, imageAlt]) => <StaggerItem key={id}><InteractiveExampleCard title={title} subtitle={subtitle} demoId={id} href={`/preview/${id}/?from=%2Fhe%2F`} actionText="לצפייה באתר ההדגמה" /></StaggerItem>)}</StaggerContainer></div></section>
+    <HomeWorkGallery locale="he" />
 
     <HomeServices language="he" />
 

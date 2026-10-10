@@ -83,7 +83,6 @@ export default function SiteHeader({ location, getLanguageHref, onLanguageNaviga
           {links.slice(0, -1).map(link => <Link key={link.href} href={link.href} aria-current={current(link.href)} onClick={link.href === home ? onBrandClick : undefined}>{link.label}</Link>)}
         </nav>
         <div className="site-header-actions">
-          <Link href={home} className="site-header-home" aria-current={current(home)} onClick={onBrandClick}>{links[0].label}</Link>
           <LanguageMenu language={language} getLanguageHref={getLanguageHref} onLanguageNavigate={onLanguageNavigate} />
           <BrandButton asChild className="site-header-cta"><Link href={contact}>{copy.consultation}</Link></BrandButton>
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -93,7 +92,7 @@ export default function SiteHeader({ location, getLanguageHref, onLanguageNaviga
               <SheetClose asChild><Link href={home} className="site-menu-brand" aria-label={copy.home} onClick={onBrandClick}><BrandLogo /></Link></SheetClose>
               <nav aria-label={copy.navigation}>
                 {links.map((link, index) => <SheetClose asChild key={link.href}>
-                  <Link href={link.href} className="site-menu-link" aria-current={current(link.href)}>
+                  <Link href={link.href} className="site-menu-link" aria-current={current(link.href)} onClick={link.href === home ? onBrandClick : undefined}>
                     <span>{link.label}</span>
                   </Link>
                 </SheetClose>)}

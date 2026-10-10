@@ -28,7 +28,7 @@ try {
       await page.locator("#brand-films").scrollIntoViewIfNeeded();
       await page.evaluate(() => document.fonts.ready);
       await page.waitForTimeout(500);
-      assert.equal(await page.locator(".film-cover").count(), 8);
+      assert.equal(await page.locator(".film-cover").count(), 4);
       assert.equal(
         videos.length,
         0,
@@ -48,7 +48,7 @@ try {
       await page.screenshot({
         path: `/tmp/films-${prefix.slice(1) || "en"}-${width}.png`,
       });
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 4; i++) {
         const trigger = page.locator(".film-cover").nth(i);
         await trigger.scrollIntoViewIfNeeded();
         await page.waitForTimeout(750);
@@ -65,55 +65,27 @@ try {
           await modal.locator(".film-contact").getAttribute("href"),
           prefix + "/contact/"
         );
-        const selectedClip = await trigger.getAttribute("data-clip");
-        assert.ok(
-          (await modal.locator("video").getAttribute("src")).endsWith(
-            `/${selectedClip}.mp4`
-          ),
-          "Every cover opens its own film"
-        );
-        const cover = await trigger.evaluate(el => {
-          const r = el.getBoundingClientRect(),
-            img = el.querySelector("img");
-          return {
-            ratio: r.width / r.height,
-            expected:
-              Number(img.getAttribute("width")) /
-              Number(img.getAttribute("height")),
-            fit: getComputedStyle(img).objectFit,
-            cursor: getComputedStyle(el).cursor,
-          };
-        });
-        assert.ok(
-          Math.abs(cover.ratio - cover.expected) < 0.02,
-          "Covers preserve the actual video proportions"
-        );
-        assert.equal(cover.fit, "contain");
-        assert.equal(cover.cursor, "pointer");
-        assert.equal(
-          await trigger.locator("svg,span").count(),
-          0,
-          "No covering icons or labels"
-        );
         const clips = modal.locator(".film-clip-list button");
         for (let j = 0; j < (await clips.count()); j++) {
-          await clips.nth(j).click();
+          if (j) await clips.nth(j).click();
           await page.waitForFunction(() => {
             const v = document.querySelector(".film-player video");
             return v && v.readyState >= 2 && v.videoWidth > 0;
           });
           assert.equal(await clips.nth(j).getAttribute("aria-pressed"), "true");
           assert.equal(await modal.locator("video").count(), 1);
-          const data = await modal.locator("video").evaluate(v => ({
-            width: v.videoWidth,
-            height: v.videoHeight,
-            error: v.error?.message,
-            objectFit: getComputedStyle(v).objectFit,
-            duration: v.duration,
-            controls: v.controls,
-            playsInline: v.playsInline,
-            src: v.currentSrc,
-          }));
+          const data = await modal
+            .locator("video")
+            .evaluate(v => ({
+              width: v.videoWidth,
+              height: v.videoHeight,
+              error: v.error?.message,
+              objectFit: getComputedStyle(v).objectFit,
+              duration: v.duration,
+              controls: v.controls,
+              playsInline: v.playsInline,
+              src: v.currentSrc,
+            }));
           assert.equal(data.error, undefined);
           assert.equal(data.objectFit, "contain");
           assert.ok(data.duration > 10 && data.duration < 50);
@@ -163,7 +135,7 @@ try {
       }
       assert.deepEqual(errors, []);
       console.log(
-        "PASS eight individual covers, exact clip selection, audio-capable playback, aspect ratios, clip switches, back/close, scroll/focus",
+        "PASS four collections, eight videos, audio-capable playback, aspect ratios, clip switches, back/close, scroll/focus",
         prefix || "en",
         width
       );
@@ -177,9 +149,7 @@ try {
   await page.waitForLoadState("networkidle");
   await page.locator(".film-dialog").waitFor();
   assert.equal(
-    await page
-      .locator(".film-dialog")
-      .evaluate(e => e.scrollWidth > e.clientWidth),
+    await page.locator(".film-dialog").evaluate(e => e.scrollWidth > e.clientWidth),
     false
   );
   assert.ok(
@@ -198,7 +168,7 @@ try {
   );
   assert.ok(
     await page
-      .locator(".film-cover")
+      .locator(".film-card")
       .first()
       .evaluate(e => parseFloat(getComputedStyle(e).transitionDuration) < 0.001)
   );

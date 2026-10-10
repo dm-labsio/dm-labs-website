@@ -3,8 +3,6 @@
 .site-header-inner { width: 100%; max-width: 1600px; min-height: 80px; margin-inline: auto; padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .site-brand-link { flex-shrink: 0; display: inline-flex; align-items: center; min-height: 44px; }
 .site-header-actions { display: flex; align-items: center; gap: 16px; }
-.site-header-home { display: none; min-height: 44px; align-items: center; justify-content: center; white-space: nowrap; color: #F6F5F2; text-decoration: underline; text-underline-offset: 5px; }
-.site-header-home:is(:hover, [aria-current]) { color: #A8B8FF; }
 .site-desktop-nav { display: flex; align-items: center; gap: 24px; }
 .site-desktop-nav a { padding-block: 12px; color: #F6F5F2; text-decoration: none; text-underline-offset: 10px; text-decoration-thickness: 2px; }
 .site-desktop-nav a:is(:hover, [aria-current]) { color: #A8B8FF; text-decoration-line: underline; }
@@ -34,7 +32,6 @@
 .site-menu-offer .brand-button { width: 100%; }
 @media (max-width: 1439px) {
   .site-desktop-nav, .site-header-cta { display: none; }
-  .site-header-home { display: inline-flex; }
   .site-menu-trigger { display: inline-flex; }
 }
 @media (max-width: 767px) {

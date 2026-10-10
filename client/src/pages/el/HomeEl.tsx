@@ -1,4 +1,3 @@
-import NomadPreviewArtwork from "@/components/NomadPreviewArtwork";
 import PackageOverview from "@/components/pricing/PackageOverview";
 import HomeIntroductionVideo from "@/components/home/HomeIntroductionVideo";
 import "@/components/home/HomePageDark.css";
@@ -14,129 +13,12 @@ import StarButton from "@/components/ui/star-button";
 import { } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
-import AnimateIn, { StaggerContainer, StaggerItem } from "@/components/AnimateIn";
-import InteractiveExampleCard from "@/components/InteractiveExampleCard";
+import AnimateIn from "@/components/AnimateIn";
+import HomeWorkGallery from "@/components/home/HomeWorkGallery";
 import HomeHero from "@/components/home/HomeHero";
 
 
-// ─── Hand-crafted card mockups for homepage template showcase ────
-const HOMEPAGE_CARD_DESIGNS: Record<string, React.FC> = {
-  "nomad-coffee": () => <NomadPreviewArtwork />,
-
-  "bella-salon": () => (
-    <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f7f0e8" }}>
-      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80" alt="Bella Salon beauty studio interior" style={{ position: "absolute", right: 0, top: 0, width: "55%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f7f0e8 45%, transparent 75%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", background: "rgba(247,240,232,0.95)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
-        <span style={{ fontFamily: "Georgia, serif", fontSize: "11px", fontWeight: 700, color: "#2a1a14", letterSpacing: "0.04em" }}>Bella.</span>
-        <div style={{ display: "flex", gap: "10px" }}>
-          {["Υπηρεσίες","Γκαλερί","Κράτηση"].map(l => <span key={l} style={{ fontSize: "7px", color: "#7a5a4a", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{l}</span>)}
-        </div>
-      </div>
-      <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "48%" }}>
-        <div style={{ fontSize: "7px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#c4735a", marginBottom: "5px" }}>Στούντιο ομορφιάς</div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#2a1a14", lineHeight: 1.2, marginBottom: "6px", fontStyle: "italic" as const }}>Σας αξίζει<br/><em style={{ color: "#c4735a" }}>να νιώθετε</em> υπέροχα</div>
-        <div style={{ fontSize: "7px", color: "#7a5a4a", lineHeight: 1.5, marginBottom: "8px" }}>Μαλλιά, πρόσωπο και νύχια,<br/>σε έναν χώρο μόνο για εσάς.</div>
-        <div style={{ background: "#c4735a", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", letterSpacing: "0.1em" }}>Κλείστε ραντεβού</div>
-      </div>
-      <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
-        <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-  "dr-elara-dental": () => (
-    <div style={{ height: "220px", position: "relative", overflow: "hidden", borderRadius: "12px 12px 0 0", background: "#f5f9ff" }}>
-      <img src="/media/examples/elara/cover-interactive.webp" alt="Dr. Elara Dental modern dental clinic" style={{ position: "absolute", right: 0, top: 0, width: "50%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #f5f9ff 48%, transparent 72%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "32px", background: "rgba(245,249,255,0.97)", display: "flex", alignItems: "center", padding: "0 14px", justifyContent: "space-between", borderBottom: "1px solid rgba(33,150,243,0.12)" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-          <div style={{ width: "14px", height: "14px", borderRadius: "3px", background: "#2196f3" }} />
-          <span style={{ fontSize: "9px", fontWeight: 700, color: "#0a1628" }}>Dr. Elara Dental</span>
-        </div>
-        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "3px 8px", borderRadius: "3px", fontWeight: 600 }}>Κλείστε ραντεβού</div>
-      </div>
-      <div style={{ position: "absolute", top: "44px", left: "16px", maxWidth: "50%" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "6px" }}>
-          <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#4ade80" }} />
-          <span style={{ fontSize: "7px", color: "#2196f3", fontWeight: 600 }}>Δεχόμαστε νέους ασθενείς</span>
-        </div>
-        <div style={{ fontSize: "17px", fontWeight: 800, color: "#0a1628", lineHeight: 1.15, marginBottom: "5px" }}>Χαμογελάστε<br/><span style={{ color: "#2196f3", fontStyle: "italic" as const, fontFamily: "Georgia, serif" }}>ξανά</span><br/>με σιγουριά</div>
-        <div style={{ fontSize: "7px", color: "#4a6080", lineHeight: 1.5, marginBottom: "8px" }}>Σύγχρονη οδοντιατρική σε ήρεμο,<br/>άνετο περιβάλλον.</div>
-        <div style={{ background: "#2196f3", color: "#fff", fontSize: "7px", padding: "4px 10px", display: "inline-block", borderRadius: "3px", fontWeight: 600 }}>Οι θεραπείες μας</div>
-      </div>
-      <div style={{ position: "absolute", top: "36px", right: "7px", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(6px)", borderRadius: "20px", padding: "2px 7px", display: "flex", alignItems: "center", gap: "3px" }}>
-        <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-        <span style={{ color: "#fff", fontSize: "7px", fontWeight: 600, letterSpacing: "0.06em" }}>Demo</span>
-      </div>
-    </div>
-  ),
-};
-
-function HomeElCardPreview({ tplId, category }: { tplId: string; category: string }) {
-  const CardDesign = HOMEPAGE_CARD_DESIGNS[tplId];
-  if (!CardDesign) return null;
-  return (
-    <div className="relative w-full overflow-hidden">
-      <CardDesign />
-      {/* Category badge */}
-      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-[#111315] z-10">
-        {category}
-      </div>
-    </div>
-  );
-}
-
-const TRIANGLE_GEO = "/media/cloudfront/triangle-geometry-Rf9Cpg8ynqtbpdNzPsSccU.webp";
 const DARK_CTA_BG = "/media/brand-refresh/v1/faq-pearl-arcs-desktop.webp";
-
-// Featured live-preview mini-sites for the homepage showcase
-// Using the same mini-site HTML files as the Templates page
-const FEATURED_TEMPLATES = [
-  {
-    id: "nomad-coffee",
-    industry: "restaurant",
-    name: "Nomad Coffee",
-    category: "Καφέ",
-    styleLabel: "Καφές με χαρακτήρα",
-    previewUrl: "/previews/nomad-coffee.html",
-    imageUrl: "/media/examples/nomad/cover.webp",
-    imageAlt: "Παράδειγμα ιστοσελίδας για το Nomad Coffee",
-    palette: ["#b72d20", "#f1df9c"],
-  },
-  {
-    id: "bella-salon",
-    industry: "beauty",
-    name: "Bella Salon",
-    category: "Ομορφιά και ευεξία",
-    styleLabel: "Μαλλιά με χαρακτήρα",
-    previewUrl: "/previews/bella-salon.html",
-    imageUrl: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80",
-    imageAlt: "Παράδειγμα ιστοσελίδας για το Bella Salon",
-    palette: ["#1a0a0f", "#6b2d3e"],
-  },
-  {
-    id: "dr-elara-dental",
-    industry: "clinic",
-    name: "Dr. Elara Dental",
-    category: "Ιατρεία και υγεία",
-    styleLabel: "Καθαρό και επαγγελματικό",
-    previewUrl: "/previews/dr-elara-dental.html",
-    imageUrl: "/media/examples/elara/cover-interactive.webp",
-    imageAlt: "Παράδειγμα ιστοσελίδας για το Dr. Elara Dental",
-    palette: ["#0a1628", "#0d2040"],
-  },
-  {
-    id: "arcos-architecture",
-    industry: "architecture",
-    name: "Arcos Architecture",
-    styleLabel: "Αρχιτεκτονική και minimal",
-    previewUrl: "/previews/arcos-architecture.html",
-    imageUrl: "/media/examples/arcos/courtyard-768.webp",
-    imageAlt: "Παράδειγμα ιστοσελίδας για το Arcos Architecture",
-    palette: ["#1a1916", "#2d2b27"],
-  },
-];
 
 export default function HomeElPage() {
   useSEO({
@@ -161,42 +43,7 @@ export default function HomeElPage() {
           TEMPLATE SHOWCASE + INDUSTRY GRID
           (moved directly after trust strip)
           ═══════════════════════════════════════════ */}
-      <section className="home-examples section-spacing relative overflow-hidden">
-
-        <div className="container relative z-10">
-          {/* -- Template Showcase Grid -- */}
-          <AnimateIn className="text-center mb-10">
-            <p className="text-sm font-medium text-[#b8bfff] mb-3 tracking-wide uppercase">Demo ιστοσελίδων</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#edf2ff] mb-3">
-              Δεύτερη ευκαιρία για πρώτη εντύπωση δεν υπάρχει
-            </h2>
-            <p className="text-base text-[#bdc9df] max-w-2xl mx-auto">
-              Ο κόσμος σας κρίνει από την ιστοσελίδα σας μέσα σε λίγα δευτερόλεπτα, πριν καν σας πάρει τηλέφωνο. Ρίξτε μια ματιά σε αυτά τα <strong className="text-[#edf2ff]">ενδεικτικά σχέδια</strong> για ιδέες, και τη δική σας θα τη στήσουμε από το μηδέν, με βάση το brand, τους πελάτες και τους στόχους σας.
-            </p>
-          </AnimateIn>
-
-          <StaggerContainer className="mx-auto mb-10 grid max-w-5xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
-            {FEATURED_TEMPLATES.map((tpl) => (
-              <StaggerItem key={tpl.id} className="flex min-w-0">
-                <InteractiveExampleCard
-                  title={tpl.name}
-                  subtitle={tpl.styleLabel}
-                  demoId={tpl.id}
-                href={`/preview/${tpl.id}/?from=%2Fel%2F`}
-                  actionText="Δείτε παράδειγμα"
-                />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <AnimateIn className="text-center mb-16">
-            <StarButton asChild><Link href="/el/templates/" className="btn-primary">
-              Όλα τα demo ιστοσελίδων
-
-            </Link></StarButton>
-          </AnimateIn>
-        </div>
-      </section>
+      <HomeWorkGallery locale="el" />
 
       {/* ═══════════════════════════════════════════
           SERVICES OVERVIEW
