@@ -132,12 +132,11 @@ describe("Optional homepage seasonal layer", () => {
     expect(source).not.toMatch(/limited.time|Κύπρος|קפריסין|—/i);
     expect(source).toContain("Monthly fees excluded.");
     expect(source).toContain("Contact us this October for 10% off");
-    expect(
-      readFileSync(
-        "client/src/components/home/seasonal/HalloweenLayer.css",
-        "utf8"
-      )
-    ).not.toContain("infinite");
+    const css = readFileSync("client/src/components/home/seasonal/HalloweenLayer.css", "utf8");
+    // The approved ambient loop must be visibility-gated and respect reduced motion.
+    expect(css).toContain('data-ambient="playing"');
+    expect(css).toContain("animation-play-state: paused");
+    expect(css).toContain(".seasonal-banner-mark, .seasonal-glass { animation: none; }");
   });
   it("keeps the authorised offer manual and homepage-only", () => {
     expect(SEASONAL_CONFIG.offer).toEqual({

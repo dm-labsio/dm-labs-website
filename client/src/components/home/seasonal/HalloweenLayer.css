@@ -248,11 +248,11 @@
   .seasonal-banner {
     top: 12px;
     max-width: calc(100% - 24px);
-    gap: 8px 10px;
+    gap: 6px 10px;
     font-size: 13px;
-    padding: 14px;
+    padding: 10px 12px;
     width: calc(100% - 24px);
-    grid-template-columns: 64px minmax(0, 1fr) 28px;
+    grid-template-columns: 42px minmax(0, 1fr) 36px;
   }
   .seasonal-banner-copy {
     display: contents;
@@ -260,7 +260,7 @@
   .seasonal-banner-copy strong {
     grid-row: 1;
     grid-column: 2;
-    font-size: 23px;
+    font-size: 20px;
   }
   .seasonal-banner-copy > span {
     grid-row: 2;
@@ -276,14 +276,14 @@
   .seasonal-banner button {
     grid-row: 1;
     grid-column: 3;
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 44px;
   }
   .seasonal-banner-mark {
     grid-row: 1;
     grid-column: 1;
-    width: 64px;
-    height: 64px;
+    width: 42px;
+    height: 42px;
   }
   .seasonal-web {
     width: 78px;
@@ -639,4 +639,14 @@
   .seasonal-scroll-scene * {
     animation: none !important;
   }
+}
+
+/* A quiet continuous layer complements the short, once-per-session bat entrance. */
+@keyframes seasonal-skeleton-sway { 0%,100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-5px) rotate(7deg); } }
+@keyframes seasonal-pumpkin-breathe { 0%,100% { transform: translateY(0) rotate(-3deg); opacity: .75; } 50% { transform: translateY(-8px) rotate(3deg); opacity: 1; } }
+.seasonal-banner-mark { animation: seasonal-skeleton-sway 3.6s ease-in-out infinite; animation-play-state: paused; transform-origin: 50% 80%; }
+.seasonal-glass { animation: seasonal-pumpkin-breathe 5s ease-in-out infinite; animation-play-state: paused; }
+.seasonal-layer[data-ambient="playing"] :is(.seasonal-banner-mark,.seasonal-glass) { animation-play-state: running; }
+@media (prefers-reduced-motion: reduce) {
+  .seasonal-banner-mark, .seasonal-glass { animation: none; }
 }

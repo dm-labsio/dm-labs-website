@@ -1,3 +1,4 @@
+import { useVisibleMotion } from "../useVisibleMotion";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { createPortal } from "react-dom";
 import type { SiteLanguage } from "@/lib/routeLanguage";
@@ -84,6 +85,7 @@ export default function HalloweenLayer({
   const [sections, setSections] = useState<Element[]>([]);
   const [photoFrames, setPhotoFrames] = useState<Element[]>([]);
   const copy = COPY[language];
+  const ambientPlaying = useVisibleMotion(root);
 
   useEffect(() => {
     // Portals add ornaments to existing section gutters without duplicating content.
@@ -194,6 +196,7 @@ export default function HalloweenLayer({
       ref={root}
       className="seasonal-layer"
       data-seasonal-runtime="halloween"
+      data-ambient={ambientPlaying ? "playing" : "paused"}
       data-motion={running ? "playing" : "still"}
     >
       {SEASONAL_CONFIG.banner ? (
@@ -234,7 +237,6 @@ export default function HalloweenLayer({
           </div>
           <a href={language === "en" ? "/contact/" : `/${language}/contact/`}>
             {copy.link}
-            <span aria-hidden="true">{language === "he" ? "↖" : "↗"}</span>
           </a>
           <button type="button" onClick={hide} aria-label={copy.close}>
             <svg viewBox="0 0 20 20" aria-hidden="true">

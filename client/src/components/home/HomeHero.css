@@ -3,7 +3,7 @@ html:has(.home-hero), body:has(.home-hero) { overflow-x: clip; }
    year-round gap, and no content jump when the optional banner arrives. */
 html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 12rem; }
 @media (max-width: 767px) {
-  html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 17rem; }
+  html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 14.5rem; }
 }
 .home-hero {
   position: relative;
@@ -62,6 +62,9 @@ html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 
 .home-hero-orbit-light { opacity: .95; animation: hero-orbit-travel 7s linear infinite; animation-play-state: paused; }
 .home-hero-orbit-light--secondary { animation-duration: 11s; animation-direction: reverse; opacity: .7; }
 .home-hero-scene[data-motion="playing"] .home-hero-orbit-light { animation-play-state: running; }
+@keyframes hero-sculpture-float { 0%, 100% { transform: translate3d(0,0,0) rotate(-2deg); } 50% { transform: translate3d(8px,-16px,0) rotate(3deg); } }
+.home-hero-sculpture { animation: hero-sculpture-float 8s ease-in-out infinite; animation-play-state: paused; transform-origin: 50% 55%; }
+.home-hero-scene[data-motion="playing"] .home-hero-sculpture { animation-play-state: running; }
 /* A live preference change also restores the static composition mid-sequence. */
 .home-hero-scene[data-motion="reduced"] :is(.home-hero-depth, .home-hero-sculpture, .home-hero-orbits, .home-hero-aura) { transform: none !important; }
 .home-hero-scene[data-motion="reduced"] .home-hero-orbit-line { stroke-dashoffset: 0 !important; }
@@ -71,6 +74,7 @@ html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 
   .home-hero-scene .home-hero-orbit-line { stroke-dashoffset: 0 !important; }
   .home-hero-scene .home-hero-orbit-light { opacity: 0 !important; }
   .home-hero-orbit-light { animation: none; }
+  .home-hero-sculpture { animation: none; }
 }
 /* One layered composition on phones and tablets. The artwork never adds a second row.
    A dark veil beneath the copy preserves contrast while the orbit stays visible at the edge. */
@@ -84,11 +88,15 @@ html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 
 @media (max-width: 767px) {
   /* Stable breathing room also accommodates the optional seasonal message.
      Reserved in permanent CSS, so loading/dismissing it cannot shift content. */
-  .home-hero .home-hero-grid { padding-block: 7rem 2.5rem; }
+  .home-hero .home-hero-grid { padding-block: 3rem 2rem; }
   .home-hero .home-hero-eyebrow { margin-bottom: 1.25rem; }
   .home-hero .home-hero-title { margin-bottom: 1.5rem; }
   .home-hero .home-hero-description { margin-bottom: 1.5rem; }
   .home-hero-actions { align-items: stretch; gap: .5rem 1.5rem; }
   .home-hero-primary { width: 100%; }
-  .home-hero-scene { top: 0; inset-inline-end: -32%; width: 125%; }
+  .home-hero-scene { top: 0; inset-inline-end: -36%; width: 125%; opacity: .9; }
+  html[data-seasonal-space="halloween"] .home-hero-scene { top: 8rem; }
+  .home-hero-orbit-light { stroke-width: 3; animation-duration: 5s; }
+  .home-hero-orbit-light--secondary { animation-duration: 8s; }
+  .home-hero .home-hero-description { font-size: 1rem; line-height: 1.6; max-width: 32rem; }
 }

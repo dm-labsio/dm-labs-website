@@ -3,10 +3,11 @@ import { Link } from "wouter";
 import { overviewContent, type HomeLocale } from "./overviewContent";
 import { SERVICE_CARD_MEDIA, SERVICE_CARD_COPY } from "./serviceCardContent";
 import { attachCardVideo } from "./serviceCardVideo";
+import { useVisibleMotion } from "./useVisibleMotion";
 import "./HomeServiceCards.css";
 
-export function HomeServiceCard({ language, index, open, onOpen, onToggle }: {
-  language: HomeLocale; index: number; open: boolean; onOpen: () => void; onToggle: () => void;
+export function HomeServiceCard({ language, index, open, play, onOpen, onToggle }: {
+  language: HomeLocale; index: number; open: boolean; play: boolean; onOpen: () => void; onToggle: () => void;
 }) {
   const item = overviewContent[language].services[index];
   const media = SERVICE_CARD_MEDIA[index];
@@ -17,16 +18,16 @@ export function HomeServiceCard({ language, index, open, onOpen, onToggle }: {
 
   useEffect(() => {
     setReady(false);
-    if (!open || !video.current) return;
+    if (!play || !video.current) return;
     return attachCardVideo(video.current, media.video);
-  }, [open, media.video]);
+  }, [play, media.video]);
 
-  return <article className="home-service-card" data-open={open} onPointerEnter={event => {
+  return <article className="home-service-card" data-open={open} data-playing={play && ready} onPointerEnter={event => {
     if (event.pointerType === "mouse" && window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 1000px)").matches) onOpen();
   }}>
     <div className="home-service-card-media" aria-hidden="true">
       <img src={media.poster} width={960} height={542} loading="lazy" decoding="async" alt="" />
-      <video ref={video} muted playsInline preload="none" tabIndex={-1} data-ready={open && ready} onLoadedData={() => setReady(true)} onError={() => setReady(false)} />
+      <video ref={video} muted playsInline preload="none" tabIndex={-1} data-ready={play && ready} onLoadedData={() => setReady(true)} onError={() => setReady(false)} />
     </div>
     <div className="home-service-card-copy">
       <h3><button type="button" aria-expanded={open} aria-controls={`${id}-detail`} onClick={onToggle}>{item.title}<span aria-hidden="true">{open ? "−" : "+"}</span></button></h3>
@@ -45,6 +46,15 @@ export default function HomeServiceCards({ language }: { language: HomeLocale })
   const track = useRef<HTMLDivElement>(null);
   const frame = useRef<number | null>(null);
   const [current, setCurrent] = useState(0);
+  const visibleMotion = useVisibleMotion(track);
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const query = matchMedia("(max-width: 767px)");
+    const sync = () => setMobile(query.matches);
+    sync();
+    query.addEventListener("change", sync);
+    return () => query.removeEventListener("change", sync);
+  }, []);
   const controls = {
     en: { hint: "Swipe to explore our services", previous: "Previous service", next: "Next service", previousText: "Previous", nextText: "Next" },
     el: { hint: "Σύρετε για να δείτε τις υπηρεσίες", previous: "Προηγούμενη υπηρεσία", next: "Επόμενη υπηρεσία", previousText: "Πίσω", nextText: "Επόμενο" },
@@ -80,7 +90,7 @@ export default function HomeServiceCards({ language }: { language: HomeLocale })
     <div className="home-service-carousel-controls"><p>{controls.hint}</p><div><button type="button" aria-label={controls.previous} disabled={current === 0} onClick={() => moveTo(current - 1)}>{controls.previousText}</button><button type="button" aria-label={controls.next} disabled={current === 5} onClick={() => moveTo(current + 1)}>{controls.nextText}</button></div></div>
     <div className="home-service-cards" ref={track} onScroll={updateCurrent} onKeyDown={event => { if (event.key === "Escape") { setActive(null); setPinned(false); } }}>
     {[0, 3].map(start => <div className="home-service-row" key={start} data-active={active !== null && active >= start && active < start + 3 ? active - start : "none"}>
-      {[start, start + 1, start + 2].map(index => <HomeServiceCard key={index} language={language} index={index} open={active === index} onOpen={() => {
+      {[start, start + 1, start + 2].map(index => <HomeServiceCard key={index} language={language} index={index} open={active === index} play={mobile ? visibleMotion && current === index : active === index} onOpen={() => {
         if (active !== index) { setActive(index); setPinned(false); }
       }} onToggle={() => { setActive(active === index && pinned ? null : index); setPinned(!(active === index && pinned)); }} />)}
     </div>)}

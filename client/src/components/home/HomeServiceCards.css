@@ -62,3 +62,8 @@
   [data-brand] .home-service-card h3 { font-size: 1.4rem; }
 }
 @media (max-width:767px) { [data-brand] .home-service-card:lang(el) h3 { font-size: 1.2rem; } }
+
+@media (max-width: 767px) {
+  .home-service-card[data-playing="true"] { border-color: #92bad2; }
+  .home-service-card { transition: border-color 240ms ease; }
+}
