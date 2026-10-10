@@ -30,7 +30,7 @@ The mixed grid uses each film's optimized WebP poster, rather than four project 
 ## Navigation, languages and discovery
 
 - EN, EL and HE copy; RTL layout, original English film artwork retained.
-- Opening a film adds `?film=project&clip=clip`; Back closes the viewer. Closing returns to the same page position and restores focus. Format/clip switches replace the viewer's history entry.
+- Opening a film adds `?film=project&clip=clip`; Back closes the viewer. Closing returns to the same page position and restores focus. The viewer temporarily owns scroll restoration so direct `#brand-films` links do not jump back to the section anchor on close. Format/clip switches replace the viewer's history entry.
 - Deep links open the selected clip. Invalid projects safely leave the gallery visible; invalid clips fall back to the project's first clip.
 - One video exists at a time. Closing, changing clips, leaving the page or hiding the tab stops old playback.
 - Page titles/descriptions include video. Existing canonical, hreflang and locale indexing policy remain intact.

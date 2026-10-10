@@ -23,7 +23,7 @@ try {
           JSON.stringify({ essential: true, analytics: false })
         )
       );
-      await page.goto(base + prefix + "/templates/");
+      await page.goto(base + prefix + "/templates/#brand-films");
       await page.waitForLoadState("networkidle");
       await page.locator("#brand-films").scrollIntoViewIfNeeded();
       await page.evaluate(() => document.fonts.ready);

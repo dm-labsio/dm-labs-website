@@ -71,7 +71,13 @@ export default function FilmGallery({ locale }: { locale: WorkLocale }) {
   } | null>(null);
   const trigger = useRef<HTMLButtonElement | null>(null);
   const pushed = useRef(false);
+  const returnPosition = useRef<{
+    x: number;
+    y: number;
+    restoration: ScrollRestoration;
+  } | null>(null);
   useEffect(() => {
+    let frame = 0;
     const sync = () => {
       const params = new URLSearchParams(location.search);
       const project = filmProjects.find(p => p.id === params.get("film"));
@@ -85,10 +91,30 @@ export default function FilmGallery({ locale }: { locale: WorkLocale }) {
             }
           : null
       );
+      if (!project && returnPosition.current) {
+        const position = returnPosition.current;
+        // Wait until history traversal and dialog teardown have finished.
+        // Otherwise returning to #brand-films can jump to its anchor.
+        frame = requestAnimationFrame(() => {
+          window.scrollTo({
+            left: position.x,
+            top: position.y,
+            behavior: "instant",
+          });
+          history.scrollRestoration = position.restoration;
+          returnPosition.current = null;
+          pushed.current = false;
+        });
+      }
     };
     sync();
     window.addEventListener("popstate", sync);
-    return () => window.removeEventListener("popstate", sync);
+    return () => {
+      window.removeEventListener("popstate", sync);
+      cancelAnimationFrame(frame);
+      if (returnPosition.current)
+        history.scrollRestoration = returnPosition.current.restoration;
+    };
   }, []);
   const open = (
     project: FilmProject,
@@ -96,6 +122,12 @@ export default function FilmGallery({ locale }: { locale: WorkLocale }) {
     button: HTMLButtonElement
   ) => {
     trigger.current = button;
+    returnPosition.current = {
+      x: window.scrollX,
+      y: window.scrollY,
+      restoration: history.scrollRestoration,
+    };
+    history.scrollRestoration = "manual";
     const url = new URL(location.href);
     url.searchParams.set("film", project.id);
     url.searchParams.set("clip", clip.id);
