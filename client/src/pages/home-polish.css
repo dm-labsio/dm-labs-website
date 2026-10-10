@@ -1,0 +1,155 @@
+/* Home page polish (English, Greek and Hebrew home pages).
+   Every rule is scoped to .home-page--dark so no other page changes. */
+
+.home-page--dark {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Touch: no grey tap flash, no double-tap zoom delay. */
+.home-page--dark :is(a, button, [role="button"]) {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+/* Long-press should not select a control's label. Content text stays selectable. */
+.home-page--dark :is(button, [role="button"], .brand-button) {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Text wrapping: no orphans in body copy, even lines in headings. */
+.home-page--dark p {
+  text-wrap: pretty;
+}
+.home-page--dark :is(h1, h2, h3) {
+  text-wrap: balance;
+}
+
+/* Press feedback. Every control answers the moment a finger or click lands.
+   The individual `scale` property is used so it adds to each element's own
+   transform (hover lifts, tilts) instead of replacing it. */
+@media (prefers-reduced-motion: no-preference) {
+  .home-page--dark .brand-button {
+    transition:
+      background-color 140ms ease,
+      box-shadow 140ms ease,
+      scale 140ms var(--ease-out);
+  }
+  .home-page--dark
+    .brand-button:not(:disabled):not([aria-disabled="true"]):not(
+      [aria-pressed="true"]
+    ):active {
+    scale: 0.97;
+  }
+
+  .home-page--dark
+    :is(.work-gallery-controls, .home-service-carousel-controls)
+    button {
+    transition:
+      color 140ms ease,
+      border-color 140ms ease,
+      opacity 140ms ease,
+      scale 140ms var(--ease-out);
+  }
+  .home-page--dark
+    :is(.work-gallery-controls, .home-service-carousel-controls)
+    button:not(:disabled):active {
+    scale: 0.96;
+  }
+
+  .home-page--dark .industry-gallery-card {
+    transition:
+      background 200ms ease,
+      border-color 200ms ease,
+      scale 160ms var(--ease-out);
+  }
+  .home-page--dark .pricing-catalog .pricing-choice {
+    transition:
+      background-color 240ms ease,
+      color 240ms ease,
+      scale 140ms var(--ease-out);
+  }
+  .home-page--dark .team-portrait-card {
+    transition:
+      transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 0.4s,
+      scale 160ms var(--ease-out);
+  }
+  .home-page--dark
+    :is(.industry-gallery-card, .pricing-choice, .team-portrait-card):active {
+    scale: 0.98;
+  }
+
+  .home-page--dark .home-film-start:active .home-film-cover-play {
+    scale: 0.94;
+    transition-duration: 140ms;
+  }
+
+  /* Text links dim briefly on press instead of scaling. */
+  .home-page--dark
+    :is(
+      .home-hero-secondary,
+      .home-service-card-link,
+      .home-overview-link,
+      .pricing-text-link
+    ) {
+    transition: opacity 120ms ease;
+  }
+  .home-page--dark
+    :is(
+      .home-hero-secondary,
+      .home-service-card-link,
+      .home-overview-link,
+      .pricing-text-link
+    ):active {
+    opacity: 0.7;
+  }
+
+  /* Service card text: same quick ease-out as the rest of the page. */
+  .home-page--dark .home-service-card-detail:not([hidden]) {
+    animation-duration: 240ms;
+    animation-timing-function: var(--ease-out);
+  }
+}
+
+/* Touch screens have no real hover: the browser keeps :hover after a tap,
+   so the video cover would stay zoomed and the play button enlarged. */
+@media (hover: none), (pointer: coarse) {
+  .home-page--dark
+    .home-film-cover:has(.home-film-start:hover)
+    .home-film-cover-art {
+    transform: none;
+  }
+  .home-page--dark
+    .home-film[dir="rtl"]
+    .home-film-cover:has(.home-film-start:hover)
+    .home-film-cover-art {
+    transform: scaleX(-1);
+  }
+  .home-page--dark .home-film-start:hover .home-film-cover-play {
+    background: #c8d1ff;
+    scale: 1;
+    box-shadow:
+      0 0 0 12px #c8d1ff17,
+      0 0 0 25px #c8d1ff09;
+  }
+}
+
+/* Hebrew: no tracking. Tight Latin tracking pulls Hebrew letters into each other. */
+.home-page--dark[lang="he"]
+  :is(.home-service-ribbon-item, .home-film-cover-title) {
+  letter-spacing: 0;
+}
+
+/* Seasonal ornament: on wide screens the ghost sat on top of the
+   "Drag to explore" line under Our Work. Move it to the empty top corner. */
+@media (min-width: 1360px) {
+  .home-page--dark .home-examples .seasonal-scroll-scene {
+    top: 0;
+    bottom: auto;
+    height: 112px;
+  }
+  .home-page--dark .home-examples .seasonal-single {
+    width: 96px;
+    height: 96px;
+  }
+}

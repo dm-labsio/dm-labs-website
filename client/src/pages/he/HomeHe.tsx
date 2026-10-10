@@ -1,6 +1,7 @@
 import PackageOverview from "@/components/pricing/PackageOverview";
 import HomeIntroductionVideo from "@/components/home/HomeIntroductionVideo";
 import "@/components/home/HomePageDark.css";
+import "@/pages/home-polish.css";
 import { HomeServices, HomeProcess, HomeIndustries } from "@/components/home/HomeOverviewSections";
 import TeamProfiles from "@/components/TeamProfiles";
 import "./HomeHe.css";
