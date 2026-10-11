@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-11",
+  "editorialIntent": "A country-neutral practical planning, launch and maintenance guide for restaurant and cafe owners commissioning their first website. Three independently drafted editions with the same verified facts, different openings and section flow.",
+  "keywordMethod": "Qualitative live search-result and owner-question research in English, Hebrew and Greek. No Keyword Planner, Search Console export or paid volume dataset was available; these are intent targets, not measured demand or ranking predictions.",
+  "queryClusters": {
+    "en": [
+      "restaurant website checklist",
+      "what should a restaurant website include",
+      "how much does a restaurant website cost",
+      "cafe website design",
+      "restaurant menu PDF or web page",
+      "restaurant website maintenance"
+    ],
+    "he": [
+      "בניית אתר למסעדה",
+      "אתר לבית קפה",
+      "מה צריך להיות באתר של מסעדה",
+      "כמה עולה אתר למסעדה",
+      "תפריט דיגיטלי למסעדה",
+      "תחזוקת אתר למסעדה"
+    ],
+    "el": [
+      "κατασκευή ιστοσελίδας εστιατορίου",
+      "ιστοσελίδα καφέ",
+      "τι πρέπει να περιλαμβάνει μια ιστοσελίδα εστιατορίου",
+      "κόστος ιστοσελίδας εστιατορίου",
+      "μενού ιστοσελίδας",
+      "συντήρηση ιστοσελίδας εστιατορίου"
+    ]
+  },
+  "researchEvidence": [
+    {
+      "url": "https://www.opentable.com/restaurant-solutions/resources/restaurant-website-creation/",
+      "purpose": "Primary hospitality platform: guest tasks and website planning; no quoted cost figures or conversion claims."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "purpose": "No special Google AI markup or guaranteed inclusion."
+    },
+    {
+      "url": "https://support.google.com/business/answer/7091",
+      "purpose": "Relevance, distance and prominence for local ranking."
+    },
+    {
+      "url": "https://support.google.com/business/answer/9455840",
+      "purpose": "Business Profile can show menus; do not claim Google cannot answer basic restaurant questions."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+      "purpose": "Visible business facts and supported local-business markup; article itself remains BlogPosting."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/appearance/google-images",
+      "purpose": "Descriptive filenames, localized alt text, image context, image discovery."
+    },
+    {
+      "url": "https://www.w3.org/WAI/tutorials/images/textual/",
+      "purpose": "Actual menu text rather than image-only text."
+    },
+    {
+      "url": "https://developers.google.com/search/blog/2023/08/howto-faq-changes",
+      "purpose": "Do not sell FAQ rich results for a commercial studio article. No FAQPage advertising markup added."
+    }
+  ],
+  "serpExamplesForIntentOnly": [
+    "https://www.reddit.com/r/restaurantowners/comments/1phkdnc/websites_are_they_worth_it/",
+    "https://rest.s-pixel.co.il/restaurant-marketing/restaurant-website-checklist/",
+    "https://seolabs.gr/kataskevi-istoselidas/kataskevi-istoselidas-estiatorio/",
+    "https://simplydigital.gr/kataskeyi-istoselidas-gia-estiatoria/"
+  ],
+  "cannibalization": {
+    "existing": "/blog/restaurant-website-design-cyprus/",
+    "existingIntent": "Broad why-a-website argument, locally focused.",
+    "newIntent": "Country-neutral first-website commissioning checklist, studio comparison, launch and ongoing operations.",
+    "boundary": "No country keyword targeting, duplicate local landing pages or invented demand claims. Existing service and pricing pages retain commercial intent. The short social comparison supports the planning decision; it is not the new article's primary target."
+  },
+  "claimsReview": [
+    "Complete Care copy checked against client/src/components/pricing/pricingContent.ts.",
+    "No unlimited updates, fixed delivery dates, guaranteed rankings, invented customer results or e-commerce promises.",
+    "Concept projects identified honestly; imagery is illustrative, not a real client venue.",
+    "Question-led HTML headings are visible without accordions. No FAQPage markup for promotional content."
+  ],
+  "assets": {
+    "mode": "Built-in image_gen, revised after user feedback",
+    "publicDirectory": "client/public/media/blog/restaurant-website-guide",
+    "originals": "../outputs/restaurant-guide",
+    "promptFile": "docs/restaurant-guide-image-prompts.json"
+  },
+  "publishing": "Preview only. Production article canonicals are prepared for eventual approved release; Vercel Preview must retain noindex headers."
+}

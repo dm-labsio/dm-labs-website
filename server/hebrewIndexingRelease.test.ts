@@ -6,6 +6,7 @@ const projectRoot = join(import.meta.dirname, "..");
 const readSource = (relativePath: string) => readFileSync(join(projectRoot, relativePath), "utf8");
 
 const hebrewRoutes = [
+  "/he/blog/restaurant-cafe-website-planning-guide/",
   "/he/blog/",
   "/he/blog/doctor-website-design-orthopaedics-case-study/",
   "/he/",

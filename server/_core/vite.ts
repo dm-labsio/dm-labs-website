@@ -74,6 +74,8 @@ export const STATIC_ROUTES = new Set([
   "/blog",
   "/he/blog",
   "/he/blog/doctor-website-design-orthopaedics-case-study",
+  "/he/blog/restaurant-cafe-website-planning-guide",
+  "/el/blog/proti-istoselida-estiatoriou-cafe-odigos",
   "/el/blog/doctor-website-design-orthopaedics-case-study",
   "/web-design-limassol",
   "/web-design-thessaloniki",

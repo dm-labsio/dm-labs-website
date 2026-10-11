@@ -10,6 +10,7 @@ export const normalizeRoutePath = (path: string) => {
 };
 
 export const EN_TO_EL_PATHS: Readonly<Record<string, string | null>> = {
+  "/blog/restaurant-cafe-first-website-guide": "/el/blog/proti-istoselida-estiatoriou-cafe-odigos",
   "/": "/el",
   "/blog/website-cost-cyprus-2026-guide": "/el/blog/posso-kostizei-istoselidha-kypros",
   "/blog/web-design-nail-salon-beauty-studio-cyprus": "/el/blog/istoselidha-nail-salon-beauty-studio-kypros",
@@ -35,6 +36,7 @@ export const EN_TO_EL_PATHS: Readonly<Record<string, string | null>> = {
  * hreflang and language-switch targets can never fabricate a translation.
  */
 export const EN_TO_HE_PATHS: Readonly<Record<string, string | null>> = {
+  "/blog/restaurant-cafe-first-website-guide": "/he/blog/restaurant-cafe-website-planning-guide",
   "/templates/branding/hartley": "/he/templates/branding/hartley",
   "/templates/branding/away": "/he/templates/branding/away",
   "/templates/branding/sunday-boat": "/he/templates/branding/sunday-boat",

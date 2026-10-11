@@ -47,12 +47,12 @@ describe("Native Greek and Hebrew Dr George case study", () => {
     expect(posts.he.content).toContain("הגרסה האנגלית");
   });
 
-  it("connects all three article versions reciprocally and exposes only the completed Hebrew article", () => {
+  it("connects all three article versions reciprocally and exposes the completed Hebrew case study", () => {
     for (const path of Object.values(paths)) expect(getHreflangRouteSet(path)).toEqual(paths);
     expect(isIndexableHebrewRoute(paths.he)).toBe(true);
     expect(isIndexableHebrewRoute("/he/blog")).toBe(true);
     expect(isIndexableHebrewRoute("/he/blog/missing-article")).toBe(false);
-    expect(blogArticles("he")).toHaveLength(1);
+    expect(blogArticles("he").some(article => article.href === `${paths.he}/`)).toBe(true);
     const sitemap = readFileSync(resolve(root, "client/public/sitemap.xml"), "utf8");
     for (const path of Object.values(paths)) expect(sitemap).toContain(`<loc>https://dm-labs.io${path}/</loc>`);
     const renderer = readFileSync(resolve(root, "client/src/pages/BlogPost.tsx"), "utf8");

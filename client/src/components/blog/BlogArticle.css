@@ -50,3 +50,36 @@
   .blog-content .case-study-devices > a:last-child { width: min(100%, 245px); justify-self: center; }
   .blog-content .case-study-film { padding: .75rem; }
 }
+
+/* Keep guide photos naturally bright, with headings on a separate navy surface. */
+.blog-guide-hero .blog-article-cover { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 2.5rem; width: min(calc(100% - 3rem), 1240px); margin-inline: auto; padding-block: 2.5rem; }
+.blog-guide-hero .blog-article-image { position: static; grid-column: 2; grid-row: 1; }
+.blog-guide-hero .blog-article-image img { display: block; height: auto; aspect-ratio: 3 / 2; }
+.blog-guide-hero .blog-article-shade { display: none; }
+.blog-guide-hero .blog-article-heading { grid-column: 1; grid-row: 1; padding: 0; }
+.blog-guide-hero .blog-article-heading .container { padding: 0; }
+.restaurant-guide h2[id] { scroll-margin-top: 8rem; }
+.blog-content .restaurant-guide .guide-page-list { margin-block: 1.5rem 2rem; }
+.blog-content .restaurant-guide .guide-page-list dt { font-weight: 700; padding-block-start: 1rem; border-top: 1px solid #d9e2e9; }
+.blog-content .restaurant-guide .guide-page-list dd { margin: .4rem 0 1.1rem; }
+.blog-content .restaurant-guide .guide-image { margin: 2rem 0; }
+.blog-content .restaurant-guide .guide-image img { display: block; width: 100%; height: auto; }
+.blog-content .restaurant-guide .guide-image figcaption, .blog-content .restaurant-guide .guide-image-note { font-size: .85rem; line-height: 1.6; color: #536171; margin-top: .65rem; }
+.blog-content .restaurant-guide .guide-callout { margin-block: 2rem; padding: 1.25rem; border-inline-start: 3px solid #5275ac; background: #f1f5fa; }
+.blog-content .restaurant-guide .guide-callout h3 { margin-top: 0; }
+.blog-content .restaurant-guide .blog-toc ul { padding-inline-start: 1.25rem; }
+.blog-content .restaurant-guide .blog-toc li { margin-block: .55rem; }
+.blog-content .restaurant-guide .blog-cta-btn { display: table; margin-block-start: 1.25rem; }
+@media (max-width: 850px) {
+  .blog-guide-hero .blog-article-cover { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 2rem; }
+  .blog-guide-hero .blog-article-image { grid-column: 1; grid-row: 2; }
+}
+/* Long guides need visible paragraph rhythm, especially on phones. */
+[data-brand] .restaurant-guide p, [data-brand] .restaurant-guide li, [data-brand] .restaurant-guide dd { font-size: 1.0625rem; line-height: 1.8; }
+.blog-content .restaurant-guide p { margin-block: 0 1.1rem; }
+.blog-content .restaurant-guide h2 { margin-block: 2.75rem 1rem; }
+.blog-content .restaurant-guide h3 { margin-block: 1.75rem .75rem; }
+.blog-content .restaurant-guide li { margin-block: .65rem; }
+.blog-content .restaurant-guide .blog-toc__title { margin: 0; }
+.blog-content .restaurant-guide .guide-callout h3 { margin-top: 0; }
+.blog-content .restaurant-guide .guide-callout p:last-child { margin-bottom: 0; }

@@ -3,6 +3,7 @@
    All Greek articles live here as structured data.
    ============================================================ */
 
+import { RESTAURANT_GUIDE_EL } from "./restaurantWebsiteGuide";
 import { DR_GEORGE_CASE_STUDY_EL } from "./drGeorgeCaseStudyLocales";
 
 export interface BlogPostEl {
@@ -14,9 +15,11 @@ export interface BlogPostEl {
   category: string;
   excerpt: string;
   coverImage: string;
+  imageAlt?: string;
 }
 
 export const POSTS_EL: BlogPostEl[] = [
+  { ...RESTAURANT_GUIDE_EL, elSlug: RESTAURANT_GUIDE_EL.slug },
   {
     slug: "get-more-customers-cyprus",
     elSlug: "perissoteroi-pelates-kypros",

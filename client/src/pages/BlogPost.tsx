@@ -48,6 +48,8 @@ export function BlogArticle({ article, locale = "en" }: { article?: ArticleData;
     ogImage: post ? post.coverImage : undefined,
     ogImageAlt: post?.imageAlt ?? post?.title,
     ogType: "article",
+    ogImageWidth: post?.coverImageWidth,
+    ogImageHeight: post?.coverImageHeight,
     canonicalPath: articlePath,
   });
 
@@ -64,7 +66,7 @@ export function BlogArticle({ article, locale = "en" }: { article?: ArticleData;
         "headline": post.title,
         "@id": `https://dm-labs.io${articlePath}#article`,
         "description": post.metaDescription,
-        "image": absoluteImageUrl(post.coverImage),
+        "image": absoluteImageUrl(post.heroImage ?? post.coverImage),
         "datePublished": post.date,
         "dateModified": post.dateModified ?? post.date,
         "author": {
@@ -153,17 +155,17 @@ export function BlogArticle({ article, locale = "en" }: { article?: ArticleData;
   return (
     <>
       {/* Hero / Cover */}
-      <section className={`blog-article-hero${post.category === "Case Studies" || post.layout === "case-study" ? " blog-case-study-hero" : ""}`}>
+      <section className={`blog-article-hero${post.heroImage ? " blog-guide-hero" : ""}${post.category === "Case Studies" || post.layout === "case-study" ? " blog-case-study-hero" : ""}`}>
         <div className="blog-article-cover">
           <picture className="blog-article-image">
             {post.coverImageMobile && (
               <source media="(max-width: 767px)" srcSet={post.coverImageMobile} />
             )}
             <img
-              src={post.coverImage}
-              alt={post.imageAlt ?? post.title}
-              width={1672}
-              height={941}
+              src={post.heroImage ?? post.coverImage}
+              alt={post.heroImageAlt ?? post.imageAlt ?? post.title}
+              width={post.heroImageWidth ?? 1672}
+              height={post.heroImageHeight ?? 941}
               loading="eager"
               fetchPriority="high"
               className="w-full h-full object-cover"

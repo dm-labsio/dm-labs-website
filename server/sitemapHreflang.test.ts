@@ -53,12 +53,13 @@ describe("sitemap hreflang", () => {
 
   it("gives every page with a real Hebrew translation the same he/he-IL alternates the <head> emits", () => {
     const enToHe = parsePathMap("EN_TO_HE_PATHS");
+    const enToEl = parsePathMap("EN_TO_EL_PATHS");
     const missing: string[] = [];
 
     for (const [enPath, hePath] of Object.entries(enToHe)) {
       const heLoc = withTrailingSlash(hePath);
       const enLoc = withTrailingSlash(enPath);
-      const elLoc = enLoc === "/" ? "/el/" : `/el${enLoc}`;
+      const elLoc = enToEl[enPath] ? withTrailingSlash(enToEl[enPath]) : enLoc === "/" ? "/el/" : `/el${enLoc}`;
 
       for (const loc of [enLoc, elLoc, heLoc]) {
         const entry = byLoc.get(loc);

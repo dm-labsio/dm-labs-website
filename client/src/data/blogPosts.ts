@@ -5,6 +5,7 @@
    ============================================================ */
 
 import { DR_GEORGE_CASE_STUDY } from "./drGeorgeCaseStudy";
+import { RESTAURANT_GUIDE_EN } from "./restaurantWebsiteGuide";
 import { GET_MORE_CUSTOMERS_CYPRUS } from "./getMoreCustomersCyprus";
 
 export interface BlogPost {
@@ -21,6 +22,12 @@ export interface BlogPost {
   coverImageMobile?: string; // Optional mobile-cropped variant of coverImage, swapped in below the 767px breakpoint
   coverImagePosition?: string; // Optional focal position for the article hero image
   imageAlt?: string; // Optional custom alt text for cover image (defaults to post title)
+  coverImageWidth?: number;
+  coverImageHeight?: number;
+  heroImage?: string;
+  heroImageAlt?: string;
+  heroImageWidth?: number;
+  heroImageHeight?: number;
   content: string; // HTML string
   author?: string; // Optional visible byline, e.g. "DM-Labs.io"
   authorType?: "Person" | "Organization";
@@ -31,6 +38,7 @@ export interface BlogPost {
 }
 
 const ARTICLE_CONTENT: BlogPost[] = [
+  RESTAURANT_GUIDE_EN,
   GET_MORE_CUSTOMERS_CYPRUS,
   DR_GEORGE_CASE_STUDY,
   {
