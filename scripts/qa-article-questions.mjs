@@ -32,6 +32,10 @@ try {
       const path = (locale === "en" ? "" : `/${locale}`) + slug;
       await page.goto(base + path);
       await page.locator("#article-questions").waitFor();
+      await page.waitForFunction(() => {
+        const submit = document.querySelector(".article-question-submit");
+        return submit && !submit.disabled;
+      });
       assert.equal(await page.locator("h1").count(), 1);
       assert.equal(
         await page.locator('link[rel="canonical"]').getAttribute("href"),
@@ -124,6 +128,10 @@ try {
     });
   });
   await page.goto(base + slug);
+  await page.waitForFunction(() => {
+    const submit = document.querySelector(".article-question-submit");
+    return submit && !submit.disabled;
+  });
   await page.locator(".article-question-details summary").click();
   await page.locator("#aq-name").fill("QA Reader");
   await page.locator("#aq-email").fill("qa@example.test");
