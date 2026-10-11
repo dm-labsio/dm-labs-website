@@ -6,7 +6,7 @@ import AccessibilityWidget from "@/components/AccessibilityWidget";
 import NeonCursorTrail from "@/components/NeonCursorTrail";
 import CinematicBanner, { type CinematicBannerProps } from "@/components/CinematicBanner";
 import BrandLogo from "./BrandLogo";
-import ArticleChatPrompt from "./chat/ArticleChatPrompt";
+import ArticleQuestions from "./blog/ArticleQuestions";
 import SiteHeader from "./SiteHeader";
 import SeasonalHome from "./home/seasonal/SeasonalHome";
 import { getNavigation } from "./siteNavigation";
@@ -151,8 +151,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* PAGE CONTENT (wrapped for contrast filter - does NOT include fixed elements) */}
       <div id="a11y-content-wrapper" className="flex-1 flex flex-col">
-      <main id="main-content" className="flex-1" tabIndex={-1}>{children}</main>
-      {/^\/(?:el\/|he\/)?blog\/[^/]+\/?$/.test(normalizedLocation) && <ArticleChatPrompt locale={getRouteLanguage(location)} />}
+      <main id="main-content" className="flex-1" tabIndex={-1}>{children}<ArticleQuestions path={normalizedLocation} locale={getRouteLanguage(location)} /></main>
 
       {cinematicInterlude ? <CinematicBanner {...cinematicInterlude} tall={languageNeutralPath === "/contact"} /> : null}
 
