@@ -55,6 +55,20 @@ export default function WebsiteGuide() {
   const inFlight = useRef(false);
   const mounted = useRef(true);
   const launcher = useRef<HTMLButtonElement>(null);
+  // Phones: the launcher waits until the visitor scrolls a little, so it never
+  // sits on the page's own main button in the first screen. CSS applies the
+  // wait only on small screens.
+  const [waiting, setWaiting] = useState(true);
+  useEffect(() => {
+    const reveal = () => {
+      if (window.scrollY < 240) return;
+      setWaiting(false);
+      window.removeEventListener("scroll", reveal);
+    };
+    reveal();
+    window.addEventListener("scroll", reveal, { passive: true });
+    return () => window.removeEventListener("scroll", reveal);
+  }, []);
   useEffect(() => {
     mounted.current = true;
     return () => {
@@ -70,6 +84,7 @@ export default function WebsiteGuide() {
   useEffect(() => {
     const show = () => {
       setPage(readPageContext(location));
+      setWaiting(false);
       setOpen(true);
     };
     window.addEventListener(OPEN_GUIDE_EVENT, show);
@@ -180,7 +195,10 @@ export default function WebsiteGuide() {
     <Dialog.Root
       open={open}
       onOpenChange={value => {
-        if (value) setPage(readPageContext(location));
+        if (value) {
+          setPage(readPageContext(location));
+          setWaiting(false);
+        }
         setOpen(value);
       }}
     >
@@ -189,6 +207,7 @@ export default function WebsiteGuide() {
           ref={launcher}
           type="button"
           className="dm-chat-launcher"
+          data-waiting={waiting ? "" : undefined}
           lang={locale}
           dir={locale === "he" ? "rtl" : "ltr"}
           aria-label={t.launcher}

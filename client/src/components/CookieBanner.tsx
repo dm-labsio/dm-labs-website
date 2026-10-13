@@ -7,6 +7,7 @@ const STRINGS = {
   en: {
     title: "We use cookies",
     body: "With your permission, we use analytics, error tracking and session replay to understand how this site is used. Form inputs are masked in replay. You can change your choice in Cookie settings.",
+    short: "With your permission, we use analytics, error tracking and session replay.",
     acceptAll: "Accept All",
     reject: "Reject",
     manage: "Manage",
@@ -25,6 +26,7 @@ const STRINGS = {
   el: {
     title: "Χρησιμοποιούμε cookies",
     body: "Με την άδειά σας, χρησιμοποιούμε ανάλυση επισκεψιμότητας, παρακολούθηση σφαλμάτων και καταγραφή συνεδριών, για να καταλαβαίνουμε πώς χρησιμοποιείται η ιστοσελίδα. Τα πεδία των φορμών αποκρύπτονται στην καταγραφή. Μπορείτε να αλλάξετε την επιλογή σας από τις Ρυθμίσεις cookies.",
+    short: "Με την άδειά σας, χρησιμοποιούμε ανάλυση επισκεψιμότητας, παρακολούθηση σφαλμάτων και καταγραφή συνεδριών.",
     acceptAll: "Αποδοχή όλων",
     reject: "Απόρριψη",
     manage: "Διαχείριση",
@@ -43,6 +45,7 @@ const STRINGS = {
   he: {
     title: "אנחנו משתמשים בעוגיות",
     body: "באישורכם, נשתמש באנליטיקה, במעקב שגיאות ובתיעוד ביקורים כדי להבין את השימוש באתר. שדות הטפסים מוסתרים בתיעוד. אפשר לשנות את הבחירה בהגדרות העוגיות.",
+    short: "באישורכם, נשתמש באנליטיקה, במעקב שגיאות ובתיעוד ביקורים.",
     acceptAll: "אישור כל העוגיות",
     reject: "לא, תודה",
     manage: "הגדרות",
@@ -88,15 +91,19 @@ export default function CookieBanner() {
 
   const close = () => { setVisible(false); returnFocus.current?.focus(); };
   const save = (value: boolean) => { saveAnalyticsConsent(value); close(); };
+  const openPrefs = () => { setAnalytics(readAnalyticsConsent() === true); setShowPrefs(true); };
   const dismiss = () => { if (readAnalyticsConsent() === null) save(false); else close(); };
   if (!visible) return null;
+  // On phones the first choice is a slim bottom bar: the opening sentence and
+  // the same Accept / Reject buttons. "Manage" opens the full text and options.
+  const compact = !showPrefs;
 
-  return <div ref={panel} tabIndex={-1} className="fixed z-[10000] bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-sm max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-xl border border-[#E2E5EA] bg-white p-5 shadow-xl text-[#111315]" role="dialog" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-description" dir={locale === "he" ? "rtl" : "ltr"} lang={locale} onKeyDown={event => { if (event.key === "Escape") { event.preventDefault(); dismiss(); } }}>
-    <div className="flex items-start justify-between gap-3 mb-2">
+  return <div ref={panel} tabIndex={-1} className={`fixed z-[10000] max-h-[calc(100dvh-2rem)] overflow-y-auto border border-[#E2E5EA] bg-white shadow-xl text-[#111315] sm:bottom-4 sm:left-auto sm:right-6 sm:max-w-sm sm:rounded-xl sm:p-5 ${compact ? "bottom-0 left-0 right-0 rounded-t-xl px-4 pt-3 pb-[max(.75rem,env(safe-area-inset-bottom))]" : "bottom-4 left-4 right-4 rounded-xl p-5"}`} role="dialog" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-description" dir={locale === "he" ? "rtl" : "ltr"} lang={locale} onKeyDown={event => { if (event.key === "Escape") { event.preventDefault(); dismiss(); } }}>
+    <div className={`flex items-start justify-between gap-3 mb-2 ${compact ? "max-sm:sr-only" : ""}`}>
       <h2 id="cookie-consent-title" className="text-base font-semibold">{t.title}</h2>
       <button type="button" onClick={dismiss} aria-label={closeLabel} className="min-h-11 min-w-11 grid place-items-center rounded-lg focus-visible:outline focus-visible:outline-2"><X size={18} /></button>
     </div>
-    <p id="cookie-consent-description" className="text-sm text-[#5B6472] leading-relaxed mb-4">{t.body}</p>
+    <p id="cookie-consent-description" className={`text-sm text-[#5B6472] leading-relaxed mb-4 ${compact ? "max-sm:text-[13px] max-sm:leading-snug max-sm:mb-2.5" : ""}`}>{compact ? <><span className="sm:hidden">{t.short}</span><span className="max-sm:hidden">{t.body}</span></> : t.body}</p>
     {showPrefs && <div className="mb-4 space-y-3">
       <p className="text-sm">{t.chooseWhich}</p>
       <div className="flex items-center justify-between gap-3 text-sm"><span>{t.essential}</span><span>{t.required}</span></div>
@@ -105,8 +112,8 @@ export default function CookieBanner() {
     <div className="grid grid-cols-2 gap-2">
       <button type="button" className={buttonClass} onClick={() => save(true)}>{t.acceptAll}</button>
       <button type="button" className={buttonClass} onClick={() => save(false)}>{t.reject}</button>
-      <button type="button" className={`${buttonClass} col-span-2`} onClick={() => { if (showPrefs) save(analytics); else { setAnalytics(readAnalyticsConsent() === true); setShowPrefs(true); } }}>{showPrefs ? t.savePrefs : t.manage}</button>
+      <button type="button" className={`${buttonClass} col-span-2 ${compact ? "max-sm:hidden" : ""}`} onClick={() => { if (showPrefs) save(analytics); else openPrefs(); }}>{showPrefs ? t.savePrefs : t.manage}</button>
     </div>
-    <p className="mt-3 text-xs text-[#5B6472] text-center"><a className="underline" href={t.cookieHref}>{t.cookiePolicy}</a>{" · "}<a className="underline" href={t.privacyHref}>{t.privacyPolicy}</a></p>
+    <p className={`mt-3 text-xs text-[#5B6472] text-center ${compact ? "max-sm:mt-2" : ""}`}>{compact && <><button type="button" className="sm:hidden underline min-h-6" onClick={openPrefs}>{t.manage}</button><span className="sm:hidden">{" · "}</span></>}<a className="underline" href={t.cookieHref}>{t.cookiePolicy}</a>{" · "}<a className="underline" href={t.privacyHref}>{t.privacyPolicy}</a></p>
   </div>;
 }

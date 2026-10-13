@@ -70,7 +70,10 @@
 .seasonal-banner {
   font-family: var(--font-body, Arial, sans-serif);
 }
-.seasonal-banner a {
+.seasonal-banner-short {
+  display: none;
+}
+.seasonal-banner-action {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -85,7 +88,7 @@
   white-space: nowrap;
   min-height: 46px;
 }
-.seasonal-banner a:hover {
+.seasonal-banner-action:hover {
   background: #ffdab0;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -245,45 +248,52 @@
   }
 }
 @media (max-width: 767px) {
+  /* A compact strip: mark, title + one short offer line with the link inline, close. */
   .seasonal-banner {
-    top: 12px;
+    top: 10px;
     max-width: calc(100% - 24px);
-    gap: 6px 10px;
+    gap: 8px;
     font-size: 13px;
-    padding: 10px 12px;
+    line-height: 1.4;
+    min-height: 0;
+    padding: 12px 6px 8px 10px;
+    border-radius: 16px;
     width: calc(100% - 24px);
-    grid-template-columns: 42px minmax(0, 1fr) 36px;
+    grid-template-columns: 34px minmax(0, 1fr) 40px;
+  }
+  .seasonal-banner-drips {
+    height: 12px;
   }
   .seasonal-banner-copy {
-    display: contents;
+    gap: 2px;
   }
   .seasonal-banner-copy strong {
-    grid-row: 1;
-    grid-column: 2;
-    font-size: 20px;
+    font-size: 15px;
   }
-  .seasonal-banner-copy > span {
-    grid-row: 2;
-    grid-column: 1 / -1;
+  .seasonal-banner-offer,
+  .seasonal-banner-action {
+    display: none;
   }
-  .seasonal-banner a {
-    grid-row: 3;
-    grid-column: 1 / -1;
-    min-height: 44px;
-    padding: 8px 14px;
-    font-size: 14px;
+  .seasonal-banner-short {
+    display: inline;
+  }
+  .seasonal-banner-short b {
+    font-size: 1em;
+  }
+  .seasonal-banner-short a {
+    color: #ffd39f;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    white-space: nowrap;
   }
   .seasonal-banner button {
-    grid-row: 1;
-    grid-column: 3;
-    width: 36px;
+    width: 40px;
     height: 44px;
   }
   .seasonal-banner-mark {
-    grid-row: 1;
-    grid-column: 1;
-    width: 42px;
-    height: 42px;
+    width: 34px;
+    height: 34px;
   }
   .seasonal-web {
     width: 78px;

@@ -3,7 +3,7 @@ html:has(.home-hero), body:has(.home-hero) { overflow-x: clip; }
    year-round gap, and no content jump when the optional banner arrives. */
 html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 12rem; }
 @media (max-width: 767px) {
-  html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 14.5rem; }
+  html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 8rem; }
 }
 .home-hero {
   position: relative;
@@ -95,7 +95,7 @@ html[data-seasonal-space="halloween"] .home-hero .home-hero-grid { padding-top: 
   .home-hero-actions { align-items: stretch; gap: .5rem 1.5rem; }
   .home-hero-primary { width: 100%; }
   .home-hero-scene { top: 0; inset-inline-end: -36%; width: 125%; opacity: .9; }
-  html[data-seasonal-space="halloween"] .home-hero-scene { top: 8rem; }
+  html[data-seasonal-space="halloween"] .home-hero-scene { top: 5rem; }
   .home-hero-orbit-light { stroke-width: 3; animation-duration: 5s; }
   .home-hero-orbit-light--secondary { animation-duration: 8s; }
   .home-hero .home-hero-description { font-size: 1rem; line-height: 1.6; max-width: 32rem; }

@@ -15,6 +15,7 @@ const COPY = {
     text: "Happy Halloween!",
     offer:
       "Contact us this October for 10% off your one-time website build. Monthly fees excluded.",
+    short: "10% off your one-time website build this October.",
     link: "Let’s talk",
     close: "Hide Halloween decorations",
   },
@@ -22,14 +23,16 @@ const COPY = {
     text: "Καλό Halloween!",
     offer:
       "Μιλήστε μας μέσα στον Οκτώβριο και κερδίστε 10% έκπτωση στην κατασκευή της ιστοσελίδας σας. Δεν ισχύει για τις μηνιαίες χρεώσεις.",
-    link: "Επικοινωνία",
+    short: "Τον Οκτώβριο, 10% έκπτωση στην κατασκευή της ιστοσελίδας σας.",
+    link: "Ας τα πούμε",
     close: "Απόκρυψη διακόσμησης Halloween",
   },
   he: {
     text: "האלווין שמח!",
     offer:
       "פנו אלינו באוקטובר ותקבלו 10% הנחה על התשלום החד־פעמי לבניית האתר. ההנחה לא חלה על התשלומים החודשיים.",
-    link: "צרו קשר",
+    short: "באוקטובר: 10% הנחה על בניית האתר.",
+    link: "בואו נדבר",
     close: "הסתרת קישוטי האלווין",
   },
 };
@@ -234,13 +237,25 @@ export default function HalloweenLayer({
           />
           <div className="seasonal-banner-copy">
             <strong>{copy.text}</strong>
-            <span>
+            <span className="seasonal-banner-offer">
               {copy.offer.split("10%")[0]}
               <b>10%</b>
               {copy.offer.split("10%")[1]}
             </span>
+            {/* Phones: one short line with the link inline, so the hero stays in view. */}
+            <span className="seasonal-banner-short">
+              {copy.short.split("10%")[0]}
+              <b>10%</b>
+              {copy.short.split("10%")[1]}{" "}
+              <a href={language === "en" ? "/contact/" : `/${language}/contact/`}>
+                {copy.link}
+              </a>
+            </span>
           </div>
-          <a href={language === "en" ? "/contact/" : `/${language}/contact/`}>
+          <a
+            className="seasonal-banner-action"
+            href={language === "en" ? "/contact/" : `/${language}/contact/`}
+          >
             {copy.link}
           </a>
           <button type="button" onClick={hide} aria-label={copy.close}>
