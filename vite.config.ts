@@ -56,6 +56,8 @@ const pageChunkMap: Plugin = {
         .relative(clientSrc, chunk.facadeModuleId)
         .replace(/\\/g, "/")
         .replace(/\.tsx?$/, "");
+      // Only the site's own modules; libraries such as PostHog are not pages.
+      if (key.startsWith("..")) continue;
       const files = new Set<string>();
       collect(chunk.fileName, files);
       map[key] = Array.from(files).filter(file => !preloaded.has(file));
