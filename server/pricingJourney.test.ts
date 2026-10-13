@@ -48,8 +48,10 @@ describe("shared pricing comparison and enquiry", () => {
     expect(html.match(/aria-pressed="false"/g)).toHaveLength(5);
     expect(html.match(/type="radio"/g)).toHaveLength(2);
     expect(html.match(/<th scope="row"/g)).toHaveLength(13);
-    expect(html.match(/<details\b/g)).toHaveLength(20);
-    expect(html.match(/<details open=""/g)).toHaveLength(20);
+    // 13 comparison rows on phones + 9 pricing questions (payment and updates included).
+    expect(html.match(/<details\b/g)).toHaveLength(22);
+    expect(html.match(/<details open=""/g)).toHaveLength(22);
+    expect(html.match(/<span class="pricing-next-number"/g)).toHaveLength(4);
     expect(html).not.toContain('id="finder-title"');
     expect(html).not.toContain("pricing-price-guide");
     expect(html).not.toContain("pricing-plan-facts");

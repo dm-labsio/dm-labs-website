@@ -140,7 +140,7 @@ export const RESTAURANT_GUIDE_EN: BlogPost = {
 <h2 id="next">What would working with DM Labs look like?</h2>
 <p>We bring the visual identity, mobile experience and practical content together. The aim is a site that makes your restaurant recognisable and makes a guest’s next step easy. Then we stay available through ongoing care as your menu, photographs and promotions evolve.</p>
 <p>Explore the hospitality ideas in <a class="blog-link" href="/templates/">Our Work</a>, including the Sunday Boat and Hartley website demos, to see different design directions. These are concept projects, not restaurant performance case studies. Your site starts with your food, your guests and your way of working.</p>
-<p>Bring your menu, a few photographs and the questions customers keep asking. If some pieces are missing, we can identify them together. <a class="blog-cta-btn" href="/contact/">Get a free consultation</a></p>
+<p>Bring your menu, a few photographs and the questions customers keep asking. If some pieces are missing, we can identify them together. <a class="blog-cta-btn" href="/contact/">Book a free 15-min call</a></p>
 <p class="guide-image-note">Illustrative images created for this guide. On your restaurant website, use photographs that accurately represent your venue and dishes.</p>
 </div>`,
 };

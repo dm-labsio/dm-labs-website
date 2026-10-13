@@ -61,7 +61,7 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
   const faq = FAQ_CONTENT[locale];
   const questions = [
     { q: t.careQuestion, a: `${t.careIntro} ${x.monthlyExplanation}` },
-    faq.design, faq.extend, faq["extra-costs"], faq["care-exclusions"], faq.ownership,
+    faq.design, faq.extend, faq["extra-costs"], faq.payment, faq["care-exclusions"], faq.updates, faq.ownership,
     { q: t.customQuestion, a: t.customCopy },
   ];
 
@@ -126,6 +126,7 @@ export default function PricingPage({ locale }: { locale: SiteLanguage }) {
         <PricingEstimate locale={locale} build={buildIndex} care={careIndex} yearly={yearly} />
       </div>
       <div className="pricing-selection-action"><BrandButton asChild className="pricing-action"><a href={pricingContactUrl(locale, buildIndex, careIndex, yearly, currency)}>{build && care ? t.cta : t.help}</a></BrandButton><p>{t.reassurance}</p></div>
+      <div className="pricing-next"><h3>{t.nextTitle}</h3><ol>{t.next.map(([title, copy], i) => <li key={title}><span className="pricing-next-number" aria-hidden="true">0{i + 1}</span><p><strong>{title}</strong>{copy}</p></li>)}</ol></div>
       <div className="pricing-terms"><p>{t.ownership} <a href={route("terms")}>{t.terms}</a></p></div>
       <aside className="pricing-scope"><h3>{t.scope}</h3><p>{t.scopeText}</p></aside>
     </div></section>

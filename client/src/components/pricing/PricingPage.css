@@ -116,10 +116,17 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
 .is-complete .pricing-estimate { background: linear-gradient(125deg,#B7C5FF,#A8B8FF 60%,#89CFE8); color: #101729; }
 [data-brand] .is-complete .pricing-estimate :is(.brand-micro,.pricing-estimate-total),.is-complete .pricing-estimate > div:last-child p { color: #101729; }
 .pricing-selection-action { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2rem; margin-top: 2rem; }
-.pricing-selection-action p { color: #CCD7EF; max-width: 26rem; }
+.pricing-selection-action p { color: #CCD7EF; max-width: 34rem; }
 .pricing-reset { display: inline-flex; align-items: center; min-height: 44px; padding-block: .5rem; color: #C1CEFF; text-decoration: underline; cursor: pointer; text-underline-offset: .25em; }
 .pricing-terms { margin-block: 2rem; color: #B7C4DF; max-width: 57rem; font-size: .875rem; }
 .pricing-terms a { color: #A8B8FF; text-decoration: underline; }
+.pricing-next { margin-block: 2.5rem 0; border-top: 1px solid #526080; padding-top: 1.5rem; }
+[data-brand] .pricing-next h3 { font-size: 1.35rem; margin-bottom: 1.25rem; }
+.pricing-next ol { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; }
+.pricing-next li { border-top: 2px solid #A8B8FF; padding-top: 1rem; }
+.pricing-next-number { display: block; margin-bottom: .5rem; font: 500 .875rem/1.4 "Fira Mono", monospace; color: #A8B8FF; direction: ltr; text-align: start; }
+.pricing-next p { color: #CCD7EF; font-size: .9rem; line-height: 1.55; }
+.pricing-next strong { display: block; margin-bottom: .35rem; color: #F6F5F2; font-size: 1rem; }
 .pricing-scope { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; border-top: 1px solid #526080; padding-top: 1.5rem; }
 [data-brand] .pricing-scope h3 { font-size: 1.35rem; }
 .pricing-scope p { color: #B7C4DF; font-size: .875rem; }
@@ -171,6 +178,7 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
 @keyframes pricing-confirm { 40% { transform: translateY(-8px); box-shadow: 0 0 0 5px var(--pricing-accent),0 20px 75px #7D8EFF75; } 100% { transform: none; } }
 @keyframes pricing-reveal { from { opacity: .6; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 @media (max-width: 1000px) {
+  .pricing-next ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
  .pricing-build-stage { padding-inline: 1.1rem; min-height: 240px; }
  .pricing-build-content { padding-inline: 1.1rem; }
  .pricing-care { padding: 1.5rem; }
@@ -204,6 +212,7 @@ html:has(.pricing-page), body:has(.pricing-page) { overflow-x: clip; }
  body:has(.pricing-page) .whatsapp-float { display: none; }
 }
 @media (max-width: 700px) {
+  .pricing-next ol { grid-template-columns: 1fr; gap: 1rem; }
  .pricing-builds,.pricing-custom,.pricing-care-grid { grid-template-columns: 1fr; }
  .pricing-builds { gap: 1.5rem; }
  .pricing-build-stage { min-height: 255px; padding: 1.5rem 1.25rem 1rem; }

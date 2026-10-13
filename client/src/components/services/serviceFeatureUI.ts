@@ -2,13 +2,13 @@ import type { SiteLanguage } from "@/lib/routeLanguage";
 
 export const SERVICE_UI = {
   en: {
-    back: "All services", consultation: "Get a free consultation", pricing: "Explore packages & care", why: "The thinking behind it", whyTitle: "Made to work for your visitors.", deliver: "What we work on", deliverTitle: "The details make the difference.", scope: "Your package and agreed scope define the pages, features and revisions. We confirm these before starting, and quote additional work separately.", process: "From direction to delivery", processTitle: "A clear way forward.", processLink: "See the full process", questions: "Good questions.", related: "Bring it all together.", closing: "What would you like your website to do?", closingCopy: "Tell us about your business or ask us anything. We’ll help you find a sensible next step. Your first consultation is free, with no obligation.", study: "A visual direction, across the details", studyNote: "Brand concept · design study",
+    back: "All services", consultation: "Book a free 15-min call", pricing: "Explore packages & care", why: "The thinking behind it", whyTitle: "Made to work for your visitors.", deliver: "What we work on", deliverTitle: "The details make the difference.", scope: "Your package and agreed scope define the pages, features and revisions. We confirm these before starting, and quote additional work separately.", process: "From direction to delivery", processTitle: "A clear way forward.", processLink: "See the full process", questions: "Good questions.", related: "Bring it all together.", closing: "What would you like your website to do?", closingCopy: "Tell us about your business or ask us anything. We’ll help you find a sensible next step. Your first consultation is free, with no obligation.", study: "A visual direction, across the details", studyNote: "Brand concept · design study",
     demoTitle: "One message. Every screen.", demoNote: "An illustrative layout. Switch the view to see the same content adapt.", views: ["Phone", "Tablet", "Desktop"], demoLabel: "Your business", demoHeading: "A story worth sharing.", demoBody: "What you do. Why it matters.", demoAction: "Let’s talk", demoCaption: "The same story, on every screen.",
     experience: "How a good experience feels", metrics: [["Load", "Reach the main content."], ["Respond", "Act without unnecessary delay."], ["Stay steady", "Read without unexpected shifts."]], metricNote: "Loading, interaction and visual stability.",
   },
   el: {
     back: "Όλες οι υπηρεσίες",
-    consultation: "Δωρεάν συμβουλευτική",
+    consultation: "Δωρεάν κλήση 15 λεπτών",
     pricing: "Πακέτα και συντήρηση",
     why: "Γιατί το κάνουμε έτσι",
     whyTitle: "Σκεφτόμαστε πρώτα τον επισκέπτη σας.",
@@ -42,7 +42,7 @@ export const SERVICE_UI = {
   },
   he: {
     back: "כל השירותים",
-    consultation: "לשיחת ייעוץ בחינם",
+    consultation: "לשיחה של 15 דקות בחינם",
     pricing: "לחבילות ולתחזוקה",
     why: "למה ככה",
     whyTitle: "חושבים קודם כול על הלקוחות שלכם.",

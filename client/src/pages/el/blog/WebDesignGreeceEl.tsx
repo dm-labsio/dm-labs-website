@@ -173,7 +173,7 @@ export default function WebDesignGreeceEl() {
             <h3 className="text-xl font-bold text-[#111315] mb-2">Θέλετε μια ιστοσελίδα που δουλεύει για την επιχείρησή σας;</h3>
             <p className="text-[#5B6472] mb-4">Κλείστε μια δωρεάν συμβουλευτική, χωρίς δέσμευση. Θα δούμε τι έχετε σήμερα, θα σας πούμε τι προτείνουμε και θα σας δώσουμε ξεκάθαρη τιμή, χωρίς πίεση.</p>
             <Link href="/el/contact/" className="inline-block bg-[#5B8CFF] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#4a7be8] transition-colors">
-              Δωρεάν συμβουλευτική
+              Δωρεάν κλήση 15 λεπτών
             </Link>
           </div>
 

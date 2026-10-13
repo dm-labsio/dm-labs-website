@@ -314,8 +314,11 @@ async function main() {
     // The hydration check below reuses this context as a visitor (serverless
     // Chromium runs single-process and cannot open a second context), so the
     // snapshot flag stays off once its cookie is set.
+    // It also runs in sandboxed frames (map embeds), where reading cookies throws.
     await context.addInitScript(() => {
-      if (!document.cookie.includes("dm_hydration_check=1")) window.__DM_STATIC_SNAPSHOT__ = true;
+      let checking = false;
+      try { checking = document.cookie.includes("dm_hydration_check=1"); } catch { /* sandboxed frame */ }
+      if (!checking) window.__DM_STATIC_SNAPSHOT__ = true;
     });
 
     let ok = 0;
@@ -520,43 +523,44 @@ async function main() {
     // cannot adopt exactly is marked data-hydratable="false", so visitors get
     // the full client render for it instead of a mismatch.
     const checked = [...ROUTES, ...PREVIEW_ROUTES, "/404.html"];
-    const keepClientRender = new Set();
+    const keepClientRender = new Map();
     await context.addCookies([{ name: "dm_hydration_check", value: "1", url: `http://127.0.0.1:${port}` }]);
     try {
       for (const viewport of [{ width: 1280, height: 800 }, { width: 390, height: 844 }]) {
         for (const route of checked) {
           const page = await context.newPage();
-          let mismatch = false;
+          let mismatch = "";
           page.on("console", message => {
-            if (message.text().startsWith("[hydration]")) mismatch = true;
+            if (message.text().startsWith("[hydration]")) mismatch ||= message.text();
           });
-          page.on("pageerror", () => { mismatch = true; });
+          page.on("pageerror", error => { mismatch ||= `page error: ${error.message}`; });
           try {
             await page.setViewportSize(viewport);
             await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: "domcontentloaded", timeout: 30_000 });
-            await page.waitForFunction(() => window.__DM_APP_READY__ === true, null, { timeout: 15_000 });
+            await page.waitForFunction(() => window.__DM_APP_READY__ === true, null, { timeout: 30_000 });
             await page.waitForTimeout(50);
-          } catch {
-            mismatch = true;
+          } catch (error) {
+            mismatch ||= error.message.split("\n")[0];
           } finally {
             await page.close();
           }
-          if (mismatch) keepClientRender.add(route);
+          if (mismatch && !keepClientRender.has(route)) keepClientRender.set(route, `${viewport.width}px: ${mismatch.slice(0, 160)}`);
         }
       }
     } catch (error) {
       // Never ship pages nobody verified: they all keep the full client render.
       console.warn(`Hydration check could not finish (${error.message.split("\n")[0]}); every page keeps the full client render`);
-      for (const route of checked) keepClientRender.add(route);
+      for (const route of checked) keepClientRender.set(route, "check did not finish");
     }
-    for (const route of keepClientRender) {
+    for (const [route, reason] of keepClientRender) {
+      if (!route.startsWith("/preview/")) console.log(`Hydration check: ${route} keeps the client render (${reason})`);
       const file = route === "/404.html" ? join(DIST_DIR, "404.html") : join(DIST_DIR, ...route.split("/").filter(Boolean), "index.html");
       if (!existsSync(file)) continue;
       writeFileSync(file, readFileSync(file, "utf8").replace('data-hydratable="true"', 'data-hydratable="false"'), "utf-8");
     }
     console.log(
       `Hydration check: ${checked.length - keepClientRender.size}/${checked.length} pages adopt their saved HTML` +
-        (keepClientRender.size ? `; full client render kept for ${[...keepClientRender].join(", ")}` : "")
+        (keepClientRender.size ? `; full client render kept for ${[...keepClientRender.keys()].join(", ")}` : "")
     );
 
     await browser.close();

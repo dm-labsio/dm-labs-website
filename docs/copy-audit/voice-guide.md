@@ -217,12 +217,14 @@ These are the short names (homepage cards, menus, links). Each service page can 
 
 | Action | Greek | Hebrew |
 |---|---|---|
-| Free consultation (header) | Δωρεάν συμβουλευτική | ייעוץ בחינם |
-| Free consultation (main buttons) | Δωρεάν συμβουλευτική (a longer label wraps to two lines on phones; Greek needs no preposition here) | לשיחת ייעוץ בחינם |
+| Main action, header: "Book a free 15-min call" | Δωρεάν κλήση 15 λεπτών | שיחה של 15 דקות בחינם |
+| Main action, buttons: "Book a free 15-min call" (owner's choice, 13 October 2026; replaces "Get a free consultation") | Δωρεάν κλήση 15 λεπτών (Greek needs no verb or preposition here) | לשיחה של 15 דקות בחינם |
 | See examples | Δείτε παραδείγματα | לדוגמאות |
 | See all examples | Δείτε όλα τα παραδείγματα | לכל הדוגמאות |
 | Open a service | Δείτε την υπηρεσία | לפרטים על השירות |
 | Contact | Επικοινωνία | צרו קשר |
+
+Facts behind the main action: the first call is free, 15–20 minutes, usually on WhatsApp (Process page). The owner confirmed on 13 October 2026 that we usually reply within 24 hours; write it as "usually", and keep "24" and its unit together with a non-breaking space. Delivery times per package are not stated anywhere (owner's choice).
 
 ## Search terms to keep
 

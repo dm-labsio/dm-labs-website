@@ -111,7 +111,7 @@ export default function HomePage() {
             <div className="flex flex-wrap justify-center gap-4">
               <StarButton asChild><Link href="/contact/" className="btn-primary !h-14 !text-base !px-8">
 
-                Get a Free Consultation
+                Book a free 15-min call
               </Link></StarButton>
             </div>
           </AnimateIn>

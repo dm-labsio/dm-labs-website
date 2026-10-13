@@ -93,7 +93,7 @@ export const DR_GEORGE_CASE_STUDY: BlogPost = {
 <div class="blog-cta">
   <h2>Need a website for a medical practice or specialist service?</h2>
   <p>DM Labs builds custom websites around your expertise, your patients’ questions, and the way your practice works.</p>
-  <a href="/contact/" class="blog-cta-btn">Get in touch for a free consultation <span aria-hidden="true">→</span></a>
+  <a href="/contact/" class="blog-cta-btn">Book a free 15-min call <span aria-hidden="true">→</span></a>
 </div>
 `,
 };

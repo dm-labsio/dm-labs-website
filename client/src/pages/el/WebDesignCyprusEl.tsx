@@ -397,7 +397,7 @@ export default function WebDesignCyprusEl() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/el/contact/">
                 <button className="px-10 py-4 rounded-xl bg-white text-[#5B8CFF] font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-                  Δωρεάν συμβουλευτική
+                  Δωρεάν κλήση 15 λεπτών
                 </button>
               </Link>
               <a
