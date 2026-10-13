@@ -217,7 +217,7 @@ These are the short names (homepage cards, menus, links). Each service page can 
 
 | Action | Greek | Hebrew |
 |---|---|---|
-| Main action (header and buttons): "Book a short call" (owner's choice, 13 October 2026; replaces "Get a free consultation". No minutes in the label) | Κλείστε μια σύντομη κλήση | לקביעת שיחה קצרה |
+| Main action (header and buttons): "Let’s talk" (owner's choice, 13 October 2026; replaces "Get a free consultation". "Ask" stays with the chat, "Ask DM Labs") | Ας τα πούμε | בואו נדבר |
 | See examples | Δείτε παραδείγματα | לדוגמאות |
 | See all examples | Δείτε όλα τα παραδείγματα | לכל הדוגמאות |
 | Open a service | Δείτε την υπηρεσία | לפרטים על השירות |

@@ -47,7 +47,7 @@ export default function WebDesignCyprus() {
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#5B8CFF] mb-4">Web Design Without Borders</span>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-[#111315] mb-4 leading-tight">Professional <span className="bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] bg-clip-text text-transparent">Web Design</span></h1>
             <p className="text-lg text-[#5B6472] max-w-2xl mx-auto mb-8 leading-relaxed">DM-Labs.io designs and builds professional websites for businesses worldwide. Choose a clear package or request a custom scope for more complex work.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><Link href="/contact/" className="btn-primary">Book a short call</Link></StarButton><a href="https://wa.me/35797472847?text=Hello%20DM-Labs%20team%21%20I%27m%20interested%20in%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Us</a></div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><Link href="/contact/" className="btn-primary">Let’s talk</Link></StarButton><a href="https://wa.me/35797472847?text=Hello%20DM-Labs%20team%21%20I%27m%20interested%20in%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Us</a></div>
           </AnimateIn>
         </div>
       </section>
@@ -84,7 +84,7 @@ export default function WebDesignCyprus() {
 
       <section className="section-spacing bg-white"><div className="container max-w-3xl mx-auto"><AnimateIn><h2 className="text-3xl font-bold text-[#111315] mb-8 text-center">Web Design FAQs</h2></AnimateIn><div className="space-y-4">{faqItems.map((item) => <AnimateIn key={item.q}><article className="dm-card !p-6"><h3 className="font-semibold text-[#111315] mb-2">{item.q}</h3><p className="text-sm text-[#5B6472] leading-relaxed">{item.a}</p></article></AnimateIn>)}</div></div></section>
 
-      <section className="section-spacing bg-[#0F172A] text-center"><div className="container max-w-3xl"><AnimateIn><h2 className="text-3xl md:text-4xl font-bold text-white mb-5">Ready to Build Your Website?</h2><p className="text-white/70 text-lg mb-8">Tell us about your business, audience, and website needs. We will help you choose the right starting scope.</p><div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><Link href="/contact/" className="btn-primary">Book a short call</Link></StarButton><Link href="/pricing/" className="btn-secondary !border-white/30 !text-white hover:!bg-white/10">View Website Packages</Link></div></AnimateIn></div></section>
+      <section className="section-spacing bg-[#0F172A] text-center"><div className="container max-w-3xl"><AnimateIn><h2 className="text-3xl md:text-4xl font-bold text-white mb-5">Ready to Build Your Website?</h2><p className="text-white/70 text-lg mb-8">Tell us about your business, audience, and website needs. We will help you choose the right starting scope.</p><div className="flex flex-col sm:flex-row gap-4 justify-center"><StarButton asChild><Link href="/contact/" className="btn-primary">Let’s talk</Link></StarButton><Link href="/pricing/" className="btn-secondary !border-white/30 !text-white hover:!bg-white/10">View Website Packages</Link></div></AnimateIn></div></section>
     </main>
   );
 }

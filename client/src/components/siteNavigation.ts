@@ -45,7 +45,7 @@ export function getActiveNavHref(location: string, language: SiteLanguage) {
 }
 
 export const NAV_COPY = {
-  en: { home: "DM Labs home", navigation: "Main navigation", open: "Open menu", close: "Close menu", language: "Choose language", consultation: "Book a short call", skip: "Skip to content", note: "A good website starts with a conversation." },
-  el: { home: "DM Labs: Αρχική", navigation: "Κύρια πλοήγηση", open: "Άνοιγμα μενού", close: "Κλείσιμο μενού", language: "Επιλογή γλώσσας", consultation: "Κλείστε μια σύντομη κλήση", skip: "Μετάβαση στο περιεχόμενο", note: "Κάθε καλή ιστοσελίδα ξεκινά με μια κουβέντα." },
-  he: { home: "DM Labs: דף הבית", navigation: "ניווט ראשי", open: "פתיחת תפריט", close: "סגירת תפריט", language: "בחירת שפה", consultation: "לקביעת שיחה קצרה", skip: "דילוג לתוכן", note: "אתר טוב מתחיל בשיחה." },
+  en: { home: "DM Labs home", navigation: "Main navigation", open: "Open menu", close: "Close menu", language: "Choose language", consultation: "Let’s talk", skip: "Skip to content", note: "A good website starts with a conversation." },
+  el: { home: "DM Labs: Αρχική", navigation: "Κύρια πλοήγηση", open: "Άνοιγμα μενού", close: "Κλείσιμο μενού", language: "Επιλογή γλώσσας", consultation: "Ας τα πούμε", skip: "Μετάβαση στο περιεχόμενο", note: "Κάθε καλή ιστοσελίδα ξεκινά με μια κουβέντα." },
+  he: { home: "DM Labs: דף הבית", navigation: "ניווט ראשי", open: "פתיחת תפריט", close: "סגירת תפריט", language: "בחירת שפה", consultation: "בואו נדבר", skip: "דילוג לתוכן", note: "אתר טוב מתחיל בשיחה." },
 };

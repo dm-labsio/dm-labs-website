@@ -38,10 +38,10 @@ describe("Native Greek and Hebrew Dr George case study", () => {
     for (const fact of ["ברך", "כתף", "מפרק הירך", "כף הרגל והקרסול", "רפואת ספורט", "פציעות ובשברים", "אורתופדיית ילדים", "בלימסול, בפאפוס ובניקוסיה", "GESY", "ביטוח פרטי", "באנגלית, ביוונית וברוסית", "פרסומים", "ניסיון קליני"]) {
       expect(posts.he.content).toContain(fact);
     }
-    expect(posts.he.content).toContain("לקביעת שיחה קצרה");
+    expect(posts.he.content).toContain("בואו נדבר");
     expect(posts.he.content).toContain("מובייל");
     expect(posts.he.content).not.toMatch(/נייד|ללא עלות|אירוח|מאשר\/ת|טום|הטובה ביותר|הופכים מבקרים/);
-    expect(posts.el.content).toContain("Κλείστε μια σύντομη κλήση");
+    expect(posts.el.content).toContain("Ας τα πούμε");
     expect(posts.el.content).not.toMatch(/οπτική γλώσσα|Σας|γύροι αναθεωρήσεων|μετατρέπει τους επισκέπτες|στη Google/);
     expect(posts.el.content).toContain("αγγλική έκδοση");
     expect(posts.he.content).toContain("הגרסה האנגלית");

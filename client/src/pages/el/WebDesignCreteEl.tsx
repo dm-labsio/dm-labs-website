@@ -119,7 +119,7 @@ export default function WebDesignCreteEl() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/el/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
-                Κλείστε μια σύντομη κλήση
+                Ας τα πούμε
               </button>
             </Link>
             <Link href="/el/pricing/">

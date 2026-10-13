@@ -37,7 +37,7 @@ export const STUDIO_COPY: Record<SiteLanguage, StudioCopy> = {
         { title: "Refine it together.", copy: "Review the preview and send your feedback. Launch includes 2 revision rounds, Growth includes 3 and Pro includes 4. We work through the included rounds; additions beyond the agreed scope are quoted separately.", output: "Reviewed content, agreed revisions and approval to launch." },
         { title: "Ready for the real world.", copy: "We connect your domain, configure SSL and check the pages, links and forms before launch. Once you approve, your site goes live. Hosting, updates and support continue through your care plan.", output: "Your live website and a clear route to ongoing support." },
       ], interlude: "A direction you can see. Before we build.", interludeCopy: "Design and development are part of the same conversation. Your feedback shapes the work at clear checkpoints.", helpTitle: "The first step is a conversation.", helpCopy: "Ask us anything about your idea, the process or the right package. Your first consultation is free, with no obligation.",
-    }, consultation: "Book a short call", processLink: "See how we work", servicesLink: "Explore our services", pricingLink: "Compare packages & pricing", questionsLink: "Questions? Start here",
+    }, consultation: "Let’s talk", processLink: "See how we work", servicesLink: "Explore our services", pricingLink: "Compare packages & pricing", questionsLink: "Questions? Start here",
   },
   el: {
     services: {
@@ -80,7 +80,7 @@ export const STUDIO_COPY: Record<SiteLanguage, StudioCopy> = {
       helpTitle: "Το πρώτο βήμα είναι μια κουβέντα.",
       helpCopy: "Ρωτήστε μας ό,τι θέλετε για την ιδέα σας, για το πώς δουλεύουμε ή για το ποιο πακέτο σας ταιριάζει. Η πρώτη συμβουλευτική είναι δωρεάν και χωρίς καμία δέσμευση.",
     },
-    consultation: "Κλείστε μια σύντομη κλήση",
+    consultation: "Ας τα πούμε",
     processLink: "Δείτε πώς δουλεύουμε",
     servicesLink: "Δείτε τις υπηρεσίες μας",
     pricingLink: "Σύγκριση πακέτων και τιμών",
@@ -127,7 +127,7 @@ export const STUDIO_COPY: Record<SiteLanguage, StudioCopy> = {
       helpTitle: "הצעד הראשון הוא שיחה.",
       helpCopy: "שאלו אותנו כל מה שבא לכם על הרעיון, על התהליך או על החבילה שמתאימה לכם. שיחת הייעוץ הראשונה בחינם וללא התחייבות.",
     },
-    consultation: "לקביעת שיחה קצרה",
+    consultation: "בואו נדבר",
     processLink: "כך אנחנו עובדים",
     servicesLink: "לכל השירותים שלנו",
     pricingLink: "להשוואת חבילות ומחירים",

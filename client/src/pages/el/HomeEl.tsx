@@ -111,7 +111,7 @@ export default function HomeElPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <StarButton asChild><Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">
 
-                Κλείστε μια σύντομη κλήση
+                Ας τα πούμε
               </Link></StarButton>
             </div>
           </AnimateIn>
