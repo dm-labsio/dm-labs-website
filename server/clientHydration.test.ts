@@ -27,6 +27,11 @@ describe("prerendered client hydration", () => {
     expect(prerender).toContain('data-hydratable="false"');
     expect(prerender).toContain("window.__DM_APP_READY__ === true");
     expect(entry).toContain("__DM_APP_READY__ = true");
+    // Vercel's Chromium runs single-process and dies on a second context.
+    const check = prerender.slice(prerender.indexOf("── Hydration check"));
+    expect(check).not.toContain("newContext(");
+    expect(check).toContain('name: "dm_hydration_check"');
+    expect(prerender).toContain('document.cookie.includes("dm_hydration_check=1")');
   });
 
   it("renders the same first frame for every motion preference", () => {
