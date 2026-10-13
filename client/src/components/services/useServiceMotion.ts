@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { isStaticSnapshot } from "@/lib/staticSnapshot";
 
 type AnimeModule = Pick<typeof import("animejs"), "animate" | "createScope" | "stagger">;
 
@@ -52,7 +53,8 @@ export function attachServiceMotion(element: HTMLElement, loadAnime: () => Promi
 export function useServiceMotion(scene: string | number) {
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (!root.current) return;
+    // The saved page keeps the complete still artwork, never a half-played entrance.
+    if (!root.current || isStaticSnapshot()) return;
     return attachServiceMotion(root.current);
   }, [scene]);
   return { root };

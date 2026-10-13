@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { isStaticSnapshot } from "@/lib/staticSnapshot";
 
 export type CinematicBannerProps = {
   videoSrc: string;
@@ -25,7 +26,8 @@ export default function CinematicBanner({ videoSrc, label, accent = "cyan", tall
     const desktopQuery = window.matchMedia("(min-width: 768px)");
     const network = navigator as Navigator & { connection?: { saveData?: boolean } };
 
-    if (motionQuery.matches || !desktopQuery.matches || network.connection?.saveData || !bannerRef.current) return;
+    // The saved page shows the still banner; the film loads in visitors' browsers.
+    if (isStaticSnapshot() || motionQuery.matches || !desktopQuery.matches || network.connection?.saveData || !bannerRef.current) return;
 
     const preloadObserver = new IntersectionObserver(
       ([entry]) => {

@@ -90,6 +90,8 @@ export default function HomeElPage() {
         >
           <img
             src={DARK_CTA_BG}
+            loading="lazy"
+            decoding="async"
             alt=""
             role="presentation"
             className="absolute inset-0 w-full h-full object-cover opacity-40"

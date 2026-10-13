@@ -5,6 +5,7 @@
    Only renders on non-touch devices (pointer: fine).
    ============================================================ */
 import { useEffect, useRef } from "react";
+import { isStaticSnapshot } from "@/lib/staticSnapshot";
 
 type Point = { x: number; y: number };
 type TrailPoint = Point & { createdAt: number };
@@ -82,7 +83,8 @@ export default function NeonCursorTrail({ enabled = true }: Props) {
   const lastCycleRef = useRef(0);
 
   useEffect(() => {
-    if (!window.matchMedia("(pointer: fine)").matches) return;
+    // The saved page keeps an unsized canvas, exactly as phones render it.
+    if (isStaticSnapshot() || !window.matchMedia("(pointer: fine)").matches) return;
 
     const canvas = canvasRef.current;
     const context = canvas?.getContext("2d", { alpha: true });

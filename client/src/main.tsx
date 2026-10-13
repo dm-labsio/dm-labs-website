@@ -1,4 +1,5 @@
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
+import { useEffect, type ReactElement } from "react";
 // Styles first, in their original order (see pageStyles.ts), then the app.
 import "./pageStyles";
 import App from "./App";
@@ -13,27 +14,73 @@ document.head.querySelectorAll('script[type="application/ld+json"]').forEach(scr
 
 const root = document.getElementById("root")!;
 
-// This project has no real server-side rendering: scripts/prerender-full.mjs
-// captures a fully client-rendered DOM snapshot (via this same createRoot
-// path, visiting an initially empty #root during the build) and saves it as
-// static HTML for crawlers/first paint. A real visitor's browser therefore
-// always loads non-empty markup, but that markup was never produced by
-// react-dom/server — hydrateRoot expects server-hydratable output and uses a
-// different useId() scheme than createRoot, which deterministically mismatches
-// on every Radix UI id (present on every page via the header's language
-// switcher), forcing React to discard and rebuild the affected subtree with a
-// visible flash and a console error. createRoot always matches how the
-// snapshot was actually produced, so there is nothing to diff against and no
-// mismatch is possible; crawlers still see the full prerendered HTML source
-// regardless of which client API mounts the app afterward.
-// Keep the prerendered page visible while the small lookup resolves and this
-// page's own code downloads (in parallel). The first interactive render
-// already has the right prices and the full page; timeout/failure uses EUR.
+// How the page starts:
+//
+// scripts/prerender-full.mjs saves every page as static HTML. In that build
+// browser (window.__DM_STATIC_SNAPSHOT__), the app is rendered to HTML with
+// react-dom/server, then adopted with hydrateRoot so effects run (SEO tags,
+// structured data). If that adoption matched exactly, the page is marked
+// data-hydratable="true" before it is saved.
+//
+// A visitor's browser then adopts (hydrates) that saved HTML instead of
+// redrawing it: the page on screen is reused, so nothing is painted twice and
+// far less work happens on a phone. Hydration needs the HTML to have been
+// produced by react-dom/server (useId values differ from a client render,
+// which is why plain createRoot snapshots could never be hydrated).
+//
+// Anything else falls back to a full client render, exactly as before:
+// pages not marked hydratable, a visitor whose currency differs from the
+// saved prices, or development. If hydration still finds a difference,
+// React re-renders on its own; onRecoverableError only reports it.
+type SnapshotWindow = Window & { __DM_STATIC_SNAPSHOT__?: boolean; __DM_APP_READY__?: boolean };
+
+/** Signals that the first render has committed (the build's hydration check waits for it). */
+function AppReady() {
+  useEffect(() => {
+    (window as SnapshotWindow).__DM_APP_READY__ = true;
+  }, []);
+  return null;
+}
+const snapshotMode = Boolean((window as SnapshotWindow).__DM_STATIC_SNAPSHOT__);
+const savedCurrency = document.documentElement.dataset.currency;
+const canHydrate = root.dataset.hydratable === "true" && root.firstElementChild !== null;
+
+function reportMismatch(error: unknown) {
+  if (snapshotMode) root.dataset.hydratable = "false";
+  console.warn("[hydration] page re-rendered on the client:", error);
+}
+
+async function renderSnapshot(app: ReactElement) {
+  // Build-time only: the server renderer never ships to visitors' first load.
+  try {
+    const { renderToString } = await import("react-dom/server");
+    root.innerHTML = renderToString(app);
+    root.dataset.hydratable = "true";
+    hydrateRoot(root, app, { onRecoverableError: reportMismatch });
+  } catch (error) {
+    console.warn("[hydration] server render failed, saving a client render:", error);
+    root.innerHTML = "";
+    delete root.dataset.hydratable;
+    createRoot(root).render(app);
+  }
+}
+
+// Keep the saved page visible while the small currency lookup resolves and
+// this page's own code downloads (in parallel). The first render already has
+// the right prices and the full page; timeout/failure uses EUR.
 // A failed page download still mounts; the router then retries it.
 void Promise.all([
   loadVisitorCurrency(),
   preloadRoute(window.location.pathname).catch(() => {}),
 ]).then(([currency]) => {
   document.documentElement.dataset.currency = currency;
-  createRoot(root).render(<CurrencyProvider currency={currency}><App /></CurrencyProvider>);
+  const app = <CurrencyProvider currency={currency}><App /><AppReady /></CurrencyProvider>;
+  if (snapshotMode) {
+    void renderSnapshot(app);
+  } else if (canHydrate && savedCurrency === currency) {
+    hydrateRoot(root, app, { onRecoverableError: reportMismatch });
+  } else {
+    root.removeAttribute("data-hydratable");
+    createRoot(root).render(app);
+  }
 });

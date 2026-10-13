@@ -9,6 +9,11 @@ import type { ReactNode } from "react";
 // run the reveal on the compositor, so it stays smooth while a phone scrolls.
 const ENTRANCE_EASE = [0.23, 1, 0.32, 1] as const;
 
+// Reduced motion fades only: the movement jumps to its end while the element
+// is still invisible. The first render stays the same for every visitor, so
+// the saved page (scripts/prerender-full.mjs) matches it and can be adopted.
+const STILL = { transform: { duration: 0 } };
+
 const presets: Record<string, Variants> = {
   "fade-up": {
     hidden: { opacity: 0, transform: "translateY(32px)" },
@@ -59,7 +64,7 @@ export default function AnimateIn({
   const reduce = useReducedMotion();
   return (
     <motion.div
-      variants={reduce ? presets.fade : presets[variant]}
+      variants={presets[variant]}
       initial="hidden"
       whileInView="visible"
       viewport={{ once, amount }}
@@ -67,6 +72,7 @@ export default function AnimateIn({
         duration,
         delay,
         ease: ENTRANCE_EASE,
+        ...(reduce && STILL),
       }}
       className={className}
     >
@@ -108,15 +114,11 @@ export function StaggerItem({
   const reduce = useReducedMotion();
   return (
     <motion.div
-      variants={
-        reduce
-          ? presets.fade
-          : {
-              hidden: { opacity: 0, transform: "translateY(24px)" },
-              visible: { opacity: 1, transform: "translateY(0px)" },
-            }
-      }
-      transition={{ duration: 0.5, ease: ENTRANCE_EASE }}
+      variants={{
+        hidden: { opacity: 0, transform: "translateY(24px)" },
+        visible: { opacity: 1, transform: "translateY(0px)" },
+      }}
+      transition={{ duration: 0.5, ease: ENTRANCE_EASE, ...(reduce && STILL) }}
       className={className}
     >
       {children}

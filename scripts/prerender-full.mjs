@@ -509,6 +509,48 @@ async function main() {
       await notFoundPage.close();
     }
 
+    // ── Hydration check ──────────────────────────────────────────────────────
+    // Open every saved page the way a visitor's browser does (no snapshot
+    // flag), on a desktop and a phone screen. A page whose saved HTML React
+    // cannot adopt exactly is marked data-hydratable="false", so visitors get
+    // the full client render for it instead of a mismatch.
+    const checked = [...ROUTES, ...PREVIEW_ROUTES, "/404.html"];
+    const keepClientRender = new Set();
+    const visitorContexts = [
+      await browser.newContext({ viewport: { width: 1280, height: 800 } }),
+      await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }),
+    ];
+    for (const visitor of visitorContexts) {
+      for (const route of checked) {
+        const page = await visitor.newPage();
+        let mismatch = false;
+        page.on("console", message => {
+          if (message.text().startsWith("[hydration]")) mismatch = true;
+        });
+        page.on("pageerror", () => { mismatch = true; });
+        try {
+          await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: "domcontentloaded", timeout: 30_000 });
+          await page.waitForFunction(() => window.__DM_APP_READY__ === true, null, { timeout: 15_000 });
+          await page.waitForTimeout(50);
+        } catch {
+          mismatch = true;
+        } finally {
+          await page.close();
+        }
+        if (mismatch) keepClientRender.add(route);
+      }
+      await visitor.close();
+    }
+    for (const route of keepClientRender) {
+      const file = route === "/404.html" ? join(DIST_DIR, "404.html") : join(DIST_DIR, ...route.split("/").filter(Boolean), "index.html");
+      if (!existsSync(file)) continue;
+      writeFileSync(file, readFileSync(file, "utf8").replace('data-hydratable="true"', 'data-hydratable="false"'), "utf-8");
+    }
+    console.log(
+      `Hydration check: ${checked.length - keepClientRender.size}/${checked.length} pages adopt their saved HTML` +
+        (keepClientRender.size ? `; full client render kept for ${[...keepClientRender].join(", ")}` : "")
+    );
+
     await browser.close();
     const sitemap = readFileSync(join(DIST_DIR, "sitemap.xml"), "utf8");
     const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);

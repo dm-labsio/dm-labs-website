@@ -15,6 +15,7 @@ import { workCopy, type WorkLocale } from "./workData";
 import { brandAssetAlt, brandPath } from "./brandMetadata";
 import dimensions from "../../../public/media/branding/assets.json";
 import "./branding.css";
+import { isStaticSnapshot } from "@/lib/staticSnapshot";
 
 const asset = (brand: string, name: string, small = false) =>
   `/media/branding/${brand}/${name}${small ? "-small" : ""}.webp`;
@@ -207,7 +208,8 @@ export default function BrandingGallery({ locale }: { locale: WorkLocale }) {
 
   useEffect(() => {
     const root = rail.current;
-    if (!root) return;
+    // The saved page keeps the first card active, as a visitor's page starts.
+    if (!root || isStaticSnapshot()) return;
     const observer = new IntersectionObserver(
       entries => {
         for (const entry of entries)

@@ -36,8 +36,9 @@ export function HomeServiceCard({ language, index, open, play, onOpen, onToggle 
     if (event.pointerType === "mouse" && window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 1000px)").matches) onOpen();
   }}>
     <div className="home-service-card-media">
+      {/* The image is the card's still; the video only takes the same poster once it plays, so the page's first download doesn't fetch it twice. */}
       <img src={media.poster} width={960} height={542} loading="lazy" decoding="async" alt="" />
-      <video ref={video} autoPlay loop muted playsInline poster={media.poster} aria-hidden="true" preload="none" tabIndex={-1} data-ready={play && ready} onLoadedData={() => setReady(true)} onPlaying={() => { setReady(true); setBlocked(false); }} onError={() => setReady(false)} />
+      <video ref={video} autoPlay loop muted playsInline poster={play ? media.poster : undefined} aria-hidden="true" preload="none" tabIndex={-1} data-ready={play && ready} onLoadedData={() => setReady(true)} onPlaying={() => { setReady(true); setBlocked(false); }} onError={() => setReady(false)} />
       {play && blocked ? <button type="button" className="home-service-card-play" onClick={event => { event.stopPropagation(); resumeFromTouch(); }}>{playLabel}</button> : null}
     </div>
     <div className="home-service-card-copy">

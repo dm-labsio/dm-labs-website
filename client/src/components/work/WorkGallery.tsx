@@ -1,5 +1,6 @@
 import { websiteCoverAlt } from "./brandMetadata";
 import { useLayoutEffect, useRef } from "react";
+import { isStaticSnapshot } from "@/lib/staticSnapshot";
 import { readPreviewSource } from "@/lib/previewNavigation";
 import { workCopy, workProjects, type WorkLocale } from "./workData";
 
@@ -63,10 +64,24 @@ export default function WorkGallery({ locale }: { locale: WorkLocale }) {
       wrap(index - position + cards.length / 2) - cards.length / 2;
     const cardAt = (value: number) => cards[wrap(Math.round(value))];
     const cardState = cards.map(() => ({ opacity: "", events: "", z: "" }));
-    // Decode every cover up front so a card never paints blank mid-swipe.
-    cards.forEach(card => {
-      void card.querySelector("img")?.decode().catch(() => {});
-    });
+    // Covers stay out of the page's first download (they are below the fold),
+    // then all of them load together once the gallery is within reach, so a
+    // card never paints blank mid-swipe.
+    const near = new IntersectionObserver(
+      entries => {
+        if (!entries.some(entry => entry.isIntersecting)) return;
+        near.disconnect();
+        cards.forEach(card => {
+          const image = card.querySelector("img");
+          if (!image) return;
+          image.loading = "eager";
+          void image.decode().catch(() => {});
+        });
+      },
+      { rootMargin: "800px 0px" }
+    );
+    // The saved page keeps loading="lazy", so it isn't switched at build time.
+    if (!isStaticSnapshot()) near.observe(stage);
     const paint = () => {
       const radius = Math.max(1700, width * 2.8);
       cards.forEach((card, i) => {
@@ -445,6 +460,7 @@ export default function WorkGallery({ locale }: { locale: WorkLocale }) {
     frame = requestAnimationFrame(tick);
     return () => {
       cancelAnimationFrame(frame);
+      near.disconnect();
       clearTimeout(timer);
       clearTimeout(clickTimer);
       observer.disconnect();
@@ -493,7 +509,7 @@ export default function WorkGallery({ locale }: { locale: WorkLocale }) {
                 width="600"
                 height="900"
                 alt={websiteCoverAlt(project.name, copy.categories[project.category], locale)}
-                loading="eager"
+                loading="lazy"
                 decoding="async"
                 draggable={false}
               />
