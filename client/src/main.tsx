@@ -1,7 +1,10 @@
 import { createRoot } from "react-dom/client";
+// Styles first, in their original order (see pageStyles.ts), then the app.
+import "./pageStyles";
 import App from "./App";
 import { CurrencyProvider } from "./contexts/CurrencyContext";
 import { loadVisitorCurrency } from "./lib/visitorCurrency";
+import { preloadRoute } from "./pageRoutes";
 import "./index.css";
 
 // Snapshots already contain SEO scripts for crawlers. Recreate them for this
@@ -23,9 +26,14 @@ const root = document.getElementById("root")!;
 // snapshot was actually produced, so there is nothing to diff against and no
 // mismatch is possible; crawlers still see the full prerendered HTML source
 // regardless of which client API mounts the app afterward.
-// Keep the prerendered page visible while the small lookup resolves. The first
-// interactive render already has the right prices; timeout/failure uses EUR.
-void loadVisitorCurrency().then(currency => {
+// Keep the prerendered page visible while the small lookup resolves and this
+// page's own code downloads (in parallel). The first interactive render
+// already has the right prices and the full page; timeout/failure uses EUR.
+// A failed page download still mounts; the router then retries it.
+void Promise.all([
+  loadVisitorCurrency(),
+  preloadRoute(window.location.pathname).catch(() => {}),
+]).then(([currency]) => {
   document.documentElement.dataset.currency = currency;
   createRoot(root).render(<CurrencyProvider currency={currency}><App /></CurrencyProvider>);
 });

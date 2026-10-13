@@ -17,13 +17,27 @@ describe("analytics consent lifecycle", () => {
   it("does not initialize analytics or capture enquiries without affirmative consent", async () => {
     const analytics = await import("../client/src/components/PostHogAnalytics");
     analytics.syncAnalyticsConsent(); analytics.capturePostHogEvent("consultation_sent");
+    await vi.dynamicImportSettled();
     expect(sdk.init).not.toHaveBeenCalled(); expect(sdk.capture).not.toHaveBeenCalled();
+  });
+  it("withdrawing consent while the SDK is still downloading never starts analytics", async () => {
+    const consent = await import("../client/src/lib/cookieConsent");
+    const analytics = await import("../client/src/components/PostHogAnalytics");
+    const unsubscribe = consent.subscribeToConsent(analytics.syncAnalyticsConsent);
+    consent.saveAnalyticsConsent(true);
+    consent.saveAnalyticsConsent(false);
+    await vi.dynamicImportSettled();
+    expect(sdk.init).not.toHaveBeenCalled();
+    analytics.capturePostHogEvent("consultation_sent"); expect(sdk.capture).not.toHaveBeenCalled();
+    unsubscribe();
   });
   it("stops recording, opts out and blocks conversion capture after withdrawal; reconsent reuses the SDK", async () => {
     const consent = await import("../client/src/lib/cookieConsent");
     const analytics = await import("../client/src/components/PostHogAnalytics");
     const unsubscribe = consent.subscribeToConsent(analytics.syncAnalyticsConsent);
     consent.saveAnalyticsConsent(true);
+    // The SDK is downloaded on demand after consent.
+    await vi.dynamicImportSettled();
     expect(sdk.init).toHaveBeenCalledOnce();
     analytics.capturePostHogEvent("consultation_sent"); expect(sdk.capture).toHaveBeenCalledOnce();
     consent.saveAnalyticsConsent(false);

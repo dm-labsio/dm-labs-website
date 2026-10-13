@@ -31,7 +31,49 @@ const seasonalSpace: Plugin = {
       : [];
   },
 };
-const plugins = [react(), tailwindcss(), localCurrency, seasonalSpace];
+// Writes page-chunks.json: for each page (client/src/pageRoutes.ts), the code
+// files it needs beyond the main bundle. RoutePrefetch uses it to download
+// the main menu pages in idle time without running them.
+const clientSrc = path.resolve(import.meta.dirname, "client", "src");
+const pageChunkMap: Plugin = {
+  name: "page-chunk-map",
+  apply: "build",
+  generateBundle(_options, bundle) {
+    const chunks = Object.values(bundle).filter(item => item.type === "chunk");
+    const byFile = new Map(chunks.map(chunk => [chunk.fileName, chunk]));
+    const collect = (file: string, into: Set<string>) => {
+      if (into.has(file)) return;
+      into.add(file);
+      for (const next of byFile.get(file)?.imports ?? []) collect(next, into);
+    };
+    const preloaded = new Set<string>();
+    for (const chunk of chunks)
+      if (chunk.isEntry) collect(chunk.fileName, preloaded);
+    const map: Record<string, string[]> = {};
+    for (const chunk of chunks) {
+      if (!chunk.isDynamicEntry || !chunk.facadeModuleId) continue;
+      const key = path
+        .relative(clientSrc, chunk.facadeModuleId)
+        .replace(/\\/g, "/")
+        .replace(/\.tsx?$/, "");
+      const files = new Set<string>();
+      collect(chunk.fileName, files);
+      map[key] = Array.from(files).filter(file => !preloaded.has(file));
+    }
+    this.emitFile({
+      type: "asset",
+      fileName: "page-chunks.json",
+      source: JSON.stringify(map),
+    });
+  },
+};
+const plugins = [
+  react(),
+  tailwindcss(),
+  localCurrency,
+  seasonalSpace,
+  pageChunkMap,
+];
 
 export default defineConfig({
   plugins,
@@ -46,6 +88,10 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    // Pages download their code on demand (client/src/pageRoutes.ts), but all
+    // styles stay in one stylesheet so the cascade order never depends on
+    // which page loaded first.
+    cssCodeSplit: false,
   },
   server: {
     host: true,

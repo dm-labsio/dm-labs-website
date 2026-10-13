@@ -1,6 +1,9 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch, Redirect, useLocation } from "wouter";
+import { Suspense } from "react";
+import { Route, Router, Switch, Redirect, useLocation } from "wouter";
+import { useReadyLocation } from "./lib/readyLocation";
+import RoutePrefetch from "./components/RoutePrefetch";
 import { useSEO } from "./hooks/useSEO";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -10,81 +13,83 @@ import CookieBanner from "./components/CookieBanner";
 import PostHogAnalytics from "./components/PostHogAnalytics";
 import WebsiteGuide from "./components/chat/WebsiteGuide";
 
-// ── English Pages ──
-import Home from "./pages/Home";
-import Services from "./pages/Services";
-import Process from "./pages/Process";
-import Pricing from "./pages/Pricing";
-import FAQ from "./pages/FAQ";
-import Contact from "./pages/Contact";
-import Privacy from "./pages/Privacy";
-import CookiePolicy from "./pages/CookiePolicy";
-import Terms from "./pages/Terms";
-import HomeHe from "./pages/he/HomeHe";
-import ServicesHe from "./pages/he/ServicesHe";
-import ProcessHe from "./pages/he/ProcessHe";
-import PricingHe from "./pages/he/PricingHe";
-import ContactHe from "./pages/he/ContactHe";
-import FAQHe from "./pages/he/FAQHe";
-import TemplatesHe from "./pages/he/TemplatesHe";
-import PrivacyHe from "./pages/he/PrivacyHe";
-import CookiePolicyHe from "./pages/he/CookiePolicyHe";
-import TermsHe from "./pages/he/TermsHe";
-import CustomDesignHe from "./pages/he/CustomDesignHe";
-import MobileFirstHe from "./pages/he/MobileFirstHe";
-import SeoHe from "./pages/he/SeoHe";
-import PerformanceHe from "./pages/he/PerformanceHe";
-import SecurityHe from "./pages/he/SecurityHe";
-import TurnaroundHe from "./pages/he/TurnaroundHe";
-import MapsHe from "./pages/he/MapsHe";
-import FormsHe from "./pages/he/FormsHe";
-import SocialHe from "./pages/he/SocialHe";
-import NotFound from "./pages/NotFound";
-import Templates from "./pages/Templates";
-import BrandCaseStudy from "./components/work/BrandCaseStudy";
-import ServiceDetail from "./pages/ServiceDetail";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import BlogHe from "./pages/he/BlogHe";
-import { RestaurantGuideEl, RestaurantGuideHe } from "./pages/LocalizedRestaurantGuide";
-import { DrGeorgeCaseStudyEl, DrGeorgeCaseStudyHe } from "./pages/LocalizedDrGeorgeCaseStudy";
-import WebDesignLimassol from "./pages/WebDesignLimassol";
-import WebDesignThessaloniki from "./pages/WebDesignThessaloniki";
-import WebDesignNicosia from "./pages/WebDesignNicosia";
-import WebDesignCyprus from "./pages/WebDesignCyprus";
-import WebDesignCrete from "./pages/WebDesignCrete";
-import WebDesignPaphos from "./pages/WebDesignPaphos";
-import WebDesignRestaurantsCyprus from "./pages/WebDesignRestaurantsCyprus";
-import PreviewPage from "./pages/PreviewPage";
+// ── Pages (each downloads its own code on demand, see pageRoutes.ts) ──
+import {
+  Home,
+  Services,
+  Process,
+  Pricing,
+  FAQ,
+  Contact,
+  Privacy,
+  CookiePolicy,
+  Terms,
+  HomeHe,
+  ServicesHe,
+  ProcessHe,
+  PricingHe,
+  ContactHe,
+  FAQHe,
+  TemplatesHe,
+  PrivacyHe,
+  CookiePolicyHe,
+  TermsHe,
+  CustomDesignHe,
+  MobileFirstHe,
+  SeoHe,
+  PerformanceHe,
+  SecurityHe,
+  TurnaroundHe,
+  MapsHe,
+  FormsHe,
+  SocialHe,
+  NotFound,
+  Templates,
+  BrandCaseStudy,
+  ServiceDetail,
+  Blog,
+  BlogPost,
+  BlogHe,
+  RestaurantGuideEl,
+  RestaurantGuideHe,
+  DrGeorgeCaseStudyEl,
+  DrGeorgeCaseStudyHe,
+  WebDesignLimassol,
+  WebDesignThessaloniki,
+  WebDesignNicosia,
+  WebDesignCyprus,
+  WebDesignCrete,
+  WebDesignPaphos,
+  WebDesignRestaurantsCyprus,
+  PreviewPage,
+  HomeEl,
+  ServicesEl,
+  ProcessEl,
+  PricingEl,
+  FAQEl,
+  ContactEl,
+  PrivacyEl,
+  CookiePolicyEl,
+  TermsEl,
+  BlogEl,
+  WebDesignCyprusEl,
+  WebDesignCreteEl,
+  WebDesignLimassol_El,
+  WebDesignNicosia_El,
+  WebDesignThessaloniki_El,
+  WixVsDesignerEl,
+  WebsiteCostEl,
+  NailSalonEl,
+  YogaEl,
+  GoogleVisibilityEl,
+  RestaurantEl,
+  WebDesignGreeceEl,
+  GeoEl,
+  MoreCustomersEl,
+  TemplatesEl,
+  ServiceDetailEl,
+} from "./pageRoutes";
 
-// ── Greek Pages ──
-import HomeEl from "./pages/el/HomeEl";
-import ServicesEl from "./pages/el/ServicesEl";
-import ProcessEl from "./pages/el/ProcessEl";
-import PricingEl from "./pages/el/PricingEl";
-import FAQEl from "./pages/el/FAQEl";
-import ContactEl from "./pages/el/ContactEl";
-import PrivacyEl from "./pages/el/PrivacyEl";
-import CookiePolicyEl from "./pages/el/CookiePolicyEl";
-import TermsEl from "./pages/el/TermsEl";
-import BlogEl from "./pages/el/BlogEl";
-import WebDesignCyprusEl from "./pages/el/WebDesignCyprusEl";
-import WebDesignCreteEl from "./pages/el/WebDesignCreteEl";
-import WebDesignLimassol_El from "./pages/el/WebDesignLimassol";
-import WebDesignNicosia_El from "./pages/el/WebDesignNicosia";
-import WebDesignThessaloniki_El from "./pages/el/WebDesignThessaloniki";
-// ── Greek Blog Posts ──
-import WixVsDesignerEl from "./pages/el/blog/WixVsDesignerEl";
-import WebsiteCostEl from "./pages/el/blog/WebsiteCostEl";
-import NailSalonEl from "./pages/el/blog/NailSalonEl";
-import YogaEl from "./pages/el/blog/YogaEl";
-import GoogleVisibilityEl from "./pages/el/blog/GoogleVisibilityEl";
-import RestaurantEl from "./pages/el/blog/RestaurantEl";
-import WebDesignGreeceEl from "./pages/el/blog/WebDesignGreeceEl";
-import GeoEl from "./pages/el/blog/GeoEl";
-import MoreCustomersEl from "./pages/el/blog/MoreCustomersEl";
-import TemplatesEl from "./pages/el/TemplatesEl";
-import ServiceDetailEl from "./pages/el/ServiceDetailEl";
 
 // Global SEO updater: fires on every route change to keep canonical + OG URL correct.
 function GlobalSEO() {
@@ -248,7 +253,12 @@ function App() {
           <LanguageProvider>
             <TooltipProvider>
               <Toaster />
-              <AppRoutes />
+              <Router hook={useReadyLocation}>
+                <Suspense fallback={null}>
+                  <AppRoutes />
+                </Suspense>
+                <RoutePrefetch />
+              </Router>
               <PostHogAnalytics />
             </TooltipProvider>
           </LanguageProvider>

@@ -234,11 +234,20 @@ function stripFallbackBlock(html) {
 }
 
 /** Write route HTML to the correct dist/public path */
+// Each page downloads its own code at runtime (client/src/pageRoutes.ts).
+// While the snapshot was taken, the browser added "fetch early" hints for
+// every file that page used. Left in the saved HTML, a slow phone would start
+// a dozen downloads at once and the stylesheet and fonts would arrive later,
+// delaying the first paint. The app requests these files itself.
+function stripRuntimeModulePreloads(html) {
+  return html.replace(/<link rel="modulepreload"[^>]*>/g, "");
+}
+
 function writeRouteHtml(route, html) {
   const segments = route === "/" ? [] : route.split("/").filter(Boolean);
   const dir = join(DIST_DIR, ...segments);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, "index.html"), html, "utf-8");
+  writeFileSync(join(dir, "index.html"), stripRuntimeModulePreloads(html), "utf-8");
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
@@ -490,7 +499,7 @@ async function main() {
       );
 
       let notFoundHtml = await notFoundPage.content();
-      notFoundHtml = stripFallbackBlock(notFoundHtml);
+      notFoundHtml = stripRuntimeModulePreloads(stripFallbackBlock(notFoundHtml));
       writeFileSync(join(DIST_DIR, "404.html"), notFoundHtml, "utf-8");
       console.log("OK  /404.html (root static 404 artifact)");
     } catch (err) {
