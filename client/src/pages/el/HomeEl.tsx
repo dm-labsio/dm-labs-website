@@ -111,7 +111,7 @@ export default function HomeElPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <StarButton asChild><Link href="/el/contact/" className="btn-primary !h-14 !text-base !px-8">
 
-                Δωρεάν κλήση 15 λεπτών
+                Κλείστε μια σύντομη κλήση
               </Link></StarButton>
             </div>
           </AnimateIn>

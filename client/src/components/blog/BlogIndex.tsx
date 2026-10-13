@@ -55,7 +55,7 @@ const copy = {
     empty: "לא מצאנו מאמר שמתאים לחיפוש. אפשר לנסות נושא אחר.",
     count: (n: number) => (n === 1 ? "מאמר אחד" : `${n} מאמרים`),
     question: "יש לכם שאלה על האתר שלכם?",
-    cta: "לשיחה של 15 דקות בחינם",
+    cta: "לקביעת שיחה קצרה",
   },
   en: {
     label: "Resources and insights",
@@ -68,7 +68,7 @@ const copy = {
     empty: "No articles match your search. Try another topic.",
     count: (n: number) => `${n} ${n === 1 ? "article" : "articles"}`,
     question: "A question about your website?",
-    cta: "Book a free 15-min call",
+    cta: "Book a short call",
   },
   el: {
     label: "Άρθρα και συμβουλές",
@@ -81,7 +81,7 @@ const copy = {
     empty: "Δεν βρέθηκαν άρθρα. Δοκιμάστε ένα άλλο θέμα.",
     count: (n: number) => `${n} ${n === 1 ? "άρθρο" : "άρθρα"}`,
     question: "Έχετε μια ερώτηση για την ιστοσελίδα σας;",
-    cta: "Δωρεάν κλήση 15 λεπτών",
+    cta: "Κλείστε μια σύντομη κλήση",
   },
 };
 

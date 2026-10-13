@@ -425,7 +425,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <div class="blog-cta">
   <h3>Not sure which package is right for your business?</h3>
   <p>We offer a free, no-obligation consultation. Tell us about your business and what you need, and we will give you an honest recommendation - no sales pressure.</p>
-  <a href="/contact/" class="blog-cta-btn">Book a free 15-min call</a>
+  <a href="/contact/" class="blog-cta-btn">Book a short call</a>
 </div>
     `,
   },
@@ -479,7 +479,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <div class="blog-cta">
   <h3>Ready to get your beauty studio online?</h3>
   <p>View our beauty salon design examples and get in touch for a free consultation. We will tell you exactly what your website needs and give you a clear quote after we understand your requirements.</p>
-  <a href="/contact/" class="blog-cta-btn">Book a free 15-min call</a>
+  <a href="/contact/" class="blog-cta-btn">Book a short call</a>
 </div>
     `,
   },
@@ -536,7 +536,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <div class="blog-cta">
   <h3>Ready to fill your classes through Google?</h3>
   <p>Get in touch for a free consultation. We will walk you through exactly what your studio website needs and give you a clear quote - no jargon, no pressure.</p>
-  <a href="/contact/" class="blog-cta-btn">Book a free 15-min call</a>
+  <a href="/contact/" class="blog-cta-btn">Book a short call</a>
 </div>
     `,
   },
@@ -591,7 +591,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <div class="blog-cta">
   <h3>Want to get your business found on Google?</h3>
   <p>Get in touch for a free consultation. We will review your current online presence and tell you exactly what needs to change - no jargon, no obligation.</p>
-  <a href="/contact/" class="blog-cta-btn">Book a free 15-min call</a>
+  <a href="/contact/" class="blog-cta-btn">Book a short call</a>
 </div>
     `,
   },
@@ -766,7 +766,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <div class="blog-cta">
   <h3>Ready to talk about your website?</h3>
   <p>Get in touch for a free, no-obligation consultation. We will listen to what you need, give you an honest recommendation, and tell you exactly what your website will cost - no surprises.</p>
-  <a href="/contact/" class="blog-cta-btn">Book a free 15-min call</a>
+  <a href="/contact/" class="blog-cta-btn">Book a short call</a>
 </div>
     `,
   },
@@ -848,7 +848,7 @@ const ARTICLE_CONTENT: BlogPost[] = [
 <div class="blog-cta">
   <h3>Ready to build a website that works for your Greek business?</h3>
   <p>Get a free, no-obligation consultation. We will look at your current situation, tell you exactly what we would recommend, and give you a clear price, no sales pressure.</p>
-  <a href="/contact/" class="blog-cta-btn">Book a free 15-min call</a>
+  <a href="/contact/" class="blog-cta-btn">Book a short call</a>
 </div>
     `,
   },

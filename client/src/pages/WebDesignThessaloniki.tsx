@@ -64,7 +64,7 @@ export default function WebDesignThessaloniki() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact/">
               <button className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5B8CFF] to-[#8B5CFF] text-white font-semibold text-base hover:opacity-90 transition-opacity">
-                Book a free 15-min call
+                Book a short call
               </button>
             </Link>
             <Link href="/pricing/">
